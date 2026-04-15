@@ -7,7 +7,7 @@ using UndertaleModLib.Util;
 SyncBinding("Strings, Variables, Functions", true);
 UndertaleModLib.Compiler.CodeImportGroup importGroup = new(Data);
 
-class Loader(UMPWrapper wrapper, int chapter) : UMPLoader(wrapper), UMPLoader
+class ArchipelagoLoader : UMPLoader
 {
     public override string CodePath => "code/";
 
@@ -37,16 +37,21 @@ class Loader(UMPWrapper wrapper, int chapter) : UMPLoader(wrapper), UMPLoader
         return entries.ToArray();
     }
 
-  public int chnum { get; set; } = chapter;
+    public ArchipelagoLoader(UMPWrapper wrapper, int chapter) : base(wrapper)
+    {
+        chnum = chapter;
+    }
+
+    public int chnum { get; set; }
 }
 
 void BuildMod(int chapter)
 {
-    Loader loader = new(UMP_WRAPPER, chapter);
+    ArchipelagoLoader loader = new ArchipelagoLoader(UMP_WRAPPER, chapter);
     string scriptPath = Path.GetDirectoryName(ScriptPath);
 
-    if(chapter > 0)
-        RunUMTScript(Path.Combine(scriptPath, "sprites/ImportGraphics.csx"));
+    // if(chapter > 0)
+    //     RunUMTScript(Path.Combine(scriptPath, "sprites/ImportGraphics.csx"));
     
     // Import fnt_main from Chapter 1 into other chapters because for some reason the text acts really strange otherwise.
     // For example, the m/M and w/W letters on the board are shifted down-right IF you enter from Chapter Select and you're not on fullscreen.
