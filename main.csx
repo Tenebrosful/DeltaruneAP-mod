@@ -52,6 +52,7 @@ class ArchipelagoLoader : UMPLoader
 
 void BuildMod(int chapter)
 {
+    Data.GeneralInfo.Name = Data.Strings.MakeString("DELTARUNEAP");
     ArchipelagoLoader loader = new ArchipelagoLoader(UMP_WRAPPER, chapter);
     string scriptPath = Path.GetDirectoryName(ScriptPath);
 
