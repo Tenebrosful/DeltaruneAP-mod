@@ -992,6 +992,12 @@ abstract class UMPLoader
                     case '#':
                     {
                         Skip(1);
+                        // escaping UMP commands can be done with ##
+                        if (CurrentChar == '#')
+                        {
+                            Advance();
+                            break;
+                        }
                         string word = ReadWordAhead();
 
                         if (State == ParseState.Normal && word == "if")
