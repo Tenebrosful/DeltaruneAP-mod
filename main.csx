@@ -31,7 +31,7 @@ class ArchipelagoLoader : UMPLoader
         List<string> entries = new List<string>();
         string fileName = Path.GetFileNameWithoutExtension(filePath);
 
-        if((chnum > 0 && filePath.Contains("all_chapters")) || filePath.Contains(chnum == 0 ? "chapter_select" : $"chapter{chnum}"))
+        if ((chnum > 0 && filePath.Contains("all_chapters")) || filePath.Contains(chnum == 0 ? "chapter_select" : $"chapter{chnum}"))
             entries.Add(fileName);
 
         return entries.ToArray();
@@ -43,6 +43,11 @@ class ArchipelagoLoader : UMPLoader
     }
 
     public int chnum { get; set; }
+    
+    public string GetChapterNumber()
+    {
+        return chnum.ToString();
+    }
 }
 
 void BuildMod(int chapter)

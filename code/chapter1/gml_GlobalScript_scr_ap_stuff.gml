@@ -1,4 +1,4 @@
-/// IMPORT
+/// FUNCTIONS
 function scr_ap_stuff()
 {
 }

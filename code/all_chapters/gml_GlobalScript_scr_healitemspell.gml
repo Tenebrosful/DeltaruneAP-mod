@@ -1,0 +1,14 @@
+/// PATCH
+
+/// REPLACE
+    scr_heal(star, arg0);
+/// CODE
+    var healamt = arg0;
+    scr_heal(star, healamt);
+/// END
+
+/// REPLACE
+            damage = arg0;
+/// CODE
+            damage = healamt;
+/// END
