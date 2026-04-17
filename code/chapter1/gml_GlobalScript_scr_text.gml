@@ -349,15 +349,19 @@
             global.choicemsg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3084_0");
             global.choicemsg[2] = "";
             global.choicemsg[3] = "";
+            global.msg[0] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3087_0");
+            global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3098_0");
             
             if (global.customflags[5] == 1)
                 global.choicemsg[2] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3092_0");
+                global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3093_0");
             
             if (global.plot >= 154)
+            {
                 global.choicemsg[3] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3097_0");
+                global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3098_0");
+            }
             
-            global.msg[0] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3087_0");
-            global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3098_0");
             break;
 /// END
 
@@ -399,92 +403,6 @@
                 scr_itemget(7);
 /// CODE
                 
-/// END
-
-/// AFTER
-                global.msg[0] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3220_0");
-            }
-            
-            break;
-/// CODE
-        
-        case 999998:
-            global.choicemsg[0] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3201_0");
-            global.choicemsg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3202_0");
-            global.choicemsg[2] = " ";
-            global.choicemsg[3] = " ";
-            global.msg[0] = "* Would you like to attempt to reset your position?/";
-            global.msg[1] = "* (This will put you at the default position of the room.)/";
-            global.msg[2] = "* (Use if stuck.)/";
-            global.msg[3] = "\\C2 ";
-            break;
-        
-        case 999999:
-            if (global.choice == 0)
-            {
-                with (obj_mainchara)
-                {
-                    x = global.startx;
-                    y = global.starty;
-                    
-                    if (global.darkzone == 1)
-                    {
-                        if (cutscene == 0 && !instance_exists(obj_shake))
-                        {
-                            wd = x - floor((__view_get(e__VW.WView, 0) / 2) - (initwd / 2));
-                            ht = y - floor((__view_get(e__VW.HView, 0) / 2) - (initht / 2));
-                            __view_set(e__VW.XView, 0, wd);
-                            __view_set(e__VW.YView, 0, ht);
-                            
-                            if (__view_get(e__VW.XView, 0) < 0)
-                                __view_set(e__VW.XView, 0, 0);
-                            
-                            if (__view_get(e__VW.XView, 0) > (room_width - __view_get(e__VW.WView, 0)))
-                                __view_set(e__VW.XView, 0, room_width - __view_get(e__VW.WView, 0));
-                            
-                            if (__view_get(e__VW.YView, 0) < 0)
-                                __view_set(e__VW.YView, 0, 0);
-                            
-                            if (__view_get(e__VW.YView, 0) > (room_height - __view_get(e__VW.HView, 0)))
-                                __view_set(e__VW.YView, 0, room_height - __view_get(e__VW.HView, 0));
-                        }
-                    }
-                    
-                    if (bg == 1)
-                    {
-                        with (obj_backgrounderparent)
-                            event_user(0);
-                    }
-                }
-                
-                with (obj_caterpillarchara)
-                {
-                    for (i = 0; i < 25; i += 1)
-                    {
-                        remx[i] = obj_mainchara.x;
-                        remy[i] = obj_mainchara.y;
-                        facing[i] = global.facing;
-                    }
-                    
-                    if (usprite == spr_susieu_dark)
-                        x = remx[target] - 6;
-                    else
-                        x = remx[target] - 4;
-                    
-                    if (usprite == spr_susieu_dark)
-                        y = remy[target] - 16;
-                    else
-                        y = remy[target] - 12;
-                }
-                
-                global.msg[0] = "* Hopefully you are free now./%";
-            }
-            else
-            {
-                global.msg[0] = "* Goodbye./%";
-            }
-            
-            break;
 /// END
 
 /// REPLACE

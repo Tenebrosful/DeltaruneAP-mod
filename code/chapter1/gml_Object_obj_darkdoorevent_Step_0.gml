@@ -43,20 +43,3 @@ if (con == 20)
     alarm[4] = 70;
 }
 /// END
-
-/// AFTER
-    global.plot = 33;
-    global.interact = 0;
-    global.facing = 0;
-/// CODE
-    global.plot = 175;
-    global.flag[217] = 1;
-    global.flag[218] = 1;
-    global.flag[234] = 1;
-    global.flag[240] = 1;
-    global.flag[209] = 1;
-    global.charauto[2] = 0;
-    scr_losechar();
-    scr_getchar(2);
-    scr_getchar(3);
-/// END

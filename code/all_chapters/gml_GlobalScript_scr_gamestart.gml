@@ -392,6 +392,7 @@ function scr_gamestart()
     global.flag[15] = 1;
     global.flag[16] = 0.85;
     global.flag[17] = 0.6;
+    global.flag[64] = 72
     
     for (i = 0; i < 10; i += 1)
     {

@@ -304,17 +304,6 @@ function scr_ap_step()
                                             script_execute(scr_writetext, 0, "* (You got an item for another chapter.)/%", 0, 6);
                                         }
                                     }
-                                    else if (trueitm >= 50000)
-                                    {
-                                        if (trueitm == 50000)
-                                            script_execute(scr_writetext, 0, "* (You got the Fields Warp!)/%", 0, 6);
-                                        else if (trueitm == 50001)
-                                            script_execute(scr_writetext, 0, "* (You got the Forest Warp!)/%", 0, 6);
-                                        else if (trueitm == 50002)
-                                            script_execute(scr_writetext, 0, "* (You got the Bake Sale Warp!)/%", 0, 6);
-                                        else if (trueitm == 50003)
-                                            script_execute(scr_writetext, 0, "* (You got the Card Castle Warp!)/%", 0, 6);
-                                    }
                                     else if (trueitm >= 40000)
                                     {
                                         script_execute(scr_writetext, 0, scr_84_get_subst_string("* You got D$~1!/%", trueitm - 40000), 0, 6);

@@ -315,15 +315,6 @@ function scr_ap_step()
                                     {
                                         script_execute(scr_writetext, 0, "* (You got a KeyGen 2 Segment!)/%", 0, 6);
                                     }
-                                    else if (trueitm >= 50000)
-                                    {
-                                        if (trueitm == 50004)
-                                            script_execute(scr_writetext, 0, "* (You got the Cyber Field Warp!)/%", 0, 6);
-                                        else if (trueitm == 50005)
-                                            script_execute(scr_writetext, 0, "* (You got the Trash Zone Warp!)/%", 0, 6);
-                                        else if (trueitm == 50006)
-                                            script_execute(scr_writetext, 0, "* (You got the Mansion Warp!)/%", 0, 6);
-                                    }
                                     else if (trueitm >= 40000)
                                     {
                                         script_execute(scr_writetext, 0, scr_84_get_subst_string("* You got D$~1!/%", trueitm - 40000), 0, 6);

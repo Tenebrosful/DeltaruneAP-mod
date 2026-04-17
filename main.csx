@@ -1,4 +1,5 @@
 #load "ump.csx"
+#load "rooms\room_loader.csx"
 
 using System.Linq;
 using System.Drawing;
@@ -43,11 +44,16 @@ class ArchipelagoLoader : UMPLoader
     }
 
     public int chnum { get; set; }
-    
+
     public string GetChapterNumber()
     {
         return chnum.ToString();
     }
+}
+
+void BuildModRoomsOnly(int chapter)
+{
+    Build_rooms(chapter);
 }
 
 void BuildMod(int chapter)
@@ -56,15 +62,17 @@ void BuildMod(int chapter)
     ArchipelagoLoader loader = new ArchipelagoLoader(UMP_WRAPPER, chapter);
     string scriptPath = Path.GetDirectoryName(ScriptPath);
 
-    // if(chapter > 0)
-    //     RunUMTScript(Path.Combine(scriptPath, "sprites/ImportGraphics.csx"));
+    if(chapter > 0)
+        RunUMTScript(Path.Combine(scriptPath, "sprites/ImportGraphics.csx"));
     
     // Import fnt_main from Chapter 1 into other chapters because for some reason the text acts really strange otherwise.
     // For example, the m/M and w/W letters on the board are shifted down-right IF you enter from Chapter Select and you're not on fullscreen.
     if(chapter > 1)
         RunUMTScript(Path.Combine(scriptPath, "fnt_main_ch1/ImportFonts.csx"));
-    
+
     loader.Load();
+
+    Build_rooms(chapter);
 
     // List<UndertaleCode> toDump = Data.Code.Where(c => c.ParentEntry is null).ToList();
     // foreach (UndertaleCode code in toDump)

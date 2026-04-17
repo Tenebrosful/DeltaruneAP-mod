@@ -458,13 +458,6 @@ function scr_ap_step()
                                             script_execute(scr_writetext, 0, "* (You got an item for another chapter.)/%", 0, 6);
                                         }
                                     }
-                                    else if (trueitm >= 50000)
-                                    {
-                                        if (trueitm == 50007)
-                                            script_execute(scr_writetext, 0, "* (You got the TV World Entrance Warp!)/%", 0, 6);
-                                        else if (trueitm == 50008)
-                                            script_execute(scr_writetext, 0, "* (You got the Goulden Sam Warp!)/%", 0, 6);
-                                    }
                                     else if (trueitm >= 40000)
                                     {
                                         script_execute(scr_writetext, 0, scr_84_get_subst_string("* You got D$~1!/%", trueitm - 40000), 0, 6);
