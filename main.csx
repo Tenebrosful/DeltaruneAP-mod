@@ -1,5 +1,6 @@
 #load "ump.csx"
 #load "rooms\room_loader.csx"
+#load "gameObjects\game_objects_loader.csx"
 
 using System.Linq;
 using System.Drawing;
@@ -72,6 +73,7 @@ void BuildMod(int chapter)
 
     loader.Load();
 
+    Build_gameobjects(chapter);
     Build_rooms(chapter);
 
     // List<UndertaleCode> toDump = Data.Code.Where(c => c.ParentEntry is null).ToList();
