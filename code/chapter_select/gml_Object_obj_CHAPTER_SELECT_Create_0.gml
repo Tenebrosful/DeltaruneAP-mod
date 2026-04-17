@@ -4,8 +4,8 @@
 _load_type = UnknownEnum.Value_0;
 /// CODE
 _starting_chapter = 0;
-scr_ap_create();
-scr_ap_step();
+scr_ap_create_chapter_select();
+scr_ap_step_chapter_select();
 /// END
 
 /// REPLACE

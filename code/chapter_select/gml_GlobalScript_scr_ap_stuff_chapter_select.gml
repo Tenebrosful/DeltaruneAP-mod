@@ -1,16 +1,16 @@
 /// IMPORT
-function scr_ap_stuff()
+function scr_ap_stuff_chapter_select()
 {
 }
 
-function scr_victory(arg0)
+function scr_victory_chapter_select(arg0)
 {
     noroom = 0;
     file = file_text_open_append("ch0.victory");
     file_text_close(file);
 }
 
-function scr_checkspot(arg0)
+function scr_checkspot_chapter_select(arg0)
 {
     noroom = 0;
     file = file_text_open_append("check.spot");
@@ -19,11 +19,11 @@ function scr_checkspot(arg0)
     file_text_close(file);
 }
 
-function scr_ap_get_check_completion()
+function scr_ap_get_check_completion_chapter_select()
 {
 }
 
-function scr_findallfiles()
+function scr_findallfiles_chapter_select()
 {
     var _list = ds_list_create();
     var _finished = 0;
@@ -80,7 +80,7 @@ function scr_findallfiles()
     return _list;
 }
 
-function scr_ap_create()
+function scr_ap_create_chapter_select()
 {
     global.gotcheck = undefined;
     
@@ -113,7 +113,7 @@ function scr_ap_create()
     }
 }
 
-function scr_ap_get_macguffin_amount()
+function scr_ap_get_macguffin_amount_chapter_select()
 {
     file = file_text_open_read("macguffin_amount.flag");
     var to_return = file_text_read_real(file);
@@ -121,7 +121,7 @@ function scr_ap_get_macguffin_amount()
     return to_return;
 }
 
-function scr_ap_step()
+function scr_ap_step_chapter_select()
 {
     if (ds_list_size(dslst) <= 0)
         dslst = scr_findallfiles();
@@ -212,7 +212,7 @@ function scr_ap_step()
     }
 }
 
-function scr_ap_load()
+function scr_ap_load_chapter_select()
 {
     for (i = 0; i < 99; i += 1)
     {
@@ -242,7 +242,7 @@ function scr_ap_load()
     ossafe_file_text_readln(myfileid);
 }
 
-function scr_ap_save()
+function scr_ap_save_chapter_select()
 {
     for (i = 0; i < 99; i += 1)
     {
@@ -272,7 +272,7 @@ function scr_ap_save()
     file_text_write_real(myfileid, global.MacGuffin_count);
 }
 
-function scr_ap_game_start()
+function scr_ap_game_start_chapter_select()
 {
     global.unlocked_buttons = undefined;
     
