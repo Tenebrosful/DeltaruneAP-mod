@@ -144,6 +144,7 @@ function scr_gamestart()
         global.maxhp[2] = 110;
         global.at[2] = 14;
         global.mag[2] = 1;
+        global.charauto[2] = 1;
         global.charweapon[3] = 3;
         global.hp[3] = 70;
         global.maxhp[3] = 70;
@@ -392,7 +393,7 @@ function scr_gamestart()
     global.flag[15] = 1;
     global.flag[16] = 0.85;
     global.flag[17] = 0.6;
-    global.flag[64] = 72
+    global.flag[64] = 72;
     
     for (i = 0; i < 10; i += 1)
     {
