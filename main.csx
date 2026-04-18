@@ -2,6 +2,7 @@
 #load "rooms\room_loader.csx"
 #load "gameObjects\game_objects_loader.csx"
 
+using ImageMagick;
 using System.Linq;
 using System.Drawing;
 using UndertaleModLib.Util;
@@ -63,9 +64,13 @@ void BuildMod(int chapter)
     ArchipelagoLoader loader = new ArchipelagoLoader(UMP_WRAPPER, chapter);
     string scriptPath = Path.GetDirectoryName(ScriptPath);
 
-    if(chapter > 0)
+    if (chapter > 0)
+    {
         RunUMTScript(Path.Combine(scriptPath, "sprites/ImportGraphics.csx"));
-    
+        ReplacePageItemTexture(Data.Sprites.ByName("bg_myroom_dark").Textures[0].Texture.Name.Content, "kris_room_dark.png");
+        ReplacePageItemTexture(Data.Sprites.ByName("bg_myroom").Textures[0].Texture.Name.Content, "kris_room.png");
+    }
+
     // Import fnt_main from Chapter 1 into other chapters because for some reason the text acts really strange otherwise.
     // For example, the m/M and w/W letters on the board are shifted down-right IF you enter from Chapter Select and you're not on fullscreen.
     if(chapter > 1)
@@ -88,4 +93,12 @@ void BuildMod(int chapter)
     DisableAllSyncBindings();
 
     ScriptMessage(chapter == 0 ? "Archipelago Mod for DELTARUNE Chapter Select was imported!" : $"Archipelago Mod for DELTARUNE Chapter {chapter} was imported!");
+}
+
+void ReplacePageItemTexture(string itemName, string textureName)
+{
+    Data.TexturePageItems.ByName(itemName).ReplaceTexture
+    (
+        new MagickImage(Path.Combine(Path.GetDirectoryName(ScriptPath), textureName))
+    );
 }
