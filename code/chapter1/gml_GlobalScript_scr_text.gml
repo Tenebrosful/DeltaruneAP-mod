@@ -125,8 +125,7 @@ function scr_text(arg0)
         case 111:
             if (global.choice == 0)
             {
-                global.msg[0] = "* You got a Check./";
-                global.msg[1] = "* You sent the Check to your Multiworld./%";
+                global.msg[0] = string("* You got {0}./%", scr_ap_get_location_reward_text(1));
                 global.flag[100] = 1;
                 scr_checkspot(1);
                 
@@ -340,8 +339,7 @@ function scr_text(arg0)
                 global.msg[3] = stringsetloc("\\E6* Here^1!&* I made a Manual for you and Susie!/", "scr_text_slash_scr_text_gml_311_0");
                 global.msg[4] = stringsetsubloc("\\E0* Press [~1] to open the menu and use it in your ITEMS./", scr_get_input_name(6), "scr_text_slash_scr_text_gml_314_0_b");
                 scr_noface(5);
-                global.msg[6] = "* (The Manual turned into a check.)/";
-                global.msg[7] = "* (You sent the Check to your Multiworld.)/%";
+                global.msg[6] = string("* (The Manual turned into {0}.)/%", scr_ap_get_location_reward_text(12));
             }
             
             break;
@@ -416,8 +414,7 @@ function scr_text(arg0)
                 
                 if (noroom == 0)
                 {
-                    global.msg[0] = "* (You got a Check.)/";
-                    global.msg[1] = "* (You sent the Check to your Multiworld.)/%";
+                    global.msg[0] = string("* (You got {0}.)/%", scr_ap_get_location_reward_text(2 + global.flag[101]));
                     global.flag[101] += 1;
                 }
                 else
@@ -464,8 +461,7 @@ function scr_text(arg0)
                 
                 if (noroom == 0)
                 {
-                    global.msg[0] = "* (You got a Check.)/";
-                    global.msg[1] = "* (You sent the Check to your Multiworld.)/%";
+                    global.msg[0] = string("* (You got {0}.)/%", scr_ap_get_location_reward_text(4 + global.flag[102]));
                     global.flag[102] += 1;
                 }
                 else
@@ -506,8 +502,7 @@ function scr_text(arg0)
                 
                 if (noroom == 0)
                 {
-                    global.msg[0] = "* (The Broken Cake turned into a check.)/";
-                    global.msg[0] = "* (You sent the Check to your Multiworld.)/%";
+                    global.msg[0] = string("* (The Broken Cake turned into {0}.)/%", scr_ap_get_location_reward_text(23));
                 }
                 else
                 {
@@ -3241,8 +3236,10 @@ function scr_text(arg0)
             global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3098_0");
             
             if (global.customflags[5] == 1)
+            {
                 global.choicemsg[2] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3092_0");
                 global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3093_0");
+            }
             
             if (global.plot >= 154)
             {
