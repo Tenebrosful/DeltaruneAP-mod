@@ -29,19 +29,14 @@
         }
 /// END
 
-/// BEFORE
-    if (room == room_forest_fightsusie)
-    {
-        sprite_index = spr_lancer_dt;
-/// CODE
-    if (room == room_forest_savepoint3)
-    {
-        sprite_index = spr_diamond_overworld;
-        
-        if (global.customflags[5] == 1)
-            instance_destroy();
-    }
-    
+/// APPEND
+if (room == room_forest_savepoint3)
+{
+    sprite_index = spr_diamondm_idle;
+
+    if (global.customflags[9])
+        instance_destroy();
+}
 /// END
 
 /// REPLACE

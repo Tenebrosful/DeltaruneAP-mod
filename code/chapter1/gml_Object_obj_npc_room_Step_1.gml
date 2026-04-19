@@ -14,23 +14,21 @@ if (global.customflags[4] == 1 && room == room_forest_savepoint1 && x >= 500 && 
     }
 }
 
-if (global.customflags[5] == 1 && room == room_forest_savepoint3 && instance_exists(obj_dialoguer) == false)
+if (global.customflags[9] && room == room_forest_savepoint3 && x < 680 && instance_exists(obj_dialoguer) == false)
 {
-    if (x <= 280)
+    if (image_xscale > 0)
     {
-        y += 10;
-        global.interact = 1;
-        
-        if (y >= 480)
-        {
-            global.interact = 0;
-            instance_destroy();
-        }
+        image_xscale = -image_xscale
     }
-    else
+
+    x += 20;
+    global.interact = 1;
+
+    if (x >= 680)
     {
-        x -= 10;
-        global.interact = 1;
+        instance_destroy();
+        if (instance_exists(obj_dialoguer) == false)
+            global.interact = 0;
     }
 }
 /// END

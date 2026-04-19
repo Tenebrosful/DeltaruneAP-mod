@@ -39,8 +39,7 @@ if (room == room_forest_savepoint2)
         }
         else if (global.flag[238] == 0)
         {
-            global.msg[0] = "* (There's still a cookie here.)/";
-            global.msg[1] = "* (You sent the Check to your Multiworld.)/%";
+            global.msg[0] = string("* (There's still {0} here.)/%", scr_ap_get_location_reward_text(t_itemid));
             scr_checkspot(9);
             global.flag[238] = 1;
         }
@@ -73,24 +72,28 @@ if (room == room_forest_savepoint2)
 /// APPEND
 if (room == room_forest_savepoint3)
 {
-    global.msg[0] = "* Sigh.../";
-    global.msg[1] = "* I really wanted to go to the Bake Sale.../";
-    global.msg[2] = "* But when I got there^1, some guy started asking for a ticket./";
-    global.msg[3] = "* Why do I even need a ticket^1?&* It's a bake sale!/%";
-    
-    if (talked >= 1 && scr_keyitemcheck(1001))
+    global.msg[0] = "* We are supposed to capture the lightners but we are stuck outside the castle.../";
+    global.msg[1] = "* Solders! Go find the Castle Key before King notice it!/";
+    if (scr_keyitemcheck(1003))
     {
-        global.typer = 31;
-        global.fe = 8;
-        global.fc = 2;
-        global.msg[0] = "* We have a ticket to the Bake Sale./";
-        scr_ralface(1, 6);
-        global.msg[2] = "* If we give you it^1, could you let us by?/";
-        scr_noface(3);
-        global.msg[4] = "* You guys would do that?!/";
-        global.msg[5] = "* Man, I owe you one!/%";
-        global.customflags[5] = 1;
-        scr_keyitemremove(1001);
+        scr_ralface(2,8);
+        global.msg[3] = "* Here! We found it, don't worry!/";
+        scr_noface(4);
+        global.customflags[9] = true;
+        global.msg[5] = "* Ho great! Quick, let's go to the castle before lightners cross the forest./"
+        scr_ralface(6,4);
+        global.msg[7] = "* But we are the lightners... Well I'm not but... /"
+        scr_ralface(8,"A");
+        global.msg[9] = "* Anyway Kris, let's find Susie!/%"
+    }
+    else
+    {
+        scr_ralface(2,9);
+        global.msg[3] = "* But we aren't-/";
+        scr_noface(4);
+        global.msg[5] = "* Enough talking! Go find it!/";
+        scr_ralface(6,9);
+        global.msg[7] = "* I think we don't have the choice Kris.../%";
     }
 }
 /// END

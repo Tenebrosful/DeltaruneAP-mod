@@ -4,8 +4,16 @@
         global.msg[0] = scr_84_get_lang_string("obj_readable_room1_slash_Other_10_gml_22_0");
 /// CODE
         global.msg[0] = "* It's a computer desk^1.&* There are many boxes under it filled with old books./"
-        global.msg[1] = "* On the screen is a window called \"Archipelago Dragon Blazers Client\"/"
+        global.msg[1] = "* On the screen, there is a window called \"Archipelago Dragon Blazers Client\"/"
         global.msg[2] = "* But it's just trying to reconnect due to internet outage./%"
+/// END
+
+/// AFTER
+    if (x > 136)
+        global.msg[0] = scr_84_get_lang_string("obj_readable_room1_slash_Other_10_gml_45_0");
+/// CODE
+    if (x > 179)
+        global.msg[0] = "* Non-binary rights./%";
 /// END
 
 /// REPLACE

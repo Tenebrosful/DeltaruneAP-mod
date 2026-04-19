@@ -56,10 +56,16 @@ itemtype[3] = "armor";
 itemtype[4] = "item";
 itemtype[5] = "item";
 itemtype[6] = "item";
-shopdesc[0] = "CHECK#Will be#sent to the#Multiworld";
-shopdesc[1] = "CHECK#Will be#sent to the#Multiworld";
-shopdesc[2] = "CHECK#Will be#sent to the#Multiworld";
-shopdesc[3] = "CHECK#Will be#sent to the#Multiworld";
+
+items_data[0] = scr_ap_get_location_reward_data(60)
+items_data[1] = scr_ap_get_location_reward_data(61)
+items_data[2] = scr_ap_get_location_reward_data(62)
+items_data[3] = scr_ap_get_location_reward_data(63)
+
+shopdesc[0] = string("{0}#Will be#sent to#{1}#world", items_data[0].itemName, items_data[0].playerName);
+shopdesc[1] = string("{0}#Will be#sent to#{1}#world", items_data[1].itemName, items_data[1].playerName);
+shopdesc[2] = string("{0}#Will be#sent to#{1}#world", items_data[2].itemName, items_data[2].playerName);
+shopdesc[3] = string("{0}#Will be#sent to#{1}#world", items_data[3].itemName, items_data[3].playerName);
 
 for (i = 0; i < itemtotal; i += 1)
 {
@@ -100,7 +106,7 @@ for (i = 0; i < itemtotal; i += 1)
         buyvalue[i] = value;
     }
     
-    shopitemname[i] = "Check";
+    shopitemname[i] = items_data[i].itemName;
     itemtype[i] = "check";
     item[i] = i + 60;
     scr_hintspot(i + 60);

@@ -730,7 +730,7 @@ if (menu == 4)
                 global.msg[7] = scr_84_get_lang_string("obj_shop1_slash_Draw_0_gml_479_0");
                 global.msg[8] = scr_84_get_lang_string("obj_shop1_slash_Draw_0_gml_480_0");
                 global.writersnd[0] = snd_item;
-                global.msg[9] = "S0* (A Check was sent to your Multiworld.)/";
+                global.msg[9] = string("S0* ({0} was sent to your Multiworld.)/", scr_ap_get_location_reward_text(29));
                 global.msg[10] = scr_84_get_lang_string("obj_shop1_slash_Draw_0_gml_483_0");
                 global.msg[11] = scr_84_get_lang_string("obj_shop1_slash_Draw_0_gml_484_0");
                 global.msg[12] = scr_84_get_lang_string("obj_shop1_slash_Draw_0_gml_485_0");
