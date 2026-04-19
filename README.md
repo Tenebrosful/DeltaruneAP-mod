@@ -12,4 +12,6 @@
 
 ## Big thanks
 - [Ners](https://github.com/ners-xd) for helping making this repository
-- [Nhaar](https://github.com/nhaar) for UMP framework
+- [Nhaar](https://github.com/nhaar) for [UMP framework](https://github.com/nhaar/UMP)
+- [Character](https://github.com/Charaster-Official) for Sprites
+- [Keucheur-mod](https://github.com/nhaar/keucher-mod) for some features and kris room
