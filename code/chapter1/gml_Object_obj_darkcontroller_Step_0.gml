@@ -151,7 +151,9 @@ if (global.interact == 5)
                         scr_ralface(1, 9);
                         global.msg[2] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_137_0");
                         global.msg[3] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_138_0");
-                        global.msg[4] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_139_0");
+                        global.msg[4] = "* I'll just make a better one next time!/";
+                        global.msg[5] = string("* Oh! It turned into {0}!/%", scr_ap_get_location_reward_text(245));
+                        scr_checkspot(245);
                         global.flag[207] = 2;
                     }
                     
@@ -166,7 +168,7 @@ if (global.interact == 5)
                         global.msg[4] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_151_0");
                         global.msg[5] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_152_0");
                         scr_noface(6);
-                        global.msg[7] = "* (The Manual turned into a check.^1)&* (Again.)/%";
+                        global.msg[7] = string("* (The Manual turned into {0}.)/%", scr_ap_get_location_reward_text(22));
                         scr_checkspot(22);
                         global.flag[207] = 1;
                     }
@@ -177,7 +179,9 @@ if (global.interact == 5)
                     global.typer = 6;
                     global.msg[0] = "* (You tossed the Manual hard.^1)&* (Its pages scatter in the wind.)/";
                     global.msg[1] = "* (It's a good thing no one was paying attention while you did it.)/";
-                    global.msg[1] = "* (You might have been arrested for littering otherwise.)/%";
+                    global.msg[1] = "* (You might have been arrested for littering otherwise.)/";
+                    global.msg[2] = string("(* Looks like it turned into {0}!)/%", scr_ap_get_location_reward_text(245));
+                    scr_checkspot(245);
                     global.flag[207] = -1;
                 }
                 else if (global.flag[207] == 0)
@@ -186,8 +190,7 @@ if (global.interact == 5)
                     global.typer = 6;
                     global.msg[0] = "* (You dropped the Manual on the floor.)/";
                     global.msg[1] = "* (... It just bounced back into your hands like a basketball.)/";
-                    global.msg[2] = "* (But it also turned into a Check on the way up.)/";
-                    global.msg[3] = "* (You sent the Check to your Multiworld.)/%";
+                    global.msg[2] = string("* (But it also turned into {0}.)/%", scr_ap_get_location_reward_text(22));
                     scr_checkspot(22);
                     global.flag[207] = 1;
                 }

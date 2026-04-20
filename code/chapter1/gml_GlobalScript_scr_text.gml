@@ -1859,10 +1859,7 @@ function scr_text(arg0)
                 if (scr_keyitemcheck(3) && which == 0)
                 {
                     which = 1;
-                    scr_checkspot(6);
-                    
-                    if (noroom == 1)
-                        which = 2;
+
                 }
                 
                 if (which == 0)
