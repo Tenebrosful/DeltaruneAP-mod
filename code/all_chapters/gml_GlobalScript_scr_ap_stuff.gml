@@ -151,14 +151,15 @@ function scr_ap_create()
 
 function scr_ap_get_location_reward_text(location_id)
 {
-    if !variable_struct_exists(global.ap_location_item, location_id) return "Unknown Item"
+    if !variable_struct_exists(global.ap_location_item, location_id) return "Unknown Item";
 
-    var data = variable_struct_get(global.ap_location_item, location_id)
+    var data = variable_struct_get(global.ap_location_item, location_id);
 
     if (data.playerName == "<yourself>")
-        return string("your {0}", data.itemName)
+        var text = string("your {0}", data.itemName);
     else
-        return string("{0}'s {1}", data.playerName, data.itemName)
+        var text = string("{0}'s {1}", data.playerName, data.itemName);
+    return scr_ap_item_classification_color(text, data.flags);
 }
 
 function scr_ap_get_location_reward_data(location_id)
@@ -167,6 +168,29 @@ function scr_ap_get_location_reward_data(location_id)
     var data = variable_struct_get(global.ap_location_item, location_id)
     if data.playerName == "<yourself>" data.playerName = "your"
     return variable_struct_get(global.ap_location_item, location_id)
+}
+
+function scr_ap_item_classification_color(text, flag)
+{
+    switch (flag)
+    {
+        
+        case 0: 
+            return string("\\cc{0}\\c0", text);
+            break;
+        case 1: 
+            return string("\\cp{0}\\c0", text);
+            break;
+        case 3:
+            return string("\\cY{0}\\c0", text);
+            break;
+        case 4:
+            return string("\\cR{0}\\c0", text);
+            break;
+        default : 
+            return string("\\c0{0}\\c0", text);
+            break;
+    }
 }
 
 function scr_ap_get_macguffin_amount()

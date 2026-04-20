@@ -39,3 +39,15 @@
         button1 = 1;
         button2 = 1;
 /// END
+
+/// AFTER
+            if (nextchar2 == "0")
+                xcolor = mycolor;
+/// CODE
+
+            if (nextchar2 == "p") // lower because we think about the future (future colors in future chapters)
+                xcolor = c_purple;
+            
+            if (nextchar2 == "c")
+                xcolor = c_aqua;
+/// END
