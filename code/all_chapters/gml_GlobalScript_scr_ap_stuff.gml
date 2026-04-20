@@ -163,7 +163,7 @@ function scr_ap_get_location_reward_text(location_id)
 
 function scr_ap_get_location_reward_data(location_id)
 {
-    if !variable_struct_exists(global.ap_location_item, location_id) return {playerName: "Unknown", itemName: "Unknown"}
+    if !variable_struct_exists(global.ap_location_item, location_id) return {playerName: "Unknown", itemName: "Unknown", flags: 000}
     var data = variable_struct_get(global.ap_location_item, location_id)
     if data.playerName == "<yourself>" data.playerName = "your"
     return variable_struct_get(global.ap_location_item, location_id)
