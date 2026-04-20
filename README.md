@@ -10,6 +10,13 @@
 - Select Build.cxs with Scripts > Run other scripts
 - Save the new data.win
 
+## Contributions
+- Mewlif (Original modding)
+- [theemtheemeraldsword85](https://github.com/theemeraldsword85) (Original modding)
+- [Tenebrosful](https://github.com/Tenebrosful) (Porting to UMP, modding, QoL)
+- [Deadzi](https://github.com/Deadzi06) (QoL, bug fixes)
+
+
 ## Big thanks
 - [Ners](https://github.com/ners-xd) for helping making this repository
 - [Nhaar](https://github.com/nhaar) for [UMP framework](https://github.com/nhaar/UMP)
