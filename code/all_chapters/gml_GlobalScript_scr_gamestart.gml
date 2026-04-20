@@ -181,6 +181,7 @@ function scr_gamestart()
         global.at[4] = 3;
         global.mag[4] = 11;
         global.df[4] = 1;
+
     }
     
     if (global.chapter == 3)
@@ -215,6 +216,7 @@ function scr_gamestart()
         global.at[4] = 3;
         global.mag[4] = 11;
         global.df[4] = 1;
+        global.spell[2][1] = 11;
     }
     
     if (global.chapter == 4)
@@ -249,11 +251,11 @@ function scr_gamestart()
         global.at[4] = 3;
         global.mag[4] = 11;
         global.df[4] = 1;
+        global.spell[2][1] = 11;
     }
     
     global.spell[1][0] = 7;
     global.spell[2][0] = 4;
-    global.spell[2][1] = 11;
     global.spell[3][0] = 3;
     global.spell[3][1] = 2;
     global.spell[4][0] = 2;
