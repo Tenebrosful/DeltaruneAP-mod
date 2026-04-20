@@ -1,4 +1,4 @@
-/// PATCH
+/// PATCH .ignore if CHAPTER_1
 
 /// BEFORE
 if (_itemtype == "item")
