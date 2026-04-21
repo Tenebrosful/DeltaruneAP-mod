@@ -10,7 +10,11 @@
 /// END
 
 /// REPLACE
+        if (x > 1000)
+        {
             if (global.flag[309] == 9)
-/// CODE*
+/// CODE
+        if (x > 1000)
+        {
             if (global.flag[309] == 9 && global.customflags[12] == 1)
 /// END

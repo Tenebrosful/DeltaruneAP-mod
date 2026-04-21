@@ -72,8 +72,6 @@
 /// END
 
 /// REPLACE
-    if (x < 320)
-    {
         scr_speaker("susie");
         msgsetloc(0, "\\EA* Heh^1, it would be funny if the puzzle^1, like.../", "obj_npc_sign_slash_Other_10_gml_1175_0");
         msgnextloc("\\E2* It's actually missing the one letter you actually need./", "obj_npc_sign_slash_Other_10_gml_1176_0");
@@ -87,6 +85,7 @@
         {
             scr_speaker("susie");
             msgsetloc(0, "\\EK* Hey^1, Kris^1, pretty sure you don't have to do this./%", "obj_npc_sign_slash_Other_10_gml_1187_0");
+        }
 /// CODE
         if (scr_havechar(4))
         {
@@ -118,6 +117,7 @@
                 scr_speaker("susie");
                 msgsetloc(0, "\\EK* Hey^1, Kris^1, pretty sure you don't have to do this./%", "obj_npc_sign_slash_Other_10_gml_1187_0");
             }
+        }
 /// END
 
 /// REPLACE
@@ -126,8 +126,4 @@
         if (scr_havechar(4))
             global.msc = 1244;
         else if (global.flag[463] == 0)
-/// END
-
-/// REPLACE
-/// CODE
 /// END

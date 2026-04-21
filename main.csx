@@ -1,6 +1,7 @@
 #load "ump.csx"
 #load "rooms\room_loader.csx"
 #load "gameObjects\game_objects_loader.csx"
+#load "lolCollisionTmpFix\gml_Object_obj_dw_leave_ch4_Collision_obj_mainchara.csx"
 
 using ImageMagick;
 using System.Linq;
@@ -81,8 +82,10 @@ void BuildMod(int chapter)
 
     // Import fnt_main from Chapter 1 into other chapters because for some reason the text acts really strange otherwise.
     // For example, the m/M and w/W letters on the board are shifted down-right IF you enter from Chapter Select and you're not on fullscreen.
-    if(chapter > 1)
+    if (chapter > 1)
         RunUMTScript(Path.Combine(scriptPath, "fnt_main_ch1/ImportFonts.csx"));
+
+    Load_collision_stuff();
 
     loader.Load();
 

@@ -1,7 +1,12 @@
 /// IMPORT
 function scr_setparty(arg0 = false, arg1 = false, arg2 = false)
 {
-    var kris = 1049;
+    if (global.chapter == 2){
+        var kris = 84;
+    }
+    else{
+        var kris = 1049;
+    }
     var slot = 0;
     var __make = true;
     

@@ -13,4 +13,5 @@
     scr_checkspot(97);
     scr_checkspot(98);
     scr_checkspot(99);
+}
 /// END

@@ -1,10 +1,10 @@
 /// PATCH
 
 /// REPLACE
-shopdesc[0] = stringsetloc("Musical food#with a#crunch#Heals 80HP", "obj_shop_ch2_music_slash_Create_0_gml_79_0");
-shopdesc[1] = stringsetloc("ARMOR#Made#of green wires", "obj_shop_ch2_music_slash_Create_0_gml_80_0");
-shopdesc[2] = stringsetloc("WEAPON#Press hilt#to extend", "obj_shop_ch2_music_slash_Create_0_gml_81_0");
-shopdesc[3] = stringsetloc("WEAPON#Make sure#to charge it", "obj_shop_ch2_music_slash_Create_0_gml_82_0");
+shopdesc[0] = stringsetloc("ITEM#Short for#ButlerJuice#+100HP", "obj_shop_ch2_swatch_slash_Create_0_gml_80_0");
+shopdesc[1] = stringsetloc("ITEM#Spaghetti#woven by#master coders#Party +30HP", "obj_shop_ch2_swatch_slash_Create_0_gml_79_0");
+shopdesc[2] = stringsetloc("ARMOR#A handsome#bowtie.", "obj_shop_ch2_swatch_slash_Create_0_gml_81_0");
+shopdesc[3] = stringsetloc("ARMOR#Luxurious#brooch.", "obj_shop_ch2_swatch_slash_Create_0_gml_81_0_b");
 /// CODE
 items_data[0] = scr_ap_get_location_reward_data(80)
 items_data[1] = scr_ap_get_location_reward_data(81)

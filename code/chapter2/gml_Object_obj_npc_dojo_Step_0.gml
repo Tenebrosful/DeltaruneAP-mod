@@ -1,8 +1,10 @@
 /// PATCH
 
 /// REPLACE
+                msgnextloc("* As promised^1, here is your reward!/", "obj_npc_dojo_slash_Step_0_gml_46_0");
                 scr_itemget_anytype(dojoPrizeValue, dojoPrizeType);
 /// CODE
+                msgnextloc("* As promised^1, here is your reward!/", "obj_npc_dojo_slash_Step_0_gml_46_0");
 /// END
 
 /// REPLACE
