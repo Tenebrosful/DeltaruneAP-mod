@@ -111,6 +111,7 @@ for (i = 0; i < itemtotal; i += 1)
     }
     
     shopitemname[i] = items_data[i].itemName;
+    shop_item_flags[i] = items_data[i].flags;
     itemtype[i] = "check";
     item[i] = i + 50;
     scr_hintspot(i + 50);

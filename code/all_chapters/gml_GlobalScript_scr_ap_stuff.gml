@@ -177,19 +177,36 @@ function scr_ap_item_classification_color(text, flag)
         
         case 0: 
             return string("\\cc{0}\\c0", text);
-            break;
         case 1: 
             return string("\\cp{0}\\c0", text);
-            break;
+        case 2:
+            return string("\\cB{0}\\c0", text);
         case 3:
             return string("\\cY{0}\\c0", text);
-            break;
         case 4:
             return string("\\cR{0}\\c0", text);
-            break;
         default : 
             return string("\\c0{0}\\c0", text);
-            break;
+    }
+}
+
+function scr_ap_item_classification_color_shop(flags){
+    {
+        switch (flags[i])
+        {
+            case 0:
+                return draw_set_color(c_aqua);
+            case 1:
+                return draw_set_color(c_purple);
+            case 2:
+                return draw_set_color(c_blue);
+            case 3:
+                return draw_set_color(c_yellow);
+            case 4:
+                return draw_set_color(c_red);
+            default:
+                return draw_set_color(c_white);
+        }
     }
 }
 
