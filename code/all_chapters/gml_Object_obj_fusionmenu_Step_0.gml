@@ -1,4 +1,4 @@
-/// PATCH .ignore if !CHAPTER_2 AND !CHAPTER_4
+/// PATCH .ignore if !CHAPTER_2 && !CHAPTER_4
 
 /// AFTER
         wrap = 0;
