@@ -1920,7 +1920,7 @@ function scr_text(arg0)
                 global.choicemsg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_1854_0");
                 global.choicemsg[2] = " ";
                 global.choicemsg[3] = " ";
-                global.msg[0] = string("* Interested in {0}^1 ? /", scr_ap_get_location_reward_text(7));
+                global.msg[0] = string("* Interested in {0}^1? /", scr_ap_get_location_reward_text(7));
                 global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_1858_0");
                 global.msg[2] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_1859_0");
                 global.msg[3] = " ";
