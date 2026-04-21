@@ -29,14 +29,22 @@ class ArchipelagoLoader : UMPLoader
         _ => throw new NotImplementedException()
     };
 
+    public string getChapterFolderName => chnum switch
+    {
+        0 => "chapter_select",
+        _ => $"chapter{chnum}"
+    };
+
+    public override bool AcceptFile(string filePath)
+    {
+        return (chnum > 0 && filePath.Contains("all_chapters")) || filePath.Contains(getChapterFolderName);
+    }
+
     public override string[] GetCodeNames(string filePath)
     {
         List<string> entries = new List<string>();
         string fileName = Path.GetFileNameWithoutExtension(filePath);
-
-        if ((chnum > 0 && filePath.Contains("all_chapters")) || filePath.Contains(chnum == 0 ? "chapter_select" : $"chapter{chnum}"))
-            entries.Add(fileName);
-
+        entries.Add(fileName);
         return entries.ToArray();
     }
 
