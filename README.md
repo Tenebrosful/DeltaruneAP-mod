@@ -12,7 +12,7 @@
 
 ## Contributions
 - Mewlif (Original modding)
-- [theemtheemeraldsword85](https://github.com/theemeraldsword85) (Original modding)
+- [theemeraldsword85](https://github.com/theemeraldsword85) (Original modding)
 - [Tenebrosful](https://github.com/Tenebrosful) (Porting to UMP, modding, QoL)
 - [Deadzi](https://github.com/Deadzi06) (QoL, bug fixes)
 
