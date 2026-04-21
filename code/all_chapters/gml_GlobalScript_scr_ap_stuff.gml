@@ -174,7 +174,6 @@ function scr_ap_item_classification_color(text, flag)
 {
     switch (flag)
     {
-        
         case 0: 
             return string("\\cc{0}\\c0", text);
         case 1: 
@@ -191,22 +190,24 @@ function scr_ap_item_classification_color(text, flag)
 }
 
 function scr_ap_item_classification_color_shop(flags){
+    return draw_set_color(scr_ap_flags_to_color_classification(flags))
+}
+
+function scr_ap_flags_to_color_classification(flags){
+    switch (flags)
     {
-        switch (flags[i])
-        {
-            case 0:
-                return draw_set_color(c_aqua);
-            case 1:
-                return draw_set_color(c_purple);
-            case 2:
-                return draw_set_color(c_blue);
-            case 3:
-                return draw_set_color(c_yellow);
-            case 4:
-                return draw_set_color(c_red);
-            default:
-                return draw_set_color(c_white);
-        }
+        case 0:
+            return c_aqua
+        case 1:
+            return c_purple
+        case 2:
+            return c_blue
+        case 3:
+            return c_yellow
+        case 4:
+            return c_red
+        default:
+            return c_white
     }
 }
 

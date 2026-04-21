@@ -33,9 +33,12 @@
         dojoPrizeType[3] = "money";
         dojoPrizeType[4] = "item";
 /// CODE
-        dojoPrizeName[0] = stringsetloc(scr_ap_get_location_reward_data(36).itemName, "obj_fusionmenu_slash_Step_0_gml_153_0_b");
-        dojoPrizeName[1] = stringsetloc(scr_ap_get_location_reward_data(37).itemName, "obj_fusionmenu_slash_Step_0_gml_150_0");
-        dojoPrizeName[2] = stringsetloc(scr_ap_get_location_reward_data(38).itemName, "obj_fusionmenu_slash_Step_0_gml_151_0");
+        data[0] = scr_ap_get_location_reward_data(36);
+        data[1] = scr_ap_get_location_reward_data(37);
+        data[2] = scr_ap_get_location_reward_data(38);
+        dojoPrizeName[0] = stringsetloc(data[0].itemName, "obj_fusionmenu_slash_Step_0_gml_153_0_b");
+        dojoPrizeName[1] = stringsetloc(data[1].itemName, "obj_fusionmenu_slash_Step_0_gml_150_0");
+        dojoPrizeName[2] = stringsetloc(data[2].itemName, "obj_fusionmenu_slash_Step_0_gml_151_0");
         dojoPrizeName[3] = stringsetloc("---", "obj_fusionmenu_slash_Step_0_gml_152_0");
         dojoPrizeName[4] = stringsetloc("---", "obj_fusionmenu_slash_Step_0_gml_153_0");
         dojoPrizeValue[0] = 1;
@@ -63,7 +66,8 @@
                 dojoTopComment[3] = stringsetloc("Winning's as easy as A-B-C!#You've got three chances, boss!", "obj_fusionmenu_slash_Step_0_gml_180_0");
                 dojoEncounter[3] = 89;
 /// CODE
-                dojoPrizeName[3] = stringsetloc(scr_ap_get_location_reward_data(100).itemName, "obj_fusionmenu_slash_Step_0_gml_178_0");
+                data[3] = scr_ap_get_location_reward_data(100);
+                dojoPrizeName[3] = stringsetloc(data[3].itemName, "obj_fusionmenu_slash_Step_0_gml_178_0");
                 dojoTopComment[3] = stringsetloc("Winning's as easy as A-B-C!#You've got three chances, boss!", "obj_fusionmenu_slash_Step_0_gml_180_0");
                 dojoEncounter[3] = 89;
                 scr_hintspot(100);
@@ -74,7 +78,8 @@
                 dojoTopComment[4] = stringsetloc("Face everyone in a row!#It'll take some stamina...", "obj_fusionmenu_slash_Step_0_gml_181_0");
                 dojoEncounter[4] = 90;
 /// CODE
-                dojoPrizeName[4] = stringsetloc(scr_ap_get_location_reward_data(101).itemName, "obj_fusionmenu_slash_Step_0_gml_179_0");
+                data[4] = scr_ap_get_location_reward_data(101);
+                dojoPrizeName[4] = stringsetloc(data[4].itemName, "obj_fusionmenu_slash_Step_0_gml_179_0");
                 dojoTopComment[4] = stringsetloc("Face everyone in a row!#It'll take some stamina...", "obj_fusionmenu_slash_Step_0_gml_181_0");
                 dojoEncounter[4] = 90;
                 scr_hintspot(101);
@@ -96,4 +101,22 @@
             scr_checkspot(103);
         else if (fusionResult[menuCoord[0]] == 11)
             scr_checkspot(244);
+/// END
+
+/// REPLACE .ignore if !CHAPTER_2
+            optionCommentA[0][j] = dojoPrizeName[j];
+            optionCommentAWidth[0][j] = 200;
+            optionCommentAXOffset[0][j] = 200;
+            optionCommentAYOffset[0][j] = 0;
+            optionCommentAColor[0][j] = c_white;
+/// CODE
+            optionCommentA[0][j] = dojoPrizeName[j];
+            optionCommentAWidth[0][j] = 200;
+            optionCommentAXOffset[0][j] = 200;
+            optionCommentAYOffset[0][j] = 0;
+            if (j >= array_length(data))
+            {
+                data[j] = {flags: -1};
+            }
+            optionCommentAColor[0][j] = scr_ap_flags_to_color_classification(data[j].flags);
 /// END
