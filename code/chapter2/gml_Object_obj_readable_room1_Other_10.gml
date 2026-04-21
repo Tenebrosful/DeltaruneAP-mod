@@ -1,6 +1,33 @@
 /// PATCH
 
 /// REPLACE
+            msgsetloc(0, "* On the computer's desktop is a folder called \"EPIC games Stuff!!!!\"/", "obj_readable_room1_slash_Other_10_gml_42_0");
+            msgnextloc("* It's a poorly-drawn design for a game.../", "obj_readable_room1_slash_Other_10_gml_43_0");
+            msgnextloc("* Seems the last boss is a creature with giant rainbow wings./", "obj_readable_room1_slash_Other_10_gml_44_0");
+            msgnextloc("* Doesn't seem like this game ever saw the light of day.../%", "obj_readable_room1_slash_Other_10_gml_45_0");
+/// CODE
+            msgsetloc(0, "* On the computer's desktop is a folder called \"EPIC games Stuff!!!!\"/", "obj_readable_room1_slash_Other_10_gml_42_0");
+            msgnextloc("* It's a poorly-drawn design for a game.../", "obj_readable_room1_slash_Other_10_gml_43_0");
+            msgnextloc("* Seems the last boss is a creature with giant rainbow wings./", "obj_readable_room1_slash_Other_10_gml_44_0");
+            msgnextloc("* Doesn't seem like this game ever saw the light of day.../", "obj_readable_room1_slash_Other_10_gml_45_0");
+            msgnextloc("* Also, \"Archipelago Dragon Blazers Client\" is now 1 hours between each reconnect.../%", "obj_readable_room1_slash_Other_10_gml_45_0")
+/// END
+
+/// AFTER
+    if (x > 136)
+    {
+        if (global.chapter == 1)
+            global.msg[0] = stringsetloc("* It's a beautiful day outside./%", "obj_readable_room1_slash_Other_10_gml_80_0");
+        
+        if (global.chapter == 2)
+            msgsetloc(0, "* Even after a long night^1, the sunrise is the same as always./%", "obj_readable_room1_slash_Other_10_gml_86_0");
+    }
+/// CODE
+    if (x > 179)
+        global.msg[0] = "* Non-binary rights./%";
+/// END
+
+/// REPLACE
             if (global.tempflag[39] == 1 && global.plot < 10)
 /// CODE
             if (global.plot < 10)
@@ -40,7 +67,7 @@
 /// END
 
 /// APPEND
-if (room == room_dw_cyber_battle_maze_1)
+if (room == room_dw_cyber_post_music_boss_slide)
 {
     scr_speaker("susie");
     msgsetloc(0, "\\E6* Hey^1, this looks like the beam of light in Castle Town./", "obj_readable_room1_slash_Other_10_gml_2043_0");
