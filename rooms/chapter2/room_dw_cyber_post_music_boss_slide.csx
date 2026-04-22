@@ -9,7 +9,7 @@ int Get_random_weird_floor()
   var possibilites = new[] {
     105, 106, 107, 108, 109, 110, 111,
     144, 145, 146, 147, 148, 149, 150,
-    157, 158, 159, 160, 161, 162, 163
+    157, 158, 159, 160, 161, 162
   };
 
   return possibilites[rng.Next(0, possibilites.Length)];
@@ -32,7 +32,7 @@ void Load_room_dw_cyber_post_music_boss_slide()
   AddObjectToRoom(room, "obj_solidblocksized", 520, 2320, 1, 1, 5);
   AddObjectToRoom(room, "obj_solidblocksized", 280, 2480, 1, 2, 2);
   AddObjectToRoom(room, "obj_solidblocksized", 440, 2480, 1, 2, 2);
-  AddObjectToRoom(room, "obj_readable_room1", 360, 2560, 1, 4, 6);
+  AddObjectToRoom(room, "obj_dw_leave_discover_event", 360, 2560, 1, 4, 6);
   AddObjectToRoom(room, "obj_markerX", 380, 2480, 1, 1, 1);
   AddObjectToRoom(room, "obj_dw_leave_ch4", 400, 2420, 1, 1, 1);
 
