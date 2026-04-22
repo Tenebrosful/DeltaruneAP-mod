@@ -9,6 +9,7 @@
         instance_destroy();
     }
 /// CODE
+
     if (room == room_dw_mansion_entrance)
     {
         mywall = instance_create(x, y, obj_soliddark);
@@ -22,20 +23,5 @@
             
             instance_destroy();
         }
-    }
-    
-    if (room == room_dw_cyber_battle_maze_1 && x == 840 && y == 200)
-    {
-        if (global.customflags[36] == 1)
-        {
-            instance_destroy();
-        }
-        else
-        {
-            mywall = instance_create(x, y, obj_soliddark);
-            mywall.image_xscale = 2;
-            mywall.image_yscale = 4;
-        }
-    }
-    
+    }    
 /// END
