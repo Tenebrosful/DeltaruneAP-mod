@@ -37,7 +37,7 @@ void ChangeTile(UndertaleRoom room, int x, int y, int layerOrder, uint id)
   room.Layers[layerOrder].TilesData.TileData[y][x] = id;
 }
 
-UndertaleRoom CreateRoom(string name, uint width, uint height, uint flags)
+UndertaleRoom CreateRoom(string name, uint width, uint height, UndertaleRoom.RoomEntryFlags flags)
 {
   var room = new UndertaleRoom()
   {
@@ -54,11 +54,11 @@ UndertaleRoom CreateRoom(string name, uint width, uint height, uint flags)
   return room;
 }
 
-UndertaleRoom CreateLayer(UndertaleRoom room, string layerName, UndertaleRoom.LayerType layerType = UndertaleRoom.LayerType.Instances)
+void CreateLayer(UndertaleRoom room, string layerName, UndertaleRoom.LayerType layerType = UndertaleRoom.LayerType.Instances)
 {
   var layer = new UndertaleRoom.Layer()
   {
-    LayerName = layerName,
+    LayerName = Data.Strings.MakeString(layerName),
     Data = new UndertaleRoom.Layer.LayerInstancesData(),
     LayerType = UndertaleRoom.LayerType.Instances
   };

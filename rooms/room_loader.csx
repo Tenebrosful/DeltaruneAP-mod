@@ -15,3 +15,12 @@ void Build_rooms(int chapter)
     default: return;
   }
 }
+
+void Build_Early_Rooms(int chapter){
+  switch (chapter)
+  {
+    case 0: Load_Early_Chapter_Select_Rooms(); break;
+    
+    default: return;
+  }
+}

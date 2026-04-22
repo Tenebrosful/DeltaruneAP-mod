@@ -87,9 +87,9 @@ void BuildMod(int chapter)
         RunUMTScript(Path.Combine(scriptPath, "fnt_main_ch1/ImportFonts.csx"));
 
     Load_collision_stuff();
-
+    Build_Early_Rooms(chapter);
     loader.Load();
-
+    
     Build_gameobjects(chapter);
     Build_rooms(chapter);
 
