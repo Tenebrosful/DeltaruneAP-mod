@@ -74,7 +74,7 @@ if (connect)
 {
     switch (global.AP_isAuthenticated)
     {
-        case 0:
+        default:
             connected = "> Connecting...";
             break;
         
@@ -84,8 +84,6 @@ if (connect)
             break;
         
         case 2:
-            draw_set_color(c_green);
-            connected = "> Connected!";
             audio_destroy_stream(my_music);
             room_goto(PLACE_CHAPTER_SELECT_2x);
             break;
