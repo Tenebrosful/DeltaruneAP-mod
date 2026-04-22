@@ -1,2 +1,0 @@
-/// IMPORT
-draw_self();
