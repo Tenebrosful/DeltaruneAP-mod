@@ -3,16 +3,16 @@
 /// REPLACE
         global.msg[5] = scr_84_get_lang_string("obj_tutorialbattleevent_slash_Step_0_gml_92_0");
 /// CODE
-        global.msg[5] = "* The Manual turned into a Check./";
+        global.msg[5] = string("* The Manual turned into {0}./", scr_ap_get_location_reward_text(12));
         
         if (global.customflags[999] == 0)
         {
             scr_checkspot(12);
-            global.msg[6] = "* You sent the Check to your Multiworld./%";
+            global.msg[5] += "%";
         }
         else
         {
-            global.msg[6] = "* ..^1.But^1, the power of the Egg refused the check!/%";
+            global.msg[6] = "* ..^1.But^1, the power of the Egg refused it!/%";
         }
 /// END
 
