@@ -53,3 +53,15 @@ UndertaleRoom CreateRoom(string name, uint width, uint height, uint flags)
 
   return room;
 }
+
+UndertaleRoom CreateLayer(UndertaleRoom room, string layerName, UndertaleRoom.LayerType layerType = UndertaleRoom.LayerType.Instances)
+{
+  var layer = new UndertaleRoom.Layer()
+  {
+    LayerName = layerName,
+    Data = new UndertaleRoom.Layer.LayerInstancesData(),
+    LayerType = UndertaleRoom.LayerType.Instances
+  };
+
+  room.Layers.Add(layer);
+}
