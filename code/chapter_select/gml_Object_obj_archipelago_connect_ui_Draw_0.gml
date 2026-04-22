@@ -80,7 +80,7 @@ if (connect)
         
         case 1:
             draw_set_color(c_red);
-            connected = "> Authentication failed.";
+            connected = "> Authentification failed.";
             break;
         
         case 2:
