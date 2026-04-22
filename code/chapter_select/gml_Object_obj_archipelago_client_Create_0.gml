@@ -31,6 +31,45 @@ if (global.AP_secure == true && global.AP_socket != network_create_socket(wss))
 if (global.AP_secure == false && global.AP_socket != network_create_socket(ws))
     global.AP_socket = network_create_socket(ws);
 
+// AP Settings File
+function AP_write_settings_file(arg0)
+{
+    var file = file_text_open_write("ap_settings.json");
+    file_text_write_string(file, arg0);
+    file_text_close(file);
+}
+
+function AP_read_settings_file()
+{
+    var file = file_text_open_read("ap_settings.json");
+    var content = file_text_read_string(file);
+    ap_settings_struct = -1;
+    
+    if (content != -1)
+        ap_settings_struct = json_parse(content);
+    
+    return ap_settings_struct;
+}
+
+if (!file_exists("ap_settings.json"))
+{
+    ap_settings_struct = 
+    {
+        server: "archipelago.gg",
+        port: "38128",
+        name: "Player",
+        password: ""
+    };
+    ap_setting_json = json_stringify(ap_settings_struct);
+    AP_write_settings_file(ap_setting_json);
+}
+
+ap_settings = AP_read_settings_file();
+global.AP_server = ap_settings.server;
+global.AP_port = ap_settings.port;
+global.AP_name = ap_settings.name;
+global.AP_password = ap_settings.password;
+
 // Connect to AP server
 function AP_connect()
 {
