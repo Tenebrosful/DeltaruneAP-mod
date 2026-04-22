@@ -56,7 +56,7 @@ if (!file_exists("ap_settings.json"))
     ap_settings_struct = 
     {
         server: "archipelago.gg",
-        port: "38128",
+        port: "38281",
         name: "Player",
         password: ""
     };
