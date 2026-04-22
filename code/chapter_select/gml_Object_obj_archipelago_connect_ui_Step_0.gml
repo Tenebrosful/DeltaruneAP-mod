@@ -27,18 +27,11 @@ if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")))
 {
     if (choice == max_choice)
     {
-        audio_play_sound(snd_select, 1, false);
-        ap_settings = 
-        {
-            server: global.AP_server,
-            port: global.AP_port,
-            name: global.AP_name,
-            password: global.AP_password
-        };
-        ap_setting_json = json_stringify(ap_settings);
-        obj_archipelago_client.AP_write_settings_file(ap_setting_json);
-        alarm[0] = 2;
         connect = true;
+        global.isAuthenticated = 0;
+        audio_play_sound(snd_select, 1, false);
+        alarm[0] = 1;
+        
         exit;
     }
     

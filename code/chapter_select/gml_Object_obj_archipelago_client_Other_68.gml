@@ -31,6 +31,15 @@ if (ds_map_exists(async_load, "buffer"))
                 case "Connected":
                     global.AP_isAuthenticated = 2;
                     show_debug_message("Login successful!");
+                    ap_settings = 
+                    {
+                        server: global.AP_server,
+                        port: global.AP_port,
+                        name: global.AP_name,
+                        password: global.AP_password
+                    };
+                    ap_setting_json = json_stringify(ap_settings);
+                    AP_write_settings_file(ap_setting_json);
                     break;
                 
                 case "ConnectionRefused":

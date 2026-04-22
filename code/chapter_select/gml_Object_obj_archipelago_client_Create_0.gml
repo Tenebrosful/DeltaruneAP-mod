@@ -73,8 +73,9 @@ global.AP_password = ap_settings.password;
 // Connect to AP server
 function AP_connect()
 {
+    if(isAuthenticated())
+        AP_disconnect();
     global.AP_isAuthenticated = 0;
-    AP_disconnect();
     global.AP_socket = network_create_socket(ws);
     var APgame = "DELTARUNE";
     var _contents = 
@@ -108,6 +109,7 @@ function AP_disconnect()
 {
     if (global.AP_socket != -1)
     {
+        global.AP_isAuthenticated = -1
         network_destroy(global.AP_socket);
         global.AP_socket = -1;
     }
