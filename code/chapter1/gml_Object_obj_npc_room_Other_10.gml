@@ -112,10 +112,11 @@ if (room == room_cc_rudinn)
         scr_checkspot(10);
 /// END
 
-/// AFTER
+/// REPLACE
             global.msg[6] = scr_84_get_lang_string("obj_npc_room_slash_Other_10_gml_700_0");
+            global.msg[7] = scr_84_get_lang_string("obj_npc_room_slash_Other_10_gml_701_0");
 /// CODE
-            global.msg[7] = "* You sent a Check to your Multiworld./%";
+            global.msg[6] = string("* Here^1, have {0}./%", scr_ap_get_location_reward_text(10));
 /// END
 
 /// BEFORE

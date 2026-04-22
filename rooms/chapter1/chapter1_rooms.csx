@@ -4,11 +4,9 @@
 #load "room_forest_area5.csx"
 #load "room_forest_savepoint3.csx"
 #load "room_cc_6f.csx"
-#load "room_krisroom.csx"
 
 void Load_chapter1_rooms()
 {
-  Load_room_krisroom();
   Load_room_castle_darkdoor();
   Load_room_field_start();
   Load_room_forest_savepoint2();

@@ -4,9 +4,9 @@
         global.msg[1] = scr_84_get_lang_string("obj_npc_hammerguy_slash_Step_0_gml_154_0");
         global.msg[2] = scr_84_get_lang_string("obj_npc_hammerguy_slash_Step_0_gml_155_0");
 /// CODE
-        global.msg[1] = "* (The Broken Cake became a Check.)/";
-        global.msg[2] = "* Huh, the cake turned into this thing..^1.&* I hope it's useful./";
-        global.msg[3] = "* (You sent the Check to your Multiworld.)/%";
+        scr_checkspot(6);
+        global.msg[1] = string("* Huh, the cake turned into {0}./", scr_ap_get_location_reward_text(6));
+        global.msg[2] = "* I hope it's useful./%";
 /// END
 
 /// REPLACE
@@ -25,7 +25,7 @@
         global.fc = 0;
         snd_play(snd_item);
         global.msg[0] = scr_84_get_lang_string("obj_npc_hammerguy_slash_Step_0_gml_184_0");
-        global.msg[1] = "* (The Broken Key parts became a Check.)/";
-        global.msg[2] = "* Huh, the key turned into this thing..^1.&* I hope it's useful./";
-        global.msg[3] = "* (You sent the Check to your Multiworld.)/%";
+        global.msg[1] = string("* Huh, the key parts turned into {0}./", scr_ap_get_location_reward_text(28)); 
+        global.msg[2] = "* I hope it's useful./%";
+
 /// END

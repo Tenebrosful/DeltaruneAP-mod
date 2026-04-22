@@ -61,6 +61,12 @@
             ossafe_file_text_write_real(myfileid, global.armor[j]);
             ossafe_file_text_writeln(myfileid);
         }
+        
+        for (j = 0; j < 72; j++)
+        {
+            ossafe_file_text_write_real(myfileid, global.pocketitem[j]);
+            ossafe_file_text_writeln(myfileid);
+        }
 #endif
     }
 /// CODE
@@ -99,7 +105,6 @@
             ossafe_file_text_writeln(myfileid);
         }
 
-                
         for (j = 0; j < 72; j++)
         {
             ossafe_file_text_write_real(myfileid, global.pocketitem[j]);

@@ -130,6 +130,7 @@ function scr_findallfiles()
 
 function scr_ap_create()
 {
+    scr_ap_const()
     canshowtext = 1;
     showingitem = 0;
     index = 0;
@@ -151,22 +152,64 @@ function scr_ap_create()
 
 function scr_ap_get_location_reward_text(location_id)
 {
-    if !variable_struct_exists(global.ap_location_item, location_id) return "Unknown Item"
+    if !variable_struct_exists(global.ap_location_item, location_id) return "Unknown Item";
 
-    var data = variable_struct_get(global.ap_location_item, location_id)
+    var data = variable_struct_get(global.ap_location_item, location_id);
 
     if (data.playerName == "<yourself>")
-        return string("your {0}", data.itemName)
+        var text = string("your {0}", data.itemName);
     else
-        return string("{0}'s {1}", data.playerName, data.itemName)
+        var text = string("{0}'s {1}", data.playerName, data.itemName);
+    return scr_ap_item_classification_color(text, data.flags);
 }
 
 function scr_ap_get_location_reward_data(location_id)
 {
-    if !variable_struct_exists(global.ap_location_item, location_id) return {playerName: "Unknown", itemName: "Unknown"}
+    if !variable_struct_exists(global.ap_location_item, location_id) return {playerName: "Unknown", itemName: "Unknown", flags: 000}
     var data = variable_struct_get(global.ap_location_item, location_id)
     if data.playerName == "<yourself>" data.playerName = "your"
     return variable_struct_get(global.ap_location_item, location_id)
+}
+
+function scr_ap_item_classification_color(text, flags)
+{
+    switch (flags)
+    {
+        case 0: 
+            return string("\\cf{0}\\c0", text);
+        case 1: 
+            return string("\\cp{0}\\c0", text);
+        case 2:
+            return string("\\cu{0}\\c0", text);
+        case 3:
+            return string("\\cg{0}\\c0", text);
+        case 4:
+            return string("\\ct{0}\\c0", text);
+        default : 
+            return string("\\c0{0}\\c0", text);
+    }
+}
+
+function scr_ap_item_classification_color_shop(flags){
+    return draw_set_color(scr_ap_flags_to_color_classification(flags))
+}
+
+function scr_ap_flags_to_color_classification(flags){
+    switch (flags[i])
+    {
+        case 0:
+            return global.ap_filler_color
+        case 1:
+            return global.ap_progression_color
+        case 2:
+            return global.ap_usefull_color
+        case 3:
+            return global.ap_usefull_progression_color
+        case 4:
+            return global.ap_trap_color
+        default:
+            return c_white
+    }
 }
 
 function scr_ap_get_macguffin_amount()
