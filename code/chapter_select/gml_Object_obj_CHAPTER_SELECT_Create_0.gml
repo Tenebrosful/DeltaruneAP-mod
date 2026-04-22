@@ -54,7 +54,7 @@ create_archipelago_screen = function()
 };
 /// END
 
-/// AFTER
+/// REPLACE
             else if (event_value == UnknownEnum.Value_5)
             {
                 toggle_language();
@@ -62,6 +62,15 @@ create_archipelago_screen = function()
             
             break;
 /// CODE
+            else if (event_value == UnknownEnum.Value_5)
+            {
+                obj_archipelago_client.AP_disconnect()
+                audio_stop_all();
+                audio_play_sound(snd_select, 1, false)
+                room_goto(PLACE_ARCHIPELAGO_CONNECT)
+            }
+            
+            break;
         case UnknownEnum.Value_7:
             if (event_value == UnknownEnum.Value_0)
             {
@@ -69,6 +78,11 @@ create_archipelago_screen = function()
                     room_goto(PLACE_ARCHIPELAGO_CONNECT);
                 else
                     change_state(UnknownEnum.Value_4);
+            }
+            else
+            {
+                obj_archipelago_client.AP_connect();
+                alarm[0] = 30;
             }
             
             break;
