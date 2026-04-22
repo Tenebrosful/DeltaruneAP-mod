@@ -130,6 +130,7 @@ function scr_findallfiles()
 
 function scr_ap_create()
 {
+    scr_ap_const()
     canshowtext = 1;
     showingitem = 0;
     index = 0;
@@ -170,20 +171,20 @@ function scr_ap_get_location_reward_data(location_id)
     return variable_struct_get(global.ap_location_item, location_id)
 }
 
-function scr_ap_item_classification_color(text, flag)
+function scr_ap_item_classification_color(text, flags)
 {
-    switch (flag)
+    switch (flags)
     {
         case 0: 
-            return string("\\cc{0}\\c0", text);
+            return string("\\cf{0}\\c0", text);
         case 1: 
             return string("\\cp{0}\\c0", text);
         case 2:
-            return string("\\cB{0}\\c0", text);
+            return string("\\cu{0}\\c0", text);
         case 3:
-            return string("\\cY{0}\\c0", text);
+            return string("\\cg{0}\\c0", text);
         case 4:
-            return string("\\cR{0}\\c0", text);
+            return string("\\ct{0}\\c0", text);
         default : 
             return string("\\c0{0}\\c0", text);
     }
@@ -194,18 +195,18 @@ function scr_ap_item_classification_color_shop(flags){
 }
 
 function scr_ap_flags_to_color_classification(flags){
-    switch (flags)
+    switch (flags[i])
     {
         case 0:
-            return c_aqua
+            return global.ap_filler_color
         case 1:
-            return c_purple
+            return global.ap_progression_color
         case 2:
-            return c_blue
+            return global.ap_usefull_color
         case 3:
-            return c_yellow
+            return global.ap_usefull_progression_color
         case 4:
-            return c_red
+            return global.ap_trap_color
         default:
             return c_white
     }

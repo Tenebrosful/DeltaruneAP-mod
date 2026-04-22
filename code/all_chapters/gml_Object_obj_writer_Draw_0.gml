@@ -45,9 +45,18 @@
                 xcolor = mycolor;
 /// CODE
 
-            if (nextchar2 == "p") // lower because we think about the future (future colors in future chapters)
-                xcolor = c_purple;
+            if (nextchar2 == "f") // lower because we think about the future (future colors in future chapters)
+                xcolor =global.ap_filler_color
             
-            if (nextchar2 == "c")
-                xcolor = c_aqua;
+            if (nextchar2 == "u")
+                xcolor = global.ap_usefull_color
+
+            if (nextchar2 == "g")
+                xcolor = global.ap_usefull_progression_color
+            
+            if (nextchar2 == "p")
+                xcolor = global.ap_progression_color
+            
+            if (nextchar2 == "t")
+                xcolor = global.ap_trap_color
 /// END
