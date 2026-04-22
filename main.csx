@@ -73,9 +73,10 @@ void BuildMod(int chapter)
     ArchipelagoLoader loader = new ArchipelagoLoader(UMP_WRAPPER, chapter);
     string scriptPath = Path.GetDirectoryName(ScriptPath);
 
+    RunUMTScript(Path.Combine(scriptPath, "sprites/ImportGraphics.csx"));
+    
     if (chapter > 0)
     {
-        RunUMTScript(Path.Combine(scriptPath, "sprites/ImportGraphics.csx"));
         ReplacePageItemTexture(Data.Sprites.ByName("bg_myroom_dark").Textures[0].Texture.Name.Content, "kris_room_dark.png");
         ReplacePageItemTexture(Data.Sprites.ByName("bg_myroom").Textures[0].Texture.Name.Content, "kris_room.png");
     }
