@@ -31,6 +31,8 @@ if (ds_map_exists(async_load, "buffer"))
                 case "Connected":
                     global.AP_isAuthenticated = 2;
                     show_debug_message("Login successful!");
+
+                    // Save AP connection info
                     ap_settings = 
                     {
                         server: global.AP_server,
@@ -40,6 +42,14 @@ if (ds_map_exists(async_load, "buffer"))
                     };
                     ap_setting_json = json_stringify(ap_settings);
                     AP_write_settings_file(ap_setting_json);
+
+                    /// Unlock all chapters if randomized_chapters = all_unlocked
+                    if (data[i].slot_data.options.randomize_chapters == "all_unlocked")
+                    {
+                        for (var ii = 1; ii <= (array_length(global.AP_chapter) - 1); ii++)
+                            global.AP_chapter[ii] = true;
+                    }
+
                     break;
                 
                 case "ConnectionRefused":
@@ -48,7 +58,19 @@ if (ds_map_exists(async_load, "buffer"))
                     network_destroy(global.AP_socket);
                     global.AP_socket = -1;
                     break;
+
+                // Unlock chapters
+                case "ReceivedItems":
+                    if variable_struct_exists(data[i], "items") {
+                        for (var ii = 0; ii < array_length(data[i].items); ++ii) {
+                            if(data[i].items[ii].item >= 90000)
+                                global.AP_chapter[data[i].items[ii].item - 89999] = true
+                        }
+                    }
+                    
             }
+
+                
         }
     }
 }
