@@ -5,31 +5,34 @@ function scr_ap_stuff()
 
 function scr_victory(arg0)
 {
-    noroom = 0;
-    
+    chapter_list = [1, 2, 3, 4, 5, 6, 7];
     if (global.customflags[999] == 0)
-        scr_checkspot(185);
-    
+        switch (arg0)
+        {
+            case 0:
+                break;
+            case 1:
+                scr_checkspot(185);
+            case 2:
+                scr_checkspot(186);
+            case 3:
+                scr_checkspot(187);
+            case 4:
+                scr_checkspot(225);
+            default:
+                break;
+        }
     file = file_text_open_append("ch" + string(arg0) + ".complete");
     file_text_close(file);
-    var complete = 1;
-    
-    if (((file_exists("ch2.route") == 1 && file_exists("ch2.complete") == 1) || file_exists("ch2.route") == 0) && complete == 1)
-        complete = 1;
-    else
-        complete = 0;
-    
-    if (((file_exists("ch3.route") == 1 && file_exists("ch3.complete") == 1) || file_exists("ch3.route") == 0) && complete == 1)
-        complete = 1;
-    else
-        complete = 0;
-    
-    if (((file_exists("ch4.route") == 1 && file_exists("ch4.complete") == 1) || file_exists("ch4.route") == 0) && complete == 1)
-        complete = 1;
-    else
-        complete = 0;
-    
-    if (complete == 1)
+    complete = 0;
+    for (var i = 1; i < array_length(chapter_list); i += 1)
+    {
+        if ((file_exists(string("ch{0}.route", chapter_list[i])) == 1 && file_exists(string("ch{0}.complete", chapter_list[i])) == 1) || file_exists(string("ch{0}.route", chapter_list[i])) == 0)
+            complete += 1;
+        else
+            complete += 0;
+    }
+    if (complete == 6)
     {
         file = file_text_open_append("ch" + string(arg0) + ".victory");
         file_text_close(file);
