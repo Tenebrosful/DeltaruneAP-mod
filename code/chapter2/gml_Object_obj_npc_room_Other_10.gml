@@ -51,3 +51,35 @@
 /// CODE
         msgsetloc(0, "* It's terrible... All the butlers except him are trapped in the cafe.../", "obj_npc_room_slash_Other_10_gml_2026_0");
 /// END
+
+/// APPEND
+if (room == room_dw_mansion_entrance)
+{
+    if (scr_sideb_get_phase() > 2)
+    {
+        scr_speaker("no_name");
+        msgsetloc(0, "* Welcome to Qu- Er^1, SPAMTON's mansion./");
+        msgnextloc("* If you are looking for Queen^1, she has not been seen for hours./");
+        msgnextloc("* Spamton has \"inherited\" the mansion in her absence./");
+        msgnextloc("* I have been informed by him to not let anyone enter this area./");
+        msgnextloc("* I apologize for the inconvenience./%");
+    }
+    else
+    {
+        scr_speaker("no_name");
+        msgsetloc(0, "* We welcome you to Queen's mansion./");
+        
+        if (scr_keyitemcheck(1010))
+        {
+            msgnextloc("* It appears you do have a reservation./");
+            msgnextloc("* Feel free to enter at any time./%");
+            global.customflags[13] = 1;
+        }
+        else
+        {
+            msgnextloc("* Unfortunately^1, you need a reservation in order to enter this area./");
+            msgnextloc("* We apologize for the inconvenience./%");
+        }
+    }
+}
+/// END

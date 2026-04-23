@@ -18,3 +18,14 @@
         {
             if (global.flag[309] == 9 && global.customflags[12] == 1)
 /// END
+
+/// APPEND
+if (room == room_dw_mansion_entrance)
+{
+    sprite_index = spr_butler;
+    image_speed = 0;
+    
+    if (global.customflags[13] == 1)
+        instance_destroy();
+}
+/// END
