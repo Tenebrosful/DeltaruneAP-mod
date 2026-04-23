@@ -4,6 +4,7 @@ function scr_keyiteminfo(arg0)
     tempkeyitemdesc = stringsetloc("---", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_2_0");
     tempkeyitemname = arg0;
     tempkeyitemusable = 0;
+    tempkeyitemchapter = 0;
     
     switch (arg0)
     {
@@ -27,26 +28,31 @@ function scr_keyiteminfo(arg0)
         case 3:
             tempkeyitemdesc = stringsetloc("Though broken, it seethes with power.#A master smith could fix it.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_23_0");
             tempkeyitemname = stringsetloc("BrokenCake", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_24_0");
+            tempkeyitemchapter = 1;
             break;
         
         case 4:
             tempkeyitemdesc = "It's some parts of a key.#A smith could fix all three parts.";
             tempkeyitemname = "Key Parts";
+            tempkeyitemchapter = 1;
             break;
         
         case 5:
             tempkeyitemdesc = stringsetloc("The key to a mysterious cell.#Something feels strange about it.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_31_0");
             tempkeyitemname = stringsetloc("Door Key", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_32_0");
+            tempkeyitemchapter = 1;
             break;
         
         case 6:
             tempkeyitemdesc = stringsetloc("It's the middle part of a key.#A smith could fix all three parts.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_35_0");
             tempkeyitemname = stringsetloc("Broken Key B", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_36_0");
+            tempkeyitemchapter = 1;
             break;
         
         case 7:
             tempkeyitemdesc = stringsetloc("It's the bottom part of a key.#A smith could fix all three parts.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_39_0");
             tempkeyitemname = stringsetloc("Broken Key C", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_40_0");
+            tempkeyitemchapter = 1;
             break;
         
         case 8:
@@ -125,6 +131,7 @@ function scr_keyiteminfo(arg0)
         case 10:
             tempkeyitemdesc = stringsetloc("A data disk from a strange machine.#Didn't someone want this?", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_56_0");
             tempkeyitemname = stringsetloc("EmptyDisk", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_57_0");
+            tempkeyitemchapter = 2
             break;
         
         case 11:
@@ -135,6 +142,7 @@ function scr_keyiteminfo(arg0)
         case 12:
             tempkeyitemdesc = stringsetloc("A shady-looking program that can#open certain doors.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_64_0");
             tempkeyitemname = stringsetloc("KeyGen", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_65_0");
+            tempkeyitemchapter = 2;
             break;
         
         case 13:
@@ -157,16 +165,19 @@ function scr_keyiteminfo(arg0)
         case 16:
             tempkeyitemname = stringsetloc("OddController", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_158_0");
             tempkeyitemdesc = stringsetloc("A gamepad no one wanted to use.#The buttons are an ugly pink and yellow.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_159_0");
+            tempkeyitemchapter = 3;
             break;
         
         case 17:
             tempkeyitemname = stringsetloc("BackstagePass", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_162_0");
             tempkeyitemdesc = stringsetloc("A pass for big shots allowed backstage.#Show it to Ramb in front of the door.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_163_0");
+            tempkeyitemchapter = 3;
             break;
         
         case 18:
             tempkeyitemname = stringsetloc("TripTicket", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_166_0");
             tempkeyitemdesc = stringsetloc("A ticket to nowhere. It shows a map#pointing to the left of a red X...", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_167_0");
+            tempkeyitemchapter = 3;
             break;
         
         case 19:
@@ -185,90 +196,108 @@ function scr_keyiteminfo(arg0)
             tempkeyitemname = stringsetloc("SheetMusic", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_177_0");
             tempkeyitemdesc = stringsetloc("Music that someone attempted to transcribe.#USE it to read it.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_178_0");
             tempkeyitemusable = 1;
+            tempkeyitemchapter = 4;
             break;
         
         case 31:
             tempkeyitemname = stringsetloc("ClaimbClaws", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_182_0");
             tempkeyitemdesc = stringsetloc("Claws so small they conveniently can't#be seen. Use them to climb up obvious walls.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_183_0");
+            tempkeyitemchapter = 4;
             break;
         case 700:
             tempkeyitemdesc = stringsetsubloc("A piece of a key shaped like a spade.#You have collected [~1] out of [~2].", global.MacGuffin_count, scr_ap_get_macguffin_amount(), "scr_keyiteminfo_slash_scr_keyiteminfo_gml_70_0");
             tempkeyitemname = stringsetloc("KingKeyPiece", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_71_0");
+            tempkeyitemchapter = 1;
             break;
                 
         case 701:
             tempkeyitemdesc = stringsetsubloc("A key segment generated by the KeyGen 2.#You have collected [~1] out of [~2].", global.MacGuffin_count, scr_ap_get_macguffin_amount(), "scr_keyiteminfo_slash_scr_keyiteminfo_gml_70_0");
             tempkeyitemname = stringsetloc("KeyGen2Segmnt", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_71_0");
+            tempkeyitemchapter = 2;
             break;
 
         case 702:
             tempkeyitemdesc = stringsetsubloc("An abnormally-sized AA battery.#You have collected [~1] out of [~2].", global.MacGuffin_count, scr_ap_get_macguffin_amount(), "scr_keyiteminfo_slash_scr_keyiteminfo_gml_70_0");
             tempkeyitemname = stringsetloc("RemoteBattery", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_71_0");
+            tempkeyitemchapter = 3;
             break;
 
         case 703:
             tempkeyitemdesc = stringsetsubloc("A digit for a combination lock.#You have collected [~1] out of [~2].", global.MacGuffin_count, scr_ap_get_macguffin_amount(), "scr_keyiteminfo_slash_scr_keyiteminfo_gml_70_0");
             tempkeyitemname = stringsetloc("CombLockDigit", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_71_0");
+            tempkeyitemchapter = 4;
             break;
 
         case 1000:
             tempkeyitemdesc = "It's the key to the Great Door.";
             tempkeyitemname = "GreatDoorKey";
+            tempkeyitemchapter = 1;
             break;
         
         case 1001:
             tempkeyitemdesc = "A ticket to the Bake Sale.";
             tempkeyitemname = "B.SaleTicket";
+            tempkeyitemchapter = 1;
             break;
         
         case 1002:
             tempkeyitemdesc = "It's a King Chess Piece.#Some Ponmen might be convinced by it.";
             tempkeyitemname = "K.ChessPiece";
+            tempkeyitemchapter = 1;
             break;
         
         case 1003:
             tempkeyitemdesc = "It's the key to Card Castle.";
             tempkeyitemname = "CastleKey";
+            tempkeyitemchapter = 1;
             break;
         
         case 1004:
             tempkeyitemdesc = "A glorious cake fixed by Malius.#Someone might be happy if you return it. . .";
             tempkeyitemname = "TopCake";
+            tempkeyitemchapter = 1;
             break;
         
         case 1008:
             tempkeyitemdesc = "A splintered blade with teeth marks.#Presumably this belongs to Susie. . .";
             tempkeyitemname = "SusiePencil";
+            tempkeyitemchapter = 2;
             break;
         
         case 1009:
             tempkeyitemdesc = "A high-visiblity vest.#No one will question you if you have this.";
             tempkeyitemname = "SafetyVest";
+            tempkeyitemchapter = 2;
             break;
         
         case 1010:
             tempkeyitemdesc = "A reservation needed to enter a Mansion.";
             tempkeyitemname = "Reservation";
+            tempkeyitemchapter = 2;
             break;
         
         case 1013:
             tempkeyitemname = stringsetloc("GameCartridge");
             tempkeyitemdesc = stringsetloc("It says \"Board 2: Paradise.\"#It's not the original label.");
+            tempkeyitemchapter = 3;
             break;
         
         case 1014:
             tempkeyitemname = stringsetloc("VIP Pass");
             tempkeyitemdesc = stringsetloc("Only very important people have these.#It's a pass into TV World.");
+            tempkeyitemchapter = 3;
             break;
         
         case 1015:
             tempkeyitemname = stringsetloc("OutOfJailCard");
             tempkeyitemdesc = stringsetloc("It'll let you get out of jail for free!#Use when in a pinch.");
+            tempkeyitemchapter = 3;
             break;
         
         case 1022:
             tempkeyitemname = stringsetloc("ClaimbGuide", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_182_0");
             tempkeyitemdesc = stringsetloc("Instructions on how to claimb with your#claimb claws.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_183_0");
+            tempkeyitemchapter = 4;
             break;
     }
 }
