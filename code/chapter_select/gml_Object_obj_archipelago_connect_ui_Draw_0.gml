@@ -20,39 +20,97 @@ function draw_text_outline(arg0, arg1, arg2, arg3, arg4, arg5)
 draw_sprite_ext(spr_archipelago_logo, 0, x_align - 30, 25, 4, 4, 0, c_white, 1);
 draw_sprite_ext(spr_archipelago_logo_text, 0, 140, 0, 1, 1, 0, c_white, 1);
 
-for (var ii = 0; ii < 5; ii++)
+for (var ii = 0; ii < 7; ii++)
 {
     draw_set_font(fnt_mainbig);
     draw_set_color(c_white);
     var text = "";
     var i = 0;
     
-    switch (ii)
+    if (page == 0)
     {
-        case 0:
-            text = "Host: " + string(global.AP_server);
-            i = 0;
-            break;
+        switch (ii)
+        {
+            case 0:
+                text = "Host: " + string(global.AP_server);
+                i = 0;
+                break;
+            
+            case 1:
+                text = "Port: " + string(global.AP_port);
+                i = 1;
+                break;
+            
+            case 2:
+                text = "Slot Name: " + string(global.AP_name);
+                i = 2;
+                break;
+            
+            case 3:
+                text = "Password: " + string(global.AP_password);
+                i = 3;
+                break;
+            
+            case 4:
+                text = "Connect to Multiworld";
+                i = 5;
+                break;
+        }
+    }
+    else if (page == 1)
+    {
+        switch (ii)
+        {
+            case 0:
+                text = "Deathlink: " + string(global.AP_deathLink);
+                i = 0;
+                break;
+            
+            case 1:
+                text = "Colors:";
+                i = 2;
+                break;
+            
+            case 2:
+                rectangle_color = global.AP_colors.filler;
+                text = "Filler: #" + string(dec_to_hex(rectangle_color));
+                i = 3;
+                break;
+            
+            case 3:
+                rectangle_color = global.AP_colors.progression;
+                text = "Progression: #" + string(dec_to_hex(rectangle_color));
+                i = 4;
+                break;
+            
+            case 4:
+                rectangle_color = global.AP_colors.useful;
+                text = "Useful: #" + string(dec_to_hex(rectangle_color));
+                i = 5;
+                break;
+            
+            case 5:
+                rectangle_color = global.AP_colors.trap;
+                text = "Trap: #" + string(dec_to_hex(rectangle_color));
+                i = 6;
+                break;
+            
+            case 6:
+                rectangle_color = global.AP_colors.useful_progression;
+                text = "Prog/Useful: #" + string(dec_to_hex(rectangle_color));
+                i = 7;
+                break;
+        }
         
-        case 1:
-            text = "Port: " + string(global.AP_port);
-            i = 1;
-            break;
-        
-        case 2:
-            text = "Slot Name: " + string(global.AP_name);
-            i = 2;
-            break;
-        
-        case 3:
-            text = "Password: " + string(global.AP_password);
-            i = 3;
-            break;
-        
-        case 4:
-            text = "Connect to Multiworld";
-            i = 5;
-            break;
+        if (ii > 1)
+        {
+            if (rectangle_color)
+                draw_set_color(rectangle_color);
+            
+            draw_rectangle(x_align + 300, y_align + (gap * i), x_align + 325, y_align + (gap * i) + 25, false);
+            draw_set_color(c_black);
+            draw_rectangle(x_align + 300, y_align + (gap * i), x_align + 325, y_align + (gap * i) + 25, true);
+        }
     }
     
     draw_text_outline(x_align, y_align + (gap * i), outline_offset, text, 4, 16777215);

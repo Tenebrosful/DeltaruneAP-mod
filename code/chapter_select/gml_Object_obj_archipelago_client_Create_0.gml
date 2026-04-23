@@ -1,5 +1,4 @@
 /// IMPORT
-
 persistent = 1;
 wss = 7;
 ws = 6;
@@ -12,6 +11,16 @@ global.AP_port = 38281;
 global.AP_password = "";
 global.AP_secure = false;
 global.AP_connect_deadline = 15;
+global.AP_deathLink = 0;
+global.AP_multiworld = 0;
+global.AP_color = 
+{
+    filler: 16776960,
+    progression: 8388736,
+    useful: 16711680,
+    trap: 255,
+    useful_progression: 65535
+};
 
 for (var i = 1; i <= 4; i++)
     global.AP_chapter[i] = false;
@@ -40,10 +49,16 @@ if (!file_exists("ap_settings.json"))
         server: "archipelago.gg",
         port: "38281",
         name: "Player",
-        password: ""
+        password: "",
+        settings: 
+        {
+            colors: global.AP_color
+        }
     };
     ap_setting_json = json_stringify(ap_settings_struct);
-    AP_write_settings_file(ap_setting_json);
+    var file = file_text_open_write("ap_settings.json");
+    file_text_write_string(file, ap_setting_json);
+    file_text_close(file);
 }
 
 ap_settings = AP_read_settings_file();
@@ -51,3 +66,4 @@ global.AP_server = ap_settings.server;
 global.AP_port = ap_settings.port;
 global.AP_name = ap_settings.name;
 global.AP_password = ap_settings.password;
+global.AP_colors = ap_settings.settings.colors;
