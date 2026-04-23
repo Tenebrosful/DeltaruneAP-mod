@@ -26,30 +26,53 @@ if (ds_map_exists(async_load, "buffer"))
     {
         if (variable_struct_exists(data[i], "cmd"))
         {
+
+            // get archipelago multiworld
+            if(global.AP_multiworld == 0)
+			    global.AP_multiworld = data[0].seed_name;
+
             switch (data[i].cmd)
             {
                 case "Connected":
                     global.AP_isAuthenticated = 2;
                     show_debug_message("Login successful!");
-
-                    // Save AP connection info
-                    ap_settings = 
-                    {
-                        server: global.AP_server,
-                        port: global.AP_port,
-                        name: global.AP_name,
-                        password: global.AP_password
-                    };
-                    ap_setting_json = json_stringify(ap_settings);
-                    AP_write_settings_file(ap_setting_json);
-
-                    /// Unlock all chapters if randomized_chapters = all_unlocked
+                    AP_write_settings_file();
+                    
                     if (data[i].slot_data.options.randomize_chapters == "all_unlocked")
                     {
                         for (var ii = 1; ii <= (array_length(global.AP_chapter) - 1); ii++)
                             global.AP_chapter[ii] = true;
                     }
-
+                    var path = global.AP_multiworld + "/settings.json"
+                    if(!file_exists(path)){
+                        global.AP_deathLink = data[i].slot_data.options.death_link
+                        settings = 
+                        {
+                            deathLink: global.AP_deathLink
+                        }
+                        setting_json = json_stringify(settings);
+                        var file = file_text_open_write(path);
+                        file_text_write_string(file, setting_json);
+                        file_text_close(file);
+                    } else {
+                        var file = file_text_open_read(path);
+                        var content = file_text_read_string(file);
+                        if (content != -1)
+                            settings_struct = json_parse(content);
+                        if (global.AP_deathLink != settings_struct.deathLink)
+                        {
+                            settings = 
+                            {
+                                deathLink: global.AP_deathLink
+                            };
+                            AP_write_settings_file();
+                        }
+                        else
+                        {
+                            global.AP_deathLink = settings_struct.deathLink;
+                        }
+                    }
+                    
                     break;
                 
                 case "ConnectionRefused":
@@ -58,19 +81,17 @@ if (ds_map_exists(async_load, "buffer"))
                     network_destroy(global.AP_socket);
                     global.AP_socket = -1;
                     break;
-
-                // Unlock chapters
+                
                 case "ReceivedItems":
-                    if variable_struct_exists(data[i], "items") {
-                        for (var ii = 0; ii < array_length(data[i].items); ++ii) {
-                            if(data[i].items[ii].item >= 90000)
-                                global.AP_chapter[data[i].items[ii].item - 89999] = true
+                    if (variable_struct_exists(data[i], "items"))
+                    {
+                        for (var ii = 0; ii < array_length(data[i].items); ii++)
+                        {
+                            if (data[i].items[ii].item >= 90000)
+                                global.AP_chapter[data[i].items[ii].item - 89999] = true;
                         }
                     }
-                    
             }
-
-                
         }
     }
 }

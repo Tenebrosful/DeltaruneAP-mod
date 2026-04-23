@@ -1,10 +1,31 @@
 /// IMPORT
 
-function AP_write_settings_file(arg0)
+function AP_write_settings_file()
 {
+    ap_settings = 
+    {
+        server: global.AP_server,
+        port: global.AP_port,
+        name: global.AP_name,
+        password: global.AP_password,
+        settings: 
+        {
+            colors: global.AP_colors
+        }
+    };
+    ap_setting_json = json_stringify(ap_settings);
     var file = file_text_open_write("ap_settings.json");
-    file_text_write_string(file, arg0);
+    file_text_write_string(file, ap_setting_json);
     file_text_close(file);
+    // deathlink
+    settings = 
+        {
+            deathLink: global.AP_deathLink
+        }
+        setting_json = json_stringify(settings);
+        var file = file_text_open_write(global.AP_multiworld + "/settings.json");
+        file_text_write_string(file, setting_json);
+        file_text_close(file);
 }
 
 function AP_read_settings_file()
@@ -27,6 +48,9 @@ function AP_connect()
     global.AP_isAuthenticated = 0;
     global.AP_socket = network_create_socket(ws);
     var APgame = "DELTARUNE";
+    var tags = ["AP"]
+    if(global.AP_deathLink)
+        array_insert(tags, 1, "DeathLink")
     var _contents = 
     {
         cmd: "Connect",
@@ -35,7 +59,7 @@ function AP_connect()
         name: global.AP_name,
         uuid: UnknownEnum.Value_999999,
         items_handling: UnknownEnum.Value_7,
-        tags: [],
+        tags: tags,
         version: 
         {
             class: "Version",
@@ -71,24 +95,45 @@ function AP_isAuthenticated()
     return false;
 }
 
-// CHECKS
-function AP_sendCheck(locationId)
+function AP_sendCheck(arg0)
 {
-    if(!AP_isAuthenticated())
+    if (!AP_isAuthenticated())
         exit;
-    var _contents = {
-		cmd: "LocationChecks",
-		locations: [locationId]	
-	}
-    var arr = [_contents]
+    
+    var _contents = 
+    {
+        cmd: "LocationChecks",
+        locations: [arg0]
+    };
+    var arr = [_contents];
+    location = json_stringify(arr);
+    var buffer = buffer_create(string_byte_length(aa), buffer_fixed, 1);
+    buffer_seek(buffer, buffer_seek_start, 0);
+    buffer_write(buffer, buffer_text, location);
+    network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
+}
 
-    location = json_stringify(arr)
+/// UPDATE TAGS
 
-    var buffer = buffer_create(string_byte_length(aa), buffer_fixed,1)
-    buffer_seek(buffer, buffer_seek_start, 0)
-    buffer_write(buffer,buffer_text,location)
+function AP_updateTags(arg0){
+    if (!AP_isAuthenticated())
+        exit;
 
-    network_send_raw(global.AP_socket, buffer, buffer_tell(buffer),2)
+    var tags = ["AP"]
+    if(global.AP_deathLink)
+        array_insert(tags, 1, "DeathLink")
+    var _contents = 
+    {
+        cmd: "ConnectUpdate",
+        items_handling: 0,
+        tags: tags
+    };
+    var arr = [_contents];
+    location = json_stringify(arr);
+    var buffer = buffer_create(string_byte_length(aa), buffer_fixed, 1);
+    buffer_seek(buffer, buffer_seek_start, 0);
+    buffer_write(buffer, buffer_text, location);
+    network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
 }
 
 enum UnknownEnum
