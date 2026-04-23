@@ -870,15 +870,46 @@ function scr_itemuse(arg0)
             break;
         
         case 308:
-            if (scr_sideb_get_phase() < 3 || global.chapter != 2)
+            if (global.chapter == 2)
             {
-                snd_stop(snd_splat);
-                snd_play_x(snd_splat, 1, (global.submenucoord[4] / 10) + 0.8);
+                if (room == room_dw_mansion_krisroom)
+                {
+                    if (instance_exists(obj_ch2_scene17b))
+                    {
+                        with (obj_darkcontroller)
+                            charcon = 0;
+                        
+                        global.menuno = -1;
+                        
+                        with (obj_ch2_scene17b)
+                            con = 10;
+                    }
+                }
+                else if (scr_sideb_get_phase() < 3 || global.plot >= 200)
+                {
+                    if (global.plot >= 90 && global.plot < 99)
+                    {
+                        with (obj_lancer_mixtape)
+                            instance_destroy();
+                        
+                        instance_create(0, 0, obj_lancer_mixtape);
+                    }
+                    else
+                    {
+                        snd_stop(snd_splat);
+                        snd_play(snd_splat);
+                    }
+                }
+                else
+                {
+                    snd_stop(snd_petrify);
+                    snd_play(snd_petrify);
+                }
             }
             else
             {
-                snd_stop(snd_petrify);
-                snd_play(snd_petrify);
+                snd_stop(snd_splat);
+                snd_play(snd_splat);
             }
             
             break;

@@ -62,7 +62,7 @@ function scr_ap_handle_chapter_unlock_item(item_id)
 {
   var chapter_unlock_offset = 90000 - 1;
   var chapter = item_id - chapter_unlock_offset;
-  var item_name = "Chapter " + chapter;
+  var item_name = "Chapter " + string(chapter);
 
   script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", scr_ap_item_classification_color(item_name, 1)), 0, 6);
 }
