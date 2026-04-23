@@ -30,8 +30,8 @@ shopdesc[3] = string("{0}#[EMAIL]#{1}#[GAMER] world", items_data[3].itemName, it
         buyvalue[i] = value;
     }
 /// CODE
-    
-    shopitemname[i] = "Check";
+    shopitemname[i] = items_data[i].itemName;
+    shop_item_flags[i] = items_data[i].flags;
     itemtype[i] = "check";
     item[i] = i + 90;
     itemcount = 99;
