@@ -14,7 +14,7 @@ if (!instance_exists(obj_archipelago_client))
     }
 
 /// CODE
-    if (obj_archipelago_client.isAuthenticated() == false)
+    if (obj_archipelago_client.AP_isAuthenticated() == false)
         _current_state = UnknownEnum.Value_7;
     else
         _current_state = UnknownEnum.Value_4;
@@ -27,7 +27,6 @@ if (!instance_exists(obj_archipelago_client))
                 clean_up();
             
             break;
-
 /// CODE
         case UnknownEnum.Value_7:
             stop_bgm();
@@ -39,7 +38,6 @@ if (!instance_exists(obj_archipelago_client))
 /// BEFORE
 create_continue_screen = function()
 {
-
 /// CODE
 create_archipelago_screen = function()
 {
@@ -74,7 +72,7 @@ create_archipelago_screen = function()
         case UnknownEnum.Value_7:
             if (event_value == UnknownEnum.Value_0)
             {
-                if (!obj_archipelago_client.isAuthenticated())
+                if (!obj_archipelago_client.AP_isAuthenticated())
                     room_goto(PLACE_ARCHIPELAGO_CONNECT);
                 else
                     change_state(UnknownEnum.Value_4);
