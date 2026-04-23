@@ -73,9 +73,10 @@ void BuildMod(int chapter)
     ArchipelagoLoader loader = new ArchipelagoLoader(UMP_WRAPPER, chapter);
     string scriptPath = Path.GetDirectoryName(ScriptPath);
 
+    RunUMTScript(Path.Combine(scriptPath, "sprites/ImportGraphics.csx"));
+    
     if (chapter > 0)
     {
-        RunUMTScript(Path.Combine(scriptPath, "sprites/ImportGraphics.csx"));
         ReplacePageItemTexture(Data.Sprites.ByName("bg_myroom_dark").Textures[0].Texture.Name.Content, "kris_room_dark.png");
         ReplacePageItemTexture(Data.Sprites.ByName("bg_myroom").Textures[0].Texture.Name.Content, "kris_room.png");
     }
@@ -86,9 +87,9 @@ void BuildMod(int chapter)
         RunUMTScript(Path.Combine(scriptPath, "fnt_main_ch1/ImportFonts.csx"));
 
     Load_collision_stuff();
-
+    Build_Early_Rooms(chapter);
     loader.Load();
-
+    
     Build_gameobjects(chapter);
     Build_rooms(chapter);
 

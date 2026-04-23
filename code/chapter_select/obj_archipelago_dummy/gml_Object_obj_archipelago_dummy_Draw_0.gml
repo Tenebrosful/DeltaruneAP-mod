@@ -1,0 +1,2 @@
+/// IMPORT
+draw_self();

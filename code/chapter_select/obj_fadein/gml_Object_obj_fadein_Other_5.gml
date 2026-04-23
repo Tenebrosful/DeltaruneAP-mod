@@ -1,0 +1,2 @@
+/// IMPORT
+instance_destroy();
