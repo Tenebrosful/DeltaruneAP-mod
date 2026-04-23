@@ -22,13 +22,19 @@
     
     depth = 880000;
 }
+/// END
 
-if (room == room_dw_mansion_entrance && y == 240 && x >= 800)
+/// REPLACE
+if (room == room_dw_cyber_post_music_boss_slide)
 {
-    sprite_index = spr_cutscene_26_butler;
-    image_speed = 0;
+    sprite_index = spr_cyber_broken_camera;
     
-    if (global.customflags[13] == 1)
+    if (global.plot < 150)
+        instance_destroy();
+}
+/// CODE
+if (room == room_dw_cyber_post_music_boss_slide)
+{
         instance_destroy();
 }
 /// END
