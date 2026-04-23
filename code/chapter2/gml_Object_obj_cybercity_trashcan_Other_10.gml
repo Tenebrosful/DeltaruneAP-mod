@@ -24,13 +24,13 @@ if (global.flag[flag] == 0)
     {
         global.flag[flag] = 1;
         var itemget = scr_itemget_anytype_text(item_id, "check");
-        msgnextsubloc("* (And found a ~1!)/", itemname, "obj_cybercity_trashcan_slash_Other_10_gml_16_0");
+        msgnextsubloc("* (And found ~1!)/", scr_ap_get_location_reward_text(t_itemid), "obj_cybercity_trashcan_slash_Other_10_gml_16_0");
         msgnext(itemget);
     }
     else if (item_id > 0)
     {
         var itemget = scr_itemget_anytype_text(item_id, "check");
-        msgnextsubloc("* (And found a ~1!)/", itemname, "obj_cybercity_trashcan_slash_Other_10_gml_23_0");
+        msgnextsubloc("* (And found ~1!)/", scr_ap_get_location_reward_text(t_itemid), "obj_cybercity_trashcan_slash_Other_10_gml_23_0");
         msgnext(itemget);
         
         if (noroom == 0)

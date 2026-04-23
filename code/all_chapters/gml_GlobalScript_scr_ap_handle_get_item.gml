@@ -60,7 +60,7 @@ function scr_ap_egg_item(item_id)
 
 function scr_ap_handle_chapter_unlock_item(item_id)
 {
-  var chapter_unlock_offset = 90000;
+  var chapter_unlock_offset = 90000 - 1;
   var chapter = item_id - chapter_unlock_offset;
   var item_name = "Chapter " + chapter;
 
@@ -80,11 +80,11 @@ function scr_ap_handle_ch3_points_item(item_id)
 
   if (global.chapter == 3){
     global.flag[1044] += points_amount;
-    script_execute(scr_writetext, 0, string("* (You got {0}.)/%", scr_ap_item_classification_color(points_amount + " " + points, 0)));
+    script_execute(scr_writetext, 0, string("* (You got {0}.)/%", scr_ap_item_classification_color(string(points_amount) + " " + points, 0)), 0, 6);
   }
   else
   {
-    script_execute(scr_writetext, 0, string("* (You got {0} for chapter 3.)/%", scr_ap_item_classification_color(points_amount + " " + points, 0)));
+    script_execute(scr_writetext, 0, string("* (You got {0} for chapter 3.)/%", scr_ap_item_classification_color(string(points_amount) + " " + points, 0)), 0, 6);
   }
 
 }
