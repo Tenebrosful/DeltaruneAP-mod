@@ -22,13 +22,4 @@
     
     depth = 880000;
 }
-
-if (room == room_dw_mansion_entrance && y == 240 && x >= 800)
-{
-    sprite_index = spr_cutscene_26_butler;
-    image_speed = 0;
-    
-    if (global.customflags[13] == 1)
-        instance_destroy();
-}
 /// END

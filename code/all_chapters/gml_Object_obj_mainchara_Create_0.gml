@@ -2,4 +2,5 @@
 
 /// APPEND
 scr_ap_create();
+global.bboxVisible = 0
 /// END
