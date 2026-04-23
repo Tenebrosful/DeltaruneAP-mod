@@ -852,20 +852,7 @@ function scr_itemuse(arg0)
         case 302:
             snd_play(snd_egg);
             scr_speaker("noone");
-            global.msg[0] = stringsetloc("* (You used the Egg.)/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
-            
-            if (global.customflags[999] == 1)
-            {
-                global.msg[1] = stringsetloc("* (For some reason^1, it feels like you'll send certain checks again.)/%", "scr_itemuse_slash_scr_itemuse_gml_441_0");
-                global.customflags[999] = 0;
-            }
-            else
-            {
-                global.msg[1] = stringsetloc("\\s0* (For some reason^1, it feels like you \\cRwon't send certain checks anymore.\\cW^3)/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
-                global.msg[2] = stringsetloc("\\s0* (However^1, using the Egg again may reverse this.^3)/%", "scr_itemuse_slash_scr_itemuse_gml_441_0");
-                global.customflags[999] = 1;
-            }
-            
+            global.msg[0] = stringsetloc("* (You used the Egg.)/%", "scr_itemuse_slash_scr_itemuse_gml_441_0");            
             scr_itemdialoguer();
             break;
         
@@ -915,6 +902,7 @@ function scr_itemuse(arg0)
             break;
         
         case 313:
+        if (global.chapter != 1){
             if (scr_flag_get(1269) == 0)
             {
                 scr_flag_set(1269, 1);
@@ -938,5 +926,6 @@ function scr_itemuse(arg0)
             
             scr_itemdialoguer();
             break;
+        }
     }
 }
