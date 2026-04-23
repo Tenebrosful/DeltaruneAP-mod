@@ -62,7 +62,8 @@ for (var ii = 0; ii < 7; ii++)
         switch (ii)
         {
             case 0:
-                text = "Deathlink: " + string(global.AP_deathLink);
+                var deathlink_enabled = (global.AP_deathLink == 0) ? "disabled" : "enabled";
+                text = "Deathlink: " + deathlink_enabled;
                 i = 0;
                 break;
             
@@ -151,11 +152,12 @@ if (connect)
     draw_set_color(c_white);
 }
 
+draw_set_font(fnt_main);
+draw_text_outline(10, room_height - 30, 1, "[LEFT] or [RIGHT] to change page", 2, 16777215);
 draw_set_halign(fa_right);
 var aa = room_width - 15;
 var bb = room_height - (array_length(credits) * 17);
 var gap_credits = 15;
-draw_set_font(fnt_main);
 
 for (var i = 0; i < array_length(credits); i++)
     draw_text_outline(aa, bb + (gap_credits * i), 1, credits[i], 2, 16777215);
