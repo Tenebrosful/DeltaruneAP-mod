@@ -134,4 +134,9 @@
             optionSelectable[0][j] = fusionCanMake[j];
             optionCommentA[0][j] = fusionIngredientName1[j];
             optionCommentAColor[0][j] = c_gray;
+            menuTextColor[j] = scr_ap_flags_to_color_classification(fusionResultData[j].flags);
+            menuTextColorUnselectable[j] = scr_ap_flags_to_color_classification(fusionResultData[j].flags);
+            menuTextColorHover[j] = scr_ap_flags_to_color_classification(fusionResultData[j].flags);
+            menuTextColorInactive[j] = scr_ap_flags_to_color_classification(fusionResultData[j].flags);
+            menuTextColorSelected[j] = scr_ap_flags_to_color_classification(fusionResultData[j].flags);
 /// END
