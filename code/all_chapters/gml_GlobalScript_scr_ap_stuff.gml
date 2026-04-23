@@ -198,7 +198,7 @@ function scr_ap_item_classification_color_shop(flags){
 }
 
 function scr_ap_flags_to_color_classification(flags){
-    switch (flags[i])
+    switch (flags)
     {
         case 0:
             return global.ap_filler_color
