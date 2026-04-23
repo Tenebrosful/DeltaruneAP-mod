@@ -7,6 +7,7 @@ function scr_iteminfo(arg0)
     itemtarget = 0;
     itemnameb = " ";
     itemdescb = " ";
+    itemclassification = 0;
     
     switch (arg0)
     {

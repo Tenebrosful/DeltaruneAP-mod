@@ -141,11 +141,11 @@ function scr_ap_create()
     dslst = ds_list_create();
     
     if (file_exists("receivingtype.start"))
-        global.customflags[38] = 1;
+        global.ap_check_item_anytime = false;
     else
-        global.customflags[38] = 0;
+        global.ap_check_item_anytime = true;
     
-    if (global.customflags[38] == 1)
+    if (global.ap_check_item_anytime)
         dslst = scr_findallfiles();
 
     var file = file_text_open_read("scouting.json")
@@ -223,6 +223,10 @@ function scr_ap_get_macguffin_amount()
     return to_return;
 }
 
+function scr_ap_are_we_connected(){
+    
+}
+
 function scr_ap_step()
 {
     if (global.darkzone == 1)
@@ -253,7 +257,7 @@ function scr_ap_step()
                     global.interact = 1;
                 }
                 
-                if (ds_list_size(dslst) <= 0 && global.customflags[38] == 0)
+                if (ds_list_size(dslst) <= 0 && global.ap_check_item_anytime)
                     dslst = scr_findallfiles();
                 
                 if (ds_list_size(dslst) > 0)
@@ -269,70 +273,12 @@ function scr_ap_step()
                         
                         if (fl != "")
                         {
+                            var chapterOffset = global.chapter - 1;
                             noroom = 0;
                             trueitm = real(string_digits(file_text_read_string(fl)));
                             var itm = trueitm;
                             
-                            if (trueitm >= 90000)
-                            {
-                                noroom = 0;
-                                notext = 1;
-                            }
-                            else if (trueitm >= 80000)
-                            {
-                                global.flag[1044] += trueitm - 80000;
-                            }
-                            else if (trueitm >= 70000)
-                            {
-                                noroom = 0;
-                                
-                                if (trueitm == 70000)
-                                {
-                                    if (global.MacGuffin_count == 0)
-                                        scr_keyitemget(700);
-                                }
-                                
-                                global.MacGuffin_count += 1;
-                            }
-                            else if (trueitm >= 60000)
-                            {
-                                global.gotplot[trueitm - 60000] = 1;
-                            }
-                            else if (trueitm >= 50000)
-                            {
-                                global.unlocked_buttons[trueitm - 50000] = 1;
-                            }
-                            else if (trueitm >= 40000)
-                            {
-                                global.gold += (trueitm - 40000);
-                            }
-                            else if (trueitm >= 30000)
-                            {
-                                scr_weaponget(trueitm - 30000);
-                            }
-                            else if (trueitm >= 20000)
-                            {
-                                scr_armorget(trueitm - 20000);
-                            }
-                            else if (trueitm >= 10000)
-                            {
-                                later = 1;
-                                
-                                if ((trueitm >= 10000 && trueitm <= 10007) || trueitm == 10013 || (trueitm >= 11000 && trueitm <= 11007) || (trueitm >= 11016 && trueitm <= 11017) || trueitm == 11020)
-                                {
-                                    later = 0;
-                                    
-                                    if (!((trueitm >= 11005 && trueitm <= 11007) || (trueitm >= 11016 && trueitm <= 11017) || trueitm == 11020))
-                                    {
-                                        if (scr_keyitemcheck(trueitm - 10000) == 0 || (trueitm - 10000) == 13 || (trueitm - 10000) == 4)
-                                            scr_keyitemget(trueitm - 10000);
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                scr_itemget(trueitm);
-                            }
+                            scr_ap_handle_receive_item(itm)
                             
                             file_text_close(fl);
                             
@@ -344,119 +290,6 @@ function scr_ap_step()
                                     {
                                         global.gotcheck[i] = ds_list_find_value(dslistitems, index);
                                         i = array_length_1d(global.gotcheck) + 999;
-                                    }
-                                }
-                                
-                                global.interact = 1;
-                                global.typer = 6;
-                                global.fc = 0;
-                                global.fe = 0;
-                                showingitem = 1;
-                                
-                                if (notext == 0 && string_char_at(ds_list_find_value(dslistitems, index), 1) != "-")
-                                {
-                                    if (later == 1)
-                                    {
-                                        global.customflags[trueitm - 8000] = 1;
-                                        script_execute(scr_writetext, 0, "* (You got an item for another chapter.)/%", 0, 6);
-                                    }
-                                    else if (trueitm >= 70000)
-                                    {
-                                        if (trueitm == 70000)
-                                        {
-                                            script_execute(scr_writetext, 0, "* (You got a King-Shaped Key Piece!)/%", 0, 6);
-                                        }
-                                        else
-                                        {
-                                            if (trueitm < 80000)
-                                                global.customflags[trueitm - 67300] = 1;
-                                            
-                                            script_execute(scr_writetext, 0, "* (You got an item for another chapter.)/%", 0, 6);
-                                        }
-                                    }
-                                    else if (trueitm >= 40000)
-                                    {
-                                        script_execute(scr_writetext, 0, scr_84_get_subst_string("* You got D$~1!/%", trueitm - 40000), 0, 6);
-                                    }
-                                    else if (trueitm >= 30000)
-                                    {
-                                        scr_weaponinfo(trueitm - 30000);
-                                        itemname = weaponnametemp;
-                                        script_execute(scr_writetext, 0, scr_84_get_subst_string("* You got ~1!/%", itemname), 0, 6);
-                                    }
-                                    else if (trueitm >= 20000)
-                                    {
-                                        scr_armorinfo(trueitm - 20000);
-                                        itemname = armornametemp;
-                                        script_execute(scr_writetext, 0, scr_84_get_subst_string("* You got ~1!/%", itemname), 0, 6);
-                                    }
-                                    else if (trueitm >= 10000)
-                                    {
-                                        if ((trueitm >= 10000 && trueitm <= 10007) || (trueitm == 10013 || (trueitm >= 11000 && trueitm <= 11007) || (trueitm >= 11016 && trueitm <= 11017) || trueitm == 11020))
-                                        {
-                                            if (trueitm == 11005)
-                                            {
-                                                global.hp[1] = global.maxhp[1];
-                                                snd_play(snd_swallow);
-                                                script_execute(scr_writetext, 0, "* (You ate the moss.^1)&* (Tastes..^1. mossy.^1)&* (Your HP was mossed out.)/%", 0, 6);
-                                            }
-                                            else if (trueitm == 11007)
-                                            {
-                                                global.hp[1] = global.maxhp[1];
-                                                global.msc = 0;
-                                                global.typer = 6;
-                                                global.fc = 0;
-                                                global.fe = 0;
-                                                global.interact = 1;
-                                                global.msg[0] = "\\s0* You got the \\cG[Moss]\\cW^8!/%";
-                                                d_make();
-                                                snd_play(snd_moss_fanfare);
-                                                snd_pause(global.currentsong[1]);
-                                                scr_script_delayed(snd_resume, 100, global.currentsong[1]);
-                                            }
-                                            else if (trueitm == 11006)
-                                            {
-                                                script_execute(scr_writetext, 0, "* You recieved Joe's Life Savings($1)!/%", 0, 6);
-                                                global.gold += 1;
-                                            }
-                                            else if (trueitm == 11017)
-                                            {
-                                                global.hp[1] = global.maxhp[1];
-                                                snd_play(snd_swallow);
-                                                script_execute(scr_writetext, 0, "* (\\cGMoss\\cW sent to you.^1)&* (It was consumed.)/%", 0, 6);
-                                            }
-                                            else if (trueitm == 11016)
-                                            {
-                                                script_execute(scr_writetext, 0, "\\s0* You felt it smile^3./%", 0, 6);
-                                                snd_play(snd_creepyjingle);
-                                            }
-                                            else if (trueitm == 11020)
-                                            {
-                                                global.hp[1] = global.maxhp[1];
-                                                global.msc = 0;
-                                                global.typer = 6;
-                                                global.fc = 0;
-                                                global.fe = 0;
-                                                global.interact = 1;
-                                                global.msg[0] = "\\s0* The moss was consumed with gusto^8!/%";
-                                                d_make();
-                                                snd_play(snd_moss_fanfare);
-                                                snd_pause(global.currentsong[1]);
-                                                scr_script_delayed(snd_resume, 100, global.currentsong[1]);
-                                            }
-                                            else
-                                            {
-                                                scr_keyiteminfo(trueitm - 10000);
-                                                itemname = tempkeyitemname;
-                                                script_execute(scr_writetext, 0, scr_84_get_subst_string("* You got ~1!/%", itemname), 0, 6);
-                                            }
-                                        }
-                                    }
-                                    else
-                                    {
-                                        scr_iteminfo(trueitm);
-                                        itemname = itemnameb;
-                                        script_execute(scr_writetext, 0, scr_84_get_subst_string("* You got ~1!/%", itemname), 0, 6);
                                     }
                                 }
                                 
@@ -501,12 +334,6 @@ function scr_ap_load()
 {
     global.apbalancing = file_exists("balancing.flag");
     
-    for (i = 0; i < 99; i += 1)
-    {
-        global.unlocked_buttons[i] = ossafe_file_text_read_real(myfileid);
-        ossafe_file_text_readln(myfileid);
-    }
-    
     for (i = 0; i < 9999; i += 1)
     {
         global.gotcheck[i] = ossafe_file_text_read_string(myfileid);
@@ -519,12 +346,6 @@ function scr_ap_load()
         ossafe_file_text_readln(myfileid);
     }
     
-    for (i = 0; i < 99; i += 1)
-    {
-        global.gotplot[i] = ossafe_file_text_read_real(myfileid);
-        ossafe_file_text_readln(myfileid);
-    }
-    
     global.MacGuffin_count = ossafe_file_text_read_real(myfileid);
     ossafe_file_text_readln(myfileid);
 }
@@ -532,12 +353,6 @@ function scr_ap_load()
 function scr_ap_save()
 {
     global.apbalancing = file_exists("balancing.flag");
-    
-    for (i = 0; i < 99; i += 1)
-    {
-        file_text_writeln(myfileid);
-        file_text_write_real(myfileid, global.unlocked_buttons[i]);
-    }
     
     for (i = 0; i < 9999; i += 1)
     {
@@ -551,24 +366,13 @@ function scr_ap_save()
         file_text_write_real(myfileid, global.customflags[i]);
     }
     
-    for (i = 0; i < 99; i += 1)
-    {
-        file_text_writeln(myfileid);
-        file_text_write_real(myfileid, global.gotplot[i]);
-    }
-    
     file_text_writeln(myfileid);
     file_text_write_real(myfileid, global.MacGuffin_count);
 }
 
 function scr_ap_game_start()
 {
-    global.apbalancing = file_exists("balancing.flag");
-    global.unlocked_buttons = undefined;
-    
-    for (var i = 0; i < 99; i++)
-        global.unlocked_buttons[i] = 0;
-    
+    global.apbalancing = file_exists("balancing.flag")
     global.customflags = undefined;
     
     for (var i = 0; i < 9999; i++)
