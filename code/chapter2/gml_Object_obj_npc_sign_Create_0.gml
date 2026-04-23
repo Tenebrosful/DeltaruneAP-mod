@@ -23,3 +23,18 @@
     depth = 880000;
 }
 /// END
+
+/// REPLACE
+if (room == room_dw_cyber_post_music_boss_slide)
+{
+    sprite_index = spr_cyber_broken_camera;
+    
+    if (global.plot < 150)
+        instance_destroy();
+}
+/// CODE
+if (room == room_dw_cyber_post_music_boss_slide)
+{
+        instance_destroy();
+}
+/// END

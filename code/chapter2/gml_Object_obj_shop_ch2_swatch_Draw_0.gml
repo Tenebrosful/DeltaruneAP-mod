@@ -160,3 +160,19 @@
         }
     }
 /// END
+
+/// REPLACE
+    for (i = 0; i < itemtotal; i += 1)
+    {
+        draw_text(60, 260 + (i * 40), string_hash_to_newline(shopitemname[i]));
+        draw_text(300, 260 + (i * 40), string_hash_to_newline(stringsetsubloc("$~1", string(buyvalue[i]), "obj_shop_ch2_swatch_slash_Draw_0_gml_120_0")));
+    }
+/// CODE
+    for (i = 0; i < itemtotal; i += 1)
+    {
+        scr_ap_item_classification_color_shop(shop_item_flags[i]);
+        draw_text(60, 260 + (i * 40), string_hash_to_newline(shopitemname[i]));
+        draw_set_color(c_white)
+        draw_text(300, 260 + (i * 40), string_hash_to_newline(stringsetsubloc("$~1", string(buyvalue[i]), "obj_shop_ch2_swatch_slash_Draw_0_gml_120_0")));
+    }
+/// END

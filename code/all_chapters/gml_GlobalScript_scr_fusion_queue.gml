@@ -16,6 +16,28 @@ function scr_fusion_queue(arg0)
     fusionHaveIngredient1[fusioncount] = 0;
     fusionHaveIngredient2[fusioncount] = 0;
     fusionCanMake[fusioncount] = 0;
+
+    switch (fusionResult[fusioncount])
+    {
+        case 22:
+            fusionResultData[fusioncount] = scr_ap_get_location_reward_data(40)
+        break;
+        case 8:
+            fusionResultData[fusioncount] = scr_ap_get_location_reward_data(41)
+        break;
+        case 9:
+            fusionResultData[fusioncount] = scr_ap_get_location_reward_data(102)
+        break;
+        case 13:
+            fusionResultData[fusioncount] = scr_ap_get_location_reward_data(42)
+        break;
+        case 15:
+            fusionResultData[fusioncount] = scr_ap_get_location_reward_data(103)
+        break;
+        case 11:
+            fusionResultData[fusioncount] = scr_ap_get_location_reward_data(244)
+        break;
+    }
     
     if (fusionIngredientType1[fusioncount] == "item")
     {
@@ -134,6 +156,13 @@ function scr_fusion_queue(arg0)
     {
         scr_keyiteminfo(fusionResult[fusioncount]);
         fusionResultName[fusioncount] = "Check";
+        fusionResultTopComment[fusioncount] = "Will be sent to the Multiworld";
+    }
+
+        if (fusionResultType[fusioncount] == "check")
+    {
+        scr_keyiteminfo(fusionResult[fusioncount]);
+        fusionResultName[fusioncount] = "check";
         fusionResultTopComment[fusioncount] = "Will be sent to the Multiworld";
     }
     

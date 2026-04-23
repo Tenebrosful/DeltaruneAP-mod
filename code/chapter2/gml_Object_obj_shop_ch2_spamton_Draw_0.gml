@@ -212,3 +212,20 @@ scr_checkspot(91);
 scr_checkspot(92);
 scr_checkspot(93);
 /// END
+
+/// REPLACE
+    for (i = 0; i < itemtotal; i += 1)
+    {
+        draw_set_color(c_white);
+        draw_text(60, 260 + (i * 40), string_hash_to_newline(shopitemname[i]));
+        draw_text_transformed(240, 260 + (i * 40), string_hash_to_newline(stringsetsubloc("~1 KROMER", string(buyvalue[i]), "obj_shop_ch2_spamton_slash_Draw_0_gml_337_0")), 0.5, 1, 0);
+    }
+/// CODE
+    for (i = 0; i < itemtotal; i += 1)
+    {
+        scr_ap_item_classification_color_shop(shop_item_flags[i]);
+        draw_text(60, 260 + (i * 40), string_hash_to_newline(shopitemname[i]));
+        draw_set_color(c_white);
+        draw_text_transformed(240, 260 + (i * 40), string_hash_to_newline(stringsetsubloc("~1 KROMER", string(buyvalue[i]), "obj_shop_ch2_spamton_slash_Draw_0_gml_337_0")), 0.5, 1, 0);
+    }
+/// END

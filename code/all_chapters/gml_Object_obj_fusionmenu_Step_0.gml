@@ -120,3 +120,18 @@
             }
             optionCommentAColor[0][j] = scr_ap_flags_to_color_classification(data[j].flags);
 /// END
+
+/// REPLACE
+            optionID[0][j] = fusionResult[j];
+            optionText[0][j] = fusionResultName[j];
+            optionSelectable[0][j] = fusionCanMake[j];
+            optionCommentA[0][j] = fusionIngredientName1[j];
+            optionCommentAColor[0][j] = c_gray;
+/// CODE
+
+            optionID[0][j] = fusionResult[j];
+            optionText[0][j] = fusionResultData[j].itemName;
+            optionSelectable[0][j] = fusionCanMake[j];
+            optionCommentA[0][j] = fusionIngredientName1[j];
+            optionCommentAColor[0][j] = c_gray;
+/// END
