@@ -77,10 +77,7 @@
             msgnextloc("* For $100^1, Choose your OWN flavor!!/", "scr_text_slash_scr_text_gml_4546_0");
             msgnextloc("\\C2 ", "scr_text_slash_scr_text_gml_4547_0");
 /// CODE
-            AP_sendHint(108);
-            AP_sendHint(109);
-            AP_sendHint(110);
-            AP_sendHint(111);
+            AP_sendHint([108, 109, 110, 111]);
 /// END
 
 /// REPLACE

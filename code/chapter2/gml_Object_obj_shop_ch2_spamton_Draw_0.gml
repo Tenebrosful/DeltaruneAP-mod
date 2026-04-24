@@ -207,10 +207,7 @@
 /// AFTER
 global.flag[309] = 7;
 /// CODE
-AP_sendLocation(90);
-AP_sendLocation(91);
-AP_sendLocation(92);
-AP_sendLocation(93);
+AP_sendLocation([90, 91, 92, 93]);
 /// END
 
 /// REPLACE

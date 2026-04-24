@@ -10,8 +10,6 @@
         scr_keyitemget(13);
 }
 /// CODE
-    AP_sendLocation(97);
-    AP_sendLocation(98);
-    AP_sendLocation(99);
+    AP_sendLocation([97, 98, 99]);
 }
 /// END

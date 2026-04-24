@@ -8,12 +8,7 @@
         wrap = 0;
         vwrap = 0;
 /// CODE
-        AP_sendHint(40);
-        AP_sendHint(41);
-        AP_sendHint(42);
-        AP_sendHint(102);
-        AP_sendHint(103);
-        AP_sendHint(244);
+        AP_sendHint([40, 41, 42, 102, 103, 244]);
 /// END
 
 /// REPLACE .ignore if !CHAPTER_2
@@ -56,9 +51,7 @@
         dojoFlag[2] = 811;
         dojoFlag[3] = 812;
         dojoFlag[4] = 813;
-        AP_sendHint(36);
-        AP_sendHint(37);
-        AP_sendHint(38);
+        AP_sendHint([36, 37, 38]);
 /// END
 
 /// REPLACE .ignore if !CHAPTER_2
