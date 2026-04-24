@@ -35,7 +35,7 @@ shopdesc[3] = string("{0}#[EMAIL]#{1}#[GAMER] world", items_data[3].itemName, it
     itemtype[i] = "check";
     item[i] = i + 90;
     itemcount = 99;
-    scr_hintspot(i + 90);
+    AP_sendHint(i + 90);
     
     if (global.customflags[1090 + i] == 1)
     {

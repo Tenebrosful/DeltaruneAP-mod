@@ -166,7 +166,7 @@ function scr_load_chapter1()
     ossafe_file_text_readln(myfileid);
     global.time = ossafe_file_text_read_real(myfileid);
     ossafe_file_text_readln(myfileid);
-    scr_ap_load();
+    AP_load();
     
     for (var i = 2000; i < 3999; i++)
     {

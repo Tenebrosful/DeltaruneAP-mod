@@ -114,7 +114,7 @@ for (i = 0; i < itemtotal; i += 1)
     shop_item_flags[i] = items_data[i].flags;
     itemtype[i] = "check";
     item[i] = i + 50;
-    scr_hintspot(i + 50);
+    AP_sendHint(i + 50);
     
     if (global.customflags[1050 + i] == 1)
     {

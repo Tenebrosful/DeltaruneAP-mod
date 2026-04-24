@@ -9,5 +9,5 @@
 /// REPLACE
     scr_weaponget(22);
 /// CODE
-    scr_checkspot(112);
+    AP_sendLocation(112);
 /// END

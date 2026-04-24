@@ -8,12 +8,12 @@
         wrap = 0;
         vwrap = 0;
 /// CODE
-        scr_hintspot(40);
-        scr_hintspot(41);
-        scr_hintspot(42);
-        scr_hintspot(102);
-        scr_hintspot(103);
-        scr_hintspot(244);
+        AP_sendHint(40);
+        AP_sendHint(41);
+        AP_sendHint(42);
+        AP_sendHint(102);
+        AP_sendHint(103);
+        AP_sendHint(244);
 /// END
 
 /// REPLACE .ignore if !CHAPTER_2
@@ -56,9 +56,9 @@
         dojoFlag[2] = 811;
         dojoFlag[3] = 812;
         dojoFlag[4] = 813;
-        scr_hintspot(36);
-        scr_hintspot(37);
-        scr_hintspot(38);
+        AP_sendHint(36);
+        AP_sendHint(37);
+        AP_sendHint(38);
 /// END
 
 /// REPLACE .ignore if !CHAPTER_2
@@ -70,7 +70,7 @@
                 dojoPrizeName[3] = stringsetloc(data[3].itemName, "obj_fusionmenu_slash_Step_0_gml_178_0");
                 dojoTopComment[3] = stringsetloc("Winning's as easy as A-B-C!#You've got three chances, boss!", "obj_fusionmenu_slash_Step_0_gml_180_0");
                 dojoEncounter[3] = 89;
-                scr_hintspot(100);
+                AP_sendHint(100);
 /// END
 
 /// REPLACE .ignore if !CHAPTER_2
@@ -82,7 +82,7 @@
                 dojoPrizeName[4] = stringsetloc(data[4].itemName, "obj_fusionmenu_slash_Step_0_gml_179_0");
                 dojoTopComment[4] = stringsetloc("Face everyone in a row!#It'll take some stamina...", "obj_fusionmenu_slash_Step_0_gml_181_0");
                 dojoEncounter[4] = 90;
-                scr_hintspot(101);
+                AP_sendHint(101);
 /// END
 
 /// REPLACE
@@ -90,17 +90,17 @@
 /// CODE
         
         if (fusionResult[menuCoord[0]] == 22)
-            scr_checkspot(40);
+            AP_sendLocation(40);
         else if (fusionResult[menuCoord[0]] == 8)
-            scr_checkspot(41);
+            AP_sendLocation(41);
         else if (fusionResult[menuCoord[0]] == 9)
-            scr_checkspot(102);
+            AP_sendLocation(102);
         else if (fusionResult[menuCoord[0]] == 13)
-            scr_checkspot(42);
+            AP_sendLocation(42);
         else if (fusionResult[menuCoord[0]] == 15)
-            scr_checkspot(103);
+            AP_sendLocation(103);
         else if (fusionResult[menuCoord[0]] == 11)
-            scr_checkspot(244);
+            AP_sendLocation(244);
 /// END
 
 /// REPLACE .ignore if !CHAPTER_2

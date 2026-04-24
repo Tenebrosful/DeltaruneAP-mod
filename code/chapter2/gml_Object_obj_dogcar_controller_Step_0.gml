@@ -3,5 +3,5 @@
 /// REPLACE
             scr_itemget(33);
 /// CODE
-            scr_checkspot(66);
+            AP_sendLocation(66);
 /// END

@@ -9,9 +9,9 @@
 if (con == 34 && !d_ex())
 {
 /// CODE
-    scr_checkspot(25);
-    scr_checkspot(26);
-    scr_checkspot(27);
+    AP_sendLocation(25);
+    AP_sendLocation(26);
+    AP_sendLocation(27);
 
     global.msg[0] = string("* (You got {0}.)/", scr_ap_get_location_reward_text(25));
     global.msg[1] = string("* (You got {0}.)/", scr_ap_get_location_reward_text(26));

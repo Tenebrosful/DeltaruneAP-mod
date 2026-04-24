@@ -236,7 +236,7 @@ if (menu == 1 || menu == 2)
                             scr_armorget(item[menuc[1]]);
                         
                         if (itemtype[menuc[1]] == "check")
-                            scr_checkspot(item[menuc[1]]);
+                            AP_sendLocation(item[menuc[1]]);
                         
                         if (noroom == 0)
                         {

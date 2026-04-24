@@ -10,8 +10,8 @@
         scr_keyitemget(13);
 }
 /// CODE
-    scr_checkspot(97);
-    scr_checkspot(98);
-    scr_checkspot(99);
+    AP_sendLocation(97);
+    AP_sendLocation(98);
+    AP_sendLocation(99);
 }
 /// END

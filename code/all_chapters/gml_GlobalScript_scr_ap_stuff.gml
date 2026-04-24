@@ -9,13 +9,13 @@ function scr_victory(arg0)
             case 0:
                 break;
             case 1:
-                scr_checkspot(185);
+                AP_sendLocation(185);
             case 2:
-                scr_checkspot(186);
+                AP_sendLocation(186);
             case 3:
-                scr_checkspot(187);
+                AP_sendLocation(187);
             case 4:
-                scr_checkspot(225);
+                AP_sendLocation(225);
             default:
                 break;
         }
@@ -36,19 +36,16 @@ function scr_victory(arg0)
     }
 }
 
-function scr_checkspot(location_id)
+function AP_sendLocation(location_id)
 {
     noroom = 0;
-    obj_archipelago_client.AP_sendCheck(location_id);
+    obj_archipelago_client.AP_sendLocation(location_id);
 }
 
-function scr_hintspot(location_id)
+function AP_sendHint(location_id)
 {
     noroom = 0;
-    file = file_text_open_append("scout");
-    file_text_write_string(file, string(location_id));
-    file_text_writeln(file);
-    file_text_close(file);
+    obj_archipelago_client.AP_sendHint(location_id);
 }
 
 function scr_ap_death_link()
@@ -117,7 +114,7 @@ function scr_findallfiles()
     return _list;
 }
 
-function scr_ap_create()
+function AP_create()
 {
     scr_ap_const()
     canshowtext = 1;
@@ -213,7 +210,7 @@ function ap_are_we_connected(){
     
 }
 
-function scr_ap_step()
+function AP_steap()
 {
     if (global.darkzone == 1)
     {
@@ -318,7 +315,7 @@ function scr_ap_step()
     }
 }
 
-function scr_ap_load()
+function AP_load()
 {
     global.apbalancing = file_exists("balancing.flag");
     
@@ -338,7 +335,7 @@ function scr_ap_load()
     ossafe_file_text_readln(myfileid);
 }
 
-function scr_ap_save()
+function AP_save()
 {
     global.apbalancing = file_exists("balancing.flag");
     
@@ -358,7 +355,7 @@ function scr_ap_save()
     file_text_write_real(myfileid, global.MacGuffin_count);
 }
 
-function scr_ap_game_start()
+function AP_game_start()
 {
     if (!instance_exists(obj_archipelago_client))
     {

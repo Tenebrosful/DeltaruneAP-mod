@@ -36,7 +36,7 @@
             msgnextloc("* We're selling this for 75`% off! Only 300 Dark Dollars!/", "scr_text_slash_scr_text_gml_4487_0");
             msgnextloc("\\C2 ", "scr_text_slash_scr_text_gml_4489_0");
 /// CODE
-            scr_hintspot(65);
+            AP_sendHint(65);
 /// END
 
 /// REPLACE
@@ -55,7 +55,7 @@
                         msgnextloc("* (It was added to your ARMORS.)/%", "scr_text_slash_scr_text_gml_4534_0_b");
                     }
 /// CODE
-                    scr_checkspot(65);
+                    AP_sendLocation(65);
                     global.customflags[12] = 1;
                     
                     if (noroom == 0)
@@ -77,10 +77,10 @@
             msgnextloc("* For $100^1, Choose your OWN flavor!!/", "scr_text_slash_scr_text_gml_4546_0");
             msgnextloc("\\C2 ", "scr_text_slash_scr_text_gml_4547_0");
 /// CODE
-            scr_hintspot(108);
-            scr_hintspot(109);
-            scr_hintspot(110);
-            scr_hintspot(111);
+            AP_sendHint(108);
+            AP_sendHint(109);
+            AP_sendHint(110);
+            AP_sendHint(111);
 /// END
 
 /// REPLACE
@@ -160,7 +160,7 @@
                                 msgnextloc("* (You sent a Check to your Multiworld.)/%", "scr_text_slash_scr_text_gml_4999_0");
                                 global.flag[313] = 1;
                                 global.customflags[10] = 1;
-                                scr_checkspot(39);
+                                AP_sendLocation(39);
 /// END
 
 /// REPLACE
@@ -170,7 +170,7 @@
                                 msgnextloc("* (You sent a Check to your Multiworld.)/", "scr_text_slash_scr_text_gml_5009_0");
                                 msgnextloc("* Come again another day^1! Haha hiha!/%", "scr_text_slash_scr_text_gml_5010_0");
                                 global.customflags[10] = 1;
-                                scr_checkspot(39);
+                                AP_sendLocation(39);
 /// END
 
 /// REPLACE
@@ -182,7 +182,7 @@
 /// CODE
                 msgsetloc(0, "* (A Check was sent to your Multiworld.)/%", "scr_text_slash_scr_text_gml_5633_0");
                 snd_play(snd_item);
-                scr_checkspot(96);
+                AP_sendLocation(96);
                 
                 if (global.customflags[15] == 0)
                     global.customflags[15] = 1;
@@ -191,7 +191,7 @@
 /// REPLACE
                     scr_weaponget(13);
 /// CODE
-                    scr_checkspot(113);
+                    AP_sendLocation(113);
                     global.customflags[18] = 1;
 /// END
 
@@ -227,7 +227,7 @@
                 scr_speaker("no_name");
                 msgsetloc(0, string("* He sent {0} to your multiworld./%", scr_ap_get_location_reward_text(67)), "scr_text_slash_scr_text_gml_6548_0");
                 snd_play(snd_egg);
-                scr_checkspot(67);
+                AP_sendLocation(67);
             }
             
             if (global.choice == 1)

@@ -7,6 +7,6 @@
 /// CODE
         
         if (global.customflags[999] == 0)
-            scr_checkspot(86);
+            AP_sendLocation(86);
       
 /// END

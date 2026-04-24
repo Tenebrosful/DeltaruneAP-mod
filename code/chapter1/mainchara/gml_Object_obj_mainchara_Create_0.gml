@@ -12,7 +12,7 @@ subx = 0;
 suby = 0;
 walkanim = 0;
 /// CODE
-scr_ap_create();
+AP_create();
 /// END
 
 /// REPLACE

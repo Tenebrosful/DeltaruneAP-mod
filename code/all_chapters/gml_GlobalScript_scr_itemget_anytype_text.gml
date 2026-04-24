@@ -11,7 +11,7 @@
     {
         itemname = "Check";
         itemtypename = "Multiworld";
-        scr_checkspot(t_itemid);
+        AP_sendLocation(t_itemid);
     }
     
 /// END

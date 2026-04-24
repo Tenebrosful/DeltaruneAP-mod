@@ -27,7 +27,7 @@ shopdesc[3] = string("{0}#Will be#sent to#{1}#world", items_data[3].itemName, it
     itemtype[i] = "check";
     item[i] = i + 70;
     itemcount = 99;
-    scr_hintspot(i + 70);
+    AP_sendHint(i + 70);
     
     if (global.customflags[1070 + i] == 1)
     {

@@ -8,5 +8,5 @@
             victorySprite = spr_keyboard_puzzle_bluecheck;
             global.interact = 0;
             checkscreen = instance_create(monitorx + 40, 80, obj_queenscreen);
-            scr_checkspot(230);
+            AP_sendLocation(230);
 /// END

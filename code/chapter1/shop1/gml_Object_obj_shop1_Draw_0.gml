@@ -315,7 +315,7 @@ if (menu == 1 || menu == 2)
                         }
                         
                         if (itemtype[menuc[1]] == "check")
-                            scr_checkspot(item[menuc[1]]);
+                            AP_sendLocation(item[menuc[1]]);
                         
                         global.customflags[1000 + item[menuc[1]]] = 1;
                         
@@ -737,7 +737,7 @@ if (menu == 4)
                 global.msg[11] = scr_84_get_lang_string("obj_shop1_slash_Draw_0_gml_484_0");
                 global.msg[12] = scr_84_get_lang_string("obj_shop1_slash_Draw_0_gml_485_0");
                 global.msg[13] = scr_84_get_lang_string("obj_shop1_slash_Draw_0_gml_486_0");
-                scr_checkspot(29);
+                AP_sendLocation(29);
                 global.flag[115] = 1;
             }
             

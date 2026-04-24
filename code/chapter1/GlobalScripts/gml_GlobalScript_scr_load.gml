@@ -324,7 +324,7 @@ function scr_load()
     ossafe_file_text_readln(myfileid);
     global.time = ossafe_file_text_read_real(myfileid);
     ossafe_file_text_readln(myfileid);
-    scr_ap_load();
+    AP_load();
     ossafe_file_text_close(myfileid);
     global.lastsavedtime = global.time;
     global.lastsavedlv = global.lv;

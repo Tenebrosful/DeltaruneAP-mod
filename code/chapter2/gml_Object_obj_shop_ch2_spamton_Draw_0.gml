@@ -174,7 +174,7 @@
                             scr_armorget(item[menuc[1]]);
                         
                         if (itemtype[menuc[1]] == "check")
-                            scr_checkspot(item[menuc[1]]);
+                            AP_sendLocation(item[menuc[1]]);
                         
                         if (noroom == 0)
                         {
@@ -207,10 +207,10 @@
 /// AFTER
 global.flag[309] = 7;
 /// CODE
-scr_checkspot(90);
-scr_checkspot(91);
-scr_checkspot(92);
-scr_checkspot(93);
+AP_sendLocation(90);
+AP_sendLocation(91);
+AP_sendLocation(92);
+AP_sendLocation(93);
 /// END
 
 /// REPLACE

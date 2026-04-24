@@ -7,7 +7,7 @@
         
         if (global.customflags[999] == 0)
         {
-            scr_checkspot(12);
+            AP_sendLocation(12);
             global.msg[5] += "%";
         }
         else
@@ -30,5 +30,5 @@
 /// CODE
     if (con == 40 && d_ex() == 0)
     {
-        scr_checkspot(12);
+        AP_sendLocation(12);
 /// END

@@ -24,7 +24,7 @@ function scr_recruit()
             if (_recruitanim.firstnumber == _recruitanim.secondnumber)
             {
                 if (_checkid != 0)
-                    scr_checkspot(_checkid);
+                    AP_sendLocation(_checkid);
             }
         }
     }

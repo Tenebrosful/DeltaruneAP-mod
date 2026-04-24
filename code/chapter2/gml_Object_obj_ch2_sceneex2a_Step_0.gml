@@ -44,9 +44,9 @@
     c_talk_wait();
     c_wait(5);
     noroom = 0;
-    scr_checkspot(97);
-    scr_checkspot(98);
-    scr_checkspot(99);
+    AP_sendLocation(97);
+    AP_sendLocation(98);
+    AP_sendLocation(99);
     c_speaker("no_name");
     c_talk_wait();
 /// END

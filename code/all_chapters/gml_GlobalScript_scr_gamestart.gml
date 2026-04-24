@@ -30,7 +30,7 @@ function scr_gamestart()
     global.ambush = 0;
     global.tension = 0;
     global.maxtension = 250;
-    scr_ap_game_start();
+    AP_game_start();
     
     for (i = 0; i < 3; i += 1)
     {

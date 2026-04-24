@@ -3,7 +3,7 @@
 /// AFTER
     ossafe_file_text_write_real(myfileid, global.time);
 /// CODE
-    scr_ap_save();
+    AP_save();
 /// END
 
 /// REPLACE

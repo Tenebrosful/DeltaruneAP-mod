@@ -8,7 +8,7 @@
 /// CODE
             
             if (scr_sideb_get_phase() > 2)
-                scr_checkspot(113);
+                AP_sendLocation(113);
         }
         else
         {

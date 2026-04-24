@@ -95,16 +95,44 @@ function AP_isAuthenticated()
     return false;
 }
 
-function AP_sendCheck(arg0)
+function AP_sendLocation(arg0)
 {
     if (!AP_isAuthenticated())
         exit;
     
     var _contents = 
     {
-        cmd: "LocationChecks",
-        locations: [arg0]
+        cmd: "LocationChecks"
     };
+
+    if (is_array(arg0))
+        _contents.locations = arg0;
+    else
+        _contents.locations = [arg0];
+
+    var arr = [_contents];
+    location = json_stringify(arr);
+    var buffer = buffer_create(string_byte_length(aa), buffer_fixed, 1);
+    buffer_seek(buffer, buffer_seek_start, 0);
+    buffer_write(buffer, buffer_text, location);
+    network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
+}
+
+function AP_sendHint(arg0)
+{
+    if (!AP_isAuthenticated())
+        exit;
+
+    var _contents =
+    {
+        cmd: "CreateHints"   
+    };
+
+    if (is_array(arg0))
+        _contents.locations = arg0;
+    else
+        _contents.locations = [arg0];
+
     var arr = [_contents];
     location = json_stringify(arr);
     var buffer = buffer_create(string_byte_length(aa), buffer_fixed, 1);

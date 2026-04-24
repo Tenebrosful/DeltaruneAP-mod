@@ -127,7 +127,7 @@ function scr_text(arg0)
             {
                 global.msg[0] = string("* You got {0}./%", scr_ap_get_location_reward_text(1));
                 global.flag[100] = 1;
-                scr_checkspot(1);
+                AP_sendLocation(1);
                 
                 with (obj_readable_room1)
                 {
@@ -410,7 +410,7 @@ function scr_text(arg0)
         case 146:
             if (global.choice == 0)
             {
-                scr_checkspot(2 + global.flag[101]);
+                AP_sendLocation(2 + global.flag[101]);
                 
                 if (noroom == 0)
                 {
@@ -457,7 +457,7 @@ function scr_text(arg0)
         case 148:
             if (global.choice == 0)
             {
-                scr_checkspot(4 + global.flag[102]);
+                AP_sendLocation(4 + global.flag[102]);
                 
                 if (noroom == 0)
                 {
@@ -498,7 +498,7 @@ function scr_text(arg0)
         case 150:
             if (global.choice == 0)
             {
-                scr_checkspot(23);
+                AP_sendLocation(23);
                 
                 if (noroom == 0)
                 {
@@ -1753,7 +1753,7 @@ function scr_text(arg0)
             
                 global.msg[0] = string("* (As your hands touched it^1, the moss turned into {0}./%", scr_ap_get_location_reward_text(35));
                 global.flag[106] = 1;
-                scr_checkspot(35);
+                AP_sendLocation(35);
             }
             
             if (global.choice == 1)
@@ -1779,7 +1779,7 @@ function scr_text(arg0)
         case 301:
             if (global.choice == 0)
             {
-                scr_checkspot(30);
+                AP_sendLocation(30);
                 
                 if (noroom == 1)
                 {
@@ -1924,7 +1924,7 @@ function scr_text(arg0)
                 global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_1858_0");
                 global.msg[2] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_1859_0");
                 global.msg[3] = " ";
-                scr_hintspot(7);
+                AP_sendHint(7);
             }
             
             break;
@@ -1934,7 +1934,7 @@ function scr_text(arg0)
             {
                 if (global.gold >= 40)
                 {
-                    scr_checkspot(7);
+                    AP_sendLocation(7);
                     global.customflags[7] = 1;
                     
                     if (noroom == 0)
@@ -1974,7 +1974,7 @@ function scr_text(arg0)
                 global.msg[0] = string("* (Hathy offers {0}.^1)/", scr_ap_get_location_reward_text(8));
                 global.msg[1] = "* (Proceeds go to Hathy's Health. It costs $40.)/"
                 global.msg[2] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_1905_0");
-                scr_hintspot(8);
+                AP_sendHint(8);
                 break;
             }
         
@@ -1983,7 +1983,7 @@ function scr_text(arg0)
             {
                 if (global.gold >= 40)
                 {
-                    scr_checkspot(8);
+                    AP_sendLocation(8);
                     global.customflags[8] = 1;
                     
                     if (noroom == 0)
@@ -2024,7 +2024,7 @@ function scr_text(arg0)
             global.msg[5] = stringsetloc("* It's a mere $40./", "scr_text_slash_scr_text_gml_1953_0");
             global.msg[6] = stringsetloc("\\C2 ", "scr_text_slash_scr_text_gml_1952_0");
             global.msg[7] = stringsetloc(" ", "scr_text_slash_scr_text_gml_1955_0");
-            scr_hintspot(9);
+            AP_sendHint(9);
             break;
         
         case 331:
@@ -2032,7 +2032,7 @@ function scr_text(arg0)
             {
                 if (global.gold >= 40)
                 {
-                    scr_checkspot(9);
+                    AP_sendLocation(9);
                     
                     if (noroom == 0)
                     {
@@ -2955,7 +2955,7 @@ function scr_text(arg0)
                 global.msg[2] = stringsetloc("\\E3* Forgive me or I'll crush you^1, dweeb!!/", "scr_text_slash_scr_text_gml_2824_0");
                 scr_noface(3);
                 global.msg[4] = string("* I..^1. I'm sorry!!^1! I forgive you!!^1! Here^1, take {0}!/%", scr_ap_get_location_reward_text(10))
-                scr_checkspot(10);
+                AP_sendLocation(10);
                 
                 if (noroom == 1)
                 {
@@ -3300,7 +3300,7 @@ function scr_text(arg0)
             if (global.choice == 0)
             {
                 scr_keyitemremove(1004);
-                scr_checkspot(11);
+                AP_sendLocation(11);
                 global.msg[0] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3151_0");
                 global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3152_0");
                 global.msg[2] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3153_0");
@@ -3358,7 +3358,7 @@ function scr_text(arg0)
             {
                 global.msg[0] = string("* (He sent {0} to your Multiworld.)/%", scr_ap_get_location_reward_text(24));
                 snd_play(snd_egg);
-                scr_checkspot(24);
+                AP_sendLocation(24);
             }
             else
             {
