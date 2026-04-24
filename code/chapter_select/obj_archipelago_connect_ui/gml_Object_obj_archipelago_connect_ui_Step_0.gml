@@ -36,9 +36,15 @@ if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")))
         if (page == 0)
         {
             connect = true;
-            global.AP_isAuthenticated = 0;
-            audio_play_sound(snd_select, 1, false);
-            alarm[0] = 1;
+            
+            if (global.AP_server != "" && global.AP_port != "" && global.AP_name != "")
+            {
+                global.AP_isAuthenticated = 0;
+                audio_play_sound(snd_select, 1, false);
+                alarm[0] = 1;
+            }
+            
+            global.AP_isAuthenticated = 1;
             exit;
         }
     }
@@ -161,7 +167,11 @@ if (edit)
                 break;
             
             case 1:
-                global.AP_port = real(current);
+                if (string_length(current) > 0)
+                    global.AP_port = real(current);
+                else
+                    global.AP_port = "";
+                
                 break;
             
             case 2:
