@@ -38,7 +38,7 @@ class ArchipelagoLoader : UMPLoader
 
     public override bool AcceptFile(string filePath)
     {
-        return (chnum > 0 && filePath.Contains("all_chapters")) || filePath.Contains(getChapterFolderName);
+        return (chnum > 0 && filePath.Contains("all_chapters")) || filePath.Contains(getChapterFolderName) || filePath.Contains("common");
     }
 
     public override string[] GetCodeNames(string filePath)
