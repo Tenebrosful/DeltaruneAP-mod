@@ -46,7 +46,17 @@ function AP_connect()
         AP_disconnect();
     
     global.AP_isAuthenticated = 0;
-    global.AP_socket = network_create_socket(ws);
+    if (global.AP_server == "archipelago.gg")
+        global.AP_secure = true;
+    else
+        global.AP_secure = false;
+
+    if (global.AP_secure == true && global.AP_socket != network_create_socket(wss))
+        global.AP_socket = network_create_socket(wss);
+
+    if (global.AP_secure == false && global.AP_socket != network_create_socket(ws))
+        global.AP_socket = network_create_socket(ws);
+
     var APgame = "DELTARUNE";
     var tags = ["AP"]
     if(global.AP_deathLink)

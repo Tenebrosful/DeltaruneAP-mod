@@ -37,18 +37,6 @@ for (var i = 1; i <= 4; i++)
 
 step = 0;
 
-if (global.AP_server == "archipelago.gg")
-    global.AP_secure = true;
-else
-    global.AP_secure = false;
-
-global.AP_isConnected = false;
-
-if (global.AP_secure == true && global.AP_socket != network_create_socket(wss))
-    global.AP_socket = network_create_socket(wss);
-
-if (global.AP_secure == false && global.AP_socket != network_create_socket(ws))
-    global.AP_socket = network_create_socket(ws);
 
 event_user(0);
 
