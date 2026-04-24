@@ -210,7 +210,7 @@ function ap_are_we_connected(){
     
 }
 
-function AP_steap()
+function AP_step()
 {
     if (global.darkzone == 1)
     {
