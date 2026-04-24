@@ -12,25 +12,25 @@ function scr_ap_handle_receive_item(item_id)
   if (item_id == 66666){
     return;
   }
-  if (item_id >= global.ap_item_offset.chapter_unlock){
+  if (item_id >= global.AP_item_offset.chapter_unlock){
     scr_ap_handle_chapter_unlock_item(item_id);
   }
-  else if (item_id >= global.ap_item_offset.ch3_points){
+  else if (item_id >= global.AP_item_offset.ch3_points){
     scr_ap_handle_ch3_points_item(item_id);
   }
-  else if (item_id >= global.ap_item_offset.macguffin){
+  else if (item_id >= global.AP_item_offset.macguffin){
     scr_ap_handle_macguffin_item(item_id);
   }
-  else if (item_id >= global.ap_item_offset.money){
+  else if (item_id >= global.AP_item_offset.money){
     scr_ap_handle_money_item(item_id);
   }
-  else if (item_id >= global.ap_item_offset.weapon){
+  else if (item_id >= global.AP_item_offset.weapon){
     scr_ap_handle_weapon_item(item_id);
   }
-  else if (item_id >= global.ap_item_offset.armor){
+  else if (item_id >= global.AP_item_offset.armor){
     scr_ap_handle_armor_item(item_id);
   }
-  else if (item_id >= global.ap_item_offset.keyitem){
+  else if (item_id >= global.AP_item_offset.keyitem){
     scr_ap_handle_keyitem(item_id);
   }
   else{
@@ -53,7 +53,7 @@ function scr_ap_egg_item(item_id)
 
 function scr_ap_handle_chapter_unlock_item(item_id)
 {
-  var chapter = item_id - global.ap_item_offset.chapter;
+  var chapter = item_id - global.AP_item_offset.chapter;
   var item_name = "Chapter " + string(chapter);
 
   script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", scr_ap_item_classification_color(item_name, 1)), 0, 6);
@@ -61,7 +61,7 @@ function scr_ap_handle_chapter_unlock_item(item_id)
 
 function scr_ap_handle_ch3_points_item(item_id)
 {
-  var points_amount = item_id - global.ap_item_offset.ch3_points;
+  var points_amount = item_id - global.AP_item_offset.ch3_points;
   var points = "";
 
   if (points_amount > 1)
@@ -82,7 +82,7 @@ function scr_ap_handle_ch3_points_item(item_id)
 
 function scr_ap_handle_macguffin_item(item_id)
 {
-  scr_keyiteminfo(item_id - global.ap_item_offset.macguffin + 700)
+  scr_keyiteminfo(item_id - global.AP_item_offset.macguffin + 700)
 
   if (global.chapter == tempkeyitemchapter)
     global.MacGuffin_count += 1;
@@ -92,7 +92,7 @@ function scr_ap_handle_macguffin_item(item_id)
 
 function scr_ap_handle_keyitem(item_id)
 {
-  scr_ap_handle_real_keyitem(item_id - global.ap_item_offset.keyitem);
+  scr_ap_handle_real_keyitem(item_id - global.AP_item_offset.keyitem);
 }
 
 function scr_ap_handle_real_keyitem(realitem_id)
@@ -109,7 +109,7 @@ function scr_ap_handle_real_keyitem(realitem_id)
 
 function scr_ap_handle_money_item(item_id)
 {
-  var amount = item_id - global.ap_item_offset.money;
+  var amount = item_id - global.AP_item_offset.money;
 
   global.gold += amount;
   script_execute(scr_writetext, 0, string("* (You got {0}.)/%", scr_ap_item_classification_color("D$" + string(amount), 0)), 0, 6);
@@ -117,7 +117,7 @@ function scr_ap_handle_money_item(item_id)
 
 function scr_ap_handle_weapon_item(item_id)
 {
-  var weapon_id = item_id - global.ap_item_offset.weapon;
+  var weapon_id = item_id - global.AP_item_offset.weapon;
 
   scr_weaponinfo(weapon_id);
   var item_name = weaponnametemp;
@@ -129,7 +129,7 @@ function scr_ap_handle_weapon_item(item_id)
 
 function scr_ap_handle_armor_item(item_id)
 {
-  var armor_id = item_id - global.ap_item_offset.armor;
+  var armor_id = item_id - global.AP_item_offset.armor;
 
   scr_armorinfo(armor_id);
   var item_name = armornametemp;

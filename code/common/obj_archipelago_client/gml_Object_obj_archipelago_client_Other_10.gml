@@ -109,6 +109,11 @@ function AP_sendLocation(arg0)
         _contents.locations = arg0;
     else
         _contents.locations = [arg0];
+    
+    for (var i = 0; i < array_length(_contents.locations); i++)
+    {
+        _contents.locations[i] = int64(_contents.locations[i]);
+    }
 
     var arr = [_contents];
     location = json_stringify(arr);
@@ -125,13 +130,18 @@ function AP_sendHint(arg0)
 
     var _contents =
     {
-        cmd: "CreateHints"   
+        cmd: "CreateHints"
     };
 
     if (is_array(arg0))
         _contents.locations = arg0;
     else
         _contents.locations = [arg0];
+
+    for (var i = 0; i < array_length(_contents.locations); i++)
+    {
+        _contents.locations[i] = int64(_contents.locations[i]);
+    }
 
     var arr = [_contents];
     location = json_stringify(arr);
