@@ -42,6 +42,7 @@ if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")))
                 global.AP_isAuthenticated = 0;
                 audio_play_sound(snd_select, 1, false);
                 alarm[0] = 1;
+                exit;
             }
             
             global.AP_isAuthenticated = 1;
