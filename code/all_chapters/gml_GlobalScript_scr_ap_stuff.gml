@@ -1,7 +1,4 @@
 /// FUNCTIONS
-function scr_ap_stuff()
-{
-}
 
 function scr_victory(arg0)
 {
@@ -39,24 +36,17 @@ function scr_victory(arg0)
     }
 }
 
-function scr_checkspot(arg0)
+function scr_checkspot(location_id)
 {
     noroom = 0;
-    file = file_text_open_append("check.spot");
-    file_text_write_string(file, string(arg0));
-    file_text_writeln(file);
-    file_text_close(file);
-    file = file_text_open_append("checkbackup.spot");
-    file_text_write_string(file, string(arg0));
-    file_text_writeln(file);
-    file_text_close(file);
+    obj_archipelago_client.AP_sendCheck(location_id);
 }
 
-function scr_hintspot(arg0)
+function scr_hintspot(location_id)
 {
     noroom = 0;
     file = file_text_open_append("scout");
-    file_text_write_string(file, string(arg0));
+    file_text_write_string(file, string(location_id));
     file_text_writeln(file);
     file_text_close(file);
 }
@@ -68,10 +58,6 @@ function scr_ap_death_link()
         file = file_text_open_append("DontBeMad.mad");
         file_text_close(file);
     }
-}
-
-function scr_ap_get_check_completion()
-{
 }
 
 function scr_findallfiles()
@@ -223,7 +209,7 @@ function scr_ap_get_macguffin_amount()
     return to_return;
 }
 
-function scr_ap_are_we_connected(){
+function ap_are_we_connected(){
     
 }
 
@@ -236,23 +222,25 @@ function scr_ap_step()
             if (file_exists("deathlink.flag") && file_exists("WelcomeToTheDead.youDied"))
                 scr_gameover();
             
-            if (wait == 1 && file_exists("macguffin_amount.flag") && instance_exists(obj_dialoguer) == 0)
+            if (wait == 1 && obj_archipelago_client.AP_isAuthenticated() && instance_exists(obj_dialoguer) == 0)
             {
                 wait = 0;
                 global.interact = 0;
             }
-            else if (wait == 1 && !file_exists("macguffin_amount.flag") && instance_exists(obj_dialoguer) == 0)
+            else if (wait == 1 && !obj_archipelago_client.AP_isAuthenticated() && instance_exists(obj_dialoguer) == 0)
             {
-                script_execute(scr_writetext, 0, "\\s0* (You should probably reconnect to the Multiworld before continuing...)/%", 0, 6);
+                script_execute(scr_writetext, 0, "\\s0* (We are trying to reconnect...)/%", 0, 6);
+                obj_archipelago_client.Connect();
                 wait = 1;
                 global.interact = 1;
             }
             
             if (global.interact == 0 && instance_exists(obj_fadein) == 0 && instance_exists(obj_fadeout) == 0 && instance_exists(obj_dialoguer) == 0 && cutscene == 0)
             {
-                if (!file_exists("macguffin_amount.flag"))
+                if (!obj_archipelago_client.AP_isAuthenticated())
                 {
                     script_execute(scr_writetext, 0, "\\s0* (You get the sinking feeling that you have disconnected from the Multiworld.)/%", 0, 6);
+                    obj_archipelago_client.Connect();
                     wait = 1;
                     global.interact = 1;
                 }
@@ -372,6 +360,13 @@ function scr_ap_save()
 
 function scr_ap_game_start()
 {
+    if (!instance_exists(obj_archipelago_client))
+    {
+        instance_create(0, 0, obj_archipelago_client);
+        if(!obj_archipelago_client.AP_isAuthenticated())
+            obj_archipelago_client.AP_connect();
+    }
+
     global.apbalancing = file_exists("balancing.flag")
     global.customflags = undefined;
     

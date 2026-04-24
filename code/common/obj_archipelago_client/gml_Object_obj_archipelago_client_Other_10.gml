@@ -19,13 +19,13 @@ function AP_write_settings_file()
     file_text_close(file);
     // deathlink
     settings = 
-        {
-            deathLink: global.AP_deathLink
-        }
-        setting_json = json_stringify(settings);
-        var file = file_text_open_write(global.AP_multiworld + "/settings.json");
-        file_text_write_string(file, setting_json);
-        file_text_close(file);
+    {
+        deathLink: global.AP_deathLink
+    }
+    setting_json = json_stringify(settings);
+    var file = file_text_open_write(global.AP_multiworld + "/settings.json");
+    file_text_write_string(file, setting_json);
+    file_text_close(file);
 }
 
 function AP_read_settings_file()

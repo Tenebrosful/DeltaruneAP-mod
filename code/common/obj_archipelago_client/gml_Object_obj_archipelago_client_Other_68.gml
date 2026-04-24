@@ -26,7 +26,6 @@ if (ds_map_exists(async_load, "buffer"))
     {
         if (variable_struct_exists(data[i], "cmd"))
         {
-
             // get archipelago multiworld
             if(global.AP_multiworld == 0)
 			    global.AP_multiworld = data[0].seed_name;
@@ -88,7 +87,7 @@ if (ds_map_exists(async_load, "buffer"))
                         for (var ii = 0; ii < array_length(data[i].items); ii++)
                         {
                             if (data[i].items[ii].item >= 90000)
-                                global.AP_chapter[data[i].items[ii].item - 89999] = true;
+                                global.AP_chapter[data[i].items[ii].item - 90000 +1] = true;
                         }
                     }
             }

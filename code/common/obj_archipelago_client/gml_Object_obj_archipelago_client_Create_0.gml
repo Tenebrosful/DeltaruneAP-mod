@@ -21,6 +21,16 @@ global.AP_color =
     trap: 255,
     useful_progression: 65535
 };
+global.AP_item_offset =
+{
+    keyitem: 10000,
+    armor: 20000,
+    weapon: 30000,
+    money: 40000,
+    macguffin: 70000,
+    ch3_points: 80000,
+    chapter_unlock: 90000
+};
 
 for (var i = 1; i <= 4; i++)
     global.AP_chapter[i] = false;

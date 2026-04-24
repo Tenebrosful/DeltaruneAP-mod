@@ -7,8 +7,3 @@ function scr_ap_const()
     var global.ap_usefull_progression_color = c_yellow;
     var global.ap_trap_color = c_red;
 }
-
-
-
-
-

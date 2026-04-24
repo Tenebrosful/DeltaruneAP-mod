@@ -1,16 +1,6 @@
 /// FUNCTIONS
 function scr_ap_handle_receive_item(item_id)
 {
-  var keyitem_offset = 10000;
-  var armor_offset = 20000;
-  var weapon_offset = 30000;
-  var money_offset = 40000;
-  // var warp_offset = 50000;
-  var what_interesting_behavior = 66666;
-  var macguffin_offset = 70000;
-  var ch3_points_offset = 80000;
-  var chapter_unlock_offset = 90000;
-
   global.interact = 1;
   global.typer = 6;
   global.fc = 0;
@@ -19,25 +9,28 @@ function scr_ap_handle_receive_item(item_id)
 
   item_id = scr_ap_egg_item(item_id);
 
-  if (item_id >= chapter_unlock_offset){
+  if (item_id == 66666){
+    return;
+  }
+  if (item_id >= global.ap_item_offset.chapter_unlock){
     scr_ap_handle_chapter_unlock_item(item_id);
   }
-  else if (item_id >= ch3_points_offset){
+  else if (item_id >= global.ap_item_offset.ch3_points){
     scr_ap_handle_ch3_points_item(item_id);
   }
-  else if (item_id >= macguffin_offset){
+  else if (item_id >= global.ap_item_offset.macguffin){
     scr_ap_handle_macguffin_item(item_id);
   }
-  else if (item_id >= money_offset){
+  else if (item_id >= global.ap_item_offset.money){
     scr_ap_handle_money_item(item_id);
   }
-  else if (item_id >= weapon_offset){
+  else if (item_id >= global.ap_item_offset.weapon){
     scr_ap_handle_weapon_item(item_id);
   }
-  else if (item_id >= armor_offset){
+  else if (item_id >= global.ap_item_offset.armor){
     scr_ap_handle_armor_item(item_id);
   }
-  else if (item_id >= keyitem_offset){
+  else if (item_id >= global.ap_item_offset.keyitem){
     scr_ap_handle_keyitem(item_id);
   }
   else{
@@ -60,8 +53,7 @@ function scr_ap_egg_item(item_id)
 
 function scr_ap_handle_chapter_unlock_item(item_id)
 {
-  var chapter_unlock_offset = 90000 - 1;
-  var chapter = item_id - chapter_unlock_offset;
+  var chapter = item_id - global.ap_item_offset.chapter;
   var item_name = "Chapter " + string(chapter);
 
   script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", scr_ap_item_classification_color(item_name, 1)), 0, 6);
@@ -69,8 +61,7 @@ function scr_ap_handle_chapter_unlock_item(item_id)
 
 function scr_ap_handle_ch3_points_item(item_id)
 {
-  var ch3_points_offset = 80000;
-  var points_amount = item_id - ch3_points_offset;
+  var points_amount = item_id - global.ap_item_offset.ch3_points;
   var points = "";
 
   if (points_amount > 1)
@@ -91,8 +82,7 @@ function scr_ap_handle_ch3_points_item(item_id)
 
 function scr_ap_handle_macguffin_item(item_id)
 {
-  var macguffin_offset = 70000;
-  scr_keyiteminfo(item_id - macguffin_offset + 700)
+  scr_keyiteminfo(item_id - global.ap_item_offset.macguffin + 700)
 
   if (global.chapter == tempkeyitemchapter)
     global.MacGuffin_count += 1;
@@ -102,8 +92,7 @@ function scr_ap_handle_macguffin_item(item_id)
 
 function scr_ap_handle_keyitem(item_id)
 {
-  var keyitem_offset = 10000;
-  scr_ap_handle_real_keyitem(item_id - keyitem_offset);
+  scr_ap_handle_real_keyitem(item_id - global.ap_item_offset.keyitem);
 }
 
 function scr_ap_handle_real_keyitem(realitem_id)
@@ -120,8 +109,7 @@ function scr_ap_handle_real_keyitem(realitem_id)
 
 function scr_ap_handle_money_item(item_id)
 {
-  var money_offset = 40000;
-  var amount = item_id - money_offset;
+  var amount = item_id - global.ap_item_offset.money;
 
   global.gold += amount;
   script_execute(scr_writetext, 0, string("* (You got {0}.)/%", scr_ap_item_classification_color("D$" + string(amount), 0)), 0, 6);
@@ -129,8 +117,7 @@ function scr_ap_handle_money_item(item_id)
 
 function scr_ap_handle_weapon_item(item_id)
 {
-  var weapon_offset = 30000;
-  var weapon_id = item_id - weapon_offset;
+  var weapon_id = item_id - global.ap_item_offset.weapon;
 
   scr_weaponinfo(weapon_id);
   var item_name = weaponnametemp;
@@ -142,8 +129,7 @@ function scr_ap_handle_weapon_item(item_id)
 
 function scr_ap_handle_armor_item(item_id)
 {
-  var armor_offset = 20000;
-  var armor_id = item_id - armor_offset;
+  var armor_id = item_id - global.ap_item_offset.armor;
 
   scr_armorinfo(armor_id);
   var item_name = armornametemp;
