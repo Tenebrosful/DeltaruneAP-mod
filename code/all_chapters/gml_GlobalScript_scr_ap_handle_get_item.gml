@@ -1,5 +1,32 @@
 /// FUNCTIONS
-function scr_ap_handle_receive_item(item_id)
+function AP_sync_item_from_server()
+{
+  var server_length = undefined;
+  var local_length = undefined;
+
+  if (global.AP_item_from_server == undefined)
+    server_length = 0;
+  else
+    server_length = array_length(global.AP_item_from_server);
+
+  if (global.AP_item_got_in_current_chapter == undefined)
+    local_length = 0;
+  else
+    local_length = array_length(global.AP_item_got_in_current_chapter)
+
+  var length_diff = server_length - local_length;
+
+  if (length_diff > 0)
+  {
+    global.AP_items_waiting_to_receive = undefined;
+    for (i = 0; i < length_diff; i++)
+    {
+      global.AP_items_waiting_to_receive[i] = global.AP_item_from_server[local_length + i];
+    }
+  }
+}
+
+function AP_handle_receive_item(item_id)
 {
   global.interact = 1;
   global.typer = 6;
@@ -53,7 +80,7 @@ function scr_ap_egg_item(item_id)
 
 function scr_ap_handle_chapter_unlock_item(item_id)
 {
-  var chapter = item_id - global.AP_item_offset.chapter;
+  var chapter = item_id - global.AP_item_offset.chapter_unlock;
   var item_name = "Chapter " + string(chapter);
 
   script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", scr_ap_item_classification_color(item_name, 1)), 0, 6);
@@ -87,7 +114,7 @@ function scr_ap_handle_macguffin_item(item_id)
   if (global.chapter == tempkeyitemchapter)
     global.MacGuffin_count += 1;
 
-  scr_ap_handle_real_keyitem(item_id - macguffin_offset + 700);
+  scr_ap_handle_real_keyitem(item_id - global.AP_item_offset.macguffin + 700);
 }
 
 function scr_ap_handle_keyitem(item_id)

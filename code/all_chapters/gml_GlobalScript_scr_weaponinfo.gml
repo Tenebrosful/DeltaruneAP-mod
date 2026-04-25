@@ -749,7 +749,7 @@ function scr_weaponinfo(arg0)
             break;
     }
     
-    if (global.apbalancing == 1 && ch > 1)
+    if (global.AP_balancing == 1 && ch > 1)
     {
         weaponattemp = ceil(weaponattemp / ch);
         weapondftemp = ceil(weapondftemp / ch);

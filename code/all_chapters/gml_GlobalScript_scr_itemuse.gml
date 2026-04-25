@@ -786,7 +786,7 @@ function scr_itemuse(arg0)
             if (global.char[global.charselect] == 4)
                 scr_itemcomment(global.charselect, stringsetloc("(... Kris would never join choir...)", "scr_itemuse_slash_scr_itemuse_gml_768_0"));
             
-            if (global.apbalancing == 1)
+            if (global.AP_balancing == 1)
                 scr_healitem(global.charselect, 90);
             else
                 scr_healitem(global.charselect, _healamount);
@@ -810,7 +810,7 @@ function scr_itemuse(arg0)
                 scr_itemcomment(global.charselect, stringsetloc("... fine, you can have the LAST DROP.", "scr_itemuse_slash_scr_itemuse_gml_793_0"));
             }
             
-            if (global.apbalancing == 1)
+            if (global.AP_balancing == 1)
                 scr_healitem(global.charselect, 130);
             else
                 scr_healitem(global.charselect, _healamount);

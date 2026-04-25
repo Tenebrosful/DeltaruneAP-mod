@@ -94,6 +94,7 @@ function AP_disconnect()
         global.AP_isAuthenticated = -1;
         network_destroy(global.AP_socket);
         global.AP_socket = -1;
+        global.AP_item_from_server = [];
     }
 }
 

@@ -12,6 +12,7 @@ global.AP_password = "";
 global.AP_secure = false;
 global.AP_connect_deadline = 15;
 global.AP_deathLink = 0;
+global.AP_balancing = 0;
 global.AP_multiworld = 0;
 global.AP_color = 
 {
@@ -33,7 +34,7 @@ global.AP_item_offset =
 };
 
 for (var i = 1; i <= 4; i++)
-    global.AP_chapter[i] = false;
+    global.AP_chapter_unlocked[i] = false;
 
 step = 0;
 

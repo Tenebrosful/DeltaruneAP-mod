@@ -69,6 +69,12 @@ void BuildModRoomsOnly(int chapter)
 
 void BuildMod(int chapter)
 {
+    if (Data.GeneralInfo.Name == Data.Strings.MakeString("DELTARUNEAP"))
+    {
+        ScriptMessage("Data.win is already patched !");
+        return;
+    }
+
     Data.GeneralInfo.Name = Data.Strings.MakeString("DELTARUNEAP");
     ArchipelagoLoader loader = new ArchipelagoLoader(UMP_WRAPPER, chapter);
     string scriptPath = Path.GetDirectoryName(ScriptPath);

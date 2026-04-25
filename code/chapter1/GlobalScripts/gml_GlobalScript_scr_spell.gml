@@ -7,7 +7,7 @@
 /// CODE
         
         case 216:
-            if (global.apbalancing == 1)
+            if (global.AP_balancing == 1)
                 scr_healitemspell(40);
             else
                 scr_healitemspell(80);
@@ -49,7 +49,7 @@
             break;
         
         case 224:
-            if (global.apbalancing == 1)
+            if (global.AP_balancing == 1)
                 scr_healitemspell(50);
             else
                 scr_healitemspell(100);
@@ -131,7 +131,7 @@
             break;
         
         case 234:
-            if (global.apbalancing == 1)
+            if (global.AP_balancing == 1)
                 scr_healitemspell(50);
             else
                 scr_healitemspell(100);
@@ -148,7 +148,7 @@
             break;
         
         case 237:
-            if (global.apbalancing == 1)
+            if (global.AP_balancing == 1)
                 scr_healitemspell(40);
             else
                 scr_healitemspell(80);
@@ -157,7 +157,7 @@
             break;
         
         case 238:
-            if (global.apbalancing == 1)
+            if (global.AP_balancing == 1)
                 scr_healallitemspell(50);
             else
                 scr_healallitemspell(100);
@@ -166,7 +166,7 @@
             break;
         
         case 239:
-            if (global.apbalancing == 1)
+            if (global.AP_balancing == 1)
                 scr_healitemspell(70);
             else
                 scr_healitemspell(140);
@@ -191,7 +191,7 @@
             break;
         
         case 261:
-            if (global.apbalancing == 1)
+            if (global.AP_balancing == 1)
                 scr_healitemspell(40);
             else
                 scr_healitemspell(115);
@@ -200,7 +200,7 @@
             break;
         
         case 262:
-            if (global.apbalancing == 1)
+            if (global.AP_balancing == 1)
                 scr_healitemspell(60);
             else
                 scr_healitemspell(160);

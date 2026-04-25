@@ -77,7 +77,7 @@ function scr_itemdesc_single(arg0)
         case 16:
             __itemdesc = stringsetloc("A bagel with a reflective inside.#Makes music with each bite. +80HP", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_54_0");
             
-            if (global.apbalancing == 1)
+            if (global.AP_balancing == 1)
                 __itemdesc = stringsetloc("A bagel with a reflective inside.#Makes music with each bite. +40HP", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_54_0");
             
             break;
@@ -180,7 +180,7 @@ function scr_itemdesc_single(arg0)
         case 39:
             __itemdesc = stringsetloc("A TV Dinner for high-ranking contestants.#Comes with detachable antennas. +140 HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_152_0");
             
-            if (global.apbalancing == 1)
+            if (global.AP_balancing == 1)
                 __itemdesc = stringsetloc("A TV Dinner for high-ranking contestants.#Comes with detachable antennas. +70 HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_152_0");
             
             break;
@@ -192,7 +192,7 @@ function scr_itemdesc_single(arg0)
         case 61:
             __itemdesc = stringsetloc("A smooth, silvery drink. It sounds like#whispered singing as it's poured. +115 HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_145_0");
             
-            if (global.apbalancing == 1)
+            if (global.AP_balancing == 1)
                 __itemdesc = stringsetloc("A smooth, silvery drink. It sounds like#whispered singing as it's poured. +58 HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_145_0");
             
             break;
@@ -200,7 +200,7 @@ function scr_itemdesc_single(arg0)
         case 62:
             __itemdesc = stringsetloc("A red brew with a sickeningly fruity taste.#Recovers 160 HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_148_0");
             
-            if (global.apbalancing == 1)
+            if (global.AP_balancing == 1)
                 __itemdesc = stringsetloc("A red brew with a sickeningly fruity taste.#Recovers 80 HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_148_0");
             
             break;

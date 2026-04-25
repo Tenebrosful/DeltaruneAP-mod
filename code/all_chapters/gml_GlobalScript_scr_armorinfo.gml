@@ -826,7 +826,7 @@ function scr_armorinfo(arg0)
             break;
     }
     
-    if (global.apbalancing == 1 && ch > 1)
+    if (global.AP_balancing == 1 && ch > 1)
     {
         armorattemp = ceil(armorattemp / ch);
         armordftemp = ceil(armordftemp / ch);

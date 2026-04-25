@@ -57,63 +57,6 @@ function scr_ap_death_link()
     }
 }
 
-function scr_findallfiles()
-{
-    var _list = ds_list_create();
-    var _finished = 0;
-    var _firstFile = file_find_first("*.item", 0);
-    
-    if (string_length(_firstFile) == 0)
-        return _list;
-    
-    var found = 0;
-    
-    for (var i = 0; i < array_length_1d(global.gotcheck); i++)
-    {
-        if (global.gotcheck[i] == _firstFile)
-        {
-            found = 1;
-            i = array_length_1d(global.gotcheck) - 1;
-        }
-    }
-    
-    if (file_exists(_firstFile) && found == 0)
-        ds_list_add(_list, _firstFile);
-    
-    while (!_finished)
-    {
-        var _file = file_find_next();
-        
-        if (string_length(_file) == 0)
-        {
-            _finished = 1;
-            break;
-        }
-        else
-        {
-            var _fullPath = _file;
-            found = 0;
-            
-            for (var i = 0; i < array_length_1d(global.gotcheck); i++)
-            {
-                if (global.gotcheck[i] == _fullPath)
-                {
-                    found = 1;
-                    i = array_length_1d(global.gotcheck) - 1;
-                }
-            }
-            
-            if (file_exists(_fullPath) && found == 0)
-                ds_list_add(_list, _fullPath);
-            
-            continue;
-        }
-    }
-    
-    file_find_close();
-    return _list;
-}
-
 function AP_create()
 {
     scr_ap_const()
@@ -121,15 +64,6 @@ function AP_create()
     showingitem = 0;
     index = 0;
     wait = 0;
-    dslst = ds_list_create();
-    
-    if (file_exists("receivingtype.start"))
-        global.ap_check_item_anytime = false;
-    else
-        global.ap_check_item_anytime = true;
-    
-    if (global.ap_check_item_anytime)
-        dslst = scr_findallfiles();
 
     var file = file_text_open_read("scouting.json")
     global.ap_location_item = json_parse(file_text_read_string(file));
@@ -206,10 +140,6 @@ function scr_ap_get_macguffin_amount()
     return to_return;
 }
 
-function ap_are_we_connected(){
-    
-}
-
 function AP_step()
 {
     if (global.darkzone == 1)
@@ -241,65 +171,25 @@ function AP_step()
                     wait = 1;
                     global.interact = 1;
                 }
-                
-                if (ds_list_size(dslst) <= 0 && global.ap_check_item_anytime)
-                    dslst = scr_findallfiles();
-                
-                if (ds_list_size(dslst) > 0)
+
+                if (!variable_global_exists("AP_items_waiting_to_receive") || global.AP_items_waiting_to_receive == undefined)
                 {
-                    var dslistitems = ds_list_create();
-                    ds_list_copy(dslistitems, dslst);
-                    
-                    if (file_exists(ds_list_find_value(dslistitems, index)))
-                    {
-                        fl = file_text_open_read(ds_list_find_value(dslistitems, index));
-                        later = 0;
-                        notext = 0;
-                        
-                        if (fl != "")
-                        {
-                            var chapterOffset = global.chapter - 1;
-                            noroom = 0;
-                            trueitm = real(string_digits(file_text_read_string(fl)));
-                            var itm = trueitm;
-                            
-                            scr_ap_handle_receive_item(itm)
-                            
-                            file_text_close(fl);
-                            
-                            if (noroom == 0)
-                            {
-                                for (var i = 0; i < array_length_1d(global.gotcheck); i++)
-                                {
-                                    if (global.gotcheck[i] == "-1")
-                                    {
-                                        global.gotcheck[i] = ds_list_find_value(dslistitems, index);
-                                        i = array_length_1d(global.gotcheck) + 999;
-                                    }
-                                }
-                                
-                                ds_list_delete(dslst, index);
-                            }
-                            else
-                            {
-                                index += 1;
-                            }
-                        }
-                        else
-                        {
-                            index += 1;
-                        }
-                    }
-                    else
-                    {
-                        index += 1;
-                    }
-                    
-                    if (index >= ds_list_size(dslst))
-                        index = 0;
-                    
-                    ds_list_destroy(dslistitems);
+                    AP_sync_item_from_server();
+                    index = 0;
                 }
+                
+                if (index >= array_length(global.AP_items_waiting_to_receive))
+                {
+                    global.AP_items_waiting_to_receive = undefined;
+                }
+                else if (variable_global_exists("AP_items_waiting_to_receive") && global.AP_items_waiting_to_receive != undefined && array_length(global.AP_items_waiting_to_receive) > 0)
+                {
+                    var item_id = global.AP_items_waiting_to_receive[index];
+                    AP_handle_receive_item(item_id);
+                    array_insert(global.AP_item_got_in_current_chapter, array_length(global.AP_item_got_in_current_chapter), item_id);
+                    index++;
+                }
+
             }
         }
         else
@@ -317,14 +207,18 @@ function AP_step()
 
 function AP_load()
 {
-    global.apbalancing = file_exists("balancing.flag");
+    global.AP_item_got_in_current_chapter = undefined;
+    global.customflags = undefined;
+
+    var array_size = ossafe_file_text_read_real(myfileid);
+    ossafe_file_text_readln(myfileid);
     
-    for (i = 0; i < 9999; i += 1)
+    for (i = 0; i < array_size; i++)
     {
-        global.gotcheck[i] = ossafe_file_text_read_string(myfileid);
+        global.AP_item_got_in_current_chapter[i] = ossafe_file_text_read_real(myfileid);
         ossafe_file_text_readln(myfileid);
     }
-    
+
     for (i = 0; i < 9999; i += 1)
     {
         global.customflags[i] = ossafe_file_text_read_real(myfileid);
@@ -337,15 +231,16 @@ function AP_load()
 
 function AP_save()
 {
-    global.apbalancing = file_exists("balancing.flag");
-    
-    for (i = 0; i < 9999; i += 1)
+    file_text_writeln(myfileid);
+    file_text_write_real(myfileid, array_length(global.AP_item_got_in_current_chapter));
+
+    for (i = 0; i < array_length(global.AP_item_got_in_current_chapter); i++)
     {
         file_text_writeln(myfileid);
-        file_text_write_string(myfileid, global.gotcheck[i]);
+        file_text_write_real(myfileid, global.AP_item_got_in_current_chapter[i]);
     }
     
-    for (i = 0; i < 9999; i += 1)
+    for (i = 0; i < array_length(global.customflags); i += 1)
     {
         file_text_writeln(myfileid);
         file_text_write_real(myfileid, global.customflags[i]);
@@ -364,21 +259,11 @@ function AP_game_start()
             obj_archipelago_client.AP_connect();
     }
 
-    global.apbalancing = file_exists("balancing.flag")
-    global.customflags = undefined;
-    
+    global.AP_item_got_in_current_chapter = [];
+    global.customflags = [];
+    global.AP_items_waiting_to_receive = undefined;
+    global.MacGuffin_count = 0;
+
     for (var i = 0; i < 9999; i++)
         global.customflags[i] = 0;
-    
-    global.customflags[999] = 0;
-    global.gotcheck = undefined;
-    
-    for (var i = 0; i < 9999; i++)
-        global.gotcheck[i] = "-1";
-    
-    global.MacGuffin_count = 0;
-    global.gotplot = undefined;
-    
-    for (var i = 0; i < 99; i += 1)
-        global.gotplot[i] = 0;
 }

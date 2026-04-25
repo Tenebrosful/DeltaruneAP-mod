@@ -39,12 +39,13 @@ if (ds_map_exists(async_load, "buffer"))
                     
                     if (data[i].slot_data.options.randomize_chapters == "all_unlocked")
                     {
-                        for (var ii = 1; ii <= (array_length(global.AP_chapter) - 1); ii++)
-                            global.AP_chapter[ii] = true;
+                        for (var ii = 1; ii <= (array_length(global.AP_chapter_unlocked) - 1); ii++)
+                            global.AP_chapter_unlocked[ii] = true;
                     }
                     var path = global.AP_multiworld + "/settings.json"
                     if(!file_exists(path)){
                         global.AP_deathLink = data[i].slot_data.options.death_link
+                        global.AP_balancing = data[i].slot_data.options.item_balancing
                         settings = 
                         {
                             deathLink: global.AP_deathLink
@@ -84,12 +85,37 @@ if (ds_map_exists(async_load, "buffer"))
                 case "ReceivedItems":
                     if (variable_struct_exists(data[i], "items"))
                     {
-                        for (var ii = 0; ii < array_length(data[i].items); ii++)
+                        // If we are Chapter Select, looking only for chapter unlock
+                        if (!variable_global_exists("chapter"))
                         {
-                            if (data[i].items[ii].item >= 90000)
-                                global.AP_chapter[data[i].items[ii].item - 90000 +1] = true;
+                            for (var ii = 0; ii < array_length(data[i].items); ii++)
+                            {
+                                if (data[i].items[ii].item >= global.AP_item_offset.chapter_unlock)
+                                {
+                                    global.AP_chapter_unlocked[data[i].items[ii].item - global.AP_item_offset.chapter_unlock] = true
+                                }
+                            }
+                        }
+                        // Receiving items after reconnect
+                        else if (!variable_global_exists("AP_item_from_server"))
+                        {
+                            global.AP_item_from_server = undefined;
+                            for (var ii = 0; ii < array_length(data[i].items); ii++)
+                            {
+                                global.AP_item_from_server[ii] = data[i].items[ii].item;
+                            } 
+                        }
+                        // Receiving items while playing chapter
+                        else
+                        {
+                            var starting_index = array_length(global.AP_item_from_server);
+                            for (var ii = 0; ii < array_length(data[i].items); ii++)
+                            {
+                                global.AP_item_from_server[starting_index + ii] = data[i].items[ii].item;
+                            }
                         }
                     }
+                    break;
             }
         }
     }
