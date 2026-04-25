@@ -4,7 +4,7 @@
 
 if (room == room_cc_6f && y < 170)
 {
-    if ((global.MacGuffin_count >= scr_ap_get_macguffin_amount() || file_exists("ch2.route") || file_exists("ch3.route") || file_exists("ch4.route")) && (global.flag[241] >= 6 || file_exists("super.flag") == 0))
+    if ((global.MacGuffin_count >= global.AP_macguffin_required[0] && (!global.AP_secret_bosses_mandatory || global.flag[241] >= 6))
     {
         instance_destroy();
     }

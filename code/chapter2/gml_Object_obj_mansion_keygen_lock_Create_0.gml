@@ -7,7 +7,7 @@ fade_timer = 0;
 
 if (room == room_dw_mansion_east_4f_b)
 {
-    if (global.customflags[16] == 1 || file_exists("ch3.route") || file_exists("ch4.route") || scr_ap_get_macguffin_amount() == 0)
+    if (global.customflags[16] == 1 && global.AP_macguffin_required[1] >= global.MacGuffin_count)
         instance_destroy();
 }
 else if (global.flag[309] >= 4)

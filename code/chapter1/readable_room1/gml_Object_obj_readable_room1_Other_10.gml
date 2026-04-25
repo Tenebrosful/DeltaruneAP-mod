@@ -98,12 +98,12 @@ if (room == room_cc_6f && y < 170)
 {
     global.msg[0] = "* I messed up. please report this/%";
     
-    if (global.MacGuffin_count < scr_ap_get_macguffin_amount() && !file_exists("ch2.route"))
+    if (global.MacGuffin_count < global.AP_macguffin_required[0])
     {
         global.msg[0] = "* (The door is locked.)/";
         global.msg[1] = "* (It seems you need more King-Shaped Key Pieces.)/%";
     }
-    else if (global.flag[241] < 6 && file_exists("super.flag"))
+    else if (global.flag[241] < 6 && global.AP_secret_bosses_mandatory)
     {
         global.msg[0] = "* (A chaotic energy is keeping this door locked.)/";
         global.msg[1] = "* (It seems the energy originates from the lowest floor of the castle...)/%";

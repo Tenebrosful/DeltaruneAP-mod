@@ -46,6 +46,11 @@ if (ds_map_exists(async_load, "buffer"))
                     if(!file_exists(path)){
                         global.AP_deathLink = data[i].slot_data.options.death_link
                         global.AP_balancing = data[i].slot_data.options.item_balancing
+                        global.AP_macguffin_required[0] = data[i].slot_data.options.macguffin_required_ch1;
+                        global.AP_macguffin_required[1] = data[i].slot_data.options.macguffin_required_ch2;
+                        global.AP_macguffin_required[2] = data[i].slot_data.options.macguffin_required_ch3;
+                        global.AP_macguffin_required[3] = data[i].slot_data.options.macguffin_required_ch4;
+                        global.AP_secret_bosses_mandatory = data[i].slot_data.options.secret_bosses_mandatory;
                         settings = 
                         {
                             deathLink: global.AP_deathLink

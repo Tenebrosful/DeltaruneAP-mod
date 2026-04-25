@@ -132,14 +132,6 @@ function scr_ap_flags_to_color_classification(flags){
     }
 }
 
-function scr_ap_get_macguffin_amount()
-{
-    file = file_text_open_read("macguffin_amount.flag");
-    var to_return = file_text_read_real(file);
-    file_text_close(file);
-    return to_return;
-}
-
 function AP_step()
 {
     if (global.darkzone == 1)

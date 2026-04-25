@@ -5,7 +5,7 @@ if (unlocked == false)
     
     if (room == room_dw_mansion_east_4f_b)
     {
-        if (global.MacGuffin_count < scr_ap_get_macguffin_amount())
+        if (global.MacGuffin_count < global.AP_macguffin_required[1])
         {
             msgsetloc(0, "* It has a lock that seems impossible to open./", "obj_mansion_keygen_lock_slash_Other_10_gml_5_0");
             msgnextloc("* Looks like you need a Key generated with all KeyGen 2 Segments./%");
