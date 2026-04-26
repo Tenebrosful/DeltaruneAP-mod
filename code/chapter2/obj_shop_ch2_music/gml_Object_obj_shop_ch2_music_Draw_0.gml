@@ -170,9 +170,12 @@
 /// CODE
     for (i = 0; i < itemtotal; i += 1)
     {
+        draw_set_font(fnt_main);
         AP_item_classification_color_shop(shop_item_flags[i]);
         draw_text(60, 260 + (i * 40), string_hash_to_newline(shopitemname[i]));
         draw_set_color(c_white);
-        draw_text(300, 260 + (i * 40), string_hash_to_newline(stringsetsubloc("$~1", string(buyvalue[i]), "obj_shop_ch2_music_slash_Draw_0_gml_250_0")));
+        draw_text(60, 260 + (i * 40) + 15, "To: " + string_hash_to_newline(shopitemreceivername[i]));
+        draw_set_font(fnt_mainbig);
+        draw_text(300, 260 + (i * 40), string_hash_to_newline("$" + string(buyvalue[i])));
     }
 /// END
