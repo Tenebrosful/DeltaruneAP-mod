@@ -20,7 +20,7 @@ function AP_write_settings_file()
     // deathlink
     settings = 
     {
-        deathLink: global.AP_deathLink
+        deathLink: global.AP_deathlink
     }
     setting_json = json_stringify(settings);
     var file = file_text_open_write(global.AP_multiworld + "/settings.json");
@@ -59,7 +59,7 @@ function AP_connect()
 
     var APgame = "DELTARUNE";
     var tags = ["AP"]
-    if(global.AP_deathLink)
+    if(global.AP_deathlink)
         array_insert(tags, 1, "DeathLink")
     var _contents = 
     {
@@ -162,19 +162,43 @@ function AP_sendHint(arg0)
     network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
 }
 
+function AP_sendDeathlink(text)
+{
+    if (!AP_isAuthenticated())
+        exit;
+
+    var _contents =
+    {
+        cmd: "Bounce",
+        tags: ["DeathLink"],
+        data: {
+            time: int64(current_time),
+            source: global.AP_name,
+            cause: text
+        }
+    };
+
+    var arr = [_contents];
+    location = json_stringify(arr);
+    var buffer = buffer_create(string_byte_length(aa), buffer_fixed, 1);
+    buffer_seek(buffer, buffer_seek_start, 0);
+    buffer_write(buffer, buffer_text, location);
+    network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
+}
+
 /// UPDATE TAGS
 
-function AP_updateTags(arg0){
+function AP_updateTags(){
     if (!AP_isAuthenticated())
         exit;
 
     var tags = ["AP"]
-    if(global.AP_deathLink)
+    if(global.AP_deathlink)
         array_insert(tags, 1, "DeathLink")
     var _contents = 
     {
         cmd: "ConnectUpdate",
-        items_handling: 0,
+        items_handling: 7,
         tags: tags
     };
     var arr = [_contents];

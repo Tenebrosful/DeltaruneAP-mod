@@ -1,10 +1,13 @@
 /// IMPORT
 function scr_gameover()
 {
-    if (!file_exists("WelcomeToTheDead.youDied"))
-        scr_ap_death_link();
-    else
-        file_delete("WelcomeToTheDead.youDied");
+    if (global.AP_deathlink && !global.AP_deathlink_protected)
+    {
+        if (instance_exists(obj_archipelago_client) && obj_archipelago_client.AP_isAuthenticated())
+        {
+            obj_archipelago_client.AP_sendDeathlink();
+        }
+    }
     
     if (!(room == room_gameover || room == PLACE_FAILURE))
     {

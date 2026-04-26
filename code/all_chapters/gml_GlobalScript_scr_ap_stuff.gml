@@ -48,15 +48,6 @@ function AP_sendHint(location_id)
     obj_archipelago_client.AP_sendHint(location_id);
 }
 
-function scr_ap_death_link()
-{
-    if (file_exists("deathlink.flag"))
-    {
-        file = file_text_open_append("DontBeMad.mad");
-        file_text_close(file);
-    }
-}
-
 function AP_create()
 {
     scr_ap_const()
@@ -129,6 +120,15 @@ function scr_ap_flags_to_color_classification(flags){
             return global.ap_trap_color
         default:
             return c_white
+    }
+}
+
+function AP_handle_DeathLink()
+{
+    if (global.chapter != 3)
+    {
+        scr_gameover();
+        global.AP_deathlink_protected = false;
     }
 }
 

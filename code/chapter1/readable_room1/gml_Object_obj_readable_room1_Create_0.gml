@@ -4,7 +4,7 @@
 
 if (room == room_cc_6f && y < 170)
 {
-    if ((global.MacGuffin_count >= global.AP_macguffin_required[0] && (!global.AP_secret_bosses_mandatory || global.flag[241] >= 6))
+    if (global.MacGuffin_count >= global.AP_macguffin_required[0] && (!global.AP_secret_bosses_mandatory || global.flag[241] >= 6))
     {
         instance_destroy();
     }

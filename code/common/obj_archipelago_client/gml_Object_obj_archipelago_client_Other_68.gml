@@ -35,48 +35,36 @@ if (ds_map_exists(async_load, "buffer"))
                 case "Connected":
                     global.AP_isAuthenticated = 2;
                     show_debug_message("Login successful!");
-                    AP_write_settings_file();
                     
                     if (data[i].slot_data.options.randomize_chapters == "all_unlocked")
                     {
                         for (var ii = 1; ii <= (array_length(global.AP_chapter_unlocked) - 1); ii++)
                             global.AP_chapter_unlocked[ii] = true;
                     }
+
+                    global.AP_balancing = data[i].slot_data.options.item_balancing
+                    global.AP_macguffin_required[0] = data[i].slot_data.options.macguffin_chapter_1;
+                    global.AP_macguffin_required[1] = data[i].slot_data.options.macguffin_chapter_2;
+                    global.AP_macguffin_required[2] = data[i].slot_data.options.macguffin_chapter_3;
+                    global.AP_macguffin_required[3] = data[i].slot_data.options.macguffin_chapter_4;
+                    global.AP_secret_bosses_mandatory = data[i].slot_data.options.randomize_secret_bosses == 2;
+                    global.AP_deathlink = data[i].slot_data.options.death_link;
+
                     var path = global.AP_multiworld + "/settings.json"
-                    if(!file_exists(path)){
-                        global.AP_deathLink = data[i].slot_data.options.death_link
-                        global.AP_balancing = data[i].slot_data.options.item_balancing
-                        global.AP_macguffin_required[0] = data[i].slot_data.options.macguffin_required_ch1;
-                        global.AP_macguffin_required[1] = data[i].slot_data.options.macguffin_required_ch2;
-                        global.AP_macguffin_required[2] = data[i].slot_data.options.macguffin_required_ch3;
-                        global.AP_macguffin_required[3] = data[i].slot_data.options.macguffin_required_ch4;
-                        global.AP_secret_bosses_mandatory = data[i].slot_data.options.secret_bosses_mandatory;
-                        settings = 
-                        {
-                            deathLink: global.AP_deathLink
-                        }
-                        setting_json = json_stringify(settings);
-                        var file = file_text_open_write(path);
-                        file_text_write_string(file, setting_json);
-                        file_text_close(file);
-                    } else {
+
+                    if (file_exists(path))
+                    {
                         var file = file_text_open_read(path);
                         var content = file_text_read_string(file);
+
                         if (content != -1)
                             settings_struct = json_parse(content);
-                        if (global.AP_deathLink != settings_struct.deathLink)
-                        {
-                            settings = 
-                            {
-                                deathLink: global.AP_deathLink
-                            };
-                            AP_write_settings_file();
-                        }
-                        else
-                        {
-                            global.AP_deathLink = settings_struct.deathLink;
-                        }
+
+                        global.AP_deathlink = settings_struct.deathLink;
                     }
+
+                    AP_write_settings_file();
+                    AP_updateTags();
                     
                     break;
                 
@@ -104,7 +92,7 @@ if (ds_map_exists(async_load, "buffer"))
                         // Receiving items after reconnect
                         else if (!variable_global_exists("AP_item_from_server"))
                         {
-                            global.AP_item_from_server = undefined;
+                            global.AP_item_from_server = [];
                             for (var ii = 0; ii < array_length(data[i].items); ii++)
                             {
                                 global.AP_item_from_server[ii] = data[i].items[ii].item;
@@ -117,6 +105,44 @@ if (ds_map_exists(async_load, "buffer"))
                             for (var ii = 0; ii < array_length(data[i].items); ii++)
                             {
                                 global.AP_item_from_server[starting_index + ii] = data[i].items[ii].item;
+                            }
+                        }
+                    }
+                    break;
+                case "Bounced":
+                    if (variable_struct_exists(data[i], "tags"))
+                    {
+                        for (var ii = 0; ii < array_length(data[i].tags); ii++)
+                        {
+                            if (data[i].tags[ii] == "DeathLink")
+                            {
+                                if (variable_global_exists("chapter"))
+                                {
+                                    var time;
+                                    if (variable_struct_exists(data[i].data, "time"))
+                                        if (data[i].data.time == global.AP_deathlink_infos.time)
+                                            continue;
+                                        else
+                                            time = data[i].data.time;
+                                    else
+                                        time = undefined;
+
+                                    global.AP_deathlink_protected = true;
+                                    var cause;
+                                    if (variable_struct_exists(data[i].data, "cause"))
+                                        cause = data[i].data.cause;
+                                    else
+                                        cause = undefined;
+
+                                    var source;
+                                    if (variable_struct_exists(data[i].data, "source"))
+                                        source = data[i].data.source;
+                                    else
+                                        source = undefined;
+
+                                    global.AP_deathlink_infos = {source: source, cause: cause, time: time};
+                                    AP_handle_DeathLink();
+                                }
                             }
                         }
                     }

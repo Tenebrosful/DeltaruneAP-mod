@@ -98,7 +98,7 @@ if (edit)
     {
         if (choice == 0)
         {
-            global.AP_deathLink = (global.AP_deathLink == 0) ? 1 : 0;
+            global.AP_deathlink = (global.AP_deathlink == 0) ? 1 : 0;
             edit = 0;
         }
         
