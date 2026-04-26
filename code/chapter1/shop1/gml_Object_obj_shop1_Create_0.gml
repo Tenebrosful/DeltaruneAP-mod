@@ -63,10 +63,10 @@ items_data[1] = scr_ap_get_location_reward_data(51)
 items_data[2] = scr_ap_get_location_reward_data(52)
 items_data[3] = scr_ap_get_location_reward_data(53)
 
-shopdesc[0] = string("{0}#Will be#sent to#{1}#world", items_data[0].itemName, items_data[0].playerName);
-shopdesc[1] = string("{0}#Will be#sent to#{1}#world", items_data[1].itemName, items_data[1].playerName);
-shopdesc[2] = string("{0}#Will be#sent to#{1}#world", items_data[2].itemName, items_data[2].playerName);
-shopdesc[3] = string("{0}#Will be#sent to#{1}#world", items_data[3].itemName, items_data[3].playerName);
+shopdesc[0] = "This will#be send to#somebody#multiworld.";
+shopdesc[1] = "This will#be send to#somebody#multiworld.";
+shopdesc[2] = "This will#be send to#somebody#multiworld.";
+shopdesc[3] = "This will#be send to#somebody#multiworld.";
 
 for (i = 0; i < itemtotal; i += 1)
 {
@@ -112,6 +112,7 @@ for (i = 0; i < itemtotal; i += 1)
     
     shopitemname[i] = items_data[i].itemName;
     shop_item_flags[i] = items_data[i].flags;
+    shopitemreceivername[i] = items_data[i].playerName;
     itemtype[i] = "check";
     item[i] = i + 50;
     AP_sendHint(i + 50);

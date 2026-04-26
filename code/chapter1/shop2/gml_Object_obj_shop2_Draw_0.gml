@@ -106,9 +106,12 @@ if (menu == 1 || menu == 2)
     
     for (i = 0; i < itemtotal; i += 1)
     {
+        draw_set_font(fnt_main);
         AP_item_classification_color_shop(shop_item_flags[i]);
         draw_text(60, 260 + (i * 40), string_hash_to_newline(shopitemname[i]));
         draw_set_color(c_white);
+        draw_text(60, 260 + (i * 40) + 15, "To: " + string_hash_to_newline(shopitemreceivername[i]));
+        draw_set_font(fnt_mainbig);
         draw_text(300, 260 + (i * 40), string_hash_to_newline("$" + string(buyvalue[i])));
     }
     
