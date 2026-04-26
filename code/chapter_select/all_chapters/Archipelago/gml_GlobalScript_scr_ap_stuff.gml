@@ -148,7 +148,14 @@ function AP_step()
             else if (wait == 1 && !obj_archipelago_client.AP_isAuthenticated() && instance_exists(obj_dialoguer) == 0)
             {
                 script_execute(scr_writetext, 0, "\\s0* (We are trying to reconnect...)/%", 0, 6);
-                obj_archipelago_client.Connect();
+                if (!instance_exists(obj_archipelago_client))
+                {
+                    instance_create(0, 0, obj_archipelago_client);
+                }
+
+                if(!obj_archipelago_client.AP_isAuthenticated())
+                    obj_archipelago_client.AP_connect();
+
                 wait = 1;
                 global.interact = 1;
             }
@@ -158,7 +165,15 @@ function AP_step()
                 if (!obj_archipelago_client.AP_isAuthenticated())
                 {
                     script_execute(scr_writetext, 0, "\\s0* (You get the sinking feeling that you have disconnected from the Multiworld.)/%", 0, 6);
-                    obj_archipelago_client.Connect();
+                    
+                    if (!instance_exists(obj_archipelago_client))
+                    {
+                        instance_create(0, 0, obj_archipelago_client);
+                    }
+                    
+                    if(!obj_archipelago_client.AP_isAuthenticated())
+                        obj_archipelago_client.AP_connect();
+                        
                     wait = 1;
                     global.interact = 1;
                 }
