@@ -129,7 +129,7 @@ for (var ii = 0; ii < 7; ii++)
 
 draw_set_color(c_white);
 
-if (connect)
+if (connect && page == 0)
 {
     switch (global.AP_isAuthenticated)
     {
