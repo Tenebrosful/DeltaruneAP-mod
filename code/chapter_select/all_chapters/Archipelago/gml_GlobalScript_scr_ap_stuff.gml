@@ -50,7 +50,6 @@ function AP_sendHint(location_id)
 
 function AP_create()
 {
-    scr_ap_const()
     canshowtext = 1;
     showingitem = 0;
     index = 0;
@@ -71,7 +70,7 @@ function scr_ap_get_location_reward_text(location_id)
         var text = string("your {0}", data.itemName);
     else
         var text = string("{0}'s {1}", data.playerName, data.itemName);
-    return scr_ap_item_classification_color(text, data.flags);
+    return AP_item_classification_color_text(text, data.flags);
 }
 
 function scr_ap_get_location_reward_data(location_id)
@@ -82,7 +81,7 @@ function scr_ap_get_location_reward_data(location_id)
     return variable_struct_get(global.ap_location_item, location_id)
 }
 
-function scr_ap_item_classification_color(text, flags)
+function AP_item_classification_color_text(text, flags)
 {
     switch (flags)
     {
@@ -101,23 +100,23 @@ function scr_ap_item_classification_color(text, flags)
     }
 }
 
-function scr_ap_item_classification_color_shop(flags){
-    return draw_set_color(scr_ap_flags_to_color_classification(flags))
+function AP_item_classification_color_shop(flags){
+    return draw_set_color(AP_item_flag_to_color(flags))
 }
 
-function scr_ap_flags_to_color_classification(flags){
+function AP_item_flag_to_color(flags){
     switch (flags)
     {
         case 0:
-            return global.ap_filler_color
+            return global.AP_color.filler
         case 1:
-            return global.ap_progression_color
+            return global.AP_color.progression
         case 2:
-            return global.ap_usefull_color
+            return global.AP_color.useful
         case 3:
-            return global.ap_usefull_progression_color
+            return global.AP_color.useful_progression
         case 4:
-            return global.ap_trap_color
+            return global.AP_color.trap
         default:
             return c_white
     }

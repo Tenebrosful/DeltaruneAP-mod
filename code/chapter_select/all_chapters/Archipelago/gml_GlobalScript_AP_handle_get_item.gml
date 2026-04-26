@@ -83,7 +83,7 @@ function scr_ap_handle_chapter_unlock_item(item_id)
   var chapter = item_id - global.AP_item_offset.chapter_unlock;
   var item_name = "Chapter " + string(chapter);
 
-  script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", scr_ap_item_classification_color(item_name, 1)), 0, 6);
+  script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", AP_item_classification_color_text(item_name, 1)), 0, 6);
 }
 
 function scr_ap_handle_ch3_points_item(item_id)
@@ -98,11 +98,11 @@ function scr_ap_handle_ch3_points_item(item_id)
 
   if (global.chapter == 3){
     global.flag[1044] += points_amount;
-    script_execute(scr_writetext, 0, string("* (You got {0}.)/%", scr_ap_item_classification_color(string(points_amount) + " " + points, 0)), 0, 6);
+    script_execute(scr_writetext, 0, string("* (You got {0}.)/%", AP_item_classification_color_text(string(points_amount) + " " + points, 0)), 0, 6);
   }
   else
   {
-    script_execute(scr_writetext, 0, string("* (You got {0} for chapter 3.)/%", scr_ap_item_classification_color(string(points_amount) + " " + points, 0)), 0, 6);
+    script_execute(scr_writetext, 0, string("* (You got {0} for chapter 3.)/%", AP_item_classification_color_text(string(points_amount) + " " + points, 0)), 0, 6);
   }
 
 }
@@ -139,7 +139,7 @@ function scr_ap_handle_money_item(item_id)
   var amount = item_id - global.AP_item_offset.money;
 
   global.gold += amount;
-  script_execute(scr_writetext, 0, string("* (You got {0}.)/%", scr_ap_item_classification_color("D$" + string(amount), 0)), 0, 6);
+  script_execute(scr_writetext, 0, string("* (You got {0}.)/%", AP_item_classification_color_text("D$" + string(amount), 0)), 0, 6);
 }
 
 function scr_ap_handle_weapon_item(item_id)
@@ -184,11 +184,11 @@ function scr_ap_print_get_item_text(item_chapter, item_id, item_name, item_class
   }
   else if (item_chapter != global.chapter)
   {
-    script_execute(scr_writetext, 0, string("* (You got {0} for chapter {1}.)/%", scr_ap_item_classification_color(item_name, item_classification), item_chapter), 0, 6);
+    script_execute(scr_writetext, 0, string("* (You got {0} for chapter {1}.)/%", AP_item_classification_color_text(item_name, item_classification), item_chapter), 0, 6);
   }
   else
   {
-    script_execute(scr_writetext, 0, string("* (You got {0}.)/%", scr_ap_item_classification_color(item_name, item_classification)), 0, 6);
+    script_execute(scr_writetext, 0, string("* (You got {0}.)/%", AP_item_classification_color_text(item_name, item_classification)), 0, 6);
   }
 }
 
