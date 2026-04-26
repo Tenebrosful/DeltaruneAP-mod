@@ -128,17 +128,24 @@ if (ds_map_exists(async_load, "buffer"))
                                         time = undefined;
 
                                     global.AP_deathlink_protected = true;
+                                    
+                                    var source;
+                                    if (variable_struct_exists(data[i].data, "source"))
+                                    {
+                                        if (data[i].data.source == global.AP_name)
+                                            continue;
+                                        else
+                                            source = data[i].data.source;
+                                    }
+                                    else
+                                        source = undefined;
+
                                     var cause;
                                     if (variable_struct_exists(data[i].data, "cause"))
                                         cause = data[i].data.cause;
                                     else
                                         cause = undefined;
 
-                                    var source;
-                                    if (variable_struct_exists(data[i].data, "source"))
-                                        source = data[i].data.source;
-                                    else
-                                        source = undefined;
 
                                     global.AP_deathlink_infos = {source: source, cause: cause, time: time};
                                     AP_handle_DeathLink();

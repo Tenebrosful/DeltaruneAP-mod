@@ -127,10 +127,10 @@ function AP_sendLocation(arg0)
     }
 
     var arr = [_contents];
-    location = json_stringify(arr);
-    var buffer = buffer_create(string_byte_length(aa), buffer_fixed, 1);
+    data = json_stringify(arr);
+    var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
     buffer_seek(buffer, buffer_seek_start, 0);
-    buffer_write(buffer, buffer_text, location);
+    buffer_write(buffer, buffer_text, data);
     network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
 }
 
@@ -155,10 +155,10 @@ function AP_sendHint(arg0)
     }
 
     var arr = [_contents];
-    location = json_stringify(arr);
-    var buffer = buffer_create(string_byte_length(aa), buffer_fixed, 1);
+    data = json_stringify(arr);
+    var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
     buffer_seek(buffer, buffer_seek_start, 0);
-    buffer_write(buffer, buffer_text, location);
+    buffer_write(buffer, buffer_text, data);
     network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
 }
 
@@ -179,10 +179,10 @@ function AP_sendDeathlink(text)
     };
 
     var arr = [_contents];
-    location = json_stringify(arr);
-    var buffer = buffer_create(string_byte_length(aa), buffer_fixed, 1);
+    data = json_stringify(arr);
+    var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
     buffer_seek(buffer, buffer_seek_start, 0);
-    buffer_write(buffer, buffer_text, location);
+    buffer_write(buffer, buffer_text, data);
     network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
 }
 
@@ -202,10 +202,10 @@ function AP_updateTags(){
         tags: tags
     };
     var arr = [_contents];
-    location = json_stringify(arr);
-    var buffer = buffer_create(string_byte_length(aa), buffer_fixed, 1);
+    data = json_stringify(arr);
+    var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
     buffer_seek(buffer, buffer_seek_start, 0);
-    buffer_write(buffer, buffer_text, location);
+    buffer_write(buffer, buffer_text, data);
     network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
 }
 
