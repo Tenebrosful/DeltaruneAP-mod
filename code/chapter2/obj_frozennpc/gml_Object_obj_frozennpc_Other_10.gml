@@ -9,6 +9,11 @@ if (scr_havechar(2))
     msgsetloc(0, "\\EC* Everything's frozen.../");
     msgnextloc("\\E1* Wonder what happened around here./%");
 }
+if (scr_havechar(3))
+{
+    scr_speaker("ralsei");
+    msgsetloc(0, "\\EC* .../%");
+}
 
 onebuffer = 5;
 myinteract = 3;
