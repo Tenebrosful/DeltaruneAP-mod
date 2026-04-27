@@ -80,7 +80,7 @@ function AP_connect()
     };
 
     isConnected = network_connect_raw(global.AP_socket, global.AP_server, global.AP_port);
-    
+
     AP_internal_send_packet(_contents);
 }
 
@@ -136,7 +136,7 @@ function AP_completeChapter(chapter_number)
         cmd: "Set",
         key: string(global.AP_slot) + "_chapter_" + string(chapter_number) + "_completed",
         default: 0,
-        want_reply: true,
+        want_reply: false,
         operations: [{operation: "replace", value: 1}]
     };
 
@@ -152,6 +152,20 @@ function AP_getChapterCompletion()
     {
         cmd: "Get",
         keys: global.AP_completed_chapters_keys
+    };
+
+    AP_internal_send_packet(_contents);
+}
+
+function AP_goal()
+{
+    if (!AP_isAuthenticated())
+        exit;
+
+    var _contents = 
+    {
+        cmd: "StatusUpdate",
+        status: int64(AP_client_status.CLIENT_GOAL)
     };
 
     AP_internal_send_packet(_contents);
@@ -263,4 +277,13 @@ enum UnknownEnum
 {
     Value_7 = 7,
     Value_999999 = 999999
+}
+
+enum AP_client_status
+{
+    CLIENT_UNKNOWN = 0,
+    CLIENT_CONNECTED = 5,
+    CLIENT_READY = 10,
+    CLIENT_PLAYING = 20,
+    CLIENT_GOAL = 30
 }

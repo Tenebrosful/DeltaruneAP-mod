@@ -1,39 +1,47 @@
 /// FUNCTIONS
 
-function scr_victory(arg0)
+function AP_complete_chapter(chapter_number)
 {
-    chapter_list = [1, 2, 3, 4, 5, 6, 7];
-    if (global.customflags[999] == 0)
-        switch (arg0)
+    if (!instance_exists(obj_archipelago_client))
+    {
+        instance_create(0, 0, obj_archipelago_client);
+    }
+    
+    if(!obj_archipelago_client.AP_isAuthenticated())
+        obj_archipelago_client.AP_connect();
+
+    switch (chapter_number)
+    {
+        case 0:
+            break;
+        case 1:
+            AP_sendLocation(185);
+        case 2:
+            AP_sendLocation(186);
+        case 3:
+            AP_sendLocation(187);
+        case 4:
+            AP_sendLocation(225);
+        default:
+            break;
+    }
+    
+    obj_archipelago_client.AP_completeChapter(chapter_number);
+    global.AP_completed_chapters[chapter_number - 1] = true;
+
+    var isVictory = true;
+
+    for (var i = 0; i < global.AP_max_chapter; i++)
+    {
+        if (global.AP_include_chapters[i] && !global.AP_completed_chapters[i])
         {
-            case 0:
-                break;
-            case 1:
-                AP_sendLocation(185);
-            case 2:
-                AP_sendLocation(186);
-            case 3:
-                AP_sendLocation(187);
-            case 4:
-                AP_sendLocation(225);
-            default:
-                break;
+            isVictory = false;
+            break;
         }
-    file = file_text_open_append("ch" + string(arg0) + ".complete");
-    file_text_close(file);
-    complete = 0;
-    for (var i = 1; i < array_length(chapter_list); i += 1)
-    {
-        if ((file_exists(string("ch{0}.route", chapter_list[i])) == 1 && file_exists(string("ch{0}.complete", chapter_list[i])) == 1) || file_exists(string("ch{0}.route", chapter_list[i])) == 0)
-            complete += 1;
-        else
-            complete += 0;
     }
-    if (complete == 6)
-    {
-        file = file_text_open_append("ch" + string(arg0) + ".victory");
-        file_text_close(file);
-    }
+
+    if (isVictory)
+        obj_archipelago_client.AP_goal();
 }
 
 function AP_sendLocation(location_id)

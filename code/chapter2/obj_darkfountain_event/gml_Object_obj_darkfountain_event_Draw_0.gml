@@ -6,5 +6,5 @@
 /// CODE
         scr_fountain_levelup();
         room_goto(room_lw_computer_lab);
-        scr_victory(2);
+        AP_complete_chapter(2);
 /// END

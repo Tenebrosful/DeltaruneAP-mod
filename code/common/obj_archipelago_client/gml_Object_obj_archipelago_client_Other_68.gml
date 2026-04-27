@@ -52,13 +52,18 @@ if (ds_map_exists(async_load, "buffer"))
                         global.AP_slotinfo[ii + 1] = slot_info.game;
                     }
 
+                    for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
+                    {
+                        if (variable_struct_exists(data[i].slot_data.options, "include_chapter_" + string(chapter)))
+                            global.AP_include_chapters[chapter - 1] = variable_struct_get(data[i].slot_data.options, "include_chapter_" + string(chapter));
+
+                        if (variable_struct_exists(data[i].slot_data.options, "macguffin_chapter_" + string(chapter)))
+                            global.AP_macguffin_required[chapter - 1] = variable_struct_get(data[i].slot_data.options, "macguffin_chapter_" + string(chapter));
+                    }
+
                     global.AP_slot = data[i].slot;
 
-                    global.AP_balancing = data[i].slot_data.options.item_balancing
-                    global.AP_macguffin_required[0] = data[i].slot_data.options.macguffin_chapter_1;
-                    global.AP_macguffin_required[1] = data[i].slot_data.options.macguffin_chapter_2;
-                    global.AP_macguffin_required[2] = data[i].slot_data.options.macguffin_chapter_3;
-                    global.AP_macguffin_required[3] = data[i].slot_data.options.macguffin_chapter_4;
+                    global.AP_balancing = data[i].slot_data.options.item_balancing;
                     global.AP_secret_bosses_mandatory = data[i].slot_data.options.randomize_secret_bosses == 2;
                     global.AP_deathlink = data[i].slot_data.options.death_link;
 
@@ -257,6 +262,20 @@ if (ds_map_exists(async_load, "buffer"))
                             file_text_write_string(file, scouting_json);
                             file_text_close(file);
                         }
+                    }
+                    break;
+                case "Retrieved":
+                    if (variable_struct_exists(data[i], "keys"))
+                    {
+                        var keys = variable_struct_get_names(data[i].keys);
+                        if (array_contains(keys, global.AP_completed_chapters_keys[0]))
+                            global.AP_completed_chapters[0] = variable_struct_get(data[i].keys, global.AP_completed_chapters_keys[0]);
+                        if (array_contains(keys, global.AP_completed_chapters_keys[1]))
+                            global.AP_completed_chapters[1] = variable_struct_get(data[i].keys, global.AP_completed_chapters_keys[1]);
+                        if (array_contains(keys, global.AP_completed_chapters_keys[2]))
+                            global.AP_completed_chapters[2] = variable_struct_get(data[i].keys, global.AP_completed_chapters_keys[2]);
+                        if (array_contains(keys, global.AP_completed_chapters_keys[3]))
+                            global.AP_completed_chapters[3] = variable_struct_get(data[i].keys, global.AP_completed_chapters_keys[3]);
                     }
                     break;
             }

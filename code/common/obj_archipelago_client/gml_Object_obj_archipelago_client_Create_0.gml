@@ -22,9 +22,10 @@ global.AP_deathlink = 0;
 global.AP_deathlink_protected = false;
 global.AP_deathlink_infos = {source: undefined, cause: undefined, time: undefined};
 global.AP_secret_bosses_mandatory = false;
-global.AP_macguffin_required = [0, 0, 0, 0];
+global.AP_macguffin_required = [];
 global.AP_completed_chapters_keys = [];
-global.AP_completed_chapters = [false, false, false, false];
+global.AP_completed_chapters = [];
+global.AP_include_chapters = [];
 global.AP_balancing = 0;
 global.AP_multiworld = 0;
 global.AP_color = 
@@ -49,10 +50,13 @@ global.AP_item_offset =
 for (var i = 1; i <= global.AP_max_chapter; i++)
 {
     array_push(global.AP_completed_chapters_keys, string(global.AP_slot) + "_chapter_" + string(i) + "_completed");
+    global.AP_chapter_unlocked[i] = false;
+    global.AP_completed_chapters[i] = false;
+    global.AP_include_chapters[i] = false;
+    global.AP_macguffin_required[i] = 0;
 }
 
 for (var i = 1; i <= global.AP_max_chapter; i++)
-    global.AP_chapter_unlocked[i] = false;
 
 step = 0;
 
