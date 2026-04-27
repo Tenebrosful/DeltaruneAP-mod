@@ -186,6 +186,49 @@ function AP_sendDeathlink(text)
     network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
 }
 
+function AP_sendLocationScouts(ids)
+{
+    if (!AP_isAuthenticated())
+        exit;
+
+    var _contents =
+    {
+        cmd: "LocationScouts",
+        locations: ids
+    };
+
+    for (var i = 0; i < array_length(_contents.locations); i++)
+    {
+        _contents.locations[i] = int64(_contents.locations[i]);
+    }
+
+    var arr = [_contents];
+    data = json_stringify(arr);
+    var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
+    buffer_seek(buffer, buffer_seek_start, 0);
+    buffer_write(buffer, buffer_text, data);
+    network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
+}
+
+function AP_getDataPackage(games)
+{
+    if (!AP_isAuthenticated())
+        exit;
+
+    var _contents =
+    {
+        cmd: "GetDataPackage",
+        games: games
+    };
+
+    var arr = [_contents];
+    data = json_stringify(arr);
+    var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
+    buffer_seek(buffer, buffer_seek_start, 0);
+    buffer_write(buffer, buffer_text, data);
+    network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
+}
+
 /// UPDATE TAGS
 
 function AP_updateTags(){

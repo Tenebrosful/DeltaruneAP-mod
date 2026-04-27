@@ -33,6 +33,8 @@ if (ds_map_exists(async_load, "buffer"))
             switch (data[i].cmd)
             {
                 case "Connected":
+
+
                     global.AP_isAuthenticated = 2;
                     show_debug_message("Login successful!");
                     
@@ -42,6 +44,16 @@ if (ds_map_exists(async_load, "buffer"))
                             global.AP_chapter_unlocked[ii] = true;
                     }
 
+                    for (var ii = 0; ii < array_length(data[i].players); ii++)
+                    {
+                        var slot_info = variable_struct_get(data[i].slot_info, ii + 1);
+                        var player = data[i].players[ii];
+                        global.AP_player_names[ii + 1] = player.name;
+                        global.AP_slotinfo[ii + 1] = slot_info.game;
+                    }
+
+                    global.AP_slot = data[i].slot;
+
                     global.AP_balancing = data[i].slot_data.options.item_balancing
                     global.AP_macguffin_required[0] = data[i].slot_data.options.macguffin_chapter_1;
                     global.AP_macguffin_required[1] = data[i].slot_data.options.macguffin_chapter_2;
@@ -50,17 +62,35 @@ if (ds_map_exists(async_load, "buffer"))
                     global.AP_secret_bosses_mandatory = data[i].slot_data.options.randomize_secret_bosses == 2;
                     global.AP_deathlink = data[i].slot_data.options.death_link;
 
-                    var path = global.AP_multiworld + "/settings.json"
+                    var path_settings = global.AP_multiworld + "/settings.json"
 
-                    if (file_exists(path))
+                    if (file_exists(path_settings))
                     {
-                        var file = file_text_open_read(path);
+                        var file = file_text_open_read(path_settings);
                         var content = file_text_read_string(file);
 
                         if (content != -1)
                             settings_struct = json_parse(content);
 
                         global.AP_deathlink = settings_struct.deathLink;
+                    }
+
+                    var path_scouting = global.AP_multiworld + "/scouting.json"
+
+                    if (!file_exists(path_scouting))
+                    {
+                        var missing_locations = data[i].missing_locations;
+                        AP_sendLocationScouts(missing_locations);
+                    }
+                    else
+                    {
+                        var file = file_text_open_read(path_scouting);
+                        var content = file_text_read_string(file);
+
+                        if (content != -1)
+                            scouting_struct = json_parse(content);
+
+                        global.AP_location_item = scouting_struct;
                     }
 
                     AP_write_settings_file();
@@ -154,7 +184,127 @@ if (ds_map_exists(async_load, "buffer"))
                         }
                     }
                     break;
+                case "LocationInfo":
+                    if (variable_struct_exists(data[i], "locations"))
+                    {
+                        global.AP_scouting_raw = data[i].locations;
+                        var player_ids = [];
+                        for (var ii = 0; ii < array_length(data[i].locations); ii++)
+                        {
+                            array_push(player_ids, data[i].locations[ii].player);
+                            // var item = data[i].locations[ii];
+                            // var playerName; var itemName;
+
+                            // if (item.player == global.AP_slot)
+                            //     playerName = "<yourself>";
+                            // else
+                            //     playerName = global.AP_player_names[item.player];
+                        }
+
+                        var player_ids_unique = array_unique(player_ids);
+                        var games = [];
+
+                        for (var ii = 0; ii < array_length(player_ids_unique); ii++)
+                        {
+                            array_push(games, global.AP_slotinfo[player_ids_unique[ii]]);
+                        }
+
+                        var games_unique = array_unique(games);
+                        AP_getDataPackage(games_unique);
+                    }
+                    break;
+                case "DataPackage":
+                    if (variable_struct_exists(data[i], "data"))
+                    {
+                        global.AP_data_package_raw = data[i].data.games;
+
+                        if (!file_exists(global.AP_multiworld + "/datapackage.json"))
+                        {
+                            var package = data[i].data;
+                            package_json = json_stringify(package);
+                            var file = file_text_open_write(global.AP_multiworld + "/datapackage.json");
+                            file_text_write_string(file, package_json);
+                            file_text_close(file);
+                        }
+
+                        if (!file_exists(global.AP_multiworld + "/scouting.json"))
+                        {
+                            var scouting = {};
+
+                            for (var ii = 0; ii < array_length(global.AP_scouting_raw); ii++)
+                            {
+                                var playerName; var itemName; var flags;
+
+                                if (global.AP_scouting_raw[ii].player == global.AP_slot)
+                                    playerName = "<yourself>";
+                                else
+                                    playerName = global.AP_player_names[global.AP_scouting_raw[ii].player];
+
+                                var gamePlayed = global.AP_slotinfo[global.AP_scouting_raw[ii].player];
+
+                                var game_data = variable_struct_get(global.AP_data_package_raw, gamePlayed);
+
+                                itemName = struct_find_key_by_value(game_data.item_name_to_id, global.AP_scouting_raw[ii].item);
+                                flags = global.AP_scouting_raw[ii].flags;
+
+                                variable_struct_set(scouting, global.AP_scouting_raw[ii].location, {playerName: playerName, itemName: itemName, flags: flags});
+                            }
+
+                            global.AP_location_item = scouting;
+
+                            scouting_json = json_stringify(scouting);
+                            var file = file_text_open_write(global.AP_multiworld + "/scouting.json");
+                            file_text_write_string(file, scouting_json);
+                            file_text_close(file);
+                        }
+                    }
+                    break;
             }
         }
     }
+}
+
+function array_unique(array)
+{
+  var result = [array[0]];
+
+  for (var i = 1; i < array_length(array); i++)
+  {
+      var unique = true;
+      for (var j = 0; j < array_length(result); j++)
+      {
+          if (result[j] == array[i])
+          {
+              unique = false;
+              break;
+          }
+      }
+
+      if (unique)
+      {
+          array_push(result, array[i]);
+      }
+  }
+  return result;
+}
+
+function array_contains(array, value)
+{
+    for (var i = 0; i < array_length(array); i++)
+    {
+        if (array[i] == value)
+            return true;
+    }
+    return false;
+}
+
+function struct_find_key_by_value(_struct, _value)
+{
+    var _keys = variable_struct_get_names(_struct);
+    for (var i = 0; i < array_length(_keys); i++)
+    {
+        if (variable_struct_get(_struct, _keys[i]) == _value)
+            return _keys[i];
+    }
+    return undefined;
 }
