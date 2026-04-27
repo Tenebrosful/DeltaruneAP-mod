@@ -162,6 +162,7 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("ORDER:ELEC", "scr_recruit_info_slash_scr_recruit_info_gml_164_0");
             _dialogue[0] = stringsetloc("* Pipooo^1! Nothing beats a nice shot of espresso..^1. Want me to give you a \"shot\"^1, too!?/%", "scr_recruit_info_slash_scr_recruit_info_gml_165_0");
             _recruitcount = 4;
+            _checkid = 77;
             break;
         
         case 31:
@@ -177,10 +178,11 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("VIRUS", "scr_recruit_info_slash_scr_recruit_info_gml_179_0");
             _dialogue[0] = stringsetloc("* NOMU NOMU.&* BERRY GOOD!/%", "scr_recruit_info_slash_scr_recruit_info_gml_181_0");
             _recruitcount = 3;
+            _checkid = 76;
             break;
         
         case 32:
-            _sprite = spr_tasque_idle_cafe;
+            _sprite = spr_tasque_idle;
             _name = stringsetloc("Tasque", "scr_recruit_info_slash_scr_recruit_info_gml_188_0");
             _desc = stringsetloc("This cat loves you!", "scr_recruit_info_slash_scr_recruit_info_gml_189_0");
             _like = stringsetloc("Cat Food", "scr_recruit_info_slash_scr_recruit_info_gml_190_0");
@@ -192,6 +194,7 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("CAT:ELEC", "scr_recruit_info_slash_scr_recruit_info_gml_196_0");
             _dialogue[0] = stringsetloc("* (It's drinking K_K's electric milk JPEG.)/%", "scr_recruit_info_slash_scr_recruit_info_gml_197_0");
             _recruitcount = 5;
+            _checkid = 54;
             break;
         
         case 33:
@@ -207,6 +210,7 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("ELEC", "scr_recruit_info_slash_scr_recruit_info_gml_211_0");
             _dialogue[0] = stringsetloc("* (It has some kind of energy drink.)/%", "scr_recruit_info_slash_scr_recruit_info_gml_212_0");
             _recruitcount = 6;
+            _checkid = 49;
             break;
         
         case 34:
@@ -222,6 +226,7 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("MOUSE:ELEC", "scr_recruit_info_slash_scr_recruit_info_gml_226_0");
             _dialogue[0] = stringsetloc("* (It's drinking melted cheese.)/%", "scr_recruit_info_slash_scr_recruit_info_gml_227_0");
             _recruitcount = 3;
+            _checkid = 78;
             break;
         
         case 35:
@@ -237,6 +242,7 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("VIRUS", "scr_recruit_info_slash_scr_recruit_info_gml_241_0");
             _dialogue[0] = stringsetloc("* Wanna share my soda? We'll both get sick that way..^1. Hee hee./%", "scr_recruit_info_slash_scr_recruit_info_gml_242_0");
             _recruitcount = 4;
+            _checkid = 55;
             break;
         
         case 36:
@@ -252,6 +258,7 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("COLOR", "scr_recruit_info_slash_scr_recruit_info_gml_256_0");
             _dialogue[0] = stringsetloc("* Boss? Shall we sit down and enjoy a nice earl grey?/%", "scr_recruit_info_slash_scr_recruit_info_gml_257_0");
             _recruitcount = 5;
+            _checkid = 87;
             break;
         
         case 40:
@@ -267,6 +274,7 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("ELEC:FIGHT", "scr_recruit_info_slash_scr_recruit_info_gml_271_0");
             _dialogue[0] = stringsetloc("* (..^1. it's crushing its energy drink with its hand...)/%", "scr_recruit_info_slash_scr_recruit_info_gml_272_0");
             _recruitcount = 1;
+            _checkid = 94;
             break;
         
         case 42:
@@ -283,6 +291,7 @@ function scr_recruit_info(arg0)
             _dialogue[0] = stringsetloc("", "scr_recruit_info_slash_scr_recruit_info_gml_288_0");
             _placeable = 0;
             _recruitcount = 1;
+            _checkid = 88;
             break;
         
         case 44:
@@ -298,6 +307,7 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("MOUSE:MOUSE:MOUSE", "scr_recruit_info_slash_scr_recruit_info_gml_303_0");
             _dialogue[0] = stringsetloc("* (It's getting electricity from the melted cheese like a water wheel)/%", "scr_recruit_info_slash_scr_recruit_info_gml_304_0");
             _recruitcount = 1;
+            _checkid = 89;
             break;
         
         case 54:
@@ -313,6 +323,7 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("CHAOS:MUSIC", "scr_recruit_info_slash_scr_recruit_info_gml_328_0");
             _dialogue[0] = stringsetloc("* (Seems to just be enjoying the musical ambience.)/%", "scr_recruit_info_slash_scr_recruit_info_gml_329_0");
             _recruitcount = 25;
+            _checkid = 164;
             break;
         
         case 55:
@@ -328,6 +339,7 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("COPY", "scr_recruit_info_slash_scr_recruit_info_gml_343_0");
             _dialogue[0] = stringsetloc("* Shush^1! Don't do the move..^1. I am photographing the drink!/%", "scr_recruit_info_slash_scr_recruit_info_gml_344_0");
             _recruitcount = 2;
+            _checkid = 165;
             break;
         
         case 56:
@@ -343,6 +355,7 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("ORDER:ELEC", "scr_recruit_info_slash_scr_recruit_info_gml_358_0");
             _dialogue[0] = stringsetloc("* Say da word^1, boss..^1. I'll give dis drink a sip it won't forget./%", "scr_recruit_info_slash_scr_recruit_info_gml_359_0");
             _recruitcount = 2;
+            _checkid = 166;
             break;
         
         case 57:
@@ -358,6 +371,7 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("FROG:DUST", "scr_recruit_info_slash_scr_recruit_info_gml_373_0");
             _dialogue[0] = stringsetloc("* (Looks like it want to be dabbed with rubbing alcohol.)/%", "scr_recruit_info_slash_scr_recruit_info_gml_374_0");
             _recruitcount = 3;
+            _checkid = 167;
             break;
         
         case 58:
@@ -373,6 +387,7 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("WATER", "scr_recruit_info_slash_scr_recruit_info_gml_388_0");
             _dialogue[0] = stringsetloc("* (Seems like they're drinking water.)&* (..^1. feels questionable.)/%", "scr_recruit_info_slash_scr_recruit_info_gml_389_0");
             _recruitcount = 1;
+            _checkid = 129;
             break;
         
         case 59:
@@ -388,10 +403,11 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("CHAOS:LUCK", "scr_recruit_info_slash_scr_recruit_info_gml_403_0");
             _dialogue[0] = stringsetloc("* This drink's not mine? It's fine. I'm just keeping it warm./%", "scr_recruit_info_slash_scr_recruit_info_gml_404_0");
             _recruitcount = 5;
+            _checkid = 168;
             break;
         
         case 60:
-            _sprite = spr_npc_elnina_idle_left;
+            _sprite = spr_elnina_idle_left;
             _name = stringsetloc("Elnina", "scr_recruit_info_slash_scr_recruit_info_gml_410_0");
             _desc = stringsetloc("The weather girl who really \"makes it rain.\" Like... with water, though.", "scr_recruit_info_slash_scr_recruit_info_gml_411_0");
             _like = stringsetloc("Lanino", "scr_recruit_info_slash_scr_recruit_info_gml_412_0");
@@ -403,11 +419,11 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("WATER:ICE", "scr_recruit_info_slash_scr_recruit_info_gml_418_0");
             _dialogue[0] = stringsetloc("* Oh no^1, where's Lanino? He better not be having a team relationship.../%", "scr_recruit_info_slash_scr_recruit_info_gml_419_0");
             _recruitcount = 1;
-            _placeable = 2;
+            _checkid = 161;
             break;
         
         case 61:
-            _sprite = spr_npc_lanino_idle_left;
+            _sprite = spr_lanino_idle_left;
             _name = stringsetloc("Lanino", "scr_recruit_info_slash_scr_recruit_info_gml_425_0");
             _desc = stringsetloc("A charming weatherman who can control the weather. Which, seems like cheating.", "scr_recruit_info_slash_scr_recruit_info_gml_426_0");
             _like = stringsetloc("Elnina", "scr_recruit_info_slash_scr_recruit_info_gml_427_0");
@@ -419,7 +435,7 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("FIRE:WIND", "scr_recruit_info_slash_scr_recruit_info_gml_433_0");
             _dialogue[0] = stringsetloc("* Haven't been on a date alone for a while^1! ..^1. which^1, isn't a date./%", "scr_recruit_info_slash_scr_recruit_info_gml_434_0");
             _recruitcount = 1;
-            _placeable = 2;
+            _checkid = 162;
             break;
         
         case 62:
