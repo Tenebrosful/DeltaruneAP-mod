@@ -78,13 +78,10 @@ function AP_connect()
             build: global.AP_version[2]
         }
     };
-    var arr = [_contents];
-    aa = json_stringify(arr);
+
     isConnected = network_connect_raw(global.AP_socket, global.AP_server, global.AP_port);
-    buffer = buffer_create(string_byte_length(aa), buffer_fixed, 1);
-    buffer_seek(buffer, buffer_seek_start, 0);
-    buffer_write(buffer, buffer_text, aa);
-    network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
+    
+    AP_internal_send_packet(_contents);
 }
 
 function AP_disconnect()
@@ -126,12 +123,38 @@ function AP_sendLocation(arg0)
         _contents.locations[i] = int64(_contents.locations[i]);
     }
 
-    var arr = [_contents];
-    data = json_stringify(arr);
-    var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
-    buffer_seek(buffer, buffer_seek_start, 0);
-    buffer_write(buffer, buffer_text, data);
-    network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
+    AP_internal_send_packet(_contents);
+}
+
+function AP_completeChapter(chapter_number)
+{
+    if (!AP_isAuthenticated())
+        exit;
+
+    var _contents = 
+    {
+        cmd: "Set",
+        key: string(global.AP_slot) + "_chapter_" + string(chapter_number) + "_completed",
+        default: 0,
+        want_reply: true,
+        operations: [{operation: "replace", value: 1}]
+    };
+
+    AP_internal_send_packet(_contents);
+}
+
+function AP_getChapterCompletion()
+{
+    if (!AP_isAuthenticated())
+        exit;
+
+    var _contents = 
+    {
+        cmd: "Get",
+        keys: global.AP_completed_chapters_keys
+    };
+
+    AP_internal_send_packet(_contents);
 }
 
 function AP_sendHint(arg0)
@@ -154,12 +177,7 @@ function AP_sendHint(arg0)
         _contents.locations[i] = int64(_contents.locations[i]);
     }
 
-    var arr = [_contents];
-    data = json_stringify(arr);
-    var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
-    buffer_seek(buffer, buffer_seek_start, 0);
-    buffer_write(buffer, buffer_text, data);
-    network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
+    AP_internal_send_packet(_contents);
 }
 
 function AP_sendDeathlink(text)
@@ -178,12 +196,7 @@ function AP_sendDeathlink(text)
         }
     };
 
-    var arr = [_contents];
-    data = json_stringify(arr);
-    var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
-    buffer_seek(buffer, buffer_seek_start, 0);
-    buffer_write(buffer, buffer_text, data);
-    network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
+    AP_internal_send_packet(_contents);
 }
 
 function AP_sendLocationScouts(ids)
@@ -202,12 +215,7 @@ function AP_sendLocationScouts(ids)
         _contents.locations[i] = int64(_contents.locations[i]);
     }
 
-    var arr = [_contents];
-    data = json_stringify(arr);
-    var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
-    buffer_seek(buffer, buffer_seek_start, 0);
-    buffer_write(buffer, buffer_text, data);
-    network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
+    AP_internal_send_packet(_contents);
 }
 
 function AP_getDataPackage(games)
@@ -220,13 +228,7 @@ function AP_getDataPackage(games)
         cmd: "GetDataPackage",
         games: games
     };
-
-    var arr = [_contents];
-    data = json_stringify(arr);
-    var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
-    buffer_seek(buffer, buffer_seek_start, 0);
-    buffer_write(buffer, buffer_text, data);
-    network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
+    AP_internal_send_packet(_contents);
 }
 
 /// UPDATE TAGS
@@ -244,7 +246,12 @@ function AP_updateTags(){
         items_handling: 7,
         tags: tags
     };
-    var arr = [_contents];
+    AP_internal_send_packet(_contents);
+}
+
+function AP_internal_send_packet(content)
+{
+    var arr = [content];
     data = json_stringify(arr);
     var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
     buffer_seek(buffer, buffer_seek_start, 0);
