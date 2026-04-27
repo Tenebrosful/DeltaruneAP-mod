@@ -235,7 +235,7 @@ function AP_updateTags(){
     if (!AP_isAuthenticated())
         exit;
 
-    var tags = ["AP"]
+    var tags = ["AP", "NoText"];
     if(global.AP_deathlink)
         array_insert(tags, 1, "DeathLink")
     var _contents = 
