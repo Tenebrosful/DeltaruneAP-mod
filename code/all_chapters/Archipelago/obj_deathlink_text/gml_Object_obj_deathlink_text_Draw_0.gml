@@ -30,5 +30,3 @@ draw_text(posx, 0, "Deathlink from " + source);
 draw_set_color(c_white);
 draw_text(posx, 10, cause);
 draw_set_halign(fa_left);
-draw_text(0, 0, string(camera_get_view_x(view_camera[0])));
-draw_text(0, 15, string(camera_get_view_width(view_camera[0])));
