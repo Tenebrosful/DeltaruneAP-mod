@@ -1,5 +1,8 @@
 # DELTARUNE Archipelago Mod
 
+## Requirement
+- [Undertale Mod Tool](https://github.com/UnderminersTeam/UndertaleModTool/releases) (Minimum v0.9)
+
 ## Have to do this readme sometime
 
 ## Contribute
