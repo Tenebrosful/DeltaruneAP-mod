@@ -16,7 +16,7 @@ if (!usesAGRP)
     ScriptWarning("This game doesn't use audiogroups.\nImporting to external audiogroups is disabled.");
 }
 
-string soundPath = "../../sounds/snd_moss_fanfare.wav";
+string soundPath = "../sounds/snd_moss_fanfare.wav";
 if (string.IsNullOrEmpty(soundPath))
 {
     return;

@@ -1,14 +1,12 @@
 #load "ump.csx"
 #load "rooms\room_loader.csx"
 #load "gameObjects\game_objects_loader.csx"
-#load "lolCollisionTmpFix\gml_Object_obj_dw_leave_ch4_Collision_obj_mainchara.csx"
 
 using ImageMagick;
 using System.Linq;
 using System.Drawing;
 using UndertaleModLib.Util;
 
-SyncBinding("Strings, Variables, Functions", true);
 UndertaleModLib.Compiler.CodeImportGroup importGroup = new(Data);
 
 class ArchipelagoLoader : UMPLoader
@@ -97,7 +95,6 @@ void BuildMod(int chapter)
     if (chapter > 1)
         RunUMTScript(Path.Combine(scriptPath, "fnt_main_ch1/ImportFonts.csx"));
 
-    Load_collision_stuff();
     Build_Early_Rooms(chapter);
     loader.Load();
     
@@ -113,7 +110,6 @@ void BuildMod(int chapter)
     //     importGroup.QueueFindReplace(code, "game_restart(", "game_restart_true(", true);
     // }
     importGroup.Import();
-    DisableAllSyncBindings();
 
     ScriptMessage(chapter == 0 ? "Archipelago Mod for DELTARUNE Chapter Select was imported!" : $"Archipelago Mod for DELTARUNE Chapter {chapter} was imported!");
 }
