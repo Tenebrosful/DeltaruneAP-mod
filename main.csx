@@ -80,11 +80,16 @@ void BuildMod(int chapter)
     string scriptPath = Path.GetDirectoryName(ScriptPath);
 
     RunUMTScript(Path.Combine(scriptPath, "sprites/ImportGraphics.csx"));
-    
+
     if (chapter > 0)
     {
         ReplacePageItemTexture(Data.Sprites.ByName("bg_myroom_dark").Textures[0].Texture.Name.Content, "kris_room_dark.png");
         ReplacePageItemTexture(Data.Sprites.ByName("bg_myroom").Textures[0].Texture.Name.Content, "kris_room.png");
+    }
+    
+    if (chapter == 1)
+    {
+        RunUMTScript(Path.Combine(scriptPath, "sounds/ImportSingleSound.csx"));
     }
 
     // Import fnt_main from Chapter 1 into other chapters because for some reason the text acts really strange otherwise.
