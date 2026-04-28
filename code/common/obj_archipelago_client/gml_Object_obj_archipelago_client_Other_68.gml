@@ -38,10 +38,19 @@ if (ds_map_exists(async_load, "buffer"))
                     global.AP_isAuthenticated = 2;
                     show_debug_message("Login successful!");
                     
-                    if (data[i].slot_data.options.randomize_chapters == "all_unlocked")
+                    for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
                     {
-                        for (var ii = 1; ii <= (array_length(global.AP_chapter_unlocked) - 1); ii++)
-                            global.AP_chapter_unlocked[ii] = true;
+                        if (variable_struct_exists(data[i].slot_data.options, "include_chapter_" + string(chapter)))
+                        {
+                            global.AP_include_chapters[chapter - 1] = variable_struct_get(data[i].slot_data.options, "include_chapter_" + string(chapter));
+                            if (data[i].slot_data.options.randomize_chapters == "all_unlocked")
+                            {
+                                global.AP_chapter_unlocked[chapter] = global.AP_include_chapters[chapter - 1];
+                            }
+                        }
+
+                        if (variable_struct_exists(data[i].slot_data.options, "macguffin_chapter_" + string(chapter)))
+                            global.AP_macguffin_required[chapter - 1] = variable_struct_get(data[i].slot_data.options, "macguffin_chapter_" + string(chapter));
                     }
 
                     for (var ii = 0; ii < array_length(data[i].players); ii++)
@@ -52,14 +61,6 @@ if (ds_map_exists(async_load, "buffer"))
                         global.AP_slotinfo[ii + 1] = slot_info.game;
                     }
 
-                    for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
-                    {
-                        if (variable_struct_exists(data[i].slot_data.options, "include_chapter_" + string(chapter)))
-                            global.AP_include_chapters[chapter - 1] = variable_struct_get(data[i].slot_data.options, "include_chapter_" + string(chapter));
-
-                        if (variable_struct_exists(data[i].slot_data.options, "macguffin_chapter_" + string(chapter)))
-                            global.AP_macguffin_required[chapter - 1] = variable_struct_get(data[i].slot_data.options, "macguffin_chapter_" + string(chapter));
-                    }
 
                     global.AP_slot = data[i].slot;
 
