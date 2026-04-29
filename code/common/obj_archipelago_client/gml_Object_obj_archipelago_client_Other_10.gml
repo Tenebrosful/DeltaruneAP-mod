@@ -64,7 +64,7 @@ function AP_connect()
     var _contents = 
     {
         cmd: "Connect",
-        password: "",
+        password: global.AP_password,
         game: APgame,
         name: global.AP_name,
         uuid: UnknownEnum.Value_999999,
