@@ -9,6 +9,9 @@ if (!edit)
         
         if (choice == max_choice)
             choice = 0;
+        else if (page == 1 && choice == 0){
+            choice = 2;
+        }
         else
             choice++;
     }
@@ -18,6 +21,9 @@ if (!edit)
         
         if (choice == 0)
             choice = max_choice;
+        else if (page == 1 && choice == 2){
+            choice = 0;
+        }
         else
             choice--;
     }
@@ -70,8 +76,6 @@ if (keyboard_check_pressed(vk_escape) && edit)
 
 if (edit)
 {
-    var current = "";
-    
     if (page == 0)
     {
         switch (choice)

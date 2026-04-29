@@ -16,7 +16,7 @@ outline_offset = 2;
 y_align = 160;
 x_align = 80;
 randomise();
-musics = ["hip_shop.ogg", "town_day.ogg", "shop1.ogg", "castletown.ogg", "castle_funk_long.ogg", "greenroom_detune.ogg"];
+musics = ["hip_shop.ogg", "town_day.ogg", "shop1.ogg", "castletown.ogg", "castle_funk_long.ogg", "greenroom_detune.ogg", "kris_piano_lancer_waltz.ogg"];
 my_music = audio_create_stream("mus/" + musics[irandom(array_length(musics) - 1)]);
 audio_play_sound(my_music, 2, true);
 audio_sound_gain(my_music, 0.5, 0);
@@ -27,6 +27,7 @@ fadein.depth = 1;
 fadein.x = -100;
 fadein.y = -100;
 page = 0;
+current = "";
 
 function dec_to_hex(arg0, arg1 = 6)
 {
