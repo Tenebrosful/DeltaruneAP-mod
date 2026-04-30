@@ -10,7 +10,7 @@
             
 /// CODE
         case UnknownEnum.Value_0:
-            if (global.AP_chapter_unlocked[_chapter])
+            if (global.AP_chapter_unlocked[_chapter - 1])
             {
                 _chapter_choice.hide_heart();
                 _chapter_choice.disable_input();
@@ -26,7 +26,7 @@
 /// CODE
 if (_chapter < array_length(global.AP_chapter_unlocked))
     {
-        if (!global.AP_chapter_unlocked[_chapter])
+        if (!global.AP_chapter_unlocked[_chapter - 1])
         {
             _chapter_choice._color = 8421504;
             _chapter_choice.disabled_chapter = true;

@@ -16,10 +16,13 @@ function AP_complete_chapter(chapter_number)
             break;
         case 1:
             AP_sendLocation(185);
+            break;
         case 2:
             AP_sendLocation(186);
+            break;
         case 3:
             AP_sendLocation(187);
+            break;
         case 4:
             AP_sendLocation(225);
         default:
@@ -31,9 +34,9 @@ function AP_complete_chapter(chapter_number)
 
     var isVictory = true;
 
-    for (var i = 0; i < global.AP_max_chapter; i++)
+    for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
     {
-        if (global.AP_include_chapters[i] && !global.AP_completed_chapters[i])
+        if (global.AP_include_chapters[chapter - 1] && !global.AP_completed_chapters[chapter - 1])
         {
             isVictory = false;
             break;
@@ -223,9 +226,9 @@ function AP_load()
     var array_size = ossafe_file_text_read_real(myfileid);
     ossafe_file_text_readln(myfileid);
     
-    for (i = 0; i < array_size; i++)
+    for (chapter = 1; chapter <= array_size; chapter++)
     {
-        global.AP_item_got_in_current_chapter[i] = ossafe_file_text_read_real(myfileid);
+        global.AP_item_got_in_current_chapter[chapter - 1] = ossafe_file_text_read_real(myfileid);
         ossafe_file_text_readln(myfileid);
     }
 

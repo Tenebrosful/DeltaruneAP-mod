@@ -28,6 +28,7 @@ global.AP_completed_chapters = [];
 global.AP_include_chapters = [];
 global.AP_balancing = 0;
 global.AP_multiworld = 0;
+global.AP_all_locations_ids = [];
 global.AP_color = 
 {
     filler: 16776960,
@@ -47,16 +48,13 @@ global.AP_item_offset =
     chapter_unlock: 90000
 };
 
-for (var i = 1; i <= global.AP_max_chapter; i++)
+for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
 {
-    array_push(global.AP_completed_chapters_keys, string(global.AP_slot) + "_chapter_" + string(i) + "_completed");
-    global.AP_chapter_unlocked[i] = false;
-    global.AP_completed_chapters[i] = false;
-    global.AP_include_chapters[i] = false;
-    global.AP_macguffin_required[i] = 0;
+    global.AP_chapter_unlocked[chapter - 1] = false;
+    global.AP_completed_chapters[chapter - 1] = false;
+    global.AP_include_chapters[chapter - 1] = false;
+    global.AP_macguffin_required[chapter - 1] = 0;
 }
-
-for (var i = 1; i <= global.AP_max_chapter; i++)
 
 step = 0;
 

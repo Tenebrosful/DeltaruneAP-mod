@@ -73,11 +73,9 @@ detect_no_chapters = function()
     _current_state = UnknownEnum.Value_8;
     var max_available_chapter = UnknownEnum.Value_4;
     
-    for (var i = 0; i < max_available_chapter; i++)
+    for (var chapter = 1; chapter <= max_available_chapter; chapter++)
     {
-        var chapter = i + 1;
-        
-        if (global.AP_chapter_unlocked[chapter] == true)
+        if (global.AP_chapter_unlocked[chapter - 1] == true)
         {
             _current_state = UnknownEnum.Value_4;
             break;

@@ -103,20 +103,21 @@ function AP_isAuthenticated()
     return false;
 }
 
-function AP_sendLocation(arg0)
+function AP_sendLocation(ids)
 {
     if (!AP_isAuthenticated())
+        exit;
+
+    var validLocations = AP_internal_verify_location_id(ids);
+
+    if (array_length(validLocations) == 0)
         exit;
     
     var _contents = 
     {
-        cmd: "LocationChecks"
+        cmd: "LocationChecks",
+        locations: validLocations
     };
-
-    if (is_array(arg0))
-        _contents.locations = arg0;
-    else
-        _contents.locations = [arg0];
     
     for (var i = 0; i < array_length(_contents.locations); i++)
     {
@@ -171,20 +172,21 @@ function AP_goal()
     AP_internal_send_packet(_contents);
 }
 
-function AP_sendHint(arg0)
+function AP_sendHint(ids)
 {
     if (!AP_isAuthenticated())
         exit;
 
+    var validLocations = AP_internal_verify_location_id(ids);
+
+    if (array_length(validLocations) == 0)
+        exit;
+
     var _contents =
     {
-        cmd: "CreateHints"
+        cmd: "CreateHints",
+        locations: validLocations
     };
-
-    if (is_array(arg0))
-        _contents.locations = arg0;
-    else
-        _contents.locations = [arg0];
 
     for (var i = 0; i < array_length(_contents.locations); i++)
     {
@@ -271,6 +273,38 @@ function AP_internal_send_packet(content)
     buffer_seek(buffer, buffer_seek_start, 0);
     buffer_write(buffer, buffer_text, data);
     network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
+}
+
+function AP_internal_verify_location_id(ids)
+{
+    var validLocations = [];
+
+    if (is_array(ids))
+    {
+        for (var i = 0; i < array_length(ids); i++)
+        {
+            for (var ii = 0; ii < array_length(global.AP_all_locations_ids); ii++)
+            {
+                if (ids[i] == global.AP_all_locations_ids[ii])
+                {
+                    array_push(validLocations, ids[i]);
+                    break;
+                }
+            }
+        }
+    }
+    else
+    {
+        for (var i = 0; i < array_length(global.AP_all_locations_ids); i++)
+        {
+            if (ids == global.AP_all_locations_ids[i])
+            {
+                array_push(validLocations, ids);
+            }
+        }
+    }
+
+    return validLocations;
 }
 
 enum UnknownEnum

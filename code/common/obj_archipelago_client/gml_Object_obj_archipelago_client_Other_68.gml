@@ -34,12 +34,15 @@ if (ds_map_exists(async_load, "buffer"))
             {
                 case "Connected":
 
-
+                    global.AP_slot = data[i].slot;
                     global.AP_isAuthenticated = 2;
                     show_debug_message("Login successful!");
+
+                    global.AP_all_locations_ids = array_concat(data[i].missing_locations, data[i].checked_locations);
                     
                     for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
                     {
+                        array_push(global.AP_completed_chapters_keys, string(global.AP_slot) + "_chapter_" + string(chapter) + "_completed");
                         if (variable_struct_exists(data[i].slot_data.options, "include_chapter_" + string(chapter)))
                         {
                             global.AP_include_chapters[chapter - 1] = variable_struct_get(data[i].slot_data.options, "include_chapter_" + string(chapter));
@@ -101,6 +104,7 @@ if (ds_map_exists(async_load, "buffer"))
 
                     AP_write_settings_file();
                     AP_updateTags();
+                    AP_getChapterCompletion();
                     
                     break;
                 
@@ -121,7 +125,7 @@ if (ds_map_exists(async_load, "buffer"))
                             {
                                 if (data[i].items[ii].item >= global.AP_item_offset.chapter_unlock)
                                 {
-                                    global.AP_chapter_unlocked[data[i].items[ii].item - global.AP_item_offset.chapter_unlock] = true
+                                    global.AP_chapter_unlocked[data[i].items[ii].item - global.AP_item_offset.chapter_unlock - 1] = true
                                 }
                             }
                         }
@@ -269,14 +273,18 @@ if (ds_map_exists(async_load, "buffer"))
                     if (variable_struct_exists(data[i], "keys"))
                     {
                         var keys = variable_struct_get_names(data[i].keys);
-                        if (array_contains(keys, global.AP_completed_chapters_keys[0]))
-                            global.AP_completed_chapters[0] = variable_struct_get(data[i].keys, global.AP_completed_chapters_keys[0]);
-                        if (array_contains(keys, global.AP_completed_chapters_keys[1]))
-                            global.AP_completed_chapters[1] = variable_struct_get(data[i].keys, global.AP_completed_chapters_keys[1]);
-                        if (array_contains(keys, global.AP_completed_chapters_keys[2]))
-                            global.AP_completed_chapters[2] = variable_struct_get(data[i].keys, global.AP_completed_chapters_keys[2]);
-                        if (array_contains(keys, global.AP_completed_chapters_keys[3]))
-                            global.AP_completed_chapters[3] = variable_struct_get(data[i].keys, global.AP_completed_chapters_keys[3]);
+
+                        for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
+                        {
+                            if (array_contains(keys, global.AP_completed_chapters_keys[chapter - 1]))
+                            {
+                                var value = variable_struct_get(data[i].keys, global.AP_completed_chapters_keys[chapter - 1]);
+                                if (value != undefined)
+                                {
+                                    global.AP_completed_chapters[chapter - 1] = value;
+                                }
+                            }
+                        }
                     }
                     break;
             }
@@ -316,6 +324,23 @@ function array_contains(array, value)
             return true;
     }
     return false;
+}
+
+function array_concat(array1, array2)
+{
+    var res = [];
+
+    for (var i = 0; i < array_length(array1); i++)
+    {
+        array_push(res, array1[i]);
+    }
+
+    for (var i = 0; i < array_length(array2); i++)
+    {
+        array_push(res, array2[i]);
+    }
+
+    return res;
 }
 
 function struct_find_key_by_value(_struct, _value)
