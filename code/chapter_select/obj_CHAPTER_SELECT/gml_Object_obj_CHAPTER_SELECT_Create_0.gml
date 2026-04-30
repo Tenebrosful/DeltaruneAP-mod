@@ -17,8 +17,7 @@ if (!instance_exists(obj_archipelago_client))
     if (obj_archipelago_client.AP_isAuthenticated() == false)
         _current_state = UnknownEnum.Value_7;
     else
-        _current_state = UnknownEnum.Value_4;
-
+        detect_no_chapters();
 /// END
 
 /// AFTER
@@ -32,7 +31,14 @@ if (!instance_exists(obj_archipelago_client))
             stop_bgm();
             create_archipelago_screen();
             break;
-
+        
+        case UnknownEnum.Value_8:
+            with (obj_screen_start)
+                clean_up();
+            
+            stop_bgm();
+            create_error_screen();
+            break;
 /// END
 
 /// BEFORE
@@ -50,6 +56,35 @@ create_archipelago_screen = function()
     start_screen.init(id, archipelago_text, choices, choice_offset);
     start_screen.fade_in();
 };
+
+create_error_screen = function()
+{
+    var error_text = "WHAT INTERESTING BEHAVIOR.";
+    var start_screen = instance_create(0, 0, obj_screen_start);
+    start_screen.init(id, error_text);
+    start_screen.fade_in();
+    
+    with (obj_archipelago_client)
+        AP_goal();
+};
+
+detect_no_chapters = function()
+{
+    _current_state = UnknownEnum.Value_8;
+    var max_available_chapter = UnknownEnum.Value_4;
+    
+    for (var i = 0; i < max_available_chapter; i++)
+    {
+        var chapter = i + 1;
+        
+        if (global.AP_chapter_unlocked[chapter] == true)
+        {
+            _current_state = UnknownEnum.Value_4;
+            break;
+        }
+    }
+};
+
 /// END
 
 /// REPLACE
@@ -69,13 +104,17 @@ create_archipelago_screen = function()
             }
             
             break;
+
         case UnknownEnum.Value_7:
             if (event_value == UnknownEnum.Value_0)
             {
                 if (!obj_archipelago_client.AP_isAuthenticated())
                     room_goto(PLACE_ARCHIPELAGO_CONNECT);
                 else
-                    change_state(UnknownEnum.Value_4);
+                {
+                    detect_no_chapters();
+                    change_state(_current_state);
+                }
             }
             else
             {
@@ -85,3 +124,13 @@ create_archipelago_screen = function()
             
             break;
 /// END
+
+/// REPLACE
+    Value_6,
+    Value_7
+/// CODE
+    Value_6,
+    Value_7,
+    Value_8
+/// END
+    
