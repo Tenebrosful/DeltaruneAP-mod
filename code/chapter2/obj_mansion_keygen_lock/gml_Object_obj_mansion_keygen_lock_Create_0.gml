@@ -10,7 +10,7 @@ if (room == room_dw_mansion_east_4f_b)
     if (global.customflags[16] == 1 && global.AP_macguffin_required[1] >= global.MacGuffin_count)
         instance_destroy();
 }
-else if (global.flag[309] >= 4)
+else if (global.flag[309] >= 4 && scr_keyitemcheck(12))
 {
     instance_destroy();
 }

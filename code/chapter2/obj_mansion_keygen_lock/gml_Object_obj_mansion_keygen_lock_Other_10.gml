@@ -31,7 +31,6 @@ if (unlocked == false)
         if (scr_keyitemcheck(12) == 1)
         {
             unlocked = true;
-            scr_keyitemremove(12);
             msgsetloc(0, "* (Kris used the KEYGEN.)/%", "obj_mansion_keygen_lock_slash_Other_10_gml_9_0");
             
             if (global.flag[309] < 4)
