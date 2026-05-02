@@ -68,6 +68,7 @@ if (ds_map_exists(async_load, "buffer"))
                     global.AP_slot = data[i].slot;
 
                     global.AP_balancing = data[i].slot_data.options.item_balancing;
+                    global.remove_starting_equipment = data[i].slot_data.options.remove_starting_equipment;
                     global.AP_secret_bosses_mandatory = data[i].slot_data.options.randomize_secret_bosses == 2;
                     global.AP_deathlink = data[i].slot_data.options.death_link;
 
