@@ -47,9 +47,9 @@ function scr_defeatrun()
         fatal = 0;
     }
     
-    if (!__frozen || i_ex(obj_titan_spawn_enemy))
+    if (!__frozen || (global.chapter == 4 && i_ex(obj_titan_spawn_enemy))))
     {
-        if (fatal == 1 || i_ex(obj_titan_spawn_enemy))
+        if (fatal == 1 || (global.chapter == 4 && i_ex(obj_titan_spawn_enemy)))
         {
             defeatanim = instance_create(x, y, obj_deathanim);
             global.flag[1598]++;
