@@ -17,10 +17,19 @@ function scr_iteminfo(arg0)
             break;
         
         case 1:
-            itemnameb = stringsetloc("Darker Candy", "scr_iteminfo_slash_scr_iteminfo_gml_16_0_b");
-            itemdescb = stringsetloc("Heals#120HP", "scr_iteminfo_slash_scr_iteminfo_gml_17_0");
+            if (global.chapter >= 4)
+            {
+                itemnameb = stringsetloc("Darker Candy", "scr_iteminfo_slash_scr_iteminfo_gml_16_0_b");
+                itemdescb = stringsetloc("Heals#120HP", "scr_iteminfo_slash_scr_iteminfo_gml_17_0");
+                value = 120;
+            }
+            else
+            {
+                itemnameb = stringsetloc("Candy", "scr_iteminfo_slash_scr_iteminfo_gml_16_0_b");
+                itemdescb = stringsetloc("Heals#40HP", "scr_iteminfo_slash_scr_iteminfo_gml_17_0");
+                value = 40;
+            }
             itemtarget = 1;
-            value = 120;
             usable = 1;
             break;
         
