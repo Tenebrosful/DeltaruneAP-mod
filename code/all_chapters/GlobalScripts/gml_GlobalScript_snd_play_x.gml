@@ -6,3 +6,13 @@ function snd_play_x(arg0, arg1, arg2)
     snd_pitch(_mysnd, arg2);
     return _mysnd;
 }
+
+function sound_play_x(arg0, arg1, arg2)
+{
+    snd_play_x(arg0, arg1, arg2);
+}
+
+function soundplay_x(arg0, arg1, arg2)
+{
+    snd_play_x(arg0, arg1, arg2);
+}

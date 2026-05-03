@@ -10,8 +10,6 @@ function scr_defeatrun()
         if (global.flag[51 + myself] == 6)
             __frozen = 1;
         
-        scr_recruit_info(global.monstertype[myself]);
-        
         if (__frozen == 1)
         {
             _rtext = instance_create(global.monsterx[myself], global.monstery[myself] - 40, obj_recruitanim);
@@ -20,20 +18,27 @@ function scr_defeatrun()
             if (recruitable == 1)
                 global.flag[global.monstertype[myself] + 600] = -1;
             
-            AP_sendLocation(_checkid + 1000);
+            scr_checkspot(_checkid + 1000);
             global.flag[63] = 1;
         }
         
         if (recruitable == 1 && global.flag[61] == 0 && __frozen == 0)
         {
-            AP_sendLocation(_checkid + 1000);
+            scr_checkspot(_checkid + 1000);
             global.flag[63] = 1;
             
             if (global.flag[global.monstertype[myself] + 600] != -1)
             {
                 global.flag[global.monstertype[myself] + 600] = -1;
-                _rtext = instance_create(global.monsterx[myself], global.monstery[myself] - 40, obj_recruitanim);
-                _rtext.image_index = 7;
+                
+                if (global.chapter == 4 && i_ex(obj_titan_spawn_enemy))
+                {
+                }
+                else
+                {
+                    _rtext = instance_create(global.monsterx[myself], global.monstery[myself] - 40, obj_recruitanim);
+                    _rtext.image_index = 7;
+                }
             }
         }
     }
@@ -42,12 +47,17 @@ function scr_defeatrun()
         fatal = 0;
     }
     
-    if (!__frozen)
+    if (!__frozen || i_ex(obj_titan_spawn_enemy))
     {
-        if (fatal == 1)
+        if (fatal == 1 || i_ex(obj_titan_spawn_enemy))
+        {
             defeatanim = instance_create(x, y, obj_deathanim);
+            global.flag[1598]++;
+        }
         else
+        {
             defeatanim = instance_create(x, y, obj_defeatanim);
+        }
     }
     else if (__frozen)
     {

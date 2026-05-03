@@ -131,8 +131,39 @@ function AP_item_flag_to_color(flags){
 
 function AP_handle_DeathLink()
 {
-    if (global.chapter != 3)
+    if (global.chapter == 3 && (room == room_board_1 || room == room_board_2 || room == room_board_3))
     {
+        if (i_ex(obj_battlecontroller))
+        {
+            timer++;
+            
+            if (timer > 10)
+            {
+                snd_play(snd_hurt1);
+                global.hp[1] = 0;
+                global.hp[2] = 0;
+                global.hp[3] = 0;
+                
+                with (obj_battlecontroller)
+                {
+                    with (obj_heroparent)
+                        sprite_index = defeatsprite;
+                    
+                    global.specialbattle = 3;
+                    boardend = 1;
+                    alarm[11] = 1;
+                    
+                    with (obj_dmgwriter)
+                        instance_destroy();
+                }
+            }
+        }
+        else
+        {
+            timer = 0;
+        }
+    }
+    else {
         scr_gameover();
         global.AP_deathlink_protected = false;
     }

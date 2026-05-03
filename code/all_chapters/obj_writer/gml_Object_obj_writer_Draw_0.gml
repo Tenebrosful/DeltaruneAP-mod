@@ -41,8 +41,13 @@
 /// END
 
 /// AFTER
+#if CHAPTER_1 || CHAPTER_2
             if (nextchar2 == "0")
                 xcolor = mycolor;
+#elsif CHAPTER_3
+                if (nextchar2 == "0")
+                    xcolor = mycolor;
+#endif
 /// CODE
 
             if (nextchar2 == "f") // lower because we think about the future (future colors in future chapters)

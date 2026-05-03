@@ -1,16 +1,15 @@
 /// IMPORT
-function scr_load_chapter1()
+function scr_load_chapter2()
 {
     snd_free_all();
     filechoicebk = global.filechoice;
     scr_gamestart();
     global.filechoice = filechoicebk;
-    file = "filech1_" + string(global.filechoice);
+    file = "filech2_" + string(global.filechoice);
     myfileid = ossafe_file_text_open_read(file);
     global.truename = ossafe_file_text_read_string(myfileid);
     ossafe_file_text_readln(myfileid);
     global.is_console = 0;
-    
     for (var i = 0; i < 6; i += 1)
     {
         global.othername[i] = ossafe_file_text_read_string(myfileid);
@@ -36,7 +35,7 @@ function scr_load_chapter1()
     global.darkzone = ossafe_file_text_read_real(myfileid);
     ossafe_file_text_readln(myfileid);
     
-    for (var i = 0; i < 4; i += 1)
+    for (var i = 0; i < 5; i += 1)
     {
         global.hp[i] = ossafe_file_text_read_real(myfileid);
         ossafe_file_text_readln(myfileid);
@@ -76,6 +75,10 @@ function scr_load_chapter1()
             global.itemboltspeed[i][q] = ossafe_file_text_read_real(myfileid);
             ossafe_file_text_readln(myfileid);
             global.itemspecial[i][q] = ossafe_file_text_read_real(myfileid);
+            ossafe_file_text_readln(myfileid);
+            global.itemelement[i][q] = ossafe_file_text_read_real(myfileid);
+            ossafe_file_text_readln(myfileid);
+            global.itemelementamount[i][q] = ossafe_file_text_read_real(myfileid);
             ossafe_file_text_readln(myfileid);
         }
         
@@ -145,7 +148,6 @@ function scr_load_chapter1()
     ossafe_file_text_readln(myfileid);
     global.ladef = ossafe_file_text_read_real(myfileid);
     ossafe_file_text_readln(myfileid);
-    
     for (var i = 0; i < 8; i += 1)
     {
         global.litem[i] = ossafe_file_text_read_real(myfileid);
@@ -172,10 +174,8 @@ function scr_load_chapter1()
     global.lastsavedtime = global.time;
     global.lastsavedlv = global.lv;
     scr_gamestart_chapter_override();
-    global.darkzone = 0;
-    
+    global.darkzone = 1;
     scr_tempsave();
     audio_group_set_gain(1, global.flag[15], 0);
     audio_set_master_gain(0, global.flag[17]);
-    global.invc = 1;
 }
