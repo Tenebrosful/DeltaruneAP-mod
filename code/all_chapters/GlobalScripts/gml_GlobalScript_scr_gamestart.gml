@@ -151,7 +151,6 @@ function scr_gamestart()
         {
             global.maxhp[2] = 110;
             global.maxhp[3] = 70;
-            
         }
 
         global.hp[1] = global.maxhp[1];
