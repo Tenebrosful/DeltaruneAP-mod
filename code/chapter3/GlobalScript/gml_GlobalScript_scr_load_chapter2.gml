@@ -148,6 +148,7 @@ function scr_load_chapter2()
     ossafe_file_text_readln(myfileid);
     global.ladef = ossafe_file_text_read_real(myfileid);
     ossafe_file_text_readln(myfileid);
+    
     for (var i = 0; i < 8; i += 1)
     {
         global.litem[i] = ossafe_file_text_read_real(myfileid);
@@ -156,7 +157,7 @@ function scr_load_chapter2()
         ossafe_file_text_readln(myfileid);
     }
     
-    for (var i = 0; i < 9999; i += 1)
+    for (var i = 0; i < 2500; i += 1)
     {
         global.flag[i] = ossafe_file_text_read_real(myfileid);
         ossafe_file_text_readln(myfileid);

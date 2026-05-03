@@ -26,7 +26,7 @@
 /// CODE
             scr_speaker("no_name");
             msgsetloc(0, "* The Check was sent to your Multiworld./%", "obj_ch3_couch_overworld_controller_slash_Step_0_gml_67_0");
-            scr_checkspot(114);
+            AP_sendLocation(114);
 /// END
 
 /// REPLACE

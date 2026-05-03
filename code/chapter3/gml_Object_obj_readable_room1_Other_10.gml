@@ -23,8 +23,8 @@
         noroom = 0;
         scr_weaponget(26);
 /// CODE
-        scr_checkspot(172);
-        scr_checkspot(173);
+        AP_sendLocation(172);
+        AP_sendLocation(173);
         noroom = 0;
 /// END
 
@@ -51,7 +51,7 @@
                     msgnextloc("\\S0* (You got the Saber10.)/%", "obj_readable_room1_slash_Other_10_gml_2238_0");
                 }
 /// CODE
-                scr_checkspot(136);
+                AP_sendLocation(136);
                 var can_get_item = noroom == 0;
                 var sentence_end = can_get_item ? "/" : "/%";
                 scr_speaker("no_name");

@@ -191,7 +191,7 @@
                                 scr_keyitemget(item[menuc[1]]);
                             
                             if (itemtype[menuc[1]] == "check")
-                                scr_checkspot(item[menuc[1]]);
+                                AP_sendLocation(item[menuc[1]]);
                             
                             if (menu_dollar)
                             {

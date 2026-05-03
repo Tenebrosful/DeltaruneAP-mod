@@ -24,7 +24,7 @@
     _chapter_choice = instance_create(x + 20, y + 26, obj_ui_choice);
 
 /// CODE
-if (_chapter < array_length(global.AP_chapter_unlocked))
+if (_chapter <= array_length(global.AP_chapter_unlocked))
     {
         if (!global.AP_chapter_unlocked[_chapter - 1])
         {

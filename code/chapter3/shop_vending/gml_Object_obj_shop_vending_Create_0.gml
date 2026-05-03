@@ -21,7 +21,7 @@ sidemessage_list = [stringsetloc("(Select&an item.)", "obj_shop_vending_slash_Cr
     itemtype[i] = "check";
     item[i] = current_item.item_id + 120;
     itemcount = 99;
-    scr_hintspot(item[i]);
+    AP_sendHint(item[i]);
     
     if (global.customflags[1120 + current_item.item_id] == 1)
     {

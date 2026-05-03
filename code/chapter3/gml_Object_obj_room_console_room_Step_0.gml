@@ -10,5 +10,5 @@
 /// REPLACE
             scr_keyitemget(16);
 /// CODE
-            scr_checkspot(141);
+            AP_sendLocation(141);
 /// END

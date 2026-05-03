@@ -3,7 +3,7 @@
 /// REPLACE
         scr_keyitemget(18);
 /// CODE
-        scr_checkspot(169);
+        AP_sendLocation(169);
 /// END
 
 /// AFTER
@@ -32,10 +32,10 @@
                 if (global.gold < 1)
                     global.gold = 0;
                 
-                scr_checkspot(130);
-                scr_checkspot(131);
-                scr_checkspot(132);
-                scr_checkspot(133);
-                scr_checkspot(134);
+                AP_sendLocation(130);
+                AP_sendLocation(131);
+                AP_sendLocation(132);
+                AP_sendLocation(133);
+                AP_sendLocation(134);
             }
 /// END

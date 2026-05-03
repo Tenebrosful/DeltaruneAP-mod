@@ -18,13 +18,13 @@ function scr_defeatrun()
             if (recruitable == 1)
                 global.flag[global.monstertype[myself] + 600] = -1;
             
-            scr_checkspot(_checkid + 1000);
+            AP_sendLocation(_checkid + 1000);
             global.flag[63] = 1;
         }
         
         if (recruitable == 1 && global.flag[61] == 0 && __frozen == 0)
         {
-            scr_checkspot(_checkid + 1000);
+            AP_sendLocation(_checkid + 1000);
             global.flag[63] = 1;
             
             if (global.flag[global.monstertype[myself] + 600] != -1)

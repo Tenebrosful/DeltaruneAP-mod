@@ -175,9 +175,6 @@ function AP_step()
     {
         if (canshowtext)
         {
-            if (file_exists("deathlink.flag") && file_exists("WelcomeToTheDead.youDied"))
-                scr_gameover();
-            
             if (wait == 1 && obj_archipelago_client.AP_isAuthenticated() && instance_exists(obj_dialoguer) == 0)
             {
                 wait = 0;

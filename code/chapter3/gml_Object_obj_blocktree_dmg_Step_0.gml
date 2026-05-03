@@ -5,7 +5,7 @@
     scr_keyitemget(2);
 /// CODE
     msgnextloc("(YOU RECEIVED A \\cYCHECK\\cW.)/%", "obj_blocktree_dmg_slash_Step_0_gml_262_0");
-    scr_checkspot(170);
+    AP_sendLocation(170);
 /// END
 
 /// REPLACE

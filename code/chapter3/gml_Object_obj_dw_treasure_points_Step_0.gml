@@ -27,7 +27,7 @@
         scr_speaker("no_name");
         msgsetloc(0, "* The Check was sent to your Multiworld./%", "obj_dw_treasure_points_slash_Step_0_gml_57_0");
         d_make();
-        scr_checkspot(t_itemid);
+        AP_sendLocation(t_itemid);
 /// END
 
 /// REPLACE

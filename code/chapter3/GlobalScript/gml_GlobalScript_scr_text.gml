@@ -7,20 +7,20 @@
 /// CODE
                     if (global.plot < 160)
                     {
-                        scr_checkspot(115);
-                        scr_checkspot(116);
-                        scr_checkspot(117);
-                        scr_checkspot(118);
-                        scr_checkspot(179);
+                        AP_sendLocation(115);
+                        AP_sendLocation(116);
+                        AP_sendLocation(117);
+                        AP_sendLocation(118);
+                        AP_sendLocation(179);
                     }
                     else
                     {
-                        scr_checkspot(142);
-                        scr_checkspot(143);
-                        scr_checkspot(144);
-                        scr_checkspot(145);
-                        scr_checkspot(180);
-                        scr_checkspot(181);
+                        AP_sendLocation(142);
+                        AP_sendLocation(143);
+                        AP_sendLocation(144);
+                        AP_sendLocation(145);
+                        AP_sendLocation(180);
+                        AP_sendLocation(181);
                     }
                     
 /// END

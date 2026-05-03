@@ -1,9 +1,9 @@
 /// PATCH
 
 /// APPEND
-scr_hintspot(130);
-scr_hintspot(131);
-scr_hintspot(132);
-scr_hintspot(133);
-scr_hintspot(134);
+AP_sendHint(130);
+AP_sendHint(131);
+AP_sendHint(132);
+AP_sendHint(133);
+AP_sendHint(134);
 /// END

@@ -4,7 +4,7 @@
 if (_title_enabled)
 
 /// CODE
-if (_chapter <= (array_length(global.AP_chapter_unlocked) - 1))
+if (_chapter <= (array_length(global.AP_chapter_unlocked)))
 {
     if (!global.AP_chapter_unlocked[_chapter - 1])
         _color = 8421504;

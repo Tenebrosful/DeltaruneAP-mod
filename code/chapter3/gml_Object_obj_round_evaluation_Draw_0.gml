@@ -1777,7 +1777,7 @@ if (con >= 1)
                 
                 if (global.customflags[20] == 0)
                 {
-                    scr_checkspot(179);
+                    AP_sendLocation(179);
                     global.customflags[20] = 1;
                 }
                 
@@ -1822,7 +1822,7 @@ if (con >= 1)
                     if (extrapicturecount)
                     {
                         btext[0] = extraphoto;
-                        scr_checkspot(180);
+                        AP_sendLocation(180);
                     }
                     
                     if (mossfound)
@@ -1832,7 +1832,7 @@ if (con >= 1)
                         else
                             btext[1] = atemoss;
                         
-                        scr_checkspot(181);
+                        AP_sendLocation(181);
                     }
                     
                     global.customflags[35] = 1;
@@ -1926,72 +1926,72 @@ if (con >= 1)
             {
                 if (desiredletter == _tlet)
                 {
-                    scr_checkspot(119);
-                    scr_checkspot(118);
-                    scr_checkspot(117);
-                    scr_checkspot(116);
-                    scr_checkspot(115);
+                    AP_sendLocation(119);
+                    AP_sendLocation(118);
+                    AP_sendLocation(117);
+                    AP_sendLocation(116);
+                    AP_sendLocation(115);
                 }
                 
                 if (desiredletter == _slet)
                 {
-                    scr_checkspot(118);
-                    scr_checkspot(117);
-                    scr_checkspot(116);
-                    scr_checkspot(115);
+                    AP_sendLocation(118);
+                    AP_sendLocation(117);
+                    AP_sendLocation(116);
+                    AP_sendLocation(115);
                 }
                 
                 if (desiredletter == _alet)
                 {
-                    scr_checkspot(117);
-                    scr_checkspot(116);
-                    scr_checkspot(115);
+                    AP_sendLocation(117);
+                    AP_sendLocation(116);
+                    AP_sendLocation(115);
                 }
                 
                 if (desiredletter == _blet)
                 {
-                    scr_checkspot(116);
-                    scr_checkspot(115);
+                    AP_sendLocation(116);
+                    AP_sendLocation(115);
                 }
                 
                 if (desiredletter == _clet)
-                    scr_checkspot(115);
+                    AP_sendLocation(115);
             }
             
             if (boardnumber == 2)
             {
                 if (desiredletter == _tlet)
                 {
-                    scr_checkspot(146);
-                    scr_checkspot(145);
-                    scr_checkspot(144);
-                    scr_checkspot(143);
-                    scr_checkspot(142);
+                    AP_sendLocation(146);
+                    AP_sendLocation(145);
+                    AP_sendLocation(144);
+                    AP_sendLocation(143);
+                    AP_sendLocation(142);
                 }
                 
                 if (desiredletter == _slet)
                 {
-                    scr_checkspot(145);
-                    scr_checkspot(144);
-                    scr_checkspot(143);
-                    scr_checkspot(142);
+                    AP_sendLocation(145);
+                    AP_sendLocation(144);
+                    AP_sendLocation(143);
+                    AP_sendLocation(142);
                 }
                 
                 if (desiredletter == _alet)
                 {
-                    scr_checkspot(144);
-                    scr_checkspot(143);
-                    scr_checkspot(142);
+                    AP_sendLocation(144);
+                    AP_sendLocation(143);
+                    AP_sendLocation(142);
                 }
                 
                 if (desiredletter == _blet)
                 {
-                    scr_checkspot(143);
-                    scr_checkspot(142);
+                    AP_sendLocation(143);
+                    AP_sendLocation(142);
                 }
                 
                 if (desiredletter == _clet)
-                    scr_checkspot(142);
+                    AP_sendLocation(142);
             }
         }
         

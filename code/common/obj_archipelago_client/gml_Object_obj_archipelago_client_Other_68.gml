@@ -48,7 +48,7 @@ if (ds_map_exists(async_load, "buffer"))
                             global.AP_include_chapters[chapter - 1] = variable_struct_get(data[i].slot_data.options, "include_chapter_" + string(chapter));
                             if (data[i].slot_data.options.randomize_chapters == "all_unlocked")
                             {
-                                global.AP_chapter_unlocked[chapter] = global.AP_include_chapters[chapter - 1];
+                                global.AP_chapter_unlocked[chapter - 1] = global.AP_include_chapters[chapter - 1];
                             }
                         }
 

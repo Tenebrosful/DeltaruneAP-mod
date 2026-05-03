@@ -3,7 +3,7 @@
 /// REPLACE
         global.flag[1055] = 1;
 /// CODE
-        scr_checkspot(182);
+        AP_sendLocation(182);
         global.customflags[22] = 1;
 /// END
 

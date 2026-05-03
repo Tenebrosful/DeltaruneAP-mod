@@ -4,6 +4,6 @@
 if (con == 75 && customcon == 1)
 {
 /// CODE
-      scr_checkspot(161);
-      scr_checkspot(162);
+      AP_sendLocation(161);
+      AP_sendLocation(162);
 /// END
