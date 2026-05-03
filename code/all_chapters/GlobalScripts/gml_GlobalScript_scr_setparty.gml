@@ -1,7 +1,10 @@
 /// IMPORT
 function scr_setparty(arg0 = false, arg1 = false, arg2 = false)
 {
-    if (global.chapter == 2){
+    if (global.chapter == 3){
+        var kris = obj_mainchara;
+    }
+    else if (global.chapter == 2){
         var kris = 84;
     }
     else{

@@ -273,6 +273,10 @@ function AP_load()
 function AP_save()
 {
     file_text_writeln(myfileid);
+
+    if array_length(global.AP_item_got_in_current_chapter) == undefined
+        global.AP_item_got_in_current_chapter = [];
+
     file_text_write_real(myfileid, array_length(global.AP_item_got_in_current_chapter));
 
     for (i = 0; i < array_length(global.AP_item_got_in_current_chapter); i++)

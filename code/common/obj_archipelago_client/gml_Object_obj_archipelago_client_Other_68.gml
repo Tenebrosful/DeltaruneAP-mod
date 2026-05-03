@@ -70,8 +70,10 @@ if (ds_map_exists(async_load, "buffer"))
                     global.AP_weird_route = data[i].slot_data.options.chosen_route;
                     global.AP_no_mantle = data[i].slot_data.options.randomize_mantle == "mantleless";
                     global.AP_balancing = data[i].slot_data.options.item_balancing;
-                    global.remove_starting_equipment = data[i].slot_data.options.remove_starting_equipment;
+                    global.AP_remove_starting_equipment = data[i].slot_data.options.AP_remove_starting_equipment;
                     global.AP_secret_bosses_mandatory = data[i].slot_data.options.randomize_secret_bosses == 2;
+                    global.AP_unlock_characters = data[i].slot_data.options.unlock_characters == "true" or data[i].slot_data.options.unlock_characters == "except_kris"
+                    global.AP_unlock_kris = data[i].slot_data.options.unlock_characters == "true"
                     global.AP_deathlink = data[i].slot_data.options.death_link;
 
                     var path_settings = global.AP_multiworld + "/settings.json"
