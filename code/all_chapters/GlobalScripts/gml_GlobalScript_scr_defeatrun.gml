@@ -47,7 +47,7 @@ function scr_defeatrun()
         fatal = 0;
     }
     
-    if (!__frozen || (global.chapter == 4 && i_ex(obj_titan_spawn_enemy))))
+    if (!__frozen || (global.chapter == 4 && i_ex(obj_titan_spawn_enemy)))
     {
         if (fatal == 1 || (global.chapter == 4 && i_ex(obj_titan_spawn_enemy)))
         {
