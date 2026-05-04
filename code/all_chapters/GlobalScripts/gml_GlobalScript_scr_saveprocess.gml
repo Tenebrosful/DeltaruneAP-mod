@@ -112,3 +112,17 @@
         }
     }
 /// END
+
+/// REPLACE .ignore if !CHAPTER_1
+        for (i = 0; i < 9999; i += 1)
+        {
+            file_text_write_real(myfileid, global.flag[i]);
+            file_text_writeln(myfileid);
+        }
+/// CODE
+        for (i = 0; i < 2500; i += 1)
+        {
+            file_text_write_real(myfileid, global.flag[i]);
+            file_text_writeln(myfileid);
+        }
+/// END

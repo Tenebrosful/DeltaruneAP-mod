@@ -48,6 +48,8 @@ global.AP_item_offset =
     armor: 20000,
     weapon: 30000,
     money: 40000,
+    progressive: 50000,
+    character_unlock: 60000,
     macguffin: 70000,
     ch3_points: 80000,
     chapter_unlock: 90000

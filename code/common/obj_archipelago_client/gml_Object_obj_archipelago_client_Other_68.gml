@@ -141,7 +141,7 @@ if (ds_map_exists(async_load, "buffer"))
                             for (var ii = 0; ii < array_length(data[i].items); ii++)
                             {
                                 global.AP_item_from_server[ii] = data[i].items[ii].item;
-                            } 
+                            }
                         }
                         // Receiving items while playing chapter
                         else
@@ -150,6 +150,13 @@ if (ds_map_exists(async_load, "buffer"))
                             for (var ii = 0; ii < array_length(data[i].items); ii++)
                             {
                                 global.AP_item_from_server[starting_index + ii] = data[i].items[ii].item;
+
+                                // We special handle it here so we directly get it even during a fight
+                                if (data[i].items[ii].item >= global.AP_item_offset.character_unlock && data[i].items[ii].item < global.AP_item_offset.macguffin)
+                                {
+                                    var character_id = data[i].items[ii].item - global.AP_item_offset.character_unlock - 1;
+                                    AP_handle_receive_character_unlock(character_id);
+                                }
                             }
                         }
                     }

@@ -9,6 +9,7 @@ function init_first_weapons()
 
 function scr_gamestart()
 {
+    AP_game_start();
     global.chapter = #GetChapterNumber();
     global.darkzone = 0;
     global.filechoice = 0;
@@ -38,7 +39,6 @@ function scr_gamestart()
     global.ambush = 0;
     global.tension = 0;
     global.maxtension = 250;
-    AP_game_start();
     
     for (i = 0; i < 3; i += 1)
     {
@@ -170,6 +170,8 @@ function scr_gamestart()
         global.hp[3] = global.maxhp[3];
         global.at[3] = 8;
         global.mag[3] = 7;
+
+        init_first_weapons();
     }
     
     if (global.chapter == 2)
@@ -201,7 +203,7 @@ function scr_gamestart()
         global.hp[3] = global.maxhp[3];
         global.at[3] = 10;
         global.mag[3] = 9;
-        global.hp[4] = 90;
+        global.hp[4] = global.maxhp[4];
         global.at[4] = 3;
         global.mag[4] = 11;
         global.df[4] = 1;

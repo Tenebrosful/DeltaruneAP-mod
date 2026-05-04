@@ -26,6 +26,97 @@ function AP_sync_item_from_server()
   }
 }
 
+function AP_handle_receive_character_unlock(character_id)
+{
+  global.maxhp[character_id] = AP_internal_get_character_max_hp(character_id);
+  global.hp[character_id] = global.maxhp[character_id];
+}
+
+function AP_internal_get_character_max_hp(character_id)
+{
+  switch (character_id)
+  {
+    case 1: // Kris
+      switch (global.chapter)
+      {
+        case 1:
+          return 20;
+
+        case 2:
+          return 40;
+
+        case 3:
+          return 60;
+
+        case 4:
+          return 80;
+
+        default:
+          return 20;
+      }
+
+    case 2: // Susie
+      switch (global.chapter)
+      {
+        case 1:
+          return 30;
+
+        case 2:
+          return 50;
+
+        case 3:
+          return 70;
+
+        case 4:
+          return 90;
+
+        default:
+          return 30;
+      }
+
+    case 3: // Ralsei
+      switch (global.chapter)
+      {
+        case 1:
+          return 25;
+
+        case 2:
+          return 45;
+
+        case 3:
+          return 65;
+
+        case 4:
+          return 85;
+
+        default:
+          return 25;
+      }
+
+    case 4: // Noelle
+      switch (global.chapter)
+      {
+        case 1:
+          return 15;
+
+        case 2:
+          return 35;
+
+        case 3:
+          return 55;
+
+        case 4:
+          return 75;
+
+        default:
+          return 15;
+      }
+
+    default:
+      return -1;
+  }
+}
+
 function AP_handle_receive_item(item_id)
 {
   global.interact = 1;
@@ -34,38 +125,48 @@ function AP_handle_receive_item(item_id)
   global.fe = 0;
   showingitem = 1;
 
-  item_id = scr_ap_egg_item(item_id);
+  item_id = AP_internal_egg_item(item_id);
 
   if (item_id == 66666){
     return;
   }
   if (item_id >= global.AP_item_offset.chapter_unlock){
-    scr_ap_handle_chapter_unlock_item(item_id);
+    AP_internal_handle_chapter_unlock_item(item_id);
   }
   else if (item_id >= global.AP_item_offset.ch3_points){
-    scr_ap_handle_ch3_points_item(item_id);
+    AP_internal_handle_ch3_points_item(item_id);
   }
   else if (item_id >= global.AP_item_offset.macguffin){
-    scr_ap_handle_macguffin_item(item_id);
+    AP_internal_handle_macguffin_item(item_id);
+  }
+  else if (item_id >= global.AP_item_offset.character_unlock){
+    AP_internal_handle_character_unlock(character_id);
   }
   else if (item_id >= global.AP_item_offset.money){
-    scr_ap_handle_money_item(item_id);
+    AP_internal_handle_money_item(item_id);
   }
   else if (item_id >= global.AP_item_offset.weapon){
-    scr_ap_handle_weapon_item(item_id);
+    AP_internal_handle_weapon_item(item_id);
   }
   else if (item_id >= global.AP_item_offset.armor){
-    scr_ap_handle_armor_item(item_id);
+    AP_internal_handle_armor_item(item_id);
   }
   else if (item_id >= global.AP_item_offset.keyitem){
-    scr_ap_handle_keyitem(item_id);
+    AP_internal_handle_keyitem(item_id);
   }
   else{
-    scr_ap_handle_normal_item(item_id);
+    AP_internal_handle_normal_item(item_id);
   }
 }
 
-function scr_ap_egg_item(item_id)
+function AP_internal_handle_character_unlock(item_id)
+{
+  var character_id = item_id - global.AP_item_offset.character_unlock - 1;
+  AP_handle_receive_character_unlock(character_id);
+  script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", AP_item_classification_color_text(global.charname[character_id], 2)), 0, 6);
+}
+
+function AP_internal_egg_item(item_id)
 {
   var egg_ids = [
     10002, 11011, 11012, 12021
@@ -78,7 +179,7 @@ function scr_ap_egg_item(item_id)
   return item_id;
 }
 
-function scr_ap_handle_chapter_unlock_item(item_id)
+function AP_internal_handle_chapter_unlock_item(item_id)
 {
   var chapter = item_id - global.AP_item_offset.chapter_unlock;
   var item_name = "Chapter " + string(chapter);
@@ -86,7 +187,7 @@ function scr_ap_handle_chapter_unlock_item(item_id)
   script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", AP_item_classification_color_text(item_name, 1)), 0, 6);
 }
 
-function scr_ap_handle_ch3_points_item(item_id)
+function AP_internal_handle_ch3_points_item(item_id)
 {
   var points_amount = item_id - global.AP_item_offset.ch3_points;
   var points = "";
@@ -107,22 +208,22 @@ function scr_ap_handle_ch3_points_item(item_id)
 
 }
 
-function scr_ap_handle_macguffin_item(item_id)
+function AP_internal_handle_macguffin_item(item_id)
 {
   scr_keyiteminfo(item_id - global.AP_item_offset.macguffin + 700)
 
   if (global.chapter == tempkeyitemchapter)
     global.MacGuffin_count += 1;
 
-  scr_ap_handle_real_keyitem(item_id - global.AP_item_offset.macguffin + 700);
+  AP_internal_handle_real_keyitem(item_id - global.AP_item_offset.macguffin + 700);
 }
 
-function scr_ap_handle_keyitem(item_id)
+function AP_internal_handle_keyitem(item_id)
 {
-  scr_ap_handle_real_keyitem(item_id - global.AP_item_offset.keyitem);
+  AP_internal_handle_real_keyitem(item_id - global.AP_item_offset.keyitem);
 }
 
-function scr_ap_handle_real_keyitem(realitem_id)
+function AP_internal_handle_real_keyitem(realitem_id)
 {
   scr_keyiteminfo(realitem_id)
   var item_chapter = tempkeyitemchapter;
@@ -131,10 +232,10 @@ function scr_ap_handle_real_keyitem(realitem_id)
   if ((item_chapter == 0 || global.chapter == item_chapter) && !scr_keyitemcheck(realitem_id))
     scr_keyitemget(realitem_id);
 
-  scr_ap_print_get_item_text(item_chapter, realitem_id, item_name, 1);
+  AP_internal_print_get_item_text(item_chapter, realitem_id, item_name, 1);
 }
 
-function scr_ap_handle_money_item(item_id)
+function AP_internal_handle_money_item(item_id)
 {
   var amount = item_id - global.AP_item_offset.money;
 
@@ -142,7 +243,7 @@ function scr_ap_handle_money_item(item_id)
   script_execute(scr_writetext, 0, string("* (You got {0}.)/%", AP_item_classification_color_text("D$" + string(amount), 0)), 0, 6);
 }
 
-function scr_ap_handle_weapon_item(item_id)
+function AP_internal_handle_weapon_item(item_id)
 {
   var weapon_id = item_id - global.AP_item_offset.weapon;
 
@@ -151,10 +252,10 @@ function scr_ap_handle_weapon_item(item_id)
   var item_classification = weaponclassificationtemp;
   scr_weaponget(weapon_id);
 
-  scr_ap_print_get_item_text(global.chapter, item_id, item_name, item_classification);
+  AP_internal_print_get_item_text(global.chapter, item_id, item_name, item_classification);
 }
 
-function scr_ap_handle_armor_item(item_id)
+function AP_internal_handle_armor_item(item_id)
 {
   var armor_id = item_id - global.AP_item_offset.armor;
 
@@ -163,24 +264,24 @@ function scr_ap_handle_armor_item(item_id)
   var item_classification = armorclassificationtemp;
   scr_armorget(armor_id);
 
-  scr_ap_print_get_item_text(global.chapter, item_id, item_name, item_classification);
+  AP_internal_print_get_item_text(global.chapter, item_id, item_name, item_classification);
 }
 
-function scr_ap_handle_normal_item(item_id)
+function AP_internal_handle_normal_item(item_id)
 {
   scr_iteminfo(item_id);
   var item_name = itemnameb;
   var item_classification = itemclassification;
   scr_itemget(item_id);
 
-  scr_ap_print_get_item_text(global.chapter, item_id, item_name, item_classification);
+  AP_internal_print_get_item_text(global.chapter, item_id, item_name, item_classification);
 }
 
-function scr_ap_print_get_item_text(item_chapter, item_id, item_name, item_classification)
+function AP_internal_print_get_item_text(item_chapter, item_id, item_name, item_classification)
 {
-  if (scr_ap_item_have_special_text(item_id))
+  if (AP_internal_item_have_special_text(item_id))
   {
-    scr_ap_print_get_item_text_special(item_id);
+    AP_internal_print_get_item_text_special(item_id);
   }
   else if (item_chapter != global.chapter)
   {
@@ -192,7 +293,7 @@ function scr_ap_print_get_item_text(item_chapter, item_id, item_name, item_class
   }
 }
 
-function scr_ap_item_have_special_text(item_id)
+function AP_internal_item_have_special_text(item_id)
 {
   var special_items_ids = [
     11005, 11006, 11007, 11016, 11017, 11020
@@ -205,7 +306,7 @@ function scr_ap_item_have_special_text(item_id)
   return false;
 }
 
-function scr_ap_print_get_item_text_special(item_id)
+function AP_internal_print_get_item_text_special(item_id)
 {
   switch (item_id) {
     case 11005: // Moss Chapter 1
