@@ -1,4 +1,12 @@
 /// IMPORT
+function init_first_weapons()
+{
+    global.charweapon[1] = 1;
+    global.charweapon[2] = 2;
+    global.charweapon[3] = 3;
+    global.charweapon[4] = 22;
+}
+
 function scr_gamestart()
 {
     global.chapter = #GetChapterNumber();
@@ -162,14 +170,6 @@ function scr_gamestart()
         global.hp[3] = global.maxhp[3];
         global.at[3] = 8;
         global.mag[3] = 7;
-
-
-        if (!global.AP_remove_starting_equipment)
-        {
-            global.charweapon[1] = 1;
-            global.charweapon[2] = 2;
-            global.charweapon[3] = 3;
-        }
     }
     
     if (global.chapter == 2)
@@ -207,7 +207,11 @@ function scr_gamestart()
         global.df[4] = 1;
 
 
-        if (!global.AP_remove_starting_equipment)
+        if (global.AP_remove_starting_equipment)
+        {
+            init_first_weapons();
+        }
+        else
         {
             global.charweapon[1] = 1;
             global.chararmor1[1] = 1;
@@ -261,7 +265,11 @@ function scr_gamestart()
         global.df[4] = 1;
         global.spell[2][1] = 11;
 
-        if (!global.AP_remove_starting_equipment)
+        if (global.AP_remove_starting_equipment)
+        {
+            init_first_weapons();
+        }
+        else
         {
             global.charweapon[1] = 16;
             global.chararmor1[1] = 1;
@@ -315,7 +323,11 @@ function scr_gamestart()
         global.df[4] = 1;
         global.spell[2][1] = 11;
 
-        if (!global.AP_remove_starting_equipment)
+        if (global.AP_remove_starting_equipment)
+        {
+            init_first_weapons();
+        }
+        else
         {
             global.charweapon[1] = 23;
             global.chararmor1[1] = 25;
