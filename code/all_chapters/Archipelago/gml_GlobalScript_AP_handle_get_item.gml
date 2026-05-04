@@ -40,76 +40,69 @@ function AP_internal_get_character_max_hp(character_id)
       switch (global.chapter)
       {
         case 1:
-          return 20;
+          return 90;
 
         case 2:
-          return 40;
+          return 120;
 
         case 3:
-          return 60;
+          return 160;
 
         case 4:
-          return 80;
+          return 200;
 
         default:
-          return 20;
+          return -1;
       }
 
     case 2: // Susie
       switch (global.chapter)
       {
         case 1:
-          return 30;
+          return 110;
 
         case 2:
-          return 50;
+          return 140;
 
         case 3:
-          return 70;
+          return 190;
 
         case 4:
-          return 90;
+          return 230;
 
         default:
-          return 30;
+          return -1;
       }
 
     case 3: // Ralsei
       switch (global.chapter)
       {
         case 1:
-          return 25;
+          return 70;
 
         case 2:
-          return 45;
+          return 100;
 
         case 3:
-          return 65;
+          return 140;
 
         case 4:
-          return 85;
+          return 180;
 
         default:
-          return 25;
+          return -1;
       }
 
     case 4: // Noelle
       switch (global.chapter)
       {
         case 1:
-          return 15;
-
-        case 2:
-          return 35;
-
         case 3:
-          return 55;
-
         case 4:
-          return 75;
-
+        case 2:
+          return 90;
         default:
-          return 15;
+          return -1;
       }
 
     default:
@@ -140,7 +133,7 @@ function AP_handle_receive_item(item_id)
     AP_internal_handle_macguffin_item(item_id);
   }
   else if (item_id >= global.AP_item_offset.character_unlock){
-    AP_internal_handle_character_unlock(character_id);
+    AP_internal_handle_character_unlock(item_id);
   }
   else if (item_id >= global.AP_item_offset.money){
     AP_internal_handle_money_item(item_id);
@@ -161,9 +154,9 @@ function AP_handle_receive_item(item_id)
 
 function AP_internal_handle_character_unlock(item_id)
 {
-  var character_id = item_id - global.AP_item_offset.character_unlock - 1;
+  var character_id = item_id - global.AP_item_offset.character_unlock;
   AP_handle_receive_character_unlock(character_id);
-  script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", AP_item_classification_color_text(global.charname[character_id], 2)), 0, 6);
+  script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", AP_item_classification_color_text(global.charname[character_id], 3)), 0, 6);
 }
 
 function AP_internal_egg_item(item_id)

@@ -18,6 +18,7 @@ global.AP_password = "";
 global.AP_secure = false;
 global.AP_connect_deadline = 15;
 global.AP_item_from_server = [];
+global.AP_game_start_post_connexion_done = false;
 global.AP_route = "unknown";
 global.AP_no_mantle = false;
 global.AP_deathlink = 0;

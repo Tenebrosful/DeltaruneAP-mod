@@ -110,6 +110,7 @@ if (ds_map_exists(async_load, "buffer"))
                     AP_write_settings_file();
                     AP_updateTags();
                     AP_getChapterCompletion();
+                    AP_game_start_post_connexion();
                     
                     break;
                 
@@ -154,7 +155,7 @@ if (ds_map_exists(async_load, "buffer"))
                                 // We special handle it here so we directly get it even during a fight
                                 if (data[i].items[ii].item >= global.AP_item_offset.character_unlock && data[i].items[ii].item < global.AP_item_offset.macguffin)
                                 {
-                                    var character_id = data[i].items[ii].item - global.AP_item_offset.character_unlock - 1;
+                                    var character_id = data[i].items[ii].item - global.AP_item_offset.character_unlock;
                                     AP_handle_receive_character_unlock(character_id);
                                 }
                             }

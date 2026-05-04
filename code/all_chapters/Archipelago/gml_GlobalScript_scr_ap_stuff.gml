@@ -312,3 +312,98 @@ function AP_game_start()
     for (var i = 0; i < 9999; i++)
         global.customflags[i] = 0;
 }
+
+function AP_game_start_post_connexion()
+{
+    // Prevent to execute if reconnected during the game
+    if (global.AP_game_start_post_connexion_done) return;
+
+    global.AP_game_start_post_connexion_done = true;
+    if (global.AP_remove_starting_equipment)
+    {
+        global.charweapon[1] = 1;
+        global.charweapon[2] = 2;
+        global.charweapon[3] = 3;
+        global.charweapon[4] = 22;
+    }
+    else
+    {
+        switch(global.chapter){
+            case 2:
+                global.charweapon[1] = 1;
+                global.chararmor1[1] = 1;
+                global.chararmor2[1] = 1;
+
+                global.charweapon[2] = 2;
+                global.chararmor1[2] = 1;
+                global.chararmor2[2] = 1;
+
+                global.charweapon[3] = 3;
+                global.chararmor1[3] = 1;
+                global.chararmor2[3] = 4;
+
+                global.charweapon[4] = 12;
+                global.chararmor1[4] = 14;
+                global.chararmor2[4] = 22;
+                break;
+            case 3:
+                global.charweapon[1] = 16;
+                global.chararmor1[1] = 1;
+                global.chararmor2[1] = 10;
+                
+                global.charweapon[2] = 17;
+                global.chararmor1[2] = 1;
+                global.chararmor2[2] = 10;
+
+                global.charweapon[3] = 18;
+                global.chararmor1[3] = 25;
+                global.chararmor2[3] = 10;
+
+                global.charweapon[4] = 12;
+                global.chararmor1[4] = 14;
+                global.chararmor2[4] = 22;
+                break;
+            case 4:
+                global.charweapon[1] = 23;
+                global.chararmor1[1] = 25;
+                global.chararmor2[1] = 10;
+
+                global.charweapon[2] = 24;
+                global.chararmor1[2] = 25;
+                global.chararmor2[2] = 10;
+
+                global.charweapon[3] = 25;
+                global.chararmor1[3] = 25;
+                global.chararmor2[3] = 10;
+
+                global.charweapon[4] = 12;
+                global.chararmor1[4] = 14;
+                global.chararmor2[4] = 22;
+                break;
+        }
+    }
+
+    if(global.AP_unlock_kris)
+        global.maxhp[1] = -1
+    else
+        global.maxhp[1] = AP_internal_get_character_max_hp(1);
+
+
+    if (global.AP_unlock_characters)
+    {
+        global.maxhp[2] = -1;
+        global.maxhp[3] = -1;
+        global.maxhp[4] = -1;
+    }
+    else
+    {
+        global.maxhp[2] = AP_internal_get_character_max_hp(2);
+        global.maxhp[3] = AP_internal_get_character_max_hp(3);
+        global.maxhp[4] = AP_internal_get_character_max_hp(4);
+    }
+
+    global.hp[1] = global.maxhp[1];
+    global.hp[2] = global.maxhp[2];
+    global.hp[3] = global.maxhp[3];
+    global.hp[4] = global.maxhp[4];
+}
