@@ -11,7 +11,8 @@
         AP_sendHint([40, 41, 42, 102, 103, 244]);
 /// END
 
-/// REPLACE .ignore if !CHAPTER_2
+#if CHAPTER_2
+/// REPLACE
         dojoPrizeName[0] = stringsetloc("Joe's Life Savings", "obj_fusionmenu_slash_Step_0_gml_153_0_b");
         dojoPrizeName[1] = stringsetloc("$100", "obj_fusionmenu_slash_Step_0_gml_150_0");
         dojoPrizeName[2] = stringsetloc("ClubsSandwich", "obj_fusionmenu_slash_Step_0_gml_151_0");
@@ -28,9 +29,9 @@
         dojoPrizeType[3] = "money";
         dojoPrizeType[4] = "item";
 /// CODE
-        data[0] = scr_ap_get_location_reward_data(36);
-        data[1] = scr_ap_get_location_reward_data(37);
-        data[2] = scr_ap_get_location_reward_data(38);
+        data[0] = AP_get_location_reward_data(36);
+        data[1] = AP_get_location_reward_data(37);
+        data[2] = AP_get_location_reward_data(38);
         dojoPrizeName[0] = stringsetloc(data[0].itemName, "obj_fusionmenu_slash_Step_0_gml_153_0_b");
         dojoPrizeName[1] = stringsetloc(data[1].itemName, "obj_fusionmenu_slash_Step_0_gml_150_0");
         dojoPrizeName[2] = stringsetloc(data[2].itemName, "obj_fusionmenu_slash_Step_0_gml_151_0");
@@ -54,29 +55,48 @@
         AP_sendHint([36, 37, 38]);
 /// END
 
-/// REPLACE .ignore if !CHAPTER_2
+/// REPLACE
                 dojoPrizeName[3] = stringsetloc("$250", "obj_fusionmenu_slash_Step_0_gml_178_0");
                 dojoTopComment[3] = stringsetloc("Winning's as easy as A-B-C!#You've got three chances, boss!", "obj_fusionmenu_slash_Step_0_gml_180_0");
                 dojoEncounter[3] = 89;
 /// CODE
-                data[3] = scr_ap_get_location_reward_data(100);
+                data[3] = AP_get_location_reward_data(100);
                 dojoPrizeName[3] = stringsetloc(data[3].itemName, "obj_fusionmenu_slash_Step_0_gml_178_0");
                 dojoTopComment[3] = stringsetloc("Winning's as easy as A-B-C!#You've got three chances, boss!", "obj_fusionmenu_slash_Step_0_gml_180_0");
                 dojoEncounter[3] = 89;
                 AP_sendHint(100);
 /// END
 
-/// REPLACE .ignore if !CHAPTER_2
+/// REPLACE
                 dojoPrizeName[4] = stringsetloc("TensionGem", "obj_fusionmenu_slash_Step_0_gml_179_0");
                 dojoTopComment[4] = stringsetloc("Face everyone in a row!#It'll take some stamina...", "obj_fusionmenu_slash_Step_0_gml_181_0");
                 dojoEncounter[4] = 90;
 /// CODE
-                data[4] = scr_ap_get_location_reward_data(101);
+                data[4] = AP_get_location_reward_data(101);
                 dojoPrizeName[4] = stringsetloc(data[4].itemName, "obj_fusionmenu_slash_Step_0_gml_179_0");
                 dojoTopComment[4] = stringsetloc("Face everyone in a row!#It'll take some stamina...", "obj_fusionmenu_slash_Step_0_gml_181_0");
                 dojoEncounter[4] = 90;
                 AP_sendHint(101);
 /// END
+
+/// REPLACE
+            optionCommentA[0][j] = dojoPrizeName[j];
+            optionCommentAWidth[0][j] = 200;
+            optionCommentAXOffset[0][j] = 200;
+            optionCommentAYOffset[0][j] = 0;
+            optionCommentAColor[0][j] = c_white;
+/// CODE
+            optionCommentA[0][j] = dojoPrizeName[j];
+            optionCommentAWidth[0][j] = 200;
+            optionCommentAXOffset[0][j] = 200;
+            optionCommentAYOffset[0][j] = 0;
+            if (j >= array_length(data))
+            {
+                data[j] = {flags: -1};
+            }
+            optionCommentAColor[0][j] = AP_item_flag_to_color(data[j].flags);
+/// END
+#endif
 
 /// REPLACE
         scr_itemget_anytype(fusionResult[menuCoord[0]], fusionResultType[menuCoord[0]]);
@@ -94,24 +114,6 @@
             AP_sendLocation(103);
         else if (fusionResult[menuCoord[0]] == 11)
             AP_sendLocation(244);
-/// END
-
-/// REPLACE .ignore if !CHAPTER_2
-            optionCommentA[0][j] = dojoPrizeName[j];
-            optionCommentAWidth[0][j] = 200;
-            optionCommentAXOffset[0][j] = 200;
-            optionCommentAYOffset[0][j] = 0;
-            optionCommentAColor[0][j] = c_white;
-/// CODE
-            optionCommentA[0][j] = dojoPrizeName[j];
-            optionCommentAWidth[0][j] = 200;
-            optionCommentAXOffset[0][j] = 200;
-            optionCommentAYOffset[0][j] = 0;
-            if (j >= array_length(data))
-            {
-                data[j] = {flags: -1};
-            }
-            optionCommentAColor[0][j] = AP_item_flag_to_color(data[j].flags);
 /// END
 
 /// REPLACE

@@ -41,7 +41,7 @@ if (room == room_dw_teevie_intro)
     
     if (extflag == "zapper_cold")
     {
-        if (global.flag[1055] < 6 && file_exists("mantle.flag"))
+        if (global.flag[1055] < 6 && !global.AP_no_mantle)
         {
             scr_speaker("no_name");
             msgsetloc(0, "* Hey^1! Youse the lightners!/", "obj_npc_room_slash_Other_10_gml_1651_0");
@@ -50,7 +50,7 @@ if (room == room_dw_teevie_intro)
             msgnextloc("* Apparently youse got to do something in the S-Rank room before going out there./", "obj_npc_room_slash_Other_10_gml_1652_0");
             msgnextloc("* Not exactly sure what^1. He kept it pretty secretive^1. He said you'd know^1, though./%", "obj_npc_room_slash_Other_10_gml_1652_0");
         }
-        else if (!file_exists("ch4.route"))
+        else
         {
             if (global.customflags[28] == 1)
             {
@@ -66,7 +66,7 @@ if (room == room_dw_teevie_intro)
                 msgnextloc("* I would let yah through^1, but I'm nearly outta charge^1.&* I can't move!/", "obj_npc_room_slash_Other_10_gml_1652_0");
                 msgnextloc("* Any chance yah three got some more remote batteries?/", "obj_npc_room_slash_Other_10_gml_1652_0");
                 
-                if (global.MacGuffin_count >= scr_ap_get_macguffin_amount())
+                if (global.MacGuffin_count >= global.AP_macguffin_required[2])
                 {
                     msgnextloc("* (You gave the Zapper all of your Remote Batteries...)/", "obj_npc_room_slash_Other_10_gml_1652_0");
                     msgnextloc("* Ah^1, thank you very much^1!/", "obj_npc_room_slash_Other_10_gml_1652_0");

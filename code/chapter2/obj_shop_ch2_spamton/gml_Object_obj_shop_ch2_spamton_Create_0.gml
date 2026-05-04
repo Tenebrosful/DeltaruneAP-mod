@@ -14,10 +14,10 @@ shopdesc[1] = stringsetloc("ITEM#ITEM#AFFECTS HP#A LOT!#THE SMOOTH#TASTE OF", "o
 shopdesc[2] = stringsetloc("CUT ANYTHING#2 PIECES!#CRIMINAL!", "obj_shop_ch2_spamton_slash_Create_0_gml_91_0");
 shopdesc[3] = stringsetloc("EXCLUSIVE#OFFICIAL#SPAMTON", "obj_shop_ch2_spamton_slash_Create_0_gml_92_0");
 /// CODE
-items_data[0] = scr_ap_get_location_reward_data(90)
-items_data[1] = scr_ap_get_location_reward_data(91)
-items_data[2] = scr_ap_get_location_reward_data(92)
-items_data[3] = scr_ap_get_location_reward_data(93)
+items_data[0] = AP_get_location_reward_data(90)
+items_data[1] = AP_get_location_reward_data(91)
+items_data[2] = AP_get_location_reward_data(92)
+items_data[3] = AP_get_location_reward_data(93)
 
 shopdesc[0] = "This will#be send to#somebody#multiworld.";
 shopdesc[1] = "This will#be send to#somebody#multiworld.";

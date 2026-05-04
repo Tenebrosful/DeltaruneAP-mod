@@ -245,7 +245,7 @@
                 global.flag[917] = 3;
                 global.flag[918] = 1;
                 scr_speaker("no_name");
-                msgsetloc(0, string("* He sent {0} to your multiworld./%", scr_ap_get_location_reward_text(67)), "scr_text_slash_scr_text_gml_6548_0");
+                msgsetloc(0, string("* He sent {0} to your multiworld./%", AP_get_location_reward_text(67)), "scr_text_slash_scr_text_gml_6548_0");
                 snd_play(snd_egg);
                 AP_sendLocation(67);
             }

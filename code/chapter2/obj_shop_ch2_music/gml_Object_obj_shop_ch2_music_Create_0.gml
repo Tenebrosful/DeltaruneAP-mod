@@ -6,10 +6,10 @@ shopdesc[1] = stringsetloc("ARMOR#Made#of green wires", "obj_shop_ch2_music_slas
 shopdesc[2] = stringsetloc("WEAPON#Press hilt#to extend", "obj_shop_ch2_music_slash_Create_0_gml_81_0");
 shopdesc[3] = stringsetloc("WEAPON#Make sure#to charge it", "obj_shop_ch2_music_slash_Create_0_gml_82_0");
 /// CODE
-items_data[0] = scr_ap_get_location_reward_data(70)
-items_data[1] = scr_ap_get_location_reward_data(71)
-items_data[2] = scr_ap_get_location_reward_data(72)
-items_data[3] = scr_ap_get_location_reward_data(73)
+items_data[0] = AP_get_location_reward_data(70)
+items_data[1] = AP_get_location_reward_data(71)
+items_data[2] = AP_get_location_reward_data(72)
+items_data[3] = AP_get_location_reward_data(73)
 
 shopdesc[0] = "This will#be send to#somebody#multiworld.";
 shopdesc[1] = "This will#be send to#somebody#multiworld.";

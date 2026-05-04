@@ -39,7 +39,7 @@ if (room == room_forest_savepoint2)
         }
         else if (global.flag[238] == 0)
         {
-            global.msg[0] = string("* (There's still {0} here.)/%", scr_ap_get_location_reward_text(t_itemid));
+            global.msg[0] = string("* (There's still {0} here.)/%", AP_get_location_reward_text(t_itemid));
             AP_sendLocation(9);
             global.flag[238] = 1;
         }
@@ -116,7 +116,7 @@ if (room == room_cc_rudinn)
             global.msg[6] = scr_84_get_lang_string("obj_npc_room_slash_Other_10_gml_700_0");
             global.msg[7] = scr_84_get_lang_string("obj_npc_room_slash_Other_10_gml_701_0");
 /// CODE
-            global.msg[6] = string("* Here^1, have {0}./%", scr_ap_get_location_reward_text(10));
+            global.msg[6] = string("* Here^1, have {0}./%", AP_get_location_reward_text(10));
 /// END
 
 /// BEFORE

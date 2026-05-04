@@ -67,7 +67,7 @@ function AP_create()
     wait = 0;
 }
 
-function scr_ap_get_location_reward_text(location_id)
+function AP_get_location_reward_text(location_id)
 {
     if !variable_struct_exists(global.AP_location_item, location_id) return "Unknown Item";
 
@@ -80,7 +80,7 @@ function scr_ap_get_location_reward_text(location_id)
     return AP_item_classification_color_text(text, data.flags);
 }
 
-function scr_ap_get_location_reward_data(location_id)
+function AP_get_location_reward_data(location_id)
 {
     if !variable_struct_exists(global.AP_location_item, location_id) return {playerName: "Unknown", itemName: "Unknown", flags: 000}
     var data = variable_struct_get(global.AP_location_item, location_id)

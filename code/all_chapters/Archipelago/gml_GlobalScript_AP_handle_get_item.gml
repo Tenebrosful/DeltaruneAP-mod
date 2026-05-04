@@ -222,10 +222,28 @@ function AP_internal_handle_real_keyitem(realitem_id)
   var item_chapter = tempkeyitemchapter;
   var item_name = tempkeyitemname;
 
-  if ((item_chapter == 0 || global.chapter == item_chapter) && !scr_keyitemcheck(realitem_id))
+  if ((item_chapter == 0 || global.chapter == item_chapter) && !scr_keyitemcheck(realitem_id) && AP_internal_special_key_item(realitem_id))
     scr_keyitemget(realitem_id);
 
+  if realitem_id == 1018
+    global.customflags[25] = true;
+  else if realitem_id == 1019
+    global.customflags[26] = true;
+
   AP_internal_print_get_item_text(item_chapter, realitem_id, item_name, 1);
+}
+
+function AP_internal_special_key_item(realitem_id)
+{
+  return realitem_id != 1005 // moss ch1
+  && realitem_id != 1006 // joe's life savings
+  && realitem_id != 1011 // moss ch2
+  && realitem_id != 1016 // smile
+  && realitem_id != 1017 // moss ch3
+  && realitem_id != 1018 // ice key
+  && realitem_id != 1019 // shelter key
+  && realitem_id != 1020 // moss ch4
+
 }
 
 function AP_internal_handle_money_item(item_id)

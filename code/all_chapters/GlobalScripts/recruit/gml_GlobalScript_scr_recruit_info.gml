@@ -148,7 +148,7 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("HEART:ICE", "scr_recruit_info_slash_scr_recruit_info_gml_150_0");
             _dialogue[0] = stringsetloc("* (Head Hathy drinks an ice tea in silence...)/%", "scr_recruit_info_slash_scr_recruit_info_gml_151_0");
             break;
-        
+        #if CHAPTER_2 || CHAPTER_3 || CHAPTER_4
         case 30:
             _sprite = spr_omawaroid_idle;
             _name = stringsetloc("Ambyu-Lance", "scr_recruit_info_slash_scr_recruit_info_gml_156_0");
@@ -309,7 +309,8 @@ function scr_recruit_info(arg0)
             _recruitcount = 1;
             _checkid = 89;
             break;
-        
+        #endif
+        #if CHAPTER_3 || CHAPTER_4
         case 54:
             _sprite = spr_shadowman_idle_a;
             _name = stringsetloc("Shadowguy", "scr_recruit_info_slash_scr_recruit_info_gml_320_0");
@@ -437,7 +438,8 @@ function scr_recruit_info(arg0)
             _recruitcount = 1;
             _checkid = 162;
             break;
-        
+        #endif
+        #if CHAPTER_4
         case 62:
             _sprite = spr_npc_guei;
             _name = stringsetloc("Guei", "scr_recruit_info_slash_scr_recruit_info_gml_433_0_b");
@@ -571,6 +573,7 @@ function scr_recruit_info(arg0)
             _placeable = 2;
             _checkid = 221;
             break;
+        #endif
     }
     
     if (_sprite == spr_darkconfigbt)

@@ -6,10 +6,10 @@ shopdesc[1] = stringsetloc("ITEM#Spaghetti#woven by#master coders#Party +30HP", 
 shopdesc[2] = stringsetloc("ARMOR#A handsome#bowtie.", "obj_shop_ch2_swatch_slash_Create_0_gml_81_0");
 shopdesc[3] = stringsetloc("ARMOR#Luxurious#brooch.", "obj_shop_ch2_swatch_slash_Create_0_gml_81_0_b");
 /// CODE
-items_data[0] = scr_ap_get_location_reward_data(80)
-items_data[1] = scr_ap_get_location_reward_data(81)
-items_data[2] = scr_ap_get_location_reward_data(82)
-items_data[3] = scr_ap_get_location_reward_data(83)
+items_data[0] = AP_get_location_reward_data(80)
+items_data[1] = AP_get_location_reward_data(81)
+items_data[2] = AP_get_location_reward_data(82)
+items_data[3] = AP_get_location_reward_data(83)
 
 shopdesc[0] = "This will#be send to#somebody#multiworld.";
 shopdesc[1] = "This will#be send to#somebody#multiworld.";

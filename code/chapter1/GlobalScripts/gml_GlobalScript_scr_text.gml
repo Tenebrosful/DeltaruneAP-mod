@@ -125,7 +125,7 @@ function scr_text(arg0)
         case 111:
             if (global.choice == 0)
             {
-                global.msg[0] = string("* You got {0}./%", scr_ap_get_location_reward_text(1));
+                global.msg[0] = string("* You got {0}./%", AP_get_location_reward_text(1));
                 global.flag[100] = 1;
                 AP_sendLocation(1);
                 
@@ -339,7 +339,7 @@ function scr_text(arg0)
                 global.msg[3] = stringsetloc("\\E6* Here^1!&* I made a Manual for you and Susie!/", "scr_text_slash_scr_text_gml_311_0");
                 global.msg[4] = stringsetsubloc("\\E0* Press [~1] to open the menu and use it in your ITEMS./", scr_get_input_name(6), "scr_text_slash_scr_text_gml_314_0_b");
                 scr_noface(5);
-                global.msg[6] = string("* (The Manual turned into {0}.)/%", scr_ap_get_location_reward_text(12));
+                global.msg[6] = string("* (The Manual turned into {0}.)/%", AP_get_location_reward_text(12));
             }
             
             break;
@@ -414,7 +414,7 @@ function scr_text(arg0)
                 
                 if (noroom == 0)
                 {
-                    global.msg[0] = string("* (You got {0}.)/%", scr_ap_get_location_reward_text(2 + global.flag[101]));
+                    global.msg[0] = string("* (You got {0}.)/%", AP_get_location_reward_text(2 + global.flag[101]));
                     global.flag[101] += 1;
                 }
                 else
@@ -461,7 +461,7 @@ function scr_text(arg0)
                 
                 if (noroom == 0)
                 {
-                    global.msg[0] = string("* (You got {0}.)/%", scr_ap_get_location_reward_text(4 + global.flag[102]));
+                    global.msg[0] = string("* (You got {0}.)/%", AP_get_location_reward_text(4 + global.flag[102]));
                     global.flag[102] += 1;
                 }
                 else
@@ -502,7 +502,7 @@ function scr_text(arg0)
                 
                 if (noroom == 0)
                 {
-                    global.msg[0] = string("* (The Broken Cake turned into {0}.)/%", scr_ap_get_location_reward_text(23));
+                    global.msg[0] = string("* (The Broken Cake turned into {0}.)/%", AP_get_location_reward_text(23));
                 }
                 else
                 {
@@ -1751,7 +1751,7 @@ function scr_text(arg0)
             if (global.choice == 0)
             {
             
-                global.msg[0] = string("* (As your hands touched it^1, the moss turned into {0}./%", scr_ap_get_location_reward_text(35));
+                global.msg[0] = string("* (As your hands touched it^1, the moss turned into {0}./%", AP_get_location_reward_text(35));
                 global.flag[106] = 1;
                 AP_sendLocation(35);
             }
@@ -1790,7 +1790,7 @@ function scr_text(arg0)
                     with (obj_npc_sign)
                         image_index = 1;
                     
-                    global.msg[0] = string("* (As touched it^1, it turned into {0}./%", scr_ap_get_location_reward_text(30));
+                    global.msg[0] = string("* (As touched it^1, it turned into {0}./%", AP_get_location_reward_text(30));
                     global.flag[105] = 1;
                 }
             }
@@ -1920,7 +1920,7 @@ function scr_text(arg0)
                 global.choicemsg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_1854_0");
                 global.choicemsg[2] = " ";
                 global.choicemsg[3] = " ";
-                global.msg[0] = string("* Interested in {0}^1? /", scr_ap_get_location_reward_text(7));
+                global.msg[0] = string("* Interested in {0}^1? /", AP_get_location_reward_text(7));
                 global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_1858_0");
                 global.msg[2] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_1859_0");
                 global.msg[3] = " ";
@@ -1971,7 +1971,7 @@ function scr_text(arg0)
                 global.choicemsg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_1901_0");
                 global.choicemsg[2] = " ";
                 global.choicemsg[3] = " ";
-                global.msg[0] = string("* (Hathy offers {0}.^1)/", scr_ap_get_location_reward_text(8));
+                global.msg[0] = string("* (Hathy offers {0}.^1)/", AP_get_location_reward_text(8));
                 global.msg[1] = "* (Proceeds go to Hathy's Health. It costs $40.)/"
                 global.msg[2] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_1905_0");
                 AP_sendHint(8);
@@ -2017,7 +2017,7 @@ function scr_text(arg0)
             global.typer = 32;
             global.fe = 2;
             global.msg[0] = stringsetloc("* Greetings^1, gentleclowns./", "scr_text_slash_scr_text_gml_1946_0");
-            global.msg[1] = string("\\E1* May we interest you in {0}?/", scr_ap_get_location_reward_text(9));
+            global.msg[1] = string("\\E1* May we interest you in {0}?/", AP_get_location_reward_text(9));
             scr_susface(2, 2);
             global.msg[3] = stringsetloc("* All proceeds go to kicking your ass./", "scr_text_slash_scr_text_gml_1949_0");
             scr_lanface(4, 3);
@@ -2954,7 +2954,7 @@ function scr_text(arg0)
                 global.msg[1] = stringsetloc("* Heh^1, you wanna act that way^1, huh...?/", "scr_text_slash_scr_text_gml_2823_0");
                 global.msg[2] = stringsetloc("\\E3* Forgive me or I'll crush you^1, dweeb!!/", "scr_text_slash_scr_text_gml_2824_0");
                 scr_noface(3);
-                global.msg[4] = string("* I..^1. I'm sorry!!^1! I forgive you!!^1! Here^1, take {0}!/%", scr_ap_get_location_reward_text(10))
+                global.msg[4] = string("* I..^1. I'm sorry!!^1! I forgive you!!^1! Here^1, take {0}!/%", AP_get_location_reward_text(10))
                 AP_sendLocation(10);
                 
                 if (noroom == 1)
@@ -3305,7 +3305,7 @@ function scr_text(arg0)
                 global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3152_0");
                 global.msg[2] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3153_0");
                 global.writersnd[0] = snd_item;
-                global.msg[3] = string("* (You traded the TopCake for {0}.)/", scr_ap_get_location_reward_text(11));
+                global.msg[3] = string("* (You traded the TopCake for {0}.)/", AP_get_location_reward_text(11));
                 global.msg[4] = stringsetloc("* Now^1, I'm going to continue to spin and cry^1! Spin and cry!/%", "scr_text_slash_scr_text_gml_3157_0");
                 global.flag[253] = 1;
             }
@@ -3356,7 +3356,7 @@ function scr_text(arg0)
             
             if (global.choice == 0)
             {
-                global.msg[0] = string("* (He sent {0} to your Multiworld.)/%", scr_ap_get_location_reward_text(24));
+                global.msg[0] = string("* (He sent {0} to your Multiworld.)/%", AP_get_location_reward_text(24));
                 snd_play(snd_egg);
                 AP_sendLocation(24);
             }

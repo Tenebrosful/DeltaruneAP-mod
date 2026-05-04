@@ -16,7 +16,7 @@
 /// REPLACE
     global.msg[0] = scr_84_get_subst_string(scr_84_get_lang_string("obj_treasure_room_slash_Other_10_gml_87_0"), itemname);
 /// CODE
-    global.msg[0] = string("* (Inside the treasure chest was {0}.)/%", scr_ap_get_location_reward_text(t_itemid));
+    global.msg[0] = string("* (Inside the treasure chest was {0}.)/%", AP_get_location_reward_text(t_itemid));
 /// END
 
 /// REPLACE

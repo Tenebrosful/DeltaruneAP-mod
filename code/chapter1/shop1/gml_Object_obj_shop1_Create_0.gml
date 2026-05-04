@@ -58,10 +58,10 @@ itemtype[4] = "item";
 itemtype[5] = "item";
 itemtype[6] = "item";
 
-items_data[0] = scr_ap_get_location_reward_data(50)
-items_data[1] = scr_ap_get_location_reward_data(51)
-items_data[2] = scr_ap_get_location_reward_data(52)
-items_data[3] = scr_ap_get_location_reward_data(53)
+items_data[0] = AP_get_location_reward_data(50)
+items_data[1] = AP_get_location_reward_data(51)
+items_data[2] = AP_get_location_reward_data(52)
+items_data[3] = AP_get_location_reward_data(53)
 
 shopdesc[0] = "This will#be send to#somebody#multiworld.";
 shopdesc[1] = "This will#be send to#somebody#multiworld.";

@@ -1,7 +1,7 @@
 /// PATCH .ignore if CHAPTER_1
 
 /// REPLACE
-#if CHAPITRE_2
+#if CHAPTER_2
     return 0;
 #else
     if (global.debug == 1)
