@@ -293,6 +293,21 @@ function scr_keyiteminfo(arg0)
             tempkeyitemdesc = stringsetloc("It'll let you get out of jail for free!#Use when in a pinch.");
             tempkeyitemchapter = 3;
             break;
+        case 1016:
+            tempkeyitemname = stringsetloc("SMILE");
+            tempkeyitemdesc = stringsetloc("You fell it smile.");
+            tempkeyitemchapter = 3;
+            break;
+        case 1018:
+            tempkeyitemname = stringsetloc("ICE KEY");
+            tempkeyitemdesc = stringsetloc(" ");
+            tempkeyitemchapter = 3;
+            break;
+        case 1019:
+            tempkeyitemname = stringsetloc("SHELTER KEY");
+            tempkeyitemdesc = stringsetloc(" ");
+            tempkeyitemchapter = 3;
+            break;
         
         case 1022:
             tempkeyitemname = stringsetloc("ClaimbGuide", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_182_0");

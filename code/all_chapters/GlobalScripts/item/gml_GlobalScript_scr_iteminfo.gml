@@ -55,6 +55,7 @@ function scr_iteminfo(arg0)
             itemtarget = 2;
             value = 1;
             usable = 0;
+            itemclassification = 1;
             break;
         
         case 5:

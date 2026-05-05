@@ -307,7 +307,7 @@ function AP_internal_print_get_item_text(item_chapter, item_id, item_name, item_
 function AP_internal_item_have_special_text(item_id)
 {
   var special_items_ids = [
-    11005, 11006, 11007, 11016, 11017, 11020
+    1005, 1006, 1007, 1016, 1017, 1020
   ]
 
   for (var i = 0; i < array_length(special_items_ids); i++){
@@ -320,18 +320,18 @@ function AP_internal_item_have_special_text(item_id)
 function AP_internal_print_get_item_text_special(item_id)
 {
   switch (item_id) {
-    case 11005: // Moss Chapter 1
+    case 1005: // Moss Chapter 1
       global.hp[1] = global.maxhp[1];
       snd_play(snd_swallow);
       script_execute(scr_writetext, 0, "* (You ate the moss.^1)&* (Tastes..^1. mossy.^1)&* (Your HP was mossed out.)/%", 0, 6);
       break;
 
-    case 11006: // Joe's Life Savings
+    case 1006: // Joe's Life Savings
       script_execute(scr_writetext, 0, "* You recieved Joe's Life Savings ($1)!/%", 0, 6);
       global.gold += 1;
       break;
 
-    case 11007: // Moss Chapter 2
+    case 1007: // Moss Chapter 2
       global.hp[1] = global.maxhp[1];
       global.msc = 0;
       global.typer = 6;
@@ -345,18 +345,18 @@ function AP_internal_print_get_item_text_special(item_id)
       scr_script_delayed(snd_resume, 100, global.currentsong[1]);
       break;
 
-    case 11016:
+    case 1016:
       script_execute(scr_writetext, 0, "\\s0* You felt it smile^3./%", 0, 6);
       snd_play(snd_creepyjingle);
       break;
 
-    case 11017: // Moss Chapter 3
+    case 1017: // Moss Chapter 3
       global.hp[1] = global.maxhp[1];
       snd_play(snd_swallow);
       script_execute(scr_writetext, 0, "* (\\cGMoss\\cW sent to you.^1)&* (It was consumed.)/%", 0, 6);
       break;
 
-    case 11020:
+    case 1020:
       global.hp[1] = global.maxhp[1];
       global.msc = 0;
       global.typer = 6;
