@@ -1,4 +1,4 @@
-void AddObjectToRoom(UndertaleRoom room, string objName, int x, int y, int layerOrder, float scaleX = 1, float scaleY = 1)
+void AddObjectToRoom(UndertaleRoom room, string objName, int x, int y, int layerOrder, float scaleX = 1, float scaleY = 1, int imageIndex = 0)
 {
   var newObject = new UndertaleRoom.GameObject()
   {
@@ -8,6 +8,7 @@ void AddObjectToRoom(UndertaleRoom room, string objName, int x, int y, int layer
     Y = y,
     ScaleX = scaleX,
     ScaleY = scaleY,
+    ImageIndex = imageIndex,
   };
   room.GameObjects.Add(newObject);
   room.Layers[layerOrder].InstancesData.Instances.Add(newObject);

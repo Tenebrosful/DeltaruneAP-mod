@@ -150,3 +150,81 @@
             
             break;
 /// END
+
+/// BEFORE
+        default:
+            break;
+/// CODE
+        case 8000:
+            scr_speaker("no_name");
+            global.choicemsg[0] = stringset("#Board 1")
+            global.choicemsg[1] = stringset("#Board 2")
+            global.choicemsg[2] = stringset("Can I get Ramb's rewards?")
+            global.choicemsg[3] = stringset("No")
+            msgsetloc(0, "* Yo^1. Wanna retry a board kids?/", "obj_npc_room_slash_Other_10_gml_1651_0");
+            msgnext("\\C4 ");
+            break;
+        case 8001:
+            if (global.choice == 0)
+            {
+                global.interact = 0;
+                global.retry_board = true;
+                room_goto(room_board_1);
+            }
+            else if (global.choice == 1)
+            {
+                if (global.plot < 140)
+                {
+                    msgsetloc(0, "* Listen^1, I'm not that type of guy^1.&* I won't spoil you a board that you didn't play^1./%", "obj_npc_room_slash_Other_10_gml_1651_0")
+                }
+                else
+                {
+                    global.interact = 0;
+                    global.retry_board = true;
+                    room_goto(room_board_2);
+                }
+            }
+            else if (global.choice == 2)
+            {
+                if (global.plot < 140)
+                {
+                    msgsetloc(0, "* Go ask him then? I'm an honest pippins, you think i will steal your reward?/%", "obj_npc_room_slash_Other_10_gml_1651_0")
+                }
+                else
+                {
+                    if (global.plot < 280) // Before mike leaving
+                    {
+                        if (global.flag[1028] > 0) // 1028 board 1 reward claimed
+                        {
+                            msgsetloc(0, "* What do you mean, you already claimed it./%", "obj_npc_room_slash_Other_10_gml_1651_0");
+                        }
+                        else
+                        {
+                            msgsetloc(0, "* Forgot to get it earlier? No prob, found it in the backstage just for you/%", "obj_npc_room_slash_Other_10_gml_1651_0");
+                            AP_sendLocation(128)
+                            global.flag[1028] = 1;
+                        }
+                    }
+                    else
+                    {
+                        if (global.flag[1028] == 0 || global.flag[1030] == 0)
+                        {
+                            msgsetloc(0, "* I^1.^1.^1. Hey how do you know?&* My stealth moves was on point!/", "obj_npc_room_slash_Other_10_gml_1651_0");
+                            msgnextloc("* Anyway, don't talk about this to anyone^1.^1.^1./%", "obj_npc_room_slash_Other_10_gml_1651_0")
+                            global.flag[1028] = 1;
+                            global.flag[1030] = 1;
+                            AP_sendLocation([128, 147])
+                        }
+                        else
+                        {
+                            msgsetloc(0, "* What do you mean, you already claimed them./%", "obj_npc_room_slash_Other_10_gml_1651_0");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                msgsetloc(0, "* Sure^1?&* That's really good stuff./%", "obj_npc_room_slash_Other_10_gml_1651_0");
+            }
+            break;
+/// END

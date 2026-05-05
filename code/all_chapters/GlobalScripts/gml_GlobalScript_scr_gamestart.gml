@@ -167,6 +167,8 @@ function scr_gamestart()
         global.mag[4] = 11;
         global.df[4] = 1;
         global.spell[2][1] = 11;
+
+        global.retry_board = false;
     }
     
     if (global.chapter == 4)

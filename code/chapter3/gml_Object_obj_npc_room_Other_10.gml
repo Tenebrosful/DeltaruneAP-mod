@@ -30,6 +30,12 @@ if (room == room_dw_teevie_intro)
         msgnextloc("* Mr. Tenna's orders./%", "obj_npc_room_slash_Other_10_gml_1652_0");
     }
 /// CODE
+
+    if (extflag == "replay_board_npc")
+    {
+        global.msc = 8000;
+        scr_text(global.msc);
+    }
     
     if (extflag == "zapper_board_3")
     {
