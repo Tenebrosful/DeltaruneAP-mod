@@ -110,7 +110,9 @@ if (ds_map_exists(async_load, "buffer"))
                     AP_write_settings_file();
                     AP_updateTags();
                     AP_getChapterCompletion();
-                    AP_game_start_post_connexion();
+                    
+                    if (variable_global_exists("chapter"))
+                        AP_game_start_post_connexion();
                     
                     break;
                 
