@@ -21,6 +21,7 @@ global.AP_item_from_server = [];
 global.AP_game_start_post_connexion_done = false;
 global.AP_route = "unknown";
 global.AP_no_mantle = false;
+global.AP_better_odds = false;
 global.AP_deathlink = 0;
 global.AP_deathlink_protected = false;
 global.AP_deathlink_infos = {source: undefined, cause: undefined, time: undefined};

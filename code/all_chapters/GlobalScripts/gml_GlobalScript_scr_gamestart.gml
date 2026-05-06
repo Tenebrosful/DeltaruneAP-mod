@@ -31,6 +31,7 @@ function scr_gamestart()
     global.ambush = 0;
     global.tension = 0;
     global.maxtension = 250;
+    global.AP_egg_attempts = 0;
     
     for (i = 0; i < 3; i += 1)
     {

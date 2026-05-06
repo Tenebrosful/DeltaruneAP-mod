@@ -67,14 +67,25 @@ if (ds_map_exists(async_load, "buffer"))
 
                     global.AP_slot = data[i].slot;
 
-                    global.AP_weird_route = data[i].slot_data.options.chosen_route;
-                    global.AP_no_mantle = data[i].slot_data.options.randomize_mantle == "mantleless";
-                    global.AP_balancing = data[i].slot_data.options.item_balancing;
-                    global.AP_remove_starting_equipment = data[i].slot_data.options.remove_starting_equipment;
-                    global.AP_secret_bosses_mandatory = data[i].slot_data.options.randomize_secret_bosses == "mandatory";
-                    global.AP_unlock_characters = data[i].slot_data.options.unlock_characters == "true" or data[i].slot_data.options.unlock_characters == "except_kris"
-                    global.AP_unlock_kris = data[i].slot_data.options.unlock_characters == "true"
-                    global.AP_deathlink = data[i].slot_data.options.death_link;
+                    if (variable_struct_exists(data[i].slot_data.options, "chosen_route"))
+                        global.AP_weird_route = data[i].slot_data.options.chosen_route;
+                    if (variable_struct_exists(data[i].slot_data.options, "randomize_mantle"))
+                        global.AP_no_mantle = data[i].slot_data.options.randomize_mantle == "mantleless";
+                    if (variable_struct_exists(data[i].slot_data.options, "better_odds"))
+                        global.AP_better_odds = data[i].slot_data.options.better_odds;
+                    if (variable_struct_exists(data[i].slot_data.options, "item_balancing"))
+                        global.AP_balancing = data[i].slot_data.options.item_balancing;
+                    if (variable_struct_exists(data[i].slot_data.options, "remove_starting_equipment"))
+                        global.AP_remove_starting_equipment = data[i].slot_data.options.remove_starting_equipment;
+                    if (variable_struct_exists(data[i].slot_data.options, "randomize_secret_bosses"))
+                        global.AP_secret_bosses_mandatory = data[i].slot_data.options.randomize_secret_bosses == "mandatory";
+                    if (variable_struct_exists(data[i].slot_data.options, "unlock_characters"))
+                    {
+                        global.AP_unlock_characters = data[i].slot_data.options.unlock_characters == "true" or data[i].slot_data.options.unlock_characters == "except_kris"
+                        global.AP_unlock_kris = data[i].slot_data.options.unlock_characters == "true"
+                    }
+                    if (variable_struct_exists(data[i].slot_data.options, "death_link"))
+                        global.AP_deathlink = data[i].slot_data.options.death_link;
 
                     var path_settings = global.AP_multiworld + "/settings.json"
 
