@@ -311,7 +311,7 @@ function scr_load()
             ossafe_file_text_readln(myfileid);
         }
         
-        for (i = 0; i < 9999; i += 1)
+        for (i = 0; i < 2500; i += 1)
         {
             global.flag[i] = ossafe_file_text_read_real(myfileid);
             ossafe_file_text_readln(myfileid);
