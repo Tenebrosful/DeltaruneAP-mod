@@ -1,13 +1,7 @@
 /// IMPORT
 function scr_setparty(arg0 = false, arg1 = false, arg2 = false)
 {
-    if (global.chapter == 3)
-        kris = obj_mainchara;
-    else if (global.chapter == 2)
-        kris = obj_b3bs_console;
-    else
-        kris = obj_caterpillar_board_stresstest;
-        
+    kris = obj_mainchara;
     var slot = 0;
     var __make = true;
     
