@@ -15,14 +15,14 @@ function scr_defeatrun()
             _rtext = instance_create(global.monsterx[myself], global.monstery[myself] - 40, obj_recruitanim);
             _rtext.image_index = 12;
             
-            if (recruitable == 1)
+            if (global.chapter >= 2 && recruitable == 1)
                 global.flag[global.monstertype[myself] + 600] = -1;
             
             AP_sendLocation(_checkid + 1000);
             global.flag[63] = 1;
         }
         
-        if (recruitable == 1 && global.flag[61] == 0 && __frozen == 0)
+        if (global.chapter >= 2 && recruitable == 1 && global.flag[61] == 0 && __frozen == 0)
         {
             AP_sendLocation(_checkid + 1000);
             global.flag[63] = 1;
