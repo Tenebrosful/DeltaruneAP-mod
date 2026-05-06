@@ -160,7 +160,7 @@
             global.choicemsg[0] = stringset("#Board 1")
             global.choicemsg[1] = stringset("#Board 2")
             global.choicemsg[2] = stringset("Can I get Ramb's rewards?")
-            global.choicemsg[3] = stringset("No")
+            global.choicemsg[3] = stringset("I don't touch that")
             msgsetloc(0, "* Yo^1. Wanna retry a board kids?/", "obj_npc_room_slash_Other_10_gml_1651_0");
             msgnext("\\C4 ");
             break;
