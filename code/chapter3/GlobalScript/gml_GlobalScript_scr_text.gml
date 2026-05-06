@@ -175,7 +175,7 @@
             {
                 if (global.plot < 140)
                 {
-                    msgsetloc(0, "* Listen^1, I'm not that type of guy^1.&* I won't spoil you a board that you didn't play^1./%", "obj_npc_room_slash_Other_10_gml_1651_0")
+                    msgsetloc(0, "* Listen^1, I'm not that type of guy^1. I won't spoil you a board that you didn't play^1./%", "obj_npc_room_slash_Other_10_gml_1651_0")
                 }
                 else
                 {
