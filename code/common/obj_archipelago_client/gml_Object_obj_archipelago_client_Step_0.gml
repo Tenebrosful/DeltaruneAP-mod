@@ -12,3 +12,13 @@ if (global.AP_isAuthenticated == 0)
         step = 0;
     }
 }
+else
+{
+    step++;
+
+    if (step > global.AP_heartbeat_timer)
+    {
+        AP_heartbeat();
+        step = 0;
+    }
+}

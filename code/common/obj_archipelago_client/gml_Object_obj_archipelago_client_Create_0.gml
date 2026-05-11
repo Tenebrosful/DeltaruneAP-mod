@@ -4,6 +4,7 @@ wss = 7;
 ws = 6;
 global.AP_version = ["1", "2", "2"];
 global.AP_isAuthenticated = -1;
+global.AP_heartbeat_timer = 10 * 30;
 global.AP_socket = -1;
 global.AP_name = "Player";
 global.AP_slot = 0;

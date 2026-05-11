@@ -182,7 +182,8 @@ function AP_step()
             }
             else if (wait == 1 && !obj_archipelago_client.AP_isAuthenticated() && instance_exists(obj_dialoguer) == 0)
             {
-                script_execute(scr_writetext, 0, "\\s0* (We are trying to reconnect...)/%", 0, 6);
+                script_execute(scr_writetext, 0, "\\s0* (Connecting to the server failed. We are gonna try to reconnect after this textbox...)/%", 0, 6);
+                
                 if (!instance_exists(obj_archipelago_client))
                 {
                     instance_create(0, 0, obj_archipelago_client);

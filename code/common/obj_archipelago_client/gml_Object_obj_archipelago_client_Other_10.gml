@@ -272,7 +272,50 @@ function AP_internal_send_packet(content)
     var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
     buffer_seek(buffer, buffer_seek_start, 0);
     buffer_write(buffer, buffer_text, data);
-    network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
+    var size_send = network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
+
+    // var compressed_buffer = buffer_compress(buffer, 0, buffer_tell(buffer));
+    // var size_send = network_send_raw(global.AP_socket, compressed_buffer, buffer_tell(compressed_buffer), 2);
+
+    if (size_send < 0)
+    {
+        AP_heartbeat();
+    }
+
+    buffer_delete(buffer)
+    // buffer_delete(compressed_buffer);
+}
+
+function AP_heartbeat()
+{    
+    var _contents =
+    {
+        cmd: "Bounce",
+        tags: [""],
+        data: {
+        }
+    };
+
+    var arr = [_contents];
+    data = json_stringify(arr);
+    var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
+    buffer_seek(buffer, buffer_seek_start, 0);
+    buffer_write(buffer, buffer_text, data);
+    var size_send = network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
+
+    // var compressed_buffer = buffer_compress(buffer, 0, buffer_tell(buffer));
+    // var size_send = network_send_raw(global.AP_socket, compressed_buffer, buffer_tell(compressed_buffer), 2);
+
+    buffer_delete(buffer)
+    // buffer_delete(compressed_buffer);
+
+    if (size_send < 0)
+    {
+        show_debug_message("Failed to heartbeat, connection is probably disconnected");
+        global.AP_isAuthenticated = 1;
+        network_destroy(global.AP_socket);
+        global.AP_socket = -1;
+    }
 }
 
 function AP_internal_verify_location_id(ids)

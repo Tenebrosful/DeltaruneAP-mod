@@ -1,20 +1,4 @@
 /// IMPORT
-var type = ds_map_find_value(async_load, "type");
-
-if (type == 1)
-{
-    if (ds_map_find_value(async_load, "socket") == global.AP_socket)
-    {
-        if (ds_map_find_value(async_load, "success"))
-        {
-            show_debug_message("Connection failed (no server)");
-            global.AP_isAuthenticated = 1;
-            network_destroy(global.AP_socket);
-            global.AP_socket = -1;
-        }
-    }
-}
-
 if (ds_map_exists(async_load, "buffer"))
 {
     var buff = ds_map_find_value(async_load, "buffer");
@@ -260,13 +244,6 @@ if (ds_map_exists(async_load, "buffer"))
                         for (var ii = 0; ii < array_length(data[i].locations); ii++)
                         {
                             array_push(player_ids, data[i].locations[ii].player);
-                            // var item = data[i].locations[ii];
-                            // var playerName; var itemName;
-
-                            // if (item.player == global.AP_slot)
-                            //     playerName = "<yourself>";
-                            // else
-                            //     playerName = global.AP_player_names[item.player];
                         }
 
                         var player_ids_unique = array_unique(player_ids);
