@@ -128,7 +128,7 @@ function AP_handle_receive_item(item_id)
   {
     AP_internal_handle_other_item(item_id);
   }
-  if (item_id >= global.AP_item_offset.chapter_unlock){
+  else if (item_id >= global.AP_item_offset.chapter_unlock){
     AP_internal_handle_chapter_unlock_item(item_id);
   }
   else if (item_id >= global.AP_item_offset.ch3_points){
