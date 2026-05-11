@@ -365,12 +365,16 @@ function scr_gamestart()
         global.flag[633] = 1;
         global.flag[636] = 1;
         global.flag[642] = 1;
+    }
+
+    if (global.chapter >= 4)
+    {
         global.flag[654] = 1;
         global.flag[656] = 1;
         global.flag[657] = 1;
         global.flag[659] = 1;
         global.flag[660] = 1;
-        global.flag[661] = 1;
+        global.flag[661] = 1;   
     }
     
     #if !CHAPTER_1
