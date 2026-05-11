@@ -34,7 +34,7 @@
 /// REPLACE
         if (hypnosiscounter >= 9)
         {
-            txtpart3 = scr_84_get_lang_string("obj_joker_slash_Step_0_gml_387_0");
+            txtpart3 = scr_84_get_lang_string("obj_joker_slash_Step_0_gml_406_0");
             global.monsterstatus[myself] = 1;
         }
         
@@ -42,7 +42,7 @@
 /// CODE
         if (hypnosiscounter >= 9)
         {
-            txtpart3 = scr_84_get_lang_string("obj_joker_slash_Step_0_gml_387_0");
+            txtpart3 = scr_84_get_lang_string("obj_joker_slash_Step_0_gml_406_0");
             scr_monster_make_tired(myself);
         }
         
