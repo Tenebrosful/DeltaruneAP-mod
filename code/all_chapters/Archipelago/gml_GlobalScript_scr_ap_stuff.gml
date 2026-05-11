@@ -318,6 +318,9 @@ function AP_game_start_post_connexion()
     // Prevent to execute if reconnected during the game
     if (global.AP_game_start_post_connexion_done) return;
 
+    if (global.AP_unlock_fun_gang_actions)
+        global.flag[34] = true;
+
     global.AP_game_start_post_connexion_done = true;
     if (global.AP_remove_starting_equipment)
     {

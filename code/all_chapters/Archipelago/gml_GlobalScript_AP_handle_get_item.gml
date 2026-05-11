@@ -123,6 +123,11 @@ function AP_handle_receive_item(item_id)
   if (item_id == 66666){
     return;
   }
+
+  if (item_id >= global.AP_item_offset.other_unlock)
+  {
+    AP_internal_handle_other_item(item_id);
+  }
   if (item_id >= global.AP_item_offset.chapter_unlock){
     AP_internal_handle_chapter_unlock_item(item_id);
   }
@@ -150,6 +155,17 @@ function AP_handle_receive_item(item_id)
   else{
     AP_internal_handle_normal_item(item_id);
   }
+}
+
+function AP_internal_handle_other_item(item_id)
+{
+    switch(item_id)
+    {
+        case 100000:
+            global.flag[34] = false;
+            script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", AP_item_classification_color_text("S/R/N-Actions", 2)), 0, 6);
+            break;
+    }
 }
 
 function AP_internal_handle_character_unlock(item_id)

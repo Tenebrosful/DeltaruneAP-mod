@@ -77,6 +77,8 @@ if (ds_map_exists(async_load, "buffer"))
                         global.AP_balancing = data[i].slot_data.options.item_balancing;
                     if (variable_struct_exists(data[i].slot_data.options, "remove_starting_equipment"))
                         global.AP_remove_starting_equipment = data[i].slot_data.options.remove_starting_equipment;
+                    if (variable_struct_exists(data[i].slot_data.options, "unlock_fun_gang_actions"))
+                        global.AP_unlock_fun_gang_actions = data[i].slot_data.options.unlock_fun_gang_actions;
                     if (variable_struct_exists(data[i].slot_data.options, "randomize_secret_bosses"))
                         global.AP_secret_bosses_mandatory = data[i].slot_data.options.randomize_secret_bosses == "mandatory";
                     if (variable_struct_exists(data[i].slot_data.options, "unlock_characters"))

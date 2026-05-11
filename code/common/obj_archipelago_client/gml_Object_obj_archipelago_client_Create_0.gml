@@ -26,6 +26,7 @@ global.AP_deathlink = 0;
 global.AP_deathlink_protected = false;
 global.AP_deathlink_infos = {source: undefined, cause: undefined, time: undefined};
 global.AP_secret_bosses_mandatory = false;
+global.AP_unlock_fun_gang_actions = true;
 global.AP_remove_starting_equipment = true;
 global.AP_unlock_characters = false;
 global.AP_unlock_kris = false;
@@ -54,7 +55,8 @@ global.AP_item_offset =
     character_unlock: 60000,
     macguffin: 70000,
     ch3_points: 80000,
-    chapter_unlock: 90000
+    chapter_unlock: 90000,
+    other_unlock: 100000, // Currently fun gang actions unlock
 };
 
 for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)

@@ -6,3 +6,9 @@
 /// CODE
             spell = 0;
 /// END
+
+/// AFTER
+                tired = 1;
+/// CODE
+                scr_monster_make_tired(myself);
+/// END

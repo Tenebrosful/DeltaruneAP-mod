@@ -34,6 +34,8 @@ function scr_recruit_info(arg0)
             _defense = 5;
             _element = stringsetloc("JEWEL", "scr_recruit_info_slash_scr_recruit_info_gml_37_0");
             _dialogue[0] = stringsetloc("* Hey^1, boss^1! I'll have a Dark Candy Starfait!/%", "scr_recruit_info_slash_scr_recruit_info_gml_38_0");
+            _recruitcount = 4;
+            _checkid = 247
             break;
         
         case 6:
@@ -48,6 +50,8 @@ function scr_recruit_info(arg0)
             _defense = 5;
             _element = stringsetloc("HEART", "scr_recruit_info_slash_scr_recruit_info_gml_51_0");
             _dialogue[0] = stringsetloc("* (Hathy is going to order a heart-foam latte.)/%", "scr_recruit_info_slash_scr_recruit_info_gml_52_0");
+            _recruitcount = 4;
+            _checkid = 248
             break;
         
         case 11:
@@ -62,6 +66,8 @@ function scr_recruit_info(arg0)
             _defense = 5;
             _element = stringsetloc("ORDER", "scr_recruit_info_slash_scr_recruit_info_gml_65_0");
             _dialogue[0] = stringsetloc("* (Looks like it wants to osmose some flavorful cubes.)/%", "scr_recruit_info_slash_scr_recruit_info_gml_66_0");
+            _recruitcount = 5;
+            _checkid = 249
             break;
         
         case 13:
@@ -76,6 +82,8 @@ function scr_recruit_info(arg0)
             _defense = 5;
             _element = stringsetloc("RABBIT:DUST", "scr_recruit_info_slash_scr_recruit_info_gml_79_0");
             _dialogue[0] = stringsetloc("* (Looks like it wants to be dabbed with rubbing alcohol.)/%", "scr_recruit_info_slash_scr_recruit_info_gml_80_0");
+            _recruitcount = 3;
+            _checkid = 250
             break;
         
         case 14:
@@ -90,6 +98,8 @@ function scr_recruit_info(arg0)
             _defense = 5;
             _element = stringsetloc("FIGHT", "scr_recruit_info_slash_scr_recruit_info_gml_93_0");
             _dialogue[0] = stringsetloc("* Everything tastes better with a normally-shaped body!/%", "scr_recruit_info_slash_scr_recruit_info_gml_94_0");
+            _recruitcount = 2;
+            _checkid = 251
             break;
         
         case 15:
@@ -104,6 +114,8 @@ function scr_recruit_info(arg0)
             _defense = 5;
             _element = stringsetloc("MOUSE:PUZZ", "scr_recruit_info_slash_scr_recruit_info_gml_107_0");
             _dialogue[0] = stringsetloc("* Lemonade? ..^1. Please./%", "scr_recruit_info_slash_scr_recruit_info_gml_108_0");
+            _recruitcount = 3;
+            _checkid = 252;
             break;
         
         case 20:
@@ -133,6 +145,7 @@ function scr_recruit_info(arg0)
             _defense = 5;
             _element = stringsetloc("JEWEL:BLADE", "scr_recruit_info_slash_scr_recruit_info_gml_136_0");
             _dialogue[0] = stringsetloc("* Boss...? You're treating me...? Oh^1, you shouldn't have^1! (smile)/%", "scr_recruit_info_slash_scr_recruit_info_gml_137_0");
+            _recruitcount = 2;
             break;
         
         case 23:
@@ -147,6 +160,7 @@ function scr_recruit_info(arg0)
             _defense = 5;
             _element = stringsetloc("HEART:ICE", "scr_recruit_info_slash_scr_recruit_info_gml_150_0");
             _dialogue[0] = stringsetloc("* (Head Hathy drinks an ice tea in silence...)/%", "scr_recruit_info_slash_scr_recruit_info_gml_151_0");
+            _recruitcount = 3;
             break;
         #if CHAPTER_2 || CHAPTER_3 || CHAPTER_4
         case 30:
