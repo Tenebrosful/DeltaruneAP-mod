@@ -20,7 +20,7 @@ if (ds_map_exists(async_load, "buffer"))
                     if (variable_struct_exists(data[i], "games"))
                     {
                         var ownGame = false;
-                        for (var ii = 0; ii <= array_length(data[i].games); ii++)
+                        for (var ii = 0; ii < array_length(data[i].games); ii++)
                         {
                             if (data[i].games[ii] == "Archipelago") continue;
 
