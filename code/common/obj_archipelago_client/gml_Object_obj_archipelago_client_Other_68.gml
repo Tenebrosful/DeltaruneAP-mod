@@ -167,11 +167,17 @@ if (ds_map_exists(async_load, "buffer"))
                             {
                                 global.AP_item_from_server[starting_index + ii] = data[i].items[ii].item;
 
-                                // We special handle it here so we directly get it even during a fight
+                                // We special handle characters here so we directly get it even during a fight
                                 if (data[i].items[ii].item >= global.AP_item_offset.character_unlock && data[i].items[ii].item < global.AP_item_offset.macguffin)
                                 {
                                     var character_id = data[i].items[ii].item - global.AP_item_offset.character_unlock;
                                     AP_handle_receive_character_unlock(character_id);
+                                }
+
+                                // We special handle fun gang actions here so we directly get it even during a fight
+                                if (data[i].items[ii].item == 100000)
+                                {
+                                    global.flag[34] = false;
                                 }
                             }
                         }
