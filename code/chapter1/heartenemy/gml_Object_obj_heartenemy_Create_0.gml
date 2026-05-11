@@ -1,7 +1,7 @@
 /// PATCH
 
 /// APPEND
-recruitable = 0;
+recruitable = 1;
 fatal = 0;
 recruitcount = 1;
 /// END
