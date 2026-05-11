@@ -58,6 +58,7 @@ global.AP_item_offset =
     chapter_unlock: 90000,
     other_unlock: 100000, // Currently fun gang actions unlock
 };
+global.AP_other_games = []
 
 for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
 {

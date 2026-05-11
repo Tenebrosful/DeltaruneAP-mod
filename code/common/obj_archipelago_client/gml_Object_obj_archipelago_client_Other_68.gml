@@ -32,6 +32,30 @@ if (ds_map_exists(async_load, "buffer"))
 
             switch (data[i].cmd)
             {
+                case "RoomInfo":
+                    if (variable_struct_exists(data[i], "games"))
+                    {
+                        var ownGame = false;
+                        for (var ii = 0; ii <= array_length(data[i].games); ii++)
+                        {
+                            if (data[i].games[ii] == "Archipelago") continue;
+
+                            if (data[i].games[ii] == "DELTARUNE")
+                            {
+                                if (!ownGame)
+                                {
+                                    ownGame = true;
+                                    continue;
+                                }
+                            }
+
+                            if (!array_contains(global.AP_other_games, data[i].games[ii]))
+                            {
+                                array_push(global.AP_other_games, data[i].games[ii])
+                            }
+                        }
+                    }
+                    break;
                 case "Connected":
 
                     global.AP_slot = data[i].slot;
