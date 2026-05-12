@@ -28,4 +28,19 @@ if (room == room_dw_mansion_entrance)
     if (global.customflags[13] == 1)
         instance_destroy();
 }
+
+if (room == room_dw_cyber_battle_maze_2)
+{
+    sprite_index = spr_sweet_idle;
+    extflag = "actionblocker"
+
+    if (!global.AP_unlock_fun_gang_actions)
+    {
+        instance_destroy();
+    }
+    else if (!global.flag[34])
+    {
+        instance_destroy();
+    }
+}
 /// END
