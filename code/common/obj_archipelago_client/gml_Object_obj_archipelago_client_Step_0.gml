@@ -12,7 +12,7 @@ if (global.AP_isAuthenticated == 0)
         step = 0;
     }
 }
-else
+else if (global.AP_isAuthenticated == 2)
 {
     step++;
 

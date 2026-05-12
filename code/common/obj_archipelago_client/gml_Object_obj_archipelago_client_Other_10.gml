@@ -97,10 +97,7 @@ function AP_disconnect()
 
 function AP_isAuthenticated()
 {
-    if (global.AP_isAuthenticated == 2)
-        return true;
-    
-    return false;
+    return global.AP_isAuthenticated == 2
 }
 
 function AP_sendLocation(ids)
