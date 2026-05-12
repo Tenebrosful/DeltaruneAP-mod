@@ -135,27 +135,22 @@ function AP_handle_DeathLink()
     {
         if (i_ex(obj_battlecontroller))
         {
-            timer++;
+            snd_play(snd_hurt1);
+            global.hp[1] = 0;
+            global.hp[2] = 0;
+            global.hp[3] = 0;
             
-            if (timer > 10)
+            with (obj_battlecontroller)
             {
-                snd_play(snd_hurt1);
-                global.hp[1] = 0;
-                global.hp[2] = 0;
-                global.hp[3] = 0;
+                with (obj_heroparent)
+                    sprite_index = defeatsprite;
                 
-                with (obj_battlecontroller)
-                {
-                    with (obj_heroparent)
-                        sprite_index = defeatsprite;
-                    
-                    global.specialbattle = 3;
-                    boardend = 1;
-                    alarm[11] = 1;
-                    
-                    with (obj_dmgwriter)
-                        instance_destroy();
-                }
+                global.specialbattle = 3;
+                boardend = 1;
+                alarm[11] = 1;
+                
+                with (obj_dmgwriter)
+                    instance_destroy();
             }
         }
         else
@@ -163,7 +158,8 @@ function AP_handle_DeathLink()
             timer = 0;
         }
     }
-    else {
+    else
+    {
         scr_gameover();
     }
 }
