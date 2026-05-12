@@ -24,7 +24,6 @@ global.AP_route = "unknown";
 global.AP_no_mantle = false;
 global.AP_better_odds = false;
 global.AP_deathlink = 0;
-global.AP_deathlink_protected = false;
 global.AP_deathlink_infos = {source: undefined, cause: undefined, time: undefined};
 global.AP_secret_bosses_mandatory = false;
 global.AP_unlock_fun_gang_actions = true;

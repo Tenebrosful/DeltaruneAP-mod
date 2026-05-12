@@ -208,8 +208,6 @@ if (ds_map_exists(async_load, "buffer"))
                                             time = data[i].data.time;
                                     else
                                         time = undefined;
-
-                                    global.AP_deathlink_protected = true;
                                     
                                     var source;
                                     if (variable_struct_exists(data[i].data, "source"))

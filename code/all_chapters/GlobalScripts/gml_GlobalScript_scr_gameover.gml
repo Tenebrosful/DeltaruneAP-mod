@@ -1,11 +1,43 @@
 /// IMPORT
 function scr_gameover()
 {
-    if (global.AP_deathlink && !global.AP_deathlink_protected)
+    if (global.AP_deathlink)
     {
         if (instance_exists(obj_archipelago_client) && obj_archipelago_client.AP_isAuthenticated())
         {
-            obj_archipelago_client.AP_sendDeathlink();
+            var text = undefined;
+
+            if (global.encounterno > 0)
+            {
+                text = global.AP_name + " died in battle against ";
+
+                var enemies_name = []
+
+                if (global.monstername[0] != " ")
+                    array_push(enemies_name, global.monstername[0])
+                if (global.monstername[1] != " ")
+                    array_push(enemies_name, global.monstername[1])
+                if (global.monstername[2] != " ")
+                    array_push(enemies_name, global.monstername[2])
+
+                switch(array_length(enemies_name))
+                {
+                    case 1:
+                        text += enemies_name[0]
+                        break;
+                    case 2:
+                        text += string_join(" and ", enemies_name[0], enemies_name[1])
+                        break;
+                    case 3:
+                        text += string_join(", ", enemies_name[0], enemies_name[1])
+                        text += " and " + enemies_name[2]
+                        break;
+                }
+
+                text += "."
+            }
+
+            obj_archipelago_client.AP_sendDeathlink(text);
         }
     }
     

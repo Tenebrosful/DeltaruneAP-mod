@@ -165,7 +165,6 @@ function AP_handle_DeathLink()
     }
     else {
         scr_gameover();
-        global.AP_deathlink_protected = false;
     }
 }
 
@@ -182,7 +181,7 @@ function AP_step()
             }
             else if (wait == 1 && !obj_archipelago_client.AP_isAuthenticated() && instance_exists(obj_dialoguer) == 0)
             {
-                script_execute(scr_writetext, 0, "\\s0* (Connecting to the server failed. We are gonna try to reconnect after this textbox...)/%", 0, 6);
+                script_execute(scr_writetext, 0, "\\s0* (Connection failed. We are gonna try to reconnect after this textbox...)/%", 0, 6);
 
                 if (!instance_exists(obj_archipelago_client))
                 {
