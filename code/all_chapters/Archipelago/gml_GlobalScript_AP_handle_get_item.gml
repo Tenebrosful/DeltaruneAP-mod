@@ -28,7 +28,7 @@ function AP_sync_item_from_server()
 
 function AP_handle_receive_character_unlock(character_id)
 {
-  global.maxhp[character_id] = AP_internal_get_character_max_hp(character_id);
+  global.maxhp[character_id] += 999 + AP_internal_get_character_max_hp(character_id);
   global.hp[character_id] = global.maxhp[character_id];
 }
 
@@ -52,7 +52,7 @@ function AP_internal_get_character_max_hp(character_id)
           return 200;
 
         default:
-          return -1;
+          return -999;
       }
 
     case 2: // Susie
@@ -71,7 +71,7 @@ function AP_internal_get_character_max_hp(character_id)
           return 230;
 
         default:
-          return -1;
+          return -999;
       }
 
     case 3: // Ralsei
@@ -90,7 +90,7 @@ function AP_internal_get_character_max_hp(character_id)
           return 180;
 
         default:
-          return -1;
+          return -999;
       }
 
     case 4: // Noelle
@@ -102,11 +102,11 @@ function AP_internal_get_character_max_hp(character_id)
         case 2:
           return 90;
         default:
-          return -1;
+          return -999;
       }
 
     default:
-      return -1;
+      return -999;
   }
 }
 

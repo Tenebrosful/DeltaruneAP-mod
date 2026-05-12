@@ -183,7 +183,7 @@ function AP_step()
             else if (wait == 1 && !obj_archipelago_client.AP_isAuthenticated() && instance_exists(obj_dialoguer) == 0)
             {
                 script_execute(scr_writetext, 0, "\\s0* (Connecting to the server failed. We are gonna try to reconnect after this textbox...)/%", 0, 6);
-                
+
                 if (!instance_exists(obj_archipelago_client))
                 {
                     instance_create(0, 0, obj_archipelago_client);
@@ -388,16 +388,16 @@ function AP_game_start_post_connexion()
     }
 
     if(global.AP_unlock_kris)
-        global.maxhp[1] = -1
+        global.maxhp[1] = -999
     else
         global.maxhp[1] = AP_internal_get_character_max_hp(1);
 
 
     if (global.AP_unlock_characters)
     {
-        global.maxhp[2] = -1;
-        global.maxhp[3] = -1;
-        global.maxhp[4] = -1;
+        global.maxhp[2] = -999;
+        global.maxhp[3] = -999;
+        global.maxhp[4] = -999;
     }
     else
     {
