@@ -102,7 +102,7 @@ function scr_iteminfo(arg0)
             itemnameb = stringsetloc("LancerCookie", "scr_iteminfo_slash_scr_iteminfo_gml_72_0");
             itemdescb = stringsetloc("Heals#50HP", "scr_iteminfo_slash_scr_iteminfo_gml_73_0");
             itemtarget = 1;
-            value = 10;
+            value = 100;
             usable = 1;
             break;
         
