@@ -34,7 +34,7 @@
     if (global.customflags[999] == 0)
     {
         c_msgnextloc("* (You sent the Check to your Multiworld.)/%", "obj_ch4_DCA08D_slash_Step_0_gml_1573_0");
-        scr_checkspot(200);
+        AP_sendLocation(200);
     }
     else
     {

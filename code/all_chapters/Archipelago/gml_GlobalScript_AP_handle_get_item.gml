@@ -165,7 +165,7 @@ function AP_internal_handle_other_item(item_id)
     {
         case 100000:
             global.flag[34] = false;
-            script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", AP_item_classification_color_text("S/R/N-Actions", 2)), 0, 6);
+            script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", AP_item_classification_color_text("SRN-Actions", 2)), 0, 6);
             break;
     }
 }

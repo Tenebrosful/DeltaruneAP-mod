@@ -1,11 +1,11 @@
 /// IMPORT
-function scr_load_chapter3()
+function scr_load()
 {
     snd_free_all();
     filechoicebk = global.filechoice;
     scr_gamestart();
     global.filechoice = filechoicebk;
-    file = "filech3_" + string(global.filechoice);
+    file = "filech" + string(global.chapter) + "_" + string(global.filechoice);
     myfileid = ossafe_file_text_open_read(file);
     global.truename = ossafe_file_text_read_string(myfileid);
     ossafe_file_text_readln(myfileid);
@@ -14,7 +14,7 @@ function scr_load_chapter3()
     {
         var othername_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < ds_list_size(othername_list); i += 1)
+        for (i = 0; i < ds_list_size(othername_list); i += 1)
             global.othername[i] = ds_list_find_value(othername_list, i);
         
         ds_list_destroy(othername_list);
@@ -22,7 +22,7 @@ function scr_load_chapter3()
     }
     else
     {
-        for (var i = 0; i < 6; i += 1)
+        for (i = 0; i < 6; i += 1)
         {
             global.othername[i] = ossafe_file_text_read_string(myfileid);
             ossafe_file_text_readln(myfileid);
@@ -52,77 +52,77 @@ function scr_load_chapter3()
     {
         var hp_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < ds_list_size(hp_list); i += 1)
+        for (i = 0; i < ds_list_size(hp_list); i += 1)
             global.hp[i] = ds_list_find_value(hp_list, i);
         
         ds_list_destroy(hp_list);
         ossafe_file_text_readln(myfileid);
         var maxhp_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < ds_list_size(maxhp_list); i += 1)
+        for (i = 0; i < ds_list_size(maxhp_list); i += 1)
             global.maxhp[i] = ds_list_find_value(maxhp_list, i);
         
         ds_list_destroy(maxhp_list);
         ossafe_file_text_readln(myfileid);
         var at_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < ds_list_size(at_list); i += 1)
+        for (i = 0; i < ds_list_size(at_list); i += 1)
             global.at[i] = ds_list_find_value(at_list, i);
         
         ds_list_destroy(at_list);
         ossafe_file_text_readln(myfileid);
         var df_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < ds_list_size(df_list); i += 1)
+        for (i = 0; i < ds_list_size(df_list); i += 1)
             global.df[i] = ds_list_find_value(df_list, i);
         
         ds_list_destroy(df_list);
         ossafe_file_text_readln(myfileid);
         var mag_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < ds_list_size(mag_list); i += 1)
+        for (i = 0; i < ds_list_size(mag_list); i += 1)
             global.mag[i] = ds_list_find_value(mag_list, i);
         
         ds_list_destroy(mag_list);
         ossafe_file_text_readln(myfileid);
         var guts_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < ds_list_size(guts_list); i += 1)
+        for (i = 0; i < ds_list_size(guts_list); i += 1)
             global.guts[i] = ds_list_find_value(guts_list, i);
         
         ds_list_destroy(guts_list);
         ossafe_file_text_readln(myfileid);
         var charweapon_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < ds_list_size(charweapon_list); i += 1)
+        for (i = 0; i < ds_list_size(charweapon_list); i += 1)
             global.charweapon[i] = ds_list_find_value(charweapon_list, i);
         
         ds_list_destroy(charweapon_list);
         ossafe_file_text_readln(myfileid);
         var chararmor1_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < ds_list_size(chararmor1_list); i += 1)
+        for (i = 0; i < ds_list_size(chararmor1_list); i += 1)
             global.chararmor1[i] = ds_list_find_value(chararmor1_list, i);
         
         ds_list_destroy(chararmor1_list);
         ossafe_file_text_readln(myfileid);
         var chararmor2_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < ds_list_size(chararmor2_list); i += 1)
+        for (i = 0; i < ds_list_size(chararmor2_list); i += 1)
             global.chararmor2[i] = ds_list_find_value(chararmor2_list, i);
         
         ds_list_destroy(chararmor2_list);
         ossafe_file_text_readln(myfileid);
         var weaponstyle_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < ds_list_size(weaponstyle_list); i += 1)
+        for (i = 0; i < ds_list_size(weaponstyle_list); i += 1)
             global.weaponstyle[i] = ds_list_find_value(weaponstyle_list, i);
         
         ds_list_destroy(weaponstyle_list);
         ossafe_file_text_readln(myfileid);
     }
     
-    for (var i = 0; i < 5; i += 1)
+    for (i = 0; i < 5; i += 1)
     {
         if (!global.is_console)
         {
@@ -190,35 +190,35 @@ function scr_load_chapter3()
     {
         var item_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < ds_list_size(item_list); i += 1)
+        for (i = 0; i < ds_list_size(item_list); i += 1)
             global.item[i] = ds_list_find_value(item_list, i);
         
         ds_list_destroy(item_list);
         ossafe_file_text_readln(myfileid);
         var keyitem_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < ds_list_size(keyitem_list); i += 1)
+        for (i = 0; i < ds_list_size(keyitem_list); i += 1)
             global.keyitem[i] = ds_list_find_value(keyitem_list, i);
         
         ds_list_destroy(keyitem_list);
         ossafe_file_text_readln(myfileid);
         var weapon_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < ds_list_size(weapon_list); i += 1)
+        for (i = 0; i < ds_list_size(weapon_list); i += 1)
             global.weapon[i] = ds_list_find_value(weapon_list, i);
         
         ds_list_destroy(weapon_list);
         ossafe_file_text_readln(myfileid);
         var armor_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < ds_list_size(armor_list); i += 1)
+        for (i = 0; i < ds_list_size(armor_list); i += 1)
             global.armor[i] = ds_list_find_value(armor_list, i);
         
         ds_list_destroy(armor_list);
         ossafe_file_text_readln(myfileid);
         var pocket_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < ds_list_size(pocket_list); i += 1)
+        for (i = 0; i < ds_list_size(pocket_list); i += 1)
             global.pocketitem[i] = ds_list_find_value(pocket_list, i);
         
         ds_list_destroy(pocket_list);
@@ -238,10 +238,14 @@ function scr_load_chapter3()
         {
             global.weapon[j] = ossafe_file_text_read_real(myfileid);
             ossafe_file_text_readln(myfileid);
-            global.armor[j] = ossafe_file_text_read_real(myfileid);
-            ossafe_file_text_readln(myfileid);
         }
         
+        for (j = 0; j < 60; j += 1)
+        {
+          global.armor[j] = ossafe_file_text_read_real(myfileid);
+          ossafe_file_text_readln(myfileid);
+        }
+
         for (j = 0; j < 72; j += 1)
         {
             global.pocketitem[j] = ossafe_file_text_read_real(myfileid);
@@ -280,21 +284,21 @@ function scr_load_chapter3()
     {
         var litem_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < (ds_list_size(litem_list) - 1); i += 1)
+        for (i = 0; i < (ds_list_size(litem_list) - 1); i += 1)
             global.litem[i] = ds_list_find_value(litem_list, i);
         
         ds_list_destroy(litem_list);
         ossafe_file_text_readln(myfileid);
         var phone_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < (ds_list_size(phone_list) - 1); i += 1)
+        for (i = 0; i < (ds_list_size(phone_list) - 1); i += 1)
             global.phone[i] = ds_list_find_value(phone_list, i);
         
         ds_list_destroy(phone_list);
         ossafe_file_text_readln(myfileid);
         var flag_list = scr_ds_list_read(myfileid);
         
-        for (var i = 0; i < (ds_list_size(flag_list) - 1); i += 1)
+        for (i = 0; i < (ds_list_size(flag_list) - 1); i += 1)
             global.flag[i] = ds_list_find_value(flag_list, i);
         
         ds_list_destroy(flag_list);
@@ -302,7 +306,7 @@ function scr_load_chapter3()
     }
     else
     {
-        for (var i = 0; i < 8; i += 1)
+        for (i = 0; i < 8; i += 1)
         {
             global.litem[i] = ossafe_file_text_read_real(myfileid);
             ossafe_file_text_readln(myfileid);
@@ -310,7 +314,7 @@ function scr_load_chapter3()
             ossafe_file_text_readln(myfileid);
         }
         
-        for (var i = 0; i < 2500; i += 1)
+        for (i = 0; i < 2500; i += 1)
         {
             global.flag[i] = ossafe_file_text_read_real(myfileid);
             ossafe_file_text_readln(myfileid);
@@ -323,35 +327,66 @@ function scr_load_chapter3()
     ossafe_file_text_readln(myfileid);
     global.time = ossafe_file_text_read_real(myfileid);
     ossafe_file_text_readln(myfileid);
-    scr_ap_load();
+    AP_load();
     global.flag[64] = 72;
+    ossafe_file_text_close(myfileid);
+    global.lastsavedtime = global.time;
+    global.lastsavedlv = global.lv;
+    audio_group_set_gain(1, global.flag[15], 0);
+    audio_set_master_gain(0, global.flag[17]);
+    var room_id = global.currentroom;
     
-    for (var i = 2000; i < 3999; i++)
+    if (room_id < 10000)
     {
-        trueitm = 0;
+        room_id = scr_get_id_by_room_index(global.currentroom);
         
-        if (global.customflags[i] == 1)
+        if (room_id == 0)
+            room_id += (global.chapter * 10000);
+        
+        global.currentroom = room_id;
+    }
+    
+    if (global.chapter == 4)
+    {
+        if (global.filechoice != 9)
         {
-            trueitm = i + 8000;
-            
-            if (trueitm == 10013 || (trueitm >= 10030 && trueitm <= 10031) || (trueitm >= 11005 && trueitm <= 11007) || (trueitm >= 11016 && trueitm <= 11017) || (trueitm >= 11020 && trueitm <= 11021))
+            if (scr_completed_chapter_any_slot(4) && global.plot >= 243)
             {
-                if (trueitm == 11021)
-                    trueitm = 10002;
+                global.flag[1658] = 1;
                 
-                if (trueitm != 11007)
-                {
-                    if (trueitm != 11006)
-                        scr_keyitemget(trueitm - 10000);
-                }
+                if (global.flag[1659] == 0)
+                    global.currentroom = scr_get_id_by_room_index(261);
             }
         }
     }
     
-    ossafe_file_text_close(myfileid);
-    global.lastsavedtime = global.time;
-    global.lastsavedlv = global.lv;
-    scr_gamestart_chapter_override();
-    audio_group_set_gain(1, global.flag[15], 0);
-    audio_set_master_gain(0, global.flag[17]);
+    __loadedroom = scr_get_room_by_id(global.currentroom);
+    
+    if (scr_dogcheck())
+        __loadedroom = 92;
+    
+    scr_tempsave();
+    
+    if (global.is_console)
+        global.tempflag[95] = 1;
+    
+    with (obj_gamecontroller)
+        enable_loading();
+    
+    if (scr_debug())
+    {
+        if (room_exists(__loadedroom))
+        {
+            room_goto(__loadedroom);
+        }
+        else
+        {
+            snd_play(snd_error);
+            print_message("LOAD FAILED: ROOM [" + string(__loadedroom) + "] DOESN'T EXIST");
+        }
+    }
+    else
+    {
+        room_goto(__loadedroom);
+    }
 }

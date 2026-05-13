@@ -95,7 +95,7 @@ for (var i = 0; i < array_length(item_list); i++)
     itemtype[i] = "check";
     item[i] = current_item.item_id;
     itemcount = 99;
-    scr_hintspot(item[i]);
+    AP_sendHint(item[i]);
     
     if (global.customflags[1000 + current_item.item_id] == 1)
     {

@@ -15,7 +15,7 @@ void Build_rooms(int chapter)
     case 1: Load_chapter1_rooms(); break;
     case 2: Load_chapter2_rooms(); break;
     case 3: Load_chapter3_rooms(); break;
-    case 3: Load_chapter4_rooms(); break;
+    case 4: Load_chapter4_rooms(); break;
     default: return;
   }
 }
