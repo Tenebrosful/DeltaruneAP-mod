@@ -18,8 +18,8 @@ bsdiff4.file_diff(
     "DELTARUNE/chapter3_windows/data.win",
     "ch3.bsdiff",
 )
-# bsdiff4.file_diff(
-#     "DELTARUNE/chapter4_windows/data_vanilla.win",
-#     "DELTARUNE/chapter4_windows/data.win",
-#     "ch4.bsdiff",
-# )
+bsdiff4.file_diff(
+    "DELTARUNE/chapter4_windows/data_vanilla.win",
+    "DELTARUNE/chapter4_windows/data.win",
+    "ch4.bsdiff",
+)

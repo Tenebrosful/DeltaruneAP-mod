@@ -902,30 +902,41 @@ function scr_itemuse(arg0)
             break;
         
         case 313:
-        if (global.chapter != 1){
-            if (scr_flag_get(1269) == 0)
-            {
-                scr_flag_set(1269, 1);
-                scr_speaker("no_name");
-                msgsetloc(0, "* You held the crystal up to your eye./", "scr_itemuse_slash_scr_itemuse_gml_747_0");
-                msgnextloc("* For some strange reason^1, for just a brief moment.../", "scr_itemuse_slash_scr_itemuse_gml_748_0");
-                msgnextloc("* You thought you saw the television get smashed to pieces./%", "scr_itemuse_slash_scr_itemuse_gml_749_0");
+            if (global.chapter != 1){
+                if (scr_flag_get(1269) == 0)
+                {
+                    scr_flag_set(1269, 1);
+                    scr_speaker("no_name");
+                    msgsetloc(0, "* You held the crystal up to your eye./", "scr_itemuse_slash_scr_itemuse_gml_747_0");
+                    msgnextloc("* For some strange reason^1, for just a brief moment.../", "scr_itemuse_slash_scr_itemuse_gml_748_0");
+                    msgnextloc("* You thought you saw the television get smashed to pieces./%", "scr_itemuse_slash_scr_itemuse_gml_749_0");
+                }
+                else if (scr_flag_get(1270) == 0)
+                {
+                    scr_flag_set(1270, 1);
+                    scr_speaker("no_name");
+                    msgsetloc(0, "* You held the crystal up to your eye./", "scr_itemuse_slash_scr_itemuse_gml_624_0");
+                    msgnextloc("* ..^1. but nothing happened./%", "scr_itemuse_slash_scr_itemuse_gml_625_0");
+                }
+                else
+                {
+                    scr_speaker("no_name");
+                    msgsetloc(0, "* It doesn't seem very useful./%", "scr_itemuse_slash_scr_itemuse_gml_629_0");
+                }
+                
+                scr_itemdialoguer();
             }
-            else if (scr_flag_get(1270) == 0)
-            {
-                scr_flag_set(1270, 1);
-                scr_speaker("no_name");
-                msgsetloc(0, "* You held the crystal up to your eye./", "scr_itemuse_slash_scr_itemuse_gml_624_0");
-                msgnextloc("* ..^1. but nothing happened./%", "scr_itemuse_slash_scr_itemuse_gml_625_0");
-            }
-            else
-            {
-                scr_speaker("no_name");
-                msgsetloc(0, "* It doesn't seem very useful./%", "scr_itemuse_slash_scr_itemuse_gml_629_0");
-            }
-            
-            scr_itemdialoguer();
             break;
-        }
+        case 330:
+            usable = 1;
+            
+            if (scr_flag_get(847) == 0)
+                scr_flag_set(847, 1);
+            
+            instance_create(0, 0, obj_dw_church_susiesnote);
+            break;
+        
+        case 331:
+            break;
     }
 }

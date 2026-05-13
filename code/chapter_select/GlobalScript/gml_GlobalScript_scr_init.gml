@@ -9,7 +9,7 @@ function get_version()
 /// CODE
 function get_version()
 {
-    var version = "v2.0.0+beta2e";
+    var version = "v2.0.0+beta3";
     return version;
 }
 /// END
