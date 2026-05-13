@@ -1338,7 +1338,7 @@ if (global.interact == 5)
                     hold_down = 6;
                 }
                 
-                if (global.submenucoord[global.submenu] < 11 && _down_pressed == 1)
+                if (global.submenucoord[global.submenu] < 47 && _down_pressed == 1)
                 {
                     movenoise = 1;
                     

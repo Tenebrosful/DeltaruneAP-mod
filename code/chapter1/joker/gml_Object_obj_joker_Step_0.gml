@@ -52,7 +52,7 @@
 /// REPLACE
         if (chaosdance == 6)
         {
-            global.msg[0] = scr_84_get_lang_string("obj_joker_slash_Step_0_gml_320_0"); // * Everyone's HP got jumbled up!/%
+            global.msg[0] = scr_84_get_lang_string("obj_joker_slash_Step_0_gml_320_0");
             swap1 = 1;
             swap2 = 1;
             swap1 = choose(2, 3);
@@ -110,7 +110,7 @@
 /// CODE
         if (chaosdance == 6)
         {
-            global.msg[0] = scr_84_get_lang_string("obj_joker_slash_Step_0_gml_320_0"); // * Everyone's HP got jumbled up!/%
+            global.msg[0] = scr_84_get_lang_string("obj_joker_slash_Step_0_gml_320_0");
             swap1 = 1;
             swap2 = 1;
             swap1 = choose(2, 3);

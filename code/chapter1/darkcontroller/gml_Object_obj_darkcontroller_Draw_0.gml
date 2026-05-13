@@ -37,3 +37,9 @@
     
     draw_sprite_ext(scr_84_get_sprite("spr_dmenu_captions"), 4, xx + 116, yy + 216, 2, 2, 0, c_white, 1);
 /// END
+
+/// REPLACE
+        if ((5 + pagemax[pm]) < 11)
+/// CODE
+        if ((5 + pagemax[pm]) < 47)
+/// END
