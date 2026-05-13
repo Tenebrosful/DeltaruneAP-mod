@@ -1,6 +1,26 @@
 /// IMPORT
 function scr_gameover()
 {
+    switch(global.chapter)
+    {
+        case 2:
+            if (room == room_dw_mansion_east_4f_c || room == room_dw_mansion_east_3f_projection || room == room_dw_mansion_east_2f_d)
+            {
+                global.hp[1] = global.maxhp[1];
+                global.hp[2] = global.maxhp[2];
+                global.hp[3] = global.maxhp[3];
+                scr_tempsave();
+            }
+            break;
+        case 3:
+            if (room == room_dw_chef || room == room_dw_chef_empty || room == room_dw_rhythm || room == room_dw_rhythm_empty)
+                exit;
+
+            if (room == room_dw_green_room || room_ch3_gameshowroom)
+                scr_tempsave();
+            break;
+    }
+
     if (global.AP_deathlink)
     {
         if (instance_exists(obj_archipelago_client) && obj_archipelago_client.AP_isAuthenticated())
