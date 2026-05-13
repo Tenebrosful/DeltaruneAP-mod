@@ -41,7 +41,7 @@
 /// END
 
 /// AFTER
-#if CHAPTER_1 || CHAPTER_2
+#if CHAPTER_1 || CHAPTER_2 || CHAPTER_4
             if (nextchar2 == "0")
                 xcolor = mycolor;
 #elsif CHAPTER_3

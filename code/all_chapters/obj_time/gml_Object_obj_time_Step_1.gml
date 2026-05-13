@@ -1,4 +1,4 @@
-/// PATCH .ignore if CHAPTER_1 || CHAPTER_3
+/// PATCH .ignore if CHAPTER_1 || CHAPTER_3 || CHAPTER_4
 
 /// APPEND
 if (scr_debug())

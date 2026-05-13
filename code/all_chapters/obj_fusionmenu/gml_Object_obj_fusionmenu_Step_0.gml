@@ -98,6 +98,22 @@
 /// END
 #endif
 
+#if CHAPTER_4
+/// REPLACE
+        dojoPrizeName[0] = stringsetloc("ExecBuffet", "obj_fusionmenu_slash_Step_0_gml_155_0");
+/// CODE
+        data[0] = AP_get_location_reward_data(188);
+        dojoPrizeName[0] = stringsetloc(data[0].itemName, "obj_fusionmenu_slash_Step_0_gml_155_0");
+        AP_sendHint(188);
+/// END
+
+/// REPLACE
+        dojoPrizeType[0] = "item";
+/// CODE
+        dojoPrizeType[0] = "188";
+/// END
+#endif
+
 /// REPLACE
         scr_itemget_anytype(fusionResult[menuCoord[0]], fusionResultType[menuCoord[0]]);
 /// CODE
