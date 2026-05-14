@@ -29,7 +29,7 @@ if (room == room_dw_churchc_savepoint)
     visible = 1;
     mywall = instance_create(x, y - 120, obj_solidblocksized);
     
-    if (global.customflags[33] == 1 || file_exists("ch5.route") || scr_ap_get_macguffin_amount() == 0)
+    if (global.customflags[33] == 1 || global.AP_macguffin_required[3] == 0)
         image_index = 1;
     
     with (mywall)
@@ -37,7 +37,7 @@ if (room == room_dw_churchc_savepoint)
         image_xscale = 4;
         image_yscale = 6;
         
-        if (global.customflags[33] == 1 || file_exists("ch5.route") || scr_ap_get_macguffin_amount() == 0)
+        if (global.customflags[33] == 1 global.AP_macguffin_required[3] == 0)
             instance_destroy();
     }
 }
