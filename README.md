@@ -14,14 +14,15 @@
 - Save the new data.win
 
 ## Contributions
-- Mewlif (Original modding)
-- [theemeraldsword85](https://github.com/theemeraldsword85) (Original modding)
-- [Tenebrosful](https://github.com/Tenebrosful) (Porting to UMP, modding, QoL)
-- [Deadzi](https://github.com/Deadzi06) (QoL, bug fixes)
+- Mewlif (Modding)
+- [theemeraldsword85](https://github.com/theemeraldsword85) (Modding)
+- [Tenebrosful](https://github.com/Tenebrosful) (Porting, Modding)
+- [Deadzi](https://github.com/Deadzi06) (Bug Fixing, Modding)
+- [Vintagix](https://github.com/VintagixDev) (In-Game AP Client, Modding)
+- [Charaster](https://github.com/Charaster-Official) (Sprites)
 
 
 ## Big thanks
 - [Ners](https://github.com/ners-xd) for helping making this repository
 - [Nhaar](https://github.com/nhaar) for [UMP framework](https://github.com/nhaar/UMP)
-- [Charaster](https://github.com/Charaster-Official) for Sprites
 - [Keucheur-mod](https://github.com/nhaar/keucher-mod) for some features and kris room
