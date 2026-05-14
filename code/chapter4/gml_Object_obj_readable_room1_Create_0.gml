@@ -37,7 +37,7 @@ if (room == room_dw_churchc_savepoint)
         image_xscale = 4;
         image_yscale = 6;
         
-        if (global.customflags[33] == 1 global.AP_macguffin_required[3] == 0)
+        if (global.customflags[33] == 1 || global.AP_macguffin_required[3] == 0)
             instance_destroy();
     }
 }
