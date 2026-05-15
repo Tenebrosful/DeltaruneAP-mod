@@ -21,7 +21,7 @@ function scr_gameover()
             break;
     }
 
-    if (global.AP_deathlink)
+    if (global.AP_deathlink && !global.AP_deathlink_protected)
     {
         if (instance_exists(obj_archipelago_client) && obj_archipelago_client.AP_isAuthenticated())
         {

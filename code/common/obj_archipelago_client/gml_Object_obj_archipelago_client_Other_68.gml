@@ -196,27 +196,19 @@ if (ds_map_exists(async_load, "buffer"))
                     {
                         for (var ii = 0; ii < array_length(data[i].tags); ii++)
                         {
-                            if (data[i].tags[ii] == "DeathLink")
+                            if (data[i].tags[ii] == "DeathLink" && data[i].data.source != global.AP_name && !global.AP_deathlink_protected)
                             {
                                 if (variable_global_exists("chapter"))
                                 {
                                     var time;
                                     if (variable_struct_exists(data[i].data, "time"))
-                                        if (data[i].data.time == global.AP_deathlink_infos.time)
-                                            continue;
-                                        else
-                                            time = data[i].data.time;
+                                        time = data[i].data.time;
                                     else
                                         time = undefined;
                                     
                                     var source;
                                     if (variable_struct_exists(data[i].data, "source"))
-                                    {
-                                        if (data[i].data.source == global.AP_name)
-                                            continue;
-                                        else
-                                            source = data[i].data.source;
-                                    }
+                                        source = data[i].data.source;
                                     else
                                         source = undefined;
 

@@ -131,6 +131,7 @@ function AP_item_flag_to_color(flags){
 
 function AP_handle_DeathLink()
 {
+    global.AP_deathlink_protected = true;
     if (global.chapter == 3 && (room == room_board_1 || room == room_board_2 || room == room_board_3))
     {
         if (i_ex(obj_battlecontroller))
@@ -162,6 +163,7 @@ function AP_handle_DeathLink()
     {
         scr_gameover();
     }
+    global.AP_deathlink_protected = false;
 }
 
 function AP_step()

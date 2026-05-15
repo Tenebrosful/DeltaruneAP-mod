@@ -54,7 +54,7 @@ function AP_internal_get_character_max_hp(character_id)
           return 200;
 
         default:
-          return -999;
+          return -666;
       }
 
     case 2: // Susie
@@ -73,7 +73,7 @@ function AP_internal_get_character_max_hp(character_id)
           return 230;
 
         default:
-          return -999;
+          return -666;
       }
 
     case 3: // Ralsei
@@ -92,7 +92,7 @@ function AP_internal_get_character_max_hp(character_id)
           return 180;
 
         default:
-          return -999;
+          return -666;
       }
 
     case 4: // Noelle
@@ -104,11 +104,11 @@ function AP_internal_get_character_max_hp(character_id)
         case 2:
           return 90;
         default:
-          return -999;
+          return -666;
       }
 
     default:
-      return -999;
+      return -666;
   }
 }
 
