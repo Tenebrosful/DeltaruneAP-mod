@@ -11,3 +11,9 @@
 /// CODE
     if (mosstimer > 0 || (mosstimer == 0 && !instance_exists(obj_board_writer)))
 /// END
+
+/// AFTER
+            global.flag[1078] = 1;
+/// CODE
+            AP_sendLocation(181);
+/// END
