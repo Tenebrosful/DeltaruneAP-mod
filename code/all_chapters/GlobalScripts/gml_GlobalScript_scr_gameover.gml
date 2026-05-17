@@ -13,12 +13,15 @@ function scr_gameover()
             }
             break;
         case 3:
-            if (room == room_dw_chef || room == room_dw_chef_empty || room == room_dw_rhythm || room == room_dw_rhythm_empty)
+            if (room == room_dw_chef || room == room_dw_chef_empty || room == room_dw_rhythm || room == room_dw_rhythm_empty || room_ch3_gameshowroom)
                 exit;
 
-            if (room == room_dw_green_room || room_ch3_gameshowroom)
+            if (room == room_dw_green_room)
                 scr_tempsave();
             break;
+        case 4:
+            if (room == room_intro_ch4)
+                exit;
     }
 
     if (global.AP_deathlink && !global.AP_deathlink_protected)
