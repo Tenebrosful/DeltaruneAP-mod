@@ -76,7 +76,10 @@ if (ds_map_exists(async_load, "buffer"))
                     global.AP_slot = data[i].slot;
 
                     if (variable_struct_exists(data[i].slot_data.options, "chosen_route"))
+                    {
                         global.AP_weird_route = data[i].slot_data.options.chosen_route;
+                        global.AP_route = data[i].slot_data.options.chosen_route;
+                    }
                     if (variable_struct_exists(data[i].slot_data.options, "randomize_mantle"))
                         global.AP_no_mantle = data[i].slot_data.options.randomize_mantle == "mantleless";
                     if (variable_struct_exists(data[i].slot_data.options, "better_odds"))
