@@ -1,6 +1,7 @@
 #load "ump.csx"
 #load "rooms\room_loader.csx"
 #load "gameObjects\game_objects_loader.csx"
+#load "sounds\ImportSingleSound.csx"
 
 using ImageMagick;
 using System.Linq;
@@ -87,7 +88,10 @@ void BuildMod(int chapter)
     
     if (chapter == 1)
     {
-        RunUMTScript(Path.Combine(scriptPath, "sounds/ImportSingleSound.csx"));
+        Load_audio(Path.Combine(scriptPath, "sounds/snd_moss_fanfare.wav"));
+        Load_audio(Path.Combine(scriptPath, "sounds/snd_cd_bagel_kris.wav"));
+        Load_audio(Path.Combine(scriptPath, "sounds/snd_cd_bagel_susie.wav"));
+        Load_audio(Path.Combine(scriptPath, "sounds/snd_cd_bagel_ralsei.wav"));
     }
 
     // Import fnt_main from Chapter 1 into other chapters because for some reason the text acts really strange otherwise.
