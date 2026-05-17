@@ -385,16 +385,16 @@ function AP_game_start_post_connexion()
     }
 
     if(global.AP_unlock_kris)
-        global.maxhp[1] = -999
+        global.maxhp[1] = -666
     else
         global.maxhp[1] = AP_internal_get_character_max_hp(1);
 
 
     if (global.AP_unlock_characters)
     {
-        global.maxhp[2] = -999;
-        global.maxhp[3] = -999;
-        global.maxhp[4] = -999;
+        global.maxhp[2] = -666;
+        global.maxhp[3] = -666;
+        global.maxhp[4] = -666;
     }
     else
     {
