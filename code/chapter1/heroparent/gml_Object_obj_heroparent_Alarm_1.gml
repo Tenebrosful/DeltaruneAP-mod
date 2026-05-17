@@ -6,6 +6,15 @@
     dm.delay = 8;
 /// CODE
     spell = 0;
+
+    global.skiplostrecruit = false;
+    
+    if (object_index == obj_herokris && global.charauto[1])
+        global.skiplostrecruit = true;
+    else if (object_index == obj_herosusie && global.charauto[2])
+        global.skiplostrecruit = true;
+    else if (object_index == obj_heroralsei && global.charauto[3])
+        global.skiplostrecruit = true;
     
     if (object_index == obj_herosusie && global.charweapon[2] == 54)
     {
