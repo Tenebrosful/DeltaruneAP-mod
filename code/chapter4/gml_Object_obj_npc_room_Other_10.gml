@@ -13,6 +13,13 @@ if (room == room_dw_church_jackenstein)
     }
 }
 
+if (extflag == "tp_to_arena_npc")
+{
+    room_goto(room_dw_church_arena)
+    global.interact = 0;
+    global.flag[851] = 2;
+}
+
 /// END
 
 /// REPLACE

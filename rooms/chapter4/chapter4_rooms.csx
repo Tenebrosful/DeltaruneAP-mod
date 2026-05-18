@@ -3,6 +3,8 @@
 #load "room_dw_church_ripplepuzzle_postgers.csx"
 #load "room_dw_churchc_finalclimb.csx"
 #load "room_dw_churchc_savepoint.csx"
+#load "room_dw_church_gersonstudy.csx"
+#load "room_dw_church_knightclimb_post.csx"
 
 void Load_chapter4_rooms()
 {
@@ -11,6 +13,8 @@ void Load_chapter4_rooms()
   Load_room_dw_church_ripplepuzzle_postgers();
   Load_room_dw_churchc_finalclimb();
   Load_room_dw_churchc_savepoint();
+  Load_room_dw_church_gersonstudy();
+  Load_room_dw_church_knightclimb_post();
 }
 
 void Load_Early_Chapter4_Rooms()

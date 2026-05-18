@@ -243,10 +243,13 @@ function AP_internal_handle_real_keyitem(realitem_id)
   if ((item_chapter == 0 || global.chapter == item_chapter) && !scr_keyitemcheck(realitem_id) && AP_internal_special_key_item(realitem_id))
     scr_keyitemget(realitem_id);
 
-  if realitem_id == 1018
-    global.customflags[25] = true;
-  else if realitem_id == 1019
-    global.customflags[26] = true;
+  switch(realitem_id)
+  {
+    case 31: if (global.chapter == 4) global.flag[23] = 1; break;
+    case 1018: global.customflags[25] = true; break;
+    case 1019: global.customflags[26] = true; break;
+  }
+    
 
   AP_internal_print_get_item_text(item_chapter, realitem_id, item_name, 1);
 }
