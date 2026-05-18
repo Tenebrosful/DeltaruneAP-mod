@@ -255,7 +255,7 @@ function AP_internal_special_key_item(realitem_id)
 {
   return realitem_id != 1005 // moss ch1
   && realitem_id != 1006 // joe's life savings
-  && realitem_id != 1011 // moss ch2
+  && realitem_id != 1007 // moss ch2
   && realitem_id != 1016 // smile
   && realitem_id != 1017 // moss ch3
   && realitem_id != 1018 // ice key
