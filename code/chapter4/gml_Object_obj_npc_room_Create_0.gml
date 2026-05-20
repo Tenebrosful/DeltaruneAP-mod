@@ -18,7 +18,7 @@
             instance_destroy();
     }
 
-    if (room == room_dw_church_gersonstudy || room_dw_church_knightclimb_post)
+    if (room == room_dw_church_gersonstudy || room == room_dw_church_knightclimb_post)
     {
         sprite_index = spr_npc_originalstarwalker;
         extflag = "tp_to_arena_npc";
