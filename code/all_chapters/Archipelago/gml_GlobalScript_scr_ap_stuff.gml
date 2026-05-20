@@ -1,5 +1,127 @@
 /// FUNCTIONS
 
+function AP_handle_mike_minigame_trophy(minigame, trophy)
+{
+    var minigame_base_id = 0;
+    // switch(minigame)
+    // {
+
+    // }
+
+    var location_to_send = [];
+
+    for (var i = 0 ; i <= trophy; i++)
+        array_push(location_to_send, minigame_base_id + i)
+
+    AP_sendLocation(location_to_send);
+
+}
+
+function AP_fill_progressive_weapon_struct()
+{
+    global.AP_progressive_weapons_ids = {}
+
+    if (global.AP_progressive_weapons.kris)
+    {
+        global.AP_progressive_weapons_ids.kris = [];
+        if (global.AP_include_chapters[0])
+            array_push(global.AP_progressive_weapons_ids.kris, 5); // SpookySword
+
+        if (global.AP_include_chapters[1])
+            array_push(global.AP_progressive_weapons_ids.kris, 14); // BounceBlade
+
+        if (global.AP_include_chapters[0] && (global.AP_include_unused_items == "true" || global.AP_include_unused_items == "true_without_everybodyweapon"))
+            array_push(global.AP_progressive_weapons_ids.kris, 8); // Trefoil
+
+        if (global.AP_include_chapters[1])
+            array_push(global.AP_progressive_weapons_ids.kris, 16); // MechaSaber
+
+        if (global.AP_include_chapters[2])
+            array_push(global.AP_progressive_weapons_ids.kris, 23); // Saber10
+        
+        if (global.AP_include_chapters[3])
+            array_push(global.AP_progressive_weapons_ids.kris, 50); // JingleBlade
+
+        if (global.AP_include_chapters[3])
+            array_push(global.AP_progressive_weapons_ids.kris, 53); // Winglade
+
+        if (global.AP_include_chapters[2])
+            array_push(global.AP_progressive_weapons_ids.kris, 26); // Blackshard
+
+        if (global.AP_include_chapters[1] && (global.AP_include_unused_items == "true" || global.AP_include_unused_items == "true_without_everybodyweapon") && (global.AP_chosen_route == "weird_route" || global.AP_chosen_route == "all_routes"))
+            array_push(global.AP_progressive_weapons_ids.kris, 11); // TwistedSwd
+        
+        if (global.AP_include_unused_items == "true")
+            array_push(global.AP_progressive_weapons_ids.kris, 4); // EverybodyWeapon
+    }
+    if (global.AP_progressive_weapons.susie)
+    {
+        global.AP_progressive_weapons_ids.susie = [];
+        if (global.AP_include_chapters[0])
+            array_push(global.AP_progressive_weapons_ids.susie, 6); // Brave Ax
+
+        if (global.AP_include_chapters[1])
+            array_push(global.AP_progressive_weapons_ids.susie, 17); // AutoAxe
+
+        if (global.AP_include_chapters[0])
+            array_push(global.AP_progressive_weapons_ids.susie, 7); // Devilsknife
+
+        if (global.AP_include_chapters[2])
+            array_push(global.AP_progressive_weapons_ids.susie, 24); // ToxicAxe
+
+        if (global.AP_include_chapters[3])
+            array_push(global.AP_progressive_weapons_ids.susie, 54); // AbsorbAx
+
+        if (global.AP_include_chapters[3])
+            array_push(global.AP_progressive_weapons_ids.susie, 52); // JusticeAxe
+
+        if (global.AP_include_unused_items == "true")
+            array_push(global.AP_progressive_weapons_ids.susie, 4); // EverybodyWeapon
+        
+    }
+    if (global.AP_progressive_weapons.ralsei)
+    {
+        global.AP_progressive_weapons_ids.ralsei = [];
+
+        if (global.AP_include_chapters[0])
+            array_push(global.AP_progressive_weapons_ids.ralsei, 10); // DaintyScarf
+
+        if (global.AP_include_chapters[0])
+            array_push(global.AP_progressive_weapons_ids.ralsei, 9); // Ragger
+
+        if (global.AP_include_chapters[1])
+            array_push(global.AP_progressive_weapons_ids.ralsei, 18); // FiberScarf
+
+        if (global.AP_include_chapters[2])
+            array_push(global.AP_progressive_weapons_ids.ralsei, 25); // FlexScarf
+
+        if (global.AP_include_chapters[3])
+            array_push(global.AP_progressive_weapons_ids.ralsei, 51); // ScarfMark
+
+        if (global.AP_include_chapters[1])
+            array_push(global.AP_progressive_weapons_ids.ralsei, 19); // Ragger2
+
+        if (global.AP_include_chapters[1])
+            array_push(global.AP_progressive_weapons_ids.ralsei, 21); // PuppetScarf
+
+        if (global.AP_include_unused_items == "true")
+            array_push(global.AP_progressive_weapons_ids.susie, 4); // EverybodyWeapon
+    }
+    if (global.AP_progressive_weapons.noelle)
+    {
+        global.AP_progressive_weapons_ids.noelle = [];
+
+        if (global.AP_include_chapters[1])
+            array_push(global.AP_progressive_weapons_ids.noelle, 22); // FreezeRing
+
+        if (global.AP_include_chapters[1])
+            array_push(global.AP_progressive_weapons_ids.noelle, 13); // Thornring
+
+        if (global.AP_include_unused_items == "true")
+            array_push(global.AP_progressive_weapons_ids.noelle, 4); // EverybodyWeapon
+    }
+}
+
 function AP_complete_chapter(chapter_number)
 {
     if (!instance_exists(obj_archipelago_client))
@@ -266,6 +388,18 @@ function AP_load()
     
     global.MacGuffin_count = ossafe_file_text_read_real(myfileid);
     ossafe_file_text_readln(myfileid);
+
+    global.AP_progressive_current_index.kris_weapon = ossafe_file_text_read_real(myfileid);
+    ossafe_file_text_readln(myfileid);
+
+    global.AP_progressive_current_index.susie_weapon = ossafe_file_text_read_real(myfileid);
+    ossafe_file_text_readln(myfileid);
+
+    global.AP_progressive_current_index.ralsei_weapon = ossafe_file_text_read_real(myfileid);
+    ossafe_file_text_readln(myfileid);
+
+    global.AP_progressive_current_index.noelle_weapon = ossafe_file_text_read_real(myfileid);
+    ossafe_file_text_readln(myfileid);
 }
 
 function AP_save()
@@ -291,6 +425,18 @@ function AP_save()
     
     file_text_writeln(myfileid);
     file_text_write_real(myfileid, global.MacGuffin_count);
+
+    file_text_writeln(myfileid);
+    file_text_write_real(myfileid, global.AP_progressive_current_index.kris_weapon);
+
+    file_text_writeln(myfileid);
+    file_text_write_real(myfileid, global.AP_progressive_current_index.susie_weapon);
+
+    file_text_writeln(myfileid);
+    file_text_write_real(myfileid, global.AP_progressive_current_index.ralsei_weapon);
+
+    file_text_writeln(myfileid);
+    file_text_write_real(myfileid, global.AP_progressive_current_index.noelle_weapon);
 }
 
 function AP_game_start()
@@ -306,6 +452,12 @@ function AP_game_start()
     global.customflags = [];
     global.AP_items_waiting_to_receive = undefined;
     global.MacGuffin_count = 0;
+    global.AP_progressive_current_index = {
+        kris_weapon: 0,
+        susie_weapon: 0,
+        ralsei_weapon: 0,
+        noelle_weapon: 0,
+    }
 
     for (var i = 0; i < 9999; i++)
         global.customflags[i] = 0;
@@ -313,8 +465,11 @@ function AP_game_start()
 
 function AP_game_start_post_connexion()
 {
+
     // Prevent to execute if reconnected during the game
     if (global.AP_game_start_post_connexion_done) return;
+
+    AP_fill_progressive_weapon_struct();
 
     if (global.AP_unlock_fun_gang_actions)
         global.flag[34] = true;

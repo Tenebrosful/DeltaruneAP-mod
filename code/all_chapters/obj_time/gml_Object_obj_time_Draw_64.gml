@@ -11,5 +11,9 @@ if (scr_debug())
   draw_text(0, 24, "Other Games: " + string(global.AP_other_games))
   if (variable_global_exists("AP_items_waiting_to_receive"))
     draw_text(0, 32, "Waiting items: " + string(global.AP_items_waiting_to_receive))
+  if (variable_global_exists("AP_progressive_current_index"))
+    draw_text(0, 40, string(global.AP_progressive_current_index))
+  if (variable_global_exists("AP_progressive_weapons_ids"))
+    draw_text(0, 48, string(global.AP_progressive_weapons_ids))
 }
 /// END

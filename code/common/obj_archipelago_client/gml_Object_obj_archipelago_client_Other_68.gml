@@ -99,6 +99,18 @@ if (ds_map_exists(async_load, "buffer"))
                     }
                     if (variable_struct_exists(data[i].slot_data.options, "death_link"))
                         global.AP_deathlink = data[i].slot_data.options.death_link;
+                    
+                    if (variable_struct_exists(data[i].slot_data.options, "progressive_kris_weapons"))
+                        global.AP_progressive_weapons.kris = data[i].slot_data.options.progressive_kris_weapons;
+                    if (variable_struct_exists(data[i].slot_data.options, "progressive_susie_weapons"))
+                        global.AP_progressive_weapons.susie = data[i].slot_data.options.progressive_susie_weapons;
+                    if (variable_struct_exists(data[i].slot_data.options, "progressive_ralsei_weapons"))
+                        global.AP_progressive_weapons.ralsei = data[i].slot_data.options.progressive_ralsei_weapons;
+                    if (variable_struct_exists(data[i].slot_data.options, "progressive_noelle_weapons"))
+                        global.AP_progressive_weapons.noelle = data[i].slot_data.options.progressive_noelle_weapons;
+
+                    if (variable_struct_exists(data[i].slot_data.options, "include_unused_items"))
+                        global.AP_include_unused_items = data[i].slot_data.options.include_unused_items;
 
                     var path_settings = global.AP_multiworld + "/settings.json"
 

@@ -29,6 +29,7 @@ global.AP_deathlink_infos = {source: undefined, cause: undefined, time: undefine
 global.AP_secret_bosses_mandatory = false;
 global.AP_unlock_fun_gang_actions = true;
 global.AP_remove_starting_equipment = true;
+global.AP_include_unused_items = "false";
 global.AP_unlock_characters = false;
 global.AP_unlock_kris = false;
 global.AP_macguffin_required = [];
@@ -60,6 +61,12 @@ global.AP_item_offset =
     other_unlock: 100000, // Currently fun gang actions unlock
 };
 global.AP_other_games = []
+global.AP_progressive_weapons = {
+    kris: true,
+    susie: true,
+    ralsei: true,
+    noelle: true,
+}
 
 for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
 {

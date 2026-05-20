@@ -142,6 +142,10 @@ function AP_handle_receive_item(item_id)
   else if (item_id >= global.AP_item_offset.character_unlock){
     AP_internal_handle_character_unlock(item_id);
   }
+  else if (item_id >= global.AP_item_offset.progressive)
+  {
+    AP_internal_handle_progressive(item_id);
+  }
   else if (item_id >= global.AP_item_offset.money){
     AP_internal_handle_money_item(item_id);
   }
@@ -156,6 +160,48 @@ function AP_handle_receive_item(item_id)
   }
   else{
     AP_internal_handle_normal_item(item_id);
+  }
+}
+
+function AP_internal_handle_progressive(item_id)
+{
+  switch(item_id)
+  {
+    case 50000:  // Kris weapon
+      if (array_length(global.AP_progressive_weapons_ids.kris) < global.AP_progressive_current_index.kris_weapon + 1)
+        exit;
+
+      var weapon_id = global.AP_progressive_weapons_ids.kris[global.AP_progressive_current_index.kris_weapon]
+      global.AP_progressive_current_index.kris_weapon++;
+      AP_internal_handle_weapon_item(weapon_id + global.AP_item_offset.weapon);
+      break;
+
+    case 50001: // Susie weapon
+      if (array_length(global.AP_progressive_weapons_ids.susie) < global.AP_progressive_current_index.susie_weapon + 1)
+        exit;
+
+      var weapon_id = global.AP_progressive_weapons_ids.susie[global.AP_progressive_current_index.susie_weapon]
+      global.AP_progressive_current_index.susie_weapon++;
+      AP_internal_handle_weapon_item(weapon_id + global.AP_item_offset.weapon);
+      break;
+
+    case 50002: // Ralsei weapon
+      if (array_length(global.AP_progressive_weapons_ids.ralsei) < global.AP_progressive_current_index.ralsei_weapon + 1)
+        exit;
+
+      var weapon_id = global.AP_progressive_weapons_ids.ralsei[global.AP_progressive_current_index.ralsei_weapon]
+      global.AP_progressive_current_index.ralsei_weapon++;
+      AP_internal_handle_weapon_item(weapon_id + global.AP_item_offset.weapon);
+      break;
+      
+    case 50003: // Noelle weapon
+      if (array_length(global.AP_progressive_weapons_ids.noelle) < global.AP_progressive_current_index.noelle_weapon + 1)
+        exit;
+
+      var weapon_id = global.AP_progressive_weapons_ids.noelle[global.AP_progressive_current_index.noelle_weapon]
+      global.AP_progressive_current_index.noelle_weapon++;
+      AP_internal_handle_weapon_item(weapon_id + global.AP_item_offset.weapon);
+      break;
   }
 }
 
