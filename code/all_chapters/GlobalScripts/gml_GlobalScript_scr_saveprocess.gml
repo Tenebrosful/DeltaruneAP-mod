@@ -1,5 +1,19 @@
 /// PATCH
 
+#if CHAPTER_1
+/// REPLACE
+file = "filech1_" + string(arg0);
+/// CODE
+file = AP_get_save_folder_prefix() + "filech" + string(global.chapter) + "_" + string(arg0);
+/// END
+#else
+/// REPLACE
+    file = "filech" + string(global.chapter) + "_" + string(arg0);
+/// CODE
+    file = AP_get_save_folder_prefix() + "filech" + string(global.chapter) + "_" + string(arg0);
+/// END
+#endif
+
 /// AFTER
     ossafe_file_text_write_real(myfileid, global.time);
 /// CODE

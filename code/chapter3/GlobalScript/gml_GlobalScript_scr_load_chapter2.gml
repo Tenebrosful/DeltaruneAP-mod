@@ -5,7 +5,7 @@ function scr_load_chapter2()
     filechoicebk = global.filechoice;
     scr_gamestart();
     global.filechoice = filechoicebk;
-    file = "filech2_" + string(global.filechoice);
+    file = AP_get_save_folder_prefix() + "filech2_" + string(global.filechoice);
     myfileid = ossafe_file_text_open_read(file);
     global.truename = ossafe_file_text_read_string(myfileid);
     ossafe_file_text_readln(myfileid);

@@ -9,7 +9,7 @@ function scr_load()
     
     scr_gamestart();
     global.filechoice = filechoicebk;
-    file = "filech1_" + string(global.filechoice);
+    file = AP_get_save_folder_prefix() + "filech1_" + string(global.filechoice);
     myfileid = ossafe_file_text_open_read(file);
     
     if (instance_exists(obj_loadscreen))

@@ -23,7 +23,7 @@ function AP_write_settings_file()
         deathLink: global.AP_deathlink
     }
     setting_json = json_stringify(settings);
-    var file = file_text_open_write(global.AP_multiworld + "/settings.json");
+    var file = file_text_open_write(AP_get_save_folder_prefix() +  "settings.json");
     file_text_write_string(file, setting_json);
     file_text_close(file);
 }

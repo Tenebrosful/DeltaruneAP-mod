@@ -1,5 +1,10 @@
 /// FUNCTIONS
 
+function AP_get_save_folder_prefix()
+{
+    return string(global.AP_multiworld) + "_" + global.AP_name + "/";
+}
+
 function AP_handle_mike_minigame_trophy(minigame, trophy)
 {
     var minigame_base_id = 0;

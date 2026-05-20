@@ -112,7 +112,7 @@ if (ds_map_exists(async_load, "buffer"))
                     if (variable_struct_exists(data[i].slot_data.options, "include_unused_items"))
                         global.AP_include_unused_items = data[i].slot_data.options.include_unused_items;
 
-                    var path_settings = global.AP_multiworld + "/settings.json"
+                    var path_settings = AP_get_save_folder_prefix()  + "settings.json"
 
                     if (file_exists(path_settings))
                     {
@@ -125,7 +125,7 @@ if (ds_map_exists(async_load, "buffer"))
                         global.AP_deathlink = settings_struct.deathLink;
                     }
 
-                    var path_scouting = global.AP_multiworld + "/scouting.json"
+                    var path_scouting = AP_get_save_folder_prefix() + "scouting.json"
 
                     if (!file_exists(path_scouting))
                     {
@@ -268,16 +268,16 @@ if (ds_map_exists(async_load, "buffer"))
                     {
                         global.AP_data_package_raw = data[i].data.games;
 
-                        if (!file_exists(global.AP_multiworld + "/datapackage.json"))
+                        if (!file_exists(AP_get_save_folder_prefix() +  "datapackage.json"))
                         {
                             var package = data[i].data;
                             package_json = json_stringify(package);
-                            var file = file_text_open_write(global.AP_multiworld + "/datapackage.json");
+                            var file = file_text_open_write(AP_get_save_folder_prefix() +  "datapackage.json");
                             file_text_write_string(file, package_json);
                             file_text_close(file);
                         }
 
-                        if (!file_exists(global.AP_multiworld + "/scouting.json"))
+                        if (!file_exists(AP_get_save_folder_prefix() +  "scouting.json"))
                         {
                             var scouting = {};
 
@@ -303,7 +303,7 @@ if (ds_map_exists(async_load, "buffer"))
                             global.AP_location_item = scouting;
 
                             scouting_json = json_stringify(scouting);
-                            var file = file_text_open_write(global.AP_multiworld + "/scouting.json");
+                            var file = file_text_open_write(AP_get_save_folder_prefix() +  "scouting.json");
                             file_text_write_string(file, scouting_json);
                             file_text_close(file);
                         }
