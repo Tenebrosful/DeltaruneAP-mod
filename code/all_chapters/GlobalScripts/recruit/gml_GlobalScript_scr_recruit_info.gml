@@ -35,7 +35,7 @@ function scr_recruit_info(arg0)
             _element = stringsetloc("JEWEL", "scr_recruit_info_slash_scr_recruit_info_gml_37_0");
             _dialogue[0] = stringsetloc("* Hey^1, boss^1! I'll have a Dark Candy Starfait!/%", "scr_recruit_info_slash_scr_recruit_info_gml_38_0");
             _recruitcount = 3;
-            _checkid = 247
+            _checkid = 255
             break;
         
         case 6:

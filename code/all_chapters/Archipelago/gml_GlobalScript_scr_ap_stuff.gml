@@ -5,18 +5,47 @@ function AP_get_save_folder_prefix()
     return string(global.AP_multiworld) + "_" + global.AP_name + "/";
 }
 
-function AP_handle_mike_minigame_trophy(minigame, trophy)
+function AP_handle_mike_minigame_trophy(minigame, highscore)
 {
-    var minigame_base_id = 0;
-    // switch(minigame)
-    // {
-
-    // }
-
     var location_to_send = [];
-
-    for (var i = 0 ; i <= trophy; i++)
-        array_push(location_to_send, minigame_base_id + i)
+    var minigame_base_id = 0;
+    var trophy = 0;
+    switch(minigame)
+    {
+        case 1:
+            minigame_base_id = 232;
+            if (highscore >= 1000)
+                array_push(location_to_send, minigame_base_id + 0)
+            if (highscore >= 4000)
+                array_push(location_to_send, minigame_base_id + 1)
+            if (highscore >= 8000)
+                array_push(location_to_send, minigame_base_id + 2)
+            if (highscore >= 16000)
+                array_push(location_to_send, minigame_base_id + 3)
+            break;
+        case 2:
+            minigame_base_id = 236;
+            if (highscore >= 500)
+                array_push(location_to_send, minigame_base_id + 0)
+            if (highscore >= 1200)
+                array_push(location_to_send, minigame_base_id + 1)
+            if (highscore >= 2000)
+                array_push(location_to_send, minigame_base_id + 2)
+            if (highscore >= 3000)
+                array_push(location_to_send, minigame_base_id + 3)
+            break;
+        case 3:
+            minigame_base_id = 240;
+            if (highscore >= 100)
+                array_push(location_to_send, minigame_base_id + 0)
+            if (highscore >= 300)
+                array_push(location_to_send, minigame_base_id + 1)
+            if (highscore >= 500)
+                array_push(location_to_send, minigame_base_id + 2)
+            if (highscore >= 700)
+                array_push(location_to_send, minigame_base_id + 3)
+            break;
+    }
 
     AP_sendLocation(location_to_send);
 
