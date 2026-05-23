@@ -16,4 +16,18 @@ if (scr_debug())
   if (variable_global_exists("AP_progressive_weapons_ids"))
     draw_text(0, 48, string(global.AP_progressive_weapons_ids))
 }
+
+if (global.interact != 0)
+{
+    ww = camera_get_view_width(view_camera[0]);
+    
+    if (global.darkzone)
+        ww = ww / 2;
+    
+    draw_set_font(fnt_tinynoelle);
+    draw_set_color(c_white);
+    draw_set_halign(fa_center);
+    draw_text(ww - 10, 0, "Stuck ? Press U and report the bug");
+    draw_set_halign(fa_left);
+}
 /// END

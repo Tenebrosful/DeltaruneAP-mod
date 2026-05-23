@@ -1,5 +1,6 @@
-/// PATCH .ignore if CHAPTER_1 || CHAPTER_3 || CHAPTER_4
+/// PATCH
 
+#if CHAPTER_2
 /// APPEND
 if (scr_debug())
 {
@@ -19,4 +20,10 @@ if (scr_debug())
             room_speed = 30;
     }
 }
+/// END
+#endif
+
+/// APPEND
+if (keyboard_check_pressed(ord("U")))
+    global.interact = 0
 /// END
