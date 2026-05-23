@@ -288,13 +288,13 @@ if (ds_map_exists(async_load, "buffer"))
                                 if (global.AP_scouting_raw[ii].player == global.AP_slot)
                                     playerName = "<yourself>";
                                 else
-                                    playerName = global.AP_player_names[global.AP_scouting_raw[ii].player];
+                                    playerName = string_replace_all(global.AP_player_names[global.AP_scouting_raw[ii].player], "&", "");
 
                                 var gamePlayed = global.AP_slotinfo[global.AP_scouting_raw[ii].player];
 
                                 var game_data = variable_struct_get(global.AP_data_package_raw, gamePlayed);
 
-                                itemName = struct_find_key_by_value(game_data.item_name_to_id, global.AP_scouting_raw[ii].item);
+                                itemName = string_replace_all(struct_find_key_by_value(game_data.item_name_to_id, global.AP_scouting_raw[ii].item), "&", "");
                                 flags = global.AP_scouting_raw[ii].flags;
 
                                 variable_struct_set(scouting, global.AP_scouting_raw[ii].location, {playerName: playerName, itemName: itemName, flags: flags});
