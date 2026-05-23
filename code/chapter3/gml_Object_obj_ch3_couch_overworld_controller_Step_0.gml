@@ -10,7 +10,7 @@
             with (points_display)
                 display_points(10);
 /// CODE
-            msgsetloc(0, "* Inside was a Check!/%", "obj_ch3_couch_overworld_controller_slash_Step_0_gml_48_0");
+            msgsetloc(0, string("* Inside was {0}!/%", AP_get_location_reward_text(114)), "obj_ch3_couch_overworld_controller_slash_Step_0_gml_48_0");
             var _d = d_make();
             _d.stay = 5;
             scr_var_delay("chest_con", 4, 1);
@@ -24,8 +24,6 @@
             scr_speaker("no_name");
             msgsetloc(0, "* 10 POINTs was added to your SCORE./%", "obj_ch3_couch_overworld_controller_slash_Step_0_gml_67_0");
 /// CODE
-            scr_speaker("no_name");
-            msgsetloc(0, "* The Check was sent to your Multiworld./%", "obj_ch3_couch_overworld_controller_slash_Step_0_gml_67_0");
             AP_sendLocation(114);
 /// END
 

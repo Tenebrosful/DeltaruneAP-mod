@@ -1,33 +1,124 @@
-/// PATCH
+/// IMPORT
+depth = 5000;
+var marker = scr_dark_marker(x, y, sprite_index);
+marker.image_xscale = 2;
+marker.image_yscale = 2;
 
-/// REPLACE
-sidemessage_list = [stringsetloc("(Select&an item.)", "obj_shop_vending_slash_Create_0_gml_24_0"), stringsetloc("(Item&bought.)", "obj_shop_vending_slash_Create_0_gml_25_0"), stringsetsubloc("(Not&enough&~1.)", value_label, "obj_shop_vending_slash_Create_0_gml_26_0"), stringsetloc("(Not&enough&space.)", "obj_shop_vending_slash_Create_0_gml_27_0"), stringsetloc("(Item&placed in&STORAGE.)", "obj_shop_vending_slash_Create_0_gml_28_0")];
-/// CODE
+with (marker)
+    scr_depth();
+
+event_active = false;
+event_con = 0;
+is_interacting = false;
+is_talking = false;
+menu_type = 0;
+menu_display_type = 0;
+menu_talk_flag = "";
+menu_talk_style = 0;
+menu_talk_con = 0;
+menu_dollar = room == room_dw_green_room && global.plot >= 280;
+default_text = stringsetloc("* (It's a vending&machine.)", "obj_shop_vending_slash_Create_0_gml_20_0");
+menu_list = [];
+item_list = [];
+var value_label = menu_dollar ? stringsetloc("money", "obj_shop_vending_slash_Create_0_gml_28_0_b") : stringsetloc("points", "obj_shop_vending_slash_Create_0_gml_28_1");
 sidemessage_list = [stringsetloc("(Select&an item.)", "obj_shop_vending_slash_Create_0_gml_24_0"), stringsetloc("(Item&bought.)", "obj_shop_vending_slash_Create_0_gml_25_0"), stringsetsubloc("(Not&enough&~1.)", value_label, "obj_shop_vending_slash_Create_0_gml_26_0"), stringsetloc("(Not&enough&space.)", "obj_shop_vending_slash_Create_0_gml_27_0"), stringsetloc("(It's&sold out.)", "obj_shop_vending_slash_Create_0_gml_28_0"), stringsetloc("(It's&sold out.)", "obj_shop_vending_slash_Create_0_gml_28_0")];
-/// END
+event_user(1);
 
-/// REPLACE
-    shopdesc[i] = current_item.item_desc;
-/// CODE
+for (var i = 0; i < 10; i++)
+{
+    item[i] = 0;
+    itemtype[i] = "item";
+    shopdesc[i] = "";
+}
+
+for (var i = 0; i < array_length_1d(item_list); i++)
+{
+    var current_item = item_list[i];
+    item_data = AP_get_location_reward_data(current_item.item_id)
     shopdesc[i] = "This will#be send to#somebody#multiworld.";
-/// END
+    buyvalue[i] = current_item.point_value;
+    itematk[i] = 0;
+    itemdef[i] = 0;
+    itemmagic[i] = 0;
+    canequip[i][1] = 0;
+    canequip[i][2] = 0;
+    canequip[i][3] = 0;
+    dollar_value[i] = -1;
 
-/// AFTER
     if (menu_dollar)
         buyvalue[i] = dollar_value[i];
-/// CODE
     
-    shopitemname[i] = "Check";
+    shopitemname[i] = item_data.itemName;
+    shop_item_flags[i] = item_data.flags;
+    shopitemreceivername[i] = item_data.playerName;
     itemtype[i] = "check";
     item[i] = current_item.item_id + 120;
     itemcount = 99;
     AP_sendHint(item[i]);
     
-    if (global.customflags[1120 + current_item.item_id] == 1)
+    if (global.customflags[1120 + current_item.item_id])
     {
         shopitemname[i] = "Out Of Stock";
         itemtype[i] = "checked";
         buyvalue[i] = "--";
         item[i] = current_item.item_id + 120;
     }
-/// END
+}
+
+event_user(0);
+idletimer = 0;
+idlefacer = 0;
+talkfacer = 0;
+talkbuffer = 0;
+menu = 0;
+submenu = 0;
+global.typer = 6;
+draw_set_color(c_white);
+scr_84_set_draw_font("mainbig");
+talktimer = 0;
+cur_jewel = 0;
+shopcharx = 0;
+siner = 0;
+
+for (var i = 0; i < 20; i += 1)
+{
+    menuc[i] = 0;
+    submenuc[i] = 0;
+}
+
+onebuffer = 0;
+twobuffer = 0;
+upbuffer = 0;
+downbuffer = 0;
+hold_up = 0;
+hold_down = 0;
+_up_pressed = 0;
+_down_pressed = 0;
+murder = 0;
+moff = 415;
+menu = 0;
+menuc[0] = 0;
+menuc[1] = 0;
+menuc[2] = 0;
+menuc[3] = 0;
+menuc[4] = 0;
+item0pic = spr_heart;
+item1pic = spr_heart;
+item2pic = spr_heart;
+item3pic = spr_heart;
+itemtotal = array_length(item_list);
+sell = 0;
+bought = 0;
+mainmessage = 0;
+minimenuy = 220;
+global.typer = 23;
+scr_84_set_draw_font("mainbig");
+sidemessage = 0;
+selling = 0;
+global.msc = 0;
+glow = 0;
+shx = 130;
+soldo = 0;
+global.faceemotion = 0;
+an = 0;
+talk_counter = 0;
