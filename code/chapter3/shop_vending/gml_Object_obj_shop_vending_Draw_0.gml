@@ -122,6 +122,7 @@ if (menu == 0)
 if (menu == 1 || menu == 2)
 {
     draw_set_color(c_white);
+    draw_set_halign(fa_left);
     scr_84_set_draw_font("mainbig");
     var sold_out_text = stringsetloc("SOLD OUT", "obj_shop_vending_slash_Draw_0_gml_153_0");
     

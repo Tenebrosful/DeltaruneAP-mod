@@ -121,57 +121,19 @@ if (menu == 0)
 if (menu == 1 || menu == 2)
 {
     draw_set_color(c_white);
+    draw_set_halign(fa_left);
     scr_84_set_draw_font("mainbig");
     var sold_out_text = stringsetloc("SOLD OUT", "obj_shop_vending_slash_Draw_0_gml_153_0");
     
-    for (var i = 0; i < itemtotal; i += 1)
+        for (i = 0; i < itemtotal; i += 1)
     {
-        if (itemtype[i] == "key")
-        {
-            var sold_value = stringsetsubloc("~1 PTs", string(buyvalue[i]), "obj_shop_vending_slash_Draw_0_gml_122_0");
-            var sold_out = false;
-            
-            if (scr_keyitemcheck(item[i]))
-                sold_out = true;
-            
-            if (sold_out)
-            {
-                draw_set_color(c_gray);
-                sold_value = sold_out_text;
-            }
-            
-            draw_text(camerax() + 60, cameray() + 260 + (i * 40), string_hash_to_newline(shopitemname[i]));
-            draw_text(camerax() + 300, cameray() + 260 + (i * 40), string_hash_to_newline(sold_value));
-            draw_set_color(c_white);
-        }
-        else if (itemtype[i] == "event")
-        {
-            var sold_out = false;
-            
-            if (array_length(sold_flag[i]) > 0)
-            {
-                var _flag = sold_flag[i][0];
-                var _min_value = sold_flag[i][1];
-                sold_out = scr_flag_get(_flag) >= _min_value;
-            }
-            
-            if (sold_out)
-            {
-                draw_set_color(c_gray);
-                draw_text(camerax() + 60, cameray() + 260 + (i * 40), sold_out_text);
-                draw_set_color(c_white);
-            }
-            else
-            {
-                draw_text(camerax() + 60, cameray() + 260 + (i * 40), string_hash_to_newline(shopitemname[i]));
-                draw_text(camerax() + 300, cameray() + 260 + (i * 40), string_hash_to_newline(price_label[i]));
-            }
-        }
-        else
-        {
-            draw_text(camerax() + 60, cameray() + 260 + (i * 40), string_hash_to_newline(shopitemname[i]));
-            draw_text(camerax() + 300, cameray() + 260 + (i * 40), string_hash_to_newline(stringsetsubloc("$~1", string(buyvalue[i]), "obj_shop_vending_slash_Draw_0_gml_149_0")));
-        }
+        draw_set_font(fnt_main);
+        AP_item_classification_color_shop(shop_item_flags[i]);
+        draw_text(camerax() + 60, 260 + (i * 40), string_hash_to_newline(shopitemname[i]));
+        draw_set_color(c_white);
+        draw_text(camerax() + 60, 260 + (i * 40) + 15, "To: " + string_hash_to_newline(shopitemreceivername[i]));
+        draw_set_font(fnt_mainbig);
+        draw_text(camerax() + 300, 260 + (i * 40), string_hash_to_newline("$" + string(buyvalue[i])));
     }
     
     draw_text(camerax() + 60, cameray() + 260 + (itemtotal * 40), string_hash_to_newline(stringsetloc("Exit", "obj_shop1_slash_Draw_0_gml_139_0")));

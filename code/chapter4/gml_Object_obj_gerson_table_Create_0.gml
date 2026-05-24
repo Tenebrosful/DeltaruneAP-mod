@@ -31,9 +31,8 @@ for (var i = 0; i < 10; i++)
 for (var i = 0; i < array_length(item_list); i++)
 {
     var current_item = item_list[i];
+    var item_data = AP_get_location_reward_data(current_item.item_id);
     item[i] = current_item.item_id;
-    itemtype[i] = current_item.item_type;
-    shopdesc[i] = current_item.item_desc;
     buyvalue[i] = current_item.point_value;
     itematk[i] = 0;
     itemdef[i] = 0;
@@ -43,46 +42,6 @@ for (var i = 0; i < array_length(item_list); i++)
     canequip[i][3] = 0;
     dollar_value[i] = -1;
     
-    if (current_item.item_type == "item")
-    {
-        scr_iteminfo(item[i]);
-        shopitemname[i] = itemnameb;
-        dollar_value[i] = value;
-    }
-    
-    if (current_item.item_type == "armor")
-    {
-        scr_armorinfo(item[i]);
-        
-        if (current_item.custom_price > 0)
-            value = current_item.custom_price;
-        
-        dollar_value[i] = value;
-    }
-    
-    if (current_item.item_type == "weapon")
-    {
-        scr_weaponinfo(item[i]);
-        
-        if (current_item.custom_price > 0)
-            value = current_item.custom_price;
-        
-        dollar_value[i] = value;
-    }
-    
-    if (current_item.item_type == "key")
-    {
-        scr_keyiteminfo(item[i]);
-        shopitemname[i] = tempkeyitemname;
-    }
-    
-    if (current_item.item_type == "event")
-    {
-        shopitemname[i] = current_item.item_id;
-        price_label[i] = current_item.price_label;
-        sold_flag[i] = current_item.sold_flag;
-    }
-    
     if (current_item.custom_price > 0)
         value = current_item.custom_price;
     
@@ -91,7 +50,9 @@ for (var i = 0; i < array_length(item_list); i++)
     if (menu_dollar)
         buyvalue[i] = dollar_value[i];
     
-    shopitemname[i] = "Check";
+    shopitemname[i] = item_data.itemName;
+    shop_item_flags[i] = item_data.flags;
+    shopitemreceivername[i] = item_data.playerName;
     itemtype[i] = "check";
     item[i] = current_item.item_id;
     itemcount = 99;
