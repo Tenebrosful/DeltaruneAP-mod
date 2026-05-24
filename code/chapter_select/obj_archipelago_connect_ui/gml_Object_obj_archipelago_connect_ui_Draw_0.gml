@@ -63,7 +63,7 @@ for (var ii = 0; ii < 7; ii++)
         {
             case 0:
                 var deathlink_enabled = (global.AP_deathlink == 0) ? "disabled" : "enabled";
-                text = "Deathlink: " + deathlink_enabled;
+                text = "(NotWorkingUI) Deathlink: " + deathlink_enabled;
                 i = 0;
                 break;
             

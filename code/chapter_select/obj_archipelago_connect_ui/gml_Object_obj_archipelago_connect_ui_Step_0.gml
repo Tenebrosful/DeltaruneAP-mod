@@ -100,11 +100,11 @@ if (edit)
     
     if (page == 1)
     {
-        if (choice == 0)
-        {
-            global.AP_deathlink = (global.AP_deathlink == 0) ? 1 : 0;
-            edit = 0;
-        }
+        // if (choice == 0)
+        // {
+        //     global.AP_deathlink = (global.AP_deathlink == 0) ? 1 : 0;
+        //     edit = 0;
+        // }
         
         switch (choice)
         {
@@ -173,7 +173,16 @@ if (edit)
             
             case 1:
                 if (string_length(current) > 0)
-                    global.AP_port = real(current);
+                {
+                    try
+                    {
+                        global.AP_port = real(current);
+                    }
+                    catch(e)
+                    {
+                        global.AP_port = "";
+                    }
+                }
                 else
                     global.AP_port = "";
                 
@@ -191,6 +200,8 @@ if (edit)
     
     if (page == 1)
     {
+        if (current == "")
+            current = "000"
         switch (choice)
         {
             case 2:

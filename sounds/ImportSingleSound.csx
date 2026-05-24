@@ -218,7 +218,6 @@ void Load_audio(string relative_path)
             GroupID = needAGRP ? audioGroupID : Data.GetBuiltinSoundGroupID()
         };
         Data.Sounds.Add(newSound);
-        ChangeSelection(newSound);
     }
     else if (replaceSoundPropertiesCheck)
     {
@@ -232,12 +231,10 @@ void Load_audio(string relative_path)
         existingSound.AudioFile = finalAudioReference;
         existingSound.AudioGroup = finalGroupReference;
         existingSound.GroupID = needAGRP ? audioGroupID : Data.GetBuiltinSoundGroupID();
-        ChangeSelection(existingSound);
     }
     else
     {
         existingSound.AudioFile = finalAudioReference;
         existingSound.AudioID = audioID;
-        ChangeSelection(existingSound);
     }
 }
