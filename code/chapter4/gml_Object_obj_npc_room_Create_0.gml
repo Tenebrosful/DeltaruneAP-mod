@@ -18,12 +18,15 @@
             instance_destroy();
     }
 
-    if (room == room_dw_church_gersonstudy || room == room_dw_church_knightclimb_post)
+    if ((room == room_dw_church_gersonstudy && x == 600) || (room == room_dw_church_knightclimb_post && x == 160))
     {
         sprite_index = spr_npc_originalstarwalker;
         extflag = "tp_to_arena_npc";
 
         if (global.plot < 243)
+        {
+            depthcancel = true;
             instance_destroy();
+        }
     }
 /// END
