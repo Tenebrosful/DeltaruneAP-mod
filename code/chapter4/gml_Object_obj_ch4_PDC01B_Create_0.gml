@@ -1,7 +1,7 @@
 /// PATCH
 
 /// PREPEND
-if (global.AP_route == "weird_route")
+if (global.AP_route == global.AP_ENUM_RANDOMIZE_CHAPTER.WEIRD_ROUTE)
     global.flag[915] = 20;
 /// END
 

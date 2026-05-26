@@ -59,7 +59,7 @@ function AP_fill_progressive_weapon_struct()
         if (global.AP_include_chapters[1])
             array_push(global.AP_progressive_weapons_ids.kris, 14); // BounceBlade
 
-        if (global.AP_include_chapters[0] && (global.AP_include_unused_items == "true" || global.AP_include_unused_items == "true_without_everybodyweapon"))
+        if (global.AP_include_chapters[0] && global.AP_include_unused_items >= 1)
             array_push(global.AP_progressive_weapons_ids.kris, 8); // Trefoil
 
         if (global.AP_include_chapters[1])
@@ -77,10 +77,10 @@ function AP_fill_progressive_weapon_struct()
         if (global.AP_include_chapters[2])
             array_push(global.AP_progressive_weapons_ids.kris, 26); // Blackshard
 
-        if (global.AP_include_chapters[1] && (global.AP_include_unused_items == "true" || global.AP_include_unused_items == "true_without_everybodyweapon") && (global.AP_chosen_route == "weird_route" || global.AP_chosen_route == "all_routes"))
+        if (global.AP_include_chapters[1] && global.AP_include_unused_items >= 1 && (global.AP_ENUM_CHOSEN_ROUTE == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE || global.AP_ENUM_CHOSEN_ROUTE == global.AP_ENUM_CHOSEN_ROUTE.ALL_ROUTES))
             array_push(global.AP_progressive_weapons_ids.kris, 11); // TwistedSwd
         
-        if (global.AP_include_unused_items == "true")
+        if (global.AP_include_unused_items == 1)
             array_push(global.AP_progressive_weapons_ids.kris, 4); // EverybodyWeapon
     }
     if (global.AP_progressive_weapons.susie)
@@ -104,7 +104,7 @@ function AP_fill_progressive_weapon_struct()
         if (global.AP_include_chapters[3])
             array_push(global.AP_progressive_weapons_ids.susie, 52); // JusticeAxe
 
-        if (global.AP_include_unused_items == "true")
+        if (global.AP_include_unused_items == 1)
             array_push(global.AP_progressive_weapons_ids.susie, 4); // EverybodyWeapon
         
     }
@@ -133,7 +133,7 @@ function AP_fill_progressive_weapon_struct()
         if (global.AP_include_chapters[1])
             array_push(global.AP_progressive_weapons_ids.ralsei, 21); // PuppetScarf
 
-        if (global.AP_include_unused_items == "true")
+        if (global.AP_include_unused_items == 1)
             array_push(global.AP_progressive_weapons_ids.susie, 4); // EverybodyWeapon
     }
     if (global.AP_progressive_weapons.noelle)
@@ -146,7 +146,7 @@ function AP_fill_progressive_weapon_struct()
         if (global.AP_include_chapters[1])
             array_push(global.AP_progressive_weapons_ids.noelle, 13); // Thornring
 
-        if (global.AP_include_unused_items == "true")
+        if (global.AP_include_unused_items == 1)
             array_push(global.AP_progressive_weapons_ids.noelle, 4); // EverybodyWeapon
     }
 }

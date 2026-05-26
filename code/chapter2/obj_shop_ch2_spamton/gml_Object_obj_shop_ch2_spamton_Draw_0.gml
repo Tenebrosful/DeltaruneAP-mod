@@ -211,6 +211,11 @@ AP_sendLocation([90, 91, 92, 93]);
 /// END
 
 /// REPLACE
+        scr_keyitemremove(12);
+/// CODE
+/// END
+
+/// REPLACE
     for (i = 0; i < itemtotal; i += 1)
     {
         draw_set_color(c_white);

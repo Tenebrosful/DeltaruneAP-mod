@@ -54,7 +54,7 @@ if (ds_map_exists(async_load, "buffer"))
                         if (variable_struct_exists(data[i].slot_data.options, "include_chapter_" + string(chapter)))
                         {
                             global.AP_include_chapters[chapter - 1] = variable_struct_get(data[i].slot_data.options, "include_chapter_" + string(chapter));
-                            if (data[i].slot_data.options.randomize_chapters == "all_unlocked")
+                            if (data[i].slot_data.options.randomize_chapters == global.AP_ENUM_RANDOMIZE_CHAPTER.ALL_UNLOCKED)
                             {
                                 global.AP_chapter_unlocked[chapter - 1] = global.AP_include_chapters[chapter - 1];
                             }
@@ -77,11 +77,11 @@ if (ds_map_exists(async_load, "buffer"))
 
                     if (variable_struct_exists(data[i].slot_data.options, "chosen_route"))
                     {
-                        global.AP_weird_route = data[i].slot_data.options.chosen_route;
+                        global.AP_weird_route = data[i].slot_data.options.chosen_route == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE;
                         global.AP_route = data[i].slot_data.options.chosen_route;
                     }
                     if (variable_struct_exists(data[i].slot_data.options, "randomize_mantle"))
-                        global.AP_no_mantle = data[i].slot_data.options.randomize_mantle == "mantleless";
+                        global.AP_no_mantle = data[i].slot_data.options.randomize_mantle == 2;
                     if (variable_struct_exists(data[i].slot_data.options, "better_odds"))
                         global.AP_better_odds = data[i].slot_data.options.better_odds;
                     if (variable_struct_exists(data[i].slot_data.options, "item_balancing"))
@@ -91,11 +91,11 @@ if (ds_map_exists(async_load, "buffer"))
                     if (variable_struct_exists(data[i].slot_data.options, "unlock_fun_gang_actions"))
                         global.AP_unlock_fun_gang_actions = data[i].slot_data.options.unlock_fun_gang_actions;
                     if (variable_struct_exists(data[i].slot_data.options, "randomize_secret_bosses"))
-                        global.AP_secret_bosses_mandatory = data[i].slot_data.options.randomize_secret_bosses == "mandatory";
+                        global.AP_secret_bosses_mandatory = data[i].slot_data.options.randomize_secret_bosses == 2;
                     if (variable_struct_exists(data[i].slot_data.options, "unlock_characters"))
                     {
-                        global.AP_unlock_characters = data[i].slot_data.options.unlock_characters == "true" or data[i].slot_data.options.unlock_characters == "except_kris"
-                        global.AP_unlock_kris = data[i].slot_data.options.unlock_characters == "true"
+                        global.AP_unlock_characters = data[i].slot_data.options.unlock_characters >= 1
+                        global.AP_unlock_kris = data[i].slot_data.options.unlock_characters == 1
                     }
                     if (variable_struct_exists(data[i].slot_data.options, "death_link"))
                         global.AP_deathlink = data[i].slot_data.options.death_link;

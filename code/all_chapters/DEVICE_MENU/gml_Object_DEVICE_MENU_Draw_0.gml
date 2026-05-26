@@ -5,10 +5,10 @@
         draw_set_color(c_white);
 /// CODE
 #if CHAPTER_1 || CHAPTER_2
-        draw_text_transformed(10, 220, "Current Route: " + string(global.AP_route), 0.5, 0.5, 0);
+        draw_text_transformed(10, 220, "Current Route: " + AP_resolve_route_name(global.AP_route), 0.5, 0.5, 0);
         draw_text_transformed(10, 230, "Archipelago", 0.5, 0.5, 0);
 #else
-        draw_text_transformed(9, 218, "Current Route: " + string(global.AP_route), 0.5, 0.5, 0);
+        draw_text_transformed(9, 218, "Current Route: " + AP_resolve_route_name(global.AP_route), 0.5, 0.5, 0);
         draw_text_transformed(9, 228, "Archipelago", 0.5, 0.5, 0);
 #endif
 /// END
@@ -19,7 +19,7 @@
     {
         draw_set_color(COL_A);
 /// CODE
-        draw_text_transformed(10, 220, "Current Route: " + string(global.AP_route), 0.5, 0.5, 0);
+        draw_text_transformed(10, 220, "Current Route: " + AP_resolve_route_name(global.AP_route), 0.5, 0.5, 0);
         draw_text_transformed(10, 230, "Archipelago", 0.5, 0.5, 0);
 /// END
 #endif

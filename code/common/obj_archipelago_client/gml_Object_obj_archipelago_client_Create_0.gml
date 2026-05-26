@@ -2,6 +2,21 @@
 persistent = 1;
 wss = 7;
 ws = 6;
+
+global.AP_ENUM_CHOSEN_ROUTE = {
+    UNKNOWN: -1,
+    ALL_RECRUITS: 0,
+    WEIRD_ROUTE: 1,
+    ALL_ROUTES: 2,
+    NEUTRAL_ROUTE: 3
+}
+
+global.AP_ENUM_RANDOMIZE_CHAPTER = {
+    IN_ORDER: 0,
+    RANDOMIZED: 1,
+    ALL_UNLOCKED: 2
+}
+
 global.AP_version = ["1", "2", "2"];
 global.AP_isAuthenticated = -1;
 global.AP_heartbeat_timer = 10 * 30;
@@ -20,7 +35,7 @@ global.AP_secure = false;
 global.AP_connect_deadline = 15;
 global.AP_item_from_server = [];
 global.AP_game_start_post_connexion_done = false;
-global.AP_route = "unknown";
+global.AP_route = global.AP_ENUM_CHOSEN_ROUTE.UNKNOWN;
 global.AP_no_mantle = false;
 global.AP_better_odds = false;
 global.AP_deathlink = false;
@@ -29,7 +44,7 @@ global.AP_deathlink_infos = {source: undefined, cause: undefined, time: undefine
 global.AP_secret_bosses_mandatory = false;
 global.AP_unlock_fun_gang_actions = true;
 global.AP_remove_starting_equipment = true;
-global.AP_include_unused_items = "false";
+global.AP_include_unused_items = 0;
 global.AP_unlock_characters = false;
 global.AP_unlock_kris = false;
 global.AP_macguffin_required = [];

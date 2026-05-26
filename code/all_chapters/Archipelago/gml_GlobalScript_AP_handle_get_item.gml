@@ -226,7 +226,7 @@ function AP_internal_handle_character_unlock(item_id)
 function AP_internal_egg_item(item_id)
 {
   var egg_ids = [
-    10002, 11011, 11012, 12021
+    10002, 11011, 11012, 11021
   ];
 
     for (var i = 0; i < array_length(egg_ids); i++){
