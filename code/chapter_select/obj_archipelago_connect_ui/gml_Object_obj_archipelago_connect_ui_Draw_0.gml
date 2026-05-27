@@ -47,7 +47,10 @@ for (var ii = 0; ii < 7; ii++)
                 break;
             
             case 3:
-                text = "Password: " + string(global.AP_password);
+                if (edit)
+                    text = "Password: " + global.AP_password;
+                else
+                    text = "Password: " + string_repeat("*", string_length(global.AP_password));
                 i = 3;
                 break;
             
