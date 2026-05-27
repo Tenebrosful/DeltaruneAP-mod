@@ -34,7 +34,7 @@ for (var i = 0; i < 10; i++)
 for (var i = 0; i < array_length_1d(item_list); i++)
 {
     var current_item = item_list[i];
-    item_data = AP_get_location_reward_data(current_item.item_id)
+    item_data = AP_get_location_reward_data(current_item.item_id + 120)
     shopdesc[i] = "This will#be send to#somebody#multiworld.";
     buyvalue[i] = current_item.point_value;
     itematk[i] = 0;

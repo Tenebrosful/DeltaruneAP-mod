@@ -266,18 +266,6 @@ if (menu == 1 || menu == 2)
                     {
                         _pocketed = 0;
                         
-                        if (itemtype[menuc[1]] == "item")
-                            scr_itemget(item[menuc[1]]);
-                        
-                        if (itemtype[menuc[1]] == "weapon")
-                            scr_weaponget(item[menuc[1]]);
-                        
-                        if (itemtype[menuc[1]] == "armor")
-                            scr_armorget(item[menuc[1]]);
-                        
-                        if (itemtype[menuc[1]] == "key")
-                            scr_keyitemget(item[menuc[1]]);
-                        
                         if (itemtype[menuc[1]] == "check")
                             AP_sendLocation(item[menuc[1]]);
                         
