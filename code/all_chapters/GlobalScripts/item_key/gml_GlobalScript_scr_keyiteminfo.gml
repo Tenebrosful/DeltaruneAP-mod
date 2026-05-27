@@ -228,6 +228,34 @@ function scr_keyiteminfo(arg0)
             tempkeyitemchapter = 4;
             break;
 
+        case 950:
+            tempkeyitemdesc = stringsetloc("Not too important, not too unimportant.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_18_0");
+            tempkeyitemname = stringsetloc("Egg", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_19_0");
+            tempkeyitemusable = 1;
+            tempkeyitemchapter = 1;
+            break;
+
+        case 951:
+            tempkeyitemdesc = stringsetloc("Not too important, not too unimportant.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_18_0");
+            tempkeyitemname = stringsetloc("Egg", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_19_0");
+            tempkeyitemusable = 1;
+            tempkeyitemchapter = 2;
+            break;
+
+        case 952:
+            tempkeyitemdesc = stringsetloc("Not too important, not too unimportant.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_18_0");
+            tempkeyitemname = stringsetloc("Egg", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_19_0");
+            tempkeyitemusable = 1;
+            tempkeyitemchapter = 3;
+            break;
+
+        case 953:
+            tempkeyitemdesc = stringsetloc("Not too important, not too unimportant.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_18_0");
+            tempkeyitemname = stringsetloc("Egg", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_19_0");
+            tempkeyitemusable = 1;
+            tempkeyitemchapter = 4;
+            break;
+
         case 1000:
             tempkeyitemdesc = "It's the key to the Great Door.";
             tempkeyitemname = "GreatDoorKey";

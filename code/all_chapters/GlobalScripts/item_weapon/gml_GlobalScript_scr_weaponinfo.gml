@@ -3,7 +3,7 @@ function scr_weaponinfo(arg0)
 {
     weaponchar4temp = 0;
     weaponnametemp = stringsetloc(" ", "scr_weaponinfo_slash_scr_weaponinfo_gml_2_0");
-    ch = 1;
+    chapter = 1;
     weaponclassificationtemp = 2;
     
     switch (arg0)
@@ -276,6 +276,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 6;
             weaponabilitytemp = stringsetloc("Trance", "scr_weaponinfo_slash_scr_weaponinfo_gml_277_0");
             value = 1;
+            chapter = 2;
             break;
         
         case 12:
@@ -299,6 +300,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 0;
             weaponabilitytemp = " ";
             value = 100;
+            chapter = 2;
             break;
         
         case 13:
@@ -323,6 +325,7 @@ function scr_weaponinfo(arg0)
             weaponabilitytemp = stringsetloc("Trance", "scr_weaponinfo_slash_scr_weaponinfo_gml_323_0");
             value = 0;
             weaponclassificationtemp = 3
+            chapter = 2;
             break;
         
         case 14:
@@ -346,6 +349,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 7;
             weaponabilitytemp = stringsetloc("Defense", "scr_weaponinfo_slash_scr_weaponinfo_gml_346_0");
             value = 250;
+            chapter = 2;
             break;
         
         case 15:
@@ -369,6 +373,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 10;
             weaponabilitytemp = stringsetloc("Smiley", "scr_weaponinfo_slash_scr_weaponinfo_gml_369_0");
             value = 250;
+            chapter = 2;
             break;
         
         case 16:
@@ -392,6 +397,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 13;
             weaponabilitytemp = stringsetloc("Annoying", "scr_weaponinfo_slash_scr_weaponinfo_gml_392_0");
             value = 250;
+            chapter = 2;
             break;
         
         case 17:
@@ -415,6 +421,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 13;
             weaponabilitytemp = stringsetloc("BadIdea", "scr_weaponinfo_slash_scr_weaponinfo_gml_415_0");
             value = 250;
+            chapter = 2;
             break;
         
         case 18:
@@ -438,6 +445,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 0;
             weaponabilitytemp = " ";
             value = 250;
+            chapter = 2;
             break;
         
         case 19:
@@ -461,6 +469,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 7;
             weaponabilitytemp = stringsetloc("Prickly", "scr_weaponinfo_slash_scr_weaponinfo_gml_461_0");
             value = 250;
+            chapter = 2;
             break;
         
         case 20:
@@ -484,6 +493,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 6;
             weaponabilitytemp = stringsetloc("Failure", "scr_weaponinfo_slash_scr_weaponinfo_gml_485_0");
             value = 2;
+            chapter = 2;
             break;
         
         case 21:
@@ -507,6 +517,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 0;
             weaponabilitytemp = " ";
             value = 0;
+            chapter = 2;
             break;
         
         case 22:
@@ -530,6 +541,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 0;
             weaponabilitytemp = " ";
             value = 1000;
+            chapter = 2;
             break;
         
         case 23:
@@ -553,7 +565,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 0;
             weaponabilitytemp = " ";
             value = 710;
-            ch = 2;
+            chapter = 3;
             break;
         
         case 24:
@@ -577,7 +589,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 0;
             weaponabilitytemp = " ";
             value = 700;
-            ch = 2;
+            chapter = 3;
             break;
         
         case 25:
@@ -601,7 +613,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 0;
             weaponabilitytemp = " ";
             value = 720;
-            ch = 2;
+            chapter = 3;
             break;
         
         case 26:
@@ -625,7 +637,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 18;
             weaponabilitytemp = stringsetloc("SlayDark", "scr_weaponinfo_slash_scr_weaponinfo_gml_624_0");
             value = 0;
-            ch = 2;
+            chapter = 4;
             break;
         
         case 50:
@@ -649,7 +661,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 10;
             weaponabilitytemp = stringsetloc("Festive", "scr_weaponinfo_slash_scr_weaponinfo_gml_647_0");
             value = 1234;
-            ch = 2;
+            chapter = 4;
             break;
         
         case 51:
@@ -673,7 +685,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 0;
             weaponabilitytemp = " ";
             value = 900;
-            ch = 2;
+            chapter = 4;
             break;
         
         case 52:
@@ -697,7 +709,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 5;
             weaponabilitytemp = " ";
             value = 0;
-            ch = 2;
+            chapter = 4;
             break;
         
         case 53:
@@ -721,7 +733,7 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 7;
             weaponabilitytemp = stringsetloc("$ +5%", "scr_weaponinfo_slash_scr_weaponinfo_gml_716_0");
             value = 999;
-            ch = 2;
+            chapter = 4;
             break;
         
         case 54:
@@ -745,17 +757,19 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 13;
             weaponabilitytemp = stringsetloc("Vampire", "scr_weaponinfo_slash_scr_weaponinfo_gml_739_0");
             value = 1234;
-            ch = 2;
+            chapter = 4;
             break;
     }
-    
-    if (global.AP_balancing == 1 && ch > 1)
+
+    if (global.AP_balancing == 1 && chapter > 1)
     {
-        weaponattemp = ceil(weaponattemp / ch);
-        weapondftemp = ceil(weapondftemp / ch);
-        weaponmagtemp = ceil(weaponmagtemp / ch);
+        var factor = min((global.chapter / chapter) * 2, 1);
+
+        weaponattemp = max(round(weaponattemp * factor), 1);
+        weapondftemp = max(round(weapondftemp * factor), 1);
+        weaponmagtemp = max(round(weaponmagtemp * factor), 1);
         
         if (!(value == 0))
-            value = ceil(value / ch);
+            value = ceil(value * factor);
     }
 }
