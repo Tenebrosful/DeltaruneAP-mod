@@ -109,23 +109,23 @@ if (edit)
         switch (choice)
         {
             case 2:
-                current = string(dec_to_hex(global.AP_colors.filler));
+                current = global.AP_colors.filler;
                 break;
             
             case 3:
-                current = string(dec_to_hex(global.AP_colors.progression));
+                current = global.AP_colors.progression;
                 break;
             
             case 4:
-                current = string(dec_to_hex(global.AP_colors.useful));
+                current = global.AP_colors.useful;
                 break;
             
             case 5:
-                current = string(dec_to_hex(global.AP_colors.trap));
+                current = global.AP_colors.trap;
                 break;
             
             case 6:
-                current = string(dec_to_hex(global.AP_colors.useful_progression));
+                current = global.AP_colors.useful_progression;
                 break;
         }
     }
@@ -162,13 +162,31 @@ if (edit)
     {
         delete_timer = 0;
     }
+
+    if(keyboard_check(vk_control) && keyboard_check(ord("V")))
+    {
+        current = clipboard_get_text()
+    }
     
     if (page == 0)
     {
         switch (choice)
         {
             case 0:
-                global.AP_server = current;
+                var parts = string_split(current, ":");
+                global.AP_server = parts[0];
+                
+                if (array_length(parts) == 2)
+                {
+                    try
+                    {
+                        global.AP_port = real(parts[1]);
+                    }
+                    catch (e)
+                    {
+                    }
+                }
+                
                 break;
             
             case 1:
@@ -200,28 +218,28 @@ if (edit)
     
     if (page == 1)
     {
-        if (current == "")
-            current = "000"
+        current = string_replace_all(current, "#", "")
+
         switch (choice)
         {
             case 2:
-                global.AP_colors.filler = hex_to_dec(current);
+                global.AP_colors.filler = current;
                 break;
             
             case 3:
-                global.AP_colors.progression = hex_to_dec(current);
+                global.AP_colors.progression = current;
                 break;
             
             case 4:
-                global.AP_colors.useful = hex_to_dec(current);
+                global.AP_colors.useful = current;
                 break;
             
             case 5:
-                global.AP_colors.trap = hex_to_dec(current);
+                global.AP_colors.trap = current;
                 break;
             
             case 6:
-                global.AP_colors.useful_progression = hex_to_dec(current);
+                global.AP_colors.useful_progression = current;
                 break;
         }
     }

@@ -266,15 +266,15 @@ function AP_item_flag_to_color(flags){
     switch (flags)
     {
         case 0:
-            return global.AP_color.filler
+            return hex_to_dec(global.AP_colors.filler)
         case 1:
-            return global.AP_color.progression
+            return hex_to_dec(global.AP_colors.progression)
         case 2:
-            return global.AP_color.useful
+            return hex_to_dec(global.AP_colors.useful)
         case 3:
-            return global.AP_color.useful_progression
+            return hex_to_dec(global.AP_colors.useful_progression)
         case 4:
-            return global.AP_color.trap
+            return hex_to_dec(global.AP_colors.trap)
         default:
             return c_white
     }

@@ -54,13 +54,13 @@ global.AP_include_chapters = [];
 global.AP_balancing = false;
 global.AP_multiworld = 0;
 global.AP_all_locations_ids = [];
-global.AP_color = 
+global.AP_colors = 
 {
-    filler: 16776960,
-    progression: 8388736,
-    useful: 16711680,
-    trap: 255,
-    useful_progression: 65535
+    filler: "FFFF00",
+    progression: "800080",
+    useful: "FF0000",
+    trap: "FF0000",
+    useful_progression: "FFFF"
 };
 global.AP_item_offset =
 {
@@ -106,7 +106,7 @@ if (!file_exists("ap_settings.json"))
         password: "",
         settings: 
         {
-            colors: global.AP_color
+            colors: global.AP_colors
         }
     };
     ap_setting_json = json_stringify(ap_settings_struct);
