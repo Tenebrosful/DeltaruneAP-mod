@@ -1,5 +1,14 @@
 /// FUNCTIONS
 
+function AP_handle_balancing(amount, expected_chapter)
+{
+    if (!global.AP_balancing || amount <= 0) return amount;
+
+    var factor = min(global.chapter / expected_chapter, 1);
+
+    return max(round(amount * factor), 1);
+}
+
 function AP_handle_mike_minigame_trophy(minigame, highscore)
 {
     var location_to_send = [];

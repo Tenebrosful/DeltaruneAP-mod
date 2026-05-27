@@ -761,15 +761,11 @@ function scr_weaponinfo(arg0)
             break;
     }
 
-    if (global.AP_balancing == 1 && chapter > 1)
+    if (global.AP_balancing && chapter > 1)
     {
-        var factor = min((global.chapter / chapter) * 2, 1);
-
-        weaponattemp = max(round(weaponattemp * factor), 1);
-        weapondftemp = max(round(weapondftemp * factor), 1);
-        weaponmagtemp = max(round(weaponmagtemp * factor), 1);
-        
-        if (!(value == 0))
-            value = ceil(value * factor);
+        weaponattemp = AP_handle_balancing(weaponattemp, chapter);
+        weapondftemp = AP_handle_balancing(weapondftemp, chapter);
+        weaponmagtemp = AP_handle_balancing(weaponmagtemp, chapter);
+        value = AP_handle_balancing(value, chapter);
     }
 }

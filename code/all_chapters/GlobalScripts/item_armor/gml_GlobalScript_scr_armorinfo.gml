@@ -839,15 +839,11 @@ function scr_armorinfo(arg0)
             break;
     }
     
-    if (global.AP_balancing == 1 && chapter > 1)
+    if (global.AP_balancing && chapter > 1)
     {
-        var factor = min((global.chapter / chapter) * 2, 1);
-
-        armorattemp = max(round(armorattemp * factor), 1);
-        armordftemp = max(round(armordftemp * factor), 1);
-        armormagtemp = max(round(armormagtemp * factor), 1);
-        
-        if (!(value == 0))
-            value = ceil(value * factor);
+        armorattemp = AP_handle_balancing(armorattemp, chapter);
+        armordftemp = AP_handle_balancing(armordftemp, chapter);
+        armormagtemp = AP_handle_balancing(armormagtemp, chapter);
+        value = AP_handle_balancing(value, chapter);
     }
 }
