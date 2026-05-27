@@ -348,7 +348,7 @@ function AP_internal_print_get_item_text(item_chapter, item_id, item_name, item_
   {
     AP_internal_print_get_item_text_special(item_id);
   }
-  else if (item_chapter != global.chapter)
+  else if (item_chapter != global.chapter && item_chapter != 0)
   {
     script_execute(scr_writetext, 0, string("* (You got {0} for chapter {1}.)/%", AP_item_classification_color_text(item_name, item_classification), item_chapter), 0, 6);
   }
