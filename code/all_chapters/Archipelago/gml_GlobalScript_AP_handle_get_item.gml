@@ -120,8 +120,6 @@ function AP_handle_receive_item(item_id)
   global.fe = 0;
   showingitem = 1;
 
-  item_id = AP_internal_egg_item(item_id);
-
   if (item_id == 66666){
     return;
   }
@@ -223,19 +221,6 @@ function AP_internal_handle_character_unlock(item_id)
   script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", AP_item_classification_color_text(global.charname[character_id], 3)), 0, 6);
 }
 
-function AP_internal_egg_item(item_id)
-{
-  var egg_ids = [
-    10002, 11011, 11012, 11021
-  ];
-
-    for (var i = 0; i < array_length(egg_ids); i++){
-    if (egg_ids[i] == item_id) return 10002;
-  }
-
-  return item_id;
-}
-
 function AP_internal_handle_chapter_unlock_item(item_id)
 {
   var chapter = item_id - global.AP_item_offset.chapter_unlock;
@@ -313,7 +298,6 @@ function AP_internal_special_key_item(realitem_id)
   && realitem_id != 1018 // ice key
   && realitem_id != 1019 // shelter key
   && realitem_id != 1020 // moss ch4
-
 }
 
 function AP_internal_handle_money_item(item_id)
