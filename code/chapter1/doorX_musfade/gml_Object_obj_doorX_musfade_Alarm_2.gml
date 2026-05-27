@@ -13,7 +13,7 @@ if (room == room_man)
     
     if (ch == 50 && global.flag[910] == 0)
 /// CODE
-    ch = ceil(random(100));
+    ch = irandom(99) + 1;
     global.AP_egg_attempts++;
 
     if (global.AP_better_odds)

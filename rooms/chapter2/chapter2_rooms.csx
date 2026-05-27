@@ -4,6 +4,7 @@
 #load "room_dw_cyber_teacup_final.csx"
 #load "room_dw_city_poppup.csx"
 #load "room_dw_cyber_battle_maze_2.csx"
+#load "room_dw_city_man.csx"
 
 void Load_chapter2_rooms()
 {
@@ -13,4 +14,5 @@ void Load_chapter2_rooms()
   Load_room_dw_cyber_teacup_final();
   Load_room_dw_city_poppup();
   Load_room_dw_cyber_battle_maze_2();
+  Load_room_dw_city_man();
 }

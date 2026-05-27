@@ -45,6 +45,29 @@
         if ((5 + pagemax[pm]) < 11)
             draw_sprite_ext(spr_morearrow, 0, xx + 551 + scroll_xoff, yy + 385 + (sin(cur_jewel / 12) * 3), 1, 1, 0, c_white, 1);
     }
+#elsif CHAPTER_2
+    if (global.submenu == 12 || global.submenu == 13 || global.submenu == 14)
+    {
+        var __equipmenumax = 47;
+        var scroll_xoff = langopt(0, 50);
+        
+        if (global.submenu == 12)
+            pm = 0;
+        else
+            pm = 1;
+        
+        draw_sprite(spr_heart, 0, xx + 344 + eq_xoff, yy + 240 + ((global.submenucoord[global.submenu] - pagemax[pm]) * 27));
+        draw_set_color(c_dkgray);
+        draw_rectangle(xx + 555 + scroll_xoff, yy + 260, xx + 560 + scroll_xoff, yy + 263 + 115, false);
+        draw_set_color(c_white);
+        draw_rectangle(xx + 555 + scroll_xoff, (yy + 260 + (pagemax[pm] * 2.738095238095238)) - 1, xx + 560 + scroll_xoff, yy + 263 + (pagemax[pm] * 2.738095238095238) + 1, false);
+        
+        if (pagemax[pm] > 0)
+            draw_sprite_ext(spr_morearrow, 0, xx + 551 + scroll_xoff, (yy + 250) - (sin(cur_jewel / 12) * 3), 1, -1, 0, c_white, 1);
+        
+        if ((5 + pagemax[pm]) < __equipmenumax)
+            draw_sprite_ext(spr_morearrow, 0, xx + 551 + scroll_xoff, yy + 385 + (sin(cur_jewel / 12) * 3), 1, 1, 0, c_white, 1);
+    }
 #else
     if (global.submenu == 12 || global.submenu == 13 || global.submenu == 14)
     {
