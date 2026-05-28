@@ -22,6 +22,7 @@ function scr_chapter_save_file_exists_in_slot(arg0, arg1)
 
 function scr_completed_chapter_any_slot(arg0)
 {
+    return true;
     var _file_exists = false;
     
     for (var i = 0; i < 3; i++)
@@ -38,6 +39,7 @@ function scr_completed_chapter_any_slot(arg0)
 
 function scr_completed_chapter_in_slot(arg0, arg1)
 {
+    return true;
     var _file_exists = ossafe_file_exists(AP_get_save_folder_prefix() + "filech" + string(arg0) + "_" + string(arg1 + 3));
     return _file_exists;
 }
