@@ -3,6 +3,7 @@
 /// APPEND
 if (scr_debug())
 {
+  draw_set_halign(fa_left)
   draw_set_font(fnt_tinynoelle)
   draw_set_color(c_white)
   draw_text(0, 0, "Plot: " + string(global.plot))
