@@ -28,3 +28,12 @@ function hex_to_dec(arg0)
     
     return dec;
 }
+
+function rgb_to_bgr(arg0)
+{
+    var _rgb = arg0;
+    var _r = _rgb & $ff0000;
+    var _g = _rgb & $00ff00;
+    var _b = _rgb & $0000ff;
+    return (_b << 16 | _g | _r >> 16);
+}

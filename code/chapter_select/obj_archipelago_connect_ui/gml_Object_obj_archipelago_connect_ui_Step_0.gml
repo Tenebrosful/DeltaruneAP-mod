@@ -9,9 +9,6 @@ if (!edit)
         
         if (choice == max_choice)
             choice = 0;
-        else if (page == 1 && choice == 0){
-            choice = 2;
-        }
         else
             choice++;
     }
@@ -21,16 +18,13 @@ if (!edit)
         
         if (choice == 0)
             choice = max_choice;
-        else if (page == 1 && choice == 2){
-            choice = 0;
-        }
         else
             choice--;
     }
     else if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_left))
     {
         page = (page == 0) ? 1 : 0;
-        max_choice = (page == 0) ? 4 : 6;
+        max_choice = (page == 0) ? 4 : 5;
         choice = 0;
     }
 }
@@ -108,23 +102,23 @@ if (edit)
         
         switch (choice)
         {
-            case 2:
+            case 1:
                 current = global.AP_colors.filler;
                 break;
             
-            case 3:
+            case 2:
                 current = global.AP_colors.progression;
                 break;
             
-            case 4:
+            case 3:
                 current = global.AP_colors.useful;
                 break;
             
-            case 5:
+            case 4:
                 current = global.AP_colors.trap;
                 break;
             
-            case 6:
+            case 5:
                 current = global.AP_colors.useful_progression;
                 break;
         }
@@ -222,23 +216,23 @@ if (edit)
 
         switch (choice)
         {
-            case 2:
+            case 1:
                 global.AP_colors.filler = current;
                 break;
             
-            case 3:
+            case 2:
                 global.AP_colors.progression = current;
                 break;
             
-            case 4:
+            case 3:
                 global.AP_colors.useful = current;
                 break;
             
-            case 5:
+            case 4:
                 global.AP_colors.trap = current;
                 break;
             
-            case 6:
+            case 5:
                 global.AP_colors.useful_progression = current;
                 break;
         }

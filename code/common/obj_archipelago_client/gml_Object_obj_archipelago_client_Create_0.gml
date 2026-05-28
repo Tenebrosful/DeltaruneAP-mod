@@ -56,11 +56,11 @@ global.AP_multiworld = 0;
 global.AP_all_locations_ids = [];
 global.AP_colors = 
 {
-    filler: "FFFF00",
+    filler: "00FFFF",
     progression: "800080",
-    useful: "FF0000",
+    useful: "0000FF",
     trap: "FF0000",
-    useful_progression: "FFFF"
+    useful_progression: "FFFF00"
 };
 global.AP_item_offset =
 {

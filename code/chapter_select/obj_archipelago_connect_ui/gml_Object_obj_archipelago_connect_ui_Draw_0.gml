@@ -64,49 +64,49 @@ for (var ii = 0; ii < 7; ii++)
     {
         switch (ii)
         {
+            // case 0:
+            //     var deathlink_enabled = (global.AP_deathlink == 0) ? "disabled" : "enabled";
+            //     text = "(NotWorkingUI) Deathlink: " + deathlink_enabled;
+            //     i = 0;
+            //     break;
+            
             case 0:
-                var deathlink_enabled = (global.AP_deathlink == 0) ? "disabled" : "enabled";
-                text = "(NotWorkingUI) Deathlink: " + deathlink_enabled;
+                text = "Colors";
                 i = 0;
                 break;
             
             case 1:
-                text = "Colors:";
-                i = 2;
+                rectangle_color = rgb_to_bgr(hex_to_dec(global.AP_colors.filler));
+                text = "Filler: #" + global.AP_colors.filler;
+                i = 1;
                 break;
             
             case 2:
-                rectangle_color = hex_to_dec(global.AP_colors.filler);
-                text = "Filler: #" + global.AP_colors.filler;
-                i = 3;
+                rectangle_color = rgb_to_bgr(hex_to_dec(global.AP_colors.progression));
+                text = "Progression: #" + global.AP_colors.progression;
+                i = 2;
                 break;
             
             case 3:
-                rectangle_color = hex_to_dec(global.AP_colors.progression);
-                text = "Progression: #" + global.AP_colors.progression;
-                i = 4;
+                rectangle_color = rgb_to_bgr(hex_to_dec(global.AP_colors.useful));
+                text = "Useful: #" + global.AP_colors.useful;
+                i = 3;
                 break;
             
             case 4:
-                rectangle_color = hex_to_dec(global.AP_colors.useful);
-                text = "Useful: #" + global.AP_colors.useful;
-                i = 5;
+                rectangle_color = rgb_to_bgr(hex_to_dec(global.AP_colors.trap));
+                text = "Trap: #" + global.AP_colors.trap;
+                i = 4;
                 break;
             
             case 5:
-                rectangle_color = hex_to_dec(global.AP_colors.trap);
-                text = "Trap: #" + global.AP_colors.trap;
-                i = 6;
-                break;
-            
-            case 6:
-                rectangle_color = hex_to_dec(global.AP_colors.useful_progression);
+                rectangle_color = rgb_to_bgr(hex_to_dec(global.AP_colors.useful_progression));
                 text = "Prog/Useful: #" + global.AP_colors.useful_progression;
-                i = 7;
+                i = 5;
                 break;
         }
         
-        if (ii > 1)
+        if (ii >= 1 && ii <= 5)
         {
             if (rectangle_color)
                 draw_set_color(rectangle_color);

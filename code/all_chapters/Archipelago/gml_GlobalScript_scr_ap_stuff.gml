@@ -275,15 +275,15 @@ function AP_item_flag_to_color(flags){
     switch (flags)
     {
         case 0:
-            return hex_to_dec(global.AP_colors.filler)
+            return rgb_to_bgr(hex_to_dec(global.AP_colors.filler))
         case 1:
-            return hex_to_dec(global.AP_colors.progression)
+            return rgb_to_bgr(hex_to_dec(global.AP_colors.progression))
         case 2:
-            return hex_to_dec(global.AP_colors.useful)
+            return rgb_to_bgr(hex_to_dec(global.AP_colors.useful))
         case 3:
-            return hex_to_dec(global.AP_colors.useful_progression)
+            return rgb_to_bgr(hex_to_dec(global.AP_colors.useful_progression))
         case 4:
-            return hex_to_dec(global.AP_colors.trap)
+            return rgb_to_bgr(hex_to_dec(global.AP_colors.trap))
         default:
             return c_white
     }

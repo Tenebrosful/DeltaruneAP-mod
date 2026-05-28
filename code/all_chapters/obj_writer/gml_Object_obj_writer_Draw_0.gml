@@ -51,17 +51,17 @@
 /// CODE
 
             if (nextchar2 == "f") // lower because we think about the future (future colors in future chapters)
-                xcolor = hex_to_dec(global.AP_colors.filler)
+                xcolor = rgb_to_bgr(hex_to_dec(global.AP_colors.filler))
             
             if (nextchar2 == "u")
-                xcolor = hex_to_dec(global.AP_colors.useful)
+                xcolor = rgb_to_bgr(hex_to_dec(global.AP_colors.useful))
 
             if (nextchar2 == "g")
-                xcolor = hex_to_dec(global.AP_colors.useful_progression)
+                xcolor = rgb_to_bgr(hex_to_dec(global.AP_colors.useful_progression))
             
             if (nextchar2 == "p")
-                xcolor = hex_to_dec(global.AP_colors.progression)
+                xcolor = rgb_to_bgr(hex_to_dec(global.AP_colors.progression))
             
             if (nextchar2 == "t")
-                xcolor = hex_to_dec(global.AP_colors.trap)
+                xcolor = rgb_to_bgr(hex_to_dec(global.AP_colors.trap))
 /// END
