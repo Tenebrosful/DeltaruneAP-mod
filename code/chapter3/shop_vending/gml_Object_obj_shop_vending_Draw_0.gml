@@ -130,17 +130,17 @@ if (menu == 1 || menu == 2)
     {
         draw_set_font(fnt_main);
         AP_item_classification_color_shop(shop_item_flags[i]);
-        draw_text(camerax() + 60, 260 + (i * 40), string_hash_to_newline(shopitemname[i]));
+        draw_text(camerax() + 60, cameray() + 260 + (i * 40), string_hash_to_newline(shopitemname[i]));
         draw_set_color(c_white);
-        draw_text(camerax() + 60, 260 + (i * 40) + 15, "To: " + string_hash_to_newline(shopitemreceivername[i]));
+        draw_text(camerax() + 60, cameray() + 260 + (i * 40) + 15, "To: " + string_hash_to_newline(shopitemreceivername[i]));
         draw_set_font(fnt_mainbig);
         if (menu_dollar)
-            draw_text(camerax() + 300, 260 + (i * 40), string_hash_to_newline("$" + string(buyvalue[i])));
+            draw_text(camerax() + 300, cameray() + 260 + (i * 40), string_hash_to_newline("$" + string(buyvalue[i])));
         else
-            draw_text(camerax() + 300, 260 + (i * 40), string_hash_to_newline(string(buyvalue[i]) + " PTs"));
+            draw_text(camerax() + 300, cameray() + 260 + (i * 40), string_hash_to_newline(string(buyvalue[i]) + " PTs"));
     }
     
-    draw_text(camerax() + 60, 260 + (itemtotal * 40), string_hash_to_newline(stringsetloc("Exit", "obj_shop1_slash_Draw_0_gml_139_0")));
+    draw_text(camerax() + 60, cameray() + 260 + (itemtotal * 40), string_hash_to_newline(stringsetloc("Exit", "obj_shop1_slash_Draw_0_gml_139_0")));
     
     if (menu == 1)
     {
