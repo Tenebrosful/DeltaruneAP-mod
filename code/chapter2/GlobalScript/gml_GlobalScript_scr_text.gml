@@ -68,8 +68,7 @@
 
                         scr_speaker("no_name");
                         msgsetloc(0, "* Great doing business with you!!/", "scr_text_slash_scr_text_gml_4517_0");
-                        msgnextloc("* (It turned into a Check.)/", "scr_text_slash_scr_text_gml_4534_0_b");
-                        msgnextloc("* (You sent the Check to your Multiworld.)/%", "scr_text_slash_scr_text_gml_4534_0_b");
+                        msgnextloc(string("* (It turned into {0}.)/%", AP_get_location_reward_text(65)), "scr_text_slash_scr_text_gml_4534_0_b");
                     }
 /// END
 
@@ -154,7 +153,7 @@
                                 msgnextloc("* That's the power of [Baker's Arms]!/", "scr_text_slash_scr_text_gml_4998_0");
                                 msgnextloc("* (You got Spincake.)/%", "scr_text_slash_scr_text_gml_4999_0");
 /// CODE
-                                msgnextloc("* (You sent a Check to your Multiworld.)/%", "scr_text_slash_scr_text_gml_4999_0");
+                                msgnextloc(string("* (You got {0}.)/%", AP_get_location_reward_text(39)), "scr_text_slash_scr_text_gml_4999_0");
                                 global.flag[313] = 1;
                                 global.customflags[10] = 1;
                                 AP_sendLocation(39);
@@ -164,8 +163,7 @@
                                 msgnextloc("* Like night and day^1, the cake and the world revolve!/", "scr_text_slash_scr_text_gml_5008_0");
                                 msgnextloc("* (You got Spincake.)/", "scr_text_slash_scr_text_gml_5009_0");
 /// CODE
-                                msgnextloc("* (You sent a Check to your Multiworld.)/", "scr_text_slash_scr_text_gml_5009_0");
-                                msgnextloc("* Come again another day^1! Haha hiha!/%", "scr_text_slash_scr_text_gml_5010_0");
+                                msgnextloc(string("* (You got {0}.)/%", AP_get_location_reward_text(39)), "scr_text_slash_scr_text_gml_5009_0");
                                 global.customflags[10] = 1;
                                 AP_sendLocation(39);
 /// END
@@ -200,7 +198,7 @@
                 if (scr_keyitemcheck(10) == 0)
                     scr_keyitemget(10);
 /// CODE
-                msgsetloc(0, "* (A Check was sent to your Multiworld.)/%", "scr_text_slash_scr_text_gml_5633_0");
+                msgsetloc(0, string("* (You found {0}.)/%", AP_get_location_reward_text(96)), "scr_text_slash_scr_text_gml_5633_0");
                 snd_play(snd_item);
                 AP_sendLocation(96);
                 
@@ -218,7 +216,7 @@
 /// REPLACE
                         msgnextloc("\\S1* (You got the ThornRing.)/%", "scr_text_slash_scr_text_gml_6504_0");
 /// CODE
-                        msgnextloc("\\S1* (...The ThornRing turned into a Check.)/%", "scr_text_slash_scr_text_gml_6504_0");
+                        msgnextloc(string("\\S1* (You got {0}.)/%", AP_get_location_reward_text(113)), "scr_text_slash_scr_text_gml_6504_0");
 /// END
 
 /// REPLACE

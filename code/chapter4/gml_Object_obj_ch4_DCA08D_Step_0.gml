@@ -25,20 +25,12 @@
     c_msgnextloc("* TAKE THIS..^1. MY FRAINDS..^1. AND INSTRUCTIONS FOR CLAIMBING SET./", "obj_ch4_DCA08D_slash_Step_0_gml_1571_0");
     c_facenext("no_name", 0);
     c_msgnextloc("* (You got a Check and instructions on Claimbing.)/", "obj_ch4_DCA08D_slash_Step_0_gml_1573_0");
-    scr_keyitemget(1022);
     c_facenext("jackenstein", 0);
     c_msgnextloc("* NOW YOU WILL CLAIMB OVER MOUNTAINS/", "obj_ch4_DCA08D_slash_Step_0_gml_1575_0");
     c_facenext("no_name", 0);
     global.customflags[29] = 0;
     
-    if (global.customflags[999] == 0)
-    {
-        c_msgnextloc("* (You sent the Check to your Multiworld.)/%", "obj_ch4_DCA08D_slash_Step_0_gml_1573_0");
-        AP_sendLocation(200);
-    }
-    else
-    {
-        c_msgnextloc("* (..^1.But^1, the power of the Egg refused the check!)/%", "obj_ch4_DCA08D_slash_Step_0_gml_1573_0");
-    }
+    c_msgnextloc(string("* (You found {0}.)/%", AP_get_location_reward_text(200)), "obj_ch4_DCA08D_slash_Step_0_gml_1573_0");
+    AP_sendLocation(200);
     
 /// END

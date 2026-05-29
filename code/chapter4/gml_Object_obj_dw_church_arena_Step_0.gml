@@ -40,7 +40,8 @@
     c_msgnextloc("\\ES* I've shown how cool I am by beating that guy^1, y'know?/", "obj_dw_church_arena_slash_Step_0_gml_1701_0");
     c_msgnextloc("\\E2* Here you go./", "obj_dw_church_arena_slash_Step_0_gml_1701_0");
     c_facenext("no_name", 0);
-    c_msgnextloc("* (The \\cYChecks\\cW were sent to your \\cYMultiworld\\cW.)/%", "obj_dw_church_arena_slash_Step_0_gml_1250_0");
+    c_msgnextloc(string("* (You got {0})/", AP_get_location_reward_text(206)), "obj_dw_church_arena_slash_Step_0_gml_1250_0");
+    c_msgnextloc(string("* (You got {0})/%", AP_get_location_reward_text(207)), "obj_dw_church_arena_slash_Step_0_gml_1250_0");
     c_talk_wait();
     global.customflags[32] = true;
     global.customflags[34] = true;

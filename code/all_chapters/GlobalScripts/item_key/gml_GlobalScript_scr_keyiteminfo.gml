@@ -336,11 +336,5 @@ function scr_keyiteminfo(arg0)
             tempkeyitemdesc = stringsetloc(" ");
             tempkeyitemchapter = 3;
             break;
-        
-        case 1022:
-            tempkeyitemname = stringsetloc("ClaimbGuide", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_182_0");
-            tempkeyitemdesc = stringsetloc("Instructions on how to claimb with your#claimb claws.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_183_0");
-            tempkeyitemchapter = 4;
-            break;
     }
 }

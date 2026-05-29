@@ -25,7 +25,7 @@
         msgsetloc(0, "* 10 POINTs was added to your SCORE./%", "obj_dw_treasure_points_slash_Step_0_gml_57_0");
 /// CODE
         scr_speaker("no_name");
-        msgsetloc(0, "* The Check was sent to your Multiworld./%", "obj_dw_treasure_points_slash_Step_0_gml_57_0");
+        msgsetloc(0, string("* You got {0}./%", AP_get_location_reward_text(t_itemid)), "obj_dw_treasure_points_slash_Step_0_gml_57_0");
         d_make();
         AP_sendLocation(t_itemid);
 /// END
