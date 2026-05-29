@@ -5,6 +5,7 @@
 #load "room_dw_churchc_savepoint.csx"
 #load "room_dw_church_gersonstudy.csx"
 #load "room_dw_church_knightclimb_post.csx"
+#load "room_dw_church_holywatercooler.csx"
 
 void Load_chapter4_rooms()
 {
@@ -15,6 +16,7 @@ void Load_chapter4_rooms()
   Load_room_dw_churchc_savepoint();
   Load_room_dw_church_gersonstudy();
   Load_room_dw_church_knightclimb_post();
+  Load_room_dw_church_holywatercooler();
 }
 
 void Load_Early_Chapter4_Rooms()
