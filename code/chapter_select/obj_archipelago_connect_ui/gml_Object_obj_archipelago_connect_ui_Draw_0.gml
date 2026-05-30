@@ -104,6 +104,11 @@ for (var ii = 0; ii < 7; ii++)
                 text = "Prog/Useful: #" + global.AP_colors.useful_progression;
                 i = 5;
                 break;
+
+            case 6:
+                text = "Reset Colors"
+                i = 6;
+                break;
         }
         
         if (ii >= 1 && ii <= 5)

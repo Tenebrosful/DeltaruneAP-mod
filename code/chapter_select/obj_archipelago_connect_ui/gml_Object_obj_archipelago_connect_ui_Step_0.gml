@@ -8,7 +8,7 @@ if (!edit)
         audio_play_sound(snd_menumove, 1, false);
         
         if (choice == max_choice)
-            choice = 0;
+            choice = (page == 0) ? 0 : 1;
         else
             choice++;
     }
@@ -16,7 +16,7 @@ if (!edit)
     {
         audio_play_sound(snd_menumove, 1, false);
         
-        if (choice == 0)
+        if (choice == 0 || (page == 1 && choice == 1))
             choice = max_choice;
         else
             choice--;
@@ -24,8 +24,8 @@ if (!edit)
     else if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_left))
     {
         page = (page == 0) ? 1 : 0;
-        max_choice = (page == 0) ? 4 : 5;
-        choice = 0;
+        max_choice = (page == 0) ? 4 : 6;
+        choice = (page == 0) ? 0 : 1;
     }
 }
 
@@ -40,24 +40,34 @@ if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")))
             if (global.AP_server != "" && global.AP_port != "" && global.AP_name != "")
             {
                 global.AP_isAuthenticated = 0;
-                audio_play_sound(snd_select, 1, false);
                 alarm[0] = 1;
                 exit;
             }
-            
+            audio_play_sound(snd_select, 1, false);
             global.AP_isAuthenticated = 1;
             exit;
         }
+        else if (page == 1)
+        {
+            global.AP_colors = 
+            {
+                filler: "00FFFF",
+                progression: "800080",
+                useful: "0000FF",
+                trap: "FF0000",
+                useful_progression: "FFFF00"
+            };
+            audio_play_sound(snd_select, 1, false);
+        }
     }
-    
-    if (!edit)
+    else if (keyboard_check_pressed(vk_enter))
     {
-        edit = true;
+        edit = !edit;
         audio_play_sound(snd_select, 1, false);
     }
-    else if (keyboard_check_pressed(vk_enter) && edit)
+    else if (keyboard_check_pressed(ord("Z")) && !edit)
     {
-        edit = false;
+        edit = !edit;
         audio_play_sound(snd_select, 1, false);
     }
 }
