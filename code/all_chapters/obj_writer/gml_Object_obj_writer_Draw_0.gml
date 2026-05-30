@@ -1,5 +1,18 @@
 /// PATCH
 
+#if CHAPTER_1
+/// AFTER
+            if (nextchar == "a")
+                textalignment = nextchar2;
+/// CODE
+            if (nextchar == "s")
+            {
+                if (nextchar2 == "0")
+                    skippable = 0;
+            }
+/// END
+#endif
+
 /// REPLACE
 #if CHAPTER_1
         if (automash_timer == 0)

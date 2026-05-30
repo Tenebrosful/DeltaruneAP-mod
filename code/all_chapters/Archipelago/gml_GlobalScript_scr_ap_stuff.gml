@@ -253,17 +253,17 @@ function AP_item_classification_color_text(text, flags)
     switch (flags)
     {
         case 0: 
-            return string("\\cf{0}\\c0", text);
+            return string("\\s0\\cf{0}\\c0", text);
         case 1: 
-            return string("\\cp{0}\\c0", text);
+            return string("\\s0\\cp{0}\\c0", text);
         case 2:
-            return string("\\cu{0}\\c0", text);
+            return string("\\s0\\cu{0}\\c0", text);
         case 3:
-            return string("\\cg{0}\\c0", text);
+            return string("\\s0\\cg{0}\\c0", text);
         case 4:
-            return string("\\ct{0}\\c0", text);
+            return string("\\s0\\ct{0}\\c0", text);
         default : 
-            return string("\\c0{0}\\c0", text);
+            return string("\\s0\\c0{0}\\c0", text);
     }
 }
 
@@ -380,13 +380,28 @@ function AP_step()
                 if (index >= array_length(global.AP_items_waiting_to_receive))
                 {
                     global.AP_items_waiting_to_receive = undefined;
+                    global.AP_skip_item_textboxes = false;
                 }
-                else if (variable_global_exists("AP_items_waiting_to_receive") && global.AP_items_waiting_to_receive != undefined && array_length(global.AP_items_waiting_to_receive) > 0)
+                
+                if (variable_global_exists("AP_items_waiting_to_receive") && global.AP_items_waiting_to_receive != undefined && array_length(global.AP_items_waiting_to_receive) > 0)
                 {
-                    var item_id = global.AP_items_waiting_to_receive[index];
-                    AP_handle_receive_item(item_id);
-                    array_insert(global.AP_item_got_in_current_chapter, array_length(global.AP_item_got_in_current_chapter), item_id);
-                    index++;
+                    if (global.AP_skip_item_textboxes)
+                    {
+                        while(index < array_length(global.AP_items_waiting_to_receive))
+                        {
+                            var item_id = global.AP_items_waiting_to_receive[index];
+                            AP_handle_receive_item(item_id);
+                            array_insert(global.AP_item_got_in_current_chapter, array_length(global.AP_item_got_in_current_chapter), item_id);
+                            index++;
+                        }
+                    }
+                    else
+                    {
+                        var item_id = global.AP_items_waiting_to_receive[index];
+                            AP_handle_receive_item(item_id);
+                            array_insert(global.AP_item_got_in_current_chapter, array_length(global.AP_item_got_in_current_chapter), item_id);
+                            index++;
+                    }
                 }
 
             }

@@ -209,7 +209,8 @@ function AP_internal_handle_other_item(item_id)
     {
         case 100000:
             global.flag[34] = false;
-            script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", AP_item_classification_color_text("SRN-Actions", 2)), 0, 6);
+            if (!global.AP_skip_item_textboxes)
+              script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", AP_item_classification_color_text("SRN-Actions", 2)), 0, 6);
             break;
     }
 }
@@ -218,7 +219,8 @@ function AP_internal_handle_character_unlock(item_id)
 {
   var character_id = item_id - global.AP_item_offset.character_unlock;
   AP_handle_receive_character_unlock(character_id);
-  script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", AP_item_classification_color_text(global.charname[character_id], 3)), 0, 6);
+  if (!global.AP_skip_item_textboxes)
+    script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", AP_item_classification_color_text(global.charname[character_id], 3)), 0, 6);
 }
 
 function AP_internal_handle_chapter_unlock_item(item_id)
@@ -226,7 +228,8 @@ function AP_internal_handle_chapter_unlock_item(item_id)
   var chapter = item_id - global.AP_item_offset.chapter_unlock;
   var item_name = "Chapter " + string(chapter);
 
-  script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", AP_item_classification_color_text(item_name, 1)), 0, 6);
+  if (!global.AP_skip_item_textboxes)
+    script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", AP_item_classification_color_text(item_name, 1)), 0, 6);
 }
 
 function AP_internal_handle_ch3_points_item(item_id)
@@ -241,11 +244,13 @@ function AP_internal_handle_ch3_points_item(item_id)
 
   if (global.chapter == 3){
     global.flag[1044] += points_amount;
-    script_execute(scr_writetext, 0, string("* (You got {0}.)/%", AP_item_classification_color_text(string(points_amount) + " " + points, 0)), 0, 6);
+    if (!global.AP_skip_item_textboxes)
+      script_execute(scr_writetext, 0, string("* (You got {0}.)/%", AP_item_classification_color_text(string(points_amount) + " " + points, 0)), 0, 6);
   }
   else
   {
-    script_execute(scr_writetext, 0, string("* (You got {0} for chapter 3.)/%", AP_item_classification_color_text(string(points_amount) + " " + points, 0)), 0, 6);
+    if (!global.AP_skip_item_textboxes)
+      script_execute(scr_writetext, 0, string("* (You got {0} for chapter 3.)/%", AP_item_classification_color_text(string(points_amount) + " " + points, 0)), 0, 6);
   }
 
 }
@@ -305,7 +310,8 @@ function AP_internal_handle_money_item(item_id)
   var amount = item_id - global.AP_item_offset.money;
 
   global.gold += amount;
-  script_execute(scr_writetext, 0, string("* (You got {0}.)/%", AP_item_classification_color_text("D$" + string(amount), 0)), 0, 6);
+  if (!global.AP_skip_item_textboxes)
+    script_execute(scr_writetext, 0, string("* (You got {0}.)/%", AP_item_classification_color_text("D$" + string(amount), 0)), 0, 6);
 }
 
 function AP_internal_handle_weapon_item(item_id)
@@ -350,11 +356,13 @@ function AP_internal_print_get_item_text(item_chapter, item_id, item_name, item_
   }
   else if (item_chapter != global.chapter && item_chapter != 0)
   {
-    script_execute(scr_writetext, 0, string("* (You got {0} for chapter {1}.)/%", AP_item_classification_color_text(item_name, item_classification), item_chapter), 0, 6);
+    if (!global.AP_skip_item_textboxes)
+      script_execute(scr_writetext, 0, string("* (You got {0} for chapter {1}.)/%", AP_item_classification_color_text(item_name, item_classification), item_chapter), 0, 6);
   }
   else
   {
-    script_execute(scr_writetext, 0, string("* (You got {0}.)/%", AP_item_classification_color_text(item_name, item_classification)), 0, 6);
+    if (!global.AP_skip_item_textboxes)
+      script_execute(scr_writetext, 0, string("* (You got {0}.)/%", AP_item_classification_color_text(item_name, item_classification)), 0, 6);
   }
 }
 
@@ -376,12 +384,16 @@ function AP_internal_print_get_item_text_special(item_id)
   switch (item_id) {
     case 1005: // Moss Chapter 1
       global.hp[1] = global.maxhp[1];
-      snd_play(snd_swallow);
-      script_execute(scr_writetext, 0, "* (You ate the moss.^1)&* (Tastes..^1. mossy.^1)&* (Your HP was mossed out.)/%", 0, 6);
+      if (!global.AP_skip_item_textboxes)
+      {
+        snd_play(snd_swallow);
+        script_execute(scr_writetext, 0, "* (You ate the moss.^1)&* (Tastes..^1. mossy.^1)&* (Your HP was mossed out.)/%", 0, 6);
+      }
       break;
 
     case 1006: // Joe's Life Savings
-      script_execute(scr_writetext, 0, "* You recieved Joe's Life Savings ($1)!/%", 0, 6);
+      if (!global.AP_skip_item_textboxes)
+        script_execute(scr_writetext, 0, "* You recieved Joe's Life Savings ($1)!/%", 0, 6);
       global.gold += 1;
       break;
 
@@ -392,22 +404,31 @@ function AP_internal_print_get_item_text_special(item_id)
       global.fc = 0;
       global.fe = 0;
       global.interact = 1;
-      global.msg[0] = "\\s0* You got the \\cG[Moss]\\cW^8!/%";
-      d_make();
-      snd_play(snd_moss_fanfare);
-      snd_pause(global.currentsong[1]);
-      scr_script_delayed(snd_resume, 100, global.currentsong[1]);
+      if (!global.AP_skip_item_textboxes)
+      {
+        global.msg[0] = "\\s0* You got the \\cG[Moss]\\cW^8!/%";
+        snd_play(snd_moss_fanfare);
+        snd_pause(global.currentsong[1]);
+        scr_script_delayed(snd_resume, 100, global.currentsong[1]);
+        d_make();
+      }
       break;
 
     case 1016:
-      script_execute(scr_writetext, 0, "\\s0* You felt it smile^3./%", 0, 6);
-      snd_play(snd_creepyjingle);
+      if (!global.AP_skip_item_textboxes)
+      {
+        script_execute(scr_writetext, 0, "\\s0* You felt it smile^3./%", 0, 6);
+        snd_play(snd_creepyjingle);
+      }
       break;
 
     case 1017: // Moss Chapter 3
       global.hp[1] = global.maxhp[1];
-      snd_play(snd_swallow);
-      script_execute(scr_writetext, 0, "* (\\cGMoss\\cW sent to you.^1)&* (It was consumed.)/%", 0, 6);
+      if (!global.AP_skip_item_textboxes)
+      {
+        script_execute(scr_writetext, 0, "* (\\cGMoss\\cW sent to you.^1)&* (It was consumed.)/%", 0, 6);
+        snd_play(snd_swallow);
+      }
       break;
 
     case 1020:
@@ -417,11 +438,14 @@ function AP_internal_print_get_item_text_special(item_id)
       global.fc = 0;
       global.fe = 0;
       global.interact = 1;
-      global.msg[0] = "\\s0* The moss was consumed with gusto^8!/%";
-      d_make();
-      snd_play(snd_moss_fanfare);
-      snd_pause(global.currentsong[1]);
-      scr_script_delayed(snd_resume, 100, global.currentsong[1]);
+      if (!global.AP_skip_item_textboxes)
+      {
+        global.msg[0] = "\\s0* The moss was consumed with gusto^8!/%";
+        snd_play(snd_moss_fanfare);
+        d_make();
+        snd_pause(global.currentsong[1]);
+        scr_script_delayed(snd_resume, 100, global.currentsong[1]);
+      }
 
     default:
       break;

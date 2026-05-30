@@ -174,8 +174,9 @@ if (ds_map_exists(async_load, "buffer"))
                             }
                         }
                         // Receiving items after reconnect
-                        else if (!variable_global_exists("AP_item_from_server"))
+                        else if (!variable_global_exists("AP_item_from_server") || global.AP_item_from_server == undefined)
                         {
+                            global.AP_skip_item_textboxes = true;
                             global.AP_item_from_server = [];
                             for (var ii = 0; ii < array_length(data[i].items); ii++)
                             {
