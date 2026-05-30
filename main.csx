@@ -12,6 +12,14 @@ UndertaleModLib.Compiler.CodeImportGroup importGroup = new(Data);
 
 class ArchipelagoLoader : UMPLoader
 {
+
+    private string version = "v2.0.0+pre-release-2";
+
+    public string GetVersion()
+    {
+        return version;
+    }
+    
     public override string CodePath => "code/";
 
     public override bool UseGlobalScripts => true;
@@ -74,8 +82,15 @@ void BuildMod(int chapter)
         return;
     }
 
+    ArchipelagoLoader loader = new(UMP_WRAPPER, chapter);
+
     Data.GeneralInfo.Name = Data.Strings.MakeString("DELTARUNEAP");
-    ArchipelagoLoader loader = new ArchipelagoLoader(UMP_WRAPPER, chapter);
+
+    if (chapter == 0)
+        Data.GeneralInfo.DisplayName = Data.Strings.MakeString($"DELTARUNE Chapter Select - Archipelago {loader.GetVersion()}");
+    else
+        Data.GeneralInfo.DisplayName = Data.Strings.MakeString($"DELTARUNE Chapter {chapter} - Archipelago {loader.GetVersion()}");
+
     string scriptPath = Path.GetDirectoryName(ScriptPath);
 
     RunUMTScript(Path.Combine(scriptPath, "sprites/ImportGraphics.csx"));
