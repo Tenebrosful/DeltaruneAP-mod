@@ -3,7 +3,7 @@
 /// REPLACE
             global.msg[1] = stringsetloc("* (If you go back to sleep^1, \\cYyou may miss a lot of important things\\cW.)/", "scr_text_slash_scr_text_gml_2665_0_b");
 /// CODE
-            global.msg[1] = stringsetloc("*\\s0 (If you go back to sleep^1, \\cYyou will be able to do stuff later\\cW.^3)/", "scr_text_slash_scr_text_gml_2665_0_b");
+            global.msg[1] = stringsetloc("*\\s0 (If you go back to sleep^1, \\cYyou will be able to do stuff later\\cW.)/", "scr_text_slash_scr_text_gml_2665_0_b");
 /// END
 
 /// REPLACE
