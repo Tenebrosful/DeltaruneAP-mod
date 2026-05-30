@@ -1,5 +1,40 @@
 /// PATCH
 
+/// REPLACE
+        case 1296:
+            global.choicemsg[0] = stringsetloc("#Sleep", "scr_text_slash_scr_text_gml_8482_0");
+            global.choicemsg[1] = stringsetloc("#Do not", "scr_text_slash_scr_text_gml_8483_0");
+            global.choicemsg[2] = stringset("");
+            global.choicemsg[3] = stringset("");
+            scr_speaker("no_name");
+            msgsetloc(0, "* (It's a couch^1, for sleeping.)/", "scr_text_slash_scr_text_gml_8487_0");
+            msgnextloc("* (If you go back to sleep^1, you may miss a lot of important things.)/", "scr_text_slash_scr_text_gml_8488_0");
+            msgnextloc("* (Will you go to sleep?)/", "scr_text_slash_scr_text_gml_8489_0");
+            msgnext("\\C2");
+            break;
+/// CODE
+        case 1296:
+            // Require Kris, Susie or Ralsei unlocked
+            if (global.maxhp[1] > 0 || global.maxhp[2] > 0 || global.maxhp[3] > 0)
+            {
+                global.choicemsg[0] = stringsetloc("#Sleep", "scr_text_slash_scr_text_gml_8482_0");
+                global.choicemsg[1] = stringsetloc("#Do not", "scr_text_slash_scr_text_gml_8483_0");
+                global.choicemsg[2] = stringset("");
+                global.choicemsg[3] = stringset("");
+                scr_speaker("no_name");
+                msgsetloc(0, "* (It's a couch^1, for sleeping.)/", "scr_text_slash_scr_text_gml_8487_0");
+                msgnextloc("* (If you go back to sleep^1, you may miss a lot of important things.)/", "scr_text_slash_scr_text_gml_8488_0");
+                msgnextloc("* (Will you go to sleep?)/", "scr_text_slash_scr_text_gml_8489_0");
+                msgnext("\\C2");
+            }
+            else
+            {
+                msgsetloc(0, "*\\s0 (You feel like you shouldn't sleep without \\cBKris\\cW, \\cPSusie\\cW or \\cGRalsei\\cW unlocked.)/%", "scr_text_slash_scr_text_gml_8487_0");
+            }
+            break;
+/// END
+
+
 /// AFTER
                     with (obj_room_tvland_preview)
                         con = 10;

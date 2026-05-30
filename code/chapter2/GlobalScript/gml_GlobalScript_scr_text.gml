@@ -1,9 +1,34 @@
 /// PATCH
 
 /// REPLACE
+        case 402:
+            global.choicemsg[0] = stringsetloc(" #Sleep", "scr_text_slash_scr_text_gml_2658_0");
+            global.choicemsg[1] = stringsetloc(" #Do not", "scr_text_slash_scr_text_gml_2659_0");
+            global.choicemsg[2] = stringsetloc(" ", "scr_text_slash_scr_text_gml_2662_0_b");
+            global.choicemsg[3] = stringsetloc(" ", "scr_text_slash_scr_text_gml_2663_0");
+            global.msg[0] = stringsetloc("* (It's your bed.)/", "scr_text_slash_scr_text_gml_2662_0");
             global.msg[1] = stringsetloc("* (If you go back to sleep^1, \\cYyou may miss a lot of important things\\cW.)/", "scr_text_slash_scr_text_gml_2665_0_b");
+            global.msg[2] = stringsetloc("* (Will you go to bed?)/", "scr_text_slash_scr_text_gml_2664_0");
+            global.msg[3] = stringsetloc("\\C2 ", "scr_text_slash_scr_text_gml_2665_0");
+            break;
 /// CODE
-            global.msg[1] = stringsetloc("*\\s0 (If you go back to sleep^1, \\cYyou will be able to do stuff later\\cW.)/", "scr_text_slash_scr_text_gml_2665_0_b");
+        case 402:
+            // At least kris or susie is unlocked
+            if (global.maxhp[1] > 0 || global.maxhp[2] > 0)
+            {
+                global.choicemsg[0] = stringsetloc(" #Sleep", "scr_text_slash_scr_text_gml_2658_0");
+                global.choicemsg[1] = stringsetloc(" #Do not", "scr_text_slash_scr_text_gml_2659_0");
+                global.choicemsg[2] = stringsetloc(" ", "scr_text_slash_scr_text_gml_2662_0_b");
+                global.choicemsg[3] = stringsetloc(" ", "scr_text_slash_scr_text_gml_2663_0");
+                global.msg[0] = stringsetloc("* (It's your bed.)/", "scr_text_slash_scr_text_gml_2662_0");
+                global.msg[1] = stringsetloc("* (Will you go to bed?)/", "scr_text_slash_scr_text_gml_2664_0");
+                global.msg[2] = stringsetloc("\\C2 ", "scr_text_slash_scr_text_gml_2665_0");
+            }
+            else
+            {
+                global.msg[0] = stringsetloc("*\\s0 (You feel like you shouldn't sleep without \\cBKris\\cW or \\cPSusie\\cW unlocked.)^3/%", "scr_text_slash_scr_text_gml_2665_0_b")
+            }
+            break;
 /// END
 
 /// REPLACE
