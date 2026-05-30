@@ -107,19 +107,19 @@ file = AP_get_save_folder_prefix() + "filech" + string(global.chapter) + "_" + s
             ossafe_file_text_writeln(myfileid);
         }
         
-        for (j = 0; j < 48; j++)
+        for (j = 0; j < #GetMaxWeapon(); j++)
         {
             ossafe_file_text_write_real(myfileid, global.weapon[j]);
             ossafe_file_text_writeln(myfileid);
         }
 
-        for (j = 0; j < 60; j++)
+        for (j = 0; j < #GetMaxArmor(); j++)
         {
             ossafe_file_text_write_real(myfileid, global.armor[j]);
             ossafe_file_text_writeln(myfileid);
         }
 
-        for (j = 0; j < 72; j++)
+        for (j = 0; j < #GetMaxStorage(); j++)
         {
             ossafe_file_text_write_real(myfileid, global.pocketitem[j]);
             ossafe_file_text_writeln(myfileid);
@@ -135,7 +135,7 @@ file = AP_get_save_folder_prefix() + "filech" + string(global.chapter) + "_" + s
             file_text_writeln(myfileid);
         }
 /// CODE
-        for (i = 0; i < 2500; i += 1)
+        for (i = 0; i < #GetMaxFlag(); i += 1)
         {
             file_text_write_real(myfileid, global.flag[i]);
             file_text_writeln(myfileid);

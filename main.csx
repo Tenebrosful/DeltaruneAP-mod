@@ -13,11 +13,39 @@ UndertaleModLib.Compiler.CodeImportGroup importGroup = new(Data);
 class ArchipelagoLoader : UMPLoader
 {
 
-    private string version = "v2.0.0+pre-release-2";
+    private readonly string version = "v2.0.0+pre-release-2";
+
+    private readonly string max_armor = "60";
+
+    private readonly string max_weapon = "48";
+
+    private readonly string max_flag = "2500";
+
+    private readonly string max_storage = "72";
 
     public string GetVersion()
     {
         return version;
+    }
+
+    public string GetMaxArmor()
+    {
+        return max_armor;
+    }
+
+    public string GetMaxWeapon()
+    {
+        return max_weapon;
+    }
+
+    public string GetMaxFlag()
+    {
+        return max_flag;
+    }
+
+    public string GetMaxStorage()
+    {
+        return max_storage;
     }
     
     public override string CodePath => "code/";

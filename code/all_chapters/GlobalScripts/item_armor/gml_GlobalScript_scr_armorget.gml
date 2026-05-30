@@ -1,35 +1,34 @@
-/// PATCH
-
-/// REPLACE
-#if CHAPTER_1
-    global.armor[12] = 999;
-#else
-    global.armor[48] = 999;
-#endif
-/// CODE
-global.armor[60] = 999;
-/// END
-
-#if !CHAPTER_1
-/// REPLACE
-
-        for (__i = 0; __i < 48; __i++)
+/// IMPORT
+function scr_armorget(arg0)
+{
+    noroom = false;
+    
+    var __itemcount = 0;
+    __armor[0] = arg0;
+    
+    for (__i = 0; __i < #GetMaxArmor(); __i++)
+    {
+        if (global.armor[__i] != 0)
         {
-/// CODE
-
-        for (__i = 0; __i < 60; __i++)
+            __armor[__itemcount + 1] = global.armor[__i];
+            __itemcount++;
+        }
+    }
+    
+    if (__itemcount >= #GetMaxArmor())
+    {
+        noroom = 1;
+    }
+    else
+    {
+        for (__i = 0; __i < #GetMaxArmor(); __i++)
         {
-/// END
-#endif
-
-#if !CHAPTER_1
-/// REPLACE
-        {
-            for (__i = 0; __i < 48; __i++)
-            {
-/// CODE
-        {
-            for (__i = 0; __i < 60; __i++)
-            {
-/// END
-#endif
+            if (__i <= __itemcount)
+                global.armor[__i] = __armor[__i];
+            else
+                global.armor[__i] = 0;
+        }
+    }
+    
+    script_execute(scr_armorinfo_all);
+}

@@ -324,7 +324,7 @@ function scr_load_chapter3()
     global.time = ossafe_file_text_read_real(myfileid);
     ossafe_file_text_readln(myfileid);
     AP_load();
-    global.flag[64] = 72;
+    global.flag[64] = #GetMaxStorage();
     
     for (var i = 2000; i < 3999; i++)
     {

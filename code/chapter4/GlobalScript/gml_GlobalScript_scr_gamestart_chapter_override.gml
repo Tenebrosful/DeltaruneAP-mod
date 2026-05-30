@@ -102,7 +102,7 @@ function scr_gamestart_chapter_override()
         }
     }
     
-    global.flag[64] = 72;
+    global.flag[64] = #GetMaxStorage();
     
     if (global.flag[241] >= 6)
         scr_get_shadow_crystal(1);

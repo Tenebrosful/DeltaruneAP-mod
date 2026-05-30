@@ -1,7 +1,7 @@
 /// IMPORT
 function scr_weaponinfo_all()
 {
-    for (i = 0; i < 48; i += 1)
+    for (i = 0; i < #GetMaxWeapon(); i += 1)
     {
         scr_weaponinfo(global.weapon[i]);
         weaponname[i] = weaponnametemp;

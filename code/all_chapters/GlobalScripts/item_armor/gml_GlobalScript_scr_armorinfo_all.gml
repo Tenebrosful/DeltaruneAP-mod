@@ -1,7 +1,7 @@
 /// IMPORT
 function scr_armorinfo_all()
 {
-    for (i = 0; i < 60; i += 1)
+    for (i = 0; i < #GetMaxArmor(); i += 1)
     {
         scr_armorinfo(global.armor[i]);
         armorname[i] = armornametemp;

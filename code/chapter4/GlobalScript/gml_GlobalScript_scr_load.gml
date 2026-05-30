@@ -328,7 +328,7 @@ function scr_load()
     global.time = ossafe_file_text_read_real(myfileid);
     ossafe_file_text_readln(myfileid);
     AP_load();
-    global.flag[64] = 72;
+    global.flag[64] = #GetMaxStorage();
     ossafe_file_text_close(myfileid);
     global.lastsavedtime = global.time;
     global.lastsavedlv = global.lv;

@@ -64,12 +64,12 @@ function scr_gamestart()
     for (i = 0; i < 72; i++)
         global.pocketitem[i] = 0;
     
-    for (i = 0; i < 48; i++)
+    for (i = 0; i < #GetMaxWeapon(); i++)
     {
         global.weapon[i] = 0;
     }
     
-    for (i = 0; i < 60; i++)
+    for (i = 0; i < #GetMaxArmor(); i++)
     {
         global.armor[i] = 0;
     }
@@ -326,7 +326,7 @@ function scr_gamestart()
     global.flag[15] = 1;
     global.flag[16] = 0.85;
     global.flag[17] = 0.6;
-    global.flag[64] = 72;
+    global.flag[64] = #GetMaxStorage();
     
     for (i = 0; i < 10; i += 1)
     {

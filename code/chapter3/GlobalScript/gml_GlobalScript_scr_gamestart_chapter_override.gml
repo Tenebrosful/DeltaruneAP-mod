@@ -34,7 +34,7 @@ function scr_gamestart_chapter_override()
     scr_keyitemremove(1009);
     scr_keyitemremove(1010);
     scr_itemremove(4);
-    global.flag[64] = 72;
+    global.flag[64] = #GetMaxStorage();
     
     if (global.chapter == 3)
     {

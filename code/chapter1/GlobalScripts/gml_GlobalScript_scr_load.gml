@@ -231,19 +231,19 @@ function scr_load()
             file_text_readln(myfileid);
         }
 
-        for (j = 0; j < 48; j += 1)
+        for (j = 0; j < #GetMaxWeapon(); j += 1)
         {
             global.weapon[j] = file_text_read_real(myfileid);
             file_text_readln(myfileid);
         }
 
-        for (j = 0; j < 60; j += 1)
+        for (j = 0; j < #GetMaxArmor(); j += 1)
         {
             global.armor[j] = file_text_read_real(myfileid);
             file_text_readln(myfileid);
         }
         
-        for (j = 0; j < 72; j += 1)
+        for (j = 0; j < #GetMaxStorage(); j += 1)
         {
             global.pocketitem[j] = ossafe_file_text_read_real(myfileid);
             ossafe_file_text_readln(myfileid);
@@ -311,7 +311,7 @@ function scr_load()
             ossafe_file_text_readln(myfileid);
         }
         
-        for (i = 0; i < 2500; i += 1)
+        for (i = 0; i < #GetMaxFlag(); i += 1)
         {
             global.flag[i] = ossafe_file_text_read_real(myfileid);
             ossafe_file_text_readln(myfileid);
@@ -370,7 +370,7 @@ function scr_load()
     }
     
     global.invc = 1;
-    global.flag[64] = 72;
+    global.flag[64] = #GetMaxStorage();
     __loadedroom = scr_get_room_by_id(global.currentroom);
     
     with (obj_gamecontroller)
