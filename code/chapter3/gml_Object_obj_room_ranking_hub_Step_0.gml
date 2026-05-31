@@ -11,34 +11,22 @@
         
         if (rank_letter == "B")
         {
-            AP_sendLocation(115);
-            AP_sendLocation(116);
+            AP_sendLocation([115, 116]);
         }
         
         if (rank_letter == "A")
         {
-            AP_sendLocation(115);
-            AP_sendLocation(116);
-            AP_sendLocation(117);
+            AP_sendLocation([115, 116, 117]);
         }
         
         if (rank_letter == "S")
         {
-            AP_sendLocation(115);
-            AP_sendLocation(116);
-            AP_sendLocation(117);
-            AP_sendLocation(118);
-            AP_sendLocation(179);
+            AP_sendLocation([115, 116, 117, 118, 179, 247]);
         }
         
         if (rank_letter == "T")
         {
-            AP_sendLocation(115);
-            AP_sendLocation(116);
-            AP_sendLocation(117);
-            AP_sendLocation(118);
-            AP_sendLocation(119);
-            AP_sendLocation(179);
+            AP_sendLocation([115, 116, 117, 118, 119, 179, 247]);
         }
     }
     else
@@ -48,36 +36,22 @@
         
         if (rank_letter == "B")
         {
-            AP_sendLocation(142);
-            AP_sendLocation(143);
+            AP_sendLocation([142, 143]);
         }
         
         if (rank_letter == "A")
         {
-            AP_sendLocation(142);
-            AP_sendLocation(143);
-            AP_sendLocation(144);
+            AP_sendLocation([142, 143, 144]);
         }
         
         if (rank_letter == "S")
         {
-            AP_sendLocation(142);
-            AP_sendLocation(143);
-            AP_sendLocation(144);
-            AP_sendLocation(145);
-            AP_sendLocation(180);
-            AP_sendLocation(181);
+            AP_sendLocation([142, 143, 144, 145, 180, 181]);
         }
         
         if (rank_letter == "T")
         {
-            AP_sendLocation(142);
-            AP_sendLocation(143);
-            AP_sendLocation(144);
-            AP_sendLocation(145);
-            AP_sendLocation(146);
-            AP_sendLocation(180);
-            AP_sendLocation(181);
+            AP_sendLocation([142, 143, 144, 145, 146, 180, 181]);
         }
     }
     

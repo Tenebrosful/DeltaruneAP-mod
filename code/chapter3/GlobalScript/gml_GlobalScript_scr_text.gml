@@ -42,20 +42,11 @@
 /// CODE
                     if (global.plot < 160)
                     {
-                        AP_sendLocation(115);
-                        AP_sendLocation(116);
-                        AP_sendLocation(117);
-                        AP_sendLocation(118);
-                        AP_sendLocation(179);
+                        AP_sendLocation([115, 116, 117, 118, 179, 247]);
                     }
                     else
                     {
-                        AP_sendLocation(142);
-                        AP_sendLocation(143);
-                        AP_sendLocation(144);
-                        AP_sendLocation(145);
-                        AP_sendLocation(180);
-                        AP_sendLocation(181);
+                        AP_sendLocation([142, 143, 144, 145, 180, 181]);
                     }
                     
 /// END

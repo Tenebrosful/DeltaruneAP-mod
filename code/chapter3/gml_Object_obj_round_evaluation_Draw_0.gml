@@ -1926,7 +1926,7 @@ if (con >= 1)
             {
                 if (desiredletter == _zlet)
                 {
-                    AP_sendLocation([256, 119, 118, 117, 116, 115, 179, 247]);
+                    AP_sendLocation(256);
                 }
 
                 if (desiredletter == _tlet)
@@ -1957,7 +1957,7 @@ if (con >= 1)
             {
                 if (desiredletter == _zlet)
                 {
-                    AP_sendLocation([257, 146, 145, 144, 143, 142, 180, 181]);
+                    AP_sendLocation(257);
                 }
 
                 if (desiredletter == _tlet)
