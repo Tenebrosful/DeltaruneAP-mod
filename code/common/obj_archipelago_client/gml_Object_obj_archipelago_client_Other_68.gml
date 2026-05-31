@@ -203,6 +203,21 @@ if (ds_map_exists(async_load, "buffer"))
                                 {
                                     global.flag[34] = false;
                                 }
+
+                                // We special handle S.POISON here because we are sadistic
+                                if (data[i].items[ii].item == 32)
+                                {
+                                    if (global.interact == 2)
+                                    {
+                                        scr_spell(232, 0)
+                                    }
+                                    else
+                                    {
+                                        global.charselect = 0;
+                                        scr_itemuse(32);
+                                    }
+                                    array_push(global.AP_item_got_in_current_chapter, 32);
+                                }
                             }
                         }
                     }

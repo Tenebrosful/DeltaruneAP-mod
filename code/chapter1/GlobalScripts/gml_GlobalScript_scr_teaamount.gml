@@ -1,9 +1,4 @@
 /// IMPORT
-function scr_taamount(arg0, arg1)
-{
-    modsbanthisguy = 1;
-}
-
 function scr_teaamount(arg0, arg1)
 {
     var __healamt = 10;

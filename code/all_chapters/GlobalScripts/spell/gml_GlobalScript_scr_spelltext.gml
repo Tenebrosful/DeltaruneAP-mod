@@ -284,19 +284,19 @@ function scr_spelltext(arg0, arg1)
             break;
         
         case 218:
-            scr_text(1463);
+            msgsetsubloc(0, "* ~1 used the KRIS TEA!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_240_0");
             break;
         
         case 219:
-            scr_text(1463);
+            msgsetsubloc(0, "* ~1 used the NOELLE TEA!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_243_0");
             break;
         
         case 220:
-            scr_text(1463);
+            msgsetsubloc(0, "* ~1 used the RALSEI TEA!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_246_0");
             break;
         
         case 221:
-            scr_text(1463);
+            msgsetsubloc(0, "* ~1 used the SUSIE TEA!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_249_0");
             break;
         
         case 222:

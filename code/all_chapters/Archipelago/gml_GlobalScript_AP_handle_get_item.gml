@@ -120,7 +120,8 @@ function AP_handle_receive_item(item_id)
   global.fe = 0;
   showingitem = 1;
 
-  if (item_id == 66666){
+  if (item_id == 66666 || item_id = 32)
+  {
     return;
   }
 

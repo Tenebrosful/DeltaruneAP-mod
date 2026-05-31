@@ -588,22 +588,22 @@ function scr_spell(arg0, arg1)
             break;
         
         case 218:
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(10));
+            scr_healitemspell(scr_teaamount(1, global.char[star]));
             item_use = true;
             break;
         
         case 219:
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(10));
+            scr_healitemspell(scr_teaamount(4, global.char[star]));
             item_use = true;
             break;
         
         case 220:
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(10));
+            scr_healitemspell(scr_teaamount(3, global.char[star]));
             item_use = true;
             break;
         
         case 221:
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(10));
+            scr_healitemspell(scr_teaamount(2, global.char[star]));
             item_use = true;
             break;
         
@@ -683,11 +683,16 @@ function scr_spell(arg0, arg1)
             break;
         
         case 232:
-            if (i_ex(global.charinstance[star]))
-                global.charinstance[star].poisonamount = 60;
-            
+            for (var i = 0; i < 3; i++)
+            {
+                if (global.char[i] == 0) continue;
+                
+                star = i;
+                if (i_ex(global.charinstance[i]))
+                    global.charinstance[i].poisonamount = 60;
+                var healanim = scr_healitemspell(40);
+            }
             snd_play(snd_hurt1);
-            var healanim = scr_healitemspell(40);
             healanim.particlecolor = c_fuchsia;
             item_use = true;
             break;

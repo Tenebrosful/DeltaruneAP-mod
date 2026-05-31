@@ -328,7 +328,7 @@ function AP_handle_DeathLink()
 
 function AP_step()
 {
-    if (global.darkzone == 1)
+    if (global.darkzone == 1 || global.AP_skip_item_textboxes)
     {
         if (canshowtext)
         {
@@ -391,7 +391,7 @@ function AP_step()
                         {
                             var item_id = global.AP_items_waiting_to_receive[index];
                             AP_handle_receive_item(item_id);
-                            array_insert(global.AP_item_got_in_current_chapter, array_length(global.AP_item_got_in_current_chapter), item_id);
+                            array_push(global.AP_item_got_in_current_chapter, item_id);
                             index++;
                         }
                     }
@@ -399,7 +399,7 @@ function AP_step()
                     {
                         var item_id = global.AP_items_waiting_to_receive[index];
                             AP_handle_receive_item(item_id);
-                            array_insert(global.AP_item_got_in_current_chapter, array_length(global.AP_item_got_in_current_chapter), item_id);
+                            array_push(global.AP_item_got_in_current_chapter, item_id);
                             index++;
                     }
                 }
@@ -518,7 +518,6 @@ function AP_game_start()
 
 function AP_game_start_post_connexion()
 {
-
     // Prevent to execute if reconnected during the game
     if (global.AP_game_start_post_connexion_done) return;
 
