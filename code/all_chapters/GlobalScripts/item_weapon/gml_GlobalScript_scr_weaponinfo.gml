@@ -689,27 +689,54 @@ function scr_weaponinfo(arg0)
             break;
         
         case 52:
-            weaponnametemp = stringsetloc("JusticeAxe", "scr_weaponinfo_slash_scr_weaponinfo_gml_675_0");
-            weapondesctemp = stringsetloc("An axe carved from a hammer.#Doesn't have any special abilities.", "scr_weaponinfo_slash_scr_weaponinfo_gml_676_0");
-            wmessage2temp = stringsetloc("Nice, got some weight to it.", "scr_weaponinfo_slash_scr_weaponinfo_gml_677_0");
-            wmessage3temp = stringsetloc("... Too heavy...!", "scr_weaponinfo_slash_scr_weaponinfo_gml_678_0");
-            wmessage4temp = stringsetloc("Reminds me of the hammer bros.", "scr_weaponinfo_slash_scr_weaponinfo_gml_679_0");
-            weaponattemp = 12;
-            weapondftemp = 0;
-            weaponmagtemp = 0;
-            weaponboltstemp = 1;
-            weaponstyletemp = "?";
-            weapongrazeamttemp = 0;
-            weapongrazesizetemp = 0;
-            weaponchar1temp = 0;
-            weaponchar2temp = 1;
-            weaponchar3temp = 0;
-            weaponchar4temp = 0;
-            weaponicontemp = 2;
-            weaponabilityicontemp = 5;
-            weaponabilitytemp = " ";
-            value = 0;
-            chapter = 4;
+            if (global.flag[852] > 0)
+            {
+                weaponnametemp = stringsetloc("JusticeAxe", "scr_weaponinfo_slash_scr_weaponinfo_gml_675_0");
+                weapondesctemp = stringsetloc("It has no special powers. However, in order to#attain this item, you became much stronger!", "scr_weaponinfo_slash_scr_weaponinfo_gml_676_0");
+                wmessage2temp = stringsetloc("Watch this, old man!", "scr_weaponinfo_slash_scr_weaponinfo_gml_677_0");
+                wmessage3temp = stringsetloc("... isn't Susie amazing?", "scr_weaponinfo_slash_scr_weaponinfo_gml_678_0");
+                wmessage4temp = stringsetloc("... Susie beat up an old man!?", "scr_weaponinfo_slash_scr_weaponinfo_gml_679_0");
+                weaponattemp = 12;
+                weapondftemp = 0;
+                weaponmagtemp = 0;
+                weaponboltstemp = 1;
+                weaponstyletemp = "?";
+                weapongrazeamttemp = 0;
+                weapongrazesizetemp = 0;
+                weaponchar1temp = 0;
+                weaponchar2temp = 1;
+                weaponchar3temp = 0;
+                weaponchar4temp = 0;
+                weaponicontemp = 2;
+                weaponabilityicontemp = 5;
+                weaponabilitytemp = "???";
+                value = 0;
+            }
+            else
+            {
+                weaponnametemp = stringsetloc("JusticeAxe", "scr_weaponinfo_slash_scr_weaponinfo_gml_675_0");
+                weapondesctemp = stringsetloc("An axe carved by a hammer.#Doesn't have any special abilities.", "scr_weaponinfo_slash_scr_weaponinfo_gml_676_0");
+                wmessage2temp = stringsetloc("Nice, got some weight to it.", "scr_weaponinfo_slash_scr_weaponinfo_gml_677_0");
+                wmessage3temp = stringsetloc("... Too heavy...!", "scr_weaponinfo_slash_scr_weaponinfo_gml_678_0");
+                wmessage4temp = stringsetloc("Reminds me of the hammer bros.", "scr_weaponinfo_slash_scr_weaponinfo_gml_679_0");
+                weaponattemp = 12;
+                weapondftemp = 0;
+                weaponmagtemp = 0;
+                weaponboltstemp = 1;
+                weaponstyletemp = "?";
+                weapongrazeamttemp = 0;
+                weapongrazesizetemp = 0;
+                weaponchar1temp = 0;
+                weaponchar2temp = 1;
+                weaponchar3temp = 0;
+                weaponchar4temp = 0;
+                weaponicontemp = 2;
+                weaponabilityicontemp = 5;
+                weaponabilitytemp = " ";
+                value = 0;
+                chapter = 4;
+            }
+            
             break;
         
         case 53:
