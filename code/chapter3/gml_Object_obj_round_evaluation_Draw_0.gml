@@ -1924,34 +1924,29 @@ if (con >= 1)
             
             if (boardnumber == 1)
             {
+                if (desiredletter == _zlet)
+                {
+                    AP_sendLocation([256, 119, 118, 117, 116, 115, 179, 247]);
+                }
+
                 if (desiredletter == _tlet)
                 {
-                    AP_sendLocation(119);
-                    AP_sendLocation(118);
-                    AP_sendLocation(117);
-                    AP_sendLocation(116);
-                    AP_sendLocation(115);
+                    AP_sendLocation([119, 118, 117, 116, 115]);
                 }
                 
                 if (desiredletter == _slet)
                 {
-                    AP_sendLocation(118);
-                    AP_sendLocation(117);
-                    AP_sendLocation(116);
-                    AP_sendLocation(115);
+                    AP_sendLocation([118, 117, 116, 115]);
                 }
                 
                 if (desiredletter == _alet)
                 {
-                    AP_sendLocation(117);
-                    AP_sendLocation(116);
-                    AP_sendLocation(115);
+                    AP_sendLocation([117, 116, 115]);
                 }
                 
                 if (desiredletter == _blet)
                 {
-                    AP_sendLocation(116);
-                    AP_sendLocation(115);
+                    AP_sendLocation([116, 115]);
                 }
                 
                 if (desiredletter == _clet)
@@ -1960,34 +1955,29 @@ if (con >= 1)
             
             if (boardnumber == 2)
             {
+                if (desiredletter == _zlet)
+                {
+                    AP_sendLocation([257, 146, 145, 144, 143, 142, 180, 181]);
+                }
+
                 if (desiredletter == _tlet)
                 {
-                    AP_sendLocation(146);
-                    AP_sendLocation(145);
-                    AP_sendLocation(144);
-                    AP_sendLocation(143);
-                    AP_sendLocation(142);
+                    AP_sendLocation([146, 145, 144, 143, 142]);
                 }
                 
                 if (desiredletter == _slet)
                 {
-                    AP_sendLocation(145);
-                    AP_sendLocation(144);
-                    AP_sendLocation(143);
-                    AP_sendLocation(142);
+                    AP_sendLocation([145, 144, 143, 142]);
                 }
                 
                 if (desiredletter == _alet)
                 {
-                    AP_sendLocation(144);
-                    AP_sendLocation(143);
-                    AP_sendLocation(142);
+                    AP_sendLocation([144, 143, 142]);
                 }
                 
                 if (desiredletter == _blet)
                 {
-                    AP_sendLocation(143);
-                    AP_sendLocation(142);
+                    AP_sendLocation([143, 142]);
                 }
                 
                 if (desiredletter == _clet)
