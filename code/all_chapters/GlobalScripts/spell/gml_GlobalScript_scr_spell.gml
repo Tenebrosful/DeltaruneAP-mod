@@ -686,14 +686,16 @@ function scr_spell(arg0, arg1)
             for (var i = 0; i < 3; i++)
             {
                 if (global.char[i] == 0) continue;
-                
+
                 star = i;
                 if (i_ex(global.charinstance[i]))
                     global.charinstance[i].poisonamount = 60;
                 var healanim = scr_healitemspell(40);
+
+                if (healanim != undefined)                
+                    healanim.particlecolor = c_fuchsia;
             }
             snd_play(snd_hurt1);
-            healanim.particlecolor = c_fuchsia;
             item_use = true;
             break;
         
