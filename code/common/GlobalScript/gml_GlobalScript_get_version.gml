@@ -1,5 +1,5 @@
 /// IMPORT
 function get_version()
 {
-  return "#GetVersion()"
+  return #GetVersion();
 }

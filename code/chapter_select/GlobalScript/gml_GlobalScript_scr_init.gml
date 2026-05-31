@@ -9,7 +9,7 @@ function get_version()
 /// CODE
 function get_version()
 {
-    return "#GetVersion()";
+    return #GetVersion();
 }
 /// END
 

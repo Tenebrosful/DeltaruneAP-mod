@@ -13,19 +13,19 @@ UndertaleModLib.Compiler.CodeImportGroup importGroup = new(Data);
 class ArchipelagoLoader : UMPLoader
 {
 
-    private readonly string version = "v2.0.0+pre-release-2a";
+    public readonly string version = "v2.0.0+pre-release-2b";
 
-    private readonly string max_armor = "60";
+    public readonly string max_armor = "60";
 
-    private readonly string max_weapon = "48";
+    public readonly string max_weapon = "48";
 
-    private readonly string max_flag = "2500";
+    public readonly string max_flag = "2500";
 
-    private readonly string max_storage = "72";
+    public readonly string max_storage = "72";
 
     public string GetVersion()
     {
-        return version;
+        return "\"" + version + "\"";
     }
 
     public string GetMaxArmor()
@@ -115,9 +115,9 @@ void BuildMod(int chapter)
     Data.GeneralInfo.Name = Data.Strings.MakeString("DELTARUNEAP");
 
     if (chapter == 0)
-        Data.GeneralInfo.DisplayName = Data.Strings.MakeString($"DELTARUNE Chapter Select - Archipelago {loader.GetVersion()}");
+        Data.GeneralInfo.DisplayName = Data.Strings.MakeString($"DELTARUNE Chapter Select - Archipelago {loader.version}");
     else
-        Data.GeneralInfo.DisplayName = Data.Strings.MakeString($"DELTARUNE Chapter {chapter} - Archipelago {loader.GetVersion()}");
+        Data.GeneralInfo.DisplayName = Data.Strings.MakeString($"DELTARUNE Chapter {chapter} - Archipelago {loader.version}");
 
     string scriptPath = Path.GetDirectoryName(ScriptPath);
 
