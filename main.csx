@@ -13,7 +13,7 @@ UndertaleModLib.Compiler.CodeImportGroup importGroup = new(Data);
 class ArchipelagoLoader : UMPLoader
 {
 
-    private readonly string version = "v2.0.0+pre-release-2";
+    private readonly string version = "v2.0.0+pre-release-2a";
 
     private readonly string max_armor = "60";
 
