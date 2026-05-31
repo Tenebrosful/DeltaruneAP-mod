@@ -253,17 +253,17 @@ function AP_item_classification_color_text(text, flags)
     switch (flags)
     {
         case 0: 
-            return string("\\s0\\cf{0}\\c0", text);
+            return string("\\s0\\cf{0}\\c0^2", text);
         case 1: 
-            return string("\\s0\\cp{0}\\c0", text);
+            return string("\\s0\\cp{0}\\c0^2", text);
         case 2:
-            return string("\\s0\\cu{0}\\c0", text);
+            return string("\\s0\\cu{0}\\c0^2", text);
         case 3:
-            return string("\\s0\\cg{0}\\c0", text);
+            return string("\\s0\\cg{0}\\c0^2", text);
         case 4:
-            return string("\\s0\\ct{0}\\c0", text);
+            return string("\\s0\\ct{0}\\c0^2", text);
         default : 
-            return string("\\s0\\c0{0}\\c0", text);
+            return string("\\s0\\c0{0}\\c0^2", text);
     }
 }
 
