@@ -532,6 +532,7 @@ function AP_game_start_post_connexion()
         global.charweapon[1] = 1;
         global.charweapon[2] = 2;
         global.charweapon[3] = 3;
+        global.charweapon[4] = 12;
     }
     else
     {
