@@ -595,7 +595,7 @@ function scr_itemuse(arg0)
             for (var i = 0; i < 3; i++)
             {
                 var char = global.char[i];
-                if (char == 0) continue;
+                if (char == 0 || global.maxhp[char] <= 0) continue;
 
                 global.hp[char] = max(global.hp[char] - 20, 1);
             }
