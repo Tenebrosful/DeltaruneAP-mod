@@ -233,7 +233,7 @@ function AP_get_location_reward_text(location_id)
 
     var data = variable_struct_get(global.AP_location_item, location_id);
 
-    if (data.playerName == "Yourself")
+    if (data.playerName == "Yourself" || data.playerName == "<yourself>")
         var text = string("your {0}", data.itemName);
     else
         var text = string("{0}'s {1}", data.playerName, data.itemName);
