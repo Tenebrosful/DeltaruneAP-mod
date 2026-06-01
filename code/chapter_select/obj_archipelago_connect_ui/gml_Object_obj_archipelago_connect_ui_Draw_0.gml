@@ -77,31 +77,31 @@ for (var ii = 0; ii < 7; ii++)
             
             case 1:
                 rectangle_color = rgb_to_bgr(hex_to_dec(global.AP_colors.filler));
-                text = "Filler: #" + global.AP_colors.filler;
+                text = "Filler: #" + string(global.AP_colors.filler);
                 i = 1;
                 break;
             
             case 2:
                 rectangle_color = rgb_to_bgr(hex_to_dec(global.AP_colors.progression));
-                text = "Progression: #" + global.AP_colors.progression;
+                text = "Progression: #" + string(global.AP_colors.progression);
                 i = 2;
                 break;
             
             case 3:
                 rectangle_color = rgb_to_bgr(hex_to_dec(global.AP_colors.useful));
-                text = "Useful: #" + global.AP_colors.useful;
+                text = "Useful: #" + string(global.AP_colors.useful);
                 i = 3;
                 break;
             
             case 4:
                 rectangle_color = rgb_to_bgr(hex_to_dec(global.AP_colors.trap));
-                text = "Trap: #" + global.AP_colors.trap;
+                text = "Trap: #" + string(global.AP_colors.trap);
                 i = 4;
                 break;
             
             case 5:
                 rectangle_color = rgb_to_bgr(hex_to_dec(global.AP_colors.useful_progression));
-                text = "Prog/Useful: #" + global.AP_colors.useful_progression;
+                text = "Prog/Useful: #" + string(global.AP_colors.useful_progression);
                 i = 5;
                 break;
 
