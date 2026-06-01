@@ -10,7 +10,8 @@
             msgnextloc("* It's a poorly-drawn design for a game.../", "obj_readable_room1_slash_Other_10_gml_43_0");
             msgnextloc("* Seems the last boss is a creature with giant rainbow wings./", "obj_readable_room1_slash_Other_10_gml_44_0");
             msgnextloc("* Doesn't seem like this game ever saw the light of day.../", "obj_readable_room1_slash_Other_10_gml_45_0");
-            msgnextloc("* Also, \"Archipelago Dragon Blazers Client\" is now 1 hours between each reconnect.../%", "obj_readable_room1_slash_Other_10_gml_45_0")
+            msgnextloc("* Also^1, \"Archipelago Dragon Blazers Client\" is still open./", "obj_readable_room1_slash_Other_10_gml_45_0")
+            msgnextloc("* But^1, it's now waiting an hour between each reconnect attempt.../%", "obj_readable_room1_slash_Other_10_gml_45_0")
 /// END
 
 /// AFTER
