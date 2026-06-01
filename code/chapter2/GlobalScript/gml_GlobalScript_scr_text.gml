@@ -26,7 +26,7 @@
             }
             else
             {
-                global.msg[0] = stringsetloc("*\\s0 (You feel like you shouldn't sleep without \\cBKris\\cW or \\cPSusie\\cW unlocked.)^3/%", "scr_text_slash_scr_text_gml_2665_0_b")
+                global.msg[0] = stringsetloc("*\\s0 (You feel like you shouldn't sleep until either \\cBKris\\cW or \\cPSusie\\cW are unlocked.)^3/%", "scr_text_slash_scr_text_gml_2665_0_b")
             }
             break;
 /// END
