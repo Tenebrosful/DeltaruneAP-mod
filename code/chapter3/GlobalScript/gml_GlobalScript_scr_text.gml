@@ -29,7 +29,7 @@
             }
             else
             {
-                msgsetloc(0, "*\\s0 (You feel like you shouldn't sleep until either \\cBKris\\cW, \\cPSusie\\cW or \\cGRalsei\\cW is unlocked.)/%", "scr_text_slash_scr_text_gml_8487_0");
+                msgsetloc(0, "*\\s0 (You feel like you shouldn't sleep until either \\cBKris\\cW, \\cPSusie\\cW or \\cGRalsei\\cW are unlocked.)/%", "scr_text_slash_scr_text_gml_8487_0");
             }
             break;
 /// END
