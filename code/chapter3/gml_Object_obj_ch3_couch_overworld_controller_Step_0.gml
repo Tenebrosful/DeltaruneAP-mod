@@ -23,6 +23,7 @@
             
             scr_speaker("no_name");
             msgsetloc(0, "* 10 POINTs was added to your SCORE./%", "obj_ch3_couch_overworld_controller_slash_Step_0_gml_67_0");
+            d_make();
 /// CODE
             AP_sendLocation(114);
 /// END
