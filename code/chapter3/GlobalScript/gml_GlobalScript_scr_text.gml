@@ -29,7 +29,7 @@
             }
             else
             {
-                msgsetloc(0, "*\\s0 (You feel like you shouldn't sleep without \\cBKris\\cW, \\cPSusie\\cW or \\cGRalsei\\cW unlocked.)/%", "scr_text_slash_scr_text_gml_8487_0");
+                msgsetloc(0, "*\\s0 (You feel like you shouldn't sleep until either \\cBKris\\cW, \\cPSusie\\cW or \\cGRalsei\\cW is unlocked.)/%", "scr_text_slash_scr_text_gml_8487_0");
             }
             break;
 /// END
@@ -214,7 +214,7 @@
             {
                 if (global.plot < 140)
                 {
-                    msgsetloc(0, "* Go ask him then^1! I'm not gonna just steal it!/%", "obj_npc_room_slash_Other_10_gml_1651_0")
+                    msgsetloc(0, "* Go ask him then^1! I'm not just gonna steal it!/%", "obj_npc_room_slash_Other_10_gml_1651_0")
                 }
                 else
                 {
