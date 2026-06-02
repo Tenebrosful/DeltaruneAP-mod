@@ -151,3 +151,57 @@
             menuTextColorInactive[j] = AP_item_flag_to_color(fusionResultData[j].flags);
             menuTextColorSelected[j] = AP_item_flag_to_color(fusionResultData[j].flags);
 /// END
+
+/// REPLACE
+        global.ambush = dojoEncounterAmbush[menuCoord[0]];
+        global.encounterno = dojoEncounter[menuCoord[0]];
+        global.flag[35] = 1;
+        global.flag[37] = 1;
+        global.flag[38] = 1;
+        global.flag[61] = 1;
+        scr_battle(global.encounterno, 3, 0, 0, 0);
+        
+        with (obj_npc_dojo)
+            con = 10;
+        
+        if (instance_exists(obj_npc_dojo))
+        {
+            obj_npc_dojo.dojoPrizeValue = dojoPrizeValue[menuCoord[0]];
+            obj_npc_dojo.dojoPrizeType = dojoPrizeType[menuCoord[0]];
+            obj_npc_dojo.dojoFlag = dojoFlag[menuCoord[0]];
+            obj_npc_dojo.dojoPrizeName = dojoPrizeName[menuCoord[0]];
+        }
+        
+        instance_destroy();
+/// CODE
+        if ((global.maxhp[1] > 0 || global.maxhp[2] > 0 || global.maxhp[3] > 0) || !(dojoEncounter[menuCoord[0]] == 100 || dojoEncounter[menuCoord[0]] == 71))
+        {
+            global.ambush = dojoEncounterAmbush[menuCoord[0]];
+            global.encounterno = dojoEncounter[menuCoord[0]];
+            global.flag[35] = 1;
+            global.flag[37] = 1;
+            global.flag[38] = 1;
+            global.flag[61] = 1;
+            scr_battle(global.encounterno, 3, 0, 0, 0);
+            
+            with (obj_npc_dojo)
+                con = 10;
+            
+            if (instance_exists(obj_npc_dojo))
+            {
+                obj_npc_dojo.dojoPrizeValue = dojoPrizeValue[menuCoord[0]];
+                obj_npc_dojo.dojoPrizeType = dojoPrizeType[menuCoord[0]];
+                obj_npc_dojo.dojoFlag = dojoFlag[menuCoord[0]];
+                obj_npc_dojo.dojoPrizeName = dojoPrizeName[menuCoord[0]];
+            }
+            
+            instance_destroy();
+        }
+        else
+        {
+            with (obj_npc_dojo)
+                con = 16;
+            
+            instance_destroy();
+        }
+/// END
