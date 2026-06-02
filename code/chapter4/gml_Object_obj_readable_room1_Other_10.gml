@@ -1,5 +1,16 @@
 /// PATCH
 
+/// AFTER
+        msgsetloc(0, "\\EC* (Dude^1, that's the last place we should go right now.)/%", "obj_readable_room1_slash_Other_10_gml_4082_0");
+/// CODE
+        
+        if (global.plot >= 100 && !(global.maxhp[1] > 0 || global.maxhp[2] > 0 || global.maxhp[3] > 0))
+        {
+            scr_speaker("no_name");
+            msgsetloc(0, "* (You should probably unlock either \\cBKris\\cW^1, \\cPSusie\\cW^1, or \\cGRalsei\\cW first.)/%", "obj_readable_room1_slash_Other_10_gml_4077_0");
+        }
+/// END
+
 /// APPEND
 if (room == room_dw_churchc_savepoint)
 {
