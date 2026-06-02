@@ -63,25 +63,6 @@ if (room == room_town_shelter)
     global.msg[0] = scr_84_get_lang_string("obj_readable_room1_slash_Other_10_gml_1383_0");
 
 /// CODE
-if (room == room_forest_savepoint1)
-{
-    if (scr_keyitemcheck(1002))
-    {
-        global.msg[0] = "* (You show the ponman the King Chess Piece.)/";
-        global.msg[1] = "* (You convince the ponman that he told them to move.)/";
-        global.msg[2] = "* (Suddenly...!)/%";
-        global.customflags[4] = 1;
-        
-        with (mywall)
-            instance_destroy();
-    }
-    else
-    {
-        global.msg[0] = "* (This ponman is unmoving.)/";
-        global.msg[1] = "* (Perhaps seeing a King Chess Piece would convince them to leave?)/%";
-    }
-}
-
 if (room == room_forest_area3 && x == 520 && y == 120)
     global.msg[0] = "* (Need the Bake Sale Ticket.)/%";
 

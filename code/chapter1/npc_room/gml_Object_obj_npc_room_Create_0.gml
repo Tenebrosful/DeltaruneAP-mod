@@ -1,21 +1,6 @@
 /// PATCH
 
 /// AFTER
-        {
-            sprite_index = spr_npc_mrelegance;
-        }
-/// CODE
-        
-        if (x >= 500)
-        {
-            sprite_index = spr_ponman_touched;
-            
-            if (global.customflags[4] == 1)
-                instance_destroy();
-        }
-/// END
-
-/// AFTER
         if (x >= 980)
             sprite_index = spr_bakesale_lancer;
 /// CODE

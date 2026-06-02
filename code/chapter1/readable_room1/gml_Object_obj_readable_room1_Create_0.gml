@@ -62,20 +62,6 @@ if (room == room_forest_area3 && x == 520 && y == 120)
     }
 }
 
-if (room == room_forest_savepoint1)
-{
-    if (global.customflags[4] == 0)
-    {
-        mywall = instance_create(x, y, obj_soliddark);
-        mywall.image_xscale = 0.5;
-        mywall.image_yscale = 3;
-    }
-    else
-    {
-        instance_destroy();
-    }
-}
-
 if (room == room_forest_savepoint3)
 {
     if (scr_keyitemcheck(1003) == 0 && global.unlocked_buttons[3] == 0)
