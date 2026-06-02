@@ -424,7 +424,11 @@ function scr_recruit_info(arg0)
             break;
         
         case 60:
+            #if CHAPTER_3
             _sprite = spr_elnina_idle_left;
+            #else
+            _sprite = spr_npc_elnina_idle_left
+            #endif
             _name = stringsetloc("Elnina", "scr_recruit_info_slash_scr_recruit_info_gml_410_0");
             _desc = stringsetloc("The weather girl who really \"makes it rain.\" Like... with water, though.", "scr_recruit_info_slash_scr_recruit_info_gml_411_0");
             _like = stringsetloc("Lanino", "scr_recruit_info_slash_scr_recruit_info_gml_412_0");
@@ -440,7 +444,11 @@ function scr_recruit_info(arg0)
             break;
         
         case 61:
+            #if CHAPTER_3
             _sprite = spr_lanino_idle_left;
+            #else
+            _sprite = spr_npc_lanino_idle_left
+            #endif
             _name = stringsetloc("Lanino", "scr_recruit_info_slash_scr_recruit_info_gml_425_0");
             _desc = stringsetloc("A charming weatherman who can control the weather. Which, seems like cheating.", "scr_recruit_info_slash_scr_recruit_info_gml_426_0");
             _like = stringsetloc("Elnina", "scr_recruit_info_slash_scr_recruit_info_gml_427_0");
