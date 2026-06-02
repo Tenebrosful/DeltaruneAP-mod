@@ -234,15 +234,17 @@ function scr_load_chapter3()
             ossafe_file_text_readln(myfileid);
         }
         
-        for (j = 0; j < 48; j += 1)
+        for (j = 0; j < #GetMaxWeapon(); j += 1)
         {
             global.weapon[j] = ossafe_file_text_read_real(myfileid);
             ossafe_file_text_readln(myfileid);
+        }
+        for (j = 0; j < #GetMaxArmor(); j += 1)
+        {
             global.armor[j] = ossafe_file_text_read_real(myfileid);
             ossafe_file_text_readln(myfileid);
         }
-        
-        for (j = 0; j < 72; j += 1)
+        for (j = 0; j < #GetMaxStorage(); j += 1)
         {
             global.pocketitem[j] = ossafe_file_text_read_real(myfileid);
             ossafe_file_text_readln(myfileid);
@@ -310,7 +312,7 @@ function scr_load_chapter3()
             ossafe_file_text_readln(myfileid);
         }
         
-        for (var i = 0; i < 2500; i += 1)
+        for (var i = 0; i < #GetMaxFlag(); i += 1)
         {
             global.flag[i] = ossafe_file_text_read_real(myfileid);
             ossafe_file_text_readln(myfileid);
@@ -326,32 +328,11 @@ function scr_load_chapter3()
     AP_load();
     global.flag[64] = #GetMaxStorage();
     
-    for (var i = 2000; i < 3999; i++)
-    {
-        trueitm = 0;
-        
-        if (global.customflags[i] == 1)
-        {
-            trueitm = i + 8000;
-            
-            if (trueitm == 10013 || (trueitm >= 10030 && trueitm <= 10031) || (trueitm >= 11005 && trueitm <= 11007) || (trueitm >= 11016 && trueitm <= 11017) || (trueitm >= 11020 && trueitm <= 11021))
-            {
-                if (trueitm == 11021)
-                    trueitm = 10002;
-                
-                if (trueitm != 11007)
-                {
-                    if (trueitm != 11006)
-                        scr_keyitemget(trueitm - 10000);
-                }
-            }
-        }
-    }
-    
     ossafe_file_text_close(myfileid);
     global.lastsavedtime = global.time;
     global.lastsavedlv = global.lv;
     scr_gamestart_chapter_override();
+    scr_tempsave();
     audio_group_set_gain(1, global.flag[15], 0);
     audio_set_master_gain(0, global.flag[17]);
 }

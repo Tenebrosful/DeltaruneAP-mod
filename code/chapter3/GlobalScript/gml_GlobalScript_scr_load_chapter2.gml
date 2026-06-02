@@ -104,19 +104,19 @@ function scr_load_chapter2()
         file_text_readln(myfileid);
     }
 
-    for (j = 0; j < 48; j += 1)
+    for (j = 0; j < #GetMaxWeapon(); j += 1)
     {
         global.weapon[j] = file_text_read_real(myfileid);
         file_text_readln(myfileid);
     }
 
-    for (j = 0; j < 60; j += 1)
+    for (j = 0; j < #GetMaxArmor(); j += 1)
     {
         global.armor[j] = file_text_read_real(myfileid);
         file_text_readln(myfileid);
     }
     
-    for (j = 0; j < 72; j += 1)
+    for (j = 0; j < #GetMaxStorage(); j += 1)
     {
         global.pocketitem[j] = ossafe_file_text_read_real(myfileid);
         ossafe_file_text_readln(myfileid);
@@ -157,7 +157,7 @@ function scr_load_chapter2()
         ossafe_file_text_readln(myfileid);
     }
     
-    for (var i = 0; i < 2500; i += 1)
+    for (var i = 0; i < #GetMaxFlag(); i += 1)
     {
         global.flag[i] = ossafe_file_text_read_real(myfileid);
         ossafe_file_text_readln(myfileid);
