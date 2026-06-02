@@ -81,7 +81,7 @@
                     }
 /// CODE
                     AP_sendLocation(65);
-                    global.customflags[12] = 1;
+                    global.customflags[global.customflagsindexes.mannequin] = true;
                     
                     if (noroom == 0)
                     {
@@ -170,7 +170,7 @@
                 {
                     noroom = 0;
                     
-                    if (global.customflags[10] == 0)
+                    if (global.customflags[global.customflagsindexes.ch2spincake] == 0)
                     {
 /// END
 
@@ -180,7 +180,7 @@
 /// CODE
                                 msgnextloc(string("* (You got {0}.)/%", AP_get_location_reward_text(39)), "scr_text_slash_scr_text_gml_4999_0");
                                 global.flag[313] = 1;
-                                global.customflags[10] = 1;
+                                global.customflags[global.customflagsindexes.ch2spincake] = 1;
                                 AP_sendLocation(39);
 /// END
 
@@ -189,7 +189,7 @@
                                 msgnextloc("* (You got Spincake.)/", "scr_text_slash_scr_text_gml_5009_0");
 /// CODE
                                 msgnextloc(string("* (You got {0}.)/%", AP_get_location_reward_text(39)), "scr_text_slash_scr_text_gml_5009_0");
-                                global.customflags[10] = 1;
+                                global.customflags[global.customflagsindexes.ch2spincake] = 1;
                                 AP_sendLocation(39);
 /// END
 
@@ -226,9 +226,7 @@
                 msgsetloc(0, string("* (You found {0}.)/%", AP_get_location_reward_text(96)), "scr_text_slash_scr_text_gml_5633_0");
                 snd_play(snd_item);
                 AP_sendLocation(96);
-                
-                if (global.customflags[15] == 0)
-                    global.customflags[15] = 1;
+                global.customflags[global.customflagsindexes.tookemptydisk] = 1;
 /// END
 
 /// REPLACE

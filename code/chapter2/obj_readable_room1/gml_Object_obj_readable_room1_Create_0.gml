@@ -16,7 +16,7 @@
         mywall.image_xscale = 2;
         mywall.image_yscale = 4;
         
-        if (global.customflags[13] == 1)
+        if (global.customflags[global.customflagsindexes.mansionreservationused])
         {
             with (mywall)
                 instance_destroy();

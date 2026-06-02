@@ -4,7 +4,7 @@
 if (room == room_dw_cyber_teacup_final)
     depth = 880000;
 
-if (room == room_dw_cyber_teacup_final && global.customflags[11] == 1 && global.plot < 64 && instance_exists(obj_dialoguer) == false)
+if (room == room_dw_cyber_teacup_final && global.customflags[global.customflagsindexes.safetyvestused] == 1 && global.plot < 64 && instance_exists(obj_dialoguer) == false)
 {
     if (y > 1615)
     {

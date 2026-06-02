@@ -72,9 +72,6 @@ if (room == room_castle_darkdoor)
     global.msg[1] = "* (You need the Great Door Key.)/%";
 }
 
-if (room == room_forest_savepoint3)
-    global.msg[0] = "* (You get the feeling that maybe you should get the Castle Key before continuing.)/%";
-
 if (room == room_cc_6f && y < 170)
 {
     global.msg[0] = "* I messed up. please report this/%";

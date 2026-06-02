@@ -25,7 +25,7 @@
         msgsetloc(0, "* Sorry^1, the roller coaster is under construction./", "obj_npc_sign_slash_Other_10_gml_1103_0");
         msgnextloc("* Apparently^1, someone tried to use it anyway.../%", "obj_npc_sign_slash_Other_10_gml_1104_0");
     }
-    else if (global.customflags[11] == 1)
+    else if (global.customflags[global.customflagsindexes.safetyvestused])
     {
         msgsetloc(0, "* Sorry for getting in your way./%", "obj_npc_sign_slash_Other_10_gml_1104_0");
     }
@@ -38,7 +38,7 @@
             msgnextloc("* Oh^1, you guys have safety vests?/", "obj_npc_sign_slash_Other_10_gml_1104_0");
             msgnextloc("* Sorry, you three must work here./", "obj_npc_sign_slash_Other_10_gml_1104_0");
             msgnextloc("* Come on by!/%", "obj_npc_sign_slash_Other_10_gml_1104_0");
-            global.customflags[11] = 1;
+            global.customflags[global.customflagsindexes.safetyvestused] = true;
         }
         else
         {

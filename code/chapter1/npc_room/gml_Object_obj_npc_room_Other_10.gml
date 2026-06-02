@@ -64,7 +64,7 @@ if (room == room_forest_savepoint2)
         {
             global.msg[2] = "* Wait^1, you actually have a ticket?!/";
             global.msg[3] = "* Uh..^1. Hey^1, could you just look over there for a sec?/%";
-            global.customflags[5] = 1;
+            global.customflags[global.customflagsindexes.usebakesaleticket] = 1;
         }
     }
 /// END
@@ -79,7 +79,7 @@ if (room == room_forest_savepoint3)
         scr_ralface(2,8);
         global.msg[3] = "* Here! We found it, don't worry!/";
         scr_noface(4);
-        global.customflags[9] = true;
+        global.customflags[global.customflagsindexes.castlekeyused] = true;
         global.msg[5] = "* Ho great! Quick, let's go to the castle before lightners cross the forest./"
         scr_ralface(6,4);
         global.msg[7] = "* But we are the lightners... Well I'm not but... /"
