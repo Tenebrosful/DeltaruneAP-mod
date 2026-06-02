@@ -83,6 +83,22 @@ global.AP_progressive_weapons = {
     ralsei: true,
     noelle: true,
 }
+global.customflagsindexes = {
+    scarelancer: 1,
+    checkeranimtest: 2,
+    cloverpuzzle: 3,
+    usebakesaleticket: 5
+    brokenkeypartcount: 6,
+    diamondstand: 7,
+    heartstand: 8,
+    castlekeyused: 9,
+    ch2spincake: 10,
+    safetyvestused: 11,
+    mannequin: 12,
+    mansionreservationused: 13,
+    crystalamount: 14,
+    tookemptydisk: 15
+}
 
 for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
 {
