@@ -1,6 +1,9 @@
 /// IMPORT
 function scr_load()
 {
+    if (!file_exists(AP_get_save_folder_prefix() + "filech" + string(global.chapter) + "_" + string(global.filechoice)))
+        exit;
+
     snd_free_all();
     filechoicebk = global.filechoice;
     scr_gamestart();
