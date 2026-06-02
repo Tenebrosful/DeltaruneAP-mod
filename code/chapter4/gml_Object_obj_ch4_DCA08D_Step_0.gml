@@ -32,5 +32,5 @@
     
     c_msgnextloc(string("* (You found {0}.)/%", AP_get_location_reward_text(200)), "obj_ch4_DCA08D_slash_Step_0_gml_1573_0");
     AP_sendLocation(200);
-    
+    global.customflags[38] = true;    
 /// END
