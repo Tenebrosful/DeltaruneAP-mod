@@ -20,14 +20,6 @@ sus_x = x - 60;
 sus_y = y - 94;
 nextroom = 60;
 
-if (scr_havechar(2))
-{
-    scr_setparty(1, 1);
-    kris_only = 0;
-    kris_x = x + 12;
-    kris_y = y - 80;
-}
-
 fake_v = 0;
 siner = 0;
 drawpillar = 1;
