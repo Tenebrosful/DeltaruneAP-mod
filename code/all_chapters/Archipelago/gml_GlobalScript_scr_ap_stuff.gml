@@ -421,8 +421,8 @@ function AP_step()
 
 function AP_load()
 {
-    global.AP_item_got_in_current_chapter = undefined;
-    global.customflags = undefined;
+    global.AP_item_got_in_current_chapter = [];
+    global.customflags = [];
 
     var array_size = ossafe_file_text_read_real(myfileid);
     ossafe_file_text_readln(myfileid);
