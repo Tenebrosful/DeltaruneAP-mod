@@ -29,9 +29,11 @@ function AP_sync_item_from_server()
 function AP_handle_receive_character_unlock(character_id)
 {
   if (global.maxhp[character_id] < 0)
+  {
     global.maxhp[character_id] += 666 + AP_internal_get_character_max_hp(character_id);
-    
-  global.hp[character_id] = global.maxhp[character_id];
+    global.hp[character_id] = global.maxhp[character_id];
+    scr_revive(character_id);
+  }
 }
 
 function AP_internal_get_character_max_hp(character_id)
