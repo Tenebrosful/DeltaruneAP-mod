@@ -30,34 +30,42 @@ function scr_gameover()
         {
             var text = undefined;
 
-            if (global.encounterno > 0)
+            if (global.interact == 2)
             {
-                text = global.AP_name + " died in battle against ";
-
-                var enemies_name = []
-
-                if (global.monstername[0] != " ")
-                    array_push(enemies_name, global.monstername[0])
-                if (global.monstername[1] != " ")
-                    array_push(enemies_name, global.monstername[1])
-                if (global.monstername[2] != " ")
-                    array_push(enemies_name, global.monstername[2])
-
-                switch(array_length(enemies_name))
+                if (scr_have_anycharacter_unlocked())
                 {
-                    case 1:
-                        text += enemies_name[0]
-                        break;
-                    case 2:
-                        text += string_join(" and ", enemies_name[0], enemies_name[1])
-                        break;
-                    case 3:
-                        text += string_join(", ", enemies_name[0], enemies_name[1])
-                        text += " and " + enemies_name[2]
-                        break;
+                    text = global.AP_name + " died in battle against ";
+
+                    var enemies_name = []
+
+                    if (global.monstername[0] != " ")
+                        array_push(enemies_name, global.monstername[0])
+                    if (global.monstername[1] != " ")
+                        array_push(enemies_name, global.monstername[1])
+                    if (global.monstername[2] != " ")
+                        array_push(enemies_name, global.monstername[2])
+
+                    switch(array_length(enemies_name))
+                    {
+                        case 1:
+                            text += enemies_name[0]
+                            break;
+                        case 2:
+                            text += string_join(" and ", enemies_name[0], enemies_name[1])
+                            break;
+                        case 3:
+                            text += string_join(", ", enemies_name[0], enemies_name[1])
+                            text += " and " + enemies_name[2]
+                            break;
+                    }
+
+                    text += "."
+                }
+                else
+                {
+                    text = global.AP_name "entered a battle without any character.";
                 }
 
-                text += "."
             }
 
             obj_archipelago_client.AP_sendDeathlink(text);
