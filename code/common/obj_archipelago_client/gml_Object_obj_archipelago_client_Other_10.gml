@@ -91,7 +91,7 @@ function AP_disconnect()
         global.AP_isAuthenticated = -1;
         network_destroy(global.AP_socket);
         global.AP_socket = -1;
-        global.AP_item_from_server = [];
+        global.AP_item_from_server = undefined;
     }
 }
 
@@ -309,9 +309,7 @@ function AP_heartbeat()
     if (size_send < 0)
     {
         show_debug_message("Failed to heartbeat, connection is probably disconnected");
-        global.AP_isAuthenticated = 1;
-        network_destroy(global.AP_socket);
-        global.AP_socket = -1;
+        AP_disconnect();
     }
 }
 
