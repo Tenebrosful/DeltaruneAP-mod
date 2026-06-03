@@ -63,7 +63,7 @@ function scr_gameover()
                 }
                 else
                 {
-                    text = global.AP_name "entered a battle without any character.";
+                    text = global.AP_name + " entered a battle without any character.";
                 }
 
             }
