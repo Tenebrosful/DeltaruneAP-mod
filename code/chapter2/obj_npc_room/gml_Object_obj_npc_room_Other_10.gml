@@ -73,7 +73,7 @@ if (room == room_dw_mansion_entrance)
         {
             msgnextloc("* It appears you do have a reservation./");
             msgnextloc("* Feel free to enter at any time./%");
-            global.customflags[1global.customflagsindexes.mansionreservationused] = true;
+            global.customflags[global.customflagsindexes.mansionreservationused] = true;
         }
         else
         {
