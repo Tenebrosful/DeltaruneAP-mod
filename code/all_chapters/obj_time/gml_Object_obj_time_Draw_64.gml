@@ -10,10 +10,19 @@ if (scr_debug())
   draw_text(0, 8, "Room: " + string(room) + " (" + string(scr_get_id_by_room_index(room)) + ")")
   draw_text(0, 16, "Interact: " + string(global.interact))
   draw_text(0, 24, "Other Games: " + string(global.AP_other_games))
+  
   if (variable_global_exists("AP_items_waiting_to_receive"))
-    draw_text(0, 32, "Waiting items: " + string(global.AP_items_waiting_to_receive))
+    draw_text(0, 70, "Waiting items: " + string(global.AP_items_waiting_to_receive));
+    
+  if (variable_global_exists("AP_item_from_server"))
+      draw_text(0, 78, "Server items: " + string(global.AP_item_from_server));
+    
+  if (variable_global_exists("AP_item_got_in_current_chapter"))
+      draw_text(0, 85, "In chapter items: " + string(global.AP_item_got_in_current_chapter));
+
   if (variable_global_exists("AP_progressive_current_index"))
     draw_text(0, 40, string(global.AP_progressive_current_index))
+    
   if (variable_global_exists("AP_progressive_weapons_ids"))
     draw_text(0, 48, string(global.AP_progressive_weapons_ids))
 }
