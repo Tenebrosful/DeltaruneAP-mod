@@ -9,7 +9,7 @@
         extflag = "code_entry";
     
     create_hint_paper();
-// END
+/// END
 
 /// REPLACE
 {
@@ -19,5 +19,3 @@
 {
     create_hint_paper();
 /// END
-
-	
