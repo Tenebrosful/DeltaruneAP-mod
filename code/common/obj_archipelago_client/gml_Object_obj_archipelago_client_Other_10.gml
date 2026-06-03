@@ -58,9 +58,8 @@ function AP_connect()
         global.AP_socket = network_create_socket(ws);
 
     var APgame = "DELTARUNE";
-    var tags = ["AP"]
-    if(global.AP_deathlink)
-        array_insert(tags, 1, "DeathLink")
+    var tags = AP_getTags();
+
     var _contents = 
     {
         cmd: "Connect",
@@ -244,15 +243,23 @@ function AP_getDataPackage(games)
     AP_internal_send_packet(_contents);
 }
 
-/// UPDATE TAGS
+function AP_getTags()
+{
+    var tags = ["AP", "NoText"]
 
-function AP_updateTags(){
+    if global.AP_deathlink
+        array_append("Deathlink")
+    
+    return tags
+}
+
+function AP_updateTags()
+{
     if (!AP_isAuthenticated())
         exit;
 
-    var tags = ["AP", "NoText"];
-    if(global.AP_deathlink)
-        array_insert(tags, 1, "DeathLink")
+    var tags = AP_getTags();
+
     var _contents = 
     {
         cmd: "ConnectUpdate",

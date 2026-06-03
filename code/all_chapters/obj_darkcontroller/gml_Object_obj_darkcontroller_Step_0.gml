@@ -859,13 +859,14 @@
                 // Deathlink
                 if (global.submenucoord[30] == 10)
                 {
-                    global.AP_deathlink = !global.AP_deathlink
+                    global.AP_deathlink = !global.AP_deathlink;
+                    obj_archipelago_client.AP_updateTags();
                 }
 
                 // Load the last save
                 if (global.submenucoord[30] == 17)
                 {
-                  scr_load();
+                    scr_load();
                 }
 
                 // Return to chapter select
