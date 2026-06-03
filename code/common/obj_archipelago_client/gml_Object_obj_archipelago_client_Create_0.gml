@@ -87,7 +87,7 @@ global.customflagsindexes = {
     scarelancer: 1,
     checkeranimtest: 2,
     cloverpuzzle: 3,
-    usebakesaleticket: 5
+    usebakesaleticket: 5,
     brokenkeypartcount: 6,
     diamondstand: 7,
     heartstand: 8,
