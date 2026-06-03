@@ -353,7 +353,7 @@ function AP_step()
                 global.interact = 1;
             }
             
-            if (global.interact == 0 && instance_exists(obj_fadein) == 0 && instance_exists(obj_fadeout) == 0 && instance_exists(obj_dialoguer) == 0 && cutscene == 0)
+            if (global.interact == 0 && instance_exists(obj_fadein) == 0 && instance_exists(obj_fadeout) == 0 && instance_exists(obj_dialoguer) == 0 && cutscene == 0 && global.customflags[29] == 0)
             {
                 if (!obj_archipelago_client.AP_isAuthenticated())
                 {
