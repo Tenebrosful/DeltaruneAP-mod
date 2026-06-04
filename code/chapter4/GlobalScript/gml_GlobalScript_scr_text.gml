@@ -63,4 +63,24 @@
             
             break;
         
+        case 2002:
+            global.choicemsg[0] = stringsetloc("#Leave", "scr_text_slash_scr_text_gml_7037_0");
+            global.choicemsg[1] = stringsetloc("#Stay", "scr_text_slash_scr_text_gml_7038_0");
+            global.choicemsg[2] = stringset(" ");
+            global.choicemsg[3] = stringset(" ");
+            scr_speaker("none");
+            msgsetloc(0, "* (You get a bad feeling about leaving without \\cPSusie\\cW unlocked.)/", "obj_climbstartertrig_slash_Step_0_gml_15_0");
+            msgnextloc("* (You feel like \\cYyou will need to know how to wrong warp\\cW to progress.)/", "obj_climbstartertrig_slash_Step_0_gml_15_0");
+            msgnextloc("* (Leave anyway?)/", "obj_climbstartertrig_slash_Step_0_gml_15_0");
+            msgnext("\\C2");
+            break;
+        
+        case 2003:
+            if (global.choice == 0)
+                global.customflags[39] = 1;
+            
+            scr_speaker("no_name");
+            msgset(0, "%%");
+            break;
+        
 /// END
