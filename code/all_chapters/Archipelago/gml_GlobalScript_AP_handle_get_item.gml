@@ -282,7 +282,7 @@ function AP_internal_handle_real_keyitem(realitem_id)
   if (realitem_id == 4)
     item_name = "Broken Key A"
 
-  if ((item_chapter == 0 || global.chapter == item_chapter) && AP_internal_special_key_item(realitem_id))
+  if ((item_chapter == 0 || global.chapter == item_chapter) && !scr_keyitemcheck(realitem_id) && AP_internal_special_key_item(realitem_id))
     scr_keyitemget(realitem_id);
 
   switch(realitem_id)
