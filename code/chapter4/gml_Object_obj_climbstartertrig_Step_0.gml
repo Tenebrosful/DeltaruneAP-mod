@@ -6,10 +6,12 @@
     d_make();
     myinteract = 401;
 /// CODE
-    if (scr_keyitemcheck(31))
+    global.choice = -1;
+    
+    if (scr_keyitemcheck(31) && !scr_havechar(3))
     {
-        scr_speaker("no_name");
-        msgsetloc(0, "* (You have the tools to climb this^1, but you don't know how to use them yet.)/%", "obj_climbstartertrig_slash_Step_0_gml_15_0");
+        global.msc = 2000;
+        scr_text(global.msc);
         d_make();
         myinteract = 401;
     }
