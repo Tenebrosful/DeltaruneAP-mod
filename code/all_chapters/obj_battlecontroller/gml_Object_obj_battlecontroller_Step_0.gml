@@ -28,3 +28,11 @@
             global.hp[i] = round(global.maxhp[i] / 8);
     }
 #endif
+
+/// AFTER
+if (global.myfight == 0)
+{
+/// CODE
+    if (global.charturn == 0 && global.maxhp[global.char[0]] <= 0)
+        scr_nexthero();
+/// END
