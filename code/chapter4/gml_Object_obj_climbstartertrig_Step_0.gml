@@ -8,7 +8,7 @@
 /// CODE
     global.choice = -1;
     
-    if (scr_keyitemcheck(31) && !scr_havechar(3))
+    if (scr_keyitemcheck(31) && scr_havechar(3) == 0 && room == room_dw_church_intropiano)
     {
         global.msc = 2000;
         scr_text(global.msc);
