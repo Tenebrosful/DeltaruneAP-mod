@@ -8,7 +8,14 @@
 /// CODE
     global.choice = -1;
     
-    if (scr_keyitemcheck(31) && scr_havechar(3) == 0 && room == room_dw_church_intropiano)
+    if (scr_keyitemcheck(31) && global.maxhp[2] <= 0 && global.customflags[39] == 0)
+    {
+        global.msc = 2002;
+        scr_text(global.msc);
+        d_make();
+        myinteract = 402;
+    }
+    else if (scr_keyitemcheck(31) && scr_havechar(3) == 0 && room == room_dw_church_intropiano)
     {
         global.msc = 2000;
         scr_text(global.msc);
@@ -38,6 +45,12 @@ if (myinteract == 401 && !d_ex())
     else
         global.interact = 0;
     
+    myinteract = 0;
+}
+
+if (myinteract == 402 && !d_ex())
+{
+    global.interact = 0;
     myinteract = 0;
 }
 
