@@ -248,7 +248,7 @@ function AP_getTags()
     var tags = ["AP", "NoText"]
 
     if global.AP_deathlink
-        array_append("Deathlink")
+        array_push("Deathlink")
     
     return tags
 }
