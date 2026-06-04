@@ -32,8 +32,8 @@ function scr_keyiteminfo(arg0)
             break;
         
         case 4:
-            tempkeyitemdesc = string("It's some parts of a key.#A smith could fix all three parts. ({0}/3)", global.customflags[global.customflagsindexes.brokenkeypartcount]);
-            tempkeyitemname = "Broken Key Parts";
+            tempkeyitemdesc = string("It's {0} part(s) of a key.#A smith could fix all three parts.", global.customflags[global.customflagsindexes.brokenkeypartcount]);
+            tempkeyitemname = "Key Parts";
             tempkeyitemchapter = 1;
             break;
         
