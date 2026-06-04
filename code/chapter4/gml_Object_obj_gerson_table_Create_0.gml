@@ -25,7 +25,7 @@ for (var i = 0; i < 10; i++)
 {
     item[i] = 0;
     itemtype[i] = "item";
-    shopdesc[i] = "";
+    shopdesc[i] = "Will be sent#to the#Multiworld";
 }
 
 for (var i = 0; i < array_length(item_list); i++)
