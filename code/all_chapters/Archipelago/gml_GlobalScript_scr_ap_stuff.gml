@@ -68,11 +68,11 @@ function AP_fill_progressive_weapon_struct()
         if (global.AP_include_chapters[1])
             array_push(global.AP_progressive_weapons_ids.kris, 14); // BounceBlade
 
-        if (global.AP_include_chapters[0] && global.AP_include_unused_items >= 1)
-            array_push(global.AP_progressive_weapons_ids.kris, 8); // Trefoil
-
         if (global.AP_include_chapters[1])
             array_push(global.AP_progressive_weapons_ids.kris, 16); // MechaSaber
+
+        if (global.AP_include_chapters[0] && global.AP_include_unused_items >= 1)
+            array_push(global.AP_progressive_weapons_ids.kris, 8); // Trefoil
 
         if (global.AP_include_chapters[2])
             array_push(global.AP_progressive_weapons_ids.kris, 23); // Saber10
@@ -83,11 +83,11 @@ function AP_fill_progressive_weapon_struct()
         if (global.AP_include_chapters[3])
             array_push(global.AP_progressive_weapons_ids.kris, 53); // Winglade
 
-        if (global.AP_include_chapters[2])
-            array_push(global.AP_progressive_weapons_ids.kris, 26); // Blackshard
-
         if (global.AP_include_chapters[1] && global.AP_include_unused_items >= 1 && (global.AP_ENUM_CHOSEN_ROUTE == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE || global.AP_ENUM_CHOSEN_ROUTE == global.AP_ENUM_CHOSEN_ROUTE.ALL_ROUTES))
             array_push(global.AP_progressive_weapons_ids.kris, 11); // TwistedSwd
+
+        if (global.AP_include_chapters[2])
+            array_push(global.AP_progressive_weapons_ids.kris, 26); // Blackshard
         
         if (global.AP_include_unused_items == 1)
             array_push(global.AP_progressive_weapons_ids.kris, 4); // EverybodyWeapon
