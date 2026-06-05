@@ -353,7 +353,7 @@ function AP_step()
                 global.interact = 1;
             }
             
-            if (global.interact == 0 && instance_exists(obj_fadein) == 0 && instance_exists(obj_fadeout) == 0 && instance_exists(obj_dialoguer) == 0 && cutscene == 0 && global.customflags[29] == 0)
+            if (AP_can_receive_item())
             {
                 if (!obj_archipelago_client.AP_isAuthenticated())
                 {
@@ -618,4 +618,49 @@ function AP_game_start_post_connexion()
     global.hp[2] = global.maxhp[2];
     global.hp[3] = global.maxhp[3];
     global.hp[4] = global.maxhp[4];
+}
+
+function AP_can_receive_item()
+{
+    return global.AP_skip_item_textboxes ||
+    (
+        global.interact == 0
+        && !instance_exists(obj_fadein)
+        && !instance_exists(obj_fadeout)
+        && !instance_exists(obj_dialoguer)
+        && !cutscene
+        && !AP_chapter_specific_item_receive_blacklist()
+    );
+}
+
+function AP_chapter_specific_item_receive_blacklist()
+{
+    switch(global.chapter)
+    {
+        case 3:
+            switch(room)
+            {
+                case room_board_1:
+                case room_board_1_sword:
+                case room_board_2:
+                case room_board_2_sword:
+                case room_board_3_sword:
+                case room_board_dungeon_2:
+                case room_board_dungeon_3:
+                case room_board_preshadowmantle:
+                case room_board_prepostshadowmantle:
+                case room_board_postshadowmantle:
+                case room_board_preshadowmantle_repeat:
+                case room_dw_chef:
+                case room_dw_chef_empty:
+                case room_dw_rhythm:
+                case room_dw_rhythm_empty:
+                case room_dw_rhythm_countdown:
+                    return false;
+            }
+            break;
+        case 4:
+            if (i_ex(obj_climb_kris)) return false;
+            break;
+    }
 }
