@@ -44,6 +44,7 @@ if (ds_map_exists(async_load, "buffer"))
 
                     global.AP_slot = data[i].slot;
                     global.AP_isAuthenticated = 2;
+                    global.AP_connection_errors = undefined;
                     show_debug_message("Login successful!");
 
                     global.AP_all_locations_ids = array_concat(data[i].missing_locations, data[i].checked_locations);
@@ -154,6 +155,10 @@ if (ds_map_exists(async_load, "buffer"))
                 
                 case "ConnectionRefused":
                     global.AP_isAuthenticated = 1;
+                    if (variable_struct_exists(data[i], "errors"))
+                    {
+                        global.AP_connection_errors = data[i].errors
+                    }
                     show_debug_message("Login failed");
                     network_destroy(global.AP_socket);
                     global.AP_socket = -1;

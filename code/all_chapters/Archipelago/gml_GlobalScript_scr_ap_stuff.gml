@@ -339,7 +339,7 @@ function AP_step()
             }
             else if (wait == 1 && !obj_archipelago_client.AP_isAuthenticated() && instance_exists(obj_dialoguer) == 0)
             {
-                script_execute(scr_writetext, 0, "\\s0* (Connection failed. We are gonna try to reconnect after this textbox...)/%", 0, 6);
+                script_execute(scr_writetext, 0, string("\\s0* (Connection failed ({0}). We are gonna try to reconnect after this textbox...)/%", global.AP_connection_errors == undefined ? "unknown" : string(global.AP_connection_errors)), 0, 6);
 
                 if (!instance_exists(obj_archipelago_client))
                 {

@@ -55,6 +55,7 @@ global.AP_include_chapters = [];
 global.AP_balancing = false;
 global.AP_multiworld = 0;
 global.AP_all_locations_ids = [];
+global.AP_connection_errors = undefined;
 global.AP_colors = 
 {
     filler: "00FFFF",

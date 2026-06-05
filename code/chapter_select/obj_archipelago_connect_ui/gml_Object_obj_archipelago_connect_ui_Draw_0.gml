@@ -147,7 +147,7 @@ if (connect && page == 0)
         
         case 1:
             draw_set_color(c_red);
-            connected = "> Authentification failed.";
+            connected = string("> Authentification failed. ({0})", string(global.AP_connection_errors)) ;
             break;
         
         case 2:
