@@ -380,7 +380,11 @@ function AP_step()
                 if (index >= array_length(global.AP_items_waiting_to_receive))
                 {
                     global.AP_items_waiting_to_receive = undefined;
-                    global.AP_skip_item_textboxes = false;
+                    if (global.AP_skip_item_textboxes)
+                    {
+                        global.AP_skip_item_textboxes = false;
+                        scr_tempsave();
+                    }
                 }
                 
                 if (variable_global_exists("AP_items_waiting_to_receive") && global.AP_items_waiting_to_receive != undefined && array_length(global.AP_items_waiting_to_receive) > 0)
