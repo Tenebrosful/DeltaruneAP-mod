@@ -50,7 +50,7 @@ function scr_spelltext(arg0, arg1)
         case 6:
             global.msg[0] = stringsetsubloc("* ~1 and Susie cast DUAL HEAL!/%", global.charname[2], "scr_spelltext_slash_scr_spelltext_gml_51_0");
             
-            if ((i_ex(obj_titan_enemy) && obj_titan_enemy.dualhealcount < 4) || (i_ex(obj_titan_spawn_enemy) && obj_titan_spawn_enemy.dualhealcount < 4))
+            if (global.chapter == 4 && ((i_ex(obj_titan_enemy) && obj_titan_enemy.dualhealcount < 4) || (i_ex(obj_titan_spawn_enemy) && obj_titan_spawn_enemy.dualhealcount < 4)))
                 global.msg[0] = stringsetsubloc("* ~1 and Susie cast DUAL HEAL! Effectiveness of DUAL HEAL has lowered!/%", global.charname[2], "scr_spelltext_slash_scr_spelltext_gml_58_0_b");
             
             break;
