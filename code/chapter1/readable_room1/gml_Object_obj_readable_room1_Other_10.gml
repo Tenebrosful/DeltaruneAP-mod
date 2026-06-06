@@ -76,7 +76,7 @@ if (room == room_cc_6f && y < 170)
 {
     global.msg[0] = "* I messed up. please report this/%";
     
-    if (global.MacGuffin_count < global.AP_macguffin_required[0])
+    if (global.MacGuffin_count < global.AP_macguffin_required[global.chapter - 1])
     {
         global.msg[0] = "* (The door is locked.)/";
         global.msg[1] = "* (It seems you need more King-Shaped Key Pieces.)/%";

@@ -25,7 +25,7 @@ if (room == room_dw_churchc_savepoint)
     {
         msgsetloc(0, "* (The door seems to be locked with a combination lock.)/", "obj_readable_room1_slash_Other_10_gml_4885_0");
         
-        if (global.MacGuffin_count >= global.AP_macguffin_required[3])
+        if (global.MacGuffin_count >= global.AP_macguffin_required[global.chapter - 1])
         {
             msgnextloc("* (Luckily, you have enough Combination Lock Digits to unlock this.)/%", "obj_readable_room1_slash_Other_10_gml_4886_0");
             global.customflags[33] = 1;
