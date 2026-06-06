@@ -1853,7 +1853,7 @@ function scr_text(arg0)
             {
                 which = 0;
                 
-                if (global.customflags[global.customflagsindexes.brokenkeypartcount] == 3 && scr_keyitemcheck(4))
+                if (global.customflags[global.custom_flags_indexes.broken_key_part_count] == 3 && scr_keyitemcheck(4))
                     which = 3;
                 
                 if (scr_keyitemcheck(3) && which == 0)
@@ -1910,7 +1910,7 @@ function scr_text(arg0)
             break;
         
         case 325:
-            if (global.customflags[global.customflagsindexes.diamondstand])
+            if (global.customflags[global.custom_flags_indexes.diamond_stand_bought])
             {
                 global.msg[0] = "* Thanks for buying, I guess./%";
             }
@@ -1935,7 +1935,7 @@ function scr_text(arg0)
                 if (global.gold >= 40)
                 {
                     AP_sendLocation(7);
-                    global.customflags[global.customflagsindexes.diamondstand] = 1;
+                    global.customflags[global.custom_flags_indexes.diamond_stand_bought] = 1;
                     
                     if (noroom == 0)
                     {
@@ -1960,7 +1960,7 @@ function scr_text(arg0)
             break;
         
         case 327:
-            if (global.customflags[global.customflagsindexes.heartstand])
+            if (global.customflags[global.custom_flags_indexes.heart_stand_bought])
             {
                 global.msg[0] = "* (Hathy seems grateful of your purchase.)/%";
                 break;
@@ -1984,7 +1984,7 @@ function scr_text(arg0)
                 if (global.gold >= 40)
                 {
                     AP_sendLocation(8);
-                    global.customflags[global.customflagsindexes.heartstand] = true;
+                    global.customflags[global.custom_flags_indexes.heart_stand_bought] = true;
                     
                     if (noroom == 0)
                     {
@@ -3230,7 +3230,7 @@ function scr_text(arg0)
             global.msg[0] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3087_0");
             global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3088_0");
             
-            if (global.customflags[global.customflagsindexes.usebakesaleticket] == 1)
+            if (global.customflags[global.custom_flags_indexes.use_bake_sale_ticket] == 1)
             {
                 global.choicemsg[2] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3092_0");
                 global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3093_0");

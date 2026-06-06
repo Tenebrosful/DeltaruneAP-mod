@@ -9,7 +9,7 @@
         {
             sprite_index = spr_bakesale_pippins;
             
-            if (global.customflags[global.customflagsindexes.usebakesaleticket] == 1)
+            if (global.customflags[global.custom_flags_indexes.use_bake_sale_ticket] == 1)
                 instance_destroy();
         }
 /// END
@@ -19,7 +19,7 @@ if (room == room_forest_savepoint3)
 {
     sprite_index = spr_diamondm_idle;
 
-    if (global.customflags[global.customflagsindexes.castlekeyused])
+    if (global.customflags[global.custom_flags_indexes.castle_key_used])
         instance_destroy();
 }
 /// END

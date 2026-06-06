@@ -32,7 +32,7 @@ function scr_keyiteminfo(arg0)
             break;
         
         case 4:
-            tempkeyitemdesc = string("It's {0} part(s) of a key.#A smith could fix all three parts.", global.customflags[global.customflagsindexes.brokenkeypartcount]);
+            tempkeyitemdesc = string("It's {0} part(s) of a key.#A smith could fix all three parts.", global.customflags[global.custom_flags_indexes.broken_key_part_count]);
             tempkeyitemname = "Key Parts";
             tempkeyitemchapter = 1;
             break;
@@ -146,7 +146,7 @@ function scr_keyiteminfo(arg0)
             break;
         
         case 13:
-            var crystal_amount = global.customflags[global.customflagsindexes.crystalamount];
+            var crystal_amount = global.customflags[global.custom_flags_indexes.shadow_crystal_amount];
             tempkeyitemusable = 1;
             tempkeyitemdesc = stringsetsubloc("A sharp shadow moves like water in the hand.#You have collected [~1].", crystal_amount, "scr_keyiteminfo_slash_scr_keyiteminfo_gml_70_0");
             tempkeyitemname = stringsetloc("ShadowCrystal", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_71_0");

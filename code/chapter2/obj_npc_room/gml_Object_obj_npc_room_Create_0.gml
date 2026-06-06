@@ -16,7 +16,7 @@
 /// CODE
         if (x > 1000)
         {
-            if (global.flag[309] == 9 && global.customflags[global.customflagsindexes.mannequin])
+            if (global.flag[309] == 9 && global.customflags[global.custom_flags_indexes.mannequin_bought])
 /// END
 
 /// APPEND
@@ -25,7 +25,7 @@ if (room == room_dw_mansion_entrance)
     sprite_index = spr_butler;
     image_speed = 0;
     
-    if (global.customflags[global.customflagsindexes.mansionreservationused])
+    if (global.customflags[global.custom_flags_indexes.mansion_reservation_used])
         instance_destroy();
 }
 

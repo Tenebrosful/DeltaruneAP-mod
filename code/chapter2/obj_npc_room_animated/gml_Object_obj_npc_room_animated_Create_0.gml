@@ -3,13 +3,13 @@
 /// REPLACE
     if (scr_keyitemcheck(10) == 0)
 /// CODE
-    if (!global.customflags[global.customflagsindexes.tookemptydisk])
+    if (!global.customflags[global.custom_flags_indexes.took_emptydisk])
 /// END
 
 /// REPLACE
     if (scr_keyitemcheck(10) == 1 || global.flag[309] >= 7)
 /// CODE
-    if (global.customflags[global.customflagsindexes.tookemptydisk] || global.flag[309] >= 7)
+    if (global.customflags[global.custom_flags_indexes.took_emptydisk] || global.flag[309] >= 7)
 /// END
 
 /// APPEND

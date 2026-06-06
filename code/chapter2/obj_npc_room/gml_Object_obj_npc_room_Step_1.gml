@@ -1,7 +1,7 @@
 /// PATCH
 
 /// APPEND
-if (room == room_dw_mansion_entrance && global.customflags[global.customflagsindexes.mansionreservationused] && instance_exists(obj_dialoguer) == false)
+if (room == room_dw_mansion_entrance && global.customflags[global.custom_flags_indexes.mansion_reservation_used] && instance_exists(obj_dialoguer) == false)
 {
     if (x < 970)
     {

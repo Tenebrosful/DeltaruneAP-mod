@@ -84,21 +84,19 @@ global.AP_progressive_weapons = {
     ralsei: true,
     noelle: true,
 }
-global.customflagsindexes = {
-    scarelancer: 1,
-    checkeranimtest: 2,
-    cloverpuzzle: 3,
-    usebakesaleticket: 5,
-    brokenkeypartcount: 6,
-    diamondstand: 7,
-    heartstand: 8,
-    castlekeyused: 9,
-    ch2spincake: 10,
-    safetyvestused: 11,
-    mannequin: 12,
-    mansionreservationused: 13,
-    crystalamount: 14,
-    tookemptydisk: 15
+global.custom_flags_indexes = {
+    use_bake_sale_ticket: 5,
+    broken_key_part_count: 6,
+    diamond_stand_bought: 7,
+    heart_stand_bought: 8,
+    castle_key_used: 9,
+    got_spincake_ch2: 10,
+    safety_vest_used: 11,
+    mannequin_bought: 12,
+    mansion_reservation_used: 13,
+    shadow_crystal_amount: 14,
+    took_emptydisk: 15,
+    remote_battery_used: 28
 }
 
 for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)

@@ -25,7 +25,7 @@
 /// CODE
     if (sprite_index == spr_npc_addison_orange)
     {
-        if (global.customflags[global.customflagsindexes.mannequin])
+        if (global.customflags[global.custom_flags_indexes.mannequin_bought])
         {
             if (global.plot < 85)
             {
@@ -73,7 +73,7 @@ if (room == room_dw_mansion_entrance)
         {
             msgnextloc("* It appears you do have a reservation./");
             msgnextloc("* Feel free to enter at any time./%");
-            global.customflags[global.customflagsindexes.mansionreservationused] = true;
+            global.customflags[global.custom_flags_indexes.mansion_reservation_used] = true;
         }
         else
         {

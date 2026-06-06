@@ -1,7 +1,7 @@
 /// PATCH
 
 /// APPEND
-if (global.customflags[global.customflagsindexes.castlekeyused] && room == room_forest_savepoint3 && x < 680 && instance_exists(obj_dialoguer) == false)
+if (global.customflags[global.custom_flags_indexes.castle_key_used] && room == room_forest_savepoint3 && x < 680 && instance_exists(obj_dialoguer) == false)
 {
     if (image_xscale > 0)
     {

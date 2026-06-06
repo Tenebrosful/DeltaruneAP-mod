@@ -58,11 +58,11 @@
 /// REPLACE
         if (scr_keyitemcheck(10) == 0 && instance_exists(obj_npc_room_animated))
 /// CODE
-        if (!global.customflags[global.customflagsindexes.tookemptydisk]&& instance_exists(obj_npc_room_animated))
+        if (!global.customflags[global.custom_flags_indexes.took_emptydisk]&& instance_exists(obj_npc_room_animated))
 /// END
 
 /// REPLACE
         if (scr_keyitemcheck(10) == 1 && scr_keyitemcheck(11) == 0)
 /// CODE
-        if (global.customflags[global.customflagsindexes.tookemptydisk] && scr_keyitemcheck(11) == 0)
+        if (global.customflags[global.custom_flags_indexes.took_emptydisk] && scr_keyitemcheck(11) == 0)
 /// END

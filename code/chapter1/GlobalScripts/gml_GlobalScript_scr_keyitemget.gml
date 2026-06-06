@@ -2,7 +2,7 @@
 function scr_keyitemget(arg0)
 {
     if (arg0 == 13)
-        global.customflags[global.customflagsindexes.crystalamount] += 1;
+        global.customflags[global.custom_flags_indexes.shadow_crystal_amount] += 1;
     
     if (scr_keyitemcheck(13) == 0 || arg0 != 13)
     {
@@ -11,7 +11,7 @@ function scr_keyitemget(arg0)
         if (item == 4 || item == 6 || item == 7)
         {
             item = 4;
-            global.customflags[global.customflagsindexes.brokenkeypartcount] += 1;
+            global.customflags[global.custom_flags_indexes.broken_key_part_count] += 1;
         }
         
         if (scr_keyitemcheck(4) == 0 || item != 4)

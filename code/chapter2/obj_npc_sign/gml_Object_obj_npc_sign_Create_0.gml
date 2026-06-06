@@ -3,7 +3,7 @@
 /// REPLACE
     if (scr_armorcheck_inventory(16) == 1 || scr_armorcheck_equipped(1, 16) == 1)
 /// CODE
-    if (global.customflags[global.customflagsindexes.mannequin])
+    if (global.customflags[global.custom_flags_indexes.mannequin_bought])
 /// END
 
 /// REPLACE
@@ -17,7 +17,7 @@
     image_speed = 0;
     depth = 880000;
     
-    if (global.customflags[global.customflagsindexes.safetyvestused] && global.plot < 64)
+    if (global.customflags[global.custom_flags_indexes.safety_vest_used] && global.plot < 64)
         y = 1615;
     
     depth = 880000;

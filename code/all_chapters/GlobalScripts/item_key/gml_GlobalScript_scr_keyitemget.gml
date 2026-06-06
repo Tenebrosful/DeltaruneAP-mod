@@ -6,7 +6,7 @@ function scr_keyitemget(arg0)
         arg0 = 4;
 
     if (arg0 == 13)
-        global.customflags[global.customflagsindexes.crystalamount] += 1;
+        global.customflags[global.custom_flags_indexes.shadow_crystal_amount] += 1;
     
     if (scr_keyitemcheck(13) == 0 || arg0 != 13)
     {
