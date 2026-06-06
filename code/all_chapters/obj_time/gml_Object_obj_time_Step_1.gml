@@ -19,11 +19,9 @@ if (scr_debug())
         else
             room_speed = 30;
     }
+
+    if (keyboard_check_pressed(ord("U")))
+        global.interact = 0
 }
 /// END
 #endif
-
-/// APPEND
-if (keyboard_check_pressed(ord("U")))
-    global.interact = 0
-/// END
