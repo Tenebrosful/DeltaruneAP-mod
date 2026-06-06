@@ -80,6 +80,9 @@ function AP_connect()
 
     isConnected = network_connect_raw(global.AP_socket, global.AP_server, global.AP_port);
 
+    if (!isConnected)
+        global.AP_isAuthenticated = -2
+
     AP_internal_send_packet(_contents);
 }
 
@@ -281,7 +284,7 @@ function AP_internal_send_packet(content)
     // var compressed_buffer = buffer_compress(buffer, 0, buffer_tell(buffer));
     // var size_send = network_send_raw(global.AP_socket, compressed_buffer, buffer_tell(compressed_buffer), 2);
 
-    if (size_send < 0)
+    if (AP_isAuthenticated() && size_send < 0)
     {
         AP_heartbeat();
     }

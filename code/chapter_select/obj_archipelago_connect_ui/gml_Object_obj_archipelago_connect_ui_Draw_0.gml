@@ -138,6 +138,11 @@ if (connect && page == 0)
         default:
             connected = "> Connecting...";
             break;
+
+        case -2:
+            draw_set_color(c_red);
+            connected = "> Connection failed.\nCheck host and port" ;
+            break;
         
         case 1:
             draw_set_color(c_red);
