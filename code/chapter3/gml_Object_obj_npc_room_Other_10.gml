@@ -47,7 +47,7 @@ if (room == room_dw_teevie_intro)
     
     if (extflag == "zapper_cold")
     {
-        if (global.flag[1055] < 6 && !global.AP_no_mantle)
+        if (global.flag[1055] < 6 && !global.AP_no_mantle && global.AP_secret_bosses_mandatory)
         {
             scr_speaker("no_name");
             msgsetloc(0, "* Hey^1! Youse the lightners!/", "obj_npc_room_slash_Other_10_gml_1651_0");
@@ -72,13 +72,13 @@ if (room == room_dw_teevie_intro)
                 msgnextloc("* I would let yah through^1, but I'm nearly outta charge^1.&* I can't move!/", "obj_npc_room_slash_Other_10_gml_1652_0");
                 msgnextloc("* Any chance yah three got some more remote batteries?/", "obj_npc_room_slash_Other_10_gml_1652_0");
                 
-                if (global.MacGuffin_count >= global.AP_macguffin_required[2])
+                if (global.MacGuffin_count >= global.AP_macguffin_required[global.chapter - 1])
                 {
                     msgnextloc("* (You gave the Zapper all of your Remote Batteries...)/", "obj_npc_room_slash_Other_10_gml_1652_0");
                     msgnextloc("* Ah^1, thank you very much^1!/", "obj_npc_room_slash_Other_10_gml_1652_0");
                     msgnextloc("* Now would yah mind giving me some privacy^1?/", "obj_npc_room_slash_Other_10_gml_1652_0");
                     msgnextloc("* Putting in batteries is..^1. awkward with othah people around./%", "obj_npc_room_slash_Other_10_gml_1652_0");
-                    global.customflags[28] = 1;
+                    global.customflags[global.custom_flags_indexes.remote_battery_used] = 1;
                 }
                 else
                 {
