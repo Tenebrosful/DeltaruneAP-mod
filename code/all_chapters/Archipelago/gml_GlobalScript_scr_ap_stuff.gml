@@ -656,11 +656,12 @@ function AP_chapter_specific_item_receive_blacklist()
                 case room_dw_rhythm:
                 case room_dw_rhythm_empty:
                 case room_dw_rhythm_countdown:
-                    return false;
+                case room_dw_b3bs_bibliox:
+                    return true;
             }
             break;
         case 4:
-            if (i_ex(obj_climb_kris)) return false;
+            if (i_ex(obj_climb_kris)) return true;
             break;
     }
 }
