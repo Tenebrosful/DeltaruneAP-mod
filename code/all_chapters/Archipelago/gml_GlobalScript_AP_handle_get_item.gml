@@ -116,11 +116,6 @@ function AP_internal_get_character_max_hp(character_id)
 
 function AP_handle_receive_item(item_id)
 {
-  global.interact = 1;
-  global.typer = 6;
-  global.fc = 0;
-  global.fe = 0;
-  showingitem = 1;
   if (!global.AP_skip_item_textboxes)
   {
     global.interact = 1;
