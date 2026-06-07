@@ -195,6 +195,10 @@
             {
                 global.interact = 0;
                 global.retry_board = true;
+                // Keys
+                global.flag[1122] = 0;
+                // Battles
+                global.flag[1049] = 0;
                 room_goto(room_board_1);
             }
             else if (global.choice == 1)
@@ -207,6 +211,20 @@
                 {
                     global.interact = 0;
                     global.retry_board = true;
+                    // Photos
+                    global.flag[1041] = false
+                    global.flag[1042] = false
+                    global.flag[1043] = false
+                    global.flag[1227] = false
+                    // Moss
+                    global.flag[1078] = false
+                    // Battle
+                    global.flag[1171] = 0;
+                    global.flag[1116] = 0;
+                    // Points
+                    global.flag[1117] = 0;
+                    // Challenge
+                    global.flag[1118] = 0;
                     room_goto(room_board_2);
                 }
             }

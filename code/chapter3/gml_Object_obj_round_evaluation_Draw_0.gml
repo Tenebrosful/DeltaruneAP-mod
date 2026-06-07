@@ -1817,25 +1817,20 @@ if (con >= 1)
                 btext[0] = "none";
                 btext[1] = "none";
                 
-                if (global.customflags[35] == 0)
+                if (extrapicturecount)
                 {
-                    if (extrapicturecount)
-                    {
-                        btext[0] = extraphoto;
-                        AP_sendLocation(180);
-                    }
+                    btext[0] = extraphoto;
+                    AP_sendLocation(180);
+                }
+                
+                if (mossfound)
+                {
+                    if (btext[0] == "none")
+                        btext[0] = atemoss;
+                    else
+                        btext[1] = atemoss;
                     
-                    if (mossfound)
-                    {
-                        if (btext[0] == "none")
-                            btext[0] = atemoss;
-                        else
-                            btext[1] = atemoss;
-                        
-                        AP_sendLocation(181);
-                    }
-                    
-                    global.customflags[35] = 1;
+                    AP_sendLocation(181);
                 }
                 
                 if (extrapicturecount)
