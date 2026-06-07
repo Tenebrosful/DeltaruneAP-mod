@@ -15,6 +15,8 @@ class ArchipelagoLoader : UMPLoader
 
     public readonly string version = "v2.0.0+pre-release-3";
 
+    public readonly string[] client_version = ["2", "0", "1"];
+
     public readonly string max_armor = "60";
 
     public readonly string max_weapon = "48";
@@ -25,7 +27,12 @@ class ArchipelagoLoader : UMPLoader
 
     public string GetVersion()
     {
-        return "\"" + version + "\"";
+        return $"\"{version}\"";
+    }
+
+    public string GetClientVersion()
+    {
+        return $"[\"{client_version[0]}\", \"{client_version[1]}\", \"{client_version[2]}\"]";
     }
 
     public string GetMaxArmor()

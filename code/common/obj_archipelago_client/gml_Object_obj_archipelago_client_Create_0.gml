@@ -17,7 +17,7 @@ global.AP_ENUM_RANDOMIZE_CHAPTER = {
     ALL_UNLOCKED: 2
 }
 
-global.AP_version = ["1", "2", "2"];
+global.AP_version = #GetClientVersion();
 global.AP_isAuthenticated = -1;
 global.AP_heartbeat_timer = 10 * 30;
 global.AP_socket = -1;
