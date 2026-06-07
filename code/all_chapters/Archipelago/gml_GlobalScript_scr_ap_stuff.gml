@@ -415,7 +415,6 @@ function AP_step()
             canshowtext = 1;
         }
         
-        if (showingitem == 1 && instance_exists(obj_dialoguer) == 0 && cutscene == 0)
         if (showingitem && !instance_exists(obj_dialoguer) && !cutscene)
         {
             if (!global.AP_skip_item_textboxes)
