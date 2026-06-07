@@ -416,8 +416,10 @@ function AP_step()
         }
         
         if (showingitem == 1 && instance_exists(obj_dialoguer) == 0 && cutscene == 0)
+        if (showingitem && !instance_exists(obj_dialoguer) && !cutscene)
         {
-            global.interact = 0;
+            if (!global.AP_skip_item_textboxes)
+                global.interact = 0;
             showingitem = 0;
         }
     }
