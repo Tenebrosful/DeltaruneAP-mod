@@ -168,7 +168,7 @@ function AP_update_current_room(room_name)
     }
     
     if(!obj_archipelago_client.AP_isAuthenticated())
-        obj_archipelago_client.AP_connect();
+        exit;
 
     obj_archipelago_client.AP_setDataStorage("current_room", room_name)
 }
