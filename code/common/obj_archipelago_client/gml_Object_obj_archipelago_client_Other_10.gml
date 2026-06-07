@@ -128,17 +128,22 @@ function AP_sendLocation(ids)
 
 function AP_completeChapter(chapter_number)
 {
+    AP_setDataStorage(string(global.AP_slot) + "_chapter_" + string(chapter_number) + "_completed", 1)
+}
+
+function AP_setDataStorage(key, value, operation = "replace", want_reply = false, default_value = 0)
+{
     if (!AP_isAuthenticated())
         exit;
 
-    var _contents = 
+    var _contents =
     {
         cmd: "Set",
-        key: string(global.AP_slot) + "_chapter_" + string(chapter_number) + "_completed",
-        default: 0,
-        want_reply: false,
-        operations: [{operation: "replace", value: 1}]
-    };
+        key: key,
+        default: default_value,
+        want_reply: want_reply,
+        operations: [{operation: operation, value: value}]
+    }
 
     AP_internal_send_packet(_contents);
 }

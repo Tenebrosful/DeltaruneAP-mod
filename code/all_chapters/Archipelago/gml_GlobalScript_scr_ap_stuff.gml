@@ -160,6 +160,19 @@ function AP_fill_progressive_weapon_struct()
     }
 }
 
+function AP_update_current_room(room_name)
+{
+    if (!instance_exists(obj_archipelago_client))
+    {
+        instance_create(0, 0, obj_archipelago_client);
+    }
+    
+    if(!obj_archipelago_client.AP_isAuthenticated())
+        obj_archipelago_client.AP_connect();
+
+    obj_archipelago_client.AP_setDataStorage("current_room", room_name)
+}
+
 function AP_complete_chapter(chapter_number)
 {
     if (!instance_exists(obj_archipelago_client))
