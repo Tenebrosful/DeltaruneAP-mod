@@ -52,6 +52,14 @@
 
 #if CHAPTER_4
 /// REPLACE
+                if (i_ex(obj_climb_kris))
+                    skipthis = true;
+/// CODE
+                if (i_ex(obj_climb_kris) || room == room_dw_church_staircase)
+                    skipthis = true;
+/// END
+
+/// REPLACE
             if (__targx == -1)
             {
                 __targx = global.charinstance[target].x;
