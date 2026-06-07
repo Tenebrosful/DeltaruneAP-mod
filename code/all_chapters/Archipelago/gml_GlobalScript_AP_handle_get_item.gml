@@ -386,6 +386,7 @@ function AP_internal_print_get_item_text_special(item_id)
 {
   switch (item_id) {
     case 1005: // Moss Chapter 1
+    global.maxhp[1]++;
       global.hp[1] = global.maxhp[1];
       if (!global.AP_skip_item_textboxes)
       {
@@ -401,14 +402,15 @@ function AP_internal_print_get_item_text_special(item_id)
       break;
 
     case 1007: // Moss Chapter 2
+      global.maxhp[1]++;
       global.hp[1] = global.maxhp[1];
-      global.msc = 0;
-      global.typer = 6;
-      global.fc = 0;
-      global.fe = 0;
-      global.interact = 1;
       if (!global.AP_skip_item_textboxes)
       {
+        global.msc = 0;
+        global.typer = 6;
+        global.fc = 0;
+        global.fe = 0;
+        global.interact = 1;
         global.msg[0] = "\\s0* You got the \\cG[Moss]\\cW^8!/%";
         snd_play(snd_moss_fanfare);
         snd_pause(global.currentsong[1]);
@@ -426,6 +428,7 @@ function AP_internal_print_get_item_text_special(item_id)
       break;
 
     case 1017: // Moss Chapter 3
+      global.maxhp[1]++;
       global.hp[1] = global.maxhp[1];
       if (!global.AP_skip_item_textboxes)
       {
@@ -435,14 +438,15 @@ function AP_internal_print_get_item_text_special(item_id)
       break;
 
     case 1020:
+      global.maxhp[1]++;
       global.hp[1] = global.maxhp[1];
-      global.msc = 0;
-      global.typer = 6;
-      global.fc = 0;
-      global.fe = 0;
-      global.interact = 1;
       if (!global.AP_skip_item_textboxes)
       {
+        global.msc = 0;
+        global.typer = 6;
+        global.fc = 0;
+        global.fe = 0;
+        global.interact = 1;
         global.msg[0] = "\\s0* The moss was consumed with gusto^8!/%";
         snd_play(snd_moss_fanfare);
         d_make();
