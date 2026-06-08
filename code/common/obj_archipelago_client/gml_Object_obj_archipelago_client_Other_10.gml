@@ -80,7 +80,7 @@ function AP_connect()
 
     isConnected = network_connect_raw(global.AP_socket, global.AP_server, global.AP_port);
 
-    if (!isConnected)
+    if (isConnected < 0)
         global.AP_isAuthenticated = -2
 
     AP_internal_send_packet(_contents);
