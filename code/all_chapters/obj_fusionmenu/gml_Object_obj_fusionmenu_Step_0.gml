@@ -112,6 +112,20 @@
 /// CODE
         dojoPrizeType[0] = "188";
 /// END
+
+/// REPLACE
+            optionCommentA[0][j] = dojoPrizeName[j];
+            optionCommentAWidth[0][j] = 200;
+            optionCommentAXOffset[0][j] = 200;
+            optionCommentAYOffset[0][j] = 0;
+            optionCommentAColor[0][j] = c_white;
+/// CODE
+            optionCommentA[0][j] = dojoPrizeName[j];
+            optionCommentAWidth[0][j] = 200;
+            optionCommentAXOffset[0][j] = 200;
+            optionCommentAYOffset[0][j] = 0;
+            optionCommentAColor[0][j] = AP_item_flag_to_color(AP_get_location_reward_data(188).flags);
+/// END
 #endif
 
 /// REPLACE
@@ -142,14 +156,10 @@
 
             optionID[0][j] = fusionResult[j];
             optionText[0][j] = fusionResultData[j].itemName;
+            optionTextColor[0][j] = AP_item_flag_to_color(fusionResultData[j].flags);
             optionSelectable[0][j] = fusionCanMake[j];
             optionCommentA[0][j] = fusionIngredientName1[j];
             optionCommentAColor[0][j] = c_gray;
-            menuTextColor[j] = AP_item_flag_to_color(fusionResultData[j].flags);
-            menuTextColorUnselectable[j] = AP_item_flag_to_color(fusionResultData[j].flags);
-            menuTextColorHover[j] = AP_item_flag_to_color(fusionResultData[j].flags);
-            menuTextColorInactive[j] = AP_item_flag_to_color(fusionResultData[j].flags);
-            menuTextColorSelected[j] = AP_item_flag_to_color(fusionResultData[j].flags);
 /// END
 
 /// REPLACE
