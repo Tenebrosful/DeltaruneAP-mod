@@ -102,16 +102,16 @@
     if (global.inv < 0 && debug_inv == 0)
     {
 /// CODE
-        skip_to_gameover = false;
+        skip_to_gameover = true;
         
-        if (global.char[0] != 0 && global.hp[global.char[0]] <= 0)
-            skip_to_gameover = true;
-        
-        if (global.char[1] != 0 && global.hp[global.char[1]] <= 0)
-            skip_to_gameover = true;
-        
-        if (global.char[2] != 0 && global.hp[global.char[2]] <= 0)
-            skip_to_gameover = true;
+        for (var i = 0; i < 4; i++)
+        {
+            if (global.char[i] != 0 && global.hp[global.char[i]] > 0)
+            {
+                skip_to_gameover = false;
+                break;
+            }
+        }
         
         if (skip_to_gameover)
         {
