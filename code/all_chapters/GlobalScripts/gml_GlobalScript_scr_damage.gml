@@ -104,7 +104,7 @@
 /// CODE
         skip_to_gameover = true;
         
-        for (var i = 0; i < 4; i++)
+        for (var i = 0; i < 3; i++)
         {
             if (global.char[i] != 0 && global.hp[global.char[i]] > 0)
             {
