@@ -149,10 +149,10 @@ function AP_fill_progressive_weapon_struct()
     {
         global.AP_progressive_weapons_ids.noelle = [];
 
-        if (global.AP_include_chapters[1])
+        if (global.AP_include_chapters[1] && (global.AP_ENUM_CHOSEN_ROUTE == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE || global.AP_ENUM_CHOSEN_ROUTE == global.AP_ENUM_CHOSEN_ROUTE.ALL_ROUTES))
             array_push(global.AP_progressive_weapons_ids.noelle, 22); // FreezeRing
 
-        if (global.AP_include_chapters[1])
+        if (global.AP_include_chapters[1] && (global.AP_ENUM_CHOSEN_ROUTE == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE || global.AP_ENUM_CHOSEN_ROUTE == global.AP_ENUM_CHOSEN_ROUTE.ALL_ROUTES))
             array_push(global.AP_progressive_weapons_ids.noelle, 13); // Thornring
 
         if (global.AP_include_unused_items == 1)
