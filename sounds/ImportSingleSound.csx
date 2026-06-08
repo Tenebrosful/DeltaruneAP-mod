@@ -32,12 +32,8 @@ void Load_audio(string relative_path)
     bool decodeLoad = false;
     if (isOGG)
     {
-        embedSound = ScriptQuestion("Your sound appears to be an OGG.\nNo - keep it external\nYes - embed sound into the game (use responsibly!)");
+        embedSound = true;
         decodeLoad = false;
-        if (embedSound)
-        {
-            decodeLoad = ScriptQuestion("Do you want to Uncompress this sound on load? (Higher Memory, low CPU)");
-        }
     }
     else
     {

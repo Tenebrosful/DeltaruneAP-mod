@@ -85,6 +85,8 @@ global.AP_progressive_weapons = {
     noelle: true,
 }
 global.custom_flags_indexes = {
+    chapter1_encounter_defeated: 1,
+    chapter1_attack_plus_gained: 2,
     use_bake_sale_ticket: 5,
     broken_key_part_count: 6,
     diamond_stand_bought: 7,

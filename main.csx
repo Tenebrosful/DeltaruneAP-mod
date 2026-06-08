@@ -121,11 +121,6 @@ void BuildMod(int chapter)
 
     Data.GeneralInfo.Name = Data.Strings.MakeString("DELTARUNEAP");
 
-    if (chapter == 0)
-        Data.GeneralInfo.DisplayName = Data.Strings.MakeString($"DELTARUNE Chapter Select - Archipelago {loader.version}");
-    else
-        Data.GeneralInfo.DisplayName = Data.Strings.MakeString($"DELTARUNE Chapter {chapter} - Archipelago {loader.version}");
-
     string scriptPath = Path.GetDirectoryName(ScriptPath);
 
     RunUMTScript(Path.Combine(scriptPath, "sprites/ImportGraphics.csx"));
@@ -138,6 +133,7 @@ void BuildMod(int chapter)
     
     if (chapter == 1)
     {
+        Load_audio(Path.Combine(scriptPath, "sounds/snd_dtrans_lw.ogg"));
         Load_audio(Path.Combine(scriptPath, "sounds/snd_moss_fanfare.wav"));
         Load_audio(Path.Combine(scriptPath, "sounds/snd_cd_bagel_kris.wav"));
         Load_audio(Path.Combine(scriptPath, "sounds/snd_cd_bagel_susie.wav"));
@@ -164,6 +160,11 @@ void BuildMod(int chapter)
     //     importGroup.QueueFindReplace(code, "game_restart(", "game_restart_true(", true);
     // }
     importGroup.Import();
+    
+    if (chapter == 0)
+        Data.GeneralInfo.DisplayName = Data.Strings.MakeString($"DELTARUNE Chapter Select - Archipelago {loader.version}");
+    else
+        Data.GeneralInfo.DisplayName = Data.Strings.MakeString($"DELTARUNE Chapter {chapter} - Archipelago {loader.version}");
 
     ScriptMessage(chapter == 0 ? "Archipelago Mod for DELTARUNE Chapter Select was imported!" : $"Archipelago Mod for DELTARUNE Chapter {chapter} was imported!");
 }
