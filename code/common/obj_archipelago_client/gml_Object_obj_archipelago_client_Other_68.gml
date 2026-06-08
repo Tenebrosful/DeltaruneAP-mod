@@ -149,8 +149,10 @@ if (ds_map_exists(async_load, "buffer"))
                     AP_getChapterCompletion();
                     
                     if (variable_global_exists("chapter"))
+                    {
                         AP_game_start_post_connexion();
                         AP_setDataStorage("current_chapter", global.chapter)
+                    }
                     
                     break;
                 
