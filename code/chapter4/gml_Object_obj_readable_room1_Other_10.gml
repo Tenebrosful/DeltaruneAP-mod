@@ -21,6 +21,12 @@ if (room == room_dw_churchc_savepoint)
         msgsetloc(0, "* (The door doesn't seem to be locked with a combination lock.)/", "obj_readable_room1_slash_Other_10_gml_4885_0");
         msgnextloc("* (You could walk in^1, but you are too busy admiring the door frame.)/%", "obj_readable_room1_slash_Other_10_gml_4886_0");
     }
+    else if (global.AP_secret_bosses_mandatory && !global.customflags[global.custom_flags_indexes.gerson_fought])
+    {
+        scr_speaker("susie")
+        msgsetloc(0, "\\EA* Hey Kris, remember that cool legendary axe?/", "obj_readable_room1_slash_Other_10_gml_4885_0");
+        msgnextloc("\\EA* We should get it. That looks really cool./%", "obj_readable_room1_slash_Other_10_gml_4885_0")
+    }
     else
     {
         msgsetloc(0, "* (The door seems to be locked with a combination lock.)/", "obj_readable_room1_slash_Other_10_gml_4885_0");

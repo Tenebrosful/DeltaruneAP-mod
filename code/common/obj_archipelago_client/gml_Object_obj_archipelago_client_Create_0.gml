@@ -96,7 +96,8 @@ global.custom_flags_indexes = {
     mansion_reservation_used: 13,
     shadow_crystal_amount: 14,
     took_emptydisk: 15,
-    remote_battery_used: 28
+    remote_battery_used: 28,
+    gerson_fought: 32
 }
 
 for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)

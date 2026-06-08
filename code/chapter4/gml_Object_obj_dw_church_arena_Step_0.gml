@@ -77,7 +77,6 @@ if (con == 150 && !d_ex())
     c_msgnextloc(string("* (You got {0})/", AP_get_location_reward_text(206)), "obj_dw_church_arena_slash_Step_0_gml_1250_0");
     c_msgnextloc(string("* (You got {0})/%", AP_get_location_reward_text(207)), "obj_dw_church_arena_slash_Step_0_gml_1250_0");
     c_talk_wait();
-    global.customflags[32] = true;
-    global.customflags[34] = true;
+    global.customflags[global.custom_flags_indexes.gerson_fought] = true;
     AP_sendLocation([206, 207]);
 /// END
