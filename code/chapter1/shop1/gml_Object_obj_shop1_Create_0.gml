@@ -82,9 +82,6 @@ for (i = 0; i < itemtotal; i += 1)
         scr_iteminfo(item[i]);
         shopitemname[i] = itemnameb;
         buyvalue[i] = value;
-        
-        if (!global.customflags[1050] == 1)
-            buyvalue[0] = 40;
     }
     
     if (itemtype[i] == "armor")

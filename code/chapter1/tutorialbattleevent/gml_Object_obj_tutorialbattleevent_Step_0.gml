@@ -5,15 +5,8 @@
 /// CODE
         global.msg[5] = string("* The Manual turned into {0}./", AP_get_location_reward_text(12));
         
-        if (global.customflags[999] == 0)
-        {
-            AP_sendLocation(12);
-            global.msg[5] += "%";
-        }
-        else
-        {
-            global.msg[6] = "* ..^1.But^1, the power of the Egg refused it!/%";
-        }
+        AP_sendLocation(12);
+        global.msg[5] += "%";
 /// END
 
 /// REPLACE

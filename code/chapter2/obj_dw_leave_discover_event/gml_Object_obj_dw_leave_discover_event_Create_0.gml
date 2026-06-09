@@ -1,3 +1,3 @@
 /// IMPORT
-if (global.customflags[36] == 1)
+if (global.customflags[global.custom_flags_indexes.discovered_ch2_leave_dw])
     instance_destroy();

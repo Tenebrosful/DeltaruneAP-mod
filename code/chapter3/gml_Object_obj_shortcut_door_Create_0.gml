@@ -3,12 +3,12 @@
 /// APPEND
 if (room == room_dw_teevie_intro)
 {
-    if (global.customflags[21] < 2)
-        global.customflags[21] = 1;
+    if (global.customflags[global.custom_flags_indexes.ch3_warp_state] < 2)
+        global.customflags[global.custom_flags_indexes.ch3_warp_state] = 1;
 }
 
 if (room == room_dw_b3bs_jail1)
-    global.customflags[21] = 2;
+    global.customflags[global.custom_flags_indexes.ch3_warp_state] = 2;
 /// END
 
 /// REPLACE

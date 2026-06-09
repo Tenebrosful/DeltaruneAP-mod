@@ -16,6 +16,6 @@
         if (d.halt)
         {
             AP_sendLocation(183);
-            global.customflags[22] = 2;
+            global.customflags[global.custom_flags_indexes.SWORD_progression] = 2;
             snd_play(snd_link_sfx_itemget_bad);
 /// END

@@ -1,7 +1,7 @@
 /// PATCH
 
 /// APPEND
-if (room == room_dw_teevie_intro && extflag == "zapper" && global.customflags[24] == 1 && instance_exists(obj_dialoguer) == false && y == 140 && x >= 1940)
+if (room == room_dw_teevie_intro && extflag == "zapper" && global.customflags[global.custom_flags_indexes.used_VIP_pass] && instance_exists(obj_dialoguer) == false && y == 140 && x >= 1940)
 {
     image_index = 0;
     image_speed = 0.2;

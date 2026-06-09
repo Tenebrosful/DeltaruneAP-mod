@@ -98,10 +98,20 @@ global.custom_flags_indexes = {
     mansion_reservation_used: 13,
     shadow_crystal_amount: 14,
     took_emptydisk: 15,
+    used_keygen: 16,
+    bought_thornring: 18,
+    ch3_warp_state: 21,
+    SWORD_progression: 22,
+    lancer_board_2_blocker_state: 23,
+    used_VIP_pass: 24,
     got_ICE_KEY: 25,
     got_SHELTER_KEY: 26,
+    no_idea_but_sword_related: 27,
     remote_battery_used: 28,
-    gerson_fought: 32
+    gerson_fought: 32,
+    discovered_ch2_leave_dw: 36,
+    got_jackenstein_gift: 38,
+    accepted_dark_sanctuary_skip: 39
 }
 
 for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)

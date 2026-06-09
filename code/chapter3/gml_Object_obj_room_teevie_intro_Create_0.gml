@@ -1,5 +1,5 @@
 /// IMPORT
-if (global.customflags[24] == 0)
+if (!global.customflags[global.custom_flags_indexes.used_VIP_pass])
 {
     zapper_npc = instance_create(1940, 140, obj_npc_room);
     

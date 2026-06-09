@@ -233,7 +233,6 @@ if (con == 50)
     c_speaker("tenna");
     c_msgsetloc(0, "* How do you like my&\\O0^1?/", "obj_room_green_room_slash_Step_0_gml_493_0");
     c_msgnextloc("* It'll take some time before round 2^1, so \\O1 ^1!/%", "obj_room_green_room_slash_Step_0_gml_494_0");
-    global.customflags[29] = 0;
     c_talk_wait();
     c_var_lerp_to_instance(tenna_marker, "x", 900, 30, 3, "out");
     c_sound_play(155);
@@ -327,7 +326,6 @@ if (con == 57)
     c_talk();
     c_wait_box(2);
     c_sel(su);
-    global.customflags[29] = 0;
     c_sprite(spr_susie_look_down_right);
     c_wait_box(3);
     c_sel(su);
@@ -382,7 +380,7 @@ if (con == 60)
     c_facing("l");
     c_wait(5);
     
-    if (global.customflags[23] == 1)
+    if (global.customflags[global.custom_flags_indexes.lancer_board_2_blocker_state] == 1)
     {
         c_speaker("lancer");
         c_msgsetloc(0, "\\E6* Still no sign of the cartridge./", "obj_room_green_room_slash_Step_0_gml_567_0");
@@ -394,7 +392,7 @@ if (con == 60)
             c_msgnextloc("\\E1* Now^1, I gotta go press buttons for pennies.../", "obj_room_green_room_slash_Step_0_gml_696_0");
             c_msgnextloc("\\E8* See you in the funny stages!/%", "obj_room_green_room_slash_Step_0_gml_697_0");
             scr_keyitemremove(1013);
-            global.customflags[23] = 2;
+            global.customflags[global.custom_flags_indexes.lancer_board_2_blocker_state] = 2;
             c_talk();
             c_wait_talk();
             c_sound_play(367);
@@ -411,7 +409,7 @@ if (con == 60)
         else
         {
             c_msgnextloc("\\E2* If you guys find it^1, let me know!/%", "obj_room_green_room_slash_Step_0_gml_695_0");
-            global.customflags[23] = 1;
+            global.customflags[global.custom_flags_indexes.lancer_board_2_blocker_state] = 1;
             c_talk();
             c_wait_talk();
             c_pannable(1);
@@ -444,7 +442,7 @@ if (con == 60)
             c_msgnextloc("\\E1* Now^1, I gotta go press buttons for pennies.../", "obj_room_green_room_slash_Step_0_gml_696_0");
             c_msgnextloc("\\E8* See you in the funny stages!/%", "obj_room_green_room_slash_Step_0_gml_697_0");
             scr_keyitemremove(1013);
-            global.customflags[23] = 2;
+            global.customflags[global.custom_flags_indexes.lancer_board_2_blocker_state] = 2;
             c_talk();
             c_wait_box(3);
             c_sel(su);
@@ -476,7 +474,7 @@ if (con == 60)
         else
         {
             c_msgnextloc("\\E7* He can't start the silliness without it!/%", "obj_room_green_room_slash_Step_0_gml_695_0");
-            global.customflags[23] = 1;
+            global.customflags[global.custom_flags_indexes.lancer_board_2_blocker_state] = 1;
             c_talk();
             c_wait_box(3);
             c_sel(su);
@@ -511,7 +509,7 @@ if (con == 62 && !i_ex(obj_cutscene_master))
     global.interact = 0;
     global.facing = 0;
     
-    if (global.customflags[23] == 2)
+    if (global.customflags[global.custom_flags_indexes.lancer_board_2_blocker_state] == 2)
     {
         scr_flag_set(1068, 1);
         var door_a = instance_create(34, 105, obj_doorAny);

@@ -6,7 +6,7 @@
 /// CODE
             if (place_meeting(x, y, obj_mainchara))
             {
-                if (global.AP_secret_bosses_mandatory && global.customflags[32] == 0)
+                if (global.AP_secret_bosses_mandatory && !global.customflags[global.custom_flags_indexes.gerson_fought])
                     trig = 2;
                 else
                     trig = 1;

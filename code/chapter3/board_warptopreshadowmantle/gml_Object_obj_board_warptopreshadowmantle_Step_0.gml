@@ -33,17 +33,6 @@
     }
 /// END
 
-/// AFTER
-if (con == 3)
-{
-    if (transition.con == 2 && transition.timer == 2)
-    {
-        room_goto(room_board_preshadowmantle);
-        global.flag[1055] = 5;
-/// CODE
-        global.customflags[29] = 1;
-/// END
-
 /// APPEND
 
 if (con == 19)

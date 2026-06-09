@@ -68,10 +68,10 @@
             global.choicemsg[2] = stringsetloc("Green Room", "scr_text_slash_scr_text_gml_10433_0");
             global.choicemsg[3] = stringsetloc("Couch Cliffs", "scr_text_slash_scr_text_gml_10434_0");
             
-            if (global.customflags[21] >= 1)
+            if (global.customflags[global.custom_flags_indexes.ch3_warp_state] >= 1)
                 global.choicemsg[0] = stringsetloc("#TV World#Entrance", "scr_text_slash_scr_text_gml_10408_0");
             
-            if (global.customflags[21] == 2)
+            if (global.customflags[global.custom_flags_indexes.ch3_warp_state] == 2)
                 global.choicemsg[1] = stringsetloc("#Goulden Sam", "scr_text_slash_scr_text_gml_10409_0");
             
 /// END
@@ -128,7 +128,7 @@
             
             if (global.choice == 0)
             {
-                if (global.customflags[21] >= 1)
+                if (global.customflags[global.custom_flags_indexes.ch3_warp_state] >= 1)
                 {
                     with (obj_shortcut_door)
                         door_destination = 195;
@@ -137,7 +137,7 @@
             
             if (global.choice == 1)
             {
-                if (global.customflags[21] == 2)
+                if (global.customflags[global.custom_flags_indexes.ch3_warp_state] == 2)
                 {
                     with (obj_shortcut_door)
                         door_destination = 177;

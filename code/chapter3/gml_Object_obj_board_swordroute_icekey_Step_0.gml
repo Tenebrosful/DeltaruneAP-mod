@@ -4,7 +4,7 @@
         global.flag[1055] = 1;
 /// CODE
         AP_sendLocation(182);
-        global.customflags[22] = 1;
+        global.customflags[global.custom_flags_indexes.SWORD_progression] = 1;
 /// END
 
 /// REPLACE

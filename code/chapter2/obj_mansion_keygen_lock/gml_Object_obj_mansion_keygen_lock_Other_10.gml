@@ -15,7 +15,7 @@ if (unlocked == false)
         {
             unlocked = true;
             msgsetloc(0, "* (Kris used all KeyGen 2 Segments.)/%", "obj_mansion_keygen_lock_slash_Other_10_gml_9_0");
-            global.customflags[16] = 1;
+            global.customflags[global.custom_flags_indexes.used_keygen] = true;
             con = 1;
         }
     }

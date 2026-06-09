@@ -12,7 +12,7 @@
         }
         else
         {
-            var haveRing = global.customflags[18];
+            var haveRing = global.customflags[global.custom_flags_indexes.bought_thornring];
 /// END
 
 /// REPLACE

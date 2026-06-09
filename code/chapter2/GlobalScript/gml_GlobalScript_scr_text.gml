@@ -233,7 +233,7 @@
                     scr_weaponget(13);
 /// CODE
                     AP_sendLocation(113);
-                    global.customflags[18] = 1;
+                    global.customflags[global.custom_flags_indexes.bought_thornring] = 1;
 /// END
 
 /// REPLACE

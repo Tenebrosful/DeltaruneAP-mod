@@ -10,7 +10,7 @@ if (room == room_dw_teevie_intro)
             scr_speaker("no_name");
             msgsetloc(0, "* I see youse are VIPs^1. Yah may enter./", "obj_npc_room_slash_Other_10_gml_1651_0");
             msgnextloc("* Don't get the carpet dirty./%", "obj_npc_room_slash_Other_10_gml_1652_0");
-            global.customflags[24] = 1;
+            global.customflags[global.custom_flags_indexes.used_VIP_pass] = true;
         }
         else
         {
@@ -84,7 +84,7 @@ if (room == room_dw_teevie_intro)
         }
         else
         {
-            if (global.customflags[28] == 1)
+            if (global.customflags[global.custom_flags_indexes.remote_battery_used])
             {
                 scr_speaker("no_name");
                 msgsetloc(0, "* Would yah mind giving me some privacy^1?/", "obj_npc_room_slash_Other_10_gml_1651_0");

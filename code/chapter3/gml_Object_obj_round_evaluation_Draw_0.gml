@@ -1775,11 +1775,7 @@ if (con >= 1)
                 draw_set_halign(fa_right);
                 keystring = stringsetloc("EXTRA KEY!", "obj_round_evaluation_slash_Draw_0_gml_1378_0");
                 
-                if (global.customflags[20] == 0)
-                {
-                    AP_sendLocation(179);
-                    global.customflags[20] = 1;
-                }
+                AP_sendLocation(179);
                 
                 if (extrakeycount == 2)
                     keystring += " x2";

@@ -21,7 +21,7 @@ if (global.interact == 0)
     msgnextloc("\\E2* Well then^1, consider yourselves forgiven!/%", "obj_readable_room1_slash_Other_10_gml_2045_0");
     d_make();
     con = 1;
-    global.customflags[36] = 1;
+    global.customflags[global.custom_flags_indexes.discovered_ch2_leave_dw] = true;
 }
 
 if (con == 1 && !d_ex())

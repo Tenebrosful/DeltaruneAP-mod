@@ -8,7 +8,7 @@
 /// CODE
     global.choice = -1;
     
-    if (scr_keyitemcheck(31) && global.maxhp[2] <= 0 && global.customflags[39] == 0)
+    if (scr_keyitemcheck(31) && global.maxhp[2] <= 0 && global.customflags[global.custom_flags_indexes.accepted_dark_sanctuary_skip] == 0)
     {
         global.msc = 2002;
         scr_text(global.msc);
@@ -138,7 +138,7 @@ if (con == 1.1)
 if (con == 2 && !i_ex(obj_cutscene_master))
 {
     global.interact = 0;
-    global.customflags[38] = 1;
+    global.customflags[global.custom_flags_indexes.got_jackenstein_gift] = 1;
     con = 99;
 }
 

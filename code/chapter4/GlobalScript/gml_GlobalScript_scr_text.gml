@@ -77,7 +77,7 @@
         
         case 2003:
             if (global.choice == 0)
-                global.customflags[39] = 1;
+                global.customflags[global.custom_flags_indexes.accepted_dark_sanctuary_skip] = 1;
             
             scr_speaker("no_name");
             msgset(0, "%%");

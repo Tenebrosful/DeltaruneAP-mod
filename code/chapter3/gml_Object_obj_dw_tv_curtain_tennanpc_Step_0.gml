@@ -1,14 +1,6 @@
 /// PATCH
 
 /// AFTER
-        snd_play(snd_impact);
-        snd_play(snd_locker);
-        room_goto(room_ch3_gameshowroom);
-/// CODE
-        global.customflags[29] = 1;
-/// END
-
-/// AFTER
         tenna.preset = 0;
         tenna.image_speed = 0;
         tenna.bounce = 1;

@@ -10,7 +10,7 @@
     
     with (zapper_npc)
     {
-        if (global.customflags[28] == 1)
+        if (global.customflags[global.custom_flags_indexes.remote_battery_used])
             instance_destroy();
         else
             extflag = "zapper_cold";
