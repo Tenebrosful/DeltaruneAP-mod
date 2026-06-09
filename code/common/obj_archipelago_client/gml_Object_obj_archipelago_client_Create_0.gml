@@ -98,6 +98,8 @@ global.custom_flags_indexes = {
     mansion_reservation_used: 13,
     shadow_crystal_amount: 14,
     took_emptydisk: 15,
+    got_ICE_KEY: 25,
+    got_SHELTER_KEY: 26,
     remote_battery_used: 28,
     gerson_fought: 32
 }

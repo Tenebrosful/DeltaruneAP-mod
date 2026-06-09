@@ -291,8 +291,8 @@ function AP_internal_handle_real_keyitem(realitem_id)
   switch(realitem_id)
   {
     case 31: if (global.chapter == 4) global.flag[23] = 1; break;
-    case 1018: global.customflags[25] = true; break;
-    case 1019: global.customflags[26] = true; break;
+    case 1018: global.customflags[global.custom_flags_indexes.got_ICE_KEY] = true; break;
+    case 1019: global.customflags[global.custom_flags_indexes.got_SHELTER_KEY] = true; break;
   }
     
 

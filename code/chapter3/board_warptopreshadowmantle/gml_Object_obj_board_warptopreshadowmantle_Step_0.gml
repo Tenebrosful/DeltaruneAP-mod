@@ -12,7 +12,7 @@
     with (obj_board_screenColorChanger)
         instance_destroy();
 /// CODE
-    if (global.customflags[26] == 0)
+    if (global.customflags[global.custom_flags_indexes.got_SHELTER_KEY])
     {
         con = 19;
         timer = 0;
