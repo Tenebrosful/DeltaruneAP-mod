@@ -555,6 +555,11 @@ function AP_game_start_post_connexion()
     else
     {
         switch(global.chapter){
+            case 1:
+                global.charweapon[1] = 1;
+                global.charweapon[2] = 2;
+                global.charweapon[3] = 3;
+                break;
             case 2:
                 global.charweapon[1] = 1;
                 global.chararmor1[1] = 1;
