@@ -14,6 +14,13 @@ void AddObjectToRoom(UndertaleRoom room, string objName, int x, int y, int layer
   room.Layers[layerOrder].InstancesData.Instances.Add(newObject);
 }
 
+void RemoveObjectFromRoom(UndertaleRoom room, uint instanceID, int layerOrder)
+{
+  var objectInstance = room.GameObjects.ByInstanceID(instanceID);
+  room.GameObjects.Remove(objectInstance);
+  room.Layers[layerOrder].InstancesData.Instances.Remove(objectInstance);
+}
+
 void AddTileToRoom(UndertaleRoom room, UndertaleBackground bg, int x, int y, int layerOrder, int sourceX, int sourceY, uint width, uint height, int tiledepth = 999999)
 {
   var tile = new UndertaleRoom.Tile()
