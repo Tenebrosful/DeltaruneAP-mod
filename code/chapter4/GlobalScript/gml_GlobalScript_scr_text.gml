@@ -43,7 +43,7 @@
             msgsetloc(0, "\\E1* Wait^1, Kris./", "obj_climbstartertrig_slash_Step_0_gml_15_0");
             msgnextloc("\\E0* We're the one's with the climbing claws^1, right?/", "obj_climbstartertrig_slash_Step_0_gml_15_0");
             msgnextloc("\\E1* If Ralsei shows up^1, I dunno if he'd be able to climb up there./", "obj_climbstartertrig_slash_Step_0_gml_15_0");
-            msgnextloc("\\E1* We should probably find him and then climb up./", "obj_climbstartertrig_slash_Step_0_gml_15_0");
+            msgnextloc("\\E1* We should probably find him and then go,^1 right?/", "obj_climbstartertrig_slash_Step_0_gml_15_0");
             msgnextloc("\\C2 ", "scr_text_slash_scr_text_gml_7042_0");
             break;
         
