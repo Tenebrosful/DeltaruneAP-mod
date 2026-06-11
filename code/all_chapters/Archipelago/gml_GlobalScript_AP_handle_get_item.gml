@@ -282,14 +282,20 @@ function AP_internal_handle_real_keyitem(realitem_id)
   var item_chapter = tempkeyitemchapter;
   var item_name = tempkeyitemname;
 
-  if (realitem_id == 4)
-    item_name = "Broken Key A"
-
-  if ((item_chapter == 0 || global.chapter == item_chapter) && !scr_keyitemcheck(realitem_id) && AP_internal_special_key_item(realitem_id))
+  if ((item_chapter == 0 || global.chapter == item_chapter) && AP_internal_special_key_item(realitem_id) && !scr_keyitemcheck(realitem_id))
     scr_keyitemget(realitem_id);
 
   switch(realitem_id)
   {
+    case 4:
+      item_name = "Broken Key A"
+    case 6:
+    case 7:
+      global.customflags[global.custom_flags_indexes.broken_key_part_count] += 1;
+
+      if (!scr_keyitemcheck(4))
+        scr_keyitemget(4);
+      break;
     case 31: if (global.chapter == 4) global.flag[23] = 1; break;
     case 1018: global.customflags[global.custom_flags_indexes.got_ICE_KEY] = true; break;
     case 1019: global.customflags[global.custom_flags_indexes.got_SHELTER_KEY] = true; break;
@@ -301,7 +307,11 @@ function AP_internal_handle_real_keyitem(realitem_id)
 
 function AP_internal_special_key_item(realitem_id)
 {
-  return realitem_id != 1005 // moss ch1
+  return 
+  realitem_id != 4 // Broken Key A
+  && realitem_id != 6 // Broken Key B
+  && realitem_id != 7 // Broken Key C
+  && realitem_id != 1005 // moss ch1
   && realitem_id != 1006 // joe's life savings
   && realitem_id != 1007 // moss ch2
   && realitem_id != 1016 // smile
