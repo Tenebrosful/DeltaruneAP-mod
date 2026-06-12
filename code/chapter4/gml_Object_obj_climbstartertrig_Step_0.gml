@@ -138,7 +138,7 @@ if (con == 1.1)
 if (con == 2 && !i_ex(obj_cutscene_master))
 {
     global.interact = 0;
-    global.customflags[global.custom_flags_indexes.got_jackenstein_gift] = 1;
+    global.customflags[global.custom_flags_indexes.skipped_dark_sanctuary] = 1;
     con = 99;
 }
 
