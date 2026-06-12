@@ -1,5 +1,18 @@
 /// PATCH
 
+/// BEFORE
+    if (extflag == "ralsei_down")
+/// CODE
+    if (extflag == "skip_pippins")
+    {
+        global.choice = -1;
+        global.msc = 2000;
+        talked += 1;
+        scr_text(global.msc);
+    }
+    
+/// END
+
 /// APPEND
 if (room == room_dw_teevie_intro)
 {
