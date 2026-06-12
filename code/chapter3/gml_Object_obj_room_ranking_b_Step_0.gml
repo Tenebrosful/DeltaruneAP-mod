@@ -26,11 +26,10 @@
             
             if (nogold == false)
             {
-                global.flag[1044] = 0;
-                global.gold -= 1225;
+                global.flag[1044] -= 1225;
                 
-                if (global.gold < 1)
-                    global.gold = 0;
+                if (global.flag[1044] < 1)
+                    global.flag[1044] = 0;
                 
                 AP_sendLocation(130);
                 AP_sendLocation(131);
