@@ -8,7 +8,7 @@ if (unlocked == false)
         if (global.MacGuffin_count < global.AP_macguffin_required[global.chapter - 1])
         {
             msgsetloc(0, "* It has a lock that seems impossible to open./", "obj_mansion_keygen_lock_slash_Other_10_gml_5_0");
-            msgnextloc("* Looks like you need a Key generated with all KeyGen 2 Segments./%");
+            msgnextloc("* Looks like you need a Key generated with all \\cYKeyGen 2 Segments\\cW./%");
             myinteract = 3;
         }
         else
