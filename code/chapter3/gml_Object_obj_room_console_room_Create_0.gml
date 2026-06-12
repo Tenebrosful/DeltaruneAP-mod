@@ -4,10 +4,10 @@
 
 if (global.plot >= 280)
 {
-    if (global.flag[1055] >= 2 && global.customflags[global.custom_flags_indexes.no_idea_but_sword_related] != 2)
-        global.customflags[global.custom_flags_indexes.no_idea_but_sword_related] = 1;
+    if (global.flag[1055] >= 2 && global.customflags[global.custom_flags_indexes.saved_ramb] != 2)
+        global.customflags[global.custom_flags_indexes.saved_ramb] = 1;
     else
-        global.customflags[global.custom_flags_indexes.no_idea_but_sword_related] = 2;
+        global.customflags[global.custom_flags_indexes.saved_ramb] = 2;
 }
 
 /// END
@@ -25,7 +25,7 @@ if (global.plot >= 280)
     if (global.plot >= 280)
         sprite_index = spr_dw_console_room_curtain_dark;
 /// CODE
-    if (global.plot >= 280 && global.customflags[global.custom_flags_indexes.no_idea_but_sword_related] == 1)
+    if (global.plot >= 280 && global.customflags[global.custom_flags_indexes.saved_ramb] == 1)
         sprite_index = spr_dw_console_room_curtain_dark;
 /// END
 
@@ -34,7 +34,7 @@ if (global.plot >= 280)
 {
     var lay_id = layer_get_id("BGCOLOR");
 /// CODE
-if (global.plot >= 280 && global.customflags[global.custom_flags_indexes.no_idea_but_sword_related] == 1)
+if (global.plot >= 280 && global.customflags[global.custom_flags_indexes.saved_ramb] == 1)
 {
     var lay_id = layer_get_id("BGCOLOR");
 /// END
