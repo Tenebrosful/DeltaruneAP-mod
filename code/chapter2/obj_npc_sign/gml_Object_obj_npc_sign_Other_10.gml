@@ -43,7 +43,7 @@
         else
         {
             msgnextloc("* You'll need to prove you work here to enter./", "obj_npc_sign_slash_Other_10_gml_1104_0");
-            msgnextloc("* Or y'know, show up wearing a Safety Vest.../%", "obj_npc_sign_slash_Other_10_gml_1104_0");
+            msgnextloc("* Or y'know, show up wearing a \\cYSafety Vest\\cW.../%", "obj_npc_sign_slash_Other_10_gml_1104_0");
         }
     }
 /// END
