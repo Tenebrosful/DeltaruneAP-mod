@@ -112,6 +112,7 @@ global.custom_flags_indexes = {
     discovered_ch2_leave_dw: 36,
     got_jackenstein_gift: 38,
     accepted_dark_sanctuary_skip: 39
+    skipped_dark_sanctuary: 40
 }
 
 for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
