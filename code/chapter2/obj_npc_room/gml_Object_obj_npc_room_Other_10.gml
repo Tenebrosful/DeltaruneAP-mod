@@ -77,7 +77,7 @@ if (room == room_dw_mansion_entrance)
         }
         else
         {
-            msgnextloc("* Unfortunately^1, you need a reservation in order to enter this area./");
+            msgnextloc("* Unfortunately^1, you need a \\cYMansion Reservation\\cW in order to enter./");
             msgnextloc("* We apologize for the inconvenience./%");
         }
     }
@@ -86,8 +86,8 @@ if (room == room_dw_mansion_entrance)
 if (room == room_dw_cyber_battle_maze_2 && extflag = "actionblocker")
 {
     scr_speaker("no_name")
-    msgsetloc(0, "* Heh^1, where do you think you're going ?/")
-    msgnextloc("* I'm even sure your parterns can't dance by themself./")
-    msgnextloc("* Come back when they know how to ACT themself./%")
+    msgsetloc(0, "* Heh^1, where do you think you're going?/")
+    msgnextloc("* I'm sure your partners can't even dance by themself./")
+    msgnextloc("* Come back when they know how to ACT./%")
 }
 /// END
