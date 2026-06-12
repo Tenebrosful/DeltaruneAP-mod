@@ -117,7 +117,15 @@ if (con == 1.1)
     c_msgnextloc("\\E0* Susie's point is that the fountain is up there./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
     c_msgnextloc("\\E2* Now that we're all here^1, we can go seal it./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
     c_facenext("susie", "2");
-    c_msgnextloc("\\E2* Right^1! Let's go./%", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+    c_msgnextloc("\\E2* Right^1! But before we go^1, here's some stuff we got for you./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+    c_msgnextloc("\\EA* First^1, here's a cool gift that this pumpkin gave us./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+    c_msgnextloc("\\E3* And I also tried writing down some sheet music, but it turned into this./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+    c_msgnextloc("\\E3* Ralsei already had the song memorized^1, so we were alright./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+    c_facenext("no_name", 0);
+    c_msgnextloc(string("* (You got {0}.)/", AP_get_location_reward_text(200)), "obj_ch4_DCA08D_slash_Step_0_gml_1573_0");
+    c_msgnextloc(string("* (You got {0}.)/", AP_get_location_reward_text(205)), "obj_dw_church_organ_slash_Step_0_gml_428_0");
+    c_facenext("susie", "2");
+    c_msgnextloc("\\E2* Alright^1, NOW let's go./%", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
     c_talk();
     c_wait_box(3);
     c_sel(ra);
@@ -128,8 +136,12 @@ if (con == 1.1)
     c_sel(su);
     c_sprite(spr_susie_walk_up_dw);
     c_sel(ra);
+    c_wait_box(8);
     c_facing("u");
-    c_wait_talk();
+    c_wait_talk(14);
+    c_snd_play(snd_item);
+    c_wait_talk(15);
+    c_snd_play(snd_item);
     c_actortokris();
     c_actortocaterpillar();
     c_terminatekillactors();
@@ -139,6 +151,11 @@ if (con == 2 && !i_ex(obj_cutscene_master))
 {
     global.interact = 0;
     global.customflags[global.custom_flags_indexes.skipped_dark_sanctuary] = 1;
+    global.customflags[global.custom_flags_indexes.got_jackenstein_gift] = 1;
+    global.flag[850] = 6;
+    global.plot = 190;
+    AP_sendLocation(200);
+    AP_sendLocation(205);
     con = 99;
 }
 
