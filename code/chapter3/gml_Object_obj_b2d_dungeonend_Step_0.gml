@@ -4,7 +4,7 @@
             msgsetloc(0, "YOU GOT THE\n\\cSSHELTER KEY\\cW", "obj_b2d_dungeonend_slash_Step_0_gml_114_0");
 /// CODE
             global.flag[1055] = 3;
-            msgsetloc(0, string("YOU SENT {0}", string_upper(AP_get_location_reward_text(183))), "obj_b2d_dungeonend_slash_Step_0_gml_114_0");
+            msgsetloc(0, string("YOU GOT {0}", string_upper(AP_get_location_reward_text(183))), "obj_b2d_dungeonend_slash_Step_0_gml_114_0");
 /// END
 
 /// REPLACE
