@@ -15,7 +15,7 @@ if (room == room_dw_teevie_intro)
         else
         {
             scr_speaker("no_name");
-            msgsetloc(0, "* Only people with a VIP Pass can get in./", "obj_npc_room_slash_Other_10_gml_1651_0");
+            msgsetloc(0, "* Only people with a \\cYVIP Pass\\cW can get in./", "obj_npc_room_slash_Other_10_gml_1651_0");
             msgnextloc("* Mr. Tenna's orders./%", "obj_npc_room_slash_Other_10_gml_1652_0");
         }
     }
@@ -79,7 +79,7 @@ if (room == room_dw_teevie_intro)
             msgsetloc(0, "* Hey^1! Youse the lightners!/", "obj_npc_room_slash_Other_10_gml_1651_0");
             msgnextloc("* I suppose you's off to seal the fountain?/", "obj_npc_room_slash_Other_10_gml_1652_0");
             msgnextloc("* Well^1, before yah do that^1, Ramb told me something before he turneda stone./", "obj_npc_room_slash_Other_10_gml_1652_0");
-            msgnextloc("* Apparently youse got to do something in the S-Rank room before going out there./", "obj_npc_room_slash_Other_10_gml_1652_0");
+            msgnextloc("* Apparently youse got to do something \\cYin the S-Rank room\\cW before going out there./", "obj_npc_room_slash_Other_10_gml_1652_0");
             msgnextloc("* Not exactly sure what^1. He kept it pretty secretive^1. He said you'd know^1, though./%", "obj_npc_room_slash_Other_10_gml_1652_0");
         }
         else
@@ -108,7 +108,7 @@ if (room == room_dw_teevie_intro)
                 }
                 else
                 {
-                    msgnextloc("* (Seems you need more Remote Batteries...)/%", "obj_npc_room_slash_Other_10_gml_1652_0");
+                    msgnextloc("* (Seems you need more \\cYRemote Batteries\\cW...)/%", "obj_npc_room_slash_Other_10_gml_1652_0");
                 }
             }
         }
