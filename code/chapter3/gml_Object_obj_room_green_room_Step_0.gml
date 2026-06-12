@@ -383,7 +383,7 @@ if (con == 60)
     if (global.customflags[global.custom_flags_indexes.lancer_board_2_blocker_state] == 1)
     {
         c_speaker("lancer");
-        c_msgsetloc(0, "\\E6* Still no sign of the cartridge./", "obj_room_green_room_slash_Step_0_gml_567_0");
+        c_msgsetloc(0, "\\E6* Still no sign of the \\cYBoard 2 Game Cartridge\\cW./", "obj_room_green_room_slash_Step_0_gml_567_0");
         
         if (scr_keyitemcheck(1013))
         {
@@ -434,6 +434,7 @@ if (con == 60)
         c_msgnextloc("\\E2* Meanwhile^1, I got a job at the gaming factory./", "obj_room_green_room_slash_Step_0_gml_694_0");
         c_msgnextloc("\\E3* I got my own gamepad and I've only broken it 4 times!/", "obj_room_green_room_slash_Step_0_gml_695_0");
         c_msgnextloc("\\E6* Mr. TV guy says I need to help find his game cartridge though./", "obj_room_green_room_slash_Step_0_gml_695_0");
+        c_msgnextloc("\\E6* He says it should say \\cYBoard 2 Game Cartridge\\cW on it./", "obj_room_green_room_slash_Step_0_gml_695_0");
         
         if (scr_keyitemcheck(1013))
         {
