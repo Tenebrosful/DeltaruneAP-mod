@@ -9,7 +9,7 @@ if (room == room_dw_church_jackenstein)
         scr_speaker("no_name");
         msgsetloc(0, "* ..^1. Mumble^1, mumble.../", "obj_npc_room_slash_Other_10_gml_79_0");
         msgnextloc("* Don't go.../", "obj_npc_room_slash_Other_10_gml_156_0");
-        msgnextloc("* You need climbing claws to return..^1. Mumble.../%", "obj_npc_room_slash_Other_10_gml_156_0");
+        msgnextloc("* You need \\cYclimbing claws\\cW to return..^1. Mumble.../%", "obj_npc_room_slash_Other_10_gml_156_0");
     }
 }
 
