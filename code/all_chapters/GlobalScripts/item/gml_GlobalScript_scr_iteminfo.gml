@@ -25,7 +25,7 @@ function scr_iteminfo(arg0)
             }
             else
             {
-                itemnameb = stringsetloc("Candy", "scr_iteminfo_slash_scr_iteminfo_gml_16_0_b");
+                itemnameb = stringsetloc("Dark Candy", "scr_iteminfo_slash_scr_iteminfo_gml_16_0_b");
                 itemdescb = stringsetloc("Heals#40HP", "scr_iteminfo_slash_scr_iteminfo_gml_17_0");
                 value = 40;
             }
