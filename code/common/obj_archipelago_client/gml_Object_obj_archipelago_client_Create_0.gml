@@ -106,7 +106,7 @@ global.custom_flags_indexes = {
     used_VIP_pass: 24,
     got_ICE_KEY: 25,
     got_SHELTER_KEY: 26,
-    no_idea_but_sword_related: 27,
+    saved_ramb: 27,
     remote_battery_used: 28,
     gerson_fought: 32,
     discovered_ch2_leave_dw: 36,
