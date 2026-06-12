@@ -74,17 +74,17 @@ if (room == room_castle_darkdoor)
 
 if (room == room_cc_6f && y < 170)
 {
-    global.msg[0] = "* I messed up. please report this/%";
+    global.msg[0] = "* The door looks like it might open if you go to the previous room and back./%";
     
     if (global.MacGuffin_count < global.AP_macguffin_required[global.chapter - 1])
     {
         global.msg[0] = "* (The door is locked.)/";
-        global.msg[1] = "* (It seems you need more King-Shaped Key Pieces.)/%";
+        global.msg[1] = "* (It seems you need more \\cYKing-Shaped Key Pieces\\cW.)/%";
     }
     else if (global.flag[241] < 6 && global.AP_secret_bosses_mandatory)
     {
         global.msg[0] = "* (A chaotic energy is keeping this door locked.)/";
-        global.msg[1] = "* (It seems the energy originates from the lowest floor of the castle...)/%";
+        global.msg[1] = "* (It seems the energy originates from \\cYthe lowest floor of the castle\\cW...)/%";
     }
 }
 
