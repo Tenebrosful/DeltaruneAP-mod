@@ -178,6 +178,40 @@
 /// END
 
 /// BEFORE
+        case 5000:
+/// CODE
+        case 2000:
+            global.choicemsg[0] = stringsetloc("#Yes", "scr_text_slash_scr_text_gml_7037_0");
+            global.choicemsg[1] = stringsetloc("#No", "scr_text_slash_scr_text_gml_7038_0");
+            global.choicemsg[2] = stringsetloc(" ", "scr_text_slash_scr_text_gml_7039_0");
+            global.choicemsg[3] = stringsetloc(" ", "scr_text_slash_scr_text_gml_7040_0");
+            scr_speaker("no_name");
+            msgsetloc(0, "* Hey^1! Kris^1! What are you doing here?!/", "obj_npc_room_animated_slash_Other_10_gml_314_0");
+            msgnextloc("* If Tenna sees you here^1, he's gonna SNAP!/", "obj_npc_room_animated_slash_Other_10_gml_315_0");
+            msgnextloc("* Well^1, don't worry^1, I've got you covered./", "obj_npc_room_animated_slash_Other_10_gml_315_0");
+            msgnextloc("* If you'd rather just sleep through the whole fiasco^1, I've got a place.../", "obj_npc_room_animated_slash_Other_10_gml_315_0");
+            msgnextloc("* For a price^1, of course./", "obj_npc_room_animated_slash_Other_10_gml_315_0");
+            msgnextloc("\\C2 ", "scr_text_slash_scr_text_gml_7042_0");
+            break;
+        
+        case 2001:
+            if (global.choice == 0)
+            {
+                msgsetloc(0, "* Heh^1, thanks.../", "scr_text_slash_scr_text_gml_7048_0");
+                msgnextloc("* (You lost 1 POINT.)/", "obj_npc_room_animated_slash_Other_10_gml_315_0");
+                msgnextloc("* Now let's get outta here!/%", "obj_npc_room_animated_slash_Other_10_gml_315_0");
+                global.flag[1044] -= 1;
+            }
+            else
+            {
+                msgsetloc(0, "* Well^1, alright^1, your funeral./%", "scr_text_slash_scr_text_gml_7052_0");
+            }
+            
+            break;
+
+/// END
+
+/// BEFORE
         default:
             break;
 /// CODE
