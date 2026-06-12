@@ -52,7 +52,7 @@ if (room == room_forest_savepoint2)
     if (y >= 100)
     {
         global.msg[0] = "* Hey^1, welcome to the Bake Sale!/";
-        global.msg[1] = "* Let me just see your ticket and.../";
+        global.msg[1] = "* Let me just see your \\cYBake Sale Ticket\\cW and.../";
         
         if (scr_keyitemcheck(1001) == 0)
         {
@@ -72,28 +72,30 @@ if (room == room_forest_savepoint2)
 /// APPEND
 if (room == room_forest_savepoint3)
 {
-    global.msg[0] = "* We are supposed to capture the lightners but we are stuck outside the castle.../";
-    global.msg[1] = "* Solders! Go find the Castle Key before King notice it!/";
+    global.msg[0] = "* Hey^1! You two^1! Didn't you get the memo?!/";
+    global.msg[1] = "* We're supposed to capture the lightners^1, but we're stuck outside the castle.../";
+    global.msg[2] = "* So go find the \\cYCastle Key\\cW before King notices we lost it^1, Soldiers!/";
+    
     if (scr_keyitemcheck(1003))
     {
-        scr_ralface(2,8);
-        global.msg[3] = "* Here! We found it, don't worry!/";
-        scr_noface(4);
-        global.customflags[global.custom_flags_indexes.castle_key_used] = true;
-        global.msg[5] = "* Ho great! Quick, let's go to the castle before lightners cross the forest./"
-        scr_ralface(6,4);
-        global.msg[7] = "* But we are the lightners... Well I'm not but... /"
-        scr_ralface(8,"A");
-        global.msg[9] = "* Anyway Kris, let's find Susie!/%"
+        scr_ralface(3, 8);
+        global.msg[4] = "* Here^1! We found it^1, don't worry!/";
+        scr_noface(5);
+        global.customflags[9] = true;
+        global.msg[6] = "* Oh^1, perfect^1! Quick^1, let's go to the castle before lightners cross the forest./";
+        scr_ralface(7, 4);
+        global.msg[8] = "* But we're the lightners..^1. Well^1, I'm not^1, but... /";
+        scr_ralface(9, "A");
+        global.msg[10] = "* Anyways Kris^1, let's find Susie!/%";
     }
     else
     {
-        scr_ralface(2,9);
-        global.msg[3] = "* But we aren't-/";
-        scr_noface(4);
-        global.msg[5] = "* Enough talking! Go find it!/";
-        scr_ralface(6,9);
-        global.msg[7] = "* I think we don't have the choice Kris.../%";
+        scr_ralface(3, 9);
+        global.msg[4] = "* Wait^1, but we aren't-/";
+        scr_noface(5);
+        global.msg[6] = "* No excuses^1! Go find it!/";
+        scr_ralface(7, 6);
+        global.msg[8] = "* I don't think we have a choice^1, Kris.../%";
     }
 }
 /// END
