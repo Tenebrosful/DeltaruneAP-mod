@@ -170,7 +170,9 @@ function AP_update_current_room(room_name)
     if(!obj_archipelago_client.AP_isAuthenticated())
         exit;
 
-    obj_archipelago_client.AP_setDataStorage("current_room", room_name)
+    current_location = { current_room: room_name }
+
+    obj_archipelago_client.AP_setDataStorage("current_location", current_location, "update")
 }
 
 function AP_complete_chapter(chapter_number)
@@ -203,21 +205,6 @@ function AP_complete_chapter(chapter_number)
     }
     
     obj_archipelago_client.AP_completeChapter(chapter_number);
-    global.AP_completed_chapters[chapter_number - 1] = true;
-
-    var isVictory = true;
-
-    for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
-    {
-        if (global.AP_include_chapters[chapter - 1] && !global.AP_completed_chapters[chapter - 1])
-        {
-            isVictory = false;
-            break;
-        }
-    }
-
-    if (isVictory)
-        obj_archipelago_client.AP_goal();
 }
 
 function AP_sendLocation(location_id)

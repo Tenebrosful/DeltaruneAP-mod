@@ -51,7 +51,6 @@ if (ds_map_exists(async_load, "buffer"))
                     
                     for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
                     {
-                        array_push(global.AP_completed_chapters_keys, string(global.AP_slot) + "_chapter_" + string(chapter) + "_completed");
                         if (variable_struct_exists(data[i].slot_data.options, "include_chapter_" + string(chapter)))
                         {
                             global.AP_include_chapters[chapter - 1] = variable_struct_get(data[i].slot_data.options, "include_chapter_" + string(chapter));
@@ -146,12 +145,17 @@ if (ds_map_exists(async_load, "buffer"))
 
                     AP_write_settings_file();
                     AP_updateTags();
-                    AP_getChapterCompletion();
+                    AP_initializeChapterCompletion();
+                    AP_initializeCurrentLocation();
                     
                     if (variable_global_exists("chapter"))
                     {
                         AP_game_start_post_connexion();
-                        AP_setDataStorage("current_chapter", global.chapter)
+                        AP_setDataStorage("current_location", {current_chapter: global.chapter, current_room: undefined}, "update")
+                    }
+                    else
+                    {
+                        AP_setDataStorage("current_location", {current_chapter: 0, current_room: undefined}, "update")
                     }
                     
                     break;
@@ -338,18 +342,15 @@ if (ds_map_exists(async_load, "buffer"))
                     {
                         var keys = variable_struct_get_names(data[i].keys);
 
-                        for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
+                        if (variable_struct_exists(keys, string(global.AP_slot) + "_completed_chapters"))
                         {
-                            if (array_contains(keys, global.AP_completed_chapters_keys[chapter - 1]))
-                            {
-                                var value = variable_struct_get(data[i].keys, global.AP_completed_chapters_keys[chapter - 1]);
-                                if (value != undefined)
-                                {
-                                    global.AP_completed_chapters[chapter - 1] = value;
-                                }
-                            }
+                            AP_handle_retreived_completed_chapters(variable_struct_get(keys, string(global.AP_slot) + "_completed_chapters"))
                         }
                     }
+                    break;
+                case "SetReply":
+                    if (data[i].key == string(global.AP_slot) + "_completed_chapters")
+                        AP_handle_retreived_completed_chapters(data[i].value)
                     break;
             }
         }

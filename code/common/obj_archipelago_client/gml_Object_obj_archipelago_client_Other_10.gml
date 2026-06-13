@@ -128,7 +128,44 @@ function AP_sendLocation(ids)
 
 function AP_completeChapter(chapter_number)
 {
-    AP_setDataStorage(string(global.AP_slot) + "_chapter_" + string(chapter_number) + "_completed", 1)
+    chapter = {}
+    variable_struct_set(chapter, chapter_number, true)
+    AP_setDataStorage("completed_chapters", chapter, "update", true)
+}
+
+function AP_getDataStorage(keys, without_prefix = false)
+{
+    if (!AP_isAuthenticated())
+        exit;
+
+    prefixed_keys = []
+
+    if (without_prefix)
+    {
+        prefixed_keys = keys
+    }
+    else
+    {
+        if (is_array(keys))
+        {
+            for (var i = 0; i < array_length(keys); i++)
+            {
+                array_push(prefixed_keys, string(global.AP_slot) + "_" + keys[i])
+            }
+        }
+        else
+        {
+            array_push(prefixed_keys, string(global.AP_slot) + "_" + keys)
+        }
+    }
+
+    var _contents = 
+    {
+        cmd: "Get",
+        keys: prefixed_keys
+    };
+
+    AP_internal_send_packet(_contents);
 }
 
 function AP_setDataStorage(key, value, operation = "replace", want_reply = false, default_value = 0)
@@ -139,7 +176,7 @@ function AP_setDataStorage(key, value, operation = "replace", want_reply = false
     var _contents =
     {
         cmd: "Set",
-        key: key,
+        key: string(global.AP_slot) + "_" + key,
         default: default_value,
         want_reply: want_reply,
         operations: [{operation: operation, value: value}]
@@ -148,18 +185,28 @@ function AP_setDataStorage(key, value, operation = "replace", want_reply = false
     AP_internal_send_packet(_contents);
 }
 
-function AP_getChapterCompletion()
+function AP_initializeChapterCompletion()
 {
     if (!AP_isAuthenticated())
         exit;
 
-    var _contents = 
-    {
-        cmd: "Get",
-        keys: global.AP_completed_chapters_keys
-    };
+    completed_chapters = {};
 
-    AP_internal_send_packet(_contents);
+    for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
+    {
+        if (global.AP_include_chapters[chapter - 1])
+            variable_struct_set(completed_chapters, chapter, false);
+    }
+
+    AP_setDataStorage("completed_chapters",,"default", true, completed_chapters)
+}
+
+function AP_initializeCurrentLocation()
+{
+    if (!AP_isAuthenticated())
+        exit;
+
+    AP_setDataStorage("current_location",,"default",, {current_chapter: -1, current_room: "unknown"})
 }
 
 function AP_goal()
@@ -358,6 +405,27 @@ function AP_internal_verify_location_id(ids)
     }
 
     return validLocations;
+}
+
+function AP_handle_retreived_completed_chapters(completed_chapters)
+{
+    is_all_chapters_completed = true;
+
+    for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
+    {
+        if (variable_struct_exists(completed_chapters, chapter))
+        {
+            global.AP_completed_chapters[chapter - 1] = variable_struct_get(completed_chapters, chapter);
+
+            if (global.AP_include_chapters[chapter - 1] && !variable_struct_get(completed_chapters, chapter))
+                is_all_chapters_completed = false;
+        }
+    }
+
+    if (is_all_chapters_completed)
+    {
+        AP_goal();
+    }
 }
 
 enum UnknownEnum
