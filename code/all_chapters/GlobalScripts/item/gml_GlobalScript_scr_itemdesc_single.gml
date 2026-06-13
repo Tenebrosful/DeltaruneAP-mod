@@ -10,7 +10,10 @@ function scr_itemdesc_single(arg0)
             break;
         
         case 1:
-            __itemdesc = stringsetloc("Heals 40 HP. A red-and-black star#that tastes like marshmallows.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_8_0");
+            if (global.chapter >= 4)
+                __itemdesc = stringsetloc("A candy that has grown sweeter with time.#Said to taste like toasted marshmallow. +120HP", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_9_0");
+            else
+                __itemdesc = stringsetloc("Heals 40 HP. A red-and-black star#that tastes like marshmallows.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_8_0");
             break;
         
         case 2:
