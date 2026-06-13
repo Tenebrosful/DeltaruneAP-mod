@@ -111,7 +111,7 @@ global.custom_flags_indexes = {
     gerson_fought: 32,
     discovered_ch2_leave_dw: 36,
     got_jackenstein_gift: 38,
-    accepted_dark_sanctuary_skip: 39
+    accepted_dark_sanctuary_skip: 39,
     skipped_dark_sanctuary: 40
 }
 
