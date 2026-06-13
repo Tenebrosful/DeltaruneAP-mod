@@ -471,7 +471,10 @@ function scr_spell(arg0, arg1)
             break;
         
         case 201:
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(120));
+            if (global.chapter >= 4)
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(120));
+            else
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(40));
             item_use = true;
             break;
         
