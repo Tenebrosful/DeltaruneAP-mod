@@ -116,7 +116,11 @@ function scr_iteminfo(arg0)
         
         case 11:
             itemnameb = stringsetloc("ClubsSandwich", "scr_iteminfo_slash_scr_iteminfo_gml_86_0");
-            itemdescb = stringsetloc("Heals#team#70HP", "scr_iteminfo_slash_scr_iteminfo_gml_87_0");
+            if (global.chapter == 1)
+                itemdescb = stringsetloc("Heals#team#30HP", "scr_iteminfo_slash_scr_iteminfo_gml_87_0");
+            else
+                itemdescb = stringsetloc("Heals#team#70HP", "scr_iteminfo_slash_scr_iteminfo_gml_87_0");
+
             itemtarget = 2;
             value = 70;
             usable = 1;
