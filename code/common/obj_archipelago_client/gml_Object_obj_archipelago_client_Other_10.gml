@@ -133,6 +133,11 @@ function AP_completeChapter(chapter_number)
     AP_setDataStorage("completed_chapters", chapter, "update", true)
 }
 
+function AP_getDatastoragePrefix()
+{
+    return string(global.AP_slot) + "_" + string(global.AP_team) + "_";
+}
+
 function AP_getDataStorage(keys, without_prefix = false)
 {
     if (!AP_isAuthenticated())
@@ -150,12 +155,12 @@ function AP_getDataStorage(keys, without_prefix = false)
         {
             for (var i = 0; i < array_length(keys); i++)
             {
-                array_push(prefixed_keys, string(global.AP_slot) + "_" + keys[i])
+                array_push(prefixed_keys, AP_getDatastoragePrefix() + keys[i])
             }
         }
         else
         {
-            array_push(prefixed_keys, string(global.AP_slot) + "_" + keys)
+            array_push(prefixed_keys, AP_getDatastoragePrefix() + keys)
         }
     }
 
@@ -168,15 +173,17 @@ function AP_getDataStorage(keys, without_prefix = false)
     AP_internal_send_packet(_contents);
 }
 
-function AP_setDataStorage(key, value, operation = "replace", want_reply = false, default_value = 0)
+function AP_setDataStorage(key, value, operation = "replace", want_reply = false, default_value = 0, without_prefix = false)
 {
     if (!AP_isAuthenticated())
         exit;
 
+    prefixed_key = without_prefix ? key : AP_getDatastoragePrefix() + key
+
     var _contents =
     {
         cmd: "Set",
-        key: string(global.AP_slot) + "_" + key,
+        key: prefixed_key,
         default: default_value,
         want_reply: want_reply,
         operations: [{operation: operation, value: value}]

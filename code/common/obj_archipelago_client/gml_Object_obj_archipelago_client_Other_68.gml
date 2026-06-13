@@ -43,6 +43,7 @@ if (ds_map_exists(async_load, "buffer"))
                 case "Connected":
 
                     global.AP_slot = data[i].slot;
+                    global.AP_team = data[i].team;
                     global.AP_isAuthenticated = 2;
                     global.AP_connection_errors = undefined;
                     show_debug_message("Login successful!");

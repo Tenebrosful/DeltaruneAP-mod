@@ -23,6 +23,7 @@ global.AP_heartbeat_timer = 10 * 30;
 global.AP_socket = -1;
 global.AP_name = "Player";
 global.AP_slot = 0;
+global.AP_team = 0;
 global.AP_player_names = ["Archipelago"];
 global.AP_slotinfo = ["Archipelago"];
 global.AP_scouting_raw = undefined;
