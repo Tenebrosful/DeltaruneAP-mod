@@ -475,6 +475,7 @@ function scr_spell(arg0, arg1)
                 scr_healitemspell(scr_heal_amount_modify_by_equipment(120));
             else
                 scr_healitemspell(scr_heal_amount_modify_by_equipment(40));
+            
             item_use = true;
             break;
         
@@ -536,7 +537,11 @@ function scr_spell(arg0, arg1)
             break;
         
         case 211:
-            scr_healallitemspell(scr_heal_amount_modify_by_equipment(70));
+            if (global.chapter == 1)
+                scr_healallitemspell(scr_heal_amount_modify_by_equipment(30));
+            else
+                scr_healallitemspell(scr_heal_amount_modify_by_equipment(70));
+
             item_use = true;
             break;
         
