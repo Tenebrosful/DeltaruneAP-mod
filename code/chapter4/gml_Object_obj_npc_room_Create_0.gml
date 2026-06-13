@@ -13,7 +13,7 @@ if (room == room_dw_church_jackenstein && x == 320)
 
 if ((room == room_dw_church_gersonstudy && x == 600) || (room == room_dw_church_knightclimb_post && x == 160))
 {
-    if (global.plot >= 243)
+    if (global.plot >= 243 && global.flag[852] < 1)
     {
         return_to_gerson = instance_create(x + 20, y + 40, obj_dw_church_warpflame);
         return_to_gerson.color = "blue";
