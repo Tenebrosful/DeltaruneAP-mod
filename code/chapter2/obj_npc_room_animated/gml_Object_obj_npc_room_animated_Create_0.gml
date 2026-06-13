@@ -15,7 +15,7 @@
 /// APPEND
 if (room == room_dw_mansion_east_4f_b)
 {
-    if (global.AP_secret_bosses_mandatory == 0 || scr_sideb_get_phase() > 2)
+    if (!global.AP_secret_bosses_mandatory || scr_sideb_get_phase() > 2)
     {
         instance_destroy();
     }
