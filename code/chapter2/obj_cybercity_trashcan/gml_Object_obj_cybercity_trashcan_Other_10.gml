@@ -23,15 +23,11 @@ if (global.flag[flag] == 0)
     if (money_amount > 0)
     {
         global.flag[flag] = 1;
-        var itemget = scr_itemget_anytype_text(item_id, "check");
-        msgnextsubloc("* (And found ~1!)/", AP_get_location_reward_text(t_itemid), "obj_cybercity_trashcan_slash_Other_10_gml_16_0");
-        msgnext(itemget);
+        msgnextsubloc("* (And found ~1!)/%", AP_get_location_reward_text(t_itemid), "obj_cybercity_trashcan_slash_Other_10_gml_16_0");
     }
     else if (item_id > 0)
     {
-        var itemget = scr_itemget_anytype_text(item_id, "check");
-        msgnextsubloc("* (And found ~1!)/", AP_get_location_reward_text(t_itemid), "obj_cybercity_trashcan_slash_Other_10_gml_23_0");
-        msgnext(itemget);
+        msgnextsubloc("* (And found ~1!)/%", AP_get_location_reward_text(t_itemid), "obj_cybercity_trashcan_slash_Other_10_gml_23_0");
         
         if (noroom == 0)
             global.flag[flag] = 1;
