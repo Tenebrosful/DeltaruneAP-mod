@@ -58,7 +58,8 @@ function scr_itemdesc_single(arg0)
             break;
         
         case 11:
-            __itemdesc = stringsetloc("A sandwich that can be split into 3.#Heals 70 HP to the team.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_39_0");
+            var healamount = (global.chapter == 1) ? 30 : 70;
+            __itemdesc = stringsetsubloc("A sandwich that can be split into 3.#Heals ~1 HP to the team.", string(healamount),  "scr_itemdesc_single_slash_scr_itemdesc_single_gml_39_0");
             break;
         
         case 12:
