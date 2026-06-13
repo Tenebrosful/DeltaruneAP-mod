@@ -32,7 +32,11 @@ function scr_itemuse(arg0)
             break;
         
         case 1:
-            scr_healitem(global.charselect, 40);
+            if (global.chapter >= 4)
+                scr_healitem(global.charselect, 120);
+            else
+                scr_healitem(global.charselect, 40);
+
             usable = 1;
             
             if (_gc == 2)
