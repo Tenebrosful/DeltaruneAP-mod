@@ -1,5 +1,6 @@
 /// IMPORT
 con = 0;
+leavecon = 0;
 timer = 0;
 init = 0;
 siner = 0;
