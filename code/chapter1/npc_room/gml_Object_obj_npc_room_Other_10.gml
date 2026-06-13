@@ -81,7 +81,7 @@ if (room == room_forest_savepoint3)
         scr_ralface(3, 8);
         global.msg[4] = "* Here^1! We found it^1, don't worry!/";
         scr_noface(5);
-        global.customflags[9] = true;
+        global.customflags[global.custom_flags_indexes.castle_key_used] = true;
         global.msg[6] = "* Oh^1, perfect^1! Quick^1, let's go to the castle before lightners cross the forest./";
         scr_ralface(7, 4);
         global.msg[8] = "* But we're the lightners..^1. Well^1, I'm not^1, but... /";
