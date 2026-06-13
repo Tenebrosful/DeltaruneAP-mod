@@ -198,7 +198,10 @@ function scr_itemuse(arg0)
             break;
         
         case 11:
-            scr_healitem_all(70);
+            if (global.chapter == 1)
+                scr_healitem_all(30);
+            else
+                scr_healitem_all(70);
             
             if (scr_havechar(2))
                 scr_itemcomment(suspos, stringsetloc("Quit hogging!", "scr_itemuse_slash_scr_itemuse_gml_177_0"));
