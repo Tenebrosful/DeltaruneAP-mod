@@ -34,11 +34,7 @@ if (room == room_dw_cyber_battle_maze_2)
     sprite_index = spr_sweet_idle;
     extflag = "actionblocker"
 
-    if (!global.AP_unlock_fun_gang_actions)
-    {
-        instance_destroy();
-    }
-    else if (!global.flag[34])
+    if (!global.AP_unlock_fun_gang_actions || !global.flag[34])
     {
         instance_destroy();
     }
