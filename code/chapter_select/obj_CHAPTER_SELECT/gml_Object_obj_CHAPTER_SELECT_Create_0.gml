@@ -131,4 +131,12 @@ detect_no_chapters = function()
     Value_7,
     Value_8
 /// END
-    
+
+/// AFTER
+            case os_windows:
+/// CODE
+                if (instance_exists(obj_archipelago_client))
+                {
+                    obj_archipelago_client.AP_disconnect();
+                }
+/// END
