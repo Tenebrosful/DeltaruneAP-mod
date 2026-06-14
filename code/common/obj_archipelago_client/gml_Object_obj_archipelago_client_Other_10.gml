@@ -40,21 +40,20 @@ function AP_read_settings_file()
     return ap_settings_struct;
 }
 
-function AP_connect()
+function AP_connect(isSecure = true)
 {
     if (AP_isAuthenticated())
         AP_disconnect();
     
+    global.AP_secure = isSecure;
     global.AP_isAuthenticated = 0;
-    if (global.AP_server == "archipelago.gg")
-        global.AP_secure = true;
-    else
+
+    if (global.AP_server == "localhost")
         global.AP_secure = false;
 
-    if (global.AP_secure == true && global.AP_socket != network_create_socket(wss))
+    if (global.AP_secure)
         global.AP_socket = network_create_socket(wss);
-
-    if (global.AP_secure == false && global.AP_socket != network_create_socket(ws))
+    else
         global.AP_socket = network_create_socket(ws);
 
     var APgame = "DELTARUNE";
@@ -66,7 +65,7 @@ function AP_connect()
         password: global.AP_password,
         game: APgame,
         name: global.AP_name,
-        uuid: UnknownEnum.Value_999999,
+        uuid: UnknownEnum.Value_999999, // We need to change that
         items_handling: UnknownEnum.Value_7,
         tags: tags,
         version: 
@@ -81,9 +80,18 @@ function AP_connect()
     isConnected = network_connect_raw(global.AP_socket, global.AP_server, global.AP_port);
 
     if (isConnected < 0)
+    {
         global.AP_isAuthenticated = -2
+        if (global.AP_secure)
+        {
+            AP_connect(false)
+        }
+    }
+    else
+    {
+        AP_internal_send_packet(_contents);
+    }
 
-    AP_internal_send_packet(_contents);
 }
 
 function AP_disconnect()
