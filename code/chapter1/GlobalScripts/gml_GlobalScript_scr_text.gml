@@ -1751,7 +1751,7 @@ function scr_text(arg0)
             if (global.choice == 0)
             {
             
-                global.msg[0] = string("* (As your hands touched it^1, the moss turned into {0}./%", AP_get_location_reward_text(35));
+                global.msg[0] = string("* (As your hands touched it^1, the moss turned into {0}.)/%", AP_get_location_reward_text(35));
                 global.flag[106] = 1;
                 AP_sendLocation(35);
             }
@@ -1790,7 +1790,7 @@ function scr_text(arg0)
                     with (obj_npc_sign)
                         image_index = 1;
                     
-                    global.msg[0] = string("* (As touched it^1, it turned into {0}./%", AP_get_location_reward_text(30));
+                    global.msg[0] = string("* (As you touched it^1, it turned into {0}.)/%", AP_get_location_reward_text(30));
                     global.flag[105] = 1;
                 }
             }
