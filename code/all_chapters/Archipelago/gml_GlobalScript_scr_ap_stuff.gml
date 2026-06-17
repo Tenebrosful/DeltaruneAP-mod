@@ -229,6 +229,7 @@ function AP_create()
 
 function AP_get_location_reward_text(location_id)
 {
+    if (!variable_global_exists("AP_location_item")) return "Unknown Item";
     if !variable_struct_exists(global.AP_location_item, location_id) return "Unknown Item";
 
     var data = variable_struct_get(global.AP_location_item, location_id);
@@ -242,6 +243,7 @@ function AP_get_location_reward_text(location_id)
 
 function AP_get_location_reward_data(location_id)
 {
+     if (!variable_global_exists("AP_location_item")) return {playerName: "Unknown", itemName: "Unknown", flags: 000}
     if !variable_struct_exists(global.AP_location_item, location_id) return {playerName: "Unknown", itemName: "Unknown", flags: 000}
     var data = variable_struct_get(global.AP_location_item, location_id)
     if data.playerName == "<yourself>" data.playerName = "Yourself"
