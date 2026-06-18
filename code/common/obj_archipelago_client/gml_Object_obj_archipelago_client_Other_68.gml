@@ -39,6 +39,8 @@ if (ds_map_exists(async_load, "buffer"))
                             }
                         }
                     }
+
+                    AP_connected_post_roominfo();
                     break;
                 case "Connected":
 

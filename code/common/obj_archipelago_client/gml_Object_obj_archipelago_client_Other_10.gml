@@ -56,6 +56,20 @@ function AP_connect(isSecure = true)
     else
         global.AP_socket = network_create_socket(ws);
 
+    isConnected = network_connect_raw(global.AP_socket, global.AP_server, global.AP_port);
+
+    if (isConnected < 0)
+    {
+        global.AP_isAuthenticated = -2
+        if (global.AP_secure)
+        {
+            AP_connect(false)
+        }
+    }
+}
+
+function AP_connected_post_roominfo()
+{
     var APgame = "DELTARUNE";
     var tags = AP_getTags();
 
@@ -77,21 +91,7 @@ function AP_connect(isSecure = true)
         }
     };
 
-    isConnected = network_connect_raw(global.AP_socket, global.AP_server, global.AP_port);
-
-    if (isConnected < 0)
-    {
-        global.AP_isAuthenticated = -2
-        if (global.AP_secure)
-        {
-            AP_connect(false)
-        }
-    }
-    else
-    {
-        AP_internal_send_packet(_contents);
-    }
-
+    AP_internal_send_packet(_contents);
 }
 
 function AP_disconnect()
