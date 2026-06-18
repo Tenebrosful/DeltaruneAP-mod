@@ -128,6 +128,8 @@ if (ds_map_exists(async_load, "buffer"))
                         global.AP_deathlink = settings_struct.deathLink;
                     }
 
+                    AP_write_settings_file();
+                    
                     var path_scouting = AP_get_save_folder_prefix() + "scouting.json"
 
                     if (!file_exists(path_scouting))
@@ -146,7 +148,6 @@ if (ds_map_exists(async_load, "buffer"))
                         global.AP_location_item = scouting_struct;
                     }
 
-                    AP_write_settings_file();
                     AP_updateTags();
                     AP_initializeChapterCompletion();
                     AP_initializeCurrentLocation();
