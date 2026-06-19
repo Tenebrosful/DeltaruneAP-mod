@@ -46,13 +46,13 @@
 /// CODE
     c_soundplay(snd_item);
     c_speaker("no_name");
+    AP_sendLocation([97, 98, 99]);
     c_msgsetloc(0, string("* (You got {0}.)/", AP_get_location_reward_text(97)), "obj_ch2_sceneex2a_slash_Step_0_gml_95_0");
     c_msgnextloc(string("* (You got {0}.)/", AP_get_location_reward_text(98)), "obj_ch2_sceneex2a_slash_Step_0_gml_95_0");
     c_msgnextloc(string("* (You got {0}.)/%", AP_get_location_reward_text(99)), "obj_ch2_sceneex2a_slash_Step_0_gml_95_0");
     c_talk_wait();
     c_wait(5);
     noroom = 0;
-    AP_sendLocation([97, 98, 99]);
     c_speaker("no_name");
     c_talk_wait();
 /// END

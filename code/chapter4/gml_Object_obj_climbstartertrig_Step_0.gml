@@ -154,8 +154,7 @@ if (con == 2 && !i_ex(obj_cutscene_master))
     global.customflags[global.custom_flags_indexes.got_jackenstein_gift] = 1;
     global.flag[850] = 6;
     global.plot = 190;
-    AP_sendLocation(200);
-    AP_sendLocation(205);
+    AP_sendLocation([200, 205]);
     con = 99;
 }
 

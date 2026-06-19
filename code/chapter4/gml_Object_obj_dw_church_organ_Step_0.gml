@@ -15,7 +15,7 @@
     global.customflags[31] = 1;
     snd_play(snd_item);
     scr_speaker("no_name");
-    msgsetloc(0, string("* (You got a Check.)/%", AP_get_location_reward_text(205)), "obj_dw_church_organ_slash_Step_0_gml_428_0");
+    msgsetloc(0, string("* (You got {0})/%", AP_get_location_reward_text(205)), "obj_dw_church_organ_slash_Step_0_gml_428_0");
     AP_sendLocation(205);
 /// END
 

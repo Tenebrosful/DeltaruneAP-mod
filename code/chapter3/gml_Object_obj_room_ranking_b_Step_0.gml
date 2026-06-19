@@ -31,10 +31,6 @@
                 if (global.flag[1044] < 1)
                     global.flag[1044] = 0;
                 
-                AP_sendLocation(130);
-                AP_sendLocation(131);
-                AP_sendLocation(132);
-                AP_sendLocation(133);
-                AP_sendLocation(134);
+                AP_sendLocation([130, 131, 132, 133, 134]);
             }
 /// END

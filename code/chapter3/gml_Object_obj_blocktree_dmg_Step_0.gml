@@ -4,8 +4,8 @@
     msgnextloc("(KRIS RECEIVED THE \\cYEGG\\cW.)/%", "obj_blocktree_dmg_slash_Step_0_gml_262_0");
     scr_keyitemget(2);
 /// CODE
-    msgnextloc(string("(YOU RECEIVED {0}.)/%", AP_get_location_reward_text(170)), "obj_blocktree_dmg_slash_Step_0_gml_262_0");
     AP_sendLocation(170);
+    msgnextloc(string("(YOU RECEIVED {0}.)/%", AP_get_location_reward_text(170)), "obj_blocktree_dmg_slash_Step_0_gml_262_0");
 /// END
 
 /// REPLACE
