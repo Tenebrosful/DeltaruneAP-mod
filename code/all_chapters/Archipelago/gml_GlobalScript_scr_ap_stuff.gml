@@ -665,6 +665,7 @@ function AP_chapter_specific_item_receive_blacklist()
                 case room_dw_rhythm_empty:
                 case room_dw_rhythm_countdown:
                 case room_dw_b3bs_bibliox:
+                case room_dw_teevie_shuttahmaze:
                     return true;
             }
             break;
