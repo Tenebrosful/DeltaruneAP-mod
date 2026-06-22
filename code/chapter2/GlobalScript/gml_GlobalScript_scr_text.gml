@@ -212,7 +212,7 @@
                 msgsetloc(0, "* (You put the disk into the broken down mechanism.)/", "scr_text_slash_scr_text_gml_5662_0");
                 msgnextloc("* (...)/", "scr_text_slash_scr_text_gml_5663_0");
                 msgnextloc("* (Nothing happened.)/%", "scr_text_slash_scr_text_gml_5664_0");
-                AP_sendLocation(93); // Failsafe if inserting Load Disk before taking empty disk
+                AP_sendLocation(96); // Failsafe if inserting Load Disk before taking empty disk
                 scr_keyitemremove(11);
 /// END
 
