@@ -101,11 +101,11 @@ function AP_fill_progressive_weapon_struct()
         if (global.AP_include_chapters[1])
             array_push(global.AP_progressive_weapons_ids.susie, 17); // AutoAxe
 
-        if (global.AP_include_chapters[0])
-            array_push(global.AP_progressive_weapons_ids.susie, 7); // Devilsknife
-
         if (global.AP_include_chapters[2])
             array_push(global.AP_progressive_weapons_ids.susie, 24); // ToxicAxe
+
+        if (global.AP_include_chapters[0])
+            array_push(global.AP_progressive_weapons_ids.susie, 7); // Devilsknife
 
         if (global.AP_include_chapters[3])
             array_push(global.AP_progressive_weapons_ids.susie, 54); // AbsorbAx
