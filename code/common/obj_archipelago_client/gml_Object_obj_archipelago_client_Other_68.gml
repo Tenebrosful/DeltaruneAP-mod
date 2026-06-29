@@ -346,14 +346,14 @@ if (ds_map_exists(async_load, "buffer"))
                     {
                         var keys = variable_struct_get_names(data[i].keys);
 
-                        if (variable_struct_exists(keys, AP_getDatastoragePrefix() + "_completed_chapters"))
+                        if (variable_struct_exists(keys, AP_getDatastoragePrefix() + "completed_chapters"))
                         {
-                            AP_handle_retreived_completed_chapters(variable_struct_get(keys, AP_getDatastoragePrefix() + "_completed_chapters"))
+                            AP_handle_retreived_completed_chapters(variable_struct_get(keys, AP_getDatastoragePrefix() + "completed_chapters"))
                         }
                     }
                     break;
                 case "SetReply":
-                    if (data[i].key == AP_getDatastoragePrefix() + "_completed_chapters")
+                    if (data[i].key == AP_getDatastoragePrefix() + "completed_chapters")
                         AP_handle_retreived_completed_chapters(data[i].value)
                     break;
             }
