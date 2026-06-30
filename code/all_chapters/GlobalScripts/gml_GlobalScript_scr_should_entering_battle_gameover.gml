@@ -6,6 +6,7 @@ function scr_should_entering_battle_gameover()
     case 2: // Lancer
     case 20: // Susie vs Lancer
     case 40: // King
+    case 63: // Ch2 Rouxls
     case 72: // Graze Challenge
     case 84: // Giga Queen
     case 102: // Pipis
