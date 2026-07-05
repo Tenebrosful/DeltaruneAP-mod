@@ -143,7 +143,7 @@ function AP_fill_progressive_weapon_struct()
             array_push(global.AP_progressive_weapons_ids.ralsei, 21); // PuppetScarf
 
         if (global.AP_include_unused_items == 1)
-            array_push(global.AP_progressive_weapons_ids.susie, 4); // EverybodyWeapon
+            array_push(global.AP_progressive_weapons_ids.ralsei, 4); // EverybodyWeapon
     }
     if (global.AP_progressive_weapons.noelle)
     {
