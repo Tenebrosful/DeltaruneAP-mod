@@ -636,6 +636,7 @@ function AP_can_receive_item()
         && !instance_exists(obj_fadein)
         && !instance_exists(obj_fadeout)
         && !instance_exists(obj_dialoguer)
+        && !instance_exists(obj_board_controller)
         && !cutscene
         && !AP_chapter_specific_item_receive_blacklist()
     );
