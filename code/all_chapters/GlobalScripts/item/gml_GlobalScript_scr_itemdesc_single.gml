@@ -189,6 +189,22 @@ function scr_itemdesc_single(arg0)
             
             break;
         
+        case 40:
+            __itemdesc = stringsetloc("A bowl of sick elixir that packs an#almost physical punch. +200HP to all.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_142_0_b");
+            break;
+        
+        case 41:
+            __itemdesc = stringsetloc("A small white candy in various floral flavors.#Rumored to have been a bullet pattern. +130HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_145_0_b");
+            break;
+        
+        case 42:
+            __itemdesc = stringsetloc("A sweet orange tea with a strong flavor of#cardadad. Made by \"Green.\" +180HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_148_0_b");
+            break;
+        
+        case 43:
+            __itemdesc = stringsetloc("Green juice made by a girl named \"Orange.\"#A smoothie of aloe and citrine. +80HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_151_0_b");
+            break;
+        
         case 60:
             __itemdesc = stringsetloc("A chocolatey cone etched with arcane#glyphs. Only Kris can eat it. +400 HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_142_0");
             break;
@@ -212,7 +228,36 @@ function scr_itemdesc_single(arg0)
         case 63:
             __itemdesc = stringsetloc("Bitter water that fell in droplets from the sky.#Recovers all HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_151_0");
             break;
+        
+        case 64:
+            __itemdesc = stringsetloc("A hunk of bread laden with sauer regrets.#Recovers 200 HP to all.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_166_0");
+            break;
+        
+        case 65:
+            __itemdesc = stringsetloc("A cake of bread laden with joyful memories.#Recovers 160 HP to all.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_169_0");
+            break;
+        
+        case 66:
+            __itemdesc = stringsetloc("An energy drink collaborating with a certain car brand.#Recovers 200 HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_172_0");
+            break;
+        
+        case 67:
+            __itemdesc = stringsetloc("A bubbly liquid in a sweet floral blue.#+Slight%TP, +100HP unless you like it more.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_175_0");
+            break;
+        
+        case 68:
+            __itemdesc = stringsetloc("Grape-flavored phantasmagoria of a soda's dream.#+Slight%TP, +100HP unless you like it more.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_178_0");
+            break;
+        
+        case 69:
+            __itemdesc = stringsetloc("Embarrassingly white lactose flavor.#Said to be Ralsei's favorite on the bottle.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_181_0");
+            break;
+        
+        case 70:
+            __itemdesc = stringsetloc("A natural drink infused with nutmeg and#deer hair. Heals all party members. +80HPall", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_184_0");
+            break;
     }
     
     return __itemdesc;
 }
+
