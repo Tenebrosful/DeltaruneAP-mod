@@ -192,18 +192,83 @@ function scr_keyiteminfo(arg0)
             
             break;
         
+        case 20:
+            tempkeyitemname = stringsetloc("Scissors", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_186_0_b");
+            tempkeyitemdesc = stringsetloc("Obviously stolen scissors which could easily#be used to cut up cloth.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_187_0");
+            break;
+        
+        case 21:
+            tempkeyitemname = stringsetloc("YellowShred", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_191_0");
+            tempkeyitemdesc = stringsetloc("A shred of yellow fabric with a corn pattern.#The edge is black and smells.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_192_0");
+            break;
+        
+        case 22:
+            tempkeyitemname = stringsetloc("BootOil", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_196_0");
+            tempkeyitemdesc = stringsetloc("A black, opaque oil with no distinctive odor.#Used to unsqueaken Cowboy boots.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_197_0");
+            break;
+        
+        case 23:
+            tempkeyitemname = stringsetloc("RedSplatter", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_201_0");
+            tempkeyitemdesc = stringsetloc("A mysterious puddle of red criminal#liquid.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_202_0");
+            break;
+        
+        case 24:
+            tempkeyitemname = stringsetloc("BromideR", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_206_0");
+            tempkeyitemdesc = stringsetloc("\"Good night, sweet prince\"#USE this item to observe it.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_207_0");
+            tempkeyitemusable = 1;
+            break;
+        
+        case 25:
+            tempkeyitemname = stringsetloc("PetalFeather", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_212_0");
+            tempkeyitemdesc = stringsetloc("A petal which makes you light as a feather.#Allows the use of MYSTERIOUS STATUES.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_213_0");
+            
+            if (global.plot >= 398 && scr_flag_get(349) == 0)
+                tempkeyitemdesc = stringsetloc("Allows use of MYSTERIOUS STATUES.#Not to be confused with a certain other feather.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_218_0");
+            
+            break;
+        
+        case 26:
+            tempkeyitemname = stringsetloc("PerpBook", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_223_0");
+            tempkeyitemdesc = stringsetloc("A purple book with a decidedly floral scent.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_224_0");
+            break;
+        
+        case 27:
+            tempkeyitemname = stringsetloc("BlueString", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_228_0");
+            tempkeyitemdesc = stringsetloc("String which could be used to bound something#in care.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_229_0");
+            break;
+        
+        case 28:
+            tempkeyitemname = stringsetloc("TrainPlan", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_233_0");
+            tempkeyitemdesc = stringsetloc("A blueprint which details how to alter tracks#into a smashing machine with 2 rollercoasts.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_234_0");
+            break;
+        
+        case 29:
+            tempkeyitemname = stringsetloc("YellowKey", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_238_0");
+            tempkeyitemdesc = stringsetloc("A yellow key that looks like it could#open a yellow door. Smells of corn.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_239_0");
+            break;
+        
         case 30:
             tempkeyitemname = stringsetloc("SheetMusic", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_177_0");
-            tempkeyitemdesc = stringsetloc("Music that someone attempted to transcribe.#USE it to read it.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_178_0");
+            tempkeyitemdesc = stringsetloc("Music that Susie attempted to transcribe.#USE it to read it.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_178_0");
             tempkeyitemusable = 1;
-            tempkeyitemchapter = 4;
             break;
         
         case 31:
             tempkeyitemname = stringsetloc("ClaimbClaws", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_182_0");
             tempkeyitemdesc = stringsetloc("Claws so small they conveniently can't#be seen. Use them to climb up obvious walls.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_183_0");
-            tempkeyitemchapter = 4;
             break;
+        
+        case 32:
+            tempkeyitemname = stringsetloc("MysteryKey", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_254_0");
+            tempkeyitemdesc = stringsetloc("A pink key with an ectoplasmic aura.#Maybe it's a family heirloom.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_255_0");
+            break;
+        
+        case 33:
+            tempkeyitemname = stringsetloc("BromideF", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_259_0");
+            tempkeyitemdesc = stringsetloc("\"Secret Steamy Bathtime\"#USE this item to observe it.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_260_0");
+            tempkeyitemusable = 1;
+            break;
+
         case 700:
             tempkeyitemdesc = stringsetsubloc("A piece of a key shaped like a spade.#You have collected [~1] out of [~2].", global.MacGuffin_count, global.AP_macguffin_required[global.chapter - 1], "scr_keyiteminfo_slash_scr_keyiteminfo_gml_70_0");
             tempkeyitemname = stringsetloc("KingKeyPiece", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_71_0");
