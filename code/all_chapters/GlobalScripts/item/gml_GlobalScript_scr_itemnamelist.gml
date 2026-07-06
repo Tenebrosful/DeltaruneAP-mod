@@ -163,6 +163,22 @@ function scr_itemnamelist()
             global.itemname[i] = stringsetloc("DeluxeDinner", "scr_itemnamelist_slash_scr_itemnamelist_gml_123_0");
             break;
         
+        case 40:
+            global.itemname[i] = stringsetloc("PunchBowl", "scr_itemnamelist_slash_scr_itemnamelist_gml_126_0_b");
+            break;
+        
+        case 41:
+            global.itemname[i] = stringsetloc("Flavigne", "scr_itemnamelist_slash_scr_itemnamelist_gml_129_0_b");
+            break;
+        
+        case 42:
+            global.itemname[i] = stringsetloc("GreenTea", "scr_itemnamelist_slash_scr_itemnamelist_gml_132_0_b");
+            break;
+        
+        case 43:
+            global.itemname[i] = stringsetloc("OrangeJuice", "scr_itemnamelist_slash_scr_itemnamelist_gml_135_0_b");
+            break;
+        
         case 60:
             global.itemname[i] = stringsetloc("AncientSweet", "scr_itemnamelist_slash_scr_itemnamelist_gml_126_0");
             break;
@@ -177,6 +193,34 @@ function scr_itemnamelist()
         
         case 63:
             global.itemname[i] = stringsetloc("BitterTear", "scr_itemnamelist_slash_scr_itemnamelist_gml_135_0");
+            break;
+        
+        case 64:
+            global.itemname[i] = stringsetloc("Schadenbrot", "scr_itemnamelist_slash_scr_itemnamelist_gml_150_0");
+            break;
+        
+        case 65:
+            global.itemname[i] = stringsetloc("TreeCake", "scr_itemnamelist_slash_scr_itemnamelist_gml_153_0");
+            break;
+        
+        case 66:
+            global.itemname[i] = stringsetloc("S.POTION", "scr_itemnamelist_slash_scr_itemnamelist_gml_156_0");
+            break;
+        
+        case 67:
+            global.itemname[i] = stringsetloc("Raw Moon", "scr_itemnamelist_slash_scr_itemnamelist_gml_159_0");
+            break;
+        
+        case 68:
+            global.itemname[i] = stringsetloc("Phanta", "scr_itemnamelist_slash_scr_itemnamelist_gml_162_0");
+            break;
+        
+        case 69:
+            global.itemname[i] = stringsetloc("FlowerySoda", "scr_itemnamelist_slash_scr_itemnamelist_gml_165_0");
+            break;
+        
+        case 70:
+            global.itemname[i] = stringsetloc("Shikacola", "scr_itemnamelist_slash_scr_itemnamelist_gml_168_0");
             break;
     }
 }
