@@ -718,6 +718,229 @@ function scr_armorinfo(arg0)
             chapter = 3;
             break;
         
+        case 30:
+            armornametemp = stringsetloc("MonarchRBN", "scr_armorinfo_slash_scr_armorinfo_gml_713_0");
+            armordesctemp = stringsetloc("A ribbon like the wings of a butterfly.#Increases healing ability when equipped.", "scr_armorinfo_slash_scr_armorinfo_gml_714_0");
+            amessage2temp = stringsetloc("I'll squash it.", "scr_armorinfo_slash_scr_armorinfo_gml_715_0");
+            amessage3temp = stringsetloc("My horns are like antenna!", "scr_armorinfo_slash_scr_armorinfo_gml_716_0");
+            amessage4temp = stringsetloc("They're not ANTENNA!! They're ant-LERS!", "scr_armorinfo_slash_scr_armorinfo_gml_717_0");
+            armorattemp = 0;
+            armordftemp = 6;
+            armormagtemp = 2;
+            armorboltstemp = 0;
+            armorgrazeamttemp = 0;
+            armorgrazesizetemp = 0;
+            armorchar1temp = 1;
+            armorchar2temp = 0;
+            
+            if (global.flag[1404] > 0)
+            {
+                armorchar2temp = 1;
+                amessage2temp = stringsetloc("Got a taranchula one?", "scr_armorinfo_slash_scr_armorinfo_gml_729_0_b");
+            }
+            
+            armorchar3temp = 1;
+            armorchar4temp = 1;
+            armorabilitytemp = stringsetloc("HasAntenna", "scr_armorinfo_slash_scr_armorinfo_gml_733_0");
+            armorabilityicontemp = 10;
+            armoricontemp = 4;
+            value = 4000;
+            chapter = 5;
+            break;
+        
+        case 31:
+            armornametemp = stringsetloc("TrueTie", "scr_armorinfo_slash_scr_armorinfo_gml_739_0");
+            armordesctemp = stringsetloc("The genuine tie worn by a forgotten TV star.#Defends against the Puppet&Cat element.", "scr_armorinfo_slash_scr_armorinfo_gml_740_0");
+            amessage2temp = stringsetloc("More hand-me-downs?", "scr_armorinfo_slash_scr_armorinfo_gml_741_0");
+            amessage3temp = stringsetloc("Ready for my close-up!", "scr_armorinfo_slash_scr_armorinfo_gml_742_0");
+            amessage4temp = stringsetloc("What's next, a fedora?", "scr_armorinfo_slash_scr_armorinfo_gml_743_0");
+            armorattemp = 1;
+            armordftemp = 5;
+            armormagtemp = 0;
+            armorboltstemp = 0;
+            armorgrazeamttemp = 0;
+            armorgrazesizetemp = 0;
+            armorchar1temp = 1;
+            armorchar2temp = 1;
+            armorchar3temp = 1;
+            armorchar4temp = 1;
+            armorabilitytemp = stringsetloc("CatDefend", "scr_armorinfo_slash_scr_armorinfo_gml_754_0");
+            armorabilityicontemp = 11;
+            armoricontemp = 4;
+            value = 1000;
+            armorelementtemp = 6;
+            armorelementamounttemp = 0.2;
+            chapter = 5;
+            break;
+        
+        case 32:
+            armornametemp = stringsetloc("DogWidow", "scr_armorinfo_slash_scr_armorinfo_gml_763_0");
+            armordesctemp = stringsetloc("A brooch in the shape of a golden pooch.#You lose almost all money after battle.", "scr_armorinfo_slash_scr_armorinfo_gml_764_0");
+            amessage2temp = stringsetloc("This is annoying.", "scr_armorinfo_slash_scr_armorinfo_gml_765_0");
+            amessage3temp = stringsetloc("This is annoying.", "scr_armorinfo_slash_scr_armorinfo_gml_766_0");
+            amessage4temp = stringsetloc("Pff... YOU should wear it, Kris.", "scr_armorinfo_slash_scr_armorinfo_gml_767_0_b");
+            armorattemp = 0;
+            armordftemp = 6;
+            armormagtemp = 0;
+            armorboltstemp = 0;
+            armorgrazeamttemp = 0;
+            armorgrazesizetemp = 0;
+            armorchar1temp = 1;
+            armorchar2temp = 1;
+            armorchar3temp = 1;
+            armorchar4temp = 1;
+            armorabilitytemp = stringsetloc("$ -90%", "scr_armorinfo_slash_scr_armorinfo_gml_778_0");
+            armorabilityicontemp = 6;
+            armoricontemp = 4;
+            value = 6000;
+            chapter = 5;
+            break;
+        
+        case 33:
+            armornametemp = stringsetloc("RedRibbon", "scr_armorinfo_slash_scr_armorinfo_gml_784_0");
+            armordesctemp = stringsetloc("A ribbon with an inscription to drive#away resident spirits, if they don't pay.", "scr_armorinfo_slash_scr_armorinfo_gml_785_0");
+            amessage2temp = stringsetloc("Kris's got the tab.", "scr_armorinfo_slash_scr_armorinfo_gml_786_0");
+            amessage3temp = stringsetloc("Red and white...", "scr_armorinfo_slash_scr_armorinfo_gml_787_0");
+            amessage4temp = stringsetloc("Umm, your dad's name is on this.", "scr_armorinfo_slash_scr_armorinfo_gml_788_0_b");
+            armorattemp = 0;
+            armordftemp = 4;
+            armormagtemp = 1;
+            armorboltstemp = 0;
+            armorgrazeamttemp = 0;
+            armorgrazesizetemp = 0;
+            armorchar1temp = 1;
+            armorchar2temp = 1;
+            
+            if (global.flag[1404] == 0)
+            {
+                armorchar2temp = 0;
+                amessage2temp = stringsetloc("Nah, I guess... not.", "scr_armorinfo_slash_scr_armorinfo_gml_800_0");
+            }
+            
+            armorchar3temp = 1;
+            armorchar4temp = 1;
+            armorabilitytemp = stringset("");
+            armorabilityicontemp = 0;
+            armoricontemp = 4;
+            value = 555;
+            chapter = 5;
+            break;
+        
+        case 34:
+            armornametemp = stringsetloc("NetskieHat", "scr_armorinfo_slash_scr_armorinfo_gml_811_0");
+            armordesctemp = stringsetloc("A white-yellow hat for someone with fox#ears. Somehow you can wear more than one.", "scr_armorinfo_slash_scr_armorinfo_gml_812_0");
+            amessage2temp = stringsetloc("Cool. Visible ears.", "scr_armorinfo_slash_scr_armorinfo_gml_813_0");
+            amessage3temp = stringsetloc("Fits my horns perfectly!", "scr_armorinfo_slash_scr_armorinfo_gml_814_0");
+            amessage4temp = stringsetloc("Does not. Fit my antlers.", "scr_armorinfo_slash_scr_armorinfo_gml_815_0");
+            armorattemp = 0;
+            armordftemp = 6;
+            armormagtemp = 0;
+            armorboltstemp = 0;
+            armorgrazeamttemp = 0;
+            armorgrazesizetemp = 0;
+            armorchar1temp = 1;
+            armorchar2temp = 1;
+            armorchar3temp = 1;
+            armorchar4temp = 1;
+            armorabilitytemp = stringset("");
+            armorabilityicontemp = 0;
+            armoricontemp = 4;
+            value = 1500;
+            chapter = 5;
+            break;
+        
+        case 35:
+            armornametemp = stringsetloc("SethSpecs", "scr_armorinfo_slash_scr_armorinfo_gml_833_0");
+            armordesctemp = stringsetloc("A tactician's glasses. Become invulnerable for#longer after being damaged.", "scr_armorinfo_slash_scr_armorinfo_gml_834_0");
+            amessage2temp = stringsetloc("Easier than stealing Ralsei's.", "scr_armorinfo_slash_scr_armorinfo_gml_835_0");
+            amessage3temp = stringsetloc("I'm ready to do your homework!", "scr_armorinfo_slash_scr_armorinfo_gml_836_0");
+            amessage4temp = stringsetloc("That's too much like...", "scr_armorinfo_slash_scr_armorinfo_gml_837_0");
+            armorattemp = 0;
+            armordftemp = 4;
+            armormagtemp = 6;
+            armorboltstemp = 0;
+            armorgrazeamttemp = 0;
+            armorgrazesizetemp = 0;
+            armorchar1temp = 1;
+            armorchar2temp = 1;
+            armorchar3temp = 1;
+            armorchar4temp = 0;
+            armorabilitytemp = stringsetloc("InvTime+", "scr_armorinfo_slash_scr_armorinfo_gml_848_0");
+            armorabilityicontemp = 5;
+            armoricontemp = 22;
+            value = 2;
+            chapter = 5;
+            break;
+        
+        case 36:
+            armornametemp = stringsetloc("YellowHat", "scr_armorinfo_slash_scr_armorinfo_gml_855_0");
+            armordesctemp = stringsetloc("The hat of a just cowboy. Makes spells#20% more effective.", "scr_armorinfo_slash_scr_armorinfo_gml_856_0");
+            amessage2temp = stringsetloc("Get in Horse Mode, Ralsei.", "scr_armorinfo_slash_scr_armorinfo_gml_857_0");
+            amessage3temp = stringsetloc("Can Susie be the horse?", "scr_armorinfo_slash_scr_armorinfo_gml_858_0");
+            amessage4temp = stringsetloc("(At least I'm not the horse)", "scr_armorinfo_slash_scr_armorinfo_gml_859_0");
+            armorattemp = 4;
+            armordftemp = 4;
+            armormagtemp = 4;
+            armorboltstemp = 0;
+            armorgrazeamttemp = 0;
+            armorgrazesizetemp = 0;
+            armorchar1temp = 1;
+            armorchar2temp = 1;
+            armorchar3temp = 1;
+            armorchar4temp = 1;
+            armorabilitytemp = stringsetloc("Skill20%", "scr_armorinfo_slash_scr_armorinfo_gml_871_0");
+            armorabilityicontemp = 7;
+            armoricontemp = 25;
+            value = 2;
+            chapter = 5;
+            break;
+        
+        case 37:
+            armornametemp = stringsetloc("O.Glove", "scr_armorinfo_slash_scr_armorinfo_gml_877_0");
+            armordesctemp = stringsetloc("The glove of a brave fighter.#Susie's SCYTHEMARE will cost less TP. ", "scr_armorinfo_slash_scr_armorinfo_gml_878_0");
+            amessage2temp = stringsetloc("Helps me hold the axe.", "scr_armorinfo_slash_scr_armorinfo_gml_879_0");
+            amessage3temp = stringsetloc("Um... I need training, first.", "scr_armorinfo_slash_scr_armorinfo_gml_880_0");
+            amessage4temp = stringsetloc("I'm used to gloves. I mean, um, oven mitts.", "scr_armorinfo_slash_scr_armorinfo_gml_881_0");
+            armorattemp = 4;
+            armordftemp = 8;
+            armormagtemp = 0;
+            armorboltstemp = 0;
+            armorgrazeamttemp = 0;
+            armorgrazesizetemp = 0;
+            armorchar1temp = 0;
+            armorchar2temp = 1;
+            armorchar3temp = 0;
+            armorchar4temp = 1;
+            armorabilitytemp = stringsetloc("ScytheTP-", "scr_armorinfo_slash_scr_armorinfo_gml_892_0");
+            armorabilityicontemp = 6;
+            armoricontemp = 23;
+            value = 2;
+            chapter = 5;
+            break;
+        
+        case 38:
+            armornametemp = stringsetloc("GreenApron", "scr_armorinfo_slash_scr_armorinfo_gml_899_0");
+            armordesctemp = stringsetloc("The apron of a kind chef. The wearer#recovers 16% of their max HP after defending.", "scr_armorinfo_slash_scr_armorinfo_gml_900_0");
+            amessage2temp = stringsetloc("Arright, back to cooking fire.", "scr_armorinfo_slash_scr_armorinfo_gml_901_0");
+            amessage3temp = stringsetloc("Horse devors, anyone?", "scr_armorinfo_slash_scr_armorinfo_gml_902_0");
+            amessage4temp = stringsetloc("Kris, can you, um, tie the back for me...?", "scr_armorinfo_slash_scr_armorinfo_gml_903_0");
+            armorattemp = 0;
+            armordftemp = 7;
+            armormagtemp = 0;
+            armorboltstemp = 0;
+            armorgrazeamttemp = 0;
+            armorgrazesizetemp = 0;
+            armorchar1temp = 1;
+            armorchar2temp = 1;
+            armorchar3temp = 1;
+            armorchar4temp = 1;
+            armorabilitytemp = stringsetloc("DefendHeal", "scr_armorinfo_slash_scr_armorinfo_gml_914_0");
+            armorabilityicontemp = 5;
+            armoricontemp = 26;
+            value = 2;
+            chapter = 5;
+            break;
+        
         case 50:
             armornametemp = stringsetloc("Waferguard", "scr_armorinfo_slash_scr_armorinfo_gml_704_0");
             armordesctemp = stringsetloc("Although it looks brittle, it contains a magical#energy that blunts damage on impact.", "scr_armorinfo_slash_scr_armorinfo_gml_705_0");
