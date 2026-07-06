@@ -640,6 +640,198 @@ function scr_weaponinfo(arg0)
             chapter = 4;
             break;
         
+        case 30:
+            weaponnametemp = stringsetloc("WoodBlade2", "scr_weaponinfo_slash_scr_weaponinfo_gml_629_0_b");
+            weapondesctemp = stringsetloc("A sword that is arbitrarily stronger#because it fits the setting of Chapter 5.", "scr_weaponinfo_slash_scr_weaponinfo_gml_630_0_b");
+            wmessage2temp = stringsetloc("No, you geek.", "scr_weaponinfo_slash_scr_weaponinfo_gml_631_0_b");
+            wmessage3temp = stringsetloc("Cool poses, Kris!", "scr_weaponinfo_slash_scr_weaponinfo_gml_632_0_b");
+            wmessage4temp = stringsetloc("Go, Kris! \"1000 Moon Crescent Slash!\" Faha!", "scr_weaponinfo_slash_scr_weaponinfo_gml_633_0_b");
+            weaponattemp = 10;
+            weapondftemp = 0;
+            weaponmagtemp = 0;
+            weaponboltstemp = 1;
+            weaponstyletemp = "?";
+            weapongrazeamttemp = 0;
+            weapongrazesizetemp = 0;
+            weaponchar1temp = 1;
+            weaponchar2temp = 0;
+            weaponchar3temp = 0;
+            weaponchar4temp = 0;
+            weaponicontemp = 1;
+            weaponabilityicontemp = 7;
+            weaponabilitytemp = stringsetloc("Coolness", "scr_weaponinfo_slash_scr_weaponinfo_gml_647_0");
+            value = 500;
+            chapter = 5;
+            break;
+        
+        case 31:
+            weaponnametemp = stringsetloc("Thatchet", "scr_weaponinfo_slash_scr_weaponinfo_gml_652_0_b");
+            weapondesctemp = stringsetloc("An axe made of brambles. It's rumored its#wickedness infects anything it touches.", "scr_weaponinfo_slash_scr_weaponinfo_gml_653_0_b");
+            wmessage2temp = stringsetloc("Literally wicked.", "scr_weaponinfo_slash_scr_weaponinfo_gml_654_0_b");
+            wmessage3temp = stringsetloc("Yay, I'm infected!", "scr_weaponinfo_slash_scr_weaponinfo_gml_655_0_b");
+            wmessage4temp = stringsetloc("Well... roses have thorns, too.", "scr_weaponinfo_slash_scr_weaponinfo_gml_656_0_b");
+            weaponattemp = 10;
+            weapondftemp = 0;
+            weaponmagtemp = 0;
+            weaponboltstemp = 1;
+            weaponstyletemp = "?";
+            weapongrazeamttemp = 0;
+            weapongrazesizetemp = 0;
+            weaponchar1temp = 0;
+            weaponchar2temp = 1;
+            weaponchar3temp = 0;
+            weaponchar4temp = 0;
+            weaponicontemp = 2;
+            weaponabilityicontemp = 13;
+            weaponabilitytemp = stringsetloc("Wicked", "scr_weaponinfo_slash_scr_weaponinfo_gml_670_0");
+            value = 1000;
+            chapter = 5;
+            break;
+        
+        case 32:
+            weaponnametemp = stringsetloc("BlueShoes", "scr_weaponinfo_slash_scr_weaponinfo_gml_675_0_b");
+            weapondesctemp = stringsetloc("Shoes from a prestigious dancer.#Ralsei's PACIFY costs 0% TP.", "scr_weaponinfo_slash_scr_weaponinfo_gml_676_0_b");
+            wmessage2temp = stringsetloc("Hell no, I'd wreck these.", "scr_weaponinfo_slash_scr_weaponinfo_gml_677_0_b");
+            wmessage3temp = stringsetloc("Helps me step to attack!", "scr_weaponinfo_slash_scr_weaponinfo_gml_678_0_b");
+            wmessage4temp = stringsetloc("(You KNOW I can't wear normal shoes...)", "scr_weaponinfo_slash_scr_weaponinfo_gml_679_0_b");
+            weaponattemp = 2;
+            weapondftemp = 4;
+            weaponmagtemp = 6;
+            weaponboltstemp = 1;
+            weaponstyletemp = "?";
+            weapongrazeamttemp = 0;
+            weapongrazesizetemp = 0;
+            weaponchar1temp = 0;
+            weaponchar2temp = 0;
+            weaponchar3temp = 1;
+            weaponchar4temp = 0;
+            weaponicontemp = 24;
+            weaponabilityicontemp = 20;
+            weaponabilitytemp = stringsetloc("Pacify0TP", "scr_weaponinfo_slash_scr_weaponinfo_gml_693_0");
+            value = 2;
+            chapter = 5;
+            break;
+        
+        case 33:
+            weaponnametemp = stringsetloc("AquaKnife", "scr_weaponinfo_slash_scr_weaponinfo_gml_698_0_b");
+            weapondesctemp = stringsetloc("A mischievous blade. Attacks with this#weapon are easier to make critical.", "scr_weaponinfo_slash_scr_weaponinfo_gml_699_0_b");
+            wmessage2temp = stringsetloc("Too small. Kris-size.", "scr_weaponinfo_slash_scr_weaponinfo_gml_700_0_b");
+            wmessage3temp = stringsetloc("Umm, I might hurt myself...", "scr_weaponinfo_slash_scr_weaponinfo_gml_701_0_b");
+            wmessage4temp = stringsetloc("That's, um, nostalgic.", "scr_weaponinfo_slash_scr_weaponinfo_gml_702_0_b");
+            weaponattemp = 10;
+            weapondftemp = 2;
+            weaponmagtemp = 0;
+            weaponboltstemp = 1;
+            weaponstyletemp = "?";
+            weapongrazeamttemp = 0;
+            weapongrazesizetemp = 0;
+            weaponchar1temp = 1;
+            weaponchar2temp = 0;
+            weaponchar3temp = 0;
+            weaponchar4temp = 1;
+            weaponicontemp = 27;
+            weaponabilityicontemp = 7;
+            weaponabilitytemp = stringsetloc("Critical", "scr_weaponinfo_slash_scr_weaponinfo_gml_716_0");
+            value = 2;
+            chapter = 5;
+            break;
+        
+        case 34:
+            weaponnametemp = stringsetloc("FloweryScarf", "scr_weaponinfo_slash_scr_weaponinfo_gml_721_0_b");
+            weapondesctemp = stringsetloc("A scarf which says \"I <3 Flowery\" on it.#It's the perfect size for Ralsei.", "scr_weaponinfo_slash_scr_weaponinfo_gml_722_0_b");
+            wmessage2temp = stringsetloc("Nah, that's for Ralsei.", "scr_weaponinfo_slash_scr_weaponinfo_gml_723_0_b");
+            wmessage3temp = stringsetloc("I, um... it, it doesn't fit!", "scr_weaponinfo_slash_scr_weaponinfo_gml_724_0_b");
+            wmessage4temp = stringsetloc("Who the heck is Flowery?", "scr_weaponinfo_slash_scr_weaponinfo_gml_725_0_b");
+            weaponattemp = 70;
+            weapondftemp = 70;
+            weaponmagtemp = 70;
+            weaponboltstemp = 1;
+            weaponstyletemp = "?";
+            weapongrazeamttemp = 0;
+            weapongrazesizetemp = 0;
+            weaponchar1temp = 0;
+            weaponchar2temp = 0;
+            weaponchar3temp = 0;
+            weaponchar4temp = 0;
+            weaponicontemp = 3;
+            weaponabilityicontemp = 21;
+            weaponabilitytemp = stringsetloc("TheBest", "scr_weaponinfo_slash_scr_weaponinfo_gml_739_0");
+            value = 2;
+            chapter = 5;
+            break;
+        
+        case 35:
+            weaponnametemp = stringsetloc("BrokenScarf", "scr_weaponinfo_slash_scr_weaponinfo_gml_744_0");
+            weapondesctemp = stringsetloc("A scarf that was torn to pieces in the#battle, revealing it was all for show.", "scr_weaponinfo_slash_scr_weaponinfo_gml_745_0");
+            wmessage2temp = stringsetloc("...", "scr_weaponinfo_slash_scr_weaponinfo_gml_746_0");
+            wmessage3temp = stringsetloc("... I'll wear it.", "scr_weaponinfo_slash_scr_weaponinfo_gml_747_0");
+            wmessage4temp = stringsetloc("Who the HECK is Flowery?", "scr_weaponinfo_slash_scr_weaponinfo_gml_748_0");
+            weaponattemp = 0;
+            weapondftemp = 0;
+            weaponmagtemp = 0;
+            weaponboltstemp = 1;
+            weaponstyletemp = "?";
+            weapongrazeamttemp = 0;
+            weapongrazesizetemp = 0;
+            weaponchar1temp = 0;
+            weaponchar2temp = 0;
+            weaponchar3temp = 1;
+            weaponchar4temp = 1;
+            weaponicontemp = 3;
+            weaponabilityicontemp = 0;
+            weaponabilitytemp = "";
+            value = 2;
+            chapter = 5;
+            break;
+        
+        case 36:
+            weaponnametemp = stringsetloc("GildedRose", "scr_weaponinfo_slash_scr_weaponinfo_gml_767_0");
+            weapondesctemp = stringsetloc("Armour rings with a rose motif. Any thorns are#pointed outwards so you don't hurt yourself.", "scr_weaponinfo_slash_scr_weaponinfo_gml_768_0");
+            wmessage2temp = stringsetloc("Damn, if only it fit!", "scr_weaponinfo_slash_scr_weaponinfo_gml_769_0");
+            wmessage3temp = stringsetloc("Noelle... could equip this.", "scr_weaponinfo_slash_scr_weaponinfo_gml_770_0");
+            wmessage4temp = stringsetloc("Wow! Something I actually want to wear?", "scr_weaponinfo_slash_scr_weaponinfo_gml_771_0");
+            weaponattemp = 16;
+            weapondftemp = 0;
+            weaponmagtemp = 2;
+            weaponboltstemp = 1;
+            weaponstyletemp = "?";
+            weapongrazeamttemp = 0;
+            weapongrazesizetemp = 0;
+            weaponchar1temp = 0;
+            weaponchar2temp = 0;
+            weaponchar3temp = 0;
+            weaponchar4temp = 1;
+            weaponicontemp = 14;
+            weaponabilityicontemp = 0;
+            weaponabilitytemp = "";
+            value = 1111;
+            chapter = 5;
+            break;
+        
+        case 37:
+            weaponnametemp = stringsetloc("MistleWP", "scr_weaponinfo_slash_scr_weaponinfo_gml_790_0");
+            weapondesctemp = stringsetloc("A parasitic ivy whip with a nature's power.#Only experts can use it as a scarf.", "scr_weaponinfo_slash_scr_weaponinfo_gml_791_0");
+            wmessage2temp = stringsetloc("Stop nailing it to stuff.", "scr_weaponinfo_slash_scr_weaponinfo_gml_792_0");
+            wmessage3temp = stringsetloc("Look, I'm a wreath?", "scr_weaponinfo_slash_scr_weaponinfo_gml_793_0");
+            wmessage4temp = stringsetloc("... ah?", "scr_weaponinfo_slash_scr_weaponinfo_gml_794_0");
+            weaponattemp = 6;
+            weapondftemp = 0;
+            weaponmagtemp = 2;
+            weaponboltstemp = 1;
+            weaponstyletemp = "?";
+            weapongrazeamttemp = 0;
+            weapongrazesizetemp = 0;
+            weaponchar1temp = 0;
+            weaponchar2temp = 0;
+            weaponchar3temp = 1;
+            weaponchar4temp = 0;
+            weaponicontemp = 3;
+            weaponabilityicontemp = 7;
+            weaponabilitytemp = "";
+            value = 1000;
+            chapter = 5;
+            break;
+        
         case 50:
             weaponnametemp = stringsetloc("JingleBlade", "scr_weaponinfo_slash_scr_weaponinfo_gml_629_0");
             weapondesctemp = stringsetloc("A lance-like sword with red-and-white stripes.#Perfect for jousting.", "scr_weaponinfo_slash_scr_weaponinfo_gml_630_0");
