@@ -428,6 +428,80 @@ function scr_spell(arg0, arg1)
             scr_spellmenu_setup();
             break;
         
+        case 12:
+            var _starhp = global.hp[global.char[star]];
+            
+            if (_starhp <= 0)
+            {
+                healnum = ceil(scr_heal_amount_modify_by_equipment(-_starhp + (global.battlemag[arg1] * 7.5)));
+                
+                if (scr_armorcheck_equipped(3, 36))
+                    healnum = ceil(scr_heal_amount_modify_by_equipment(-_starhp + (global.battlemag[arg1] * 9)));
+            }
+            else
+            {
+                healnum = ceil(scr_heal_amount_modify_by_equipment(global.battlemag[arg1] * 10));
+                
+                if (scr_armorcheck_equipped(3, 36))
+                    healnum = ceil(scr_heal_amount_modify_by_equipment(global.battlemag[arg1] * 12));
+            }
+            
+            global.charinstance[star].healnum = healnum;
+            
+            with (global.charinstance[star])
+            {
+                ha = instance_create(x, y, obj_spell_revivesong);
+                ha.target = other.star;
+                ha.healnum = other.healnum;
+                tu += 1;
+            }
+            
+            global.spelldelay = 75;
+            break;
+        
+        case 13:
+            var _scythecount = 0;
+            var _successcount = 0;
+            
+            for (_spelli = 0; _spelli < 3; _spelli++)
+            {
+                if (global.monster[_spelli] == 1)
+                {
+                    with (global.monsterinstance[_spelli])
+                    {
+                        var _scythemare = instance_create_depth(global.monsterx[myself], global.monstery[myself], depth - 100, obj_spell_scythemare);
+                        _scythemare.target = id;
+                        _scythemare.myself = myself;
+                        _scythemare.initdelay = _scythecount * 10;
+                        _scythemare.num = _scythecount;
+                        _scythecount++;
+                        
+                        if (myself >= 0)
+                        {
+                            if (global.monster[myself] == 1)
+                            {
+                                if (global.monsterstatus[myself] == 1)
+                                    _successcount++;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            global.spelldelay = 64 + (_scythecount * 10);
+            
+            with (obj_spell_scythemare)
+            {
+                if (num == 0)
+                {
+                    laugh = true;
+                    break;
+                }
+            }
+            
+            break;
+        
+        
         case 100:
             if (global.monster[star] == 0)
                 scr_retarget_spell();
@@ -738,6 +812,22 @@ function scr_spell(arg0, arg1)
             item_use = true;
             break;
         
+        case 240:
+            scr_healallitemspell(scr_heal_amount_modify_by_equipment(200));
+            break;
+        
+        case 241:
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(130));
+            break;
+        
+        case 242:
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(180));
+            break;
+        
+        case 243:
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(80));
+            break;
+        
         case 260:
             if (global.char[star] == 1)
                 scr_healitemspell(scr_heal_amount_modify_by_equipment(400));
@@ -804,6 +894,46 @@ function scr_spell(arg0, arg1)
             reviveamt = ceil(global.maxhp[global.char[star]]) + abs(global.hp[global.char[star]]);
             scr_healitemspell(scr_heal_amount_modify_by_equipment(reviveamt));
             item_use = true;
+            break;
+        
+        case 264:
+            scr_healallitemspell(scr_heal_amount_modify_by_equipment(200));
+            break;
+        
+        case 265:
+            scr_healallitemspell(scr_heal_amount_modify_by_equipment(160));
+            break;
+        
+        case 266:
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(200));
+            break;
+        
+        case 267:
+            if (global.char[star] == 1)
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(200));
+            else
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(100));
+            
+            break;
+        
+        case 268:
+            if (global.char[star] == 2)
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(200));
+            else
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(100));
+            
+            break;
+        
+        case 269:
+            if (global.char[star] == 3)
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(200));
+            else
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(50));
+            
+            break;
+        
+        case 270:
+            scr_healallitemspell(scr_heal_amount_modify_by_equipment(80));
             break;
     }
     
