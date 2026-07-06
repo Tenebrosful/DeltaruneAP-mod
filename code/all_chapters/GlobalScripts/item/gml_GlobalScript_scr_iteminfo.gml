@@ -351,6 +351,38 @@ function scr_iteminfo(arg0)
             usable = 1;
             break;
         
+        case 40:
+            itemnameb = stringsetloc("PunchBowl", "scr_iteminfo_slash_scr_iteminfo_gml_291_0_b");
+            itemdescb = stringsetloc("Heals#team#200HP", "scr_iteminfo_slash_scr_iteminfo_gml_292_0_b");
+            itemtarget = 2;
+            value = 600;
+            usable = 1;
+            break;
+        
+        case 41:
+            itemnameb = stringsetloc("Flavigne", "scr_iteminfo_slash_scr_iteminfo_gml_298_0_b");
+            itemdescb = stringsetloc("Heals#130HP", "scr_iteminfo_slash_scr_iteminfo_gml_299_0_b");
+            itemtarget = 1;
+            value = 333;
+            usable = 1;
+            break;
+        
+        case 42:
+            itemnameb = stringsetloc("GreenTea", "scr_iteminfo_slash_scr_iteminfo_gml_305_0_b");
+            itemdescb = stringsetloc("Heals#180HP", "scr_iteminfo_slash_scr_iteminfo_gml_306_0_b");
+            itemtarget = 1;
+            value = 777;
+            usable = 1;
+            break;
+        
+        case 43:
+            itemnameb = stringsetloc("OrangeJuice", "scr_iteminfo_slash_scr_iteminfo_gml_312_0_b");
+            itemdescb = stringsetloc("Heals#80HP", "scr_iteminfo_slash_scr_iteminfo_gml_313_0_b");
+            itemtarget = 1;
+            value = 222;
+            usable = 1;
+            break;
+        
         case 60:
             itemnameb = stringsetloc("AncientSweet", "scr_iteminfo_slash_scr_iteminfo_gml_291_0");
             itemdescb = stringsetloc("Kris only#+400", "scr_iteminfo_slash_scr_iteminfo_gml_292_0");
@@ -380,6 +412,62 @@ function scr_iteminfo(arg0)
             itemdescb = stringsetloc("Heals#All HP", "scr_iteminfo_slash_scr_iteminfo_gml_313_0");
             itemtarget = 1;
             value = 0;
+            usable = 1;
+            break;
+        
+        case 64:
+            itemnameb = stringsetloc("Schadenbrot", "scr_iteminfo_slash_scr_iteminfo_gml_347_0");
+            itemdescb = stringsetloc("Heals#team#200HP", "scr_iteminfo_slash_scr_iteminfo_gml_348_0");
+            itemtarget = 2;
+            value = 600;
+            usable = 1;
+            break;
+        
+        case 65:
+            itemnameb = stringsetloc("TreeCake", "scr_iteminfo_slash_scr_iteminfo_gml_354_0");
+            itemdescb = stringsetloc("Heals#team#160HP", "scr_iteminfo_slash_scr_iteminfo_gml_355_0");
+            itemtarget = 2;
+            value = 200;
+            usable = 1;
+            break;
+        
+        case 66:
+            itemnameb = stringsetloc("S.POTION", "scr_iteminfo_slash_scr_iteminfo_gml_361_0");
+            itemdescb = stringsetloc("Heals#party#member", "scr_iteminfo_slash_scr_iteminfo_gml_362_0");
+            itemtarget = 1;
+            value = 500;
+            usable = 1;
+            break;
+        
+        case 67:
+            itemnameb = stringsetloc("Raw Moon", "scr_iteminfo_slash_scr_iteminfo_gml_368_0");
+            itemdescb = stringsetloc("Raises#TP 16%#+100HP", "scr_iteminfo_slash_scr_iteminfo_gml_369_0");
+            itemtarget = 1;
+            value = 222;
+            usable = 1;
+            break;
+        
+        case 68:
+            itemnameb = stringsetloc("Phanta", "scr_iteminfo_slash_scr_iteminfo_gml_375_0");
+            itemdescb = stringsetloc("Raises#TP 16%#+100HP", "scr_iteminfo_slash_scr_iteminfo_gml_376_0");
+            itemtarget = 1;
+            value = 222;
+            usable = 1;
+            break;
+        
+        case 69:
+            itemnameb = stringsetloc("FlowerySoda", "scr_iteminfo_slash_scr_iteminfo_gml_382_0");
+            itemdescb = stringsetloc("Raises#TP 16%#+50HP", "scr_iteminfo_slash_scr_iteminfo_gml_383_0");
+            itemtarget = 1;
+            value = 222;
+            usable = 1;
+            break;
+        
+        case 70:
+            itemnameb = stringsetloc("Shikacola", "scr_iteminfo_slash_scr_iteminfo_gml_389_0");
+            itemdescb = stringsetloc("Heals#team#80HP", "scr_iteminfo_slash_scr_iteminfo_gml_390_0");
+            itemtarget = 2;
+            value = 222;
             usable = 1;
             break;
     }
