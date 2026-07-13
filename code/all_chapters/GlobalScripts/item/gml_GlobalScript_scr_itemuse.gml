@@ -36,7 +36,7 @@ function scr_itemuse(arg0)
         }
     }
     
-    switch (argument0)
+    switch (arg0)
     {
         case 0:
             itemnameb = " ";
@@ -367,7 +367,7 @@ function scr_itemuse(arg0)
         
         case 18:
             usable = 1;
-            _healamount = 10;
+            _healamount = scr_teaamount(1, global.char[global.charselect]);
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, scr_text(1460));
@@ -383,7 +383,7 @@ function scr_itemuse(arg0)
         
         case 19:
             usable = 1;
-            _healamount = 10;
+            _healamount = scr_teaamount(1, global.char[global.charselect]);
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, scr_text(1460));
@@ -399,7 +399,7 @@ function scr_itemuse(arg0)
         
         case 20:
             usable = 1;
-            _healamount = 10;
+            _healamount = scr_teaamount(1, global.char[global.charselect]);
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, scr_text(1460));
@@ -415,7 +415,7 @@ function scr_itemuse(arg0)
         
         case 21:
             usable = 1;
-            _healamount = 10;
+            _healamount = scr_teaamount(1, global.char[global.charselect]);
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, scr_text(1460));
@@ -582,22 +582,16 @@ function scr_itemuse(arg0)
             }
             else
             {
-                if (global.char[global.charselect] != 4)
+                for (var i = 0; i < 3; i++)
                 {
-                    global.hp[_gc] = max(global.hp[_gc] - 20, 1);
-                    snd_play(snd_hurt1);
+                    var char = global.char[i];
+                    if (char == 0 || global.maxhp[char] <= 0) continue;
+
+                    global.hp[char] = max(global.hp[char] - 20, 1);            
                 }
-                
-                usable = 1;
-                
-                if (global.char[global.charselect] == 2)
-                    scr_itemcomment(global.charselect, stringsetloc("Ugh! ...tastes good?", "scr_itemuse_slash_scr_itemuse_gml_553_0"));
-                
-                if (global.char[global.charselect] == 3)
-                    scr_itemcomment(global.charselect, stringsetloc("Ow... er, thanks, Kris!", "scr_itemuse_slash_scr_itemuse_gml_557_0"));
-                
-                if (global.char[global.charselect] == 4)
-                    scr_itemcomment(global.charselect, stringsetloc("(I'll... just pretend to drink it...)", "scr_itemuse_slash_scr_itemuse_gml_561_0"));
+
+                    usable = 1;
+                    snd_play(snd_hurt1);
             }
             
             break;
