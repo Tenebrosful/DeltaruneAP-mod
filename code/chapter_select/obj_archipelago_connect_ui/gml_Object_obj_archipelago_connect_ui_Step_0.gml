@@ -1,4 +1,9 @@
 /// IMPORT
+if (global.AP_connection_state > global.AP_ENUM_CONNECTION_STATE.DISCONNECTED)
+{
+  exit;
+}
+
 if (!edit)
 {
     keyboard_string = "";
@@ -36,15 +41,12 @@ if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")))
         if (page == 0)
         {
             connect = true;
-            
             if (global.AP_server != "" && global.AP_port != "" && global.AP_name != "")
             {
-                global.AP_isAuthenticated = 0;
                 alarm[0] = 1;
                 exit;
             }
             audio_play_sound(snd_select, 1, false);
-            global.AP_isAuthenticated = 1;
             exit;
         }
         else if (page == 1)

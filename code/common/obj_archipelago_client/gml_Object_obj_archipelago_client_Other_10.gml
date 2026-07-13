@@ -46,7 +46,7 @@ function AP_connect(isSecure = true)
         AP_disconnect();
     
     global.AP_secure = isSecure;
-    global.AP_isAuthenticated = 0;
+    global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.TRYING_TO_CONNECT;
 
     if (global.AP_server == "localhost")
         global.AP_secure = false;
@@ -60,15 +60,19 @@ function AP_connect(isSecure = true)
 
     if (isConnected < 0)
     {
-        global.AP_isAuthenticated = -2
+        global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.ERROR_CREATING_SOCKET;
         if (global.AP_secure)
         {
             AP_connect(false)
         }
     }
+    else
+    {
+        global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.AWAITING_ARCHIPELAGO_RESPONSE;
+    }
 }
 
-function AP_connected_post_roominfo()
+function AP_sendConnectionInfo()
 {
     var APgame = "DELTARUNE";
     var tags = AP_getTags();
@@ -98,7 +102,7 @@ function AP_disconnect()
 {
     if (global.AP_socket != -1)
     {
-        global.AP_isAuthenticated = -1;
+        global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.DISCONNECTED;
         network_destroy(global.AP_socket);
         global.AP_socket = -1;
         global.AP_item_from_server = undefined;
@@ -107,7 +111,7 @@ function AP_disconnect()
 
 function AP_isAuthenticated()
 {
-    return global.AP_isAuthenticated == 2
+    return global.AP_connection_state == global.AP_ENUM_CONNECTION_STATE.READY;
 }
 
 function AP_sendLocation(ids)
@@ -281,11 +285,27 @@ function AP_sendDeathlink(text)
     AP_internal_send_packet(_contents);
 }
 
-function AP_sendLocationScouts(ids)
+function AP_postScouting()
 {
-    if (!AP_isAuthenticated())
-        exit;
+    AP_updateTags();
+    AP_initializeChapterCompletion();
+    AP_initializeCurrentLocation();
+    
+    if (variable_global_exists("chapter"))
+    {
+        AP_game_start_post_connexion();
+        AP_setDataStorage("current_location", {current_chapter: global.chapter, current_room: undefined}, "update")
+    }
+    else
+    {
+        AP_setDataStorage("current_location", {current_chapter: 0, current_room: undefined}, "update")
+    }
 
+    global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.READY;
+}
+
+function AP_sendLocationScouts(ids)
+{    
     var _contents =
     {
         cmd: "LocationScouts",
@@ -302,14 +322,12 @@ function AP_sendLocationScouts(ids)
 
 function AP_getDataPackage(games)
 {
-    if (!AP_isAuthenticated())
-        exit;
-
     var _contents =
     {
         cmd: "GetDataPackage",
         games: games
     };
+
     AP_internal_send_packet(_contents);
 }
 
@@ -387,6 +405,7 @@ function AP_heartbeat()
     {
         show_debug_message("Failed to heartbeat, connection is probably disconnected");
         AP_disconnect();
+        global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.ERROR_TIMEOUT;
     }
 }
 

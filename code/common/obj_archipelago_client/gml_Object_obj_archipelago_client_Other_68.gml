@@ -17,6 +17,7 @@ if (ds_map_exists(async_load, "buffer"))
             switch (data[i].cmd)
             {
                 case "RoomInfo":
+                    global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.GOT_ROOMINFO;
                     if (variable_struct_exists(data[i], "games"))
                     {
                         var ownGame = false;
@@ -40,13 +41,13 @@ if (ds_map_exists(async_load, "buffer"))
                         }
                     }
 
-                    AP_connected_post_roominfo();
+                    AP_sendConnectionInfo();
                     break;
                 case "Connected":
 
                     global.AP_slot = data[i].slot;
                     global.AP_team = data[i].team;
-                    global.AP_isAuthenticated = 2;
+                    global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.CONNECTED;
                     global.AP_connection_errors = undefined;
                     show_debug_message("Login successful!");
 
@@ -132,9 +133,12 @@ if (ds_map_exists(async_load, "buffer"))
                     
                     var path_scouting = AP_get_save_folder_prefix() + "scouting.json"
 
-                    if (!file_exists(path_scouting))
+                    var is_scouting_in_cache = file_exists(path_scouting)
+
+                    if (!is_scouting_in_cache)
                     {
                         var missing_locations = data[i].missing_locations;
+                        global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.WAITING_FOR_SCOUTING;
                         AP_sendLocationScouts(missing_locations);
                     }
                     else
@@ -146,33 +150,18 @@ if (ds_map_exists(async_load, "buffer"))
                             scouting_struct = json_parse(content);
 
                         global.AP_location_item = scouting_struct;
-                    }
-
-                    AP_updateTags();
-                    AP_initializeChapterCompletion();
-                    AP_initializeCurrentLocation();
-                    
-                    if (variable_global_exists("chapter"))
-                    {
-                        AP_game_start_post_connexion();
-                        AP_setDataStorage("current_location", {current_chapter: global.chapter, current_room: undefined}, "update")
-                    }
-                    else
-                    {
-                        AP_setDataStorage("current_location", {current_chapter: 0, current_room: undefined}, "update")
+                        AP_postScouting();
                     }
                     
                     break;
                 
                 case "ConnectionRefused":
-                    global.AP_isAuthenticated = 1;
+                    global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.ERROR_CONNECTION_REFUSED;
                     if (variable_struct_exists(data[i], "errors"))
                     {
                         global.AP_connection_errors = data[i].errors
                     }
                     show_debug_message("Login failed");
-                    network_destroy(global.AP_socket);
-                    global.AP_socket = -1;
                     break;
                 
                 case "ReceivedItems":
@@ -276,6 +265,7 @@ if (ds_map_exists(async_load, "buffer"))
                 case "LocationInfo":
                     if (variable_struct_exists(data[i], "locations"))
                     {
+                        global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.GOT_SCOUTING;
                         global.AP_scouting_raw = data[i].locations;
                         var player_ids = [];
                         for (var ii = 0; ii < array_length(data[i].locations); ii++)
@@ -298,6 +288,7 @@ if (ds_map_exists(async_load, "buffer"))
                 case "DataPackage":
                     if (variable_struct_exists(data[i], "data"))
                     {
+                        global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.GOT_DATA_PACKAGE;
                         global.AP_data_package_raw = data[i].data.games;
 
                         if (!file_exists(AP_get_save_folder_prefix() +  "datapackage.json"))
@@ -340,6 +331,8 @@ if (ds_map_exists(async_load, "buffer"))
                             file_text_close(file);
                         }
                     }
+
+                    AP_postScouting();
                     break;
                 case "Retrieved":
                     if (variable_struct_exists(data[i], "keys"))

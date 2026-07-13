@@ -17,8 +17,23 @@ global.AP_ENUM_RANDOMIZE_CHAPTER = {
     ALL_UNLOCKED: 2
 }
 
+global.AP_ENUM_CONNECTION_STATE = {
+    ERROR_TIMEOUT: -3,
+    ERROR_CONNECTION_REFUSED: -2,
+    ERROR_CREATING_SOCKET: -1,
+    DISCONNECTED: 0,
+    TRYING_TO_CONNECT: 1,
+    AWAITING_ARCHIPELAGO_RESPONSE: 2,
+    GOT_ROOMINFO : 3,
+    CONNECTED: 4,
+    WAITING_FOR_SCOUTING: 5,
+    GOT_SCOUTING: 6,
+    GOT_DATA_PACKAGE: 7,
+    READY: 8
+}
+
 global.AP_version = #GetClientVersion();
-global.AP_isAuthenticated = -1;
+global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.DISCONNECTED;
 global.AP_heartbeat_timer = 10 * 30;
 global.AP_socket = -1;
 global.AP_name = "Player";

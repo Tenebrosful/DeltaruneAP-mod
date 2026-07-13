@@ -133,23 +133,58 @@ draw_set_color(c_white);
 
 if (connect && page == 0)
 {
-    switch (global.AP_isAuthenticated)
+    switch (global.AP_connection_state)
     {
         default:
             connected = "> Connecting...";
             break;
 
-        case -2:
+        case global.AP_ENUM_CONNECTION_STATE.ERROR_CREATING_SOCKET:
             draw_set_color(c_red);
             connected = "> Connection failed.\nCheck host and port" ;
             break;
         
-        case 1:
+        case global.AP_ENUM_CONNECTION_STATE.ERROR_CONNECTION_REFUSED:
             draw_set_color(c_red);
             connected = string("> Authentification failed.\n({0})", string(global.AP_connection_errors)) ;
             break;
+
+        case global.AP_ENUM_CONNECTION_STATE.TRYING_TO_CONNECT:
+            draw_set_color(c_yellow);
+            connected = "> Trying to connect...";
+            break;
+
+        case global.AP_ENUM_CONNECTION_STATE.AWAITING_ARCHIPELAGO_RESPONSE:
+            draw_set_color(c_yellow);
+            connected = "> Awaiting Archipelago server response...";
+            break;
+
+        case global.AP_ENUM_CONNECTION_STATE.GOT_ROOMINFO:
+            draw_set_color(c_yellow);
+            connected = "> Sending authentification data...";
+            break;
+
+        case global.AP_ENUM_CONNECTION_STATE.CONNECTED:
+            draw_set_color(c_green);
+            connected = "> Connected to server!";
+            break;
         
-        case 2:
+        case global.AP_ENUM_CONNECTION_STATE.WAITING_FOR_SCOUTING:
+            draw_set_color(c_yellow);
+            connected = "> Waiting for scouting data...";
+            break;
+
+        case global.AP_ENUM_CONNECTION_STATE.GOT_SCOUTING:
+            draw_set_color(c_yellow);
+            connected = "> Waiting for datapackage, it might take a while...";
+            break;
+
+        case global.AP_ENUM_CONNECTION_STATE.GOT_DATA_PACKAGE:
+            draw_set_color(c_yellow);
+            connected = "> Parsing scouting data...";
+            break;
+
+        case global.AP_ENUM_CONNECTION_STATE.READY:
             audio_destroy_stream(my_music);
             room_goto(PLACE_CHAPTER_SELECT_2x);
             break;
