@@ -44,7 +44,11 @@ function scr_itemuse(arg0)
             break;
         
         case 1:
-            scr_healitem(global.charselect, 120);
+            if (global.chapter >= 4)
+                scr_healitem(global.charselect, 120);
+            else
+                scr_healitem(global.charselect, 40);
+
             usable = 1;
             
             if (_gc == 2)
@@ -138,12 +142,28 @@ function scr_itemuse(arg0)
             break;
         
         case 7:
-            var healamount = (global.chapter == 1) ? 80 : 140;
-            
-            if (global.chapter == 5)
-                healamount = 180;
-            
-            scr_healitem_all(healamount);
+            switch (global.chapter)
+            {
+                case 1:
+                    scr_healitem_all(80);
+                    break;
+                
+                case 2:
+                    scr_healitem_all(140);
+                    break;
+                
+                case 3:
+                    scr_healitem_all(150);
+                    break;
+                
+                case 4:
+                    scr_healitem_all(160);
+                    break;
+                
+                case 5:
+                    scr_healitem_all(180);
+                    break;
+            }
             
             if (scr_havechar(2))
                 scr_itemcomment(suspos, stringsetloc("I'm dizzy.", "scr_itemuse_slash_scr_itemuse_gml_110_0"));
@@ -211,7 +231,7 @@ function scr_itemuse(arg0)
             break;
         
         case 11:
-            scr_healitem_all(70);
+            scr_healitem_all(global.chapter == 1 ? 30 : 70);
             
             if (scr_havechar(2))
                 scr_itemcomment(suspos, stringsetloc("Quit hogging!", "scr_itemuse_slash_scr_itemuse_gml_177_0"));
