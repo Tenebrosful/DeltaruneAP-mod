@@ -1,5 +1,6 @@
 /// IMPORT
 if (global.AP_connection_state == global.AP_ENUM_CONNECTION_STATE.TRYING_TO_CONNECT)
+{
     step++;
     
     if (step > global.AP_connect_deadline)
