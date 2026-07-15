@@ -632,14 +632,23 @@ function AP_can_receive_item()
 {
     return global.AP_skip_item_textboxes ||
     (
-        global.interact == 0
-        && !instance_exists(obj_fadein)
-        && !instance_exists(obj_fadeout)
-        && !instance_exists(obj_dialoguer)
-        && !instance_exists(obj_board_controller)
-        && !cutscene
-        && !AP_chapter_specific_item_receive_blacklist()
+        if (global.chapter == 3)
+            global.interact == 0
+            && !instance_exists(obj_fadein)
+            && !instance_exists(obj_fadeout)
+            && !instance_exists(obj_dialoguer)
+            && !cutscene
+            && !instance_exists(obj_board_controller) 
+            && !AP_chapter_specific_item_receive_blacklist()
+        else
+            global.interact == 0
+            && !instance_exists(obj_fadein)
+            && !instance_exists(obj_fadeout)
+            && !instance_exists(obj_dialoguer)
+            && !cutscene
+            && !AP_chapter_specific_item_receive_blacklist()
     );
+    
 }
 
 function AP_chapter_specific_item_receive_blacklist()
