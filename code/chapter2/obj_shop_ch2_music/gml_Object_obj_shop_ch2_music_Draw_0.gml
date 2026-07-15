@@ -20,6 +20,7 @@
         draw_text(460, y2_off, string_hash_to_newline(stringsetsubloc("$~1 ?", string(buyvalue[menuc[1]]), "obj_shop_ch2_music_slash_Draw_0_gml_291_0")));
         draw_text(480, 340, string_hash_to_newline(stringsetloc("Yes", "obj_shop1_slash_Draw_0_gml_169_0")));
         draw_text(480, 370, string_hash_to_newline(stringsetloc("No", "obj_shop1_slash_Draw_0_gml_170_0")));
+        menuc[menu] = min(menuc[menu], menumax);
         draw_sprite(spr_heart, 0, 450, 350 + (menuc[2] * 30));
         
         if (button2_p() && twobuffer < 0)
@@ -97,6 +98,7 @@
             draw_text(460, y2_off, string_hash_to_newline(stringsetsubloc("$~1 ?", string(buyvalue[menuc[1]]), "obj_shop_ch2_music_slash_Draw_0_gml_291_0")));
             draw_text(480, 340, string_hash_to_newline(stringsetloc("Yes", "obj_shop1_slash_Draw_0_gml_169_0")));
             draw_text(480, 370, string_hash_to_newline(stringsetloc("No", "obj_shop1_slash_Draw_0_gml_170_0")));
+            menuc[menu] = min(menuc[menu], menumax);
             draw_sprite(spr_heart, 0, 450, 350 + (menuc[2] * 30));
             
             if (button2_p() && twobuffer < 0)
