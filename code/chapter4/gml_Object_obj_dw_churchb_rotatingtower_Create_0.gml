@@ -8,7 +8,7 @@ organiknpc2 = 0;
 /// END
 
 /// AFTER
-    if (layer_sprite_get_sprite(spritesArray[i]) == 3020)
+    if (layer_sprite_get_sprite(spritesArray[i]) == 3021)
         organiknpc = scr_makenpc_fromasset(spritesArray[i]);
 /// CODE
     
