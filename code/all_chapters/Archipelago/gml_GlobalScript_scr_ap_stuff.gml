@@ -167,7 +167,7 @@ function AP_update_current_room(room_name)
         instance_create(0, 0, obj_archipelago_client);
     }
     
-    if(!obj_archipelago_client.AP_isAuthenticated())
+    if(obj_archipelago_client.AP_isDisconnected())
         exit;
 
     current_location = { current_room: room_name }
@@ -182,7 +182,7 @@ function AP_complete_chapter(chapter_number)
         instance_create(0, 0, obj_archipelago_client);
     }
     
-    if(!obj_archipelago_client.AP_isAuthenticated())
+    if(obj_archipelago_client.AP_isDisconnected())
         obj_archipelago_client.AP_connect();
 
     switch (chapter_number)
@@ -341,15 +341,21 @@ function AP_step()
             }
             else if (wait == 1 && !obj_archipelago_client.AP_isAuthenticated() && instance_exists(obj_dialoguer) == 0)
             {
-                script_execute(scr_writetext, 0, string("\\s0* (Connection failed ({0}). We are gonna try to reconnect after this textbox...)/%", global.AP_connection_errors == undefined ? "unknown" : string(global.AP_connection_errors)), 0, 6);
 
                 if (!instance_exists(obj_archipelago_client))
                 {
                     instance_create(0, 0, obj_archipelago_client);
                 }
 
-                if(!obj_archipelago_client.AP_isAuthenticated())
+                if(obj_archipelago_client.AP_isDisconnected())
+                {
                     obj_archipelago_client.AP_connect();
+                    script_execute(scr_writetext, 0, string("\\s0* (Connection failed ({0}). We are gonna try to reconnect after this textbox...)/%", global.AP_connection_errors == undefined ? "unknown" : string(global.AP_connection_errors)), 0, 6);
+                }
+                else
+                {
+                    script_execute(scr_writetext, 0, string("\\s0* (You are still connecting, please wait...)/%", 0, 6));
+                }
 
                 wait = 1;
                 global.interact = 1;
@@ -366,7 +372,7 @@ function AP_step()
                         instance_create(0, 0, obj_archipelago_client);
                     }
                     
-                    if(!obj_archipelago_client.AP_isAuthenticated())
+                    if(obj_archipelago_client.AP_isDisconnected())
                         obj_archipelago_client.AP_connect();
                         
                     wait = 1;
@@ -504,7 +510,7 @@ function AP_game_start()
     if (!instance_exists(obj_archipelago_client))
     {
         instance_create(0, 0, obj_archipelago_client);
-        if(!obj_archipelago_client.AP_isAuthenticated())
+        if(obj_archipelago_client.AP_isDisconnected())
             obj_archipelago_client.AP_connect();
     }
 
@@ -630,22 +636,26 @@ function AP_game_start_post_connexion()
 
 function AP_can_receive_item()
 {
+
+    var chapterSpecificLogic;
+
+    switch(global.chapter)
+    {
+        case 3:
+            chapterSpecificLogic = !instance_exists(obj_board_controller);
+            break;
+        default:
+            chapterSpecificLogic = true;
+    }
+
     return global.AP_skip_item_textboxes ||
     (
-        if (global.chapter == 3)
             global.interact == 0
             && !instance_exists(obj_fadein)
             && !instance_exists(obj_fadeout)
             && !instance_exists(obj_dialoguer)
             && !cutscene
-            && !instance_exists(obj_board_controller) 
-            && !AP_chapter_specific_item_receive_blacklist()
-        else
-            global.interact == 0
-            && !instance_exists(obj_fadein)
-            && !instance_exists(obj_fadeout)
-            && !instance_exists(obj_dialoguer)
-            && !cutscene
+            && chapterSpecificLogic
             && !AP_chapter_specific_item_receive_blacklist()
     );
     

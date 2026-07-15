@@ -42,8 +42,7 @@ function AP_read_settings_file()
 
 function AP_connect(isSecure = true)
 {
-    if (AP_isAuthenticated())
-        AP_disconnect();
+    AP_disconnect();
     
     global.AP_secure = isSecure;
     global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.TRYING_TO_CONNECT;
@@ -112,6 +111,11 @@ function AP_disconnect()
 function AP_isAuthenticated()
 {
     return global.AP_connection_state == global.AP_ENUM_CONNECTION_STATE.READY;
+}
+
+function AP_isDisconnected()
+{
+    return global.AP_connection_state <= global.AP_ENUM_CONNECTION_STATE.DISCONNECTED;
 }
 
 function AP_sendLocation(ids)
@@ -287,6 +291,8 @@ function AP_sendDeathlink(text)
 
 function AP_postScouting()
 {
+    global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.READY;
+    
     AP_updateTags();
     AP_initializeChapterCompletion();
     AP_initializeCurrentLocation();
@@ -301,7 +307,6 @@ function AP_postScouting()
         AP_setDataStorage("current_location", {current_chapter: 0, current_room: undefined}, "update")
     }
 
-    global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.READY;
 }
 
 function AP_sendLocationScouts(ids)
