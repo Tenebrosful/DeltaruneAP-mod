@@ -1,4 +1,4 @@
-/// IMPORT
+/// IMPORT .ignore if CHAPTER_5
 function scr_setparty(arg0 = false, arg1 = false, arg2 = false)
 {
     kris = obj_mainchara;
