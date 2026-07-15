@@ -22,6 +22,29 @@
         d_make();
         myinteract = 401;
     }
+    else if (global.plot < 160 && room == room_dw_church_ripplepuzzle_postgers)
+    {
+        scr_speaker("ralsei");
+        msgsetloc(0, "\\EK* I think we should stay with the old man./%", "obj_dw_church_turtles_slash_Step_0_gml_60_0");
+        global.interact = 1;
+        d_make();
+        myinteract = 401;
+    }
+    else if (global.customflags[global.custom_flags_indexes.got_jackenstein_gift] == false && room == room_dw_church_jackenstein)
+    {
+        if (i_ex(obj_cutscene_master))
+        {
+            global.interact = 0;
+            myinteract = 0;
+        }
+        else
+        {
+            scr_speaker("no_name");
+            msgsetloc(0, "* (You feel like Jackenstein has something for you.)/%", "obj_climbstartertrig_slash_Step_0_gml_15_0");
+            d_make();
+            myinteract = 401;
+        }
+    }
     else
     {
         scr_speaker("no_name");
