@@ -1,0 +1,2 @@
+/// IMPORT
+extflag = "prop1";
