@@ -423,11 +423,13 @@ function scr_keyiteminfo(arg0)
         case 1022:
             tempkeyitemname = stringsetloc("Comp.ListY");
             tempkeyitemdesc = stringsetloc("It's a list of compliments for a cowboy.#USE it to read it.");
+            tempkeyitemusable = 1;
             tempkeyitemchapter = 5;
             break;
         case 1023:
             tempkeyitemname = stringsetloc("Comp.ListG");
             tempkeyitemdesc = stringsetloc("It's a list of compliments for a chef.#USE it to read it.");
+            tempkeyitemusable = 1;
             tempkeyitemchapter = 5;
             break;
     }
