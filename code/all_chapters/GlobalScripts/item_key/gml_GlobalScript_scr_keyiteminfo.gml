@@ -415,5 +415,20 @@ function scr_keyiteminfo(arg0)
             tempkeyitemdesc = stringsetloc(" ");
             tempkeyitemchapter = 3;
             break;
+        case 1021:
+            tempkeyitemname = stringsetloc("Pink Coin");
+            tempkeyitemdesc = stringsetloc(" ");
+            tempkeyitemchapter = 5;
+            break;
+        case 1022:
+            tempkeyitemname = stringsetloc("Comp.ListY");
+            tempkeyitemdesc = stringsetloc("It's a list of compliments for a cowboy.#USE it to read it.");
+            tempkeyitemchapter = 5;
+            break;
+        case 1023:
+            tempkeyitemname = stringsetloc("Comp.ListG");
+            tempkeyitemdesc = stringsetloc("It's a list of compliments for a chef.#USE it to read it.");
+            tempkeyitemchapter = 5;
+            break;
     }
 }
