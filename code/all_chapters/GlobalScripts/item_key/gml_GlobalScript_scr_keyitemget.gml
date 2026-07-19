@@ -2,7 +2,7 @@
 function scr_keyitemget(arg0)
 {
     // Eggs
-    if (arg0 == 950 || arg0 == 951 || arg0 == 952 || arg0 == 953)
+    if (arg0 == 950 || arg0 == 951 || arg0 == 952 || arg0 == 953 || arg0 == 954)
         arg0 = 4;
 
     if (arg0 == 13)
