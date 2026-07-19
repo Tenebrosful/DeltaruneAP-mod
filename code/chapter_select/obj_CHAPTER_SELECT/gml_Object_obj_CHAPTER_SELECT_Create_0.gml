@@ -71,7 +71,7 @@ create_error_screen = function()
 detect_no_chapters = function()
 {
     _current_state = UnknownEnum.Value_8;
-    var max_available_chapter = UnknownEnum.Value_4;
+    var max_available_chapter = UnknownEnum.Value_5;
     
     for (var chapter = 1; chapter <= max_available_chapter; chapter++)
     {

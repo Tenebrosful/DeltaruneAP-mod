@@ -1,4 +1,4 @@
-/// PATCH .ignore if CHAPTER_3 || CHAPTER_4
+/// PATCH .ignore if CHAPTER_3 || CHAPTER_4 || CHAPTER_5
 
 /// REPLACE
     scr_healall(arg0);

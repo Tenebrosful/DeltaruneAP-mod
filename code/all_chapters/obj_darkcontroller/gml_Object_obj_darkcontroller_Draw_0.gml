@@ -1,4 +1,4 @@
-/// PATCH
+/// PATCH .ignore if CHAPTER_5
 
 /// REPLACE
 #if CHAPTER_1
