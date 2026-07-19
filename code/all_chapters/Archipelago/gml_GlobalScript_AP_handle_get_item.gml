@@ -55,6 +55,9 @@ function AP_internal_get_character_max_hp(character_id)
         case 4:
           return 200;
 
+        case 5:
+          return 240;
+
         default:
           return -666;
       }
@@ -74,6 +77,9 @@ function AP_internal_get_character_max_hp(character_id)
         case 4:
           return 230;
 
+        case 5:
+          return 290;
+
         default:
           return -666;
       }
@@ -92,6 +98,9 @@ function AP_internal_get_character_max_hp(character_id)
 
         case 4:
           return 180;
+
+        case 5:
+          return 210;
 
         default:
           return -666;
