@@ -307,6 +307,12 @@ function scr_keyiteminfo(arg0)
             tempkeyitemchapter = 4;
             break;
 
+        case 704:
+            tempkeyitemdesc = stringsetsubloc("A lesson for pulling off a move called \"Jarona\".#You have collected [~1] out of [~2].", global.MacGuffin_count, global.AP_macguffin_required[global.chapter - 1], "scr_keyiteminfo_slash_scr_keyiteminfo_gml_70_0");
+            tempkeyitemname = stringsetloc("JaronaLesson", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_71_0");
+            tempkeyitemchapter = 5;
+            break;
+
         case 950:
             tempkeyitemdesc = stringsetloc("Not too important, not too unimportant.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_18_0");
             tempkeyitemname = stringsetloc("Egg", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_19_0");
