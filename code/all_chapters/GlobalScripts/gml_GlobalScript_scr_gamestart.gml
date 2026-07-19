@@ -359,7 +359,7 @@ function scr_gamestart()
     
     if (global.chapter >= 2)
     {
-        if (global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS)
+        if (global.AP_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS)
         {
             global.flag[605] = 1;
             global.flag[606] = 1;
@@ -381,7 +381,7 @@ function scr_gamestart()
     {
         global.flag[457] = 1;
         
-        if (global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS)
+        if (global.AP_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS)
         {
             global.flag[630] = 1;
             global.flag[631] = 1;
@@ -398,7 +398,7 @@ function scr_gamestart()
     
     if (global.chapter >= 4)
     {
-        if (global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS)
+        if (global.AP_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS)
         {
             global.flag[654] = 1;
             global.flag[655] = 1;
@@ -414,7 +414,7 @@ function scr_gamestart()
     
     if (global.chapter >= 5)
     {
-        if (global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS)
+        if (global.AP_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS)
         {
             global.flag[662] = 1;
             global.flag[663] = 1;
