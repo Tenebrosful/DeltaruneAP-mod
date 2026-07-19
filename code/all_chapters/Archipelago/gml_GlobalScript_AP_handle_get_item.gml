@@ -328,6 +328,7 @@ function AP_internal_special_key_item(realitem_id)
   && realitem_id != 1018 // ice key
   && realitem_id != 1019 // shelter key
   && realitem_id != 1020 // moss ch4
+  && realitem_id != 1021 // pink coin
 }
 
 function AP_internal_handle_money_item(item_id)
