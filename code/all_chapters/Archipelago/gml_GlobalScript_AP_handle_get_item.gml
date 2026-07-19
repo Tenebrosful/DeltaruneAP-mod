@@ -139,7 +139,10 @@ function AP_handle_receive_item(item_id)
     return;
   }
 
-  if (item_id >= global.AP_item_offset.other_unlock)
+  
+  if (item_id >= global.AP_item_offset.flowery_dollar)
+    AP_internal_handle_ch5_flowery_dollar_item(item_id);
+  else if (item_id >= global.AP_item_offset.other_unlock)
   {
     AP_internal_handle_other_item(item_id);
   }
@@ -270,6 +273,30 @@ function AP_internal_handle_ch3_points_item(item_id)
 
 }
 
+function AP_internal_handle_ch5_flowery_dollar_item(arg0)
+{
+    var item_id = arg0;
+    var dollar_amount = item_id - global.AP_item_offset.flowery_dollar;
+    var dollars = "";
+    
+    if (dollar_amount > 1)
+        dollars = "Flowery Dollars";
+    else
+        dollars = "Flowery Dollar";
+    
+    if (global.chapter == 5)
+    {
+        global.flag[1411] += dollar_amount;
+        
+        if (!global.AP_skip_item_textboxes)
+            script_execute(scr_writetext, 0, string("* (You got {0}.)/%", AP_item_classification_color_text(string(dollar_amount) + " " + dollars, 0)), 0, 6);
+    }
+    else if (!global.AP_skip_item_textboxes)
+    {
+        script_execute(scr_writetext, 0, string("* (You got {0} for chapter 5.)/%", AP_item_classification_color_text(string(dollar_amount) + " " + dollars, 0)), 0, 6);
+    }
+}
+
 function AP_internal_handle_macguffin_item(item_id)
 {
   scr_keyiteminfo(item_id - global.AP_item_offset.macguffin + 700)
@@ -307,7 +334,8 @@ function AP_internal_handle_real_keyitem(realitem_id)
       break;
     case 31: if (global.chapter == 4) global.flag[23] = 1; break;
     case 1018: global.customflags[global.custom_flags_indexes.got_ICE_KEY] = true; break;
-    case 1019: global.customflags[global.custom_flags_indexes.got_SHELTER_KEY] = true; break;
+    case 1019: global.customflags[global.custom_flags_indexes.got_SHELTER_KEY] = true; break;   
+    case 1021: global.flag[1312] += 1; break;
   }
     
 
@@ -388,7 +416,12 @@ function AP_internal_print_get_item_text(item_chapter, item_id, item_name, item_
   else
   {
     if (!global.AP_skip_item_textboxes)
+    {
+      if (global.chapter == 5 && item_id == 1021) // Pink Coin
+        snd_play(snd_pink_coin);
+
       script_execute(scr_writetext, 0, string("* (You got {0}.)/%", AP_item_classification_color_text(item_name, item_classification)), 0, 6);
+    }
   }
 }
 
