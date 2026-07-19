@@ -1,2 +1,0 @@
-/// IMPORT
-extflag = "prop4";
