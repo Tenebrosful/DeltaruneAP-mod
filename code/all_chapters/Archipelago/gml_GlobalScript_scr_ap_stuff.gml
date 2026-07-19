@@ -710,6 +710,23 @@ function AP_game_start_post_connexion()
                 global.chararmor1[4] = 14;
                 global.chararmor2[4] = 22;
                 break;
+            case 5:
+                global.charweapon[1] = 53;
+                global.chararmor1[1] = 25;
+                global.chararmor2[1] = 25;
+
+                global.charweapon[2] = 24;
+                global.chararmor1[2] = 25;
+                global.chararmor2[2] = 25;
+
+                global.charweapon[3] = 25;
+                global.chararmor1[3] = 25;
+                global.chararmor2[3] = 25;
+
+                global.charweapon[4] = 12;
+                global.chararmor1[4] = 14;
+                global.chararmor2[4] = 22;
+                break;
         }
     }
 
