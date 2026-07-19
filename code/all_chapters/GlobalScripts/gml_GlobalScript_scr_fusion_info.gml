@@ -1,4 +1,4 @@
-/// IMPORT .ignore if !CHAPTER_2 && !CHAPTER_4
+/// IMPORT .ignore if CHAPTER_1 || CHAPTER_3
 
 function scr_fusion_info(arg0)
 {
@@ -71,5 +71,77 @@ function scr_fusion_info(arg0)
             resulttype = "check";
             resultdesc = stringsetloc("Trance", "scr_fusion_info_slash_scr_fusion_info_gml_45_0");
             break;
+#if !CHAPTER_2 && !CHAPTER_4
+        
+        case 7:
+            ingredient[0] = 51;
+            ingredienttype[0] = "weapon";
+            ingredient[1] = 53;
+            ingredienttype[1] = "armor";
+            result = 30;
+            resulttype = "check";
+            resultdesc = stringsetloc("Heal+", "scr_fusion_info_slash_scr_fusion_info_gml_90_0");
+            break;
+        
+        case 8:
+            ingredient[0] = 27;
+            ingredienttype[0] = "armor";
+            ingredient[1] = 20;
+            ingredienttype[1] = "armor";
+            result = 31;
+            resulttype = "check";
+            resultdesc = stringsetloc("Defend vs Cat", "scr_fusion_info_slash_scr_fusion_info_gml_101_0");
+            break;
+        
+        case 9:
+            ingredient[0] = 37;
+            ingredienttype[0] = "item";
+            ingredient[1] = 37;
+            ingredienttype[1] = "item";
+            result = 34;
+            resulttype = "item";
+            resultdesc = stringsetloc("Heal 100 HP", "scr_fusion_info_slash_scr_fusion_info_gml_112_0");
+            break;
+        
+        case 10:
+            ingredient[0] = 34;
+            ingredienttype[0] = "item";
+            ingredient[1] = 34;
+            ingredienttype[1] = "item";
+            result = 39;
+            resulttype = "check";
+            resultdesc = stringsetloc("Heal 140 HP", "scr_fusion_info_slash_scr_fusion_info_gml_123_0");
+            break;
+        
+        case 11:
+            ingredient[0] = 62;
+            ingredienttype[0] = "item";
+            ingredient[1] = 52;
+            ingredienttype[1] = "armor";
+            result = 40;
+            resulttype = "check";
+            resultdesc = stringsetloc("Heals all 200HP", "scr_fusion_info_slash_scr_fusion_info_gml_134_0");
+            break;
+        
+        case 12:
+            ingredient[0] = 62;
+            ingredienttype[0] = "item";
+            ingredient[1] = 51;
+            ingredienttype[1] = "armor";
+            result = 29;
+            resulttype = "check";
+            resultdesc = stringsetloc("Heal 100% TP", "scr_fusion_info_slash_scr_fusion_info_gml_145_0");
+            break;
+        
+        case 13:
+            ingredient[0] = 54;
+            ingredienttype[0] = "armor";
+            ingredient[1] = 33;
+            ingredienttype[1] = "item";
+            result = 32;
+            resulttype = "check";
+            resultdesc = stringsetloc("Lose Money", "scr_fusion_info_slash_scr_fusion_info_gml_156_0");
+            break;
+#endif
     }
 }
