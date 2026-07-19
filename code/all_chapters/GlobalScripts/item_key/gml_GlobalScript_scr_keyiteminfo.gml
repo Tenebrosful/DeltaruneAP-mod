@@ -340,6 +340,13 @@ function scr_keyiteminfo(arg0)
             tempkeyitemusable = 1;
             tempkeyitemchapter = 4;
             break;
+        
+        case 954:
+            tempkeyitemdesc = stringsetloc("Not too important, not too unimportant.", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_18_0");
+            tempkeyitemname = stringsetloc("Egg", "scr_keyiteminfo_slash_scr_keyiteminfo_gml_19_0");
+            tempkeyitemusable = 1;
+            tempkeyitemchapter = 5;
+            break;
 
         case 1000:
             tempkeyitemdesc = "It's the key to the Great Door.";
