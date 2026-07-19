@@ -266,13 +266,32 @@
             {
                 if (global.plot < 140)
                 {
-                    msgsetloc(0, "* Go ask him then^1! I'm not just gonna steal it!/%", "obj_npc_room_slash_Other_10_gml_1651_0")
+                    if (global.flag[1173] == 0)
+                    {
+                        msgsetloc(0, "* Go ask him then^1! I'm not just gonna steal it!/", "obj_npc_room_slash_Other_10_gml_1651_0");
+                        msgnextloc("* Ah^1, he won't give you it cause you got Z-Rank^1, huh?/", "obj_npc_room_slash_Other_10_gml_1651_0");
+                        msgnextloc("* Don't worry, I sto^1- I mean FOUND it backstage just for you./%", "obj_npc_room_slash_Other_10_gml_1651_0");
+                        AP_sendLocation(128);
+                        global.flag[1028] = 1;
+                    }
+                    else
+                    {
+                        msgsetloc(0, "* Go ask him then^1! I'm not just gonna steal it!/%", "obj_npc_room_slash_Other_10_gml_1651_0");
+                    }
                 }
                 else
                 {
                     if (global.plot < 280) // Before mike leaving
                     {
-                        if (global.flag[1028] > 0) // 1028 board 1 reward claimed
+                        if (global.flag[1174] == 0 && global.flag[1030] == 0)
+                        {
+                            msgsetloc(0, "* Go ask him then^1! I'm not just gonna steal it!/", "obj_npc_room_slash_Other_10_gml_1651_0");
+                            msgnextloc("* Ah^1, he won't give you it cause you got Z-Rank^1, huh?/", "obj_npc_room_slash_Other_10_gml_1651_0");
+                            msgnextloc("* Don't worry, I sto^1- I mean FOUND it backstage just for you./%", "obj_npc_room_slash_Other_10_gml_1651_0");
+                            AP_sendLocation(147);
+                            global.flag[1030] = 1;
+                        }
+                        else if (global.flag[1028] > 0) // 1028 board 1 reward claimed
                         {
                             msgsetloc(0, "* What do you mean?^1!&* You already claimed it!/%", "obj_npc_room_slash_Other_10_gml_1651_0");
                         }
