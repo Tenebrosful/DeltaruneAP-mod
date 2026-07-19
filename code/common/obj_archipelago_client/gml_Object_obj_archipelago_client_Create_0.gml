@@ -92,6 +92,7 @@ global.AP_item_offset =
     ch3_points: 80000,
     chapter_unlock: 90000,
     other_unlock: 100000, // Currently fun gang actions unlock
+    flowery_dollar: 110000, // Currently fun gang actions unlock
 };
 global.AP_other_games = []
 global.AP_progressive_weapons = {
