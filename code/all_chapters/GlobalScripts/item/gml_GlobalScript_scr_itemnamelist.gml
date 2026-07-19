@@ -8,7 +8,10 @@ function scr_itemnamelist()
             break;
         
         case 1:
-            global.itemname[i] = stringsetloc("Dark Candy", "scr_itemnamelist_slash_scr_itemnamelist_gml_8_0");
+            if global.chapter >= 4
+                global.itemname[i] = stringsetloc("Darker Candy", "scr_itemnamelist_slash_scr_itemnamelist_gml_8_0");
+            else
+                global.itemname[i] = stringsetloc("Dark Candy", "scr_itemnamelist_slash_scr_itemnamelist_gml_8_0");
             break;
         
         case 2:

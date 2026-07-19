@@ -55,6 +55,9 @@ function AP_internal_get_character_max_hp(character_id)
         case 4:
           return 200;
 
+        case 5:
+          return 240;
+
         default:
           return -666;
       }
@@ -74,6 +77,9 @@ function AP_internal_get_character_max_hp(character_id)
         case 4:
           return 230;
 
+        case 5:
+          return 290;
+
         default:
           return -666;
       }
@@ -92,6 +98,9 @@ function AP_internal_get_character_max_hp(character_id)
 
         case 4:
           return 180;
+
+        case 5:
+          return 210;
 
         default:
           return -666;
@@ -319,6 +328,7 @@ function AP_internal_special_key_item(realitem_id)
   && realitem_id != 1018 // ice key
   && realitem_id != 1019 // shelter key
   && realitem_id != 1020 // moss ch4
+  && realitem_id != 1021 // pink coin
 }
 
 function AP_internal_handle_money_item(item_id)

@@ -1,4 +1,4 @@
-/// PATCH .ignore if !CHAPTER_2 && !CHAPTER_4
+/// PATCH .ignore if CHAPTER_1 || CHAPTER_3
 
 /// AFTER
         menuHeaderText[0][1] = stringsetloc("Ingredients", "obj_fusionmenu_slash_Step_0_gml_48_0");
@@ -8,7 +8,11 @@
         wrap = 0;
         vwrap = 0;
 /// CODE
+#if CHAPTER_2 || CHAPTER_4
         AP_sendHint([40, 41, 42, 102, 103, 244]);
+#else
+        AP_sendHint([40, 41, 42, 102, 103, 244, 259, 260, 261, 262, 263, 264, 265]);
+#endif
 /// END
 
 #if CHAPTER_2
@@ -128,10 +132,39 @@
 /// END
 #endif
 
+#if CHAPTER_5
+/// REPLACE
+        dojoPrizeName[0] = stringsetloc("None", "obj_fusionmenu_slash_Step_0_gml_163_0_b");
+/// CODE
+        data[0] = AP_get_location_reward_data(266);
+        dojoPrizeName[0] = stringsetloc(data[0].itemName, "obj_fusionmenu_slash_Step_0_gml_155_0");
+        AP_sendHint(266);
+/// END
+
+/// REPLACE
+        dojoPrizeType[0] = "item";
+/// CODE
+        dojoPrizeType[0] = "266";
+/// END
+
+/// REPLACE
+            optionCommentA[0][j] = dojoPrizeName[j];
+            optionCommentAWidth[0][j] = 200;
+            optionCommentAXOffset[0][j] = 200;
+            optionCommentAYOffset[0][j] = 0;
+            optionCommentAColor[0][j] = c_white;
+/// CODE
+            optionCommentA[0][j] = dojoPrizeName[j];
+            optionCommentAWidth[0][j] = 200;
+            optionCommentAXOffset[0][j] = 200;
+            optionCommentAYOffset[0][j] = 0;
+            optionCommentAColor[0][j] = AP_item_flag_to_color(AP_get_location_reward_data(188).flags);
+/// END
+#endif
+
 /// REPLACE
         scr_itemget_anytype(fusionResult[menuCoord[0]], fusionResultType[menuCoord[0]]);
 /// CODE
-        
         if (fusionResult[menuCoord[0]] == 22)
             AP_sendLocation(40);
         else if (fusionResult[menuCoord[0]] == 8)
@@ -144,6 +177,22 @@
             AP_sendLocation(103);
         else if (fusionResult[menuCoord[0]] == 11)
             AP_sendLocation(244);
+#if !CHAPTER_2 && !CHAPTER_4
+        else if (fusionResult[menuCoord[0]] == 30)
+            AP_sendLocation(259);
+        else if (fusionResult[menuCoord[0]] == 31)
+            AP_sendLocation(260);
+        else if (fusionResult[menuCoord[0]] == 34)
+            AP_sendLocation(261);
+        else if (fusionResult[menuCoord[0]] == 39)
+            AP_sendLocation(262);
+        else if (fusionResult[menuCoord[0]] == 40)
+            AP_sendLocation(263);
+        else if (fusionResult[menuCoord[0]] == 29)
+            AP_sendLocation(264);
+        else if (fusionResult[menuCoord[0]] == 32)
+            AP_sendLocation(265);
+#endif
 /// END
 
 /// REPLACE

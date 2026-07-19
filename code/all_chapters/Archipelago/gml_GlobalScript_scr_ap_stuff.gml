@@ -9,6 +9,110 @@ function AP_handle_balancing(amount, expected_chapter)
     return max(round(amount * factor), 1);
 }
 
+function AP_get_recruits()
+{
+    if (global.AP_all_recruits)
+    {
+        if (global.chapter >= 2)
+        {
+            global.flag[605] = 1;
+            global.flag[606] = 1;
+            global.flag[611] = 1;
+            global.flag[613] = 1;
+            global.flag[614] = 1;
+            global.flag[615] = 1;
+            global.flag[622] = 1;
+            global.flag[623] = 1;
+        }
+        
+        if (global.chapter >= 3)
+        {
+            global.flag[630] = 1;
+            global.flag[631] = 1;
+            global.flag[632] = 1;
+            global.flag[643] = 1;
+            global.flag[634] = 1;
+            global.flag[635] = 1;
+            global.flag[636] = 1;
+            global.flag[640] = 1;
+            global.flag[642] = 1;
+            global.flag[644] = 1;
+        }
+        
+        if (global.chapter >= 4)
+        {
+            global.flag[654] = 1;
+            global.flag[655] = 1;
+            global.flag[656] = 1;
+            global.flag[657] = 1;
+            global.flag[658] = 1;
+            global.flag[659] = 1;
+        }
+        
+        if (global.chapter >= 5)
+        {
+            global.flag[662] = 1;
+            global.flag[663] = 1;
+            global.flag[664] = 1;
+            global.flag[665] = 1;
+            global.flag[666] = 1;
+            global.flag[667] = 1;
+            global.flag[668] = 1;
+            global.flag[669] = 1;
+        }
+    }
+    else if (global.weird_route)
+    {
+        if (global.chapter >= 2)
+        {
+            global.flag[605] = 1;
+            global.flag[606] = 1;
+            global.flag[611] = 1;
+            global.flag[613] = 1;
+            global.flag[614] = 1;
+            global.flag[615] = 1;
+            global.flag[622] = 1;
+            global.flag[623] = 1;
+        }
+        
+        if (global.chapter >= 3)
+        {
+            global.flag[630] = 0;
+            global.flag[631] = 0;
+            global.flag[632] = 0;
+            global.flag[643] = 0;
+            global.flag[634] = 0;
+            global.flag[635] = 0;
+            global.flag[636] = 0;
+            global.flag[640] = 0;
+            global.flag[642] = 0;
+            global.flag[644] = 0;
+        }
+        
+        if (global.chapter >= 4)
+        {
+            global.flag[654] = 0;
+            global.flag[655] = 0;
+            global.flag[656] = 0;
+            global.flag[657] = 0;
+            global.flag[658] = 0;
+            global.flag[659] = 0;
+        }
+        
+        if (global.chapter >= 5)
+        {
+            global.flag[662] = 0;
+            global.flag[663] = 0;
+            global.flag[664] = 0;
+            global.flag[665] = 0;
+            global.flag[666] = 0;
+            global.flag[667] = 0;
+            global.flag[668] = 0;
+            global.flag[669] = 0;
+        }
+    }
+}
+
 function AP_handle_mike_minigame_trophy(minigame, highscore)
 {
     var location_to_send = [];
@@ -601,6 +705,23 @@ function AP_game_start_post_connexion()
                 global.charweapon[3] = 25;
                 global.chararmor1[3] = 25;
                 global.chararmor2[3] = 10;
+
+                global.charweapon[4] = 12;
+                global.chararmor1[4] = 14;
+                global.chararmor2[4] = 22;
+                break;
+            case 5:
+                global.charweapon[1] = 53;
+                global.chararmor1[1] = 25;
+                global.chararmor2[1] = 25;
+
+                global.charweapon[2] = 24;
+                global.chararmor1[2] = 25;
+                global.chararmor2[2] = 25;
+
+                global.charweapon[3] = 25;
+                global.chararmor1[3] = 25;
+                global.chararmor2[3] = 25;
 
                 global.charweapon[4] = 12;
                 global.chararmor1[4] = 14;

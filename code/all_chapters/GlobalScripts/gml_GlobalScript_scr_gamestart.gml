@@ -184,6 +184,21 @@ function scr_gamestart()
         global.df[4] = 1;
         global.spell[2][1] = 11;
     }
+
+    if (global.chapter == 5)
+    {
+        global.at[1] = 12;
+        global.at[2] = 16;
+        global.mag[2] = 1;
+        global.at[3] = 10;
+        global.mag[3] = 9;
+        global.at[4] = 3;
+        global.mag[4] = 11;
+        global.df[4] = 1;
+        global.spell[2][1] = 11;
+        global.spell[2][2] = 13;
+        global.spell[3][2] = 12;
+    }
     
     global.spell[1][0] = 7;
     global.spell[2][0] = 4;
@@ -366,7 +381,7 @@ function scr_gamestart()
         global.flag[636] = 1;
         global.flag[642] = 1;
     }
-
+    
     if (global.chapter >= 4)
     {
         global.flag[654] = 1;
@@ -374,7 +389,21 @@ function scr_gamestart()
         global.flag[657] = 1;
         global.flag[659] = 1;
         global.flag[660] = 1;
-        global.flag[661] = 1;   
+        global.flag[661] = 1;
+    }
+    
+    if (global.chapter >= 5)
+    {
+        global.flag[662] = 1;
+        global.flag[663] = 1;
+        global.flag[665] = 1;
+        global.flag[668] = 1;
+        
+        if (global.flag[1391] == 0)
+            global.flag[1391] = 2;
+        
+        global.voiceclipmode = 0;
+        global.voiceclip = 534;
     }
     
     #if !CHAPTER_1

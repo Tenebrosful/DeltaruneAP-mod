@@ -1,4 +1,5 @@
-/// IMPORT .ignore if !CHAPTER_2 && !CHAPTER_4
+/// IMPORT .ignore if CHAPTER_1 || CHAPTER_3
+
 function scr_fusion_queue(arg0)
 {
     scr_fusion_info(arg0);
@@ -8,7 +9,6 @@ function scr_fusion_queue(arg0)
     fusionIngredientName2[fusioncount] = "--";
     fusionIngredientType1[fusioncount] = ingredienttype[0];
     fusionIngredientType2[fusioncount] = ingredienttype[1];
-    fusionDesc[fusioncount] = resultdesc;
     fusionResult[fusioncount] = result;
     fusionResultType[fusioncount] = resulttype;
     fusionResultName[fusioncount] = "--";
@@ -37,7 +37,66 @@ function scr_fusion_queue(arg0)
         case 11:
             fusionResultData[fusioncount] = AP_get_location_reward_data(244)
         break;
+#if !CHAPTER_2 && !CHAPTER_4
+
+        case 30:
+            fusionResultData[fusioncount] = AP_get_location_reward_data(259);
+            break;
+        
+        case 31:
+            fusionResultData[fusioncount] = AP_get_location_reward_data(260);
+            break;
+        
+        case 34:
+            fusionResultData[fusioncount] = AP_get_location_reward_data(261);
+            break;
+        
+        case 39:
+            fusionResultData[fusioncount] = AP_get_location_reward_data(262);
+            break;
+        
+        case 40:
+            fusionResultData[fusioncount] = AP_get_location_reward_data(263);
+            break;
+        
+        case 29:
+            fusionResultData[fusioncount] = AP_get_location_reward_data(264);
+            break;
+        
+        case 32:
+            fusionResultData[fusioncount] = AP_get_location_reward_data(265);
+            break;
+#endif
     }
+    
+    switch (fusionResultData[fusioncount].flags)
+    {
+        case 0:
+            resultdesc = "Filler";
+            break;
+        
+        case 1:
+            resultdesc = "Progression";
+            break;
+        
+        case 2:
+            resultdesc = "Useful";
+            break;
+        
+        case 3:
+            resultdesc = "Prog. & Useful";
+            break;
+        
+        case 4:
+            resultdesc = "Trap";
+            break;
+        
+        default:
+            resultdesc = " ";
+            break;
+    }
+    
+    fusionDesc[fusioncount] = resultdesc;
     
     if (fusionIngredientType1[fusioncount] == "item")
     {
@@ -135,36 +194,39 @@ function scr_fusion_queue(arg0)
     {
         scr_iteminfo(fusionResult[fusioncount]);
         fusionResultName[fusioncount] = "Check";
-        fusionResultTopComment[fusioncount] = "Will be sent to the Multiworld";
+        fusionResultTopComment[fusioncount] = "Will be sent to " + string(fusionResultData[fusioncount].playerName);
     }
     
     if (fusionResultType[fusioncount] == "weapon")
     {
         scr_weaponinfo(fusionResult[fusioncount]);
         fusionResultName[fusioncount] = "Check";
-        fusionResultTopComment[fusioncount] = "Will be sent to the Multiworld";
+        fusionResultTopComment[fusioncount] = "Will be sent to " + string(fusionResultData[fusioncount].playerName);
     }
     
     if (fusionResultType[fusioncount] == "armor")
     {
         scr_armorinfo(fusionResult[fusioncount]);
         fusionResultName[fusioncount] = "Check";
-        fusionResultTopComment[fusioncount] = "Will be sent to the Multiworld";
+        fusionResultTopComment[fusioncount] = "Will be sent to " + string(fusionResultData[fusioncount].playerName);
     }
     
     if (fusionResultType[fusioncount] == "key")
     {
         scr_keyiteminfo(fusionResult[fusioncount]);
         fusionResultName[fusioncount] = "Check";
-        fusionResultTopComment[fusioncount] = "Will be sent to the Multiworld";
+        fusionResultTopComment[fusioncount] = "Will be sent to " + string(fusionResultData[fusioncount].playerName);
     }
-
-        if (fusionResultType[fusioncount] == "check")
+    
+    if (fusionResultType[fusioncount] == "check")
     {
         scr_keyiteminfo(fusionResult[fusioncount]);
         fusionResultName[fusioncount] = "check";
-        fusionResultTopComment[fusioncount] = "Will be sent to the Multiworld";
+        fusionResultTopComment[fusioncount] = "Will be sent to " + string(fusionResultData[fusioncount].playerName);
     }
+    
+    if (fusionResultTopComment[fusioncount] == "Will be sent to Unknown")
+        fusionResultTopComment[fusioncount] = "Location not available in this Multiworld.#Sorry!";
     
     if (fusionHaveIngredient1[fusioncount] && fusionHaveIngredient2[fusioncount])
         fusionCanMake[fusioncount] = 1;

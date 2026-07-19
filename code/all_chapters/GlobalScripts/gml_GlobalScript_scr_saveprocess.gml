@@ -6,6 +6,12 @@ file = "filech1_" + string(arg0);
 /// CODE
 file = AP_get_save_folder_prefix() + "filech" + string(global.chapter) + "_" + string(arg0);
 /// END
+#elsif CHAPTER_5
+/// REPLACE
+    file = "filech" + string(global.chapter) + "_" + string(arg0) + global.filechoice_route;
+/// CODE
+    file = AP_get_save_folder_prefix() + "filech" + string(global.chapter) + "_" + string(arg0) + global.filechoice_route;
+/// END
 #else
 /// REPLACE
     file = "filech" + string(global.chapter) + "_" + string(arg0);
