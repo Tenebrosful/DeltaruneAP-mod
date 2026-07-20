@@ -39,7 +39,7 @@ if (room == room_forest_savepoint2)
         }
         else if (global.flag[238] == 0)
         {
-            global.msg[0] = string("* (There's still {0} here.)/%", AP_get_location_reward_text(t_itemid));
+            global.msg[0] = string("* (There's still {0} here.)/%", AP_get_location_reward_text(9));
             AP_sendLocation(9);
             global.flag[238] = 1;
         }
