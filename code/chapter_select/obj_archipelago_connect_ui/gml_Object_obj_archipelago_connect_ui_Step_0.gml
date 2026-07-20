@@ -43,10 +43,12 @@ if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")))
             connect = true;
             if (global.AP_server != "" && global.AP_port != "" && global.AP_name != "")
             {
+                audio_play_sound(snd_select, 1, false);
                 alarm[0] = 1;
                 exit;
             }
-            audio_play_sound(snd_select, 1, false);
+
+            audio_play_sound(ch2_select, 1, false)
             exit;
         }
         else if (page == 1)
