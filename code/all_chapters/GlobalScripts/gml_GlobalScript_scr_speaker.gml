@@ -121,6 +121,9 @@ function scr_speaker(arg0)
     {
         global.fc = 10;
         global.typer = 18;
+        
+        if (global.darkzone == 1)
+            global.typer = 89;
     }
     
     if (_speaker == "king" || _speaker == "kin")
@@ -210,4 +213,62 @@ function scr_speaker(arg0)
             global.typer = 84;
         }
     }        
+
+    
+    if (_speaker == "flowery")
+    {
+        global.fc = 23;
+        global.typer = 88;
+    }
+    
+    if (_speaker == "flowery_noface")
+    {
+        global.fc = 0;
+        global.typer = 88;
+    }
+    
+    if (_speaker == "flowery_s")
+    {
+        global.fc = 23;
+        global.typer = 86;
+    }
+    
+    if (_speaker == "tenna")
+        global.typer = 84;
+    
+    if (_speaker == "jackenstein")
+        global.typer = 83;
+    
+    if (_speaker == "aqua")
+        global.typer = 90;
+    
+    if (_speaker == "seth" || _speaker == "purple")
+        global.typer = 91;
+    
+    if (_speaker == "yellow")
+        global.typer = 92;
+    
+    if (_speaker == "orange")
+        global.typer = 93;
+    
+    if (_speaker == "blue")
+        global.typer = 94;
+    
+    if (_speaker == "bluef")
+    {
+        global.typer = 94;
+        global.fc = 25;
+    }
+    
+    if (_speaker == "green")
+        global.typer = 95;
+    
+    if (_speaker == "pink")
+    {
+        global.typer = 97;
+        global.fe = 0;
+    }
+    
+    if (_speaker == "opuppet")
+        global.typer = 98;
 }
