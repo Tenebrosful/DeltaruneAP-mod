@@ -371,6 +371,22 @@ function scr_spelltext(arg0, arg1)
             msgsetsubloc(0, "* ~1 used the DELUXEDINNER!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_318_0");
             break;
         
+        case 240:
+            msgsetsubloc(0, "* ~1 used the PUNCHBOWL!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_330_0");
+            break;
+        
+        case 241:
+            msgsetsubloc(0, "* ~1 used the FLAVIGNE!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_333_0");
+            break;
+        
+        case 242:
+            msgsetsubloc(0, "* ~1 used the GREENTEA!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_336_0");
+            break;
+        
+        case 243:
+            msgsetsubloc(0, "* ~1 used the ORANGEJUICE!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_339_0");
+            break;
+        
         case 260:
             msgsetsubloc(0, "* ~1 used the ANCIENTSWEET!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_329_0");
             break;
@@ -385,6 +401,34 @@ function scr_spelltext(arg0, arg1)
         
         case 263:
             msgsetsubloc(0, "* ~1 used the BITTERTEAR!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_338_0");
+            break;
+        
+        case 264:
+            msgsetsubloc(0, "* ~1 used the SCHADENBROT!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_354_0");
+            break;
+        
+        case 265:
+            msgsetsubloc(0, "* ~1 used the TREECAKE!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_357_0_b");
+            break;
+        
+        case 266:
+            msgsetsubloc(0, "* ~1 used the S.POTION!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_360_0");
+            break;
+        
+        case 267:
+            msgsetsubloc(0, "* ~1 used the RAW MOON!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_363_0");
+            break;
+        
+        case 268:
+            msgsetsubloc(0, "* ~1 used the PHANTA!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_366_0");
+            break;
+        
+        case 269:
+            msgsetsubloc(0, "* ~1 used the FLOWERYSODA!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_369_0");
+            break;
+        
+        case 270:
+            msgsetsubloc(0, "* ~1 used the SHIKACOLA!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_372_0");
             break;
     }
     
