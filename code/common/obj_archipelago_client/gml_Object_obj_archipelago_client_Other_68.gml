@@ -357,26 +357,28 @@ if (ds_map_exists(async_load, "buffer"))
 
 function array_unique(array)
 {
-  var result = [array[0]];
+    if len(array) == 0 return [];
+    
+    var result = [array[0]];
 
-  for (var i = 1; i < array_length(array); i++)
-  {
-      var unique = true;
-      for (var j = 0; j < array_length(result); j++)
-      {
-          if (result[j] == array[i])
-          {
-              unique = false;
-              break;
-          }
-      }
+    for (var i = 1; i < array_length(array); i++)
+    {
+        var unique = true;
+        for (var j = 0; j < array_length(result); j++)
+        {
+            if (result[j] == array[i])
+            {
+                unique = false;
+                break;
+            }
+        }
 
-      if (unique)
-      {
-          array_push(result, array[i]);
-      }
-  }
-  return result;
+        if (unique)
+        {
+            array_push(result, array[i]);
+        }
+    }
+    return result;
 }
 
 function array_contains(array, value)
