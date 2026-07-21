@@ -756,7 +756,7 @@ function scr_weaponinfo(arg0)
             weaponicontemp = 3;
             weaponabilityicontemp = 21;
             weaponabilitytemp = stringsetloc("TheBest", "scr_weaponinfo_slash_scr_weaponinfo_gml_739_0");
-            value = 2;
+            value = 0;
             chapter = 5;
             break;
         
