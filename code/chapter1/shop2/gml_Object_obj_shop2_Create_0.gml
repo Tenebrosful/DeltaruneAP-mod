@@ -62,10 +62,10 @@ items_data[1] = AP_get_location_reward_data(61)
 items_data[2] = AP_get_location_reward_data(62)
 items_data[3] = AP_get_location_reward_data(63)
 
-shopdesc[0] = "This will#be send to#somebody#multiworld.";
-shopdesc[1] = "This will#be send to#somebody#multiworld.";
-shopdesc[2] = "This will#be send to#somebody#multiworld.";
-shopdesc[3] = "This will#be send to#somebody#multiworld.";
+shopdesc[0] = "CHECK#Will be#sent to the#Multiworld";
+shopdesc[1] = "CHECK#Will be#sent to the#Multiworld";
+shopdesc[2] = "CHECK#Will be#sent to the#Multiworld";
+shopdesc[3] = "CHECK#Will be#sent to the#Multiworld";
 
 for (i = 0; i < itemtotal; i += 1)
 {
