@@ -1,12 +1,21 @@
 /// PATCH .ignore if CHAPTER_1 || CHAPTER_3
 
 /// AFTER
+#if CHAPTER_5
+        menuHeaderText[0][1] = stringsetloc("Ingredients", "obj_fusionmenu_slash_Step_0_gml_48_0");
+        menuHeaderX[0][1] = 330;
+        menuHeaderY[0][1] = 140;
+        menuHeaderHeight[0][1] = 1;
+        wrap = 0;
+        vwrap = 0;
+#else
         menuHeaderText[0][1] = stringsetloc("Ingredients", "obj_fusionmenu_slash_Step_0_gml_48_0");
         menuHeaderX[0][1] = (xx + 320 + 20) - 10;
         menuHeaderY[0][1] = yy + 140;
         menuHeaderHeight[0][1] = 1;
         wrap = 0;
         vwrap = 0;
+#endif
 /// CODE
 #if CHAPTER_2 || CHAPTER_4
         AP_sendHint([40, 41, 42, 102, 103, 244]);
