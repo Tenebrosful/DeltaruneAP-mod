@@ -766,9 +766,9 @@ function scr_weaponinfo(arg0)
             wmessage2temp = stringsetloc("...", "scr_weaponinfo_slash_scr_weaponinfo_gml_746_0");
             wmessage3temp = stringsetloc("... I'll wear it.", "scr_weaponinfo_slash_scr_weaponinfo_gml_747_0");
             wmessage4temp = stringsetloc("Who the HECK is Flowery?", "scr_weaponinfo_slash_scr_weaponinfo_gml_748_0");
-            weaponattemp = 0;
-            weapondftemp = 0;
-            weaponmagtemp = 0;
+            weaponattemp = 12;
+            weapondftemp = 3;
+            weaponmagtemp = 3;
             weaponboltstemp = 1;
             weaponstyletemp = "?";
             weapongrazeamttemp = 0;
@@ -776,7 +776,7 @@ function scr_weaponinfo(arg0)
             weaponchar1temp = 0;
             weaponchar2temp = 0;
             weaponchar3temp = 1;
-            weaponchar4temp = 1;
+            weaponchar4temp = 0;
             weaponicontemp = 3;
             weaponabilityicontemp = 0;
             weaponabilitytemp = "";
