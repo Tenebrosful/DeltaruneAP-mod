@@ -789,6 +789,9 @@ function AP_can_receive_item()
         case 3:
             chapterSpecificLogic = !instance_exists(obj_board_controller);
             break;
+        case 3:
+            chapterSpecificLogic = (!(instance_exists(obj_platswap) || instance_exists(obj_plat_player)))
+            break;
         default:
             chapterSpecificLogic = true;
     }
