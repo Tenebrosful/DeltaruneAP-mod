@@ -591,6 +591,9 @@ function scr_spell(arg0, arg1)
             if (global.chapter == 4)
                 healamount = 160;
             
+            if (global.chapter == 5)
+                healamount = 180;
+            
             scr_healallitemspell(scr_heal_amount_modify_by_equipment(healamount));
             item_use = true;
             break;
