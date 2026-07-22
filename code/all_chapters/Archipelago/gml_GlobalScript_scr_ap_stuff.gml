@@ -252,14 +252,14 @@ function AP_fill_progressive_weapon_struct()
         if (global.AP_include_chapters[3])
             array_push(global.AP_progressive_weapons_ids.ralsei, 51); // ScarfMark
 
-        if (global.AP_include_chapters[4])
-            array_push(global.AP_progressive_weapons_ids.ralsei, 32); // BlueShoes
-
         if (global.AP_include_chapters[1])
             array_push(global.AP_progressive_weapons_ids.ralsei, 19); // Ragger2
 
         if (global.AP_include_chapters[4])
             array_push(global.AP_progressive_weapons_ids.ralsei, 37); // MistleWP
+
+        if (global.AP_include_chapters[4])
+            array_push(global.AP_progressive_weapons_ids.ralsei, 32); // BlueShoes
 
         if (global.AP_include_chapters[1])
             array_push(global.AP_progressive_weapons_ids.ralsei, 21); // PuppetScarf
@@ -276,6 +276,9 @@ function AP_fill_progressive_weapon_struct()
 
         if (global.AP_include_chapters[1] && (global.AP_weird_route || global.AP_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_ROUTES))
             array_push(global.AP_progressive_weapons_ids.noelle, 22); // FreezeRing
+
+        if (global.AP_include_unused_items == 1 && global.AP_include_chapters[4])
+            array_push(global.AP_progressive_weapons_ids.noelle, 36); // GildedRose
 
         if (global.AP_include_chapters[1] && (global.AP_weird_route || global.AP_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_ROUTES))
             array_push(global.AP_progressive_weapons_ids.noelle, 13); // Thornring
