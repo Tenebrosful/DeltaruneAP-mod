@@ -187,6 +187,12 @@ function AP_fill_progressive_weapon_struct()
         if (global.AP_include_chapters[3])
             array_push(global.AP_progressive_weapons_ids.kris, 53); // Winglade
 
+        if (global.AP_include_chapters[4])
+            array_push(global.AP_progressive_weapons_ids.kris, 30); // WoodBlade2
+
+        if (global.AP_include_chapters[4])
+            array_push(global.AP_progressive_weapons_ids.kris, 33); // AquaKnife
+
         if (global.AP_include_chapters[1] && global.AP_include_unused_items >= 1 && (global.AP_ENUM_CHOSEN_ROUTE == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE || global.AP_ENUM_CHOSEN_ROUTE == global.AP_ENUM_CHOSEN_ROUTE.ALL_ROUTES))
             array_push(global.AP_progressive_weapons_ids.kris, 11); // TwistedSwd
 
@@ -214,6 +220,9 @@ function AP_fill_progressive_weapon_struct()
         if (global.AP_include_chapters[3])
             array_push(global.AP_progressive_weapons_ids.susie, 54); // AbsorbAx
 
+        if (global.AP_include_chapters[4])
+            array_push(global.AP_progressive_weapons_ids.susie, 31); // Thatchet
+
         if (global.AP_include_chapters[3])
             array_push(global.AP_progressive_weapons_ids.susie, 52); // JusticeAxe
 
@@ -228,6 +237,9 @@ function AP_fill_progressive_weapon_struct()
         if (global.AP_include_chapters[0])
             array_push(global.AP_progressive_weapons_ids.ralsei, 10); // DaintyScarf
 
+        if (global.AP_include_chapters[1] && global.AP_include_unused_items == 1)
+            array_push(global.AP_progressive_weapons_ids.ralsei, 15); // Cheerscarf
+
         if (global.AP_include_chapters[0])
             array_push(global.AP_progressive_weapons_ids.ralsei, 9); // Ragger
 
@@ -240,11 +252,20 @@ function AP_fill_progressive_weapon_struct()
         if (global.AP_include_chapters[3])
             array_push(global.AP_progressive_weapons_ids.ralsei, 51); // ScarfMark
 
+        if (global.AP_include_chapters[4])
+            array_push(global.AP_progressive_weapons_ids.ralsei, 32); // BlueShoes
+
         if (global.AP_include_chapters[1])
             array_push(global.AP_progressive_weapons_ids.ralsei, 19); // Ragger2
 
+        if (global.AP_include_chapters[4])
+            array_push(global.AP_progressive_weapons_ids.ralsei, 37); // MistleWP
+
         if (global.AP_include_chapters[1])
             array_push(global.AP_progressive_weapons_ids.ralsei, 21); // PuppetScarf
+
+        if (global.AP_include_chapters[4])
+            array_push(global.AP_progressive_weapons_ids.ralsei, 35); // BrokenScarf
 
         if (global.AP_include_unused_items == 1)
             array_push(global.AP_progressive_weapons_ids.ralsei, 4); // EverybodyWeapon
