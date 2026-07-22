@@ -92,7 +92,7 @@ global.AP_item_offset =
     ch3_points: 80000,
     chapter_unlock: 90000,
     other_unlock: 100000, // Currently fun gang actions unlock
-    flowery_dollar: 110000, // Currently fun gang actions unlock
+    flowery_dollar: 110000,
 };
 global.AP_other_games = []
 global.AP_progressive_weapons = {
@@ -129,7 +129,9 @@ global.custom_flags_indexes = {
     discovered_ch2_leave_dw: 36,
     got_jackenstein_gift: 38,
     accepted_dark_sanctuary_skip: 39,
-    skipped_dark_sanctuary: 40
+    skipped_dark_sanctuary: 40,
+    discovered_ch5_leave_dw: 41,
+    ch5_shortcut_door_state: 42
 }
 
 for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
