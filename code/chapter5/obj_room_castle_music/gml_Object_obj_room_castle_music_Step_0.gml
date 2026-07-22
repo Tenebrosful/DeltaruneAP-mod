@@ -20,6 +20,6 @@
             npc_animate = false;
             scr_flag_set(1909, 1);
             snd_play(snd_item);
-            msgsetloc(0, string("* (You got {0}.)/%", AP_get_location_reward_text(258)));
+            msgset(0, string("* (You got {0}.)/%", AP_get_location_reward_text(258)));
             AP_sendLocation(258);
 /// END

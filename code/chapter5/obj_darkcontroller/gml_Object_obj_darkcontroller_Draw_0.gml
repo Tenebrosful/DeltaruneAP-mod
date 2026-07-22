@@ -242,7 +242,7 @@ if (global.menuno == 5)
 	if (global.chapter == 5 && global.tempflag[52] == 1)
         {
             current_line++;
-            draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Voice Clips");
+            draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Ralseis");
             draw_text((base_x + (current_col * (line_width + between_col_gap)) + line_width) - value_width, base_y + (current_line * (line_height + between_row_gap)), !global.flag[1392] ? "ON" : "OFF");
         }
         current_line = max_line - 2;
