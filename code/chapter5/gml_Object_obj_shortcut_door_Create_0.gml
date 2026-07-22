@@ -8,6 +8,8 @@
 
 /// BEFORE
 with (weirdlight)
+{
+    depth = 895000;
 /// CODE
 if (room == room_dw_garden_hopschef)
     AP_sendLocation(270);
