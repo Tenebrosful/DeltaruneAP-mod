@@ -16,7 +16,7 @@ if (room == room_dw_garden_hopschef)
 
 if (room == room_dw_garden_aquahole_left)
 {
-    global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 1;
+    global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 2;
     AP_sendLocation(286);
 }
 
@@ -28,43 +28,43 @@ if (room == room_dw_garden_aquadash)
 
 if (room == room_dw_cliff_climbrefresher)
 {
-    global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 1;
+    global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 3;
     AP_sendLocation(291);
 }
 
 if (room == room_dw_cliff_netskieclimb)
 {
-    global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 1;
+    global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 4;
     AP_sendLocation(292);
 }
 
 if (room == room_dw_cliff_seth_miniboss)
 {
-    global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 1;
+    global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 5;
     AP_sendLocation(293);
 }
 
 if (room == room_dw_fcastle_foyer)
 {
-    global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 1;
+    global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 6;
     AP_sendLocation(310);
 }
 
 if (room == room_dw_fcastle_blueroom)
 {
-    global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 1;
+    global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 7;
     AP_sendLocation(318);
 }
 
 if (room == room_dw_fcastle_right_puzzle)
 {
-    global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 1;
+    global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 8;
     AP_sendLocation(328);
 }
 
 if (room == room_dw_fcastle_green_checkpoint)
 {
-    global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 1;
+    global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 9;
     AP_sendLocation(346);
 }
 
