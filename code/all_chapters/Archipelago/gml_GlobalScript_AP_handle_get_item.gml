@@ -397,7 +397,13 @@ function AP_internal_handle_normal_item(item_id)
   scr_iteminfo(item_id);
   var item_name = itemnameb;
   var item_classification = itemclassification;
-  scr_itemget(item_id);
+  var chapter = global.chapter
+
+  if item_id == 4:
+    chapter = 1;
+  
+  if chapter == global.chapter
+    scr_itemget(item_id);
 
   AP_internal_print_get_item_text(global.chapter, item_id, item_name, item_classification);
 }
