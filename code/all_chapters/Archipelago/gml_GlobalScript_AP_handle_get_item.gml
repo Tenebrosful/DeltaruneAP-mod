@@ -399,7 +399,7 @@ function AP_internal_handle_normal_item(item_id)
   var item_classification = itemclassification;
   var chapter = global.chapter
 
-  if item_id == 4:
+  if item_id == 4 // Manual
     chapter = 1;
   
   if chapter == global.chapter

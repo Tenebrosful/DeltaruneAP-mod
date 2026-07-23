@@ -357,7 +357,7 @@ if (ds_map_exists(async_load, "buffer"))
 
 function array_unique(array)
 {
-    if len(array) == 0 return [];
+    if array_length(array) == 0 return [];
     
     var result = [array[0]];
 
