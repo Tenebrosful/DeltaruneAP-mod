@@ -1136,6 +1136,12 @@
                     obj_archipelago_client.AP_updateTags();
                 }
 
+                // Item balancing
+                if (global.submenucoord[30] == 11)
+                {
+                    global.AP_balancing = !global.AP_balancing;
+                }
+
                 // Load the last save
                 if (global.submenucoord[30] == 17)
                 {

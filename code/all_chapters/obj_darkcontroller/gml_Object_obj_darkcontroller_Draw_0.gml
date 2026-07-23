@@ -468,6 +468,9 @@ if (global.menuno == 5)
         current_col = 1;
         draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Deathlink");
         draw_text((base_x + (current_col * (line_width + between_col_gap)) + line_width) - value_width, base_y + (current_line * (line_height + between_row_gap)), global.AP_deathlink ? "ON" : "OFF");
+        current_line = 1;
+        draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Item Balancing");
+        draw_text((base_x + (current_col * (line_width + between_col_gap)) + line_width) - value_width, base_y + (current_line * (line_height + between_row_gap)), global.AP_balancing ? "ON" : "OFF");
         current_line = max_line - 2;
         draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Load the last save");
         current_line = max_line - 1;
