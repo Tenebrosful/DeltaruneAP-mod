@@ -383,7 +383,7 @@ function scr_itemuse(arg0)
         
         case 19:
             usable = 1;
-            _healamount = scr_teaamount(1, global.char[global.charselect]);
+            _healamount = scr_teaamount(2, global.char[global.charselect]);
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, scr_text(1460));
@@ -399,7 +399,7 @@ function scr_itemuse(arg0)
         
         case 20:
             usable = 1;
-            _healamount = scr_teaamount(1, global.char[global.charselect]);
+            _healamount = scr_teaamount(3, global.char[global.charselect]);
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, scr_text(1460));
@@ -415,7 +415,7 @@ function scr_itemuse(arg0)
         
         case 21:
             usable = 1;
-            _healamount = scr_teaamount(1, global.char[global.charselect]);
+            _healamount = scr_teaamount(4, global.char[global.charselect]);
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, scr_text(1460));
