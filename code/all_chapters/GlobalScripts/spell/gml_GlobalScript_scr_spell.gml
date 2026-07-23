@@ -580,19 +580,29 @@ function scr_spell(arg0, arg1)
             break;
         
         case 207:
-            var healamount = 80;
-            
-            if (global.chapter == 2)
-                healamount = 140;
-            
-            if (global.chapter == 3)
-                healamount = 150;
-            
-            if (global.chapter == 4)
-                healamount = 160;
-            
-            if (global.chapter == 5)
-                healamount = 180;
+            var healamount = 0;
+            switch (global.chapter)
+            {
+                case 1:
+                    healamount = 80;
+                    break;
+                
+                case 2:
+                    healamount = 140;
+                    break;
+                
+                case 3:
+                    healamount = 150;
+                    break;
+                
+                case 4:
+                    healamount = 160;
+                    break;
+                
+                case 5:
+                    healamount = 180;
+                    break;
+            }
             
             scr_healallitemspell(scr_heal_amount_modify_by_equipment(healamount));
             item_use = true;
@@ -665,7 +675,7 @@ function scr_spell(arg0, arg1)
             break;
         
         case 216:
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(80));
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(80, 2)));
             item_use = true;
             break;
         
@@ -673,48 +683,48 @@ function scr_spell(arg0, arg1)
             break;
         
         case 218:
-            scr_healitemspell(scr_teaamount(1, global.char[star]));
+            scr_healitemspell(AP_handle_balancing(scr_teaamount(1, global.char[star]), 2));
             item_use = true;
             break;
         
         case 219:
-            scr_healitemspell(scr_teaamount(4, global.char[star]));
+            scr_healitemspell(AP_handle_balancing(scr_teaamount(4, global.char[star]), 2));
             item_use = true;
             break;
         
         case 220:
-            scr_healitemspell(scr_teaamount(3, global.char[star]));
+            scr_healitemspell(AP_handle_balancing(scr_teaamount(3, global.char[star]), 2));
             item_use = true;
             break;
         
         case 221:
-            scr_healitemspell(scr_teaamount(2, global.char[star]));
+            scr_healitemspell(AP_handle_balancing(scr_teaamount(2, global.char[star]), 2));
             item_use = true;
             break;
         
         case 222:
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(60));
+            scr_healitemspell(AP_handle_balancing(60, 2));
             item_use = true;
             break;
         
         case 223:
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(120));
+            scr_healitemspell(AP_handle_balancing(120, 2));
             item_use = true;
             break;
         
         case 224:
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(100));
+            scr_healitemspell(AP_handle_balancing(100, 2));
             item_use = true;
             break;
         
         case 225:
-            scr_healallitemspell(scr_heal_amount_modify_by_equipment(30));
+            scr_healallitemspell(AP_handle_balancing(30, 2));
             item_use = true;
             break;
         
         case 226:
             var healamount = (global.char[star] == 1) ? 100 : 90;
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(healamount));
+            scr_healitemspell(AP_handle_balancing(healamount, 2));
             item_use = true;
             break;
         
@@ -734,7 +744,7 @@ function scr_spell(arg0, arg1)
             {
                 if (global.char[__j] > 0)
                 {
-                    healamount = 10;
+                    healamount = AP_handle_balancing(10, 2);
                     star = __j;
                     
                     if (global.hp[global.char[star]] <= 0)
@@ -754,7 +764,7 @@ function scr_spell(arg0, arg1)
             {
                 if (global.char[__j] > 0)
                 {
-                    healamount = scr_heal_amount_modify_by_equipment(50);
+                    healamount = scr_heal_amount_modify_by_equipment(AP_handle_balancing(50, 2));
                     star = __j;
                     
                     if (global.hp[global.char[star]] <= 0)
@@ -788,7 +798,7 @@ function scr_spell(arg0, arg1)
             break;
         
         case 234:
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(100));
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(100, 3)));
             item_use = true;
             break;
         
@@ -796,75 +806,66 @@ function scr_spell(arg0, arg1)
             break;
         
         case 236:
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(20));
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(20, 3)));
             item_use = true;
             break;
         
         case 237:
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(80));
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(80, 3)));
             item_use = true;
             break;
         
         case 238:
-            scr_healallitemspell(scr_heal_amount_modify_by_equipment(100));
+            scr_healallitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(100, 3)));
             item_use = true;
             break;
         
         case 239:
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(140));
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(140, 3)));
             item_use = true;
             break;
         
         case 240:
-            scr_healallitemspell(scr_heal_amount_modify_by_equipment(200));
+            scr_healallitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(200, 5)));
             break;
         
         case 241:
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(130));
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(130, 5)));
             break;
         
         case 242:
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(180));
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(180, 5)));
             break;
         
         case 243:
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(80));
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(80, 5)));
             break;
         
         case 260:
             if (global.char[star] == 1)
-                scr_healitemspell(scr_heal_amount_modify_by_equipment(400));
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(400, 4)));
             
             if (global.char[star] == 2)
-                scr_healitemspell(scr_heal_amount_modify_by_equipment(40));
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(40, 4)));
             
             if (global.char[star] == 3)
-                scr_healitemspell(scr_heal_amount_modify_by_equipment(40));
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(40, 4)));
             
             if (global.char[star] == 4)
-                scr_healitemspell(scr_heal_amount_modify_by_equipment(40));
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(40, 4)));
             
             item_use = true;
             break;
         
         case 261:
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(115));
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(115, 4)));
             item_use = true;
             break;
         
-        case 262:
-            if (global.char[star] == 1)
-                scr_healitemspell(160);
-            
-            if (global.char[star] == 2)
-                scr_healitemspell(160);
-            
-            if (global.char[star] == 3)
-                scr_healitemspell(160);
-            
+        case 262:            
             if (global.char[star] == 4)
             {
-                scr_healitemspell(scr_heal_amount_modify_by_equipment(155));
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(155, 4)));
                 scr_heal(0, 5);
                 
                 with (global.charinstance[0])
@@ -889,6 +890,10 @@ function scr_spell(arg0, arg1)
                     tu += 1;
                 }
             }
+            else
+            {
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(160, 4)));
+            }
             
             item_use = true;
             break;
@@ -900,43 +905,43 @@ function scr_spell(arg0, arg1)
             break;
         
         case 264:
-            scr_healallitemspell(scr_heal_amount_modify_by_equipment(200));
+            scr_healallitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(200, 5)));
             break;
         
         case 265:
-            scr_healallitemspell(scr_heal_amount_modify_by_equipment(160));
+            scr_healallitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(160, 5)));
             break;
         
         case 266:
-            scr_healitemspell(scr_heal_amount_modify_by_equipment(200));
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(200, 5)));
             break;
         
         case 267:
             if (global.char[star] == 1)
-                scr_healitemspell(scr_heal_amount_modify_by_equipment(200));
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(200, 5)));
             else
-                scr_healitemspell(scr_heal_amount_modify_by_equipment(100));
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(100, 5)));
             
             break;
         
         case 268:
             if (global.char[star] == 2)
-                scr_healitemspell(scr_heal_amount_modify_by_equipment(200));
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(200, 5)));
             else
-                scr_healitemspell(scr_heal_amount_modify_by_equipment(100));
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(100, 5)));
             
             break;
         
         case 269:
             if (global.char[star] == 3)
-                scr_healitemspell(scr_heal_amount_modify_by_equipment(200));
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(200, 5)));
             else
-                scr_healitemspell(scr_heal_amount_modify_by_equipment(50));
+                scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(50, 5)));
             
             break;
         
         case 270:
-            scr_healallitemspell(scr_heal_amount_modify_by_equipment(80));
+            scr_healallitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(80, 5)));
             break;
     }
     

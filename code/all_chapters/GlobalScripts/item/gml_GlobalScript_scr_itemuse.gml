@@ -45,7 +45,7 @@ function scr_itemuse(arg0)
         
         case 1:
             if (global.chapter >= 4)
-                scr_healitem(global.charselect, 120);
+                scr_healitem(global.charselect, AP_handle_balancing(120, 4));
             else
                 scr_healitem(global.charselect, 40);
 
@@ -329,7 +329,7 @@ function scr_itemuse(arg0)
             break;
         
         case 16:
-            scr_healitem(global.charselect, 80);
+            scr_healitem(global.charselect, AP_handle_balancing(80, 2));
             usable = 1;
             
             if (_gc == 1)
@@ -367,7 +367,7 @@ function scr_itemuse(arg0)
         
         case 18:
             usable = 1;
-            _healamount = scr_teaamount(1, global.char[global.charselect]);
+            _healamount = AP_handle_balancing(scr_teaamount(1, global.char[global.charselect]), 2);
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, scr_text(1460));
@@ -383,7 +383,7 @@ function scr_itemuse(arg0)
         
         case 19:
             usable = 1;
-            _healamount = scr_teaamount(2, global.char[global.charselect]);
+            _healamount = AP_handle_balancing(scr_teaamount(4, global.char[global.charselect]), 2);
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, scr_text(1460));
@@ -399,7 +399,7 @@ function scr_itemuse(arg0)
         
         case 20:
             usable = 1;
-            _healamount = scr_teaamount(3, global.char[global.charselect]);
+            _healamount = AP_handle_balancing(scr_teaamount(3, global.char[global.charselect]), 2);
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, scr_text(1460));
@@ -415,7 +415,7 @@ function scr_itemuse(arg0)
         
         case 21:
             usable = 1;
-            _healamount = scr_teaamount(4, global.char[global.charselect]);
+            _healamount = AP_handle_balancing(scr_teaamount(2, global.char[global.charselect]), 2);
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, scr_text(1460));
@@ -430,7 +430,7 @@ function scr_itemuse(arg0)
             break;
         
         case 22:
-            _healchoice = 60;
+            _healchoice = AP_handle_balancing(60, 2);
             usable = 1;
             replaceable = 8;
             
@@ -442,7 +442,7 @@ function scr_itemuse(arg0)
             
             if (global.char[global.charselect] == 4)
             {
-                _healchoice = 20;
+                _healchoice = AP_handle_balancing(20, 2);
                 scr_itemcomment(global.charselect, stringsetloc("Th... there's MORE!?", "scr_itemuse_slash_scr_itemuse_gml_427_0"));
             }
             
@@ -450,7 +450,7 @@ function scr_itemuse(arg0)
             break;
         
         case 23:
-            scr_healitem(global.charselect, 120);
+            scr_healitem(global.charselect, AP_handle_balancing(120, 2));
             usable = 1;
             
             if (global.char[global.charselect] == 2)
@@ -465,7 +465,7 @@ function scr_itemuse(arg0)
             break;
         
         case 24:
-            scr_healitem(global.charselect, 100);
+            scr_healitem(global.charselect, AP_handle_balancing(100, 2));
             usable = 1;
             
             if (global.char[global.charselect] == 2)
@@ -480,7 +480,7 @@ function scr_itemuse(arg0)
             break;
         
         case 25:
-            scr_healitem_all(30);
+            scr_healitem_all(AP_handle_balancing(30, 2));
             usable = 1;
             
             if (!haveflowery)
@@ -503,10 +503,10 @@ function scr_itemuse(arg0)
         
         case 26:
             usable = 1;
-            var heal_amount = 90;
+            var heal_amount = AP_handle_balancing(90, 2);
             
             if (global.char[global.charselect] == 1)
-                heal_amount = 100;
+                heal_amount = AP_handle_balancing(100, 2);
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, stringsetloc("It says GUTS!", "scr_itemuse_slash_scr_itemuse_gml_487_0"));
@@ -546,7 +546,7 @@ function scr_itemuse(arg0)
         
         case 30:
             usable = 1;
-            scr_healitem_all(10);
+            scr_healitem_all(AP_handle_balancing(10, 2));
             
             if (scr_havechar(2))
                 scr_itemcomment(suspos, stringsetloc("Don't throw dust at me!", "scr_itemuse_slash_scr_itemuse_gml_529_0"));
@@ -561,7 +561,7 @@ function scr_itemuse(arg0)
         
         case 31:
             usable = 1;
-            scr_healitem_all(50);
+            scr_healitem_all(AP_handle_balancing(50, 2));
             
             if (scr_havechar(2))
                 scr_itemcomment(suspos, stringsetloc("Don't throw mints at me!", "scr_itemuse_slash_scr_itemuse_gml_538_0"));
@@ -648,14 +648,14 @@ function scr_itemuse(arg0)
                 scr_itemcomment(global.charselect, item_comment);
             }
             
-            scr_healitem(global.charselect, 100);
+            scr_healitem(global.charselect, AP_handle_balancing(100, 3));
             break;
         
         case 35:
             if (global.char[global.charselect] == 1)
             {
                 usable = 1;
-                scr_healitem(global.charselect, 100);
+                scr_healitem(global.charselect, AP_handle_balancing(100, 3));
                 
                 if (scr_havechar("susie"))
                     scr_itemcomment(suspos, stringsetloc("Huh?", "scr_itemuse_slash_scr_itemuse_gml_637_0"));
@@ -669,7 +669,7 @@ function scr_itemuse(arg0)
             else if (haveflowery && global.char[global.charselect] == 3)
             {
                 usable = 1;
-                scr_healitem(global.charselect, 100);
+                scr_healitem(global.charselect, AP_handle_balancing(100, 3));
             }
             else
             {
@@ -689,7 +689,7 @@ function scr_itemuse(arg0)
         
         case 36:
             usable = 1;
-            scr_healitem(global.charselect, 20);
+            scr_healitem(global.charselect, AP_handle_balancing(20, 3));
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, stringsetloc("Fine, I'll finish it.", "scr_itemuse_slash_scr_itemuse_gml_674_0"));
@@ -704,7 +704,7 @@ function scr_itemuse(arg0)
         
         case 37:
             usable = 1;
-            scr_healitem(global.charselect, 80);
+            scr_healitem(global.charselect, AP_handle_balancing(80, 3));
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, stringsetloc("Like my old school.", "scr_itemuse_slash_scr_itemuse_gml_693_0"));
@@ -719,7 +719,7 @@ function scr_itemuse(arg0)
         
         case 38:
             usable = 1;
-            scr_healitem_all(100);
+            scr_healitem_all(AP_handle_balancing(100, 3));
             
             if (scr_havechar(2))
                 scr_itemcomment(suspos, stringsetloc("Rich people eat THIS?", "scr_itemuse_slash_scr_itemuse_gml_710_0"));
@@ -734,7 +734,7 @@ function scr_itemuse(arg0)
         
         case 39:
             usable = 1;
-            scr_healitem(global.charselect, 140);
+            scr_healitem(global.charselect, AP_handle_balancing(140, 3));
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, stringsetloc("Look, I'm a roach.", "scr_itemuse_slash_scr_itemuse_gml_722_0"));
@@ -749,7 +749,7 @@ function scr_itemuse(arg0)
         
         case 40:
             usable = 1;
-            scr_healitem_all(200);
+            scr_healitem_all(AP_handle_balancing(200, 5));
             
             if (!haveflowery)
             {
@@ -771,7 +771,7 @@ function scr_itemuse(arg0)
         
         case 41:
             usable = 1;
-            scr_healitem(global.charselect, 130);
+            scr_healitem(global.charselect, AP_handle_balancing(130, 5));
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, stringsetloc("Why don't we eat bullets more?", "scr_itemuse_slash_scr_itemuse_gml_729_0"));
@@ -786,7 +786,7 @@ function scr_itemuse(arg0)
         
         case 42:
             usable = 1;
-            scr_healitem(global.charselect, 180);
+            scr_healitem(global.charselect, AP_handle_balancing(180, 5));
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, stringsetloc("Man, Green did awesome.", "scr_itemuse_slash_scr_itemuse_gml_748_0"));
@@ -801,7 +801,7 @@ function scr_itemuse(arg0)
         
         case 43:
             usable = 1;
-            scr_healitem(global.charselect, 80);
+            scr_healitem(global.charselect, AP_handle_balancing(80, 5));
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, stringsetloc("Dude, this isn't orange.", "scr_itemuse_slash_scr_itemuse_gml_767_0"));
@@ -816,7 +816,7 @@ function scr_itemuse(arg0)
         
         case 60:
             usable = 1;
-            _healamount = (global.char[global.charselect] == 1) ? 400 : 40;
+            _healamount = AP_handle_balancing((global.char[global.charselect] == 1) ? 400 : 40, 4);
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, stringsetloc("Ugh! How old is this?!", "scr_itemuse_slash_scr_itemuse_gml_741_0"));
@@ -832,7 +832,7 @@ function scr_itemuse(arg0)
         
         case 61:
             usable = 1;
-            _healamount = 115;
+            _healamount = AP_handle_balancing(115, 4);
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, stringsetloc("Sounds kinda like Noelle.", "scr_itemuse_slash_scr_itemuse_gml_760_0"));
@@ -848,7 +848,7 @@ function scr_itemuse(arg0)
         
         case 62:
             usable = 1;
-            _healamount = 160;
+            _healamount = AP_handle_balancing(160, 4);
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(global.charselect, stringsetloc("Hell yeah! Cheers!", "scr_itemuse_slash_scr_itemuse_gml_780_0"));
@@ -858,7 +858,7 @@ function scr_itemuse(arg0)
             
             if (global.char[global.charselect] == 4)
             {
-                _healamount = 155;
+                _healamount = AP_handle_balancing(155, 4);
                 scr_healitem(0, 5);
                 scr_itemcomment(global.charselect, stringsetloc("... fine, you can have the LAST DROP.", "scr_itemuse_slash_scr_itemuse_gml_793_0"));
             }
@@ -885,7 +885,7 @@ function scr_itemuse(arg0)
         
         case 64:
             usable = 1;
-            scr_healitem_all(200);
+            scr_healitem_all(AP_handle_balancing(200, 5));
             
             if (scr_havechar(2))
                 scr_itemcomment(suspos, stringsetloc("I... I smashed it...", "scr_itemuse_slash_scr_itemuse_gml_866_0_b"));
@@ -900,7 +900,7 @@ function scr_itemuse(arg0)
         
         case 65:
             usable = 1;
-            scr_healitem_all(160);
+            scr_healitem_all(AP_handle_balancing(160, 5));
             var sustring = stringsetloc("Mmm, dark candy.", "scr_itemuse_slash_scr_itemuse_gml_874_0");
             
             if (global.flag[1514] != 0)
@@ -919,7 +919,7 @@ function scr_itemuse(arg0)
         
         case 66:
             usable = 1;
-            scr_healitem(global.charselect, 200);
+            scr_healitem(global.charselect, AP_handle_balancing(200, 5));
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(suspos, stringsetloc("Still kinda burns.", "scr_itemuse_slash_scr_itemuse_gml_886_0"));
@@ -936,9 +936,9 @@ function scr_itemuse(arg0)
             usable = 1;
             
             if (global.char[global.charselect] == 1)
-                scr_healitem(global.charselect, 200);
+                scr_healitem(global.charselect, AP_handle_balancing(200, 5));
             else
-                scr_healitem(global.charselect, 100);
+                scr_healitem(global.charselect, AP_handle_balancing(100, 5));
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(suspos, stringsetloc("Can't get the marble.", "scr_itemuse_slash_scr_itemuse_gml_902_0"));
@@ -955,9 +955,9 @@ function scr_itemuse(arg0)
             usable = 1;
             
             if (global.char[global.charselect] == 2)
-                scr_healitem(global.charselect, 200);
+                scr_healitem(global.charselect, AP_handle_balancing(200, 5));
             else
-                scr_healitem(global.charselect, 100);
+                scr_healitem(global.charselect, AP_handle_balancing(100, 5));
             
             if (global.char[global.charselect] == 2)
                 scr_itemcomment(suspos, stringsetloc("Bought. With money. Hell yeah.", "scr_itemuse_slash_scr_itemuse_gml_918_0"));
@@ -978,7 +978,7 @@ function scr_itemuse(arg0)
             else
             {
                 usable = 1;
-                scr_healitem(global.charselect, 50);
+                scr_healitem(global.charselect, AP_handle_balancing(50, 5));
             }
             
             if (global.char[global.charselect] == 2)
@@ -1000,7 +1000,7 @@ function scr_itemuse(arg0)
                 if (global.char[i] == 0)
                     continue;
                 
-                var heal_amount = (global.char[i] == 4) ? 5 : 80;
+                var heal_amount = AP_handle_balancing((global.char[i] == 4) ? 5 : 80, 5);
                 scr_healitem(i, heal_amount);
             }
             

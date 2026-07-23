@@ -20,7 +20,7 @@ function scr_iteminfo(arg0)
             if (global.chapter >= 4)
             {
                 itemnameb = stringsetloc("Darker Candy", "scr_iteminfo_slash_scr_iteminfo_gml_16_0_b");
-                itemdescb = stringsetloc("Heals#120HP", "scr_iteminfo_slash_scr_iteminfo_gml_17_0");
+                itemdescb = stringsetloc(string("Heals#{0}HP", AP_handle_balancing(120, 4)), "scr_iteminfo_slash_scr_iteminfo_gml_17_0");
                 value = 120;
             }
             else
@@ -75,13 +75,29 @@ function scr_iteminfo(arg0)
             break;
         
         case 7:
-            var healamount = (global.chapter == 1) ? 80 : 140;
-            
-            if (global.chapter == 3)
-                healamount = 150;
-            
-            if (global.chapter >= 4)
-                healamount = 160;
+            var healamount = 0;
+            switch (global.chapter)
+            {
+                case 1:
+                    healamount = 80;
+                    break;
+                
+                case 2:
+                    healamount = 140;
+                    break;
+                
+                case 3:
+                    healamount = 150;
+                    break;
+                
+                case 4:
+                    healamount = 160;
+                    break;
+                
+                case 5:
+                    healamount = 180;
+                    break;
+            }
             
             itemnameb = stringsetloc("Spincake", "scr_iteminfo_slash_scr_iteminfo_gml_58_0");
             itemdescb = stringsetsubloc("Heals#team#~1HP", string(healamount), "scr_iteminfo_slash_scr_iteminfo_gml_59_0");
@@ -160,7 +176,7 @@ function scr_iteminfo(arg0)
         
         case 16:
             itemnameb = stringsetloc("CD Bagel", "scr_iteminfo_slash_scr_iteminfo_gml_121_0");
-            itemdescb = stringsetloc("Heals#80 HP", "scr_iteminfo_slash_scr_iteminfo_gml_122_0");
+            itemdescb = stringsetloc(string("Heals#{0} HP", AP_handle_balancing(80, 2)), "scr_iteminfo_slash_scr_iteminfo_gml_122_0");
             itemtarget = 1;
             value = 100;
             usable = 1;
@@ -208,7 +224,7 @@ function scr_iteminfo(arg0)
         
         case 22:
             itemnameb = stringsetloc("DD-Burger", "scr_iteminfo_slash_scr_iteminfo_gml_163_0");
-            itemdescb = stringsetloc("Heals#60HP 2x", "scr_iteminfo_slash_scr_iteminfo_gml_164_0");
+            itemdescb = stringsetloc(string("Heals#{0}HP 2x", AP_handle_balancing(60, 2)), "scr_iteminfo_slash_scr_iteminfo_gml_164_0");
             itemtarget = 1;
             value = 110;
             usable = 1;
@@ -217,7 +233,7 @@ function scr_iteminfo(arg0)
         
         case 23:
             itemnameb = stringsetloc("LightCandy", "scr_iteminfo_slash_scr_iteminfo_gml_171_0");
-            itemdescb = stringsetloc("Heals#120HP", "scr_iteminfo_slash_scr_iteminfo_gml_172_0");
+            itemdescb = stringsetloc(string("Heals#{0}HP", AP_handle_balancing(120, 2)), "scr_iteminfo_slash_scr_iteminfo_gml_172_0");
             itemtarget = 1;
             value = 200;
             usable = 1;
@@ -225,7 +241,7 @@ function scr_iteminfo(arg0)
         
         case 24:
             itemnameb = stringsetloc("ButJuice", "scr_iteminfo_slash_scr_iteminfo_gml_178_0");
-            itemdescb = stringsetloc("Heals#100HP", "scr_iteminfo_slash_scr_iteminfo_gml_179_0");
+            itemdescb = stringsetloc(string("Heals#{0}HP", AP_handle_balancing(100, 2)), "scr_iteminfo_slash_scr_iteminfo_gml_179_0");
             itemtarget = 1;
             value = 200;
             usable = 1;
@@ -233,7 +249,7 @@ function scr_iteminfo(arg0)
         
         case 25:
             itemnameb = stringsetloc("SpagettiCode", "scr_iteminfo_slash_scr_iteminfo_gml_185_0");
-            itemdescb = stringsetloc("Heals#team#30HP", "scr_iteminfo_slash_scr_iteminfo_gml_186_0");
+            itemdescb = stringsetloc(string("Heals#team#{0}HP", AP_handle_balancing(30, 2)), "scr_iteminfo_slash_scr_iteminfo_gml_186_0");
             itemtarget = 2;
             value = 180;
             usable = 1;
@@ -305,7 +321,7 @@ function scr_iteminfo(arg0)
         
         case 34:
             itemnameb = stringsetloc("TVDinner", "scr_iteminfo_slash_scr_iteminfo_gml_249_0");
-            itemdescb = stringsetloc("Heals#100HP", "scr_iteminfo_slash_scr_iteminfo_gml_250_0");
+            itemdescb = stringsetloc(string("Heals#{0}HP", AP_handle_balancing(100, 3)), "scr_iteminfo_slash_scr_iteminfo_gml_250_0");
             itemtarget = 1;
             value = 200;
             usable = 1;
@@ -321,7 +337,7 @@ function scr_iteminfo(arg0)
         
         case 36:
             itemnameb = stringsetloc("FlatSoda", "scr_iteminfo_slash_scr_iteminfo_gml_263_0");
-            itemdescb = stringsetloc("Heals#20HP", "scr_iteminfo_slash_scr_iteminfo_gml_264_0");
+            itemdescb = stringsetloc(string("Heals#{0}HP", AP_handle_balancing(20, 3)), "scr_iteminfo_slash_scr_iteminfo_gml_264_0");
             itemtarget = 1;
             value = 2;
             usable = 1;
@@ -329,7 +345,7 @@ function scr_iteminfo(arg0)
         
         case 37:
             itemnameb = stringsetloc("TVSlop", "scr_iteminfo_slash_scr_iteminfo_gml_270_0");
-            itemdescb = stringsetloc("Heals#80HP", "scr_iteminfo_slash_scr_iteminfo_gml_271_0");
+            itemdescb = stringsetloc(string("Heals#{0}HP", AP_handle_balancing(80, 3)), "scr_iteminfo_slash_scr_iteminfo_gml_271_0");
             itemtarget = 1;
             value = 200;
             usable = 1;
@@ -337,7 +353,7 @@ function scr_iteminfo(arg0)
         
         case 38:
             itemnameb = stringsetloc("ExecBuffet", "scr_iteminfo_slash_scr_iteminfo_gml_277_0");
-            itemdescb = stringsetloc("Heals#team#100HP", "scr_iteminfo_slash_scr_iteminfo_gml_278_0");
+            itemdescb = stringsetloc(string("Heals#team#{0}HP", AP_handle_balancing(100, 3)), "scr_iteminfo_slash_scr_iteminfo_gml_278_0");
             itemtarget = 2;
             value = 600;
             usable = 1;
@@ -345,7 +361,7 @@ function scr_iteminfo(arg0)
         
         case 39:
             itemnameb = stringsetloc("DeluxeDinner", "scr_iteminfo_slash_scr_iteminfo_gml_284_0");
-            itemdescb = stringsetloc("Heals#140HP", "scr_iteminfo_slash_scr_iteminfo_gml_285_0");
+            itemdescb = stringsetloc(string("Heals#{0}HP", AP_handle_balancing(140, 3)), "scr_iteminfo_slash_scr_iteminfo_gml_285_0");
             itemtarget = 1;
             value = 600;
             usable = 1;
@@ -353,7 +369,7 @@ function scr_iteminfo(arg0)
         
         case 40:
             itemnameb = stringsetloc("PunchBowl", "scr_iteminfo_slash_scr_iteminfo_gml_291_0_b");
-            itemdescb = stringsetloc("Heals#team#200HP", "scr_iteminfo_slash_scr_iteminfo_gml_292_0_b");
+            itemdescb = stringsetloc(string("Heals#team#{0}HP", AP_handle_balancing(200, 5)), "scr_iteminfo_slash_scr_iteminfo_gml_292_0_b");
             itemtarget = 2;
             value = 600;
             usable = 1;
@@ -361,7 +377,7 @@ function scr_iteminfo(arg0)
         
         case 41:
             itemnameb = stringsetloc("Flavigne", "scr_iteminfo_slash_scr_iteminfo_gml_298_0_b");
-            itemdescb = stringsetloc("Heals#130HP", "scr_iteminfo_slash_scr_iteminfo_gml_299_0_b");
+            itemdescb = stringsetloc(string("Heals#{0}HP", AP_handle_balancing(130, 5)), "scr_iteminfo_slash_scr_iteminfo_gml_299_0_b");
             itemtarget = 1;
             value = 333;
             usable = 1;
@@ -369,7 +385,7 @@ function scr_iteminfo(arg0)
         
         case 42:
             itemnameb = stringsetloc("GreenTea", "scr_iteminfo_slash_scr_iteminfo_gml_305_0_b");
-            itemdescb = stringsetloc("Heals#180HP", "scr_iteminfo_slash_scr_iteminfo_gml_306_0_b");
+            itemdescb = stringsetloc(string("Heals#{0}HP", AP_handle_balancing(180, 5)), "scr_iteminfo_slash_scr_iteminfo_gml_306_0_b");
             itemtarget = 1;
             value = 777;
             usable = 1;
@@ -377,7 +393,7 @@ function scr_iteminfo(arg0)
         
         case 43:
             itemnameb = stringsetloc("OrangeJuice", "scr_iteminfo_slash_scr_iteminfo_gml_312_0_b");
-            itemdescb = stringsetloc("Heals#80HP", "scr_iteminfo_slash_scr_iteminfo_gml_313_0_b");
+            itemdescb = stringsetloc(string("Heals#{0}HP", AP_handle_balancing(80, 5)), "scr_iteminfo_slash_scr_iteminfo_gml_313_0_b");
             itemtarget = 1;
             value = 222;
             usable = 1;
@@ -385,7 +401,7 @@ function scr_iteminfo(arg0)
         
         case 60:
             itemnameb = stringsetloc("AncientSweet", "scr_iteminfo_slash_scr_iteminfo_gml_291_0");
-            itemdescb = stringsetloc("Kris only#+400", "scr_iteminfo_slash_scr_iteminfo_gml_292_0");
+            itemdescb = stringsetloc(string("Kris only#+{0}", AP_handle_balancing(400, 4)), "scr_iteminfo_slash_scr_iteminfo_gml_292_0");
             itemtarget = 1;
             value = 1000;
             usable = 1;
@@ -393,7 +409,7 @@ function scr_iteminfo(arg0)
         
         case 61:
             itemnameb = stringsetloc("Rhapsotea", "scr_iteminfo_slash_scr_iteminfo_gml_298_0");
-            itemdescb = stringsetloc("Heals#115HP", "scr_iteminfo_slash_scr_iteminfo_gml_299_0");
+            itemdescb = stringsetloc(string("Heals#{0}HP", AP_handle_balancing(115, 4)), "scr_iteminfo_slash_scr_iteminfo_gml_299_0");
             itemtarget = 1;
             value = 250;
             usable = 1;
@@ -401,7 +417,7 @@ function scr_iteminfo(arg0)
         
         case 62:
             itemnameb = stringsetloc("Scarlixir", "scr_iteminfo_slash_scr_iteminfo_gml_305_0");
-            itemdescb = stringsetloc("Heals#160HP", "scr_iteminfo_slash_scr_iteminfo_gml_306_0");
+            itemdescb = stringsetloc(string("Heals#{0}HP", AP_handle_balancing(160, 4)), "scr_iteminfo_slash_scr_iteminfo_gml_306_0");
             itemtarget = 1;
             value = 450;
             usable = 1;
@@ -417,7 +433,7 @@ function scr_iteminfo(arg0)
         
         case 64:
             itemnameb = stringsetloc("Schadenbrot", "scr_iteminfo_slash_scr_iteminfo_gml_347_0");
-            itemdescb = stringsetloc("Heals#team#200HP", "scr_iteminfo_slash_scr_iteminfo_gml_348_0");
+            itemdescb = stringsetloc(string("Heals#team#{0}HP", AP_handle_balancing(200, 5)), "scr_iteminfo_slash_scr_iteminfo_gml_348_0");
             itemtarget = 2;
             value = 600;
             usable = 1;
@@ -425,7 +441,7 @@ function scr_iteminfo(arg0)
         
         case 65:
             itemnameb = stringsetloc("TreeCake", "scr_iteminfo_slash_scr_iteminfo_gml_354_0");
-            itemdescb = stringsetloc("Heals#team#160HP", "scr_iteminfo_slash_scr_iteminfo_gml_355_0");
+            itemdescb = stringsetloc(string("Heals#team#{0}HP", AP_handle_balancing(160, 5)), "scr_iteminfo_slash_scr_iteminfo_gml_355_0");
             itemtarget = 2;
             value = 200;
             usable = 1;
@@ -441,7 +457,7 @@ function scr_iteminfo(arg0)
         
         case 67:
             itemnameb = stringsetloc("Raw Moon", "scr_iteminfo_slash_scr_iteminfo_gml_368_0");
-            itemdescb = stringsetloc("Raises#TP 16%#+100HP", "scr_iteminfo_slash_scr_iteminfo_gml_369_0");
+            itemdescb = stringsetloc(string("Raises#TP 16%#+{0}HP", AP_handle_balancing(100, 5)), "scr_iteminfo_slash_scr_iteminfo_gml_369_0");
             itemtarget = 1;
             value = 222;
             usable = 1;
@@ -449,7 +465,7 @@ function scr_iteminfo(arg0)
         
         case 68:
             itemnameb = stringsetloc("Phanta", "scr_iteminfo_slash_scr_iteminfo_gml_375_0");
-            itemdescb = stringsetloc("Raises#TP 16%#+100HP", "scr_iteminfo_slash_scr_iteminfo_gml_376_0");
+            itemdescb = stringsetloc(string("Raises#TP 16%#+{0}HP", AP_handle_balancing(100, 5)), "scr_iteminfo_slash_scr_iteminfo_gml_376_0");
             itemtarget = 1;
             value = 222;
             usable = 1;
@@ -457,7 +473,7 @@ function scr_iteminfo(arg0)
         
         case 69:
             itemnameb = stringsetloc("FlowerySoda", "scr_iteminfo_slash_scr_iteminfo_gml_382_0");
-            itemdescb = stringsetloc("Raises#TP 16%#+50HP", "scr_iteminfo_slash_scr_iteminfo_gml_383_0");
+            itemdescb = stringsetloc(string("Raises#TP 16%#+{0}HP", AP_handle_balancing(50, 5)), "scr_iteminfo_slash_scr_iteminfo_gml_383_0");
             itemtarget = 1;
             value = 222;
             usable = 1;
@@ -465,7 +481,7 @@ function scr_iteminfo(arg0)
         
         case 70:
             itemnameb = stringsetloc("Shikacola", "scr_iteminfo_slash_scr_iteminfo_gml_389_0");
-            itemdescb = stringsetloc("Heals#team#80HP", "scr_iteminfo_slash_scr_iteminfo_gml_390_0");
+            itemdescb = stringsetloc(string("Heals#team#{0}HP", AP_handle_balancing(80, 5)), "scr_iteminfo_slash_scr_iteminfo_gml_390_0");
             itemtarget = 2;
             value = 222;
             usable = 1;
