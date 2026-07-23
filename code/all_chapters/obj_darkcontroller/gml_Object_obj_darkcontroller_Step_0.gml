@@ -1129,6 +1129,25 @@
                     global.flag[11] = !global.flag[11]
                 }
 
+                if (global.chapter == 5)
+                {
+                    // Voice Clips
+                    if (global.submenucoord[30] == 8)
+                    {
+                        if (global.flag[1391] == 1)
+                            global.flag[1391] = 2;
+                        else
+                            global.flag[1391] = 1;
+                    }
+
+                    // Feather
+                    if (global.submenucoord[30] == 9)
+                    {
+                        global.flag[25] = !global.flag[25]
+                    }
+
+                }
+
                 // Deathlink
                 if (global.submenucoord[30] == 10)
                 {
@@ -1140,6 +1159,15 @@
                 if (global.submenucoord[30] == 11)
                 {
                     global.AP_balancing = !global.AP_balancing;
+                }
+
+                if (global.chapter == 5)
+                {
+                    // Ralseis (Chapter 5)
+                    if (global.submenucoord[30] == 16 && global.tempflag[52] == 1)
+                    {
+                        global.flag[1392] = !global.flag[1392];
+                    }
                 }
 
                 // Load the last save

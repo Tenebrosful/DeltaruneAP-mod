@@ -1,4 +1,4 @@
-/// PATCH .ignore if CHAPTER_5
+/// PATCH
 
 /// REPLACE
 #if CHAPTER_1
@@ -463,14 +463,28 @@ if (global.menuno == 5)
         current_line++;
         draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Auto-Run");
         draw_text((base_x + (current_col * (line_width + between_col_gap)) + line_width) - value_width, base_y + (current_line * (line_height + between_row_gap)), global.flag[11] ? "ON" : "OFF");
-
+        if (global.chapter == 5)
+        {
+            current_line++;
+            draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Voice Clips");
+            draw_text((base_x + (current_col * (line_width + between_col_gap)) + line_width) - value_width, base_y + (current_line * (line_height + between_row_gap)), global.flag[1391] == 2 ? "ON" : "OFF");
+            current_line++;
+            draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Feather");
+            draw_text((base_x + (current_col * (line_width + between_col_gap)) + line_width) - (value_width * 1.5), base_y + (current_line * (line_height + between_row_gap)), global.flag[25] ? "Jump X / Atk. Z" : "Jump Z / Atk. X");
+        }
         current_line = 0;
         current_col = 1;
         draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Deathlink");
         draw_text((base_x + (current_col * (line_width + between_col_gap)) + line_width) - value_width, base_y + (current_line * (line_height + between_row_gap)), global.AP_deathlink ? "ON" : "OFF");
-        current_line = 1;
+        current_line++;
         draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Item Balancing");
         draw_text((base_x + (current_col * (line_width + between_col_gap)) + line_width) - value_width, base_y + (current_line * (line_height + between_row_gap)), global.AP_balancing ? "ON" : "OFF");
+        if (global.chapter == 5 && global.tempflag[52] == 1)
+        {
+            current_line = max_line - 3;
+            draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Ralseis");
+            draw_text((base_x + (current_col * (line_width + between_col_gap)) + line_width) - value_width, base_y + (current_line * (line_height + between_row_gap)), !global.flag[1392] ? "ON" : "OFF");
+        }
         current_line = max_line - 2;
         draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Load the last save");
         current_line = max_line - 1;
