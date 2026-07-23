@@ -1310,6 +1310,29 @@ function scr_itemuse(arg0)
             bromide.use_item(33);
             global.interact = 1;
             break;
+        
+        case 1322:
+            scr_speaker("noone");
+            global.msg[0] = stringsetloc("* (You looked at the Yellow Compliment List.)/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
+            global.msg[1] = stringsetloc("* (There are several messages^1, each with different handwriting.)/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
+            global.msg[2] = stringsetloc("* \"Your sharpshooting skills are adequate.\"/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
+            global.msg[3] = stringsetloc("* \"Your safety goggles really suits your hat!\"/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
+            global.msg[4] = stringsetloc("* \"You have a lot of cash^1! Well^1, had a lot of cash.\"/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
+            global.msg[5] = stringsetloc("* \"You always make everyone feel welcome.\"/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
+            global.msg[6] = stringsetloc("* \"You're the best at dualling!\"&* \"You spelt duelling wrong.\"/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
+            global.msg[7] = stringsetloc("* \"Thank you..^1. for everything.\"/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
+            global.msg[8] = stringsetloc("* (...)/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
+            global.msg[9] = stringsetloc("* (You get the feeling this was meant for someone else...)/%", "scr_itemuse_slash_scr_itemuse_gml_441_0");
+            scr_itemdialoguer();
+            break;
+        
+        case 1323:
+            scr_speaker("noone");
+            global.msg[0] = stringsetloc("* (You looked at the Green Compliment List.)/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
+            global.msg[1] = stringsetloc("* (There are several messages^1, each with different handwriting.)/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
+            global.msg[2] = stringsetloc("* (But they're all just thanking Green for their cooking.)/%", "scr_itemuse_slash_scr_itemuse_gml_441_0");
+            scr_itemdialoguer();
+            break;
     }
     
     if (global.chapter == 5)
