@@ -41,7 +41,29 @@ function scr_itemdesc_single(arg0)
             break;
         
         case 7:
-            var healamount = (global.chapter == 1) ? 80 : 140;
+            var healamount = 0;
+            switch (global.chapter)
+            {
+                case 1:
+                    healamount = 80;
+                    break;
+                
+                case 2:
+                    healamount = 140;
+                    break;
+                
+                case 3:
+                    healamount = 150;
+                    break;
+                
+                case 4:
+                    healamount = 160;
+                    break;
+                
+                case 5:
+                    healamount = 180;
+                    break;
+            }
             __itemdesc = stringsetsubloc("A pastry in the shape of a top.#Heals ~1 HP to the team.", string(healamount), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_27_0");
             break;
         
@@ -79,10 +101,7 @@ function scr_itemdesc_single(arg0)
             break;
         
         case 16:
-            __itemdesc = stringsetloc("A bagel with a reflective inside.#Makes music with each bite. +80HP", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_54_0");
-            
-            if (global.AP_balancing == 1)
-                __itemdesc = stringsetloc("A bagel with a reflective inside.#Makes music with each bite. +40HP", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_54_0");
+            __itemdesc = stringsetloc(string("A bagel with a reflective inside.#Makes music with each bite. +{0}HP", AP_handle_balancing(80, 2)), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_54_0");
             
             break;
         
@@ -111,7 +130,7 @@ function scr_itemdesc_single(arg0)
             break;
         
         case 23:
-            __itemdesc = stringsetloc("White candy with a chalky texture.#It'll recover 120HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_75_0");
+            __itemdesc = stringsetloc(string("White candy with a chalky texture.#It'll recover {0}HP.", AP_handle_balancing(120, 2)), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_75_0");
             break;
         
         case 24:
@@ -119,7 +138,7 @@ function scr_itemdesc_single(arg0)
             break;
         
         case 25:
-            __itemdesc = stringsetloc("Spaghetti woven by master coders, made#of macarons and ribbons. +30HP to all.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_81_0");
+            __itemdesc = stringsetloc(string("Spaghetti woven by master coders, made#of macarons and ribbons. +{0}HP to all.", AP_handle_balancing(30, 2)), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_81_0");
             break;
         
         case 26:
@@ -170,7 +189,7 @@ function scr_itemdesc_single(arg0)
             break;
         
         case 36:
-            __itemdesc = stringsetloc("Flat soda someone already took#a big sip from. Recovers 20HP", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_143_0");
+            __itemdesc = stringsetloc(string("Flat soda someone already took#a big sip from. Recovers {0}HP", AP_handle_balancing(20, 3)), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_143_0");
             break;
         
         case 37:
@@ -182,46 +201,37 @@ function scr_itemdesc_single(arg0)
             break;
         
         case 39:
-            __itemdesc = stringsetloc("A TV Dinner for high-ranking contestants.#Comes with detachable antennas. +140 HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_152_0");
-            
-            if (global.AP_balancing == 1)
-                __itemdesc = stringsetloc("A TV Dinner for high-ranking contestants.#Comes with detachable antennas. +70 HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_152_0");
+            __itemdesc = stringsetloc(string("A TV Dinner for high-ranking contestants.#Comes with detachable antennas. +{0} HP.", AP_handle_balancing(140, 3)), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_152_0");
             
             break;
         
         case 40:
-            __itemdesc = stringsetloc("A bowl of sick elixir that packs an#almost physical punch. +200HP to all.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_142_0_b");
+            __itemdesc = stringsetloc(string("A bowl of sick elixir that packs an#almost physical punch. +{0}HP to all.", AP_handle_balancing(200, 5)), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_142_0_b");
             break;
         
         case 41:
-            __itemdesc = stringsetloc("A small white candy in various floral flavors.#Rumored to have been a bullet pattern. +130HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_145_0_b");
+            __itemdesc = stringsetloc(string("A small white candy in various floral flavors.#Rumored to have been a bullet pattern. +{0}HP.", AP_handle_balancing(130, 5)), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_145_0_b");
             break;
         
         case 42:
-            __itemdesc = stringsetloc("A sweet orange tea with a strong flavor of#cardadad. Made by \"Green.\" +180HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_148_0_b");
+            __itemdesc = stringsetloc(string("A sweet orange tea with a strong flavor of#cardadad. Made by \"Green.\" +{0}HP.", AP_handle_balancing(180, 5)), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_148_0_b");
             break;
         
         case 43:
-            __itemdesc = stringsetloc("Green juice made by a girl named \"Orange.\"#A smoothie of aloe and citrine. +80HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_151_0_b");
+            __itemdesc = stringsetloc(string("Green juice made by a girl named \"Orange.\"#A smoothie of aloe and citrine. +{0}HP.", AP_handle_balancing(80, 5)), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_151_0_b");
             break;
         
         case 60:
-            __itemdesc = stringsetloc("A chocolatey cone etched with arcane#glyphs. Only Kris can eat it. +400 HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_142_0");
+            __itemdesc = stringsetloc(string("A chocolatey cone etched with arcane#glyphs. Only Kris can eat it. +{0} HP.", AP_handle_balancing(400, 4)), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_142_0");
             break;
         
         case 61:
-            __itemdesc = stringsetloc("A smooth, silvery drink. It sounds like#whispered singing as it's poured. +115 HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_145_0");
-            
-            if (global.AP_balancing == 1)
-                __itemdesc = stringsetloc("A smooth, silvery drink. It sounds like#whispered singing as it's poured. +58 HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_145_0");
+            __itemdesc = stringsetloc(string("A smooth, silvery drink. It sounds like#whispered singing as it's poured. +{0} HP.", AP_handle_balancing(115, 4)), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_145_0");
             
             break;
         
         case 62:
-            __itemdesc = stringsetloc("A red brew with a sickeningly fruity taste.#Recovers 160 HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_148_0");
-            
-            if (global.AP_balancing == 1)
-                __itemdesc = stringsetloc("A red brew with a sickeningly fruity taste.#Recovers 80 HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_148_0");
+            __itemdesc = stringsetloc(string("A red brew with a sickeningly fruity taste.#Recovers {0} HP.", AP_handle_balancing(160, 4)), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_148_0");
             
             break;
         
@@ -230,23 +240,23 @@ function scr_itemdesc_single(arg0)
             break;
         
         case 64:
-            __itemdesc = stringsetloc("A hunk of bread laden with sauer regrets.#Recovers 200 HP to all.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_166_0");
+            __itemdesc = stringsetloc(string("A hunk of bread laden with sauer regrets.#Recovers {0} HP to all.", AP_handle_balancing(200, 5)), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_166_0");
             break;
         
         case 65:
-            __itemdesc = stringsetloc("A cake of bread laden with joyful memories.#Recovers 160 HP to all.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_169_0");
+            __itemdesc = stringsetloc(string("A cake of bread laden with joyful memories.#Recovers {0} HP to all.", AP_handle_balancing(160, 5)), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_169_0");
             break;
         
         case 66:
-            __itemdesc = stringsetloc("An energy drink collaborating with a certain car brand.#Recovers 200 HP.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_172_0");
+            __itemdesc = stringsetloc(string("An energy drink collaborating with a certain car brand.#Recovers {0} HP.", AP_handle_balancing(200, 5)), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_172_0");
             break;
         
         case 67:
-            __itemdesc = stringsetloc("A bubbly liquid in a sweet floral blue.#+Slight%TP, +100HP unless you like it more.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_175_0");
+            __itemdesc = stringsetloc(string("A bubbly liquid in a sweet floral blue.#+Slight%TP, +{0}HP unless you like it more.", AP_handle_balancing(100, 5)), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_175_0");
             break;
         
         case 68:
-            __itemdesc = stringsetloc("Grape-flavored phantasmagoria of a soda's dream.#+Slight%TP, +100HP unless you like it more.", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_178_0");
+            __itemdesc = stringsetloc(string("Grape-flavored phantasmagoria of a soda's dream.#+Slight%TP, +{0}HP unless you like it more.", AP_handle_balancing(100, 5)), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_178_0");
             break;
         
         case 69:
@@ -254,7 +264,7 @@ function scr_itemdesc_single(arg0)
             break;
         
         case 70:
-            __itemdesc = stringsetloc("A natural drink infused with nutmeg and#deer hair. Heals all party members. +80HPall", "scr_itemdesc_single_slash_scr_itemdesc_single_gml_184_0");
+            __itemdesc = stringsetloc(string("A natural drink infused with nutmeg and#deer hair. Heals all party members. +{0}HPall", AP_handle_balancing(80, 5)), "scr_itemdesc_single_slash_scr_itemdesc_single_gml_184_0");
             break;
     }
     
