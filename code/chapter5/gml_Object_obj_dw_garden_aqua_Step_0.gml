@@ -49,7 +49,7 @@
 
 
 /// REPLACE
-    c_msgsetsubloc(0, "~1* I know^1! Behind me is a really~2special item!/", (global.lang == "ja") ? "\\m0\t\t\t" : "\\m0\t\t", (global.lang == "ja") ? "&\t\t\t\t" : "&\t\t", "obj_dw_garden_aqua_slash_Step_0_gml_779_0");
+    c_msgsetsubloc(0, "~1* I know^1! Behind me is a really~2special feather!/", (global.lang == "ja") ? "\\m0\t\t\t" : "\\m0\t\t", (global.lang == "ja") ? "&\t\t\t\t" : "&\t\t", "obj_dw_garden_aqua_slash_Step_0_gml_779_0");
     c_msgnextsubloc("~1* You three should take it!/", (global.lang == "ja") ? "\\m0\t\t\t" : "\\m0\t\t", (global.lang == "ja") ? "&\t\t\t\t" : "&\t\t", "obj_dw_garden_aqua_slash_Step_0_gml_780_0");
 /// CODE
     c_msgsetsubloc(0, "~1* I know^1! Here is a really~2special item!/", (global.lang == "ja") ? "\\m0\t\t\t" : "\\m0\t\t", (global.lang == "ja") ? "&\t\t\t\t" : "&\t\t", "obj_dw_garden_aqua_slash_Step_0_gml_779_0");

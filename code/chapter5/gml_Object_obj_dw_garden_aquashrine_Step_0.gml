@@ -1,7 +1,7 @@
 /// PATCH
 
 /// REPLACE
-    if (global.plot < 292)
+    if (global.plot < 295)
     {
         with (obj_platswap_statue)
 /// CODE
