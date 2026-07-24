@@ -349,6 +349,8 @@ function AP_fill_id_to_itemname_struct()
     }
     else
     {
+        global.AP_id_to_itemname = {}
+        
         if (global.AP_data_package_raw == undefined)
         {
             var file = file_text_open_read(AP_get_save_folder_prefix() + "datapackage.json");
