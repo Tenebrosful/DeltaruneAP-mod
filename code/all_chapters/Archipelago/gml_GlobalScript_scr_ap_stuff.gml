@@ -63,7 +63,7 @@ function AP_get_recruits()
             global.flag[669] = 1;
         }
     }
-    else if (global.weird_route)
+    else if (global.AP_weird_route)
     {
         if (global.chapter >= 2)
         {
