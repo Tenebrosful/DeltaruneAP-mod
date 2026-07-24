@@ -74,6 +74,14 @@ function scr_spelltext(arg0, arg1)
                 global.msg[0] = stringsetsubloc("* ~1 cast BetterHeal!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_77_0");
             
             break;
+
+        case 12:
+            global.msg[0] = stringsetsubloc("* ~1 cast REVIVESONG!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_73_0_b");
+            break;
+        
+        case 13:
+            global.msg[0] = stringsetsubloc("* ~1 cast SCYTHEMARE!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_77_0_b");
+            break;
         
         case 100:
             cancelattack = 0;
