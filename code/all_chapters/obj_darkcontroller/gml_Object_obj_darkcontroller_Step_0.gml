@@ -1576,10 +1576,10 @@
             if (global.submenucoord[34] == 1)
             {
                 snd_free_all();
-                var lastfade = instance_create(__view_get(e__VW.XView, 0), __view_get(e__VW.YView, 0), obj_fadeout);
+                var lastfade = instance_create(camerax(), cameray(), obj_fadeout);
                 lastfade.fadespeed = 0.05;
-                lastfade.x = __view_get(e__VW.XView, 0) - 20;
-                lastfade.y = __view_get(e__VW.YView, 0) - 20;
+                lastfade.x = camerax() - 20;
+                lastfade.y = cameray() - 20;
                 lastfade.image_xscale *= 3;
                 lastfade.image_yscale *= 2;
                 lastfade.depth = -900000;
