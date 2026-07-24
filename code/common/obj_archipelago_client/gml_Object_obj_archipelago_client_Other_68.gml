@@ -198,6 +198,13 @@ if (ds_map_exists(async_load, "buffer"))
                             {
                                 global.AP_item_from_server[starting_index + ii] = data[i].items[ii].item;
 
+                                item_data = data[i].items[ii]
+
+                                playerName = global.AP_player_names[item_data.player]
+                                itemName = variable_struct_get(global.AP_id_to_itemname, string(item_data.item))
+
+                                array_push(obj_archipelago_toast_notificator.current_notification, new AP_toast_notification(itemName, AP_item_flag_to_color(item_data.flags), playerName, false));
+                                
                                 // We special handle characters here so we directly get it even during a fight
                                 if (data[i].items[ii].item >= global.AP_item_offset.character_unlock && data[i].items[ii].item < global.AP_item_offset.macguffin)
                                 {

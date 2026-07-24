@@ -216,8 +216,6 @@ function AP_internal_handle_other_item(item_id)
     {
         case 100000:
             global.flag[34] = false;
-            if (!global.AP_skip_item_textboxes)
-              script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", AP_item_classification_color_text("SRN-Actions", 2)), 0, 6);
             break;
     }
 }
@@ -226,8 +224,6 @@ function AP_internal_handle_character_unlock(item_id)
 {
   var character_id = item_id - global.AP_item_offset.character_unlock;
   AP_handle_receive_character_unlock(character_id);
-  if (!global.AP_skip_item_textboxes)
-    script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", AP_item_classification_color_text(global.charname[character_id], 3)), 0, 6);
 }
 
 function AP_internal_handle_chapter_unlock_item(item_id)
@@ -246,16 +242,11 @@ function AP_internal_handle_ch3_points_item(item_id)
   else
     points = "POINT"
 
-  if (global.chapter == 3){
-    global.flag[1044] += points_amount;
-    if (!global.AP_skip_item_textboxes)
-      script_execute(scr_writetext, 0, string("* (You got {0}.)/%", AP_item_classification_color_text(string(points_amount) + " " + points, 0)), 0, 6);
-  }
-  else
+  if (global.chapter == 3)
   {
-    if (!global.AP_skip_item_textboxes)
-      script_execute(scr_writetext, 0, string("* (You got {0} for chapter 3.)/%", AP_item_classification_color_text(string(points_amount) + " " + points, 0)), 0, 6);
+    global.flag[1044] += points_amount;
   }
+
 
 }
 
@@ -273,13 +264,6 @@ function AP_internal_handle_ch5_flowery_dollar_item(arg0)
     if (global.chapter == 5)
     {
         global.flag[1411] += dollar_amount;
-        
-        if (!global.AP_skip_item_textboxes)
-            script_execute(scr_writetext, 0, string("* (You got {0}.)/%", AP_item_classification_color_text(string(dollar_amount) + " " + dollars, 0)), 0, 6);
-    }
-    else if (!global.AP_skip_item_textboxes)
-    {
-        script_execute(scr_writetext, 0, string("* (You got {0} for chapter 5.)/%", AP_item_classification_color_text(string(dollar_amount) + " " + dollars, 0)), 0, 6);
     }
 }
 
@@ -350,8 +334,6 @@ function AP_internal_handle_money_item(item_id)
   var amount = item_id - global.AP_item_offset.money;
 
   global.gold += amount;
-  if (!global.AP_skip_item_textboxes)
-    script_execute(scr_writetext, 0, string("* (You got {0}.)/%", AP_item_classification_color_text("D$" + string(amount), 0)), 0, 6);
 }
 
 function AP_internal_handle_weapon_item(item_id)

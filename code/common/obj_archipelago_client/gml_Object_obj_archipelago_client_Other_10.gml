@@ -321,6 +321,7 @@ function AP_postScouting()
     AP_updateTags();
     AP_initializeChapterCompletion();
     AP_initializeCurrentLocation();
+    AP_fill_id_to_itemname_struct();
     
     if (variable_global_exists("chapter"))
     {
@@ -330,6 +331,51 @@ function AP_postScouting()
     else
     {
         AP_setDataStorage("current_location", {current_chapter: 0, current_room: undefined}, "update")
+    }
+
+}
+
+function AP_fill_id_to_itemname_struct()
+{
+    id_to_itemname_path = AP_get_save_folder_prefix() + "id_to_itemname.json"
+
+    if (file_exists(id_to_itemname_path))
+    {
+        var file = file_text_open_read(id_to_itemname_path);
+        var content = file_text_read_string(file);
+
+        if (content != -1)
+            global.AP_id_to_itemname = json_parse(content);
+    }
+    else
+    {
+        if (global.AP_data_package_raw == undefined)
+        {
+            var file = file_text_open_read(AP_get_save_folder_prefix() + "datapackage.json");
+            var content = file_text_read_string(file);
+
+            if (content != -1)
+                global.AP_data_package_raw = json_parse(content);
+        }
+
+        item_name_to_id = global.AP_data_package_raw.DELTARUNE.item_name_to_id
+
+        names = variable_struct_get_names(item_name_to_id);
+
+        for (var i = 0; i < array_length(names); i++)
+        {
+            var name = names[i]
+            var item_id = variable_struct_get(item_name_to_id, name)
+            variable_struct_set(global.AP_id_to_itemname, string(item_id), name)
+        }
+
+        if (!file_exists(id_to_itemname_path))
+        {
+            package_json = json_stringify(global.AP_id_to_itemname);
+            var file = file_text_open_write(id_to_itemname_path);
+            file_text_write_string(file, package_json);
+            file_text_close(file);
+        }
     }
 
 }

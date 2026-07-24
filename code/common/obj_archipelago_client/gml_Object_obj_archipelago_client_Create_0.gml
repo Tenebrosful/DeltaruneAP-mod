@@ -45,6 +45,7 @@ global.AP_player_names = ["Archipelago"];
 global.AP_slotinfo = ["Archipelago"];
 global.AP_scouting_raw = undefined;
 global.AP_data_package_raw = undefined;
+global.AP_id_to_itemname = undefined;
 global.AP_max_chapter = 5;
 global.AP_server = "127.0.0.1";
 global.AP_port = 38281;
