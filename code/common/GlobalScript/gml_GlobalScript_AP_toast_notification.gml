@@ -14,7 +14,7 @@ function AP_toast_notification(_item_name, _item_color, _player, _sending) const
 	
 	static ShouldBeGone = function()
 	{
-		return framed_ticked > 30 * 10
+		return framed_ticked > 30 * 5
 	}
 	
 	static GetText = function()
