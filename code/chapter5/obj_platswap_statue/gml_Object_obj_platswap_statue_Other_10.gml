@@ -23,6 +23,12 @@ if (!scr_keyitemcheck(25))
         }
         
         con = 1;
+        exit;
+    }
+    else if (room == room_dw_garden_finalplatforming_right && global.flag[24] == 0)
+    {
+        con = 20;
+        exit;
     }
     else if (room == room_dw_garden_aquaplatforming && global.plot < 292)
     {
@@ -32,6 +38,14 @@ if (!scr_keyitemcheck(25))
         myinteract = 3;
         global.interact = 1;
         mydialoguer = instance_create(0, 0, obj_dialoguer);
+        exit;
+
+    }
+    else if (room == room_dw_garden_aquashrine && global.flag[24] == 0)
+    {
+        with (obj_dw_garden_aquashrine)
+            con = 0;
+        
         exit;
     }
     else

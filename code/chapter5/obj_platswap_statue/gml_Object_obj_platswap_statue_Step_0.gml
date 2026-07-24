@@ -366,7 +366,7 @@ if (con == 1.1)
     c_facing("d");
     c_sel(ra);
     c_facing("d");
-    c_markerwalkdirect(seth, 285, 3770, 48, 4189, 0.25);
+    c_markerwalkdirect(seth, 285, 3770, 48, spr_seth_walk_right, 0.25);
     c_wait(49);
     c_customfunc(function()
     {
@@ -391,7 +391,7 @@ if (con == 1.1)
             sprite_index = spr_seth_walk_up;
     });
     c_wait_box(3);
-    c_markerwalkdirect(aqua, 230, 3780, 48, 3449, 0.25);
+    c_markerwalkdirect(aqua, 230, 3780, 48, spr_aqua_walk_right, 0.25);
     c_wait(49);
     c_customfunc(function()
     {
@@ -546,7 +546,7 @@ if (con == 1.1)
             image_speed = 0;
         }
     });
-    c_markerwalkdirect(aqua, 150, 3780, 16, 7252, 0.25);
+    c_markerwalkdirect(aqua, 150, 3780, 16, spr_aqua_walk_left, 0.25);
     c_wait(17);
     c_customfunc(function()
     {
@@ -586,7 +586,7 @@ if (con == 1.1)
         aquajumptoplace(target, 8, 0);
     });
     c_waitcustom();
-    c_markerwalkdirect(aqua, 300, 3640, 16, 7752, 0.25);
+    c_markerwalkdirect(aqua, 300, 3640, 16, spr_aqua_walk_up, 0.25);
     c_wait(16);
     c_var_instance(id, "aqua_autodepth", 0);
     c_sel(kr);
@@ -1211,4 +1211,145 @@ if (endcustom == true)
 {
     endcustom = false;
     c_waitcustom_end();
+}
+
+if (con == 20)
+{
+    con = 22;
+    global.interact = 1;
+    global.facing = 0;
+    mus_volume(global.currentsong[1], 0, 30);
+}
+
+if (con == 22)
+{
+    con = 23;
+    cutscene_master = scr_cutscene_make();
+    scr_maincharacters_actors();
+    c_sel(kr);
+    c_walkdirect(300, 3640, 16);
+    c_sel(su);
+    c_walkdirect(245, 3635, 16);
+    c_sel(ra);
+    c_walkdirect_wait(345, 3640, 16);
+    c_sel(kr);
+    c_facing("u");
+    c_sel(su);
+    c_facing("u");
+    c_sel(ra);
+    c_facing("u");
+    c_speaker("susie");
+    c_msgsetloc(0, "\\E0* Alright^1, now lets actually see what this statue does.../%", "obj_dw_garden_aquashrine_slash_Step_0_gml_91_0");
+    c_talk();
+    c_wait_talk();
+    c_wait(15);
+    c_sel(kr);
+    c_walkdirect(300, 3610, 15);
+    c_wait(35);
+    c_facing("d");
+    c_customfunc(function()
+    {
+        scr_flag_set(24, 1);
+    });
+    c_customfunc(function(arg0)
+    {
+        var cl = instance_create(arg0.x - 100, arg0.y - 100, obj_plat_cam_nudgezone);
+        cl.nudgey = -80;
+        cl.image_xscale = 20;
+        cl.image_yscale = 20;
+    }, kr_actor);
+    c_wait(30);
+    c_sound_play(snd_feather_get_secondpart);
+    c_customfunc(function()
+    {
+        sound_volume(wind_sound, 0.1, 25);
+        
+        with (obj_grassanim_new)
+        {
+            anim_length = 4;
+            scr_lerpvar("anim_speed", 0.2, 0.8, 15);
+        }
+    });
+    c_var_instance(id, "petalwinds", 1);
+    c_var_lerp_instance(id, "petalwindspeed", petalwindspeedmin, petalwindspeedmax, 35);
+    c_wait(35);
+    c_actortokris();
+    c_actortocaterpillar();
+    c_customfunc(function()
+    {
+        with (obj_platswap)
+        {
+            transition_timemax = 140;
+            event_user(0);
+            
+            with (obj_platswap_prop)
+                depth_type = 1;
+        }
+        
+        with (obj_plat_camera)
+        {
+            lerptimemax = 140;
+            nudgey = -80;
+            scr_delay_var("lerptimemax", 15, 140);
+        }
+        
+        with (obj_plat_cam_nudgezone)
+        {
+            scr_lerpvar("nudgey", nudgey, 0, 140, 1, "out");
+            scr_doom(self, 140);
+        }
+    });
+    c_var_instance(hat, "visible", true);
+    c_var_instance(hat, "x", 345);
+    c_var_instance(hat, "y", 3640);
+    c_var_instance(hat, "gravity", -0.1);
+    c_var_instance(hat, "hspeed", -3);
+    c_var_instance(hat, "friction", -0.02);
+    c_wait(100);
+    c_var_lerp_instance(id, "petalwinds", 1, 0, 20);
+    c_lerp_var_instance(817, "anim_speed", 0.8, 0.2, 20);
+    c_customfunc(function()
+    {
+        sound_volume(wind_sound, 0, 25);
+        
+        with (obj_grassanim_new)
+        {
+            anim_length = 9;
+            anim_speed = 0.2;
+        }
+    });
+    c_sel(kr);
+    c_facing("d");
+    c_mus2("volume", 1, 30);
+    c_wait(80);
+    c_pannable(0);
+    c_terminatekillactors();
+}
+
+if (con == 23 && !i_ex(obj_cutscene_master))
+{
+    scr_flag_set(1311, 0);
+    
+    with (obj_plat_follower)
+    {
+        if (name == "ralsei")
+            get_preset(2);
+    }
+    
+    global.interact = 0;
+    global.facing = 0;
+    platcon = 1;
+    con = -99;
+}
+
+if (con >= 23 && global.flag[24] == 1)
+    obj_platswap_statue.depth = 1500000;
+
+if (platcon > 0 && !global.pause_plat && i_ex(obj_plat_player))
+{
+    mus_volume(global.currentsong[1], 1, 30);
+    scr_get_plat_followers();
+    
+    if (plat_susie == -4 || plat_ralsei == -4)
+        exit;
 }
