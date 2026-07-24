@@ -17,13 +17,13 @@ class ArchipelagoLoader : UMPLoader
 
     public readonly string[] client_version = ["2", "0", "6"];
 
-    public readonly string max_armor = "60";
+    public readonly string max_armor = "100";
 
     public readonly string max_weapon = "48";
 
     public readonly string max_flag = "2500";
 
-    public readonly string max_storage = "72";
+    public readonly string max_storage = "200";
 
     public string GetVersion()
     {
