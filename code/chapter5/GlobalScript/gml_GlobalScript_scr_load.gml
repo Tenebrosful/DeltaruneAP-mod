@@ -237,19 +237,19 @@ function scr_load()
             ossafe_file_text_readln(myfileid);
         }
         
-        for (j = 0; j < 48; j += 1)
+        for (j = 0; j < #GetMaxWeapon(); j += 1)
         {
             global.weapon[j] = ossafe_file_text_read_real(myfileid);
             ossafe_file_text_readln(myfileid);
         }
         
-        for (j = 0; j < 60; j += 1)
+        for (j = 0; j < #GetMaxArmor(); j += 1)
         {
             global.armor[j] = ossafe_file_text_read_real(myfileid);
             ossafe_file_text_readln(myfileid);
         }
         
-        for (j = 0; j < 72; j += 1)
+        for (j = 0; j < #GetMaxStorage(); j += 1)
         {
             global.pocketitem[j] = ossafe_file_text_read_real(myfileid);
             ossafe_file_text_readln(myfileid);

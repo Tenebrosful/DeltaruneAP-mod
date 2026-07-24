@@ -61,7 +61,7 @@ function scr_gamestart()
     global.item[11] = 0;
     global.item[12] = 0;
     
-    for (i = 0; i < 72; i++)
+    for (i = 0; i < #GetMaxStorage(); i++)
         global.pocketitem[i] = 0;
     
     for (i = 0; i < #GetMaxWeapon(); i++)
