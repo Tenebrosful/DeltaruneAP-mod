@@ -289,6 +289,216 @@ if (global.menuno == 5)
             draw_text(_xPos, yy + 360, string_hash_to_newline(back_text));
         }
     }
+#elsif CHAPTER_5
+if (global.menuno == 5)
+{
+    var lang_off = langopt([90, 410, 420], [85, 412, 422]);
+    draw_set_color(c_black);
+    ossafe_fill_rectangle(xx + 60, yy + lang_off[0], xx + 580, yy + lang_off[1], false);
+    scr_darkbox(xx + 50, (yy + lang_off[0]) - 10, xx + 590, yy + lang_off[2]);
+    
+    if ((global.submenu >= 30 && global.submenu <= 33) || global.submenu == 36)
+    {
+        var _xPos = (global.lang == "en") ? (xx + 170) : (xx + 150);
+        var _heartXPos = (global.lang == "en") ? (xx + 145) : (xx + 125);
+        
+        if (global.lang == "ja" && global.is_console)
+        {
+            _xPos -= 24;
+            _heartXPos -= 24;
+        }
+        
+        var _selectXPos = (global.lang == "ja" && global.is_console) ? (xx + 385) : (xx + 430);
+        draw_set_color(c_white);
+        draw_text(xx + 270, yy + 100, string_hash_to_newline(stringsetloc("CONFIG", "obj_darkcontroller_slash_Draw_0_gml_74_0")));
+        audvol = string(round(abs(global.flag[17] * 100))) + "%";
+        musvol = string(round(abs(global.flag[16] * 100))) + "%";
+        runoff = stringsetloc("OFF", "obj_darkcontroller_slash_Draw_0_gml_82_0");
+        
+        if (global.flag[11] == 1)
+            runoff = stringsetloc("ON", "obj_darkcontroller_slash_Draw_0_gml_82_1");
+        
+        flashoff = stringsetloc("OFF", "obj_darkcontroller_slash_Draw_0_gml_83_0");
+        
+        if (global.flag[8] == 1)
+            flashoff = stringsetloc("ON", "obj_darkcontroller_slash_Draw_0_gml_83_1");
+        
+        shakeoff = stringsetloc("OFF", "obj_darkcontroller_slash_Draw_0_gml_84_0");
+        
+        if (global.flag[12] == 1)
+            shakeoff = stringsetloc("ON", "obj_darkcontroller_slash_Draw_0_gml_84_1");
+        
+        var str_on = stringsetloc("ON", "obj_darkcontroller_slash_Draw_0_gml_140_0");
+        var str_off = stringsetloc("OFF", "obj_darkcontroller_slash_Draw_0_gml_141_0");
+        var ralseis = stringsetloc("Ralseis", "obj_darkcontroller_slash_Draw_0_gml_142_0");
+        
+        if (!global.is_console)
+        {
+            fullscreenoff = stringsetloc("OFF", "obj_darkcontroller_slash_Draw_0_gml_87_0");
+            
+            if (window_get_fullscreen())
+                fullscreenoff = stringsetloc("ON", "obj_darkcontroller_slash_Draw_0_gml_87_1");
+        }
+        
+        draw_sprite(spr_heart, 0, _heartXPos, yy + 160 + (global.submenucoord[30] * 35));
+        
+        if (global.submenu == 33)
+            draw_set_color(c_yellow);
+        
+        draw_text(_xPos, yy + 150, string_hash_to_newline(stringsetloc("Master Volume", "obj_darkcontroller_slash_Draw_0_gml_86_0")));
+        draw_text(_selectXPos, yy + 150, string_hash_to_newline(audvol));
+        draw_set_color(c_white);
+        draw_text(_xPos, yy + 185, string_hash_to_newline(stringsetloc("Controls", "obj_darkcontroller_slash_Draw_0_gml_91_0")));
+        var simplifyvfx = true;
+        
+        if (global.chapter == 5)
+            simplifyvfx = false;
+        
+        if (simplifyvfx)
+        {
+            draw_text(_xPos, yy + 220, string_hash_to_newline(stringsetloc("Simplify VFX", "obj_darkcontroller_slash_Draw_0_gml_92_0")));
+            draw_text(_selectXPos, yy + 220, string_hash_to_newline(flashoff));
+        }
+        else
+        {
+            var __menuOpt = 0;
+            
+            if (global.flag[24] == 1)
+                __menuOpt = 1;
+            
+            if (__menuOpt == 0)
+            {
+                var voicelines = stringsetloc("Voice Clips", "obj_darkcontroller_slash_Draw_0_gml_176_0");
+                var thisstring = str_on;
+                
+                if (global.flag[1391] == 1)
+                    thisstring = str_off;
+                
+                draw_text(_xPos, yy + 220, string_hash_to_newline(voicelines));
+                draw_text(_selectXPos, yy + 220, thisstring);
+            }
+            
+            if (__menuOpt == 1)
+            {
+                var feathstr = stringsetloc("Feather", "obj_darkcontroller_slash_Draw_0_gml_186_0");
+                var feathSet0 = stringsetloc("Jump: Cancel\nAttack: Confirm", "obj_darkcontroller_slash_Draw_0_gml_188_0");
+                var feathSet1 = stringsetloc("Jump: Confirm\nAttack: Cancel", "obj_darkcontroller_slash_Draw_0_gml_189_0");
+                var st = [feathSet0, feathSet1];
+                var col = 16777215;
+                
+                if (scr_flag_get_ext(1762, 0, 2) == 0)
+                    col = 16776960;
+                
+                if (scr_flag_get_ext(1762, 0, 2) == 0)
+                {
+                    if (global.menuno == 5 && global.submenu == 30 && global.submenucoord[30] == 2)
+                        scr_flag_set_ext(1762, 0, 1, 2);
+                }
+                else if (scr_flag_get_ext(1762, 0, 2) == 1)
+                {
+                    yellowed++;
+                    var __endtime = 15;
+                    
+                    if (yellowed >= __endtime)
+                    {
+                        yellowed = 0;
+                        scr_flag_set_ext(1762, 0, 2, 2);
+                    }
+                    else
+                    {
+                        col = merge_color(c_yellow, c_white, lerp_inout_cubic(0, 1, yellowed / __endtime));
+                    }
+                }
+                
+                draw_set_color(col);
+                draw_text(_xPos, yy + 220, feathstr);
+                var mem = 
+                {
+                    h: draw_get_halign(),
+                    v: draw_get_valign(),
+                    f: draw_get_font()
+                };
+                draw_set_halign(fa_left);
+                draw_set_valign(fa_middle);
+                draw_set_font(scr_84_get_font("main"));
+                draw_text(_selectXPos, yy + 220 + 16, st[global.flag[25]]);
+                draw_set_halign(mem.h);
+                draw_set_valign(mem.v);
+                draw_set_font(mem.f);
+                draw_set_color(c_white);
+                var cont = 0;
+            }
+        }
+        
+        if (global.is_console)
+        {
+            var drawautorun = true;
+            
+            if (global.chapter == 5)
+            {
+                if (global.tempflag[52] == 1)
+                    drawautorun = false;
+            }
+            
+            if (drawautorun)
+            {
+                draw_text(_xPos, yy + 255, string_hash_to_newline(autorun_text));
+                draw_text(_selectXPos, yy + 255, string_hash_to_newline(runoff));
+            }
+            else
+            {
+                var thisstring = str_on;
+                
+                if (global.flag[1392] == 1)
+                    thisstring = str_off;
+                
+                draw_text(_xPos, yy + 255, string_hash_to_newline(ralseis));
+                draw_text(_selectXPos, yy + 255, string_hash_to_newline(thisstring));
+            }
+            
+            if (global.submenu == 36)
+                draw_set_color(c_yellow);
+            else if (global.disable_border)
+                draw_set_color(c_gray);
+            
+            draw_text(_xPos, yy + 290, stringsetloc("Border", "obj_darkcontroller_slash_Draw_0_gml_112_0"));
+            draw_text(_selectXPos, yy + 290, border_options[selected_border]);
+            draw_set_color(c_white);
+            draw_text(_xPos, yy + 325, string_hash_to_newline(stringsetloc("Return to Title", "obj_darkcontroller_slash_Draw_0_gml_95_0")));
+            draw_text(_xPos, yy + 360, string_hash_to_newline(back_text));
+        }
+        else
+        {
+            draw_text(_xPos, yy + 255, string_hash_to_newline(stringsetloc("Fullscreen", "obj_darkcontroller_slash_Draw_0_gml_93_0")));
+            draw_text(xx + 430, yy + 255, string_hash_to_newline(fullscreenoff));
+            var drawautorun = true;
+            
+            if (global.chapter == 5)
+            {
+                if (global.tempflag[52] == 1)
+                    drawautorun = false;
+            }
+            
+            if (drawautorun)
+            {
+                draw_text(_xPos, yy + 290, string_hash_to_newline(autorun_text));
+                draw_text(xx + 430, yy + 290, string_hash_to_newline(runoff));
+            }
+            else
+            {
+                var thisstring = str_on;
+                
+                if (global.flag[1392] == 1)
+                    thisstring = str_off;
+                
+                draw_text(_xPos, yy + 290, string_hash_to_newline(ralseis));
+                draw_text(xx + 430, yy + 290, thisstring);
+            }
+            
+            draw_text(_xPos, yy + 325, string_hash_to_newline(stringsetloc("Return to Title", "obj_darkcontroller_slash_Draw_0_gml_95_0")));
+            draw_text(_xPos, yy + 360, string_hash_to_newline(back_text));
+        }
+    }
 #else
 if (global.menuno == 5)
 {
