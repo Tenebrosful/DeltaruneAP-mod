@@ -3,6 +3,8 @@ persistent = 1;
 wss = 7;
 ws = 6;
 
+instance_create_depth(0, 0, -15000, obj_archipelago_toast_notificator);
+
 global.AP_ENUM_CHOSEN_ROUTE = {
     UNKNOWN: -1,
     ALL_RECRUITS: 0,
@@ -71,6 +73,7 @@ global.AP_include_chapters = [];
 global.AP_balancing = false;
 global.AP_multiworld = 0;
 global.AP_all_locations_ids = [];
+global.AP_remaining_locations = [];
 global.AP_connection_errors = undefined;
 global.AP_colors = 
 {

@@ -125,15 +125,6 @@ function AP_internal_get_character_max_hp(character_id)
 
 function AP_handle_receive_item(item_id)
 {
-  if (!global.AP_skip_item_textboxes)
-  {
-    global.interact = 1;
-    global.typer = 6;
-    global.fc = 0;
-    global.fe = 0;
-    showingitem = 1;
-  }
-
   if (item_id == 66666 || item_id = 32)
   {
     return;
@@ -146,10 +137,8 @@ function AP_handle_receive_item(item_id)
   {
     AP_internal_handle_other_item(item_id);
   }
-  else if (item_id >= global.AP_item_offset.chapter_unlock){
-    AP_internal_handle_chapter_unlock_item(item_id);
-  }
-  else if (item_id >= global.AP_item_offset.ch3_points){
+  else if (item_id >= global.AP_item_offset.ch3_points)
+  {
     AP_internal_handle_ch3_points_item(item_id);
   }
   else if (item_id >= global.AP_item_offset.macguffin){
@@ -245,9 +234,6 @@ function AP_internal_handle_chapter_unlock_item(item_id)
 {
   var chapter = item_id - global.AP_item_offset.chapter_unlock;
   var item_name = "Chapter " + string(chapter);
-
-  if (!global.AP_skip_item_textboxes)
-    script_execute(scr_writetext, 0, string("* (You unlocked {0}.)/%", AP_item_classification_color_text(item_name, 1)), 0, 6);
 }
 
 function AP_internal_handle_ch3_points_item(item_id)
@@ -414,19 +400,12 @@ function AP_internal_print_get_item_text(item_chapter, item_id, item_name, item_
   {
     AP_internal_print_get_item_text_special(item_id);
   }
-  else if (item_chapter != global.chapter && item_chapter != 0)
-  {
-    if (!global.AP_skip_item_textboxes)
-      script_execute(scr_writetext, 0, string("* (You got {0} for chapter {1}.)/%", AP_item_classification_color_text(item_name, item_classification), item_chapter), 0, 6);
-  }
   else
   {
     if (!global.AP_skip_item_textboxes)
     {
       if (global.chapter == 5 && item_id == 1021) // Pink Coin
         snd_play(snd_pink_coin);
-
-      script_execute(scr_writetext, 0, string("* (You got {0}.)/%", AP_item_classification_color_text(item_name, item_classification)), 0, 6);
     }
   }
 }

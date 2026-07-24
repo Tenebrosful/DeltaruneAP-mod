@@ -123,10 +123,35 @@ function AP_sendLocation(ids)
     if (!AP_isAuthenticated())
         exit;
 
-    var validLocations = AP_internal_verify_location_id(ids);
+    var validLocations = AP_internal_verify_remaining_location_id(ids);
 
     if (array_length(validLocations) == 0)
         exit;
+
+    indextoremove = []
+
+    for (var i = 0; i < array_length(validLocations); i++)
+    {
+        location_data = AP_get_location_reward_data(validLocations[i]);
+        array_push(obj_archipelago_toast_notificator.current_notification, new AP_toast_notification(location_data.itemName, AP_item_flag_to_color(location_data.flags), location_data.playerName, true));
+        index = -1
+
+        for (var j = 0; j < array_length(global.AP_remaining_locations); j++)
+        {
+            if (global.AP_remaining_locations[j] == validLocations[i])
+            {
+                index = j;
+                break;
+            }
+        }
+        
+        array_push(indextoremove, index)
+    }
+
+    for (var i = 0; i < array_length(indextoremove); i++)
+    {
+        array_delete(global.AP_remaining_locations, indextoremove[i], 1)
+    }
     
     var _contents = 
     {
@@ -437,6 +462,38 @@ function AP_internal_verify_location_id(ids)
         for (var i = 0; i < array_length(global.AP_all_locations_ids); i++)
         {
             if (ids == global.AP_all_locations_ids[i])
+            {
+                array_push(validLocations, ids);
+            }
+        }
+    }
+
+    return validLocations;
+}
+
+function AP_internal_verify_remaining_location_id(ids)
+{
+    var validLocations = [];
+
+    if (is_array(ids))
+    {
+        for (var i = 0; i < array_length(ids); i++)
+        {
+            for (var ii = 0; ii < array_length(global.AP_remaining_locations); ii++)
+            {
+                if (ids[i] == global.AP_remaining_locations[ii])
+                {
+                    array_push(validLocations, ids[i]);
+                    break;
+                }
+            }
+        }
+    }
+    else
+    {
+        for (var i = 0; i < array_length(global.AP_remaining_locations); i++)
+        {
+            if (ids == global.AP_remaining_locations[i])
             {
                 array_push(validLocations, ids);
             }

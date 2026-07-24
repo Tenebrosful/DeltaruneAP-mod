@@ -52,6 +52,7 @@ if (ds_map_exists(async_load, "buffer"))
                     show_debug_message("Login successful!");
 
                     global.AP_all_locations_ids = array_concat(data[i].missing_locations, data[i].checked_locations);
+                    global.AP_remaining_locations = data[i].missing_locations;
                     
                     for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
                     {
