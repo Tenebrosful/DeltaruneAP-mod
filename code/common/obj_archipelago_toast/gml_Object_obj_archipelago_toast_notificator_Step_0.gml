@@ -1,7 +1,7 @@
 /// IMPORT
 indexesToRemove = []
 
-for (i = 0; i < array_length(current_notification); i++)
+for (i = 0; i < array_length(current_notification) && i < 6; i++)
 {
 	toast = current_notification[i]
 	toast.Tick()

@@ -6,7 +6,7 @@ _cy = cameray();
 draw_set_halign(fa_right);
 draw_set_font(fnt_main);
 
-for (i = 0; i < array_length(current_notification); i++)
+for (i = 0; i < array_length(current_notification) && i < 6; i++)
 {
     draw_set_color(c_white);
     toast = current_notification[i];
