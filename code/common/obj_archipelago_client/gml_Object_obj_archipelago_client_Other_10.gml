@@ -358,7 +358,7 @@ function AP_fill_id_to_itemname_struct()
                 global.AP_data_package_raw = json_parse(content);
         }
 
-        item_name_to_id = global.AP_data_package_raw.DELTARUNE.item_name_to_id
+        item_name_to_id = global.AP_data_package_raw.games.DELTARUNE.item_name_to_id
 
         names = variable_struct_get_names(item_name_to_id);
 
