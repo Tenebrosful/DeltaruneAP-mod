@@ -77,6 +77,6 @@
 /// AFTER
     global.tempflag[51] = 0;
     scr_caterpillar_interpolate("all");
-// CODE
+/// CODE
     scr_flag_set(1311, 0);
 /// END
