@@ -1319,7 +1319,7 @@ function scr_itemuse(arg0)
             global.msg[3] = stringsetloc("* \"Your safety goggles really suit your hat!\"/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
             global.msg[4] = stringsetloc("* \"You have a lot of cash^1! Well^1, had a lot of cash.\"/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
             global.msg[5] = stringsetloc("* \"You always make everyone feel welcome.\"/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
-            global.msg[6] = stringsetloc("* \"You're the best at dualling!\^1"&* \"(You spelt duelling wrong.)\"/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
+            global.msg[6] = stringsetloc("* \"You're the best at dualling!\^1\"&* \"(You spelt duelling wrong.)\"/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
             global.msg[7] = stringsetloc("* \"Thank you..^1. for everything.\"/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
             global.msg[8] = stringsetloc("* (...)/", "scr_itemuse_slash_scr_itemuse_gml_441_0");
             global.msg[9] = stringsetloc("* (You get the feeling this was meant for someone else...)/%", "scr_itemuse_slash_scr_itemuse_gml_441_0");
