@@ -1,4 +1,4 @@
-#load "..\room_helper.csx"
+#load "../room_helper.csx"
 
 void Load_PLACE_ARCHIPELAGO_CONNECT()
 {
