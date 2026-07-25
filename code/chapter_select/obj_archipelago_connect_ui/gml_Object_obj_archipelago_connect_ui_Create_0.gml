@@ -28,6 +28,7 @@ fadein.x = -100;
 fadein.y = -100;
 page = 0;
 current = "";
+host_or_port_changed = false
 
 function string_reverse(arg0)
 {
