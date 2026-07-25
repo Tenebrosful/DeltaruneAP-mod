@@ -70,7 +70,7 @@
 /// CODE
     c_msgnextloc("\\E0* ..^1. wonder what the deal with that weird thing is?/", "obj_dw_garden_aqua_slash_Step_0_gml_915_0");
     c_facenext("no_name", "0");
-    c_msgnextloc(string("* (You got {0}.)/%", AP_get_location_reward_text(258)));
+    c_msgnextloc(string("* (You got {0}.)/%", AP_get_location_reward_text(284)));
     AP_sendLocation(284);
 /// END
 

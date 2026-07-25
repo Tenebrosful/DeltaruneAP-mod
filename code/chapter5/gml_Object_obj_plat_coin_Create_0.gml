@@ -28,6 +28,9 @@
         if (room == room_dw_fcastle_right_puzzle)
             AP_sendLocation(322);
         
+        if (room == room_dw_fcastle_trainroom)
+            AP_sendLocation(323);
+        
         if (room == room_dw_fcastle_sidepuzzle)
             AP_sendLocation(326);
         

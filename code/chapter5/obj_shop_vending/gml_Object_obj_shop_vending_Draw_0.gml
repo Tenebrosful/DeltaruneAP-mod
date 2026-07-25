@@ -163,7 +163,7 @@ if (menu == 1 || menu == 2)
         if (menu_dollar)
             draw_text(camerax() + 300, cameray() + 260 + (i * 40), string_hash_to_newline("$" + string(buyvalue[i])));
         else
-            draw_text(camerax() + 300, cameray() + 260 + (i * 40), string_hash_to_newline(string(buyvalue[i]) + " PTs"));
+            draw_text(camerax() + 300, cameray() + 260 + (i * 40), string_hash_to_newline(string(buyvalue[i]) + " F$"));
     }
     
     draw_text(cx + 60, 260 + (itemtotal * 40), string_hash_to_newline(stringsetloc("Exit", "obj_shop_vending_slash_Draw_0_gml_218_0")));
@@ -300,7 +300,7 @@ if (menu == 1 || menu == 2)
                                             shopitemname[menuc[1]] = "Out Of Stock";
                                             itemtype[menuc[1]] = "checked";
                                             buyvalue[menuc[1]] = "--";
-                                            global.customflags[1000 + item[menuc[1]]] = 1;
+                                            global.customflags[1274 + item[menuc[1]]] = 1;
                                             
                                             if (_pocketed == 1)
                                                 sidemessage = 4;
@@ -315,7 +315,7 @@ if (menu == 1 || menu == 2)
                                         shopitemname[menuc[1]] = "Out Of Stock";
                                         itemtype[menuc[1]] = "checked";
                                         buyvalue[menuc[1]] = "--";
-                                        global.customflags[1000 + item[menuc[1]]] = 1;
+                                        global.customflags[1274 + item[menuc[1]]] = 1;
                                         
                                         if (_pocketed == 1)
                                             sidemessage = 4;
@@ -391,6 +391,16 @@ if (menu == 1 || menu == 2)
                                     sidemessage = 4;
                                 else
                                     sidemessage = 1;
+                            }
+                            
+                            if (noroom == 0)
+                            {
+                                if (room == room_dw_fcastle_cafe && !dinermenu)
+                                {
+                                    reset_list();
+                                    item_list = scr_shop_fcastle_items();
+                                    fillBuyList();
+                                }
                             }
                             
                             if (noroom == 1)

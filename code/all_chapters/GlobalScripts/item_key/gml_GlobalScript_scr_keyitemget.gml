@@ -3,7 +3,7 @@ function scr_keyitemget(arg0)
 {
     // Eggs
     if (arg0 == 950 || arg0 == 951 || arg0 == 952 || arg0 == 953 || arg0 == 954)
-        arg0 = 4;
+        arg0 = 2;
 
     if (arg0 == 13)
         global.customflags[global.custom_flags_indexes.shadow_crystal_amount] += 1;

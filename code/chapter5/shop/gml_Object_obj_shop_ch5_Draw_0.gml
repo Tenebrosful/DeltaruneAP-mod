@@ -1,5 +1,4 @@
 /// IMPORT
-
 if (menu == 1 || menu == 2)
 {
     if (shopcharx > -20)
@@ -123,6 +122,7 @@ if (menu == 1 || menu == 2)
         draw_set_color(c_white);
         draw_text(camerax() + 60, cameray() + 260 + (i * 40) + 15, "To: " + string_hash_to_newline(shopitemreceivername[i]));
         draw_set_font(fnt_mainbig);
+        
         if (item_currency[i] == UnknownEnum.Value_1)
         {
             var sold_value = stringsetsubloc("P$~1", string(buyvalue[i]), "obj_shop_ch5_slash_Draw_0_gml_105_0");
@@ -133,7 +133,7 @@ if (menu == 1 || menu == 2)
         }
         else
         {
-          draw_text(camerax() + 300, cameray() + 260 + (i * 40), string_hash_to_newline("$" + string(buyvalue[i])));
+            draw_text(camerax() + 300, cameray() + 260 + (i * 40), string_hash_to_newline("$" + string(buyvalue[i])));
         }
     }
     
@@ -162,6 +162,9 @@ if (menu == 1 || menu == 2)
             
             if (sidemessage == 5)
                 msgsetloc(0, "Enjoy^1. It's&in your&STORAGE.", "obj_shop_ch5_slash_Draw_0_gml_134_0");
+            
+            if (sidemessage == 6)
+                global.msg[0] = stringsetloc("I'm..^1.&Out of&that item.", "obj_shop_ch5_slash_Draw_0_gml_133_0");
             
             instance_create(450, 260, obj_writer);
         }
@@ -203,112 +206,119 @@ if (menu == 1 || menu == 2)
     
     if (menu == 2)
     {
-        menumax = 1;
-        draw_set_color(c_white);
-        scr_84_set_draw_font("mainbig");
-        var y1_off = langopt(260, 290);
-        var y2_off = langopt(290, 260);
-        draw_text(460, y1_off, string_hash_to_newline(stringsetloc("Buy it for", "obj_shop1_slash_Draw_0_gml_167_0")));
-        
-        if (item_currency[menuc[1]] == UnknownEnum.Value_0)
-        {
-            draw_text(460, y2_off, string_hash_to_newline(stringsetsubloc("$~1 ?", string(buyvalue[menuc[1]]), "obj_shop1_slash_Draw_0_gml_177_0")));
-        }
-        else if (item_currency[menuc[1]] == UnknownEnum.Value_1)
-        {
-            draw_set_color(make_color_rgb(255, 138, 144));
-            var pink_amount_text = stringsetsubloc("P$~1 ?", string(buyvalue[menuc[1]]), "obj_shop_ch5_slash_Draw_0_gml_168_0");
-            draw_text(460, y2_off, pink_amount_text);
-            draw_set_color(c_white);
-        }
-        
-        draw_text(480, 340, string_hash_to_newline(stringsetloc("Yes", "obj_shop1_slash_Draw_0_gml_169_0")));
-        draw_text(480, 370, string_hash_to_newline(stringsetloc("No", "obj_shop1_slash_Draw_0_gml_170_0")));
-        menuc[menu] = min(menuc[menu], menumax);
-        draw_sprite(spr_heart, 0, 450, 350 + (menuc[2] * 30));
-        
-        if (button2_p() && twobuffer < 0)
+        if (itemtype[menuc[1]] == "checked")
         {
             menu = 1;
-            sidemessage = 2;
-            twobuffer = 2;
-            onebuffer = 2;
+            sidemessage = 5;
         }
-        
-        if (button1_p() && onebuffer < 0 && twobuffer < 0)
+        else
         {
-            if (menuc[2] == 0)
+            menumax = 1;
+            draw_set_color(c_white);
+            scr_84_set_draw_font("mainbig");
+            var y1_off = langopt(260, 290);
+            var y2_off = langopt(290, 260);
+            draw_text(460, y1_off, string_hash_to_newline(stringsetloc("Buy it for", "obj_shop1_slash_Draw_0_gml_167_0")));
+            
+            if (item_currency[menuc[1]] == UnknownEnum.Value_0)
             {
-                afford = 0;
-                
-                if (item_currency[menuc[1]] == UnknownEnum.Value_0)
-                {
-                    if (global.gold >= buyvalue[menuc[1]])
-                        afford = 1;
-                }
-                else if (item_currency[menuc[1]] == UnknownEnum.Value_1)
-                {
-                    if (scr_flag_get(1312) >= buyvalue[menuc[1]])
-                        afford = 1;
-                }
-                
-                if (afford == 1)
-                {
-                    _pocketed = 0;
-                    
-                    if (itemtype[menuc[1]] == "item")
-                        scr_itemget(item[menuc[1]]);
-                    
-                    if (itemtype[menuc[1]] == "weapon")
-                        scr_weaponget(item[menuc[1]]);
-                    
-                    if (itemtype[menuc[1]] == "armor")
-                        scr_armorget(item[menuc[1]]);
-                    
-                    if (itemtype[menuc[1]] == "key")
-                        scr_keyitemget(item[menuc[1]]);
-
-                    if (itemtype[menuc[1]] == "check")
-                        AP_sendLocation(item[menuc[1]]);
-                    
-                    if (noroom == 0)
-                    {
-                        if (item_currency[menuc[1]] == UnknownEnum.Value_0)
-                        {
-                            global.gold -= buyvalue[menuc[1]];
-                        }
-                        else if (item_currency[menuc[1]] == UnknownEnum.Value_1)
-                        {
-                            var new_amount = scr_flag_get(1312) - buyvalue[menuc[1]];
-                            scr_flag_set(1312, new_amount);
-                        }
-
-                        shopitemname[menuc[1]] = "Out Of Stock";
-                        itemtype[menuc[1]] = "checked";
-                        buyvalue[menuc[1]] = "--";
-                        global.customflags[1000 + item[menuc[1]]] = 1;
-                        
-                        snd_play(snd_locker);
-                        
-                        if (_pocketed == 1)
-                            sidemessage = 5;
-                        else
-                            sidemessage = 1;
-                    }
-                    
-                    if (noroom == 1)
-                        sidemessage = 4;
-                }
-                else
-                {
-                    sidemessage = 3;
-                }
+                draw_text(460, y2_off, string_hash_to_newline(stringsetsubloc("$~1 ?", string(buyvalue[menuc[1]]), "obj_shop1_slash_Draw_0_gml_177_0")));
+            }
+            else if (item_currency[menuc[1]] == UnknownEnum.Value_1)
+            {
+                draw_set_color(make_color_rgb(255, 138, 144));
+                var pink_amount_text = stringsetsubloc("P$~1 ?", string(buyvalue[menuc[1]]), "obj_shop_ch5_slash_Draw_0_gml_168_0");
+                draw_text(460, y2_off, pink_amount_text);
+                draw_set_color(c_white);
             }
             
-            if (menuc[2] == 1)
-                sidemessage = 2;
+            draw_text(480, 340, string_hash_to_newline(stringsetloc("Yes", "obj_shop1_slash_Draw_0_gml_169_0")));
+            draw_text(480, 370, string_hash_to_newline(stringsetloc("No", "obj_shop1_slash_Draw_0_gml_170_0")));
+            menuc[menu] = min(menuc[menu], menumax);
+            draw_sprite(spr_heart, 0, 450, 350 + (menuc[2] * 30));
             
-            menu = 1;
+            if (button2_p() && twobuffer < 0)
+            {
+                menu = 1;
+                sidemessage = 2;
+                twobuffer = 2;
+                onebuffer = 2;
+            }
+            
+            if (button1_p() && onebuffer < 0 && twobuffer < 0)
+            {
+                if (menuc[2] == 0)
+                {
+                    afford = 0;
+                    
+                    if (item_currency[menuc[1]] == UnknownEnum.Value_0)
+                    {
+                        if (global.gold >= buyvalue[menuc[1]])
+                            afford = 1;
+                    }
+                    else if (item_currency[menuc[1]] == UnknownEnum.Value_1)
+                    {
+                        if (scr_flag_get(1312) >= buyvalue[menuc[1]])
+                            afford = 1;
+                    }
+                    
+                    if (afford == 1)
+                    {
+                        _pocketed = 0;
+                        
+                        if (itemtype[menuc[1]] == "item")
+                            scr_itemget(item[menuc[1]]);
+                        
+                        if (itemtype[menuc[1]] == "weapon")
+                            scr_weaponget(item[menuc[1]]);
+                        
+                        if (itemtype[menuc[1]] == "armor")
+                            scr_armorget(item[menuc[1]]);
+                        
+                        if (itemtype[menuc[1]] == "key")
+                            scr_keyitemget(item[menuc[1]]);
+                        
+                        if (itemtype[menuc[1]] == "check")
+                            AP_sendLocation(item[menuc[1]]);
+                        
+                        if (noroom == 0)
+                        {
+                            if (item_currency[menuc[1]] == UnknownEnum.Value_0)
+                            {
+                                global.gold -= buyvalue[menuc[1]];
+                            }
+                            else if (item_currency[menuc[1]] == UnknownEnum.Value_1)
+                            {
+                                var new_amount = scr_flag_get(1312) - buyvalue[menuc[1]];
+                                scr_flag_set(1312, new_amount);
+                            }
+                            
+                            shopitemname[menuc[1]] = "Out Of Stock";
+                            itemtype[menuc[1]] = "checked";
+                            buyvalue[menuc[1]] = "--";
+                            global.customflags[1000 + item[menuc[1]]] = 1;
+                            snd_play(snd_locker);
+                            
+                            if (_pocketed == 1)
+                                sidemessage = 5;
+                            else
+                                sidemessage = 1;
+                        }
+                        
+                        if (noroom == 1)
+                            sidemessage = 4;
+                    }
+                    else
+                    {
+                        sidemessage = 3;
+                    }
+                }
+                
+                if (menuc[2] == 1)
+                    sidemessage = 2;
+                
+                menu = 1;
+            }
         }
     }
     

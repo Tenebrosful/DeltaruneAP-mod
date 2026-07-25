@@ -135,7 +135,12 @@ global.custom_flags_indexes = {
     accepted_dark_sanctuary_skip: 39,
     skipped_dark_sanctuary: 40,
     discovered_ch5_leave_dw: 41,
-    ch5_shortcut_door_state: 42
+    ch5_shortcut_door_state: 42,
+    ch5_talked_about_ycomplist: 43,
+    ch5_talked_about_gcomplist: 44,
+    ch5_used_ycomplist: 45,
+    ch5_used_gcomplist: 46,
+    ch5_unnecessary_evidence_gathered: 47
 }
 
 for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)

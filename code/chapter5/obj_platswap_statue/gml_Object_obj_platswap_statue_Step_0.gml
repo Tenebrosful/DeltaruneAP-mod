@@ -417,7 +417,7 @@ if (con == 1.1)
     c_msgnextloc("* Yeah^1, I got bored./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
     c_facenext("seth", "0");
     c_msgnextloc("* Oh^1, forget it./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_msgnextloc("* Look^1, these three people are trying to get to Asgore./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+    c_msgnextloc("* Look^1, they are trying to end Asgore's dream./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
     c_msgnextloc("* We need to teach them a lesson!/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
     c_facenext("aqua", "0");
     c_msgnextloc("* Uuu^1, but I hate lessons..^1.&* School is so boring.../", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
@@ -428,7 +428,7 @@ if (con == 1.1)
     c_facenext("seth", "0");
     c_msgnextloc("* .../", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
     c_msgnextloc(string("* Well^1, I need to leave to protect the {0}./", string(apdata.itemName)));
-    c_msgnextloc("* You stay here and keep them distracted^1, okay?/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+    c_msgnextloc("* You stay here^1, okay?/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
     c_facenext("aqua", "0");
     c_msgnextloc("* Okay^1! Bye bye!/%", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
     c_talk();
@@ -918,10 +918,10 @@ if (con == 9 && !instance_exists(obj_battleback))
 {
     aqpos[0] = scr_marker(300, 3640, spr_aqua_walk_down);
     aqpos[1] = scr_marker(380, 3760, spr_aqua_walk_down);
-    aqpos[2] = scr_marker(280, 3740, spr_aqua_walk_down);
-    aqpos[3] = scr_marker(180, 3740, spr_aqua_walk_down);
-    aqpos[4] = scr_marker(80, 3740, spr_aqua_walk_down);
-    aqpos[5] = scr_marker(-80, 3740, spr_aqua_walk_down);
+    aqpos[2] = scr_marker(280, 3780, spr_aqua_walk_down);
+    aqpos[3] = scr_marker(180, 3780, spr_aqua_walk_down);
+    aqpos[4] = scr_marker(80, 3780, spr_aqua_walk_down);
+    aqpos[5] = scr_marker(-80, 3780, spr_aqua_walk_down);
     aqpos[0].visible = 0;
     aqpos[1].visible = 0;
     aqpos[2].visible = 0;
@@ -1177,7 +1177,7 @@ if (con == 9 && !instance_exists(obj_battleback))
     c_facenext("susie", "0");
     c_msgnextloc("\\E0* ..^1. wonder what the deal with that weird thing is?/", "obj_dw_garden_aqua_slash_Step_0_gml_915_0");
     c_facenext("no_name", "0");
-    c_msgnextloc(string("* (You got {0}.)/%", AP_get_location_reward_text(258)));
+    c_msgnextloc(string("* (You got {0}.)/%", AP_get_location_reward_text(284)));
     AP_sendLocation(284);
     c_talk();
     c_wait_talk();
@@ -1204,7 +1204,6 @@ if (con == 10 && !instance_exists(obj_cutscene_master))
     con = 11;
     global.interact = 0;
     global.plot = 292;
-    global.flag[24] = 1;
 }
 
 if (endcustom == true)

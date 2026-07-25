@@ -85,6 +85,7 @@
         scr_speaker("susie");
         msgsetloc(0, "\\E6* ...?/", "obj_dw_leave_flowery_slash_Step_0_gml_127_0");
         msgnextloc("\\EA* Oh yeah^1, if we gotta^1, we can use this to get back to Castle Town./%", "obj_dw_leave_flowery_slash_Step_0_gml_127_0");
+        global.customflags[global.custom_flags_indexes.discovered_ch5_leave_dw] = 1;
         d_make();
     }
 }
@@ -94,7 +95,7 @@ if (stopcon == 4 && !d_ex())
     global.interact = 0;
     stopcon = 0;
     con = 0;
-    global.customflags[global.custom_flags_indexes.discovered_ch5_leave_dw] = 1;
+
 }
 
 if (!(instance_exists(obj_platswap) || instance_exists(obj_plat_player)))
