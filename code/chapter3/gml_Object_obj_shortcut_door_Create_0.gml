@@ -17,8 +17,6 @@ if (room == room_dw_b3bs_jail1)
     if (global.plot < 70)
 /// END
 
-/// PATCH
-
 /// APPEND
 
 if (room == room_dw_couch_overworld_02)
