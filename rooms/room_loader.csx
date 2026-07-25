@@ -1,9 +1,9 @@
-#load "all_chapters\all_chapters_rooms.csx"
-#load "chapter1\chapter1_rooms.csx"
-#load "chapter2\chapter2_rooms.csx"
-#load "chapter3\chapter3_rooms.csx"
-#load "chapter4\chapter4_rooms.csx"
-#load "chapter_select\chapter_select_rooms.csx"
+#load "all_chapters/all_chapters_rooms.csx"
+#load "chapter1/chapter1_rooms.csx"
+#load "chapter2/chapter2_rooms.csx"
+#load "chapter3/chapter3_rooms.csx"
+#load "chapter4/chapter4_rooms.csx"
+#load "chapter_select/chapter_select_rooms.csx"
 
 void Build_rooms(int chapter)
 {

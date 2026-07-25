@@ -1,8 +1,8 @@
-#load "chapter1\chapter1_gameobjects.csx"
-#load "chapter2\chapter2_gameobjects.csx"
-#load "chapter_select\chapter_select_gameobjects.csx"
-#load "common\common_gameobjects.csx"
-#load "all_chapters\all_chapters_gameobjects.csx"
+#load "chapter1/chapter1_gameobjects.csx"
+#load "chapter2/chapter2_gameobjects.csx"
+#load "chapter_select/chapter_select_gameobjects.csx"
+#load "common/common_gameobjects.csx"
+#load "all_chapters/all_chapters_gameobjects.csx"
 
 void Build_gameobjects(int chapter)
 {

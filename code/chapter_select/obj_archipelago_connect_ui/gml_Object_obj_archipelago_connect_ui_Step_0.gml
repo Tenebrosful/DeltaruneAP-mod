@@ -90,10 +90,12 @@ if (edit)
         {
             case 0:
                 current = string(global.AP_server);
+                host_or_port_changed = true
                 break;
             
             case 1:
                 current = string(global.AP_port);
+                host_or_port_changed = true
                 break;
             
             case 2:

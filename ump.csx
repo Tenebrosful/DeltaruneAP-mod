@@ -704,16 +704,33 @@ abstract class UMPLoader
         public string ProcessedCode { get; set; }
 
         /// <summary>
-        /// Process the condition of an #if block
+        /// Process the condition of an #if block (if newDepth = true)
+        /// or for an #elsif block (if newDepth = false)
         /// </summary>
         /// <exception cref="UMPException"></exception>
-        public void ProcessIfBlock ()
+        public void ProcessIfBlock (bool newDepth)
         {
             SkipWhitespace();
             string condition = SkipAndGetLineAhead();
             SymbolConditionParser parser = new(condition, Symbols);
             bool result = parser.Parse();
-            State = result ? ParseState.AddBlock : ParseState.SkipBlock;
+
+            // Skip if: #if statement, in a processing block and we're not adding this processing block
+            // Or #elsif statement, processed block isn't finished yet
+            bool skip =
+                (newDepth && _currentDepth > 0 && _depthStates[_currentDepth] != ProcessState.AddBlock) ||
+                (!newDepth && _depthStates[_currentDepth] == ProcessState.FinishedBlock);
+            
+            if (newDepth)
+            {
+                _currentDepth++;
+            }
+
+            _depthStates[_currentDepth] = skip ? (
+                ProcessState.FinishedBlock // consider as finished before starting
+            ) : (
+                result ? ProcessState.AddBlock : ProcessState.SkipBlock
+            );
         }
 
         /// <summary>
@@ -907,38 +924,37 @@ abstract class UMPLoader
         }
 
         /// <summary>
-        /// State of the parser relative to the #if blocks
+        /// Possible states for an #if block
         /// </summary>
-        public ParseState State { get; set; } = ParseState.Normal;
-
-        /// <summary>
-        /// Possible states of the parser
-        /// </summary>
-        public enum ParseState
+        public enum ProcessState
         {
             /// <summary>
-            /// Outside any #if block
-            /// </summary>
-            Normal,
-            /// <summary>
-            /// Inside a #if block that is being skipped (condition not met)
+            /// None of the conditions in the block have been met yet (eg. #if A, #elsif B, ...), but the block has yet to find a condition
             /// </summary>
             SkipBlock,
             /// <summary>
-            /// Inside a #if block that is being added (condition met)
+            /// One condition has been met and we're adding the current block's code
             /// </summary>
             AddBlock,
             /// <summary>
-            /// If inside a #if-else block and one of the conditions have already been met, then all else will be skipped
+            /// One condition has been met and we're no longer adding any code
             /// </summary>
             FinishedBlock
         }
+
+        /// <summary>
+        /// Keep track of states of each #if block and the depth of the block
+        /// </summary>
+        private Dictionary<int, ProcessState> _depthStates = new();
+        private int _currentDepth = 0;
 
 
         /// <summary>
         /// If the parser is in a #if block that should be skipped
         /// </summary>
-        public bool ShouldSkip => State == ParseState.SkipBlock || State == ParseState.FinishedBlock;
+        public bool ShouldSkip => _currentDepth > 0 && (
+            _depthStates[_currentDepth] != ProcessState.AddBlock
+        );
 
         /// <summary>
         /// Process the code
@@ -1000,47 +1016,52 @@ abstract class UMPLoader
                         }
                         string word = ReadWordAhead();
 
-                        if (State == ParseState.Normal && word == "if")
+                        if (word == "if")
                         {
                             Skip(word.Length);
-                            ProcessIfBlock();
+                            ProcessIfBlock(true);
                         }
-                        else if (State != ParseState.Normal && Regex.IsMatch(word, @"(endif|elsif|else)"))
+                        else if (Regex.IsMatch(word, @"(endif|elsif|else)"))
                         {
+                            if (_currentDepth == 0) 
+                            {
+                                throw new UMPException($"Found #{word}, but there was no #if before it");
+                            }
                             Skip(word.Length);
                             switch (word)
                             {
                                 case "endif":
                                 {
                                     SkipLine();
-                                    State = ParseState.Normal;
+                                    _depthStates.Remove(_currentDepth);
+                                    _currentDepth--;
                                     break;
                                 }
                                 case "elsif":
                                 {
-                                    if (State == ParseState.AddBlock)
+                                    if (_depthStates[_currentDepth] == ProcessState.AddBlock)
                                     {
-                                        State = ParseState.FinishedBlock;
+                                        _depthStates[_currentDepth] = ProcessState.FinishedBlock;
                                     }
-                                    else if (State == ParseState.FinishedBlock)
+                                    else if (_depthStates[_currentDepth] == ProcessState.FinishedBlock)
                                     {
                                         SkipLine();
                                     }
-                                    else if (State == ParseState.SkipBlock)
+                                    else if (_depthStates[_currentDepth] == ProcessState.SkipBlock)
                                     {
-                                        ProcessIfBlock();
+                                        ProcessIfBlock(false);
                                     }
                                     else
                                     {
                                         // this should never happen
-                                        throw new UMPException($"Invalid elsif in code, current state: {State}");
+                                        throw new UMPException($"Invalid elsif in code");
                                     }
                                     break;
                                 }
                                 case "else":
                                 {
                                     SkipLine();
-                                    State = State == ParseState.SkipBlock ? ParseState.AddBlock : ParseState.FinishedBlock;
+                                    _depthStates[_currentDepth] = _depthStates[_currentDepth] == ProcessState.SkipBlock ? ProcessState.AddBlock : ProcessState.FinishedBlock;
                                     break;
                                 }
                             }

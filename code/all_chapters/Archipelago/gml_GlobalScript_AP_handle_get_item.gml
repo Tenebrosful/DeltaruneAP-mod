@@ -129,10 +129,11 @@ function AP_handle_receive_item(item_id)
   {
     return;
   }
-
   
   if (item_id >= global.AP_item_offset.flowery_dollar)
+  {
     AP_internal_handle_ch5_flowery_dollar_item(item_id);
+  }
   else if (item_id >= global.AP_item_offset.other_unlock)
   {
     AP_internal_handle_other_item(item_id);
@@ -216,6 +217,9 @@ function AP_internal_handle_other_item(item_id)
     {
         case 100000:
             global.flag[34] = false;
+            break;
+        case 100001:
+            global.flag[1404] = 1;
             break;
     }
 }

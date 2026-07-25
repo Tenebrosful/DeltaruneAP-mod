@@ -762,7 +762,7 @@
             if (global.submenucoord[34] >= 50)
                 game_restart_true();
         }
-#elif CHAPTER_5
+#elsif CHAPTER_5
         if (global.submenu == 30)
         {
             sndbuffer = 0;

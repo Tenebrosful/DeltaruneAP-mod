@@ -98,6 +98,13 @@ function scr_armorinfo(arg0)
             armorgrazesizetemp = 20;
             armorchar1temp = 1;
             armorchar2temp = 0;
+
+            if (global.flag[1404] > 0)
+            {
+                armorchar2temp = 1;
+                amessage2temp = stringsetloc("Fine. On my shoulder.", "scr_armorinfo_slash_scr_armorinfo_gml_92_0");
+            }
+
             armorchar3temp = 1;
             armorchar4temp = 1;
             armorabilitytemp = stringsetloc("GrazeArea", "scr_armorinfo_slash_scr_armorinfo_gml_91_0");
@@ -128,6 +135,13 @@ function scr_armorinfo(arg0)
             armorgrazesizetemp = 0;
             armorchar1temp = 1;
             armorchar2temp = 0;
+            
+            if (global.flag[1404] > 0)
+            {
+                armorchar2temp = 1;
+                amessage2temp = stringsetloc("Cool. A fist wrap.", "scr_armorinfo_slash_scr_armorinfo_gml_120_0");
+            }
+
             armorchar3temp = 1;
             armorabilitytemp = stringsetloc("Cuteness", "scr_armorinfo_slash_scr_armorinfo_gml_118_0");
             armorabilityicontemp = 7;
@@ -240,6 +254,13 @@ function scr_armorinfo(arg0)
             armorgrazesizetemp = 20;
             armorchar1temp = 1;
             armorchar2temp = 0;
+
+            if (global.flag[1404] > 0)
+            {
+                armorchar2temp = 1;
+                amessage2temp = stringsetloc("NOT the hair though.", "scr_armorinfo_slash_scr_armorinfo_gml_234_0_b");
+            }
+
             armorchar3temp = 1;
             armorchar4temp = 1;
             armorabilitytemp = stringsetloc("GrazeArea", "scr_armorinfo_slash_scr_armorinfo_gml_225_0");
@@ -684,6 +705,13 @@ function scr_armorinfo(arg0)
             armorgrazesizetemp = 0;
             armorchar1temp = 1;
             armorchar2temp = 0;
+
+            if (global.flag[1404] > 0)
+            {
+                armorchar2temp = 1;
+                amessage2temp = stringsetloc("Hey, ONLY on the arm.", "scr_armorinfo_slash_scr_armorinfo_gml_682_0_b");
+            }
+
             armorchar3temp = 1;
             armorchar4temp = 1;
             armorabilitytemp = stringsetloc("Heal+", "scr_armorinfo_slash_scr_armorinfo_gml_676_0");
@@ -1027,6 +1055,13 @@ function scr_armorinfo(arg0)
             armorgrazesizetemp = 0;
             armorchar1temp = 1;
             armorchar2temp = 0;
+
+            if (global.flag[1404] > 0)
+            {
+                armorchar2temp = 1;
+                amessage2temp = stringsetloc("Kris, wear the gloves.", "scr_armorinfo_slash_scr_armorinfo_gml_1000_0");
+            }
+            
             armorchar3temp = 1;
             armorchar4temp = 1;
             armorabilitytemp = stringsetloc("Elegance", "scr_armorinfo_slash_scr_armorinfo_gml_782_0");

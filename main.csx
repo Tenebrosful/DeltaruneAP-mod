@@ -1,7 +1,7 @@
 #load "ump.csx"
-#load "rooms\room_loader.csx"
-#load "gameObjects\game_objects_loader.csx"
-#load "sounds\ImportSingleSound.csx"
+#load "rooms/room_loader.csx"
+#load "gameObjects/game_objects_loader.csx"
+#load "sounds/ImportSingleSound.csx"
 
 using ImageMagick;
 using System.Linq;
