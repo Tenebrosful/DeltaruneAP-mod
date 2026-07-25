@@ -140,7 +140,8 @@ global.custom_flags_indexes = {
     ch5_talked_about_gcomplist: 44,
     ch5_used_ycomplist: 45,
     ch5_used_gcomplist: 46,
-    ch5_unnecessary_evidence_gathered: 47
+    ch5_unnecessary_evidence_gathered: 47,
+    ch5_helped_final_orange: 48
 }
 
 for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)

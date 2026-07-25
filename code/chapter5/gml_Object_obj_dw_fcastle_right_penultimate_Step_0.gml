@@ -1,9 +1,9 @@
 /// PATCH
 
 /// APPEND
-if (con == 0 && obj_mainchara.y < 230 && !(global.maxhp[1] > 0 && global.maxhp[2] > 0 && global.maxhp[3] > 0))
+if (con == 0 && obj_mainchara.y < 190 && !(global.maxhp[1] > 0 && global.maxhp[2] > 0 && global.maxhp[3] > 0))
 {
-    obj_mainchara.y = 230;
+    obj_mainchara.y = 190;
     con = 1;
     global.interact = 1;
     scr_speaker("no_name");

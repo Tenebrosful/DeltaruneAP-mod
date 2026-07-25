@@ -417,7 +417,7 @@ if (con == 1.1)
     c_msgnextloc("* Yeah^1, I got bored./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
     c_facenext("seth", "0");
     c_msgnextloc("* Oh^1, forget it./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_msgnextloc("* Look^1, they are trying to end Asgore's dream./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+    c_msgnextloc("* Look^1, they are trying to get past us!/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
     c_msgnextloc("* We need to teach them a lesson!/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
     c_facenext("aqua", "0");
     c_msgnextloc("* Uuu^1, but I hate lessons..^1.&* School is so boring.../", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");

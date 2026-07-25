@@ -1,4 +1,4 @@
-/// IMPORT
+/// IMPORT .ignore if CHAPTER_5
 draw_self();
 
 if (secondnumber > 1 && !showcount)

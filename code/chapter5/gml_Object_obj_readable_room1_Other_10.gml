@@ -130,4 +130,66 @@ if (room == room_dw_fcastle_cafe)
         msgnextloc("* Doesn't sound too bad./%", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
     }
 }
+
+if (room == room_dw_fcastle_obscured_bullets)
+{
+    global.msc = 1500;
+    scr_text(global.msc);
+}
+
+if (room == room_dw_fcastle_final_save)
+{
+    scr_miniface_init_flowers();
+    
+    if (global.MacGuffin_count >= global.AP_macguffin_required[global.chapter - 1] && (global.flag[1846] >= 2 || !global.AP_secret_bosses_mandatory))
+    {
+        global.customflags[global.custom_flags_indexes.ch5_helped_final_orange] = 1;
+        sprite_index = spr_orange_surprised;
+        scr_speaker("ralsei");
+        msgsetloc(0, "* Orange^1, here's some lessons to do^1, erm.../", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+        msgnextloc("\\En* A \"Jarona.\"/", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+        scr_anyface_next("orange", 0);
+        msgnextloc("\\m2\t\t* What?^1! You guys got this^1... for me?/", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+        scr_msgfunc(function()
+        {
+            sprite_index = spr_orange_cry;
+        });
+        msgnextloc("\\m2\t\t* Thank you...^1!&\t\tThank you so much!!!/", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+        scr_msgfunc(function()
+        {
+            sprite_index = spr_enemy_orange_walk_left;
+        });
+        msgnextloc("\\m2\t\t* I'll practice this^1, and show you my awesome moves!/", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+        msgnextloc("\\m2\t\t* See you guys!/", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+    }
+    else
+    {
+        scr_speaker("orange");
+        msgsetloc(0, "\\m2\t\t* Sigh.../", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+        msgnextloc("\\m2\t\t* I'm supposed to be preparing&\t\tfor the final fight against&\t\tyou guys.../", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+        scr_anyface_next("susie", 1);
+        msgnextloc("\\E1* Then why aren't you?/", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+        
+        if (global.flag[1846] < 2 && global.AP_secret_bosses_mandatory)
+        {
+            scr_anyface_next("orange", 0);
+            msgnextloc("\\m2\t\t* Well^1, I haven't seen my big&\t\tsis in a while./", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+            msgnextloc("\\m2\t\t* You three will probably seal&\t\tthe fountain when you beat&\t\tus^1, so.../", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+            msgnextloc("\\m2\t\t* I just wanna be with her at&\t\tleast one more time before&\t\tthis dream ends./", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+            scr_anyface_next("ralsei", 7);
+            msgnextloc("\\E7* (Kris^1, I feel bad for making fun of Orange earlier...)/", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+            msgnextloc("\\E5* (Maybe we could help her find her sister first?)/%", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+        }
+        else if (global.MacGuffin_count < global.AP_macguffin_required[global.chapter - 1])
+        {
+            scr_anyface_next("orange", 0);
+            msgnextloc("\\m2\t\t* Well^1, Flowery asked me to&\t\tpractice doing Jarona./", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+            msgnextloc("\\m2\t\t* But..^1. I don't know how./", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+            msgnextloc("\\m2\t\t* You guys were right^1, maybe I&\t\tam just weak.../", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+            scr_anyface_next("ralsei", 7);
+            msgnextloc("\\E7* (Kris^1, I feel bad for making fun of Orange earlier...)/", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+            msgnextloc("\\E5* (Maybe we could find some \\cYJarona Lessons\\cW to help her learn?)/%", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+        }
+    }
+}
 ///END

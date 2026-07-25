@@ -94,3 +94,31 @@
                 msgnextloc("\\EK* (Maybe if you need to be healed 1 HP...)/%", "scr_text_slash_scr_text_gml_5185_0");
             }
 /// END
+
+/// BEFORE
+        case 5000:
+/// CODE
+        case 1500:
+            global.choicemsg[0] = stringset("#Return to#previous#room");
+            global.choicemsg[1] = stringset("#No");
+            global.choicemsg[2] = stringset(" ");
+            global.choicemsg[3] = stringset(" ");
+            msgset(0, "* You three need some help?/");
+            msgnext("\\C2 ");
+            break;
+        
+        case 1501:
+            if (global.choice == 0)
+            {
+                msgset(0, "* Let's head back./%");
+                
+                with (obj_readable_room1)
+                    myinteract = 6;
+            }
+            else
+            {
+                msgset(0, "%%");
+            }
+            
+            break;
+/// END

@@ -8,6 +8,13 @@ if (delaytimer < delay)
 delaytimer++;
 mercytimer++;
 
+if (typeb == 13)
+{
+    type = 13;
+    message = 13;
+    draw_set_color(aqcolor);
+}
+
 if (delaytimer == delay)
 {
     vspeed = -5 - random(2);
@@ -76,6 +83,9 @@ if (delaytimer >= delay)
     if (type == 5)
         draw_set_font(global.damagefontgold);
     
+    if (type == 17)
+        draw_set_font(global.damagefontpink);
+    
     if (hspeed > 0)
         hspeed -= 1;
     
@@ -106,12 +116,20 @@ if (delaytimer >= delay)
         draw_set_alpha(1 - kill);
         draw_set_halign(fa_right);
         
+        if (type == 17)
+        {
+            draw_text_transformed(x - 80, y - 20, damagemessage, 2 - stretch, stretch + kill, 0);
+            draw_sprite_ext(message_sprite, 15, x, y - 20, 2 - stretch, stretch + kill, 0, c_white, 1 - kill);
+        }
+        else
+        {
         if (spec == 0)
             draw_text_transformed(x + 30, y, damagemessage, 2 - stretch, stretch + kill, 0);
         
         if (spec == 1)
             draw_text_transformed(x + 30, y, damagemessage, 2 - stretch, stretch + kill, 90);
-        
+        }
+
         draw_set_halign(fa_left);
         draw_set_alpha(1);
     }
@@ -152,6 +170,9 @@ if (delaytimer >= delay)
         
         if (message == 14)
             draw_sprite_ext(message_sprite, 16, x + 30, y, 2 - stretch, stretch + kill, 0, aqcolor, 1 - kill);
+        
+        if (message == 99)
+            draw_sprite_ext(message_sprite, image_index, x + 30, y, 2 - stretch, stretch + kill, 0, image_blend, 1 - kill);
     }
     
     if (bounces < 2)
@@ -167,7 +188,9 @@ if (delaytimer >= delay)
     if (bounces >= 2 && killactive == 0)
     {
         vspeed = 0;
-        y = ystart;
+        
+        if (snapback)
+            y = ystart;
     }
     
     if (stretchgo == 1)
@@ -179,19 +202,28 @@ if (delaytimer >= delay)
         stretchgo = 0;
     }
     
-    killtimer += 1;
+    killtimer += killamount;
     
     if (killtimer > 35)
         killactive = 1;
     
     if (killactive == 1)
     {
-        kill += 0.08;
+        kill += (0.08 * killspeed);
         y -= 4;
     }
     
     if (kill > 1)
         instance_destroy();
+}
+
+if (reverse)
+{
+    if (damage == 0.1)
+        killamount = 1;
+    
+    damage = scr_approach(damage, 0.1, 1);
+    damagemessage = "+" + string(round(damage)) + "%";
 }
 
 if (global.fighting == 1)
@@ -202,3 +234,6 @@ if (global.fighting == 1)
             x = xx + 600;
     }
 }
+
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);

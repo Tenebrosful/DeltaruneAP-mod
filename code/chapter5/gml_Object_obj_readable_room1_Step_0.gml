@@ -45,4 +45,47 @@ if (con == 1 && !d_ex())
     }
 }
 
+if (myinteract == 6 && !d_ex())
+{
+    var fadecol = merge_color(image_blend, c_white, 0.9);
+    timer++;
+    musfade = 0;
+    var fadetime = 24;
+    
+    if (timer == 1)
+    {
+        snd_play(snd_ghostappear);
+        
+        if (musfade)
+            snd_volume(global.currentsong[1], 0, fadetime);
+        
+        fadeout = scr_marker_ext(camerax(), cameray(), spr_pxwhite, 640, 480, undefined, undefined, image_blend, -99, undefined, 0);
+        
+        with (fadeout)
+        {
+            scr_lerp_imageblend(id, image_blend, fadecol, fadetime, 4, "in");
+            image_alpha = 0;
+            scr_lerpvar("image_alpha", 0, 1, round(fadetime * 0.75), 2, "out");
+        }
+    }
+    
+    if (timer == (1 + fadetime))
+    {
+        if (musfade)
+        {
+            snd_free(global.currentsong[0]);
+            snd_stop_all();
+        }
+        
+        global.facing = 0;
+        
+        with (instance_create(0, 0, obj_persistentfadein))
+            image_blend = fadecol;
+        
+        global.interact = 3;
+        global.entrance = 0;
+        room_goto(room_dw_fcastle_foxhunt);
+    }
+}
+
 /// END
