@@ -332,7 +332,11 @@ function AP_complete_chapter(chapter_number)
             AP_sendLocation(225);
             break;
         case 5:
-            AP_sendLocation(345);
+            if (global.AP_weird_route)
+                AP_sendLocation(350);
+            else
+                AP_sendLocation(345);
+            
             break;
         default:
             break;
