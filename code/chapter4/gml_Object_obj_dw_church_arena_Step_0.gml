@@ -37,7 +37,11 @@ if (con == 150 && !d_ex())
 /// REPLACE
     c_msgsetloc(0, "* (You got the%%", "obj_dw_church_arena_slash_Step_0_gml_85_0");
 /// CODE
-    c_msgsetloc(0, "* (You sent a \\cYCheck\\cW%%", "obj_dw_church_arena_slash_Step_0_gml_85_0");
+    c_msgsetloc(0, string("* (You got {0}%%", AP_get_location_reward_text(206)), "obj_dw_church_arena_slash_Step_0_gml_85_0");
+    c_customfunc(function()
+    {
+        AP_sendHint(206);
+    });
 /// END
 
 /// REPLACE
@@ -54,13 +58,13 @@ if (con == 150 && !d_ex())
 /// REPLACE
     c_msgsetloc(0, "* (JusticeAxe was added to your WEAPONS.)/%", "obj_dw_church_arena_slash_Step_0_gml_1193_0");
 /// CODE
-    c_msgsetloc(0, "* (Susie got a Check.)/%", "obj_dw_church_arena_slash_Step_0_gml_1193_0");
+    c_msgsetloc(0, string("* (Susie got {0}.)/%", AP_get_location_reward_text(206)), "obj_dw_church_arena_slash_Step_0_gml_1193_0");
 /// END
 
 /// REPLACE
     c_msgnextloc("* (ShadowCrystal was added to your KEY ITEMS.)/%", "obj_dw_church_arena_slash_Step_0_gml_1250_0");
 /// CODE
-    c_msgnextloc("* (Susie got another Check.)/%", "obj_dw_church_arena_slash_Step_0_gml_1250_0");
+    c_msgnextloc(string("* (Susie got {0}.)/%", AP_get_location_reward_text(207)), "obj_dw_church_arena_slash_Step_0_gml_1250_0");
 /// END
 
 /// REPLACE
@@ -72,11 +76,13 @@ if (con == 150 && !d_ex())
     c_msgnextloc("\\EA* Suppose you wanna go send these off^1, Kris./", "obj_dw_church_arena_slash_Step_0_gml_1701_0");
     c_msgnextloc("\\ER* The axe is cool^1, sure^1, but I don't need it./", "obj_dw_church_arena_slash_Step_0_gml_1701_0");
     c_msgnextloc("\\ES* I've shown how cool I am by beating that guy^1, y'know?/", "obj_dw_church_arena_slash_Step_0_gml_1701_0");
-    c_msgnextloc("\\E2* Here you go./", "obj_dw_church_arena_slash_Step_0_gml_1701_0");
+    c_msgnextloc("\\E2* Here you go./%", "obj_dw_church_arena_slash_Step_0_gml_1701_0");
+    c_customfunc(function()
+    {
+        AP_sendLocation([206, 207]);
+    });
     c_facenext("no_name", 0);
-    AP_sendLocation([206, 207]);
-    c_msgnextloc(string("* (You got {0})/", AP_get_location_reward_text(206)), "obj_dw_church_arena_slash_Step_0_gml_1250_0");
-    c_msgnextloc(string("* (You got {0})/%", AP_get_location_reward_text(207)), "obj_dw_church_arena_slash_Step_0_gml_1250_0");
+    c_msgnextloc("* (You got Susie's checks)/%", "obj_dw_church_arena_slash_Step_0_gml_1250_0");
     c_talk_wait();
     global.customflags[global.custom_flags_indexes.gerson_fought] = true;
 /// END
