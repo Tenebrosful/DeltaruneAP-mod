@@ -330,6 +330,10 @@ function AP_complete_chapter(chapter_number)
             break;
         case 4:
             AP_sendLocation(225);
+            break;
+        case 5:
+            AP_sendLocation(345);
+            break;
         default:
             break;
     }
@@ -387,7 +391,7 @@ function AP_item_classification_color_text(text, flags)
         case 0: 
             return string("\\s0\\cf{0}\\c0^2", text);
         case 1: 
-            return string("\\s0\\cp{0}\\c0^2", text);
+            return string("\\s0\\cv{0}\\c0^2", text);
         case 2:
             return string("\\s0\\cu{0}\\c0^2", text);
         case 3:

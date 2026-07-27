@@ -2,7 +2,6 @@
 if (!init)
 {
     init = true;
-    var orangenpc = orange;
     
     with (obj_shortcut_door)
         reflect_jump_y = -6;
@@ -10,9 +9,14 @@ if (!init)
     with (obj_castlereflect_manager)
         add_reflection(1203);
     
-    with (orangenpc)
-        reflect_jump_y = -6;
-    
-    with (obj_castlereflect_manager)
-        add_reflection(orangenpc);
+    if (i_ex(orange))
+    {
+        var orangenpc = orange;
+        
+        with (orangenpc)
+            reflect_jump_y = -6;
+        
+        with (obj_castlereflect_manager)
+            add_reflection(orangenpc);
+    }
 }

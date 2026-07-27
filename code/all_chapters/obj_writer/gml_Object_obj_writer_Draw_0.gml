@@ -64,6 +64,7 @@
 /// CODE
 
             if (nextchar2 == "f") // lower because we think about the future (future colors in future chapters)
+                                  // So that was a lie ^^^^
                 xcolor = rgb_to_bgr(hex_to_dec(global.AP_colors.filler))
             
             if (nextchar2 == "u")
@@ -72,7 +73,7 @@
             if (nextchar2 == "g")
                 xcolor = rgb_to_bgr(hex_to_dec(global.AP_colors.useful_progression))
             
-            if (nextchar2 == "p")
+            if (nextchar2 == "v")
                 xcolor = rgb_to_bgr(hex_to_dec(global.AP_colors.progression))
             
             if (nextchar2 == "t")

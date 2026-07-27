@@ -2,7 +2,10 @@
 if (delaytimer < delay)
 {
     with (obj_dmgwriter)
-        killtimer = 0;
+    {
+        if (!noextend)
+            killtimer = 0;
+    }
 }
 
 delaytimer++;
@@ -18,7 +21,7 @@ if (typeb == 13)
 if (delaytimer == delay)
 {
     vspeed = -5 - random(2);
-    hspeed = 10;
+    hspeed = (10 + slidespeedx) * hdir;
     vstart = vspeed;
     flip = 90;
 }
@@ -53,6 +56,17 @@ if (delaytimer >= delay)
     
     message = specialmessage;
     
+    if (typeb == 3)
+        message = 3;
+    
+    if (global.chapter == 5 && i_ex(obj_pink_enemy))
+    {
+    }
+    else if (damage == 0 && !showzeroes)
+    {
+        message = 1;
+    }
+    
     if (damage == 0)
         message = 1;
     
@@ -86,14 +100,14 @@ if (delaytimer >= delay)
     if (type == 17)
         draw_set_font(global.damagefontpink);
     
-    if (hspeed > 0)
+    if (hspeed > slidespeedx)
         hspeed -= 1;
     
-    if (hspeed < 0)
+    if (hspeed < slidespeedx)
         hspeed += 1;
     
-    if (abs(hspeed) < 1)
-        hspeed = 0;
+    if (abs(hspeed - slidespeedx) < 1)
+        hspeed = slidespeedx;
     
     if (nohbounce)
         hspeed = 0;
@@ -119,7 +133,7 @@ if (delaytimer >= delay)
         if (type == 17)
         {
             draw_text_transformed(x - 80, y - 20, damagemessage, 2 - stretch, stretch + kill, 0);
-            draw_sprite_ext(message_sprite, 15, x, y - 20, 2 - stretch, stretch + kill, 0, c_white, 1 - kill);
+            draw_sprite_ext(message_sprite, 17, x, y - 20, 2 - stretch, stretch + kill, 0, c_white, 1 - kill);
         }
         else
         {
