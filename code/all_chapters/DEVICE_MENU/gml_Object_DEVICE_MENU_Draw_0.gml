@@ -25,13 +25,13 @@
 /// REPLACE
 draw_text_shadow(__view_get(e__VW.XView, 0) + 8, __view_get(e__VW.YView, 0) + 4, "CHAPTER 1");
 /// CODE
-draw_text_shadow(__view_get(e__VW.XView, 0) + 8, __view_get(e__VW.YView, 0) + 4, "CHAPTER " + string(global.chapter) + " (Current Route: " + + AP_resolve_route_name(global.AP_route) + ")");
+draw_text_shadow(__view_get(e__VW.XView, 0) + 8, __view_get(e__VW.YView, 0) + 4, "CHAPTER " + string(global.chapter) + " (Current Route: " + + AP_resolve_route_name(global.AP_current_route) + ")");
 /// END
 #else
 /// REPLACE
 draw_text_shadow(camerax() + 8, cameray() + 4, "CHAPTER " + string(global.chapter));
 /// CODE
-draw_text_shadow(camerax() + 8, cameray() + 4, "CHAPTER " + string(global.chapter) + " (Current Route: " + + AP_resolve_route_name(global.AP_route) + ")");
+draw_text_shadow(camerax() + 8, cameray() + 4, "CHAPTER " + string(global.chapter) + " (Current Route: " + + AP_resolve_route_name(global.AP_current_route) + ")");
 /// END
 #endif
 
