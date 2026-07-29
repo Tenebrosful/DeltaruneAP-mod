@@ -41,4 +41,4 @@ stayincamera = 1;
 xx = camerax();
 typeb = 0;
 creatorid = -1;
-message_sprite = scr_84_get_sprite("spr_battlemsg");
+message_sprite = spr_battlemsg;

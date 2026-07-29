@@ -13,7 +13,7 @@ if (unlocked == false)
         }
         else if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS && !AP_all_recruits_acquired())
         {
-            msgsetloc(0, "* The lack of friendship make it impossible to open./", "obj_mansion_keygen_lock_slash_Other_10_gml_5_0");
+            msgsetloc(0, "* The lack of friendship is making it impossible to open./", "obj_mansion_keygen_lock_slash_Other_10_gml_5_0");
             msgnextloc("* Looks like you are missing recruits./%");
             myinteract = 3;
         }

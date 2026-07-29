@@ -147,7 +147,7 @@ if (room == room_dw_fcastle_final_save)
     scr_anyface_next("susie", 1);
     msgnextloc("\\E1* Then why aren't you?/", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
     
-    if (global.MacGuffin_count >= global.AP_macguffin_required[global.chapter - 1] && (global.flag[1846] >= 2 || !global.AP_secret_bosses_mandatory) && (global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS || (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS && AP_all_recruits_acquired())))
+    if (global.MacGuffin_count >= global.AP_macguffin_required[global.chapter - 1] && (global.flag[1846] >= 2 || !global.AP_secret_bosses_mandatory))
     {
         scr_anyface_next("orange", 0);
         msgnextloc("\\m2\t\t* Well^1, Flowery asked me to&\t\tpractice doing Jarona./", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
@@ -197,13 +197,6 @@ if (room == room_dw_fcastle_final_save)
         scr_anyface_next("ralsei", 7);
         msgnextloc("\\E7* (Kris^1, I feel bad for making fun of Orange earlier...)/", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
         msgnextloc("\\E5* (Maybe we could find some \\cYJarona Lessons\\cW to help her learn?)/%", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
-    }
-    else if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS && !AP_all_recruits_acquired())
-    {
-        scr_anyface_next("orange", 0);
-        msgnextloc("\\m2\t\t* Tenebrosful have no idea what to write./", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
-        msgnextloc("\\m2\t\t* If you see that, that's because theemeraldsword85 didn't changed it./", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
-        msgnextloc("\\m2\t\t* But for short, you need all recruits./%", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
     }
 }
 ///END
