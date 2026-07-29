@@ -16,10 +16,18 @@ function scr_defeatrun()
             _rtext = instance_create(global.monsterx[myself], global.monstery[myself] - 40, obj_recruitanim);
             _rtext.image_index = 12;
             
-            if (recruitable == 1)
-                global.flag[global.monstertype[myself] + 600] = -1;
-            
             AP_sendLocation(_checkid + 1000);
+
+            if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS && global.flag[global.monstertype[myself] + 600] != 1)
+            {
+                scr_gameover()
+            }
+
+            if (recruitable == 1 && global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS)
+            {
+                global.flag[global.monstertype[myself] + 600] = -1;
+            }
+            
             global.flag[63] = 1;
         }
         
@@ -27,19 +35,24 @@ function scr_defeatrun()
         {
             AP_sendLocation(_checkid + 1000);
             global.flag[63] = 1;
+
+            if (global.chapter == 4 && i_ex(obj_titan_spawn_enemy))
+            {
+            }
+            else
+            {
+                _rtext = instance_create(global.monsterx[myself], global.monstery[myself] - 40, obj_recruitanim);
+                _rtext.image_index = 7;
+            }
+
+            if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS && global.flag[global.monstertype[myself] + 600] != 1)
+            {
+                scr_gameover()
+            }
             
-            if (global.flag[global.monstertype[myself] + 600] != -1)
+            if (global.flag[global.monstertype[myself] + 600] != -1 && global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS)
             {
                 global.flag[global.monstertype[myself] + 600] = -1;
-                
-                if (global.chapter == 4 && i_ex(obj_titan_spawn_enemy))
-                {
-                }
-                else
-                {
-                    _rtext = instance_create(global.monsterx[myself], global.monstery[myself] - 40, obj_recruitanim);
-                    _rtext.image_index = 7;
-                }
             }
         }
     }
