@@ -1,6 +1,38 @@
 /// PATCH
 
 /// REPLACE
+        case 1312:
+            global.choicemsg[0] = stringsetloc("#Cheater", "scr_text_slash_scr_text_gml_8769_0");
+            global.choicemsg[1] = stringsetloc("#Not Really", "scr_text_slash_scr_text_gml_8770_0");
+            global.choicemsg[2] = stringset("");
+            global.choicemsg[3] = stringset("");
+            scr_speaker("zapper");
+            msgsetloc(0, "* You's a cheater^1, ain't ya./", "scr_text_slash_scr_text_gml_8774_0");
+            msgnext("\\C2");
+            break;
+/// CODE
+        case 1312:
+            global.choicemsg[0] = stringsetloc("#Cheater", "scr_text_slash_scr_text_gml_8769_0");
+            global.choicemsg[1] = stringsetloc("#Not Really", "scr_text_slash_scr_text_gml_8770_0");
+            global.choicemsg[2] = stringset("");
+            global.choicemsg[3] = stringset("");
+            scr_speaker("zapper");
+            if (scr_enemylostcheck("zapper"))
+            {
+                msgsetloc(0, "* \\s0................/", "scr_text_slash_scr_text_gml_8774_0");
+                msgsetloc(1, "* \\s0I know what you did.^1 You're lucky that I'm forced by HIM./", "scr_text_slash_scr_text_gml_8774_0");
+                msgsetloc(2, "* \\s0Well, here we go with the standard stuff./", "scr_text_slash_scr_text_gml_8774_0");
+                msgsetloc(3, "* You's a cheater^1, ain't ya./", "scr_text_slash_scr_text_gml_8774_0");
+            }
+            else
+            {
+                msgsetloc(0, "* You's a cheater^1, ain't ya./", "scr_text_slash_scr_text_gml_8774_0");
+            }
+            msgnext("\\C2");
+            break;
+/// END
+
+/// REPLACE
         case 1296:
             global.choicemsg[0] = stringsetloc("#Sleep", "scr_text_slash_scr_text_gml_8482_0");
             global.choicemsg[1] = stringsetloc("#Do not", "scr_text_slash_scr_text_gml_8483_0");
