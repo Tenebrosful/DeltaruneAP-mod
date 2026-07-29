@@ -195,7 +195,7 @@ function AP_fill_progressive_weapon_struct()
         if (global.AP_include_chapters[4])
             array_push(global.AP_progressive_weapons_ids.kris, 33); // AquaKnife
 
-        if (global.AP_include_chapters[1] && global.AP_include_unused_items >= 1 && (global.AP_ENUM_CHOSEN_ROUTE == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE || global.AP_ENUM_CHOSEN_ROUTE == global.AP_ENUM_CHOSEN_ROUTE.ALL_ROUTES))
+        if (global.AP_include_chapters[1] && global.AP_include_unused_items >= 1 && (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE || global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.ALL_ROUTES))
             array_push(global.AP_progressive_weapons_ids.kris, 11); // TwistedSwd
 
         if (global.AP_include_chapters[2])
@@ -276,13 +276,13 @@ function AP_fill_progressive_weapon_struct()
     {
         global.AP_progressive_weapons_ids.noelle = [];
 
-        if (global.AP_include_chapters[1] && (global.AP_weird_route || global.AP_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_ROUTES))
+        if (global.AP_include_chapters[1] && (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE || global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.ALL_ROUTES))
             array_push(global.AP_progressive_weapons_ids.noelle, 22); // FreezeRing
 
         if (global.AP_include_unused_items == 1 && global.AP_include_chapters[4])
             array_push(global.AP_progressive_weapons_ids.noelle, 36); // GildedRose
 
-        if (global.AP_include_chapters[1] && (global.AP_weird_route || global.AP_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_ROUTES))
+        if (global.AP_include_chapters[1] && (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE || global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.ALL_ROUTES))
             array_push(global.AP_progressive_weapons_ids.noelle, 13); // Thornring
 
         if (global.AP_include_unused_items == 1)
