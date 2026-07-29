@@ -82,10 +82,15 @@ if (ds_map_exists(async_load, "buffer"))
 
                     if (variable_struct_exists(data[i].slot_data.options, "chosen_route"))
                     {
-                        global.AP_weird_route = data[i].slot_data.options.chosen_route == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE;
-                        global.AP_all_recruits = data[i].slot_data.options.chosen_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS;
-                        global.AP_current_route = data[i].slot_data.options.chosen_route;
                         global.AP_route_from_settings = data[i].slot_data.options.chosen_route;
+                        if (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.BOTH_ROUTES)
+                        {
+                            global.AP_current_route = global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS;
+                        }
+                        else
+                        {
+                            global.AP_current_route = data[i].slot_data.options.chosen_route;
+                        }
                     }
                     if (variable_struct_exists(data[i].slot_data.options, "randomize_mantle"))
                         global.AP_no_mantle = data[i].slot_data.options.randomize_mantle == 2;

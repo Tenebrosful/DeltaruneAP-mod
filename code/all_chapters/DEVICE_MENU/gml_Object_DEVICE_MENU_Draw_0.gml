@@ -32,6 +32,21 @@ draw_text_shadow(__view_get(e__VW.XView, 0) + 8, __view_get(e__VW.YView, 0) + 4,
 draw_text_shadow(camerax() + 8, cameray() + 4, "CHAPTER " + string(global.chapter));
 /// CODE
 draw_text_shadow(camerax() + 8, cameray() + 4, "CHAPTER " + string(global.chapter) + " (Current Route: " + + AP_resolve_route_name(global.AP_current_route) + ")");
+if (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.BOTH_ROUTES && (global.chapter == 2 || global.chapter == 5))
+{
+    change_route = ""
+
+    if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS)
+    {
+            change_route = AP_resolve_route_name(global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE)
+    }
+    else
+    {
+            change_route = AP_resolve_route_name(global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS)
+    }
+
+    draw_text_shadow(camerax() + 8, cameray() + 4, "Press K to change to " + change_route)
+}
 /// END
 #endif
 

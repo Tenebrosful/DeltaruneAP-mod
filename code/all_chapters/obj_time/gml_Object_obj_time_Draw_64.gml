@@ -18,6 +18,8 @@ if (scr_debug())
     
   if (variable_global_exists("AP_item_got_in_current_chapter"))
       draw_text(5, 45, "Received items: " + string(global.AP_item_got_in_current_chapter));
+
+  draw_text(5, 55, "Current Route: " + AP_resolve_route_name(global.AP_current_route))
 }
 
 // if (global.interact != 0)

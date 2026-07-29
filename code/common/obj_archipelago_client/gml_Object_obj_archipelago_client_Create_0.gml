@@ -9,7 +9,7 @@ global.AP_ENUM_CHOSEN_ROUTE = {
     UNKNOWN: -1,
     ALL_RECRUITS: 0,
     WEIRD_ROUTE: 1,
-    ALL_ROUTES: 2,
+    BOTH_ROUTES: 2,
     NEUTRAL_ROUTE: 3
 }
 

@@ -17,3 +17,20 @@
                 iniwrite = ossafe_ini_open(AP_get_save_folder_prefix() + "dr.ini");
 /// END
 #endif
+
+/// APPEND
+if (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.BOTH_ROUTES && (global.chapter == 2 || global.chapter == 5))
+{
+  if (keyboard_check_pressed(ord("K")))
+  {
+    if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS)
+    {
+      global.AP_current_route = global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE
+    }
+    else
+    {
+      global.AP_current_route = global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS
+    }
+  }
+}
+/// END
