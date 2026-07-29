@@ -10,6 +10,7 @@ extratext = 0;
 extraevent = 0;
 tempchest = false;
 needsitem = false;
+t_itemid = 0;
 
 if (scr_debug())
 {
