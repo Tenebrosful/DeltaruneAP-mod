@@ -86,6 +86,11 @@ if (room == room_cc_6f && y < 170)
         global.msg[0] = "* (A chaotic energy is keeping this door locked.)/";
         global.msg[1] = "* (It seems the energy originates from \\cYthe lowest floor of the castle\\cW...)/%";
     }
+    else if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS && !AP_all_recruits_acquired())
+    {
+        global.msg[0] = "* (The lack of friendship is keeping this door locked.)/";
+        global.msg[1] = "* (It seems you are missing recruits...)/%"
+    }
 }
 
 /// END
