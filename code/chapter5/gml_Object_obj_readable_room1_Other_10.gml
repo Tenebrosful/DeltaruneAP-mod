@@ -202,7 +202,8 @@ if (room == room_dw_fcastle_final_save)
     {
         scr_anyface_next("orange", 0);
         msgnextloc("\\m2\t\t* Tenebrosful have no idea what to write./", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
-        msgnextloc("\\m2\t\t* If you see that, that's because theemeraldsword85 didn't changed it./%", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+        msgnextloc("\\m2\t\t* If you see that, that's because theemeraldsword85 didn't changed it./", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
+        msgnextloc("\\m2\t\t* But for short, you need all recruits./%", "obj_readable_room1_slash_Other_10_gml_1324_0_b");
     }
 }
 ///END
