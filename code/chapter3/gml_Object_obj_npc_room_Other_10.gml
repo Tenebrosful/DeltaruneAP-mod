@@ -95,6 +95,14 @@ if (room == room_dw_teevie_intro)
             msgnextloc("* Apparently youse got to do something \\cYin the S-Rank room\\cW before going out there./", "obj_npc_room_slash_Other_10_gml_1652_0");
             msgnextloc("* Not exactly sure what^1. He kept it pretty secretive^1. He said you'd know^1, though./%", "obj_npc_room_slash_Other_10_gml_1652_0");
         }
+        else if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS && !AP_all_recruits_acquired())
+        {
+            scr_speaker("no_name");
+            msgsetloc(0, "* Hey^1! Youse the lightners!/", "obj_npc_room_slash_Other_10_gml_1651_0");
+            msgnextloc("* I suppose you's off to seal the fountain?/", "obj_npc_room_slash_Other_10_gml_1652_0");
+            msgnextloc("* Well^1, before yah do that^1, can you check the employee list?/", "obj_npc_room_slash_Other_10_gml_1652_0");
+            msgnextloc("* You need to complete it before./%", "obj_npc_room_slash_Other_10_gml_1652_0");
+        }
         else
         {
             if (global.customflags[global.custom_flags_indexes.remote_battery_used])

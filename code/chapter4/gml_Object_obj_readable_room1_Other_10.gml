@@ -27,6 +27,11 @@ if (room == room_dw_churchc_savepoint)
         msgsetloc(0, "\\EA* Hey Kris, remember that one legendary axe?/", "obj_readable_room1_slash_Other_10_gml_4885_0");
         msgnextloc("\\EA* We should get it. That looked really cool./%", "obj_readable_room1_slash_Other_10_gml_4885_0")
     }
+    else if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS && !AP_all_recruits_acquired())
+    {
+        msgsetloc(0, "* (The door feels like they want you to have friends.)/", "obj_readable_room1_slash_Other_10_gml_4885_0");
+        msgnextloc("* (You need to recruit all enemies.)/%", "obj_readable_room1_slash_Other_10_gml_4886_0");
+    }
     else
     {
         msgsetloc(0, "* (The door seems to be locked with a combination lock.)/", "obj_readable_room1_slash_Other_10_gml_4885_0");

@@ -238,6 +238,12 @@ if (ds_map_exists(async_load, "buffer"))
                                     }
                                     array_push(global.AP_item_got_in_current_chapter, 32);
                                 }
+
+                                if (data[i].items[ii].item == 10024 || data[i].items[ii].item == 10033)
+                                {
+                                    var bromide = instance_create(0, 0, obj_dw_bromide);
+                                    bromide.use_item(data[i].items[ii].item - 10000);
+                                }
                             }
                         }
                     }

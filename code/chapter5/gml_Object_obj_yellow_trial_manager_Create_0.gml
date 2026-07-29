@@ -17,6 +17,28 @@
 
 /// REPLACE
             with (instance_create(obj_trial_perp.x - 60, obj_trial_perp.y - 170, obj_bulletparent))
+            {
+                timer = 0;
+                timer2 = 0;
+                depth = -550;
 /// CODE
             with (instance_create(obj_trial_perp.x - 83, obj_trial_perp.y - 193, obj_bulletparent))
+            {
+                timer = 0;
+                timer2 = 0;
+                depth = -550;
+/// END
+
+/// REPLACE
+            with (instance_create(obj_trial_perp.x - 60, obj_trial_perp.y - 170, obj_bulletparent))
+            {
+                timer = 0;
+                timer2 = 0;
+                depth = -549;
+/// CODE
+            with (instance_create(obj_trial_perp.x - 83, obj_trial_perp.y - 193, obj_bulletparent))
+            {
+                timer = 0;
+                timer2 = 0;
+                depth = -549;
 /// END

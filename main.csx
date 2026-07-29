@@ -129,8 +129,10 @@ void BuildMod(int chapter)
     {
         ReplacePageItemTexture(Data.Sprites.ByName("bg_myroom_dark").Textures[0].Texture.Name.Content, "kris_room_dark.png");
         ReplacePageItemTexture(Data.Sprites.ByName("bg_myroom").Textures[0].Texture.Name.Content, "kris_room.png");
+        Load_audio(Path.Combine(scriptPath, "sounds/snd_flowery_bromide_r.wav"));
+        Load_audio(Path.Combine(scriptPath, "sounds/snd_flowery_bromide_f.wav"));
     }
-    
+
     if (chapter == 1)
     {
         Load_audio(Path.Combine(scriptPath, "sounds/snd_dtrans_lw.ogg"));
@@ -139,6 +141,7 @@ void BuildMod(int chapter)
         Load_audio(Path.Combine(scriptPath, "sounds/snd_cd_bagel_susie.wav"));
         Load_audio(Path.Combine(scriptPath, "sounds/snd_cd_bagel_ralsei.wav"));
     }
+    
 
     // Import fnt_main from Chapter 1 into other chapters because for some reason the text acts really strange otherwise.
     // For example, the m/M and w/W letters on the board are shifted down-right IF you enter from Chapter Select and you're not on fullscreen.
