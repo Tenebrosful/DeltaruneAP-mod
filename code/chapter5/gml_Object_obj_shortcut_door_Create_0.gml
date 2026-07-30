@@ -64,17 +64,13 @@ if (room == room_dw_fcastle_foyer)
 
 if (room == room_dw_fcastle_blueroom)
 {
-    if (global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] < 7)
-        global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 7;
-    
+    scr_flag_set_ext(1878, 4, 1);
     AP_sendLocation(318);
 }
 
 if (room == room_dw_fcastle_right_puzzle)
 {
-    if (global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] < 8)
-        global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 8;
-    
+    scr_flag_set_ext(1878, 5, 1);
     AP_sendLocation(328);
 }
 
