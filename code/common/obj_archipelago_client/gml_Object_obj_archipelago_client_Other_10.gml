@@ -170,6 +170,12 @@ function AP_sendLocation(ids)
 function AP_completeChapter(chapter_number)
 {
     chapter = {}
+
+    if ((chapter_number == 2 || chapter_number == 5) && global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE)
+    {
+        chapter_number = string(chapter_number) + "-wr"
+    }
+
     variable_struct_set(chapter, chapter_number, true)
     AP_setDataStorage("completed_chapters", chapter, "update", true)
 }
@@ -243,7 +249,28 @@ function AP_initializeChapterCompletion()
     for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
     {
         if (global.AP_include_chapters[chapter - 1])
-            variable_struct_set(completed_chapters, chapter, false);
+        {
+            if (chapter == 2 || chapter == 5)
+            {
+                if (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE)
+                {
+                    variable_struct_set(completed_chapters, string(chapter) + "-wr", false);
+                }
+                else if (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.BOTH_ROUTES)
+                {
+                    variable_struct_set(completed_chapters, chapter, false);
+                    variable_struct_set(completed_chapters, string(chapter) + "-wr", false);
+                }
+                else
+                {
+                    variable_struct_set(completed_chapters, chapter, false);
+                }
+            }
+            else
+            {
+                variable_struct_set(completed_chapters, chapter, false);
+            }
+        }
     }
 
     AP_setDataStorage("completed_chapters",,"default", true, completed_chapters)
@@ -555,14 +582,16 @@ function AP_handle_retreived_completed_chapters(completed_chapters)
 {
     is_all_chapters_completed = true;
 
-    for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
-    {
-        if (variable_struct_exists(completed_chapters, chapter))
-        {
-            global.AP_completed_chapters[chapter - 1] = variable_struct_get(completed_chapters, chapter);
+    keys = variable_struct_get_names(completed_chapters)
 
-            if (global.AP_include_chapters[chapter - 1] && !variable_struct_get(completed_chapters, chapter))
-                is_all_chapters_completed = false;
+    for (var i = 0; i < array_length(keys); i++)
+    {
+        done = variable_struct_get(completed_chapters, keys[i])
+
+        if (!done)
+        {
+            is_all_chapters_completed = false;
+            break;
         }
     }
 
