@@ -16,7 +16,7 @@ function AP_all_recruits_acquired()
     case 2:
       return global.flag[633] // Werewire
       && global.flag[632] // Tasque
-      && global.flag[606] // Virovirokun
+      && global.flag[635] // Virovirokun
       && global.flag[631] // Poppup
       && global.flag[630] // Ambyu-Lance
       && global.flag[634] // Maus

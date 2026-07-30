@@ -233,9 +233,6 @@ function scr_speaker(arg0)
         global.typer = 86;
     }
     
-    if (_speaker == "tenna")
-        global.typer = 84;
-    
     if (_speaker == "jackenstein")
         global.typer = 83;
     
