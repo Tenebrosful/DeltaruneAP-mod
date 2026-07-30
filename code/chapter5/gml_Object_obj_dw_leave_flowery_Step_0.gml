@@ -80,11 +80,11 @@
     with (su_actor)
         instance_destroy();
     
-    if (global.flag[1358] > 1)
+    if (global.flag[1358] > 0)
     {
         scr_speaker("susie");
         msgsetloc(0, "\\E6* ...?/", "obj_dw_leave_flowery_slash_Step_0_gml_127_0");
-        msgnextloc("\\EA* Oh yeah^1, if we gotta^1, we can use this to get back to Castle Town./%", "obj_dw_leave_flowery_slash_Step_0_gml_127_0");
+        msgnextloc("\\s0\\EA* Oh yeah^1, if we gotta^1, \\cYwe can use this to get back to Castle Town\\cW./%", "obj_dw_leave_flowery_slash_Step_0_gml_127_0");
         global.customflags[global.custom_flags_indexes.discovered_ch5_leave_dw] = 1;
         d_make();
     }
