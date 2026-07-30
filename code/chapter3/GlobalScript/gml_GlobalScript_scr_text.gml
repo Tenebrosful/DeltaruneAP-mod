@@ -12,13 +12,14 @@
             break;
 /// CODE
         case 1312:
-            global.choicemsg[0] = stringsetloc("#I'm a#Cheater", "scr_text_slash_scr_text_gml_8769_0");
+            global.choicemsg[0] = stringsetloc("#Cheater", "scr_text_slash_scr_text_gml_8769_0");
             global.choicemsg[1] = stringsetloc("#Not Really", "scr_text_slash_scr_text_gml_8770_0");
             global.choicemsg[2] = stringset("");
             global.choicemsg[3] = stringset("");
             scr_speaker("zapper");
             if (scr_enemylostcheck("zapper"))
             {
+                global.choicemsg[0] = stringsetloc("#Yeah I#Cheat", "scr_text_slash_scr_text_gml_8769_0");
                 msgsetloc(0, "\\s0* .../", "scr_text_slash_scr_text_gml_8774_0");
                 msgsetloc(1, "\\s0* Hey^1. I knows what you did./", "scr_text_slash_scr_text_gml_8774_0");
                 msgsetloc(2, "\\s0* You's the people who beat up my friend./", "scr_text_slash_scr_text_gml_8774_0");
