@@ -13,9 +13,9 @@ UndertaleModLib.Compiler.CodeImportGroup importGroup = new(Data);
 class ArchipelagoLoader : UMPLoader
 {
 
-    public readonly string version = "v2.0.6";
+    public readonly string version = "v2.1.0-beta1";
 
-    public readonly string[] client_version = ["2", "0", "6"];
+    public readonly string[] client_version = ["2", "1", "0"];
 
     public readonly string max_armor = "100";
 
@@ -129,8 +129,12 @@ void BuildMod(int chapter)
     {
         ReplacePageItemTexture(Data.Sprites.ByName("bg_myroom_dark").Textures[0].Texture.Name.Content, "kris_room_dark.png");
         ReplacePageItemTexture(Data.Sprites.ByName("bg_myroom").Textures[0].Texture.Name.Content, "kris_room.png");
-        Load_audio(Path.Combine(scriptPath, "sounds/snd_flowery_bromide_r.wav"));
-        Load_audio(Path.Combine(scriptPath, "sounds/snd_flowery_bromide_f.wav"));
+
+        if (chapter != 5)
+        {
+            Load_audio(Path.Combine(scriptPath, "sounds/snd_flowery_bromide_r.wav"));
+            Load_audio(Path.Combine(scriptPath, "sounds/snd_flowery_bromide_f.wav"));
+        }
     }
 
     if (chapter == 1)
