@@ -79,12 +79,12 @@ function AP_get_recruits()
         
         if (global.chapter >= 3)
         {
-            global.flag[630] = 0;
-            global.flag[631] = 0;
-            global.flag[632] = 0;
-            global.flag[643] = 0;
-            global.flag[634] = 0;
-            global.flag[635] = 0;
+            global.flag[630] = -1;
+            global.flag[631] = -1;
+            global.flag[632] = -1;
+            global.flag[633] = -1;
+            global.flag[634] = -1;
+            global.flag[635] = -1;
             global.flag[636] = 0;
             global.flag[640] = 0;
             global.flag[642] = 0;
@@ -93,12 +93,12 @@ function AP_get_recruits()
         
         if (global.chapter >= 4)
         {
-            global.flag[654] = 0;
+            global.flag[654] = 1;
             global.flag[655] = 0;
-            global.flag[656] = 0;
+            global.flag[656] = 1;
             global.flag[657] = 0;
             global.flag[658] = 0;
-            global.flag[659] = 0;
+            global.flag[659] = 1;
         }
         
         if (global.chapter >= 5)
