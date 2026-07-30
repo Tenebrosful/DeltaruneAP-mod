@@ -22,17 +22,17 @@ if (scr_debug())
   draw_text(5, 55, "Current Route: " + AP_resolve_route_name(global.AP_current_route))
 }
 
-// if (global.interact != 0)
-// {
-//     ww = camera_get_view_width(view_camera[0]);
+if (global.interact != 0)
+{
+    ww = camera_get_view_width(view_camera[0]);
     
-//     if (global.darkzone)
-//         ww = ww / 2;
+    if (global.darkzone)
+        ww = ww / 2;
     
-//     draw_set_font(fnt_tinynoelle);
-//     draw_set_color(c_white);
-//     draw_set_halign(fa_center);
-//     draw_text(ww - 10, 0, "Stuck ? Press U and report the bug");
-//     draw_set_halign(fa_left);
-// }
+    draw_set_font(fnt_tinynoelle);
+    draw_set_color(c_white);
+    draw_set_halign(fa_center);
+    draw_text(ww - 10, 0, "BETA VERSION ! Stuck ? Press U and report the bug");
+    draw_set_halign(fa_left);
+}
 /// END
