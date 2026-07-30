@@ -10,6 +10,9 @@ global.AP_current_room = room_get_name(room);
 
 if (global.AP_old_room != global.AP_current_room)
     AP_update_current_room(global.AP_current_room)
+
+if (keyboard_check_pressed(ord("U")))
+        global.interact = 0
 /// END
 
 #if CHAPTER_2
@@ -31,9 +34,6 @@ if (scr_debug())
         else
             room_speed = 30;
     }
-
-    if (keyboard_check_pressed(ord("U")))
-        global.interact = 0
 }
 /// END
 #endif
