@@ -14,7 +14,7 @@
     c_facenext("seth", 0);
     c_msgnextloc("* Because..^1. it'll let them get to the next area!/", "obj_dw_garden_aqua_slash_Step_0_gml_189_0");
 /// CODE
-    c_msgsetloc(0, "* You hear me^1? Make sure they don't get past here and find that {0}./", string(apdata.itemName), "obj_dw_garden_aqua_slash_Step_0_gml_185_0");
+    c_msgsetloc(0, string("* You hear me^1? Make sure they don't get past here and find that {0}./", string(apdata.itemName)), "obj_dw_garden_aqua_slash_Step_0_gml_185_0");
     c_facenext("no_name", 0);
     c_msgnextloc("* Why?/", "obj_dw_garden_aqua_slash_Step_0_gml_187_0");
     c_facenext("seth", 0);

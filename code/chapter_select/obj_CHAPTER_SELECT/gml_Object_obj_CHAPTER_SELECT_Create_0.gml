@@ -63,9 +63,6 @@ create_error_screen = function()
     var start_screen = instance_create(0, 0, obj_screen_start);
     start_screen.init(id, error_text);
     start_screen.fade_in();
-    
-    with (obj_archipelago_client)
-        AP_goal();
 };
 
 detect_no_chapters = function()
