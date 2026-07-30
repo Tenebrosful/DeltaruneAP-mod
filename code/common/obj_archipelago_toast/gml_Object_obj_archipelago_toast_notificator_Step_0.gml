@@ -12,12 +12,13 @@ for (i = 0; i < array_length(current_notification) && i < 6; i++)
 	}
 }
 
-for (i = 0; i < array_length(indexesToRemove); i++)
+for (i = array_length(indexesToRemove) - 1; i >= 0; i--)
 {
 	array_delete(current_notification, indexesToRemove[i], 1)
 }
 
-if (keyboard_check_pressed(vk_backspace))
-{
-  array_push(current_notification, new AP_toast_notification("Test Item", c_red, "Player1", true))
-}
+// if (keyboard_check_pressed(vk_backspace))
+// {
+// 	color = make_color_rgb(irandom(255),irandom(255),irandom(255));
+//   array_push(current_notification, new AP_toast_notification("Test Item", color, "Player1", true))
+// }
