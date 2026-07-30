@@ -314,7 +314,7 @@ if (ds_map_exists(async_load, "buffer"))
 
                         if (!file_exists(AP_get_save_folder_prefix() +  "datapackage.json"))
                         {
-                            var package = data[i].data;
+                            var package = global.AP_data_package_raw;
                             package_json = json_stringify(package);
                             var file = file_text_open_write(AP_get_save_folder_prefix() +  "datapackage.json");
                             file_text_write_string(file, package_json);
