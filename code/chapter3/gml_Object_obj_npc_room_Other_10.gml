@@ -101,7 +101,7 @@ if (room == room_dw_teevie_intro)
             msgsetloc(0, "* Hey^1! Youse the lightners!/", "obj_npc_room_slash_Other_10_gml_1651_0");
             msgnextloc("* I suppose you's off to seal the fountain?/", "obj_npc_room_slash_Other_10_gml_1652_0");
             msgnextloc("* Well^1, before yah do that^1, can you check the employee list?/", "obj_npc_room_slash_Other_10_gml_1652_0");
-            msgnextloc("* You need to complete it before./%", "obj_npc_room_slash_Other_10_gml_1652_0");
+            msgnextloc("* Yah need to complete it before yah go./%", "obj_npc_room_slash_Other_10_gml_1652_0");
         }
         else
         {
