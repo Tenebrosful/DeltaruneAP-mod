@@ -421,6 +421,8 @@ function AP_internal_print_get_item_text_special(item_id)
       global.hp[1] = global.maxhp[1];
       if (!global.AP_skip_item_textboxes)
       {
+        global.interact = 1;
+        showingitem = 1;
         snd_play(snd_swallow);
         script_execute(scr_writetext, 0, "* (You ate the moss.^1)&* (Tastes..^1. mossy.^1)&* (Your HP was mossed out.)/%", 0, 6);
       }
@@ -428,6 +430,8 @@ function AP_internal_print_get_item_text_special(item_id)
 
     case 1006: // Joe's Life Savings
       if (!global.AP_skip_item_textboxes)
+        global.interact = 1;
+        showingitem = 1;
         script_execute(scr_writetext, 0, "* You recieved Joe's Life Savings ($1)!/%", 0, 6);
       global.gold += 1;
       break;
@@ -442,6 +446,7 @@ function AP_internal_print_get_item_text_special(item_id)
         global.fc = 0;
         global.fe = 0;
         global.interact = 1;
+        showingitem = 1;
         global.msg[0] = "\\s0* You got the \\cG[Moss]\\cW^8!/%";
         snd_play(snd_moss_fanfare);
         snd_pause(global.currentsong[1]);
@@ -453,6 +458,8 @@ function AP_internal_print_get_item_text_special(item_id)
     case 1016:
       if (!global.AP_skip_item_textboxes)
       {
+        global.interact = 1;
+        showingitem = 1;
         script_execute(scr_writetext, 0, "\\s0* You felt it smile^3./%", 0, 6);
         snd_play(snd_creepyjingle);
       }
@@ -463,6 +470,8 @@ function AP_internal_print_get_item_text_special(item_id)
       global.hp[1] = global.maxhp[1];
       if (!global.AP_skip_item_textboxes)
       {
+        global.interact = 1;
+        showingitem = 1;
         script_execute(scr_writetext, 0, "* (\\cGMoss\\cW sent to you.^1)&* (It was consumed.)/%", 0, 6);
         snd_play(snd_swallow);
       }
@@ -478,6 +487,7 @@ function AP_internal_print_get_item_text_special(item_id)
         global.fc = 0;
         global.fe = 0;
         global.interact = 1;
+        showingitem = 1;
         global.msg[0] = "\\s0* The moss was consumed with gusto^8!/%";
         snd_play(snd_moss_fanfare);
         d_make();

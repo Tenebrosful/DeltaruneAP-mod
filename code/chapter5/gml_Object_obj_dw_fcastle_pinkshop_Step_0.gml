@@ -3,7 +3,6 @@
 /// REPLACE
 var buythisstring = stringsetsubloc("* Buy this for ~1 Flowery Dollars and ~2 Pink Coins?/", flowercost, pinkcost, "obj_dw_fcastle_pinkshop_slash_Step_0_gml_61_0");
 /// CODE
-var t_itemid;
 var buythisstring = stringsetsubloc("* Buy this for ~1 Flowery Dollars and ~2 Pink Coin?/", flowercost, pinkcost, "obj_dw_fcastle_pinkshop_slash_Step_0_gml_61_0");
 /// END
 
