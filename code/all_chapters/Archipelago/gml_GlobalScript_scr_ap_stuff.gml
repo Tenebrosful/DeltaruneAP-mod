@@ -432,7 +432,10 @@ function AP_item_flag_to_color(flags){
 }
 
 function AP_handle_DeathLink()
-{
+{   
+    if (global.darkzone == 0)
+        exit;
+
     global.AP_deathlink_protected = true;
     if (global.chapter == 3 && (room == room_board_1 || room == room_board_2 || room == room_board_3))
     {
