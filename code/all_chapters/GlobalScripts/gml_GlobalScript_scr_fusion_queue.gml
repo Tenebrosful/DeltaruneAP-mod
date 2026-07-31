@@ -193,35 +193,35 @@ function scr_fusion_queue(arg0)
     if (fusionResultType[fusioncount] == "item")
     {
         scr_iteminfo(fusionResult[fusioncount]);
-        fusionResultName[fusioncount] = "Check";
+        fusionResultName[fusioncount] = string(fusionResultData[fusioncount].itemName);
         fusionResultTopComment[fusioncount] = "Will be sent to " + string(fusionResultData[fusioncount].playerName);
     }
     
     if (fusionResultType[fusioncount] == "weapon")
     {
         scr_weaponinfo(fusionResult[fusioncount]);
-        fusionResultName[fusioncount] = "Check";
+        fusionResultName[fusioncount] = string(fusionResultData[fusioncount].itemName);
         fusionResultTopComment[fusioncount] = "Will be sent to " + string(fusionResultData[fusioncount].playerName);
     }
     
     if (fusionResultType[fusioncount] == "armor")
     {
         scr_armorinfo(fusionResult[fusioncount]);
-        fusionResultName[fusioncount] = "Check";
+        fusionResultName[fusioncount] = string(fusionResultData[fusioncount].itemName);
         fusionResultTopComment[fusioncount] = "Will be sent to " + string(fusionResultData[fusioncount].playerName);
     }
     
     if (fusionResultType[fusioncount] == "key")
     {
         scr_keyiteminfo(fusionResult[fusioncount]);
-        fusionResultName[fusioncount] = "Check";
+        fusionResultName[fusioncount] = string(fusionResultData[fusioncount].itemName);
         fusionResultTopComment[fusioncount] = "Will be sent to " + string(fusionResultData[fusioncount].playerName);
     }
     
     if (fusionResultType[fusioncount] == "check")
     {
         scr_keyiteminfo(fusionResult[fusioncount]);
-        fusionResultName[fusioncount] = "check";
+        fusionResultName[fusioncount] = string(fusionResultData[fusioncount].itemName);
         fusionResultTopComment[fusioncount] = "Will be sent to " + string(fusionResultData[fusioncount].playerName);
     }
     
