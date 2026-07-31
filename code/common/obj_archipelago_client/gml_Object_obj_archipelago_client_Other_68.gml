@@ -94,6 +94,8 @@ if (ds_map_exists(async_load, "buffer"))
                     }
                     if (variable_struct_exists(data[i].slot_data.options, "randomize_mantle"))
                         global.AP_no_mantle = data[i].slot_data.options.randomize_mantle == 2;
+                    if (variable_struct_exists(data[i].slot_data.options, "have_starwalker"))
+                        global.AP_have_starwalker = data[i].slot_data.options.have_starwalker;
                     if (variable_struct_exists(data[i].slot_data.options, "better_odds"))
                         global.AP_better_odds = data[i].slot_data.options.better_odds;
                     if (variable_struct_exists(data[i].slot_data.options, "item_balancing"))

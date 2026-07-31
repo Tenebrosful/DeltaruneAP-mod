@@ -678,7 +678,10 @@ function AP_game_start_post_connexion()
 
     if (global.AP_unlock_fun_gang_actions)
         global.flag[34] = true;
-
+    
+    if (global.AP_have_starwalker)
+        global.flag[254] = 1;
+    
     global.AP_game_start_post_connexion_done = true;
     if (global.AP_remove_starting_equipment)
     {
