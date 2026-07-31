@@ -802,7 +802,7 @@ function AP_can_receive_item()
             chapterSpecificLogic = !instance_exists(obj_board_controller);
             break;
         case 3:
-            chapterSpecificLogic = (!(instance_exists(obj_platswap) || instance_exists(obj_plat_player)))
+            chapterSpecificLogic = !instance_exists(obj_plat_player)
             break;
         default:
             chapterSpecificLogic = true;
@@ -813,6 +813,7 @@ function AP_can_receive_item()
             global.interact == 0
             && !instance_exists(obj_fadein)
             && !instance_exists(obj_fadeout)
+            && !instance_exists(obj_persistentfadein)
             && !instance_exists(obj_dialoguer)
             && !cutscene
             && chapterSpecificLogic
