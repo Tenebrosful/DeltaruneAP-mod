@@ -20,7 +20,7 @@
     t_itemid = 268;
     var iteminfo = scr_itemget_anytype_text(t_itemid, "check");
     scr_speaker("no_name");
-    global.customflags[global.custom_flags_indexes.ch5_opened_first_chest] == 1;
+    global.customflags[global.custom_flags_indexes.ch5_opened_first_chest] = 1;
     msgset(0, string("* (Inside the treasure chest was {0}.)/", AP_get_location_reward_text(t_itemid)));
 /// END
 

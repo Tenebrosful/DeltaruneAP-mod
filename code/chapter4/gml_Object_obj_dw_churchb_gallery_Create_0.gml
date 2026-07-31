@@ -1,7 +1,5 @@
 /// PATCH
 
-/// AFTER
-con = 0;
-/// CODE
+/// PREPEND
 leavecon = 0;
 /// END
