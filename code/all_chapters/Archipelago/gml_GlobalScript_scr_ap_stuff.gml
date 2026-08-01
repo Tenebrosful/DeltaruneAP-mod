@@ -432,7 +432,10 @@ function AP_item_flag_to_color(flags){
 }
 
 function AP_handle_DeathLink()
-{
+{   
+    if (global.darkzone == 0)
+        exit;
+
     global.AP_deathlink_protected = true;
     if (global.chapter == 3 && (room == room_board_1 || room == room_board_2 || room == room_board_3))
     {
@@ -678,7 +681,10 @@ function AP_game_start_post_connexion()
 
     if (global.AP_unlock_fun_gang_actions)
         global.flag[34] = true;
-
+    
+    if (global.AP_have_starwalker)
+        global.flag[254] = 1;
+    
     global.AP_game_start_post_connexion_done = true;
     if (global.AP_remove_starting_equipment)
     {
@@ -802,7 +808,7 @@ function AP_can_receive_item()
             chapterSpecificLogic = !instance_exists(obj_board_controller);
             break;
         case 3:
-            chapterSpecificLogic = (!(instance_exists(obj_platswap) || instance_exists(obj_plat_player)))
+            chapterSpecificLogic = !instance_exists(obj_plat_player)
             break;
         default:
             chapterSpecificLogic = true;
@@ -813,6 +819,7 @@ function AP_can_receive_item()
             global.interact == 0
             && !instance_exists(obj_fadein)
             && !instance_exists(obj_fadeout)
+            && !instance_exists(obj_persistentfadein)
             && !instance_exists(obj_dialoguer)
             && !cutscene
             && chapterSpecificLogic

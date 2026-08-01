@@ -32,7 +32,7 @@
         msgsetsubloc(0, "\\S0* (SHADOW CRYSTAL was added to your Key Items.)~1", sentence_end, "obj_readable_room1_slash_Other_10_gml_2190_0_b");
         msgnextloc("\\S0* (BLACK SHARD was added to your Weapons.)/%", "obj_readable_room1_slash_Other_10_gml_2191_0_b");
 /// CODE
-        msgsetsubloc(0, string("\\S0* (You found {0}.)~1", AP_get_location_reward_text(172)), sentence_end, "obj_readable_room1_slash_Other_10_gml_2190_0_b");
+        msgsetsubloc(0, string("\\S0* (You found {0}.)/", AP_get_location_reward_text(172)), sentence_end, "obj_readable_room1_slash_Other_10_gml_2190_0_b");
         msgnextloc(string("\\S0* (You found {0}.)/%", AP_get_location_reward_text(173)), "obj_readable_room1_slash_Other_10_gml_2191_0_b");
 /// END
 

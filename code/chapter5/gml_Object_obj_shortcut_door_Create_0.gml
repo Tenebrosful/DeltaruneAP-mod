@@ -82,9 +82,9 @@ if (room == room_dw_fcastle_green_checkpoint)
     AP_sendLocation(346);
 }
 
-if (room == room_dw_fcastle_final_save)
+if (room == room_dw_fcastle_top_pinkdoor)
     AP_sendLocation(347);
 
-if (room == room_dw_fcastle_top_pinkdoor)
+if (room == room_dw_fcastle_final_save)
     AP_sendLocation(348);
 /// END

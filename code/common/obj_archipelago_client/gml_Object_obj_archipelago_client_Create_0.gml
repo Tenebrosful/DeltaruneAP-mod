@@ -59,6 +59,7 @@ global.AP_route_from_settings = global.AP_ENUM_CHOSEN_ROUTE.UNKNOWN;
 global.AP_skip_item_textboxes = false;
 global.AP_no_mantle = false;
 global.AP_better_odds = false;
+global.AP_have_starwalker = false;
 global.AP_deathlink = false;
 global.AP_deathlink_protected = false;
 global.AP_deathlink_infos = {source: undefined, cause: undefined, time: undefined};
