@@ -21,7 +21,7 @@ function AP_toast_notification(_item_name, _item_color, _player, _sending) const
 	{
     if (sending)
     {
-      return string("You send {1} to {0}", player, item_name)
+      return string("You sent {1} to {0}", player, item_name)
     }
     else
     {
