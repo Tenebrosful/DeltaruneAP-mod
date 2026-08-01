@@ -341,7 +341,6 @@ function scr_gamestart()
     global.flag[15] = 1;
     global.flag[16] = 0.85;
     global.flag[17] = 0.6;
-    global.flag[64] = #GetMaxStorage();
     
     for (i = 0; i < 10; i += 1)
     {
@@ -409,6 +408,7 @@ function scr_gamestart()
     #if !CHAPTER_1
     scr_gamestart_chapter_override();
     #endif
+    global.flag[64] = #GetMaxStorage();
     scr_spellinfo_all();
     scr_weaponinfo_mine();
     scr_armorinfo_mine();
