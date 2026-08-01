@@ -23,7 +23,7 @@ class ArchipelagoLoader : UMPLoader
 
     public readonly string max_flag = "2500";
 
-    public readonly string max_storage = "200";
+    public readonly string max_storage = "192";
 
     public string GetVersion()
     {
