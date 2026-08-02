@@ -71,3 +71,44 @@ if (global.myfight == 0)
         }
 /// END
 #endif
+
+#if !CHAPTER_5
+/// AFTER
+                if (global.bmenuno == 7)
+                {
+                    global.chartarget[global.charturn] = global.bmenucoord[global.bmenuno][global.charturn];
+                    scr_itemconsumeb();
+/// CODE
+                    if (tempitem[global.bmenucoord[4][global.charturn]][global.charturn] == 67)
+                    {
+                        scr_tensionheal(ceil(global.maxtension * 0.16));
+                        _tensionhealed = 1;
+                    }
+                    
+                    if (tempitem[global.bmenucoord[4][global.charturn]][global.charturn] == 68)
+                    {
+                        scr_tensionheal(ceil(global.maxtension * 0.16));
+                        _tensionhealed = 1;
+                    }
+                    
+                    if (tempitem[global.bmenucoord[4][global.charturn]][global.charturn] == 69)
+                    {
+                        scr_tensionheal(ceil(global.maxtension * 0.16));
+                        _tensionhealed = 1;
+                    }
+                    
+                    if (_tensionhealed)
+                    {
+                        var _drivenoise = snd_play(snd_cardrive);
+                        snd_pitch(_drivenoise, 1.4);
+                        snd_volume(_drivenoise, 0.8, 0);
+                        
+                        with (global.charinstance[global.charturn])
+                        {
+                            ha = instance_create(x, y, obj_healanim);
+                            ha.target = id;
+                            ha.particlecolor = c_orange;
+                        }
+                    }
+/// END
+#endif
