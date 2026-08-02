@@ -354,6 +354,8 @@ function AP_postScouting()
 
 function AP_fill_id_to_itemname_struct()
 {
+    if (array_length(global.AP_remaining_locations) == 0) exit;
+
     id_to_itemname_path = AP_get_save_folder_prefix() + "id_to_itemname.json"
 
     if (file_exists(id_to_itemname_path))

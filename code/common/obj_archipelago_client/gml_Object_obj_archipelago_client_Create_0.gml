@@ -155,6 +155,8 @@ for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
     global.AP_macguffin_required[chapter - 1] = 0;
 }
 
+global.AP_loaded_unlocked_chapter = false;
+
 step = 0;
 
 

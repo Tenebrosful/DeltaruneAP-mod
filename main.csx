@@ -15,7 +15,7 @@ class ArchipelagoLoader : UMPLoader
 
     public readonly string minimal_apworld_version = "v2.1.0-beta4";
 
-    public readonly string mod_version = "2";
+    public readonly string mod_version = "4";
 
     public readonly string[] client_version = ["2", "1", "0"];
 
@@ -130,7 +130,15 @@ void BuildMod(int chapter)
     if (chapter > 0)
     {
         ReplacePageItemTexture(Data.Sprites.ByName("bg_myroom_dark").Textures[0].Texture.Name.Content, "kris_room_dark.png");
-        ReplacePageItemTexture(Data.Sprites.ByName("bg_myroom").Textures[0].Texture.Name.Content, "kris_room.png");
+
+        if (chapter == 5)
+        {
+            ReplacePageItemTexture(Data.Sprites.ByName("bg_myroom").Textures[0].Texture.Name.Content, "kris_room_ch5.png");
+        }
+        else
+        {
+            ReplacePageItemTexture(Data.Sprites.ByName("bg_myroom").Textures[0].Texture.Name.Content, "kris_room.png");
+        }
 
         if (chapter != 5)
         {
