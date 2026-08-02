@@ -6,3 +6,5 @@ UndertaleModCli.exe load DELTARUNE\chapter4_windows\data_vanilla.win -s build.cs
 UndertaleModCli.exe load DELTARUNE\chapter5_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter5_windows\data.win
 
 py -3.12 generate_bsdiff.py
+
+.\generate_vcdiff.bat
