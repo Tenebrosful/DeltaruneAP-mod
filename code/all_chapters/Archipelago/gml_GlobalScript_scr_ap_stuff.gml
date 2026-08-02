@@ -806,11 +806,13 @@ function AP_can_receive_item()
     {
         case 2:
             chapterSpecificLogic = !instance_exists(obj_cutscene_master);
+            break;
         case 3:
             chapterSpecificLogic = !instance_exists(obj_cutscene_master) && !instance_exists(obj_board_controller);
             break;
         case 4:
             chapterSpecificLogic = !instance_exists(obj_cutscene_master);
+            break;
         case 5:
             chapterSpecificLogic = !instance_exists(obj_cutscene_master) && !instance_exists(obj_plat_player)
             break;
