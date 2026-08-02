@@ -1,4 +1,4 @@
-/// IMPORT .ignore if CHAPTER_1
+/// IMPORT
 function scr_keyitemget(arg0)
 {
     // Eggs

@@ -566,7 +566,7 @@ function AP_step()
             canshowtext = 1;
         }
         
-        if (showingitem && !instance_exists(obj_dialoguer) && !cutscene)
+        if (showingitem && !instance_exists(obj_dialoguer) && !cutscene && !instance_exists(obj_cutscene_master))
         {
             if (!global.AP_skip_item_textboxes)
                 global.interact = 0;
@@ -817,10 +817,12 @@ function AP_can_receive_item()
     return global.AP_skip_item_textboxes ||
     (
             global.interact == 0
+            && global.darkzone == 1
             && !instance_exists(obj_fadein)
             && !instance_exists(obj_fadeout)
             && !instance_exists(obj_persistentfadein)
             && !instance_exists(obj_dialoguer)
+            && !instance_exists(obj_cutscene_master)
             && !cutscene
             && chapterSpecificLogic
             && !AP_chapter_specific_item_receive_blacklist()

@@ -8,7 +8,7 @@
 /// CODE
     global.choice = -1;
     
-    if (scr_keyitemcheck(31) && global.maxhp[2] <= 0 && global.customflags[global.custom_flags_indexes.accepted_dark_sanctuary_skip] == 0)
+    if (scr_keyitemcheck(31) && global.maxhp[2] <= 0 && global.customflags[global.custom_flags_indexes.accepted_dark_sanctuary_skip] == 0 && room == room_dw_church_intropiano)
     {
         global.msc = 2002;
         scr_text(global.msc);
