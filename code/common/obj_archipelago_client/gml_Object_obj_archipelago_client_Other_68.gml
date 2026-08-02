@@ -187,6 +187,8 @@ if (ds_map_exists(async_load, "buffer"))
                                     global.AP_chapter_unlocked[data[i].items[ii].item - global.AP_item_offset.chapter_unlock - 1] = true
                                 }
                             }
+
+                            global.AP_loaded_unlocked_chapter = true;
                         }
                         // Receiving items after reconnect
                         else if (!variable_global_exists("AP_item_from_server") || global.AP_item_from_server == undefined)

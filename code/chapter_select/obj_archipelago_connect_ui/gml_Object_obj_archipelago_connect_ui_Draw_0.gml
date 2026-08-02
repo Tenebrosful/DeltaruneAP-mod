@@ -185,8 +185,15 @@ if (connect && page == 0)
             break;
 
         case global.AP_ENUM_CONNECTION_STATE.READY:
-            audio_destroy_stream(my_music);
-            room_goto(PLACE_CHAPTER_SELECT_2x);
+            if (!global.AP_loaded_unlocked_chapter)
+            {
+                connected = "> Waiting to received unlocked chapters...";
+            }
+            else
+            {
+                audio_destroy_stream(my_music);
+                room_goto(PLACE_CHAPTER_SELECT_2x);
+            }
             break;
     }
     
