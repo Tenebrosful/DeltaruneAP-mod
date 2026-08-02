@@ -2,7 +2,7 @@ deltaruneTargetVersion = "v253"
 
 [metadata]
 name = "DELTARUNE Archipelago"
-version = "2.1.0-beta4-2"
+version = "2.1.0-beta4-3"
 description = "Archipelago is a cross-game solo or multiplayer randomizer."
 author = [ "Tenebrosful", "theemeraldsword85" ]
 url = "https://discord.gg/archipelago"

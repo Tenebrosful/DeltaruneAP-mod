@@ -15,7 +15,7 @@ class ArchipelagoLoader : UMPLoader
 
     public readonly string minimal_apworld_version = "v2.1.0-beta4";
 
-    public readonly string mod_version = "2";
+    public readonly string mod_version = "3";
 
     public readonly string[] client_version = ["2", "1", "0"];
 
