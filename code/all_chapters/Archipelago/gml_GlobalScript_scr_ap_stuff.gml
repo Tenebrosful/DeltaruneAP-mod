@@ -566,7 +566,7 @@ function AP_step()
             canshowtext = 1;
         }
         
-        if (showingitem && !instance_exists(obj_dialoguer) && !cutscene && !instance_exists(obj_cutscene_master))
+        if (showingitem && !instance_exists(obj_dialoguer) && !cutscene)
         {
             if (!global.AP_skip_item_textboxes)
                 global.interact = 0;
@@ -804,11 +804,15 @@ function AP_can_receive_item()
 
     switch(global.chapter)
     {
+        case 2:
+            chapterSpecificLogic = !instance_exists(obj_cutscene_master);
         case 3:
-            chapterSpecificLogic = !instance_exists(obj_board_controller);
+            chapterSpecificLogic = !instance_exists(obj_cutscene_master) && !instance_exists(obj_board_controller);
             break;
-        case 3:
-            chapterSpecificLogic = !instance_exists(obj_plat_player)
+        case 4:
+            chapterSpecificLogic = !instance_exists(obj_cutscene_master);
+        case 5:
+            chapterSpecificLogic = !instance_exists(obj_cutscene_master) && !instance_exists(obj_plat_player)
             break;
         default:
             chapterSpecificLogic = true;
@@ -822,7 +826,6 @@ function AP_can_receive_item()
             && !instance_exists(obj_fadeout)
             && !instance_exists(obj_persistentfadein)
             && !instance_exists(obj_dialoguer)
-            && !instance_exists(obj_cutscene_master)
             && !cutscene
             && chapterSpecificLogic
             && !AP_chapter_specific_item_receive_blacklist()
