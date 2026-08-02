@@ -344,6 +344,11 @@ function AP_internal_handle_money_item(item_id)
   global.gold += amount;
 }
 
+function AP_should_get_floweryscarf()
+{
+    return global.plot < 540 || global.chapter != 5;
+}
+
 function AP_internal_handle_weapon_item(item_id)
 {
   var weapon_id = item_id - global.AP_item_offset.weapon;
@@ -351,8 +356,10 @@ function AP_internal_handle_weapon_item(item_id)
   scr_weaponinfo(weapon_id);
   var item_name = weaponnametemp;
   var item_classification = weaponclassificationtemp;
-  scr_weaponget(weapon_id);
-
+  if (weapon_id == 35 && AP_should_get_floweryscarf())
+    scr_weaponget(34);
+  else
+    scr_weaponget(weapon_id)
   AP_internal_print_get_item_text(global.chapter, item_id, item_name, item_classification);
 }
 
