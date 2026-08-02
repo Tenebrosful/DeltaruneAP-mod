@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "name": "DELTARUNE Archipelago",
+    "version": "2.1.0-beta3.1",
+    "description": "Archipelago is a cross-game solo or multiplayer randomizer.",
+    "author": [
+      "Tenebrosful",
+      "theemeraldsword85"
+    ],
+    "url": "https://discord.gg/archipelago",
+    "color": {
+      "r": 255,
+      "g": 255,
+      "b": 255
+    },
+    "tags": [
+      "customization",
+      "other"
+    ],
+    "game": "toby.deltarune",
+    "packageID": "gamebanana.archipelago.tenebrosful"
+  },
+  "deltaruneTargetVersion": "v253",
+  "neededFiles": [
+    {
+      "file": "./data.win",
+      "checksum": "83A5A14F9B92A20F21FB9EC6C8528469"
+    },
+    {
+      "file": "./chapter1_windows/data.win",
+      "checksum": "0CCBFD7C4F9FB1B86DE1E2AAEC0BACC9"
+    },
+    {
+      "file": "./chapter2_windows/data.win",
+      "checksum": "1592C9BFFA2D9E53DDEEDC0C4F9A07D6"
+    },
+    {
+      "file": "./chapter3_windows/data.win",
+      "checksum": "B43158DB2E958E767EBB1AAE72FB05A1"
+    },
+    {
+      "file": "./chapter4_windows/data.win",
+      "checksum": "27E36F883F4ADE21707DC8261072D416"
+    },
+    {
+      "file": "./chapter5_windows/data.win",
+      "checksum": "9C80E6300E0548D933CC006F3C22760D"
+    }
+  ],
+  "exporter": {
+    "tool": "MiscTools"
+  }
+}

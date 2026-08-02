@@ -13,7 +13,9 @@ UndertaleModLib.Compiler.CodeImportGroup importGroup = new(Data);
 class ArchipelagoLoader : UMPLoader
 {
 
-    public readonly string version = "v2.1.0-beta4";
+    public readonly string minimal_apworld_version = "v2.1.0-beta4";
+
+    public readonly string mod_version = "1";
 
     public readonly string[] client_version = ["2", "1", "0"];
 
@@ -27,7 +29,7 @@ class ArchipelagoLoader : UMPLoader
 
     public string GetVersion()
     {
-        return $"\"{version}\"";
+        return $"\"{minimal_apworld_version}-{mod_version}\"";
     }
 
     public string GetClientVersion()
@@ -169,9 +171,9 @@ void BuildMod(int chapter)
     importGroup.Import();
     
     if (chapter == 0)
-        Data.GeneralInfo.DisplayName = Data.Strings.MakeString($"DELTARUNE Chapter Select - Archipelago {loader.version}");
+        Data.GeneralInfo.DisplayName = Data.Strings.MakeString($"DELTARUNE Chapter Select - Archipelago {loader.minimal_apworld_version}");
     else
-        Data.GeneralInfo.DisplayName = Data.Strings.MakeString($"DELTARUNE Chapter {chapter} - Archipelago {loader.version}");
+        Data.GeneralInfo.DisplayName = Data.Strings.MakeString($"DELTARUNE Chapter {chapter} - Archipelago {loader.minimal_apworld_version}");
 
     ScriptMessage(chapter == 0 ? "Archipelago Mod for DELTARUNE Chapter Select was imported!" : $"Archipelago Mod for DELTARUNE Chapter {chapter} was imported!");
 }

@@ -1,30 +1,30 @@
 import bsdiff4
 
 bsdiff4.file_diff(
-    "DELTARUNE/data_vanilla.win", "DELTARUNE/data.win", "deltarune.bsdiff"
+    "DELTARUNE/data_vanilla.win", "DELTARUNE/data.win", "bsdiffOutput/chapter_0.bsdiff"
 )
 bsdiff4.file_diff(
     "DELTARUNE/chapter1_windows/data_vanilla.win",
     "DELTARUNE/chapter1_windows/data.win",
-    "ch1.bsdiff",
+    "bsdiffOutput/chapter_1.bsdiff",
 )
 bsdiff4.file_diff(
     "DELTARUNE/chapter2_windows/data_vanilla.win",
     "DELTARUNE/chapter2_windows/data.win",
-    "ch2.bsdiff",
+    "bsdiffOutput/chapter_2.bsdiff",
 )
 bsdiff4.file_diff(
     "DELTARUNE/chapter3_windows/data_vanilla.win",
     "DELTARUNE/chapter3_windows/data.win",
-    "ch3.bsdiff",
+    "bsdiffOutput/chapter_3.bsdiff",
 )
 bsdiff4.file_diff(
     "DELTARUNE/chapter4_windows/data_vanilla.win",
     "DELTARUNE/chapter4_windows/data.win",
-    "ch4.bsdiff",
+    "bsdiffOutput/chapter_4.bsdiff",
 )
 bsdiff4.file_diff(
     "DELTARUNE/chapter5_windows/data_vanilla.win",
     "DELTARUNE/chapter5_windows/data.win",
-    "ch5.bsdiff",
+    "bsdiffOutput/chapter_5.bsdiff",
 )
