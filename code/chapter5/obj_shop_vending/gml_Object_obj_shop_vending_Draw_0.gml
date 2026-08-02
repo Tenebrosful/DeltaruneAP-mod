@@ -310,7 +310,7 @@ if (menu == 1 || menu == 2)
                                     }
                                     else if (noroom == 0)
                                     {
-                                        global.flag[1044] -= buyvalue[menuc[1]];
+                                        global.flag[1411] -= buyvalue[menuc[1]];
                                         snd_play(snd_locker);
                                         shopitemname[menuc[1]] = "Out Of Stock";
                                         itemtype[menuc[1]] = "checked";
@@ -370,7 +370,7 @@ if (menu == 1 || menu == 2)
                                     shopitemname[menuc[1]] = "Out Of Stock";
                                     itemtype[menuc[1]] = "checked";
                                     buyvalue[menuc[1]] = "--";
-                                    global.customflags[1000 + item[menuc[1]]] = 1;
+                                    global.customflags[1274 + item[menuc[1]]] = 1;
                                     
                                     if (_pocketed == 1)
                                         sidemessage = 4;
@@ -380,12 +380,12 @@ if (menu == 1 || menu == 2)
                             }
                             else if (noroom == 0)
                             {
-                                global.flag[1044] -= buyvalue[menuc[1]];
+                                global.flag[1411] -= buyvalue[menuc[1]];
                                 snd_play(snd_locker);
                                 shopitemname[menuc[1]] = "Out Of Stock";
                                 itemtype[menuc[1]] = "checked";
                                 buyvalue[menuc[1]] = "--";
-                                global.customflags[1000 + item[menuc[1]]] = 1;
+                                global.customflags[1274 + item[menuc[1]]] = 1;
                                 
                                 if (_pocketed == 1)
                                     sidemessage = 4;

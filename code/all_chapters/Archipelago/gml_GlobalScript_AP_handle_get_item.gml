@@ -430,9 +430,12 @@ function AP_internal_print_get_item_text_special(item_id)
 
     case 1006: // Joe's Life Savings
       if (!global.AP_skip_item_textboxes)
+      {
         global.interact = 1;
         showingitem = 1;
         script_execute(scr_writetext, 0, "* You recieved Joe's Life Savings ($1)!/%", 0, 6);
+      }
+      
       global.gold += 1;
       break;
 

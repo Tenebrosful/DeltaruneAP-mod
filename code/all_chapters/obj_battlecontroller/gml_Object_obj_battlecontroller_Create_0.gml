@@ -1,5 +1,11 @@
 /// PATCH
 
+#if CHAPTER_1
+/// PREPEND
+global.flag[63] = 0;
+/// END
+#endif
+
 /// REPLACE
         global.charmove[i] = 1;
         global.charcantarget[i] = 1;

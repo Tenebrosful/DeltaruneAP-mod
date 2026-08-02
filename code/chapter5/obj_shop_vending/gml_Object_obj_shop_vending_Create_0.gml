@@ -79,7 +79,6 @@ fillBuyList = function()
         item[i] = current_item.item_id + 274;
         itemcount = 99;
         sold_flag[i] = current_item.sold_flag;
-        AP_sendHint(item[i]);
         
         if (global.customflags[1274 + current_item.item_id])
         {
@@ -90,6 +89,11 @@ fillBuyList = function()
         }
     }
 };
+
+if (room == room_dw_fcastle_cafe && obj_mainchara.x < 400)
+    AP_sendHint([311, 312, 313, 314, 330]);
+else
+    AP_sendHint([274, 275, 276, 277]);
 
 fillBuyList();
 event_user(0);
