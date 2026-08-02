@@ -307,7 +307,7 @@ function AP_internal_handle_real_keyitem(realitem_id)
     case 7:
       global.customflags[global.custom_flags_indexes.broken_key_part_count] += 1;
 
-      if (!scr_keyitemcheck(4))
+      if (!scr_keyitemcheck(4) && global.chapter == 1)
         scr_keyitemget(4);
       break;
     case 31: if (global.chapter == 4) global.flag[23] = 1; break;
