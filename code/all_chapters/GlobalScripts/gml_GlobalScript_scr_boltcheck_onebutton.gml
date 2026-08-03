@@ -1,5 +1,15 @@
 /// PATCH
 
+#if !CHAPTER_5
+/// AFTER
+    if (qualifybolt != -1)
+    {
+        bc = boltchar[qualifybolt];
+        p = abs(topclose);
+/// CODE
+        pp = topclose;
+/// END
+
 /// REPLACE
         if (p == 1)
             points[bc] += 120;
@@ -19,3 +29,4 @@
             points[bc] += 120;
         }
 /// END
+#endif
