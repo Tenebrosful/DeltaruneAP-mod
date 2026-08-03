@@ -15,13 +15,38 @@ for (i = 0; i < array_length(current_notification) && i < 6; i++)
     txt_width = string_width(text);
     sprite_w = 25;
     right_gap = 10;
-    draw_set_alpha(0.5);
-    draw_set_color(toast.item_color);
-    draw_rectangle((_cx + _vw) - txt_width - sprite_w - right_gap - 20, _cy + top_gap, _cx + _vw, _cy + top_gap + 30, false);
-    draw_set_color(toast.item_color);
-    draw_set_alpha(1);
-    draw_sprite_stretched(spr_archipelago, 1, (_cx + _vw) - sprite_w - right_gap, _cy + top_gap + 5, sprite_w, sprite_w);
-    draw_text_shadow((_cx + _vw) - sprite_w - right_gap - 10, _cy + top_gap + 8, text);
+    
+    if (global.darkzone == 0) // I dislike that light world is only half the size for some reason.
+    {
+        top_gap = top_gap / 2;
+        txt_width = txt_width / 2;
+        sprite_w = sprite_w / 2;
+        right_gap = right_gap / 2;
+        draw_set_alpha(0.5);
+        draw_set_color(toast.item_color);
+        draw_rectangle((_cx + _vw) - txt_width - sprite_w - right_gap - 10, _cy + top_gap, _cx + _vw, _cy + top_gap + 15, false);
+        draw_set_color(toast.item_color);
+        draw_set_alpha(1);
+        draw_sprite_stretched(spr_archipelago, 1, (_cx + _vw) - sprite_w - right_gap, _cy + top_gap + 2.5, sprite_w, sprite_w);
+        text_x = (_cx + _vw) - sprite_w - right_gap - 5;
+        text_y = _cy + top_gap + 4;
+        __txtcolor__ = draw_get_color();
+        draw_set_color(c_black);
+        draw_text_transformed(text_x + 0.5, text_y + 0.5, text, 0.5, 0.5, 0);
+        draw_set_color(__txtcolor__);
+        draw_text_transformed(text_x, text_y, text, 0.5, 0.5, 0);
+    }
+    else
+    {
+        draw_set_alpha(0.5);
+        draw_set_color(toast.item_color);
+        draw_rectangle((_cx + _vw) - txt_width - sprite_w - right_gap - 20, _cy + top_gap, _cx + _vw, _cy + top_gap + 30, false);
+        draw_set_color(toast.item_color);
+        draw_set_alpha(1);
+        draw_sprite_stretched(spr_archipelago, 1, (_cx + _vw) - sprite_w - right_gap, _cy + top_gap + 5, sprite_w, sprite_w);
+        draw_text_shadow((_cx + _vw) - sprite_w - right_gap - 10, _cy + top_gap + 8, text);
+    }
+    
     current_line++;
 }
 

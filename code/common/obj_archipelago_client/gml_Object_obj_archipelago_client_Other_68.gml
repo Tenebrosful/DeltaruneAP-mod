@@ -245,8 +245,15 @@ if (ds_map_exists(async_load, "buffer"))
 
                                 if (data[i].items[ii].item == 10024 || data[i].items[ii].item == 10033)
                                 {
-                                    var bromide = instance_create(0, 0, obj_dw_bromide);
-                                    bromide.use_item(data[i].items[ii].item - 10000);
+                                    if (instance_exists(obj_dw_bromide))
+                                    {
+                                        bromide = instance_create(0, 0, obj_dw_bromide);
+                                        bromide.queue(data[i].items[ii].item - 10000);
+                                    }
+                                    else
+                                    {
+                                        bromide = instance_create(0, 0, obj_dw_bromide);
+                                        bromide.use_item(data[i].items[ii].item - 10000);
                                 }
                             }
                         }

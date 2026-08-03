@@ -1,4 +1,10 @@
 /// IMPORT
+if (con == -2)
+{
+    if (queue_id == 1)
+        use_item(item_id);
+}
+
 if (con < 0)
     exit;
 
@@ -43,5 +49,9 @@ if (con == 12)
     con = -1;
     snd_free(_bromide_audio);
     resume_music();
+    
+    with (obj_dw_bromide)
+        queue_id -= 1;
+    
     instance_destroy();
 }
