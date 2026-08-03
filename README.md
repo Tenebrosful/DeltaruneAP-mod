@@ -23,6 +23,6 @@
 
 
 ## Big thanks
-- [Ners](https://github.com/ners-xd) for helping making this repository
+- [NERS](https://github.com/ners-xd) for helping making this repository
 - [Nhaar](https://github.com/nhaar) for [UMP framework](https://github.com/nhaar/UMP)
-- [Keucheur-mod](https://github.com/nhaar/keucher-mod) for some features and kris room
+- [FLB Practice Mod]([https://github.com/nhaar/keucher-mod](https://github.com/nhaar/flb-mod)) for some features and kris room
