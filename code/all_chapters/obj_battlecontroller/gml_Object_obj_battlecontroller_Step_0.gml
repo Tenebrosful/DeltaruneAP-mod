@@ -73,12 +73,18 @@ if (global.myfight == 0)
 #endif
 
 #if !CHAPTER_5
-/// AFTER
+/// REPLACE
                 if (global.bmenuno == 7)
                 {
                     global.chartarget[global.charturn] = global.bmenucoord[global.bmenuno][global.charturn];
                     scr_itemconsumeb();
+                }
 /// CODE
+                if (global.bmenuno == 7)
+                {
+                    global.chartarget[global.charturn] = global.bmenucoord[global.bmenuno][global.charturn];
+                    _tensionhealed = 0;
+                    
                     if (tempitem[global.bmenucoord[4][global.charturn]][global.charturn] == 67)
                     {
                         scr_tensionheal(ceil(global.maxtension * 0.16));
@@ -103,12 +109,18 @@ if (global.myfight == 0)
                         snd_pitch(_drivenoise, 1.4);
                         snd_volume(_drivenoise, 0.8, 0);
                         
-                        with (global.charinstance[global.charturn])
+                        if (array_length(global.charinstance) > global.charturn)
                         {
-                            ha = instance_create(x, y, obj_healanim);
-                            ha.target = id;
-                            ha.particlecolor = c_orange;
+                            with (global.charinstance[global.charturn])
+                            {
+                                ha = instance_create(x, y, obj_healanim);
+                                ha.target = id;
+                                ha.particlecolor = c_orange;
+                            }
                         }
                     }
+                    
+                    scr_itemconsumeb();
+                }
 /// END
 #endif
