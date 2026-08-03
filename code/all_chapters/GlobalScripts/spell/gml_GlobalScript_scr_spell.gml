@@ -45,6 +45,10 @@ function scr_spell(arg0, arg1)
         
         case 2:
             healnum = ceil(scr_heal_amount_modify_by_equipment(global.battlemag[arg1] * 5));
+
+            if (scr_armorcheck_equipped(3, 36))
+                healnum = ceil(scr_heal_amount_modify_by_equipment(global.battlemag[arg1] * 5 * 1.2));
+            
             scr_heal(star, healnum);
             global.charinstance[star].healnum = healnum;
             
@@ -152,6 +156,9 @@ function scr_spell(arg0, arg1)
                 global.spelldelay = 70;
                 damage = ceil(((global.battlemag[arg1] * 5) + (global.battleat[arg1] * 11)) - (global.monsterdf[star] * 3));
                 
+                if (scr_armorcheck_equipped(2, 36))
+                    damage = ceil((((global.battlemag[arg1] * 5) + (global.battleat[arg1] * 11)) * 1.2) - (global.monsterdf[star] * 3));
+
                 if (global.chapter == 3 && i_ex(obj_knight_enemy))
                     damage = ceil(damage * (obj_knight_enemy.damagereduction + 0.65));
                 if (global.chapter == 4)
@@ -197,6 +204,9 @@ function scr_spell(arg0, arg1)
             {
                 global.spelldelay = 70;
                 damage = ceil(((global.battlemag[arg1] * 6) + (global.battleat[arg1] * 13)) - (global.monsterdf[star] * 6));
+
+                if (scr_armorcheck_equipped(2, 36))
+                    damage = ceil((((global.battlemag[arg1] * 6) + (global.battleat[arg1] * 13)) * 1.2) - (global.monsterdf[star] * 6));
                 
                 if (global.automiss[star] == 1)
                     damage = 0;
@@ -212,10 +222,39 @@ function scr_spell(arg0, arg1)
             break;
         
         case 6:
-            healnum = round(scr_heal_amount_modify_by_equipment((global.battlemag[1] + global.battlemag[2]) * 3.5));
-            
-            if (global.flag[1569] == 1)
-                healnum = round((global.battlemag[1] + global.battlemag[2]) * 6);
+            if (global.chapter == 1)
+            {
+                healnum = round(scr_heal_amount_modify_by_equipment(global.battlemag[2] * 4))
+
+                if (scr_armorcheck_equipped(3, 36))
+                    healnum = round(scr_heal_amount_modify_by_equipment(global.battlemag[2] * 4 * 1.2))
+            }
+            else if (global.chapter == 2)
+            {
+                healnum = round(scr_heal_amount_modify_by_equipment(global.battlemag[2] * 5.5))
+
+                if (scr_armorcheck_equipped(3, 36))
+                    healnum = round(scr_heal_amount_modify_by_equipment(global.battlemag[2] * 5.5 * 1.2))
+            }
+            else
+            {
+                caster = 1;
+                susiepart = scr_heal_amount_modify_by_equipment(global.battlemag[1]);
+                caster = 2;
+
+                if (scr_armorcheck_equipped(2, 36))
+                    susiepart = susiepart * 1.2;
+
+                ralseipart = scr_heal_amount_modify_by_equipment(global.battlemag[2]);
+
+                if (scr_armorcheck_equipped(3, 36))
+                    ralseipart = ralseipart * 1.2;
+
+                healnum = round((susiepart + ralseipart) * 3.5)
+
+                if (global.flag[852] == 1)
+                    healnum = round((susiepart + ralseipart) * 6)
+            }
             
             if (global.chapter == 4 && i_ex(obj_titan_enemy))
             {
@@ -321,7 +360,13 @@ function scr_spell(arg0, arg1)
                 global.flag[925]++;
                 var minbattlemag = clamp(global.battlemag[arg1] - 10, 1, 999);
                 global.spelldelay = 40;
-                damage = ceil((minbattlemag * 30) + 90 + random(10));
+                damage = (minbattlemag * 30) + 90 + random(10);
+
+                if (scr_armorcheck_equipped(4, 36))
+                    damage = damage * 1.2
+
+                damage = ceil(damage)
+
                 attack = instance_create(global.monsterx[star], global.monstery[star], obj_icespell);
                 attack.damage = damage;
                 attack.star = star;
@@ -341,7 +386,13 @@ function scr_spell(arg0, arg1)
             if (cancelattack == 0)
             {
                 global.spelldelay = 30;
-                damage = ceil((global.battlemag[arg1] * 40) + 600);
+                damage = (global.battlemag[arg1] * 40) + 600;
+
+                if (scr_armorcheck_equipped(4, 36))
+                    damage = damage * 1.2
+
+                damage = ceil(damage)
+
                 attack = instance_create(x, y, obj_spell_snowgrave);
                 attack.caster = caster;
                 attack.damage = damage;
@@ -371,8 +422,16 @@ function scr_spell(arg0, arg1)
             
             healnum = ceil(scr_heal_amount_modify_by_equipment((global.battlemag[arg1] * 5) + 15 + (2 * global.flag[1045])));
             
-            if (global.flag[1569] == 1)
+            if (scr_armorcheck_equipped(2, 36))
+                healnum = ceil(scr_heal_amount_modify_by_equipment((((global.battlemag[1] * 5) + 15) * 1.2) + (2 * global.flag[1045])));
+
+            if (global.flag[852] == 1)
+            {
                 healnum = ceil(scr_heal_amount_modify_by_equipment((global.battlemag[arg1] * 7) + 15 + (2 * global.flag[1045])));
+
+                if (scr_armorcheck_equipped(2, 36))
+                    healnum = ceil(scr_heal_amount_modify_by_equipment((((global.battlemag[1] * 7) + 15) * 1.2) + (2 * global.flag[1045])));
+            }
             
             if (global.chapter == 4 && i_ex(obj_hammer_of_justice_enemy))
             {
@@ -683,48 +742,48 @@ function scr_spell(arg0, arg1)
             break;
         
         case 218:
-            scr_healitemspell(AP_handle_balancing(scr_teaamount(1, global.char[star]), 2));
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(scr_teaamount(1, global.char[star]), 2)));
             item_use = true;
             break;
         
         case 219:
-            scr_healitemspell(AP_handle_balancing(scr_teaamount(4, global.char[star]), 2));
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(scr_teaamount(4, global.char[star]), 2)));
             item_use = true;
             break;
         
         case 220:
-            scr_healitemspell(AP_handle_balancing(scr_teaamount(3, global.char[star]), 2));
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(scr_teaamount(3, global.char[star]), 2)));
             item_use = true;
             break;
         
         case 221:
-            scr_healitemspell(AP_handle_balancing(scr_teaamount(2, global.char[star]), 2));
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(scr_teaamount(2, global.char[star]), 2)));
             item_use = true;
             break;
         
         case 222:
-            scr_healitemspell(AP_handle_balancing(60, 2));
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(60, 2)));
             item_use = true;
             break;
         
         case 223:
-            scr_healitemspell(AP_handle_balancing(120, 2));
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(120, 2)));
             item_use = true;
             break;
         
         case 224:
-            scr_healitemspell(AP_handle_balancing(100, 2));
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(100, 2)));
             item_use = true;
             break;
         
         case 225:
-            scr_healallitemspell(AP_handle_balancing(30, 2));
+            scr_healallitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(30, 2)));
             item_use = true;
             break;
         
         case 226:
             var healamount = (global.char[star] == 1) ? 100 : 90;
-            scr_healitemspell(AP_handle_balancing(healamount, 2));
+            scr_healitemspell(scr_heal_amount_modify_by_equipment(AP_handle_balancing(healamount, 2)));
             item_use = true;
             break;
         
@@ -785,7 +844,7 @@ function scr_spell(arg0, arg1)
                 star = i;
                 if (i_ex(global.charinstance[i]))
                     global.charinstance[i].poisonamount = 60;
-                var healanim = scr_healitemspell(40);
+                var healanim = scr_healitemspell(scr_heal_amount_modify_by_equipment(40));
 
                 if (healanim != undefined)                
                     healanim.particlecolor = c_fuchsia;

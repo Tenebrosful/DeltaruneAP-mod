@@ -70,7 +70,7 @@ function scr_spelltext(arg0, arg1)
         case 11:
             global.msg[0] = stringsetsubloc("* ~1 cast OKHEAL!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_76_0");
             
-            if (global.flag[1569] == 1)
+            if (global.flag[852] == 1)
                 global.msg[0] = stringsetsubloc("* ~1 cast BetterHeal!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_77_0");
             
             break;
