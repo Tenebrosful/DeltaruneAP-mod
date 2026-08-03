@@ -78,7 +78,6 @@ if (global.myfight == 0)
                 {
                     global.chartarget[global.charturn] = global.bmenucoord[global.bmenuno][global.charturn];
                     scr_itemconsumeb();
-                }
 /// CODE
                 if (global.bmenuno == 7)
                 {
@@ -121,6 +120,5 @@ if (global.myfight == 0)
                     }
                     
                     scr_itemconsumeb();
-                }
 /// END
 #endif
