@@ -120,3 +120,18 @@
         }
 /// END
 #endif
+
+#if !CHAPTER_5
+/// BEFORE
+    }
+}
+/// CODE
+
+        if (global.chararmor1[1] == 35 || global.chararmor2[1] == 35 || global.chararmor1[2] == 35 || global.chararmor2[2] == 35 || global.chararmor1[3] == 35 || global.chararmor2[3] == 35)
+        {
+            global.inv = global.invc * 40 * 1.2;
+            
+            if (global.chapter == 5 && i_ex(obj_pink_enemy) && global.flag[1914] == 2)
+                global.inv = global.invc * 40 * 0.7;
+        }
+/// END
