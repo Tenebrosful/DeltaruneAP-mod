@@ -72,7 +72,7 @@ if (global.myfight == 0)
 /// END
 #endif
 
-#if !CHAPTER_5
+#if !CHAPTER_5 && !CHAPTER_4
 /// REPLACE
                 if (global.bmenuno == 7)
                 {
