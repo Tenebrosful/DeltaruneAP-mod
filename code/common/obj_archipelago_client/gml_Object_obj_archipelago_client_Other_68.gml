@@ -254,6 +254,7 @@ if (ds_map_exists(async_load, "buffer"))
                                     {
                                         bromide = instance_create(0, 0, obj_dw_bromide);
                                         bromide.use_item(data[i].items[ii].item - 10000);
+                                    }
                                 }
                             }
                         }
