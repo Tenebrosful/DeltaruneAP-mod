@@ -36,6 +36,13 @@
         msgnextloc(string("\\S0* (You found {0}.)/%", AP_get_location_reward_text(173)), "obj_readable_room1_slash_Other_10_gml_2191_0_b");
 /// END
 
+/// AFTER
+    if (extflag == "curtain_right")
+    {
+/// CODE
+        AP_sendLocation(136);
+/// END
+
 /// REPLACE
                 scr_weaponget(23);
                 var can_get_item = noroom == 0;
