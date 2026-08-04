@@ -10,7 +10,9 @@
         
         if (global.fastswan)
         {
-            //change swan sprite here
+            swanboat.sprite_index = spr_swanboat_fast
+            swanboat.image_speed = 3
+            global.fastswanequiped = true;
             snd_play(snd_item);
             
             with (obj_npc_room)
