@@ -39,4 +39,16 @@ if (room == room_dw_cyber_battle_maze_2)
         instance_destroy();
     }
 }
+
+if (room == room_dw_mansion_acid_tunnel)
+{
+    sprite_index = spr_bg_city_trash_bag;
+    extflag = "swanmotor"
+
+    if (!variable_global_exists("fastswan"))
+    {
+        global.fastswan = false;
+        global.fastswanequiped = false;
+    }
+}
 /// END

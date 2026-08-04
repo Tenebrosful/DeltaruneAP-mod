@@ -155,6 +155,11 @@ void BuildMod(int chapter)
         Load_audio(Path.Combine(scriptPath, "sounds/snd_cd_bagel_susie.wav"));
         Load_audio(Path.Combine(scriptPath, "sounds/snd_cd_bagel_ralsei.wav"));
     }
+
+    if (chapter == 2)
+    {
+        Load_audio(Path.Combine(scriptPath, "sounds/snd_dogrev.wav"));
+    }
     
 
     // Import fnt_main from Chapter 1 into other chapters because for some reason the text acts really strange otherwise.

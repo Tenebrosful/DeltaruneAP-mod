@@ -278,3 +278,31 @@
                 msgsetloc(0, "* Well^1, there was not a man here./", "scr_text_slash_scr_text_gml_6556_0");
                 msgnextloc("* (It seems you won't be able to get this check anymore... )/%");
 /// END
+
+/// BEFORE
+        case 5000:
+/// CODE
+        case 2000:
+            global.choicemsg[0] = "#Pimp my Swan!";
+            global.choicemsg[1] = "#I prefer going slow";
+            scr_speaker("no_name");
+            msgsetloc(0, "* (It looks like a really detailed and well made Swan Engine 2000.)/");
+            msgnext("\\C2 ");
+            break;
+        
+        case 2001:
+            if (global.choice == 0)
+            {
+                scr_speaker("no_name");
+                msgsetloc(0, "* (The Swan Engine 2000 is now waiting the swan.)/%");
+                global.fastswan = true;
+            }
+            else
+            {
+                scr_speaker("no_name");
+                msgsetloc(0, "* (It's okay to take your time.)/%");
+                global.fastswan = false;
+            }
+            
+            break;
+/// END
