@@ -2,7 +2,6 @@
 if (con == 10)
 {
     mus_volume(global.currentsong[1], 0, 30);
-    var walktime;
     
     if (instance_exists(obj_mainchara))
     {
@@ -11,8 +10,8 @@ if (con == 10)
         kr_actor.sprite_index = obj_mainchara.sprite_index;
         kr_actor.__x = kris_x + 6;
         kr_actor.__y = kris_y + 20;
-        kr_walktime = scr_calculate_move_distance(obj_mainchara.x, obj_mainchara.y, kr_actor.__x, kr_actor.__y, 4);
-        walktime = kr_walktime;
+        kr_walktime = scr_calculate_move_distance(kr_actor.x, kr_actor.y, kr_actor.__x, kr_actor.__y, 4);
+        var walktime = kr_walktime;
         
         with (kr_actor)
         {
@@ -28,6 +27,9 @@ if (con == 10)
         su_actor = instance_create_depth(global.cinstance[0].x, global.cinstance[0].y, global.cinstance[0].depth, obj_actor);
         su_actor.__x = sus_x;
         su_actor.__y = sus_y + 8;
+        su_walktime = scr_calculate_move_distance(su_actor.x, su_actor.y, su_actor.__x, su_actor.__y, 4) / 2;
+        var walktime = su_walktime;
+        kr_walktime = walktime;
         
         with (su_actor)
         {
@@ -62,7 +64,9 @@ if (con == 11)
         con = 1;
         
         with (obj_actor)
-            visible = 0;
+        {
+                visible = 0;
+        }
         
         with (obj_dw_leave_ch4)
         {

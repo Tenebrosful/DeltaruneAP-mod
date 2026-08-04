@@ -44,3 +44,10 @@ border_fade = false;
 scene_mode = false;
 alphadist = 1;
 kr_walktime = 0;
+
+if (scr_havechar(2))
+{
+    kris_only = 0;
+    kris_x = x + 12;
+    kris_y = y - 80;
+}
