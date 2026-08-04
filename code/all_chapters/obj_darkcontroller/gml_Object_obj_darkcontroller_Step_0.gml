@@ -20,6 +20,13 @@
 /// END
 #endif
 
+#if !CHAPTER_1
+/// REPLACE
+                var __equipmenumax = 47;
+/// CODE
+/// END
+#endif
+
 /// AFTER
     if (global.menuno == 2)
     {
@@ -29,9 +36,9 @@
             var __equipmenumax;
             
             if (global.submenu == 12)
-                __equipmenumax = 47;
+                __equipmenumax = #GetMaxWeapon() - 1;
             else if (global.submenu == 13 || global.submenu == 14)
-                __equipmenumax = 59;
+                __equipmenumax = #GetMaxArmor() - 1;
 /// END
 
 /// REPLACE

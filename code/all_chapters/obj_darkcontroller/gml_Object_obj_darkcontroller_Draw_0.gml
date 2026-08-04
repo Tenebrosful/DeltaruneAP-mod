@@ -101,12 +101,12 @@
         if (global.submenu == 12)
         {
             pm = 0;
-            __equipmenumax = 47;
+            __equipmenumax = #GetMaxWeapon() - 1;
         }
         else
         {
             pm = 1;
-            __equipmenumax = 59;
+            __equipmenumax = #GetMaxArmor() - 1;
         }
         
         draw_sprite(spr_heart, 0, xx + 344 + eq_xoff, yy + 240 + ((global.submenucoord[global.submenu] - pagemax[pm]) * 27));
