@@ -5,6 +5,7 @@
 #load "room_dw_city_poppup.csx"
 #load "room_dw_cyber_battle_maze_2.csx"
 #load "room_dw_city_man.csx"
+#load "room_dw_mansion_acid_tunnel.csx"
 
 void Load_chapter2_rooms()
 {
@@ -15,4 +16,5 @@ void Load_chapter2_rooms()
   Load_room_dw_city_poppup();
   Load_room_dw_cyber_battle_maze_2();
   Load_room_dw_city_man();
+  Load_room_dw_mansion_acid_tunnel();
 }

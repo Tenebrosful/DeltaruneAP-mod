@@ -83,11 +83,17 @@ if (room == room_dw_mansion_entrance)
     }
 }
 
-if (room == room_dw_cyber_battle_maze_2 && extflag = "actionblocker")
+if (room == room_dw_cyber_battle_maze_2 && extflag == "actionblocker")
 {
     scr_speaker("no_name")
     msgsetloc(0, "* Heh^1, where do you think you're going?/")
     msgnextloc("* I'm sure your partners can't even dance by themself./")
     msgnextloc("* Come back when they know how to ACT./%")
+}
+
+if (room == room_dw_mansion_acid_tunnel && extflag == "swanmotor")
+{
+    global.msc = 2000;
+    scr_text(global.msc);
 }
 /// END
