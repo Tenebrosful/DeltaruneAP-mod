@@ -17,11 +17,6 @@ function scr_defeatrun()
             _rtext.image_index = 12;
             
             AP_sendLocation(_checkid + 1000);
-
-            if (recruitable == 1 && global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS)
-            {
-                global.flag[global.monstertype[myself] + 600] = -1;
-            }
             
             global.flag[63] = 1;
         }
@@ -38,11 +33,6 @@ function scr_defeatrun()
             {
                 _rtext = instance_create(global.monsterx[myself], global.monstery[myself] - 40, obj_recruitanim);
                 _rtext.image_index = 7;
-            }
-            
-            if (global.flag[global.monstertype[myself] + 600] != -1 && global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS)
-            {
-                global.flag[global.monstertype[myself] + 600] = -1;
             }
         }
     }
