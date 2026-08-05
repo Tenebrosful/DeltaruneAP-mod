@@ -113,6 +113,12 @@ if (ds_map_exists(async_load, "buffer"))
                     }
                     if (variable_struct_exists(data[i].slot_data.options, "death_link"))
                         global.AP_deathlink = data[i].slot_data.options.death_link;
+
+                    if (variable_struct_exists(data[i].slot_data.options, "damage_link"))
+                        global.AP_damagelink = data[i].slot_data.options.damage_link;
+
+                    if (variable_struct_exists(data[i].slot_data.options, "damage_link_group"))
+                        global.AP_damagelink_group = data[i].slot_data.options.damage_link_group;
                     
                     if (variable_struct_exists(data[i].slot_data.options, "progressive_kris_weapons"))
                         global.AP_progressive_weapons.kris = data[i].slot_data.options.progressive_kris_weapons;
@@ -290,6 +296,39 @@ if (ds_map_exists(async_load, "buffer"))
 
                                     global.AP_deathlink_infos = {source: source, cause: cause, time: time};
                                     AP_handle_DeathLink();
+                                }
+                            }
+                            else if (data[i].tags[ii] == ("SharedDamage" + global.AP_damagelink_group) && data[i].data.uuid != global.AP_uuid && !global.AP_damagelink_protected)
+                            {
+                                if (variable_global_exists("chapter"))
+                                {
+                                    var time;
+                                    if (variable_struct_exists(data[i].data, "time"))
+                                        time = data[i].data.time;
+                                    else
+                                        time = undefined;
+                                    
+                                    var source;
+                                    if (variable_struct_exists(data[i].data, "source"))
+                                        source = data[i].data.source;
+                                    else
+                                        source = undefined;
+
+                                    var uuid;
+                                    if (variable_struct_exists(data[i].data, "uuid"))
+                                        uuid = data[i].data.uuid;
+                                    else
+                                        uuid = undefined;
+
+                                    var damage_points;
+                                    if (variable_struct_exists(data[i].data, "damage_points"))
+                                        damage_points = data[i].data.damage_points;
+                                    else
+                                        damage_points = 0;
+
+                                    global.AP_damagelink_infos = {source: source, time: time, uuid: uuid, damage_points: damage_points}
+                                    AP_handle_Damagelink();
+
                                 }
                             }
                         }
