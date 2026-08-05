@@ -32,7 +32,16 @@ function AP_handle_receive_character_unlock(character_id)
   {
     global.maxhp[character_id] += 666 + AP_internal_get_character_max_hp(character_id);
     global.hp[character_id] = global.maxhp[character_id];
-    scr_revive(character_id);
+
+    party_slot = -1;
+    for (i = 0; i < 3; i++)
+    {
+      if (global.char[i] == character_id)
+        party_slot = i
+    }
+    
+    if (party_slot != -1)
+      scr_revive(party_slot);
   }
 }
 
