@@ -7,6 +7,7 @@
 #load "room_dw_church_knightclimb_post.csx"
 #load "room_dw_church_holywatercooler.csx"
 #load "room_dw_castle_town.csx"
+#load "room_dw_castle_tv_zone_minigame.csx"
 
 void Load_chapter4_rooms()
 {
@@ -19,6 +20,7 @@ void Load_chapter4_rooms()
   Load_room_dw_church_knightclimb_post();
   Load_room_dw_church_holywatercooler();
   Load_room_dw_castle_town();
+  Load_room_dw_castle_tv_zone_minigame();
 }
 
 void Load_Early_Chapter4_Rooms()

@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "name": "DELTARUNE Archipelago",
+    "version": "2.1.0-beta5-1",
+    "description": "Archipelago is a cross-game solo or multiplayer randomizer.",
+    "author": [
+      "Tenebrosful",
+      "theemeraldsword85"
+    ],
+    "url": "https://discord.gg/archipelago",
+    "color": {
+      "r": 255,
+      "g": 255,
+      "b": 255
+    },
+    "tags": [
+      "customization",
+      "other"
+    ],
+    "game": "toby.deltarune",
+    "packageID": "gamebanana.archipelago.tenebrosful"
+  },
+  "deltaruneTargetVersion": "v253",
+  "exporter": {
+    "tool": "MiscTools"
+  }
+}

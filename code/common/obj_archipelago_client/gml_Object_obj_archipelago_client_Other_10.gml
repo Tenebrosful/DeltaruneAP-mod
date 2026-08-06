@@ -34,6 +34,7 @@ function AP_read_settings_file()
 {
     var file = file_text_open_read("ap_settings.json");
     var content = file_text_read_string(file);
+    file_text_close(file);
     ap_settings_struct = -1;
     
     if (content != -1)
@@ -390,6 +391,7 @@ function AP_fill_id_to_itemname_struct()
     {
         var file = file_text_open_read(id_to_itemname_path);
         var content = file_text_read_string(file);
+        file_text_close(file);
 
         if (content != -1)
             global.AP_id_to_itemname = json_parse(content);
@@ -402,6 +404,7 @@ function AP_fill_id_to_itemname_struct()
         {
             var file = file_text_open_read(AP_get_save_folder_prefix() + "datapackage.json");
             var content = file_text_read_string(file);
+            file_text_close(file);
 
             if (content != -1)
                 global.AP_data_package_raw = json_parse(content);

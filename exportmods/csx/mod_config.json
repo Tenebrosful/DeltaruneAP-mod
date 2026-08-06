@@ -3,7 +3,7 @@
   "metadata": {
     "id": "gb_mod_699556",
     "name": "DELTARUNE Archipelago",
-    "version": "2.1.0-beta4-5",
+    "version": "2.1.0-beta5-1",
     "author": "Tenebrosful",
     "description": "Archipelago is a cross-game solo or multiplayer randomizer.",
     "game": "deltarune",
@@ -15,22 +15,22 @@
   },
   "files": {
     "deltarune_0": {
-      "data_file_path": "chapter_0/chapter_0.xdelta"
+      "data_file_path": "build.csx"
     },
     "deltarune_1": {
-      "data_file_path": "chapter_1/chapter_1.xdelta"
+      "data_file_path": "build.csx"
     },
     "deltarune_2": {
-      "data_file_path": "chapter_2/chapter_2.xdelta"
+      "data_file_path": "build.csx"
     },
     "deltarune_3": {
-      "data_file_path": "chapter_3/chapter_3.xdelta"
+      "data_file_path": "build.csx"
     },
     "deltarune_4": {
-      "data_file_path": "chapter_4/chapter_4.xdelta"
+      "data_file_path": "build.csx"
     },
     "deltarune_5": {
-      "data_file_path": "chapter_5/chapter_5.xdelta"
+      "data_file_path": "build.csx"
     }
   }
 }

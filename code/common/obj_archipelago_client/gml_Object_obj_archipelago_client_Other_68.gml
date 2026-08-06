@@ -69,6 +69,11 @@ if (ds_map_exists(async_load, "buffer"))
                             global.AP_macguffin_required[chapter - 1] = variable_struct_get(data[i].slot_data.options, "macguffin_chapter_" + string(chapter));
                     }
 
+                    if (data[i].slot_data.options.randomize_chapters == global.AP_ENUM_RANDOMIZE_CHAPTER.ALL_UNLOCKED)
+                    {
+                        global.AP_loaded_unlocked_chapter = true;
+                    }
+
                     for (var ii = 0; ii < array_length(data[i].players); ii++)
                     {
                         var slot_info = variable_struct_get(data[i].slot_info, ii + 1);
@@ -138,6 +143,7 @@ if (ds_map_exists(async_load, "buffer"))
                     {
                         var file = file_text_open_read(path_settings);
                         var content = file_text_read_string(file);
+                        file_text_close(file);
 
                         if (content != -1)
                             settings_struct = json_parse(content);
@@ -161,6 +167,7 @@ if (ds_map_exists(async_load, "buffer"))
                     {
                         var file = file_text_open_read(path_scouting);
                         var content = file_text_read_string(file);
+                        file_text_close(file);
 
                         if (content != -1)
                             scouting_struct = json_parse(content);
@@ -188,7 +195,7 @@ if (ds_map_exists(async_load, "buffer"))
                         {
                             for (var ii = 0; ii < array_length(data[i].items); ii++)
                             {
-                                if (data[i].items[ii].item >= global.AP_item_offset.chapter_unlock)
+                                if (data[i].items[ii].item >= global.AP_item_offset.chapter_unlock && data[i].items[ii].item < global.AP_item_offset.other_unlock)
                                 {
                                     global.AP_chapter_unlocked[data[i].items[ii].item - global.AP_item_offset.chapter_unlock - 1] = true
                                 }

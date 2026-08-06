@@ -1,0 +1,6 @@
+<patch type="csx" patch="./build.csx" to="./data.win"/>
+<patch type="csx" patch="./build.csx" to="./chapter1_windows/data.win"/>
+<patch type="csx" patch="./build.csx" to="./chapter2_windows/data.win"/>
+<patch type="csx" patch="./build.csx" to="./chapter3_windows/data.win"/>
+<patch type="csx" patch="./build.csx" to="./chapter4_windows/data.win"/>
+<patch type="csx" patch="./build.csx" to="./chapter5_windows/data.win"/>
