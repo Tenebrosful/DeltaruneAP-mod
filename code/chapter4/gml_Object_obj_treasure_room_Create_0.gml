@@ -198,11 +198,11 @@ if (room == room_dw_churchb_moneyfountain || instance_exists(obj_dw_churchb_mone
     t_itemid = 210;
 }
 
-if (room == room_dw_castle_tv_zone_3)
+if (room == room_dw_castle_tv_zone_3 || room == room_dw_castle_tv_zone_minigame)
 {
     itemflag = 1703;
-    itemtype = "item";
-    itemidchest = 34;
+    itemtype = "check";
+    itemidchest = 352;
 }
 
 if (global.flag[itemflag] == 1)
