@@ -20,6 +20,15 @@ function draw_text_outline(arg0, arg1, arg2, arg3, arg4, arg5)
 draw_sprite_ext(spr_archipelago_logo, 0, x_align - 30, 25, 4, 4, 0, c_white, 1);
 draw_sprite_ext(spr_archipelago_logo_text, 0, 140, 0, 1, 1, 0, c_white, 1);
 
+if (mode != "normal")
+{
+    draw_text(10, 5, "This is " + mode + " mode. Visual change will come in future update")
+    if (mode == "kris")
+    {
+        draw_text(10, 15, "Also it will stop looping the same kris piano track in future update too. Sorry")
+    }
+}
+
 for (var ii = 0; ii < 7; ii++)
 {
     draw_set_font(fnt_mainbig);
