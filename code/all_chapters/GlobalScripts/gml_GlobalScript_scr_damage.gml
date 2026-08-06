@@ -135,3 +135,72 @@
                 global.inv = global.invc * 40 * 0.7;
         }
 /// END
+
+#if CHAPTER_3
+/// AFTER
+                if (global.chapter == 3 && i_ex(obj_knight_enemy) && obj_knight_enemy.myattackchoice == 2 && (obj_knight_enemy.difficulty == 1 || obj_knight_enemy.difficulty == 3))
+                {
+                    tdamage = round(tdamage * 0.66);
+                    hpdiff = tdamage;
+                }
+                
+                global.hp[chartarget] -= tdamage;
+/// CODE
+                obj_archipelago_client.AP_sendDamagelink(tdamage)
+/// END
+#elsif CHAPTER_4
+/// AFTER
+                if (global.chapter == 4 && i_ex(obj_hammer_of_justice_enemy) && hpdiff < 5)
+                    hpdiff = 5;
+                
+                global.hp[chartarget] -= tdamage;
+/// CODE
+                obj_archipelago_client.AP_sendDamagelink(tdamage)
+/// END
+#else
+/// AFTER
+            else
+            {
+                global.hp[chartarget] -= tdamage;
+/// CODE
+                obj_archipelago_client.AP_sendDamagelink(tdamage)
+/// END
+#endif
+
+#if CHAPTER_1
+/// REPLACE
+                    if (global.charaction[hpi] == 10)
+                        global.hp[chartarget] -= ceil(tdamage / 2);
+                    else
+                        global.hp[chartarget] -= tdamage;
+/// CODE
+                    if (global.charaction[hpi] == 10)
+                    {
+                        global.hp[chartarget] -= ceil(tdamage / 2);
+                        obj_archipelago_client.AP_sendDamagelink(ceil(tdamage / 2))
+                    }
+                    else
+                    {
+                        global.hp[chartarget] -= tdamage;
+                        obj_archipelago_client.AP_sendDamagelink(tdamage)
+                    }
+/// END
+#else
+/// REPLACE
+                    if (global.charaction[hpi] == 10)
+                        global.hp[chartarget] -= ceil((3 * tdamage) / 4);
+                    else
+                        global.hp[chartarget] -= tdamage;
+/// CODE
+                    if (global.charaction[hpi] == 10)
+                    {
+                        global.hp[chartarget] -= ceil((3 * tdamage) / 4);
+                        obj_archipelago_client.AP_sendDamagelink(ceil((3 * tdamage) / 4))
+                    }
+                    else
+                    {
+                        global.hp[chartarget] -= tdamage;
+                        obj_archipelago_client.AP_sendDamagelink(tdamage)
+                    }
+/// END
+#endif

@@ -11,7 +11,8 @@ function AP_write_settings_file()
         settings: 
         {
             colors: global.AP_colors
-        }
+        },
+        uuid: global.AP_uuid
     };
     ap_setting_json = json_stringify(ap_settings);
     var file = file_text_open_write("ap_settings.json");
@@ -20,7 +21,8 @@ function AP_write_settings_file()
     // deathlink
     settings = 
     {
-        deathLink: global.AP_deathlink
+        deathLink: global.AP_deathlink,
+        damageLink: global.AP_damagelink
     }
     setting_json = json_stringify(settings);
     var file = file_text_open_write(AP_get_save_folder_prefix() +  "settings.json");
@@ -82,7 +84,7 @@ function AP_sendConnectionInfo()
         password: global.AP_password,
         game: APgame,
         name: global.AP_name,
-        uuid: UnknownEnum.Value_999999, // We need to change that
+        uuid: global.AP_uuid,
         items_handling: UnknownEnum.Value_7,
         tags: tags,
         version: 
@@ -321,12 +323,38 @@ function AP_sendDeathlink(text)
     {
         cmd: "Bounce",
         tags: ["DeathLink"],
-        data: {
+        data:
+        {
             time: int64(current_time),
             source: global.AP_name,
+            uuid: global.AP_uuid,
             cause: text
         }
     };
+
+    AP_internal_send_packet(_contents);
+}
+
+function AP_sendDamagelink(amount)
+{
+    if (!AP_isAuthenticated())
+        exit;
+
+    if (amount <= 0)
+        exit;
+
+    var _contents = 
+    {
+        cmd: "Bounce",
+        tags: [("SharedDamage" + global.AP_damagelink_group)],
+        data:
+        {
+            time: int64(current_time),
+            source: global.AP_name,
+            uuid: global.AP_uuid,
+            damage_points: amount
+        }
+    }
 
     AP_internal_send_packet(_contents);
 }
@@ -434,6 +462,9 @@ function AP_getTags()
 
     if global.AP_deathlink
         array_push(tags, "DeathLink")
+
+    if global.AP_damagelink
+        array_push(tags, "SharedDamage" + global.AP_damagelink_group)
     
     return tags
 }

@@ -63,6 +63,10 @@ global.AP_have_starwalker = false;
 global.AP_deathlink = false;
 global.AP_deathlink_protected = false;
 global.AP_deathlink_infos = {source: undefined, cause: undefined, time: undefined};
+global.AP_damagelink = false;
+global.AP_damagelink_protected = false;
+global.AP_damagelink_infos = {source: undefined, uuid: undefined, damage_points: undefined, time: undefined};
+global.AP_damagelink_group = ""
 global.AP_secret_bosses_mandatory = false;
 global.AP_unlock_fun_gang_actions = true;
 global.AP_remove_starting_equipment = true;
@@ -173,7 +177,8 @@ if (!file_exists("ap_settings.json"))
         settings: 
         {
             colors: global.AP_colors
-        }
+        },
+        uuid: generate_uuidv4()
     };
     ap_setting_json = json_stringify(ap_settings_struct);
     var file = file_text_open_write("ap_settings.json");
@@ -187,3 +192,12 @@ global.AP_port = ap_settings.port;
 global.AP_name = ap_settings.name;
 global.AP_password = ap_settings.password;
 global.AP_colors = ap_settings.settings.colors;
+
+if (variable_struct_exists(ap_settings, "uuid"))
+{
+    global.AP_uuid = ap_settings.uuid;
+}
+else
+{
+    global.AP_uuid = generate_uuidv4()
+}

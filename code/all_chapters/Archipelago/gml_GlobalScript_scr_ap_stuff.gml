@@ -431,6 +431,30 @@ function AP_item_flag_to_color(flags){
     }
 }
 
+function AP_handle_Damagelink()
+{
+    if (global.darkzone == 0)
+        exit;
+
+    global.AP_damagelink_protected = true;
+    possible_targets = []
+
+    for (i = 0; i < 3; i++)
+    {
+        if (global.char[i] != 0 && global.hp[global.char[i]] > 0)
+            array_push(possible_targets, i)
+    }
+    
+    target = possible_targets[irandom(array_length(possible_targets) - 1)];
+    damage = global.AP_damagelink_infos.damage_points;
+
+    global.inv = -1
+
+    scr_damage();
+    snd_play(snd_damage);
+    global.AP_damagelink_protected = false;
+}
+
 function AP_handle_DeathLink()
 {   
     if (global.darkzone == 0)
