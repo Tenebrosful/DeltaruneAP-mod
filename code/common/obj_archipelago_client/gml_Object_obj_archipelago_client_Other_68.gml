@@ -195,7 +195,7 @@ if (ds_map_exists(async_load, "buffer"))
                         {
                             for (var ii = 0; ii < array_length(data[i].items); ii++)
                             {
-                                if (data[i].items[ii].item >= global.AP_item_offset.chapter_unlock && data[i].items[ii].item < global.AP_item_offset.macguffin)
+                                if (data[i].items[ii].item >= global.AP_item_offset.chapter_unlock && data[i].items[ii].item < global.AP_item_offset.other_unlock)
                                 {
                                     global.AP_chapter_unlocked[data[i].items[ii].item - global.AP_item_offset.chapter_unlock - 1] = true
                                 }
