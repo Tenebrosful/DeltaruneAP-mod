@@ -187,7 +187,7 @@ if (connect && page == 0)
         case global.AP_ENUM_CONNECTION_STATE.READY:
             if (!global.AP_loaded_unlocked_chapter)
             {
-                connected = "> Waiting to received unlocked chapters...";
+                connected = "> Waiting to receive unlocked chapters...";
             }
             else
             {
