@@ -143,6 +143,7 @@ if (ds_map_exists(async_load, "buffer"))
                     {
                         var file = file_text_open_read(path_settings);
                         var content = file_text_read_string(file);
+                        file_text_close(file);
 
                         if (content != -1)
                             settings_struct = json_parse(content);
@@ -166,6 +167,7 @@ if (ds_map_exists(async_load, "buffer"))
                     {
                         var file = file_text_open_read(path_scouting);
                         var content = file_text_read_string(file);
+                        file_text_close(file);
 
                         if (content != -1)
                             scouting_struct = json_parse(content);
