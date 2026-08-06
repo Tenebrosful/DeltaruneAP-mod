@@ -1,10 +1,8 @@
-UndertaleModCli.exe load DELTARUNE\data_vanilla.win -s build.csx -o DELTARUNE\data.win
-UndertaleModCli.exe load DELTARUNE\chapter1_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter1_windows\data.win
-UndertaleModCli.exe load DELTARUNE\chapter2_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter2_windows\data.win
-UndertaleModCli.exe load DELTARUNE\chapter3_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter3_windows\data.win
-UndertaleModCli.exe load DELTARUNE\chapter4_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter4_windows\data.win
-UndertaleModCli.exe load DELTARUNE\chapter5_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter5_windows\data.win
-
-py -3.12 generate_bsdiff.py
-
-.\generate_vcdiff.bat
+echo "Generating data.win files"
+./generate_data.bat
+echo "Generating xdelta files"
+./generate_vcdiff.bat
+echo "Generating bsdiff files"
+./generate_bsdiff.bat
+echo "Zipping all of that"
+./zip_all.bat
