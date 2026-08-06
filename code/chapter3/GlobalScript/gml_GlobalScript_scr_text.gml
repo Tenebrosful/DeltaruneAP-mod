@@ -24,7 +24,7 @@
                 msgsetloc(1, "\\s0* Hey^1. I knows what you did./", "scr_text_slash_scr_text_gml_8774_0");
                 msgsetloc(2, "\\s0* You's the people who beat up my friend./", "scr_text_slash_scr_text_gml_8774_0");
                 msgsetloc(3, "\\s0* Yah three are lucky that guy forces us to do this.../", "scr_text_slash_scr_text_gml_8774_0");
-                msgsetloc(4, "\\s0* Cause that means you can just cheat through everything^1, huh?/%", "scr_text_slash_scr_text_gml_8774_0");
+                msgsetloc(4, "\\s0* Cause that means you can just cheat through everything^1, huh?/", "scr_text_slash_scr_text_gml_8774_0");
             }
             else
             {
