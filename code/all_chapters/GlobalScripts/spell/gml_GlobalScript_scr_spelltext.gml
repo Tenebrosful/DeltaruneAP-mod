@@ -129,7 +129,10 @@ function scr_spelltext(arg0, arg1)
             break;
         
         case 201:
-            global.msg[0] = stringsetsubloc("* ~1 used the DARKER CANDY!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_118_0");
+            if (global.chapter < 4)
+                global.msg[0] = stringsetsubloc("* ~1 used the DARK CANDY!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_118_0");
+            else
+                global.msg[0] = stringsetsubloc("* ~1 used the DARKER CANDY!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_118_0");
             break;
         
         case 202:
