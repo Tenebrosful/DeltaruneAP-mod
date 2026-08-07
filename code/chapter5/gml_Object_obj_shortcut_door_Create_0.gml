@@ -40,16 +40,16 @@ if (room == room_dw_cliff_climbrefresher)
 
 if (room == room_dw_cliff_netskieclimb)
 {
-    if (global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] < 4)
-        global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 4;
+    if (global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] < 5)
+        global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 5;
     
     AP_sendLocation(292);
 }
 
 if (room == room_dw_cliff_seth_miniboss)
 {
-    if (global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] < 5)
-        global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 5;
+    if (global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] < 4)
+        global.customflags[global.custom_flags_indexes.ch5_shortcut_door_state] = 4;
     
     AP_sendLocation(293);
 }
