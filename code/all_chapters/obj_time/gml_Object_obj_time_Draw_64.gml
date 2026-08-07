@@ -22,6 +22,44 @@ if (scr_debug())
   draw_text(5, 55, "Current Route: " + AP_resolve_route_name(global.AP_current_route))
 }
 
+if (!global.AP_sync)
+{
+    ww = camera_get_view_width(view_camera[0]);
+    
+    if (global.darkzone)
+        ww = ww / 2;
+    
+    draw_set_font(fnt_main);
+    draw_set_color(c_red);
+    draw_set_halign(fa_center);
+    draw_text(ww - 10, 0, "SYNCHRONIZATION ITEMS MISMATCH DETECTED! PLEASE REPORT THIS.");
+    draw_text(ww - 10, 10, "A FILE NAMED unsync.json HAS BEEN CREATED IN YOU SAVEFILE.");
+    draw_set_halign(fa_left);
+
+    if (!global.AP_sync_output_done)
+    {
+        global.AP_sync_output_done = true;
+        _content = {
+            version: #GetVersion(),
+            chapter: global.chapter,
+            server_items: global.AP_item_from_server,
+            save_items: global.AP_item_got_in_current_chapter,
+            flags: global.flag,
+            custom_flags: global.customflags,
+            items: global.item,
+            key_items: global.keyitem,
+            weapons: global.weapon,
+            armors: global.armor,
+            storage: global.pocketitem
+        }
+
+        var json = json_stringify(_content)
+        var file = file_text_open_write("unsync.json");
+        file_text_write_string(file, json);
+        file_text_close(file);
+    }
+}
+
 if (global.interact != 0)
 {
     ww = camera_get_view_width(view_camera[0]);

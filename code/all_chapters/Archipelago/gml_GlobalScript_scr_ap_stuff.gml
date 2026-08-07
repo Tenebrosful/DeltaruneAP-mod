@@ -1,5 +1,39 @@
 /// FUNCTIONS
 
+function AP_verify_sync()
+{
+    var AP_item_from_server_copy = global.AP_item_from_server
+    var AP_item_got_in_current_chapter_copy = global.AP_item_got_in_current_chapter
+
+    if (AP_item_from_server_copy == undefined)
+    {
+        AP_item_from_server_copy = []
+    }
+
+    if (AP_item_got_in_current_chapter_copy == undefined)
+    {
+        AP_item_got_in_current_chapter_copy = []
+    }
+
+    if (array_length(AP_item_got_in_current_chapter_copy))
+    {
+        return true; // prevent when not in a save
+    }
+
+    if (array_length(AP_item_from_server_copy) != array_length(AP_item_got_in_current_chapter_copy))
+    {
+        return false;
+    }
+
+    for (i = 0; i < array_length(AP_item_from_server_copy); i++)
+    {
+        if (AP_item_from_server_copy[i] != AP_item_got_in_current_chapter_copy[i])
+            return false;
+    }
+
+    return true;
+}
+
 function AP_handle_balancing(amount, expected_chapter)
 {
     if (!global.AP_balancing || amount <= 0) return amount;

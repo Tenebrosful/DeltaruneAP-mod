@@ -82,6 +82,8 @@ global.AP_multiworld = 0;
 global.AP_all_locations_ids = [];
 global.AP_remaining_locations = [];
 global.AP_connection_errors = undefined;
+global.AP_sync = true;
+global.AP_sync_output_done = false;
 global.AP_colors = 
 {
     filler: "00FFFF",
