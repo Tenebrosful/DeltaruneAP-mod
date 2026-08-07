@@ -326,7 +326,7 @@ function AP_internal_handle_real_keyitem(realitem_id)
   }
     
 
-  AP_internal_print_get_item_text(item_chapter, realitem_id, item_name, 1);
+  AP_internal_print_get_item_text(realitem_id);
 }
 
 function AP_internal_special_key_item(realitem_id)
@@ -364,12 +364,11 @@ function AP_internal_handle_weapon_item(item_id)
 
   scr_weaponinfo(weapon_id);
   var item_name = weaponnametemp;
-  var item_classification = weaponclassificationtemp;
   if (weapon_id == 35 && AP_should_get_floweryscarf())
     scr_weaponget(34);
   else
     scr_weaponget(weapon_id)
-  AP_internal_print_get_item_text(global.chapter, item_id, item_name, item_classification);
+  AP_internal_print_get_item_text(item_id);
 }
 
 function AP_internal_handle_armor_item(item_id)
@@ -378,17 +377,15 @@ function AP_internal_handle_armor_item(item_id)
 
   scr_armorinfo(armor_id);
   var item_name = armornametemp;
-  var item_classification = armorclassificationtemp;
   scr_armorget(armor_id);
 
-  AP_internal_print_get_item_text(global.chapter, item_id, item_name, item_classification);
+  AP_internal_print_get_item_text(item_id);
 }
 
 function AP_internal_handle_normal_item(item_id)
 {
   scr_iteminfo(item_id);
   var item_name = itemnameb;
-  var item_classification = itemclassification;
   var chapter = global.chapter
 
   if item_id == 4 // Manual
@@ -397,10 +394,10 @@ function AP_internal_handle_normal_item(item_id)
   if chapter == global.chapter
     scr_itemget(item_id);
 
-  AP_internal_print_get_item_text(global.chapter, item_id, item_name, item_classification);
+  AP_internal_print_get_item_text(item_id);
 }
 
-function AP_internal_print_get_item_text(item_chapter, item_id, item_name, item_classification)
+function AP_internal_print_get_item_text(item_id)
 {
   if (AP_internal_item_have_special_text(item_id))
   {
