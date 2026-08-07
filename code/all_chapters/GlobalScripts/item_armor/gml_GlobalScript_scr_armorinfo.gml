@@ -8,7 +8,6 @@ function scr_armorinfo(arg0)
     armornametemp = arg0;
     armordesctemp = stringsetloc("report bug pls", "scr_armorinfo_slash_scr_armorinfo_gml_8_0_b");
     chapter = 1;
-    armorclassificationtemp = 0;
     
     switch (arg0)
     {
@@ -74,7 +73,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 0;
             armoricontemp = 4;
             value = 150;
-            armorclassificationtemp = 2;
             break;
         
         case 3:
@@ -111,7 +109,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 7;
             armoricontemp = 4;
             value = 100;
-            armorclassificationtemp = 3;
             break;
         
         case 4:
@@ -147,7 +144,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 7;
             armoricontemp = 4;
             value = 90;
-            armorclassificationtemp = 3;
             break;
         
         case 5:
@@ -169,7 +165,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 0;
             armoricontemp = 4;
             value = 150;
-            armorclassificationtemp = 3;
             break;
         
         case 6:
@@ -193,7 +188,6 @@ function scr_armorinfo(arg0)
             value = 120;
             armorelementtemp = 7;
             armorelementamounttemp = 0.5;
-            armorclassificationtemp = 2;
             break;
         
         case 7:
@@ -215,7 +209,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 0;
             armoricontemp = 4;
             value = 0;
-            armorclassificationtemp = 2;
             break;
         
         case 8:
@@ -267,7 +260,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 7;
             armoricontemp = 4;
             value = 400;
-            armorclassificationtemp = 2;
             chapter = 2;
             break;
         
@@ -291,7 +283,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 0;
             armoricontemp = 4;
             value = 200;
-            armorclassificationtemp = 3;
             chapter = 2;
             break;
         
@@ -315,7 +306,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 0;
             armoricontemp = 4;
             value = 300;
-            armorclassificationtemp = 2;
             chapter = 2;
             break;
         
@@ -339,7 +329,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 0;
             armoricontemp = 4;
             value = 300;
-            armorclassificationtemp = 3;
             chapter = 2;
             break;
         
@@ -363,7 +352,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 0;
             armoricontemp = 4;
             value = 300;
-            armorclassificationtemp = 2;
             chapter = 2;
             break;
         
@@ -387,7 +375,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 7;
             armoricontemp = 4;
             value = 1000;
-            armorclassificationtemp = 2;
             chapter = 2;
             break;
         
@@ -411,7 +398,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 7;
             armoricontemp = 4;
             value = 400;
-            armorclassificationtemp = 2;
             chapter = 2;
             break;
         
@@ -437,7 +423,6 @@ function scr_armorinfo(arg0)
             value = 300;
             armorelementtemp = 6;
             armorelementamounttemp = 0.35;
-            armorclassificationtemp = 2;
             chapter = 2;
             break;
         
@@ -460,7 +445,6 @@ function scr_armorinfo(arg0)
             armorabilitytemp = stringsetloc(" ", "scr_armorinfo_slash_scr_armorinfo_gml_401_0");
             armorabilityicontemp = 7;
             armoricontemp = 4;
-            armorclassificationtemp = 2;
             value = (global.chapter * 200) + ((global.chapter - 1) * 220);
             break;
         
@@ -486,7 +470,6 @@ function scr_armorinfo(arg0)
             value = 1;
             armorelementtemp = 1;
             armorelementamounttemp = 0.5;
-            armorclassificationtemp = 2;
             chapter = 2;
             break;
         
@@ -510,7 +493,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 7;
             armoricontemp = 4;
             value = 300;
-            armorclassificationtemp = 2;
             chapter = 2;
             break;
         
@@ -536,7 +518,6 @@ function scr_armorinfo(arg0)
             value = 100;
             armorelementtemp = 6;
             armorelementamounttemp = 0.15;
-            armorclassificationtemp = 2;
             chapter = 2;
             break;
         
@@ -561,7 +542,6 @@ function scr_armorinfo(arg0)
             value = 0;
             armorelementtemp = 6;
             armorelementamounttemp = 0.4;
-            armorclassificationtemp = 2;
             chapter = 2;
             break;
         
@@ -585,7 +565,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 0;
             armoricontemp = 4;
             value = 1000;
-            armorclassificationtemp = 2;
             chapter = 2;
             break;
         
@@ -611,7 +590,6 @@ function scr_armorinfo(arg0)
             value = 0;
             armorelementtemp = 5;
             armorelementamounttemp = 0.66;
-            armorclassificationtemp = 2;
             break;
         
         case 24:
@@ -662,7 +640,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 7;
             armoricontemp = 4;
             value = 220;
-            armorclassificationtemp = 2;
             chapter = 3;
             break;
         
@@ -686,7 +663,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 0;
             armoricontemp = 19;
             value = 862;
-            armorclassificationtemp = 2;
             chapter = 3;
             break;
         
@@ -718,7 +694,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 7;
             armoricontemp = 4;
             value = 1;
-            armorclassificationtemp = 2;
             chapter = 3;
             break;
         
@@ -742,7 +717,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 0;
             armoricontemp = 4;
             value = 600;
-            armorclassificationtemp = 2;
             chapter = 3;
             break;
         
@@ -989,7 +963,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 0;
             armoricontemp = 4;
             value = 900;
-            armorclassificationtemp = 2;
             chapter = 4;
             break;
         
@@ -1013,7 +986,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 0;
             armoricontemp = 4;
             value = 1234;
-            armorclassificationtemp = 2;
             chapter = 4;
             break;
         
@@ -1037,7 +1009,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 0;
             armoricontemp = 4;
             value = 1234;
-            armorclassificationtemp = 2;
             chapter = 4;
             break;
         
@@ -1068,7 +1039,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 7;
             armoricontemp = 4;
             value = 1234;
-            armorclassificationtemp = 2;
             chapter = 4;
             break;
         
@@ -1092,7 +1062,6 @@ function scr_armorinfo(arg0)
             armorabilityicontemp = 6;
             armoricontemp = 4;
             value = 5000;
-            armorclassificationtemp = 2;
             chapter = 4;
             break;
     }

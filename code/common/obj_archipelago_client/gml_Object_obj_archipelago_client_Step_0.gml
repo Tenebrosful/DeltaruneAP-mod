@@ -19,6 +19,7 @@ else if (global.AP_connection_state == global.AP_ENUM_CONNECTION_STATE.READY)
     if (step > global.AP_heartbeat_timer)
     {
         AP_heartbeat();
+        global.AP_sync = AP_verify_sync();
         step = 0;
     }
 }

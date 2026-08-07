@@ -4,7 +4,6 @@ function scr_weaponinfo(arg0)
     weaponchar4temp = 0;
     weaponnametemp = stringsetloc(" ", "scr_weaponinfo_slash_scr_weaponinfo_gml_2_0");
     chapter = 1;
-    weaponclassificationtemp = 2;
     
     switch (arg0)
     {
@@ -324,7 +323,6 @@ function scr_weaponinfo(arg0)
             weaponabilityicontemp = 14;
             weaponabilitytemp = stringsetloc("Trance", "scr_weaponinfo_slash_scr_weaponinfo_gml_323_0");
             value = 0;
-            weaponclassificationtemp = 3
             chapter = 2;
             break;
         
