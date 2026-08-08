@@ -48,6 +48,8 @@ function AP_connection_checker()
     {
         trying_to_reconnect = false;
         global.interact = 0;
+        AP_sendLocation(global.AP_locations_during_disconnect);
+        global.AP_locations_during_disconnect = []
     }
 }
 

@@ -60,6 +60,7 @@ global.AP_game_start_post_connexion_done = false;
 global.AP_current_route = global.AP_ENUM_CHOSEN_ROUTE.UNKNOWN;
 global.AP_route_from_settings = global.AP_ENUM_CHOSEN_ROUTE.UNKNOWN;
 global.AP_is_first_sync = true;
+global.AP_locations_during_disconnect = [];
 global.AP_no_mantle = false;
 global.AP_better_odds = false;
 global.AP_have_starwalker = false;
