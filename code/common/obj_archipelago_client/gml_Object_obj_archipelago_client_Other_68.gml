@@ -120,7 +120,8 @@ if (ds_map_exists(async_load, "buffer"))
                         global.AP_deathlink = data[i].slot_data.options.death_link;
 
                     if (variable_struct_exists(data[i].slot_data.options, "damage_link"))
-                        global.AP_damagelink = data[i].slot_data.options.damage_link;
+                        // global.AP_damagelink = data[i].slot_data.options.damage_link;
+                        global.AP_damagelink = false // until i fix it
 
                     if (variable_struct_exists(data[i].slot_data.options, "damage_link_group"))
                         global.AP_damagelink_group = data[i].slot_data.options.damage_link_group;
