@@ -205,7 +205,7 @@ if (ds_map_exists(async_load, "buffer"))
                             global.AP_loaded_unlocked_chapter = true;
                         }
                         // Receiving items during a chapter
-                        else
+                        else if (variable_global_exists("chapter"))
                         {
                             global.AP_is_receiving_items = true
                             starting_index = data[i].index;
