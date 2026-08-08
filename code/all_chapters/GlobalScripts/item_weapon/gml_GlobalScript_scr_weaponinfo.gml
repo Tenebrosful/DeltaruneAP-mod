@@ -759,11 +759,39 @@ function scr_weaponinfo(arg0)
             break;
         
         case 35:
-            weaponnametemp = stringsetloc("BrokenScarf", "scr_weaponinfo_slash_scr_weaponinfo_gml_744_0");
-            weapondesctemp = stringsetloc("A scarf that was torn to pieces in the#battle, revealing it was all for show.", "scr_weaponinfo_slash_scr_weaponinfo_gml_745_0");
-            wmessage2temp = stringsetloc("...", "scr_weaponinfo_slash_scr_weaponinfo_gml_746_0");
-            wmessage3temp = stringsetloc("... I'll wear it.", "scr_weaponinfo_slash_scr_weaponinfo_gml_747_0");
-            wmessage4temp = stringsetloc("Who the HECK is Flowery?", "scr_weaponinfo_slash_scr_weaponinfo_gml_748_0");
+            if (global.chapter == 5 && global.plot < 540)
+            {
+                weaponnametemp = stringsetloc("FloweryScarf", "scr_weaponinfo_slash_scr_weaponinfo_gml_721_0_b");
+                weapondesctemp = stringsetloc("A scarf which says \"I <3 Flowery\" on it.#It's the perfect size for Ralsei.", "scr_weaponinfo_slash_scr_weaponinfo_gml_722_0_b");
+                wmessage2temp = stringsetloc("Nah, that's for Ralsei.", "scr_weaponinfo_slash_scr_weaponinfo_gml_723_0_b");
+                wmessage3temp = stringsetloc("... Do I have to wear this?", "scr_weaponinfo_slash_scr_weaponinfo_gml_724_0_b");
+                wmessage4temp = stringsetloc("Who the heck is Flowery?", "scr_weaponinfo_slash_scr_weaponinfo_gml_725_0_b");
+                weaponabilityicontemp = 21;
+                weaponabilitytemp = stringsetloc("TheBest", "scr_weaponinfo_slash_scr_weaponinfo_gml_739_0");
+            }
+            
+            if (global.chapter < 5 || (global.chapter == 5 && global.plot < 200))
+            {
+                weaponnametemp = stringsetloc("BrokenScarf", "scr_weaponinfo_slash_scr_weaponinfo_gml_744_0");
+                weapondesctemp = stringsetloc("The scarf of a flower whose dream was#never realized.", "scr_weaponinfo_slash_scr_weaponinfo_gml_745_0");
+                wmessage2temp = stringsetloc("Nah. Too hopeless.", "scr_weaponinfo_slash_scr_weaponinfo_gml_746_0");
+                wmessage3temp = stringsetloc("... Okay.", "scr_weaponinfo_slash_scr_weaponinfo_gml_747_0");
+                wmessage4temp = stringsetloc("Who the heck is Flowery?", "scr_weaponinfo_slash_scr_weaponinfo_gml_748_0");
+                weaponabilityicontemp = 0;
+                weaponabilitytemp = "";
+            }
+            
+            if (global.chapter > 5 || (global.chapter == 5 && global.plot >= 540))
+            {
+                weaponnametemp = stringsetloc("BrokenScarf", "scr_weaponinfo_slash_scr_weaponinfo_gml_744_0");
+                weapondesctemp = stringsetloc("A scarf that was torn to pieces in the#battle, revealing it was all for show.", "scr_weaponinfo_slash_scr_weaponinfo_gml_745_0");
+                wmessage2temp = stringsetloc("...", "scr_weaponinfo_slash_scr_weaponinfo_gml_746_0");
+                wmessage3temp = stringsetloc("... I'll wear it.", "scr_weaponinfo_slash_scr_weaponinfo_gml_747_0");
+                wmessage4temp = stringsetloc("Who the HECK is Flowery?", "scr_weaponinfo_slash_scr_weaponinfo_gml_748_0");
+                weaponabilityicontemp = 0;
+                weaponabilitytemp = "";
+            }
+            
             weaponattemp = 12;
             weapondftemp = 3;
             weaponmagtemp = 3;
@@ -776,9 +804,7 @@ function scr_weaponinfo(arg0)
             weaponchar3temp = 1;
             weaponchar4temp = 0;
             weaponicontemp = 3;
-            weaponabilityicontemp = 0;
-            weaponabilitytemp = "";
-            value = 2;
+            value = 0;
             chapter = 5;
             break;
         

@@ -21,6 +21,7 @@ function AP_step()
 
 function AP_connection_checker()
 {
+    if (!AP_can_display_textbox()) return;
     if (!obj_archipelago_client.AP_isAuthenticated())
     {
         if (obj_archipelago_client.AP_isDisconnected())
