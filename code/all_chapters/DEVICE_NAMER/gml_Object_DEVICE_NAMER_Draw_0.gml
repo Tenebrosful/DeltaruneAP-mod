@@ -3,5 +3,5 @@
 /// AFTER
     scr_initialize_charnames();
 /// CODE
-    AP_get_recruits();
+    AP_set_recruits_flags();
 /// END

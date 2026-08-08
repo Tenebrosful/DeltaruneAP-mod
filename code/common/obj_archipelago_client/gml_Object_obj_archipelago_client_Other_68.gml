@@ -203,73 +203,39 @@ if (ds_map_exists(async_load, "buffer"))
 
                             global.AP_loaded_unlocked_chapter = true;
                         }
-                        // Receiving items after reconnect
-                        else if (!variable_global_exists("AP_item_from_server") || global.AP_item_from_server == undefined)
-                        {
-                            global.AP_skip_item_textboxes = true;
-                            global.AP_item_from_server = [];
-                            for (var ii = 0; ii < array_length(data[i].items); ii++)
-                            {
-                                global.AP_item_from_server[ii] = data[i].items[ii].item;
-                            }
-                        }
-                        // Receiving items while playing chapter
+                        // Receiving items during a chapter
                         else
                         {
-                            var starting_index = array_length(global.AP_item_from_server);
+                            global.AP_is_receiving_items = true
+                            starting_index = data[i].index;
+
                             for (var ii = 0; ii < array_length(data[i].items); ii++)
                             {
                                 global.AP_item_from_server[starting_index + ii] = data[i].items[ii].item;
 
-                                item_data = data[i].items[ii]
-
-                                playerName = global.AP_player_names[item_data.player]
-                                itemName = variable_struct_get(global.AP_id_to_itemname, string(item_data.item))
-
-                                array_push(obj_archipelago_toast_notificator.current_notification, new AP_toast_notification(itemName, AP_item_flag_to_color(item_data.flags), playerName, false));
-                                
-                                // We special handle characters here so we directly get it even during a fight
-                                if (data[i].items[ii].item >= global.AP_item_offset.character_unlock && data[i].items[ii].item < global.AP_item_offset.macguffin)
+                                // if starting index is not 0 then it's not the first connection packet
+                                if (starting_index != 0)
                                 {
-                                    var character_id = data[i].items[ii].item - global.AP_item_offset.character_unlock;
-                                    AP_handle_receive_character_unlock(character_id);
-                                }
+                                    item_data = data[i].items[ii]
 
-                                // We special handle fun gang actions here so we directly get it even during a fight
-                                if (data[i].items[ii].item == 100000)
-                                {
-                                    global.flag[34] = false;
-                                }
+                                    playerName = global.AP_player_names[item_data.player]
+                                    itemName = variable_struct_get(global.AP_id_to_itemname, string(item_data.item))
 
-                                // We special handle S.POISON here because we are sadistic
-                                if (data[i].items[ii].item == 32)
-                                {
-                                    if (global.interact == 2)
-                                    {
-                                        scr_spell(232, 0)
-                                    }
-                                    else
-                                    {
-                                        global.charselect = 0;
-                                        scr_itemuse(32);
-                                    }
-                                    array_push(global.AP_item_got_in_current_chapter, 32);
-                                }
+                                    array_push(obj_archipelago_toast_notificator.current_notification, new AP_toast_notification(itemName, AP_item_flag_to_color(item_data.flags), playerName, false));
 
-                                if (data[i].items[ii].item == 10024 || data[i].items[ii].item == 10033)
-                                {
-                                    if (instance_exists(obj_dw_bromide))
+                                    if (global.chapter == 5 && item_data.item == 1021) // Pink Coin
                                     {
-                                        bromide = instance_create(0, 0, obj_dw_bromide);
-                                        bromide.queue(data[i].items[ii].item - 10000);
-                                    }
-                                    else
-                                    {
-                                        bromide = instance_create(0, 0, obj_dw_bromide);
-                                        bromide.use_item(data[i].items[ii].item - 10000);
+                                        snd_play(snd_pink_coin);
                                     }
                                 }
                             }
+
+                            // After updating server array, we ask for a sync with the save only if we are in game (eg. AP_item_got_in_current_chapter exists)
+                            if (variable_global_exists("AP_item_got_in_current_chapter"))
+                            {
+                                AP_sync_item_from_server();
+                            }
+                            global.AP_is_receiving_items = false;
                         }
                     }
                     break;

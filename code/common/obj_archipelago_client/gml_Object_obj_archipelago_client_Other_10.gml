@@ -107,7 +107,7 @@ function AP_disconnect()
         global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.DISCONNECTED;
         network_destroy(global.AP_socket);
         global.AP_socket = -1;
-        global.AP_item_from_server = undefined;
+        global.AP_item_from_server = [];
     }
 }
 

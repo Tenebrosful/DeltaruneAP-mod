@@ -27,6 +27,8 @@ class ArchipelagoLoader : UMPLoader
 
     public readonly string max_storage = "192";
 
+    public readonly string max_custom_flag = "9999";
+
     public string GetVersion()
     {
         return $"\"{minimal_apworld_version}-{mod_version}\"";
@@ -55,6 +57,11 @@ class ArchipelagoLoader : UMPLoader
     public string GetMaxStorage()
     {
         return max_storage;
+    }
+
+    public string GetMaxCustomFlag()
+    {
+        return max_custom_flag;
     }
     
     public override string CodePath => "code/";

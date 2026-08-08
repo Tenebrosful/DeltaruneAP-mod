@@ -1,5 +1,12 @@
 /// PATCH
 
+/// AFTER
+    for (i = 0; i < 12; i += 1)
+        global.item[i] = tempitem[i][global.charturn];
+/// CODE
+    AP_proceed_in_battle_waiting_items();
+/// END
+
 #if !CHAPTER_5
 /// AFTER
     with (obj_smallface)
