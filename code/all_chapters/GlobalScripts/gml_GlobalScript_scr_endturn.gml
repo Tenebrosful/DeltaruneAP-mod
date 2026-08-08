@@ -1,8 +1,16 @@
 /// PATCH
 
 /// AFTER
+#if CHAPTER_4
+    if (!i_ex(obj_hammer_of_justice_enemy))
+    {
+        for (i = 0; i < 12; i += 1)
+            global.item[i] = tempitem[i][global.charturn];
+    }
+#else
     for (i = 0; i < 12; i += 1)
         global.item[i] = tempitem[i][global.charturn];
+#endif
 /// CODE
     AP_proceed_in_battle_waiting_items();
 /// END
