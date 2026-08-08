@@ -3,7 +3,7 @@ function AP_handle_receive_item(item_id)
 {
   if (AP_should_skip_item_reception(item_id)) return;
 
-  if (AP_is_special_textbox_item(item_id))
+  if (!global.AP_is_first_sync && AP_is_special_textbox_item(item_id))
   {
     array_push(global.AP_special_textboxes_waiting, item_id)
   }
@@ -430,91 +430,63 @@ function AP_chapter_specific_display_textbox_blacklist()
 
 function AP_display_special_textbox(item_id)
 {
-  switch (item_id) {
-    case 11005: // Moss Chapter 1
-        global.maxhp[1]++;
-        global.hp[1] = global.maxhp[1];
-        if (!global.AP_skip_item_textboxes)
-        {
-            global.interact = 1;
-            showingitem = 1;
+    showing_special_textbox = true;
+    global.interact = 1;
+    switch (item_id) {
+        case 11005: // Moss Chapter 1
+            global.maxhp[1]++;
+            global.hp[1] = global.maxhp[1];
             snd_play(snd_swallow);
             script_execute(scr_writetext, 0, "* (You ate the moss.^1)&* (Tastes..^1. mossy.^1)&* (Your HP was mossed out.)/%", 0, 6);
-        }
-        break;
+            break;
 
-    case 11006: // Joe's Life Savings
-        if (!global.AP_skip_item_textboxes)
-        {
-            global.interact = 1;
-            showingitem = 1;
+        case 11006: // Joe's Life Savings
             script_execute(scr_writetext, 0, "* You received Joe's Life Savings ($1)!/%", 0, 6);
-        }
-        
-        global.gold += 1;
-        break;
+            
+            global.gold += 1;
+            break;
 
-    case 11007: // Moss Chapter 2
-        global.maxhp[1]++;
-        global.hp[1] = global.maxhp[1];
-        if (!global.AP_skip_item_textboxes)
-        {
+        case 11007: // Moss Chapter 2
+            global.maxhp[1]++;
+            global.hp[1] = global.maxhp[1];
             global.msc = 0;
             global.typer = 6;
             global.fc = 0;
             global.fe = 0;
-            global.interact = 1;
-            showingitem = 1;
             global.msg[0] = "\\s0* You got the \\cG[Moss]\\cW^8!/%";
             snd_play(snd_moss_fanfare);
             snd_pause(global.currentsong[1]);
             scr_script_delayed(snd_resume, 100, global.currentsong[1]);
             d_make();
-        }
-        break;
+            break;
 
-    case 11016:
-        if (!global.AP_skip_item_textboxes)
-        {
-            global.interact = 1;
-            showingitem = 1;
+        case 11016:
             script_execute(scr_writetext, 0, "\\s0* You felt it smile^3./%", 0, 6);
             snd_play(snd_creepyjingle);
-        }
-        break;
+            break;
 
-    case 11017: // Moss Chapter 3
-        global.maxhp[1]++;
-        global.hp[1] = global.maxhp[1];
-        if (!global.AP_skip_item_textboxes)
-        {
-            global.interact = 1;
-            showingitem = 1;
+        case 11017: // Moss Chapter 3
+            global.maxhp[1]++;
+            global.hp[1] = global.maxhp[1];
             script_execute(scr_writetext, 0, "* (\\cGMoss\\cW sent to you.^1)&* (It was consumed.)/%", 0, 6);
             snd_play(snd_swallow);
-        }
-        break;
+            break;
 
-    case 11020:
-        global.maxhp[1]++;
-        global.hp[1] = global.maxhp[1];
-        if (!global.AP_skip_item_textboxes)
-        {
+        case 11020:
+            global.maxhp[1]++;
+            global.hp[1] = global.maxhp[1];
             global.msc = 0;
             global.typer = 6;
             global.fc = 0;
             global.fe = 0;
-            global.interact = 1;
-            showingitem = 1;
             global.msg[0] = "\\s0* The moss was consumed with gusto^8!/%";
             snd_play(snd_moss_fanfare);
             d_make();
             snd_pause(global.currentsong[1]);
             scr_script_delayed(snd_resume, 100, global.currentsong[1]);
-        }
-        break;
+            break;
 
-    default:
-        break;
-  }
+        default:
+            break;
+    }
 }

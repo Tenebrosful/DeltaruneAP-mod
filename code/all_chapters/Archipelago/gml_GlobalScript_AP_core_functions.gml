@@ -3,11 +3,19 @@
 function AP_create()
 {
     trying_to_reconnect = false;
+    showing_special_textbox = false;
 }
 
 function AP_step()
 {
     AP_connection_checker();
+
+    if (showing_special_textbox && !instance_exists(obj_dialoguer))
+    {
+        showing_special_textbox = false;
+        global.interact = 0;
+    }
+
     AP_proceed_special_item_textbox();
 }
 
@@ -82,6 +90,7 @@ function AP_save()
 function AP_load()
 {
     global.AP_item_got_in_current_chapter = [];
+    global.AP_is_first_sync = true;
     global.customflags = [];
     global.flag[64] = #GetMaxStorage();
 

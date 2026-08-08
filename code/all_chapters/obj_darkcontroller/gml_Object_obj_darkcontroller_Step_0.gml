@@ -1453,7 +1453,6 @@
                 // Load the last save
                 if (global.submenucoord[30] == 17)
                 {
-                    global.AP_skip_item_textboxes = true;
                     scr_load();
                 }
 

@@ -1,16 +1,21 @@
 /// FUNCTIONS
 function AP_sync_item_from_server()
 {
-  server_size = array_length(global.AP_item_from_server)
-  save_size = array_length(global.AP_item_got_in_current_chapter)
+    server_size = array_length(global.AP_item_from_server)
+    save_size = array_length(global.AP_item_got_in_current_chapter)
 
-  item_to_sync = server_size - save_size
+    item_to_sync = server_size - save_size
 
-  for (var i = save_size; i < server_size; i++)
-  {
-    global.AP_item_got_in_current_chapter[i] = global.AP_item_from_server[i];
-    AP_handle_receive_item(global.AP_item_from_server[i]);
-  }
+    for (var i = save_size; i < server_size; i++)
+    {
+        global.AP_item_got_in_current_chapter[i] = global.AP_item_from_server[i];
+        AP_handle_receive_item(global.AP_item_from_server[i]);
+    }
+
+    if (global.AP_is_first_sync)
+    {
+        global.AP_is_first_sync = false;
+    }
 }
 
 function AP_verify_sync()
