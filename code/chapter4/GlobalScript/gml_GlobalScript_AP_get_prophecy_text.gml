@@ -42,6 +42,9 @@ function AP_get_prophecy_text()
     case "Sonic Adventure 2 Battle":
       prophecies = ["HERO AND DARK, UNITED AGAINST THE LIZARD"]
       break;
+    case "Skyward Sword":
+      prophecies = ["THE HERO OF SKY, WITH GOLDEN LIGHT#VENTURES BELOW TO SLAY THE BLIGHT"]
+      break;
     case "Spyro the Dragon":
       prophecies = ["DRAGONS ENCASED IN CRYSTAL"]
       break;
