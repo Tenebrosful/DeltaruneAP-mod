@@ -124,7 +124,19 @@ function AP_isDisconnected()
 function AP_sendLocation(ids)
 {
     if (!AP_isAuthenticated())
-        exit;
+    {
+        if(is_array(ids))
+        {
+            for (var i = 0; i < array_length(ids); i++)
+            {
+                array_push(global.AP_locations_during_disconnect, ids[i]);
+            }
+        }
+        else
+        {
+            array_push(global.AP_locations_during_disconnect, ids);
+        }
+    }
 
     var validLocations = AP_internal_verify_remaining_location_id(ids);
 

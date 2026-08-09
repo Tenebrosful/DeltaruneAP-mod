@@ -130,12 +130,12 @@ function AP_receive_trap(item_id)
       if (instance_exists(obj_dw_bromide))
       {
           bromide = instance_create(0, 0, obj_dw_bromide);
-          bromide.queue(data[i].items[ii].item - global.AP_item_offset.keyitem);
+          bromide.queue(item_id - global.AP_item_offset.keyitem);
       }
       else
       {
           bromide = instance_create(0, 0, obj_dw_bromide);
-          bromide.use_item(data[i].items[ii].item - global.AP_item_offset.keyitem);
+          bromide.use_item(item_id - global.AP_item_offset.keyitem);
       }
       break;
     

@@ -12,7 +12,7 @@ function AP_sync_item_from_server()
         AP_handle_receive_item(global.AP_item_from_server[i]);
     }
 
-    if (global.AP_is_first_sync)
+    if (global.AP_is_first_sync && server_size != 0)
     {
         global.AP_is_first_sync = false;
     }
