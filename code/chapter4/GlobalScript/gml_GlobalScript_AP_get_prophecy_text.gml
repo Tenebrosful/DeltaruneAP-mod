@@ -11,6 +11,19 @@ function AP_get_prophecy_text()
   switch(game_name)
   {
     case "DELTARUNE":
+      prophecies = []
+      break;
+    case "EarthBound":
+      prophecies = ["TL;DR"]
+      break;
+    case "Mega Man 2":
+      prophecies = ["THE METAL MAN'S BLADE#CANNOT BE STOPPED"]
+      break;
+    case "Nine Sols":
+      prophecies = ["THE IMMORTAL WILL PERFORM#SICKNASTY SCHMOVEMENT"]
+      break;
+    case "ULTRAKILL"
+      prophecies = ["THE ANGEL, BANISHED,#WILL GET TILTED"]
       break;
     default:
       prophecies = ["IN ORDER TO SAVE THE WORLD, THERE IS ONE WAY#ONLY AFTER 7 HOURS OF BK, YOU WILL PLAY"]
