@@ -190,11 +190,6 @@ void BuildMod(int chapter)
     // }
     importGroup.Import();
     
-    if (chapter == 0)
-        Data.GeneralInfo.DisplayName = Data.Strings.MakeString($"DELTARUNE Chapter Select - Archipelago {loader.minimal_apworld_version}");
-    else
-        Data.GeneralInfo.DisplayName = Data.Strings.MakeString($"DELTARUNE Chapter {chapter} - Archipelago {loader.minimal_apworld_version}");
-
     ScriptMessage(chapter == 0 ? "Archipelago Mod for DELTARUNE Chapter Select was imported!" : $"Archipelago Mod for DELTARUNE Chapter {chapter} was imported!");
 }
 
