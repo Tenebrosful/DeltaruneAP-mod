@@ -13,14 +13,46 @@ function AP_handle_Damagelink()
         if (global.char[i] != 0 && global.hp[global.char[i]] > 0)
             array_push(possible_targets, i)
     }
+
+    if (array_length(possible_targets) == 0)
+    {
+        global.AP_damagelink_protected = false;
+        exit;
+    }
     
     target = possible_targets[irandom(array_length(possible_targets) - 1)];
     damage = global.AP_damagelink_infos.damage_points;
 
     global.inv = -1
 
-    scr_damage();
-    snd_play(snd_damage);
+    if (instance_exists(obj_battlecontroller))
+    {
+        scr_damage();
+        snd_play(snd_damage);
+    }
+    else
+    {
+        global.hp[global.char[target]] -= damage;
+        snd_play(snd_hurt1);
+
+        gameover = true;
+
+        for (var i = 0; i < 3; i++)
+        {
+            if (global.char[i] != 0 && global.hp[global.char[i]] > 0)
+            {
+                gameover = false;
+                break;
+            }
+        }
+
+        if (gameover)
+        {
+            global.AP_damagelink_protected = false;
+            scr_gameover();
+        }
+    }
+    
     global.AP_damagelink_protected = false;
 }
 
