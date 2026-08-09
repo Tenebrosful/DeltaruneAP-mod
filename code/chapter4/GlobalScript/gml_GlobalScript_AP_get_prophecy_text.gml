@@ -13,13 +13,16 @@ function AP_get_prophecy_text()
     case "A Hat in Time":
       prophecies = ["THE GIRL WITH THE HAT SHALL SAY#\"PECK\""]
     case "DELTARUNE":
-      prophecies = []
+      prophecies = ["THE ANGEL,#FULFILLING THE PROPHECY OF DELTARUNE"]
       break;
     case "EarthBound":
       prophecies = ["TL;DR"]
       break;
     case "Final Fantasy 6 Worlds Collide":
       prophecies = ["A WORLD RUINED BY THE JESTER"]
+      break;
+    case "Hollow Knight":
+      prophecies = ["THE KNIGHT, CREATED TO#TAKE ITS SIBLING'S PLACE"]
       break;
     case "Kingdom Hearts":
       prophecies = ["THE BOY WITH THE KEY#SHALL FACE HIS DESTINY"]
@@ -54,18 +57,21 @@ function AP_get_prophecy_text()
     case "Spyro 3":
       prophecies = ["THE DRAGON EGGS WILL BE RECOVERED"]
       break;
-    case "ULTRAKILL"
-      prophecies = ["THE ANGEL, BANISHED,#WILL GET TILTED"]
+    case "ULTRAKILL":
+      prophecies = ["THE ARCHANGEL,#WRACKED WITH IMPERFECT HATRED."]
+      break;
+    case "Undertale":
+      prophecies = ["THE ANGEL,#DESTINED TO EMPTY THE UNDERGROUND"]
       break;
     case "Unfair Flips":
       prophecies = ["A SINGLE HEAD FOR EVERY 20 TAILS#WITH ONLY TIME AND LUCK WILL YOU PREVAIL"]
       break;
     default:
-      prophecies = 
-      [
-        "IN ORDER TO SAVE THE WORLD, THERE IS ONE WAY#ONLY AFTER 7 HOURS OF BK, YOU WILL PLAY",
-        "TO EACH ISLAND THE ANGELS DESCEND#THEIR GOAL: TO SEE THE END"
-      ]
+      prophecies = [
+        "TO SAVE THE WORLDS, THERE IS ONLY ONE WAY#ONLY AFTER 7 HOURS OF BK, WILL YOU PLAY", 
+        "THE ANGELS WILL SEND#ITEMS TO AND FRO", 
+        "THE VISIT WITH THE BURGER MONARCH#REMAINS ETERNAL."
+        ]
       break;
   }
 
