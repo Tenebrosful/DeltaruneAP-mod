@@ -146,7 +146,10 @@ function AP_sendLocation(ids)
     for (var i = 0; i < array_length(validLocations); i++)
     {
         location_data = AP_get_location_reward_data(validLocations[i]);
-        array_push(obj_archipelago_toast_notificator.current_notification, new AP_toast_notification(location_data.itemName, AP_item_flag_to_color(location_data.flags), location_data.playerName, true));
+        if (location_data.playerName != "Yourself")
+        {
+            array_push(obj_archipelago_toast_notificator.current_notification, new AP_toast_notification(location_data.itemName, AP_item_flag_to_color(location_data.flags), location_data.playerName, true));
+        }
 
         for (var j = 0; j < array_length(global.AP_remaining_locations); j++)
         {
