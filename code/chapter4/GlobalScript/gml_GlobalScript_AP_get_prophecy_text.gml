@@ -13,6 +13,7 @@ function AP_get_prophecy_text()
     case "DELTARUNE":
       break;
     default:
+      prophecies = ["IN ORDER TO SAVE THE WORLD, THERE IS ONE WAY#ONLY AFTER 7 HOURS OF BK, YOU WILL PLAY"]
       break;
   }
 
