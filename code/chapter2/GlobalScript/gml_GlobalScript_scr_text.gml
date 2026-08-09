@@ -294,7 +294,7 @@
             if (global.choice == 0)
             {
                 scr_speaker("no_name");
-                msgsetloc(0, "* (The Swan Engine 2000 is now waiting the swan.)/%");
+                msgsetloc(0, "* (The Swan Engine 2000 is now waiting on the swan.)/%");
                 global.fastswan = true;
             }
             else
@@ -305,4 +305,94 @@
             }
             
             break;
+/// END
+
+/// REPLACE
+        case 1200:
+            global.choicemsg[0] = stringsetloc("#Mansion", "scr_text_slash_scr_text_gml_6993_0");
+            global.choicemsg[1] = stringsetloc("#Cyber Field", "scr_text_slash_scr_text_gml_6994_0");
+            global.choicemsg[2] = stringsetloc("Trash Zone", "scr_text_slash_scr_text_gml_6995_0");
+            global.choicemsg[3] = stringsetloc("Cancel", "scr_text_slash_scr_text_gml_6996_0");
+            scr_speaker("no_name");
+            msgsetloc(0, "* (It's a door.^1)&* (Where will you go?)//", "scr_text_slash_scr_text_gml_6999_0");
+            msgnext("\\C4 ");
+            break;
+        
+        case 1201:
+            global.msg[0] = stringsetloc("* (But nothing happened.)/%", "scr_text_slash_scr_text_gml_3104_0");
+            
+            if (global.choice == 0)
+            {
+                with (obj_shortcut_door)
+                    door_destination = 157;
+            }
+/// CODE
+        case 1200:
+            global.choicemsg[0] = stringsetloc("      ", "scr_text_slash_scr_text_gml_6993_0");
+            
+            if (global.plot >= 120)
+                global.choicemsg[0] = stringsetloc("#Mansion", "scr_text_slash_scr_text_gml_6993_0");
+            
+            global.choicemsg[1] = stringsetloc("#Cyber Field", "scr_text_slash_scr_text_gml_6994_0");
+            global.choicemsg[2] = stringsetloc("Trash Zone", "scr_text_slash_scr_text_gml_6995_0");
+            global.choicemsg[3] = stringsetloc("Cancel", "scr_text_slash_scr_text_gml_6996_0");
+            scr_speaker("no_name");
+            msgsetloc(0, "* (It's a door.^1)&* (Where will you go?)//", "scr_text_slash_scr_text_gml_6999_0");
+            msgnext("\\C4 ");
+            break;
+        
+        case 1201:
+            global.msg[0] = stringsetloc("* (But nothing happened.)/%", "scr_text_slash_scr_text_gml_3104_0");
+            
+            if (global.choice == 0 && global.plot >= 120)
+            {
+                with (obj_shortcut_door)
+                    door_destination = 157;
+            }
+/// END
+
+/// REPLACE
+            if (timestalked == 0)
+            {
+                scr_smallface(0, "susie", 10, 200, "bottom", stringsetloc("What's the price.", "scr_text_slash_scr_text_gml_5133_0"));
+/// CODE
+            if (timestalked == 0 || !scr_havechar(2))
+            {
+                scr_smallface(0, "susie", 10, 200, "bottom", stringsetloc("What's the price.", "scr_text_slash_scr_text_gml_5133_0"));
+/// END
+
+/// REPLACE
+                        msgsetloc(0, "\\ED* No room^1! Your pockets are full of un-cookie./", "scr_text_slash_scr_text_gml_5172_0");
+                        scr_anyface_next("susie", "P");
+                        msgnextloc("\\EP* The hell'd you let that happen^1, Kris?/%", "scr_text_slash_scr_text_gml_5174_0");
+/// CODE
+                        
+                        if (scr_havechar(2))
+                        {
+                            msgsetloc(0, "\\ED* No room^1! Your pockets are full of un-cookie./", "scr_text_slash_scr_text_gml_5172_0");
+                            scr_anyface_next("susie", "P");
+                            msgnextloc("\\EP* The hell'd you let that happen^1, Kris?/%", "scr_text_slash_scr_text_gml_5174_0");
+                        }
+                        else
+                        {
+                            msgsetloc(0, "\\ED* No room^1! Your pockets are full of un-cookie./%", "scr_text_slash_scr_text_gml_5172_0");
+                        }
+/// END
+
+/// REPLACE
+                msgnextloc("\\EE* Always reliable^1, they will heal you in times of need!/", "scr_text_slash_scr_text_gml_5183_0");
+                scr_anyface_next("ralsei", "K");
+                msgnextloc("\\EK* (Maybe if you need to be healed 1 HP...)/%", "scr_text_slash_scr_text_gml_5185_0");
+/// CODE
+                
+                if (scr_havechar(2))
+                {
+                    msgnextloc("\\EE* Always reliable^1, they will heal you in times of need!/", "scr_text_slash_scr_text_gml_5183_0");
+                    scr_anyface_next("ralsei", "K");
+                    msgnextloc("\\EK* (Maybe if you need to be healed 1 HP...)/%", "scr_text_slash_scr_text_gml_5185_0");
+                }
+                else
+                {
+                    msgnextloc("\\EE* Always reliable^1, they will heal you in times of need!/%", "scr_text_slash_scr_text_gml_5183_0");
+                }
 /// END

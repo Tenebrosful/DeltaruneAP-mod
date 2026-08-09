@@ -1,4 +1,19 @@
 /// IMPORT
+if (con == 8)
+{
+    con = 9;
+    scr_speaker("noelle");
+    msgset(0, "\\EB* H-huh...^1?&* You want me to stay here?/");
+    msgnextloc("\\EH* I... I guess I'll wait here then.../%");
+    d_make();
+}
+
+if (con == 9 && !d_ex())
+{
+    kris_only = 1;
+    con = 10;
+}
+
 if (con == 10)
 {
     mus_volume(global.currentsong[1], 0, 30);

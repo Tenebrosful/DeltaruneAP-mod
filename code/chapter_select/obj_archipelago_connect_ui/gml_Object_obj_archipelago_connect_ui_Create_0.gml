@@ -33,18 +33,16 @@ musics = [
     "castletown.ogg",
     "castle_funk_long.ogg",
     "greenroom_detune.ogg",
-    "kris_piano_lancer_waltz.ogg",
     "shop_3.ogg",
     "field_of_hopes_insaneintherain_loop.ogg",
     "flower_cafe.ogg",
     "flowery_diner_romantic.ogg",
-    "happy_town.ogg",
     "festival.ogg",
     "festival_after.ogg",
     "flowery_iog_extended.ogg"
 ];
-weird_musics = ["basement.ogg", "berdly_battle_heartbeat_true.ogg", "ch5_weird_monologue_deep.ogg", "cybercity_alt.ogg"]
-dog_musics = ["dog_balloon.ogg", "dogcheck.ogg", "dogroom.ogg", "alarm_titlescreen.ogg", "annoying_prophecy.ogg"]
+weird_musics = ["basement.ogg", "berdly_battle_heartbeat_true.ogg", "ch5_weird_monologue_deep.ogg", "cybercity_alt.ogg", "happy_town.ogg"]
+dog_musics = ["dog_balloon.ogg", "dogcheck.ogg", "dogroom.ogg", "alarm_titlescreen.ogg", "annoying_prophecy.ogg", "inukuma_wip.ogg"]
 kris_musics = [
     "kris_piano_lancer_waltz.ogg",
     "kris_piano_last_prophecy.ogg",

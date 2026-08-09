@@ -13,6 +13,8 @@ suby = 0;
 walkanim = 0;
 /// CODE
 AP_create();
+global.bboxVisible = 0;
+tu = 0;
 /// END
 
 /// REPLACE

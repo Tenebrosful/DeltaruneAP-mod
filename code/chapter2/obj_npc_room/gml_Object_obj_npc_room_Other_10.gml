@@ -97,3 +97,13 @@ if (room == room_dw_mansion_acid_tunnel && extflag == "swanmotor")
     scr_text(global.msc);
 }
 /// END
+
+/// REPLACE
+            if (sprite_index == spr_dummynpc)
+            {
+                if (talked == 0)
+/// CODE
+            if (sprite_index == spr_dummynpc)
+            {
+                if (talked == 0 && scr_havechar(2))
+/// END

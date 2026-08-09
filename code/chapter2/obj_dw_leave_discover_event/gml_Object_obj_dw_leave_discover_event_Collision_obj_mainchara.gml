@@ -1,5 +1,5 @@
 /// IMPORT
-if (global.interact == 0)
+if (global.interact == 0 && scr_havechar(2))
 {
     global.interact = 1;
     scr_speaker("susie");

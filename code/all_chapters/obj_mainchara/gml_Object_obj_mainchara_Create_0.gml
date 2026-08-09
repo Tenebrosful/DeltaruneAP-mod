@@ -2,5 +2,6 @@
 
 /// APPEND
 AP_create();
-global.bboxVisible = 0
+global.bboxVisible = 0;
+tu = 0;
 /// END

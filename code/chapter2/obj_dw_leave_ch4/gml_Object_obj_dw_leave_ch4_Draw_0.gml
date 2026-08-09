@@ -85,6 +85,10 @@ if (top == 1)
             global.interact = 3;
             global.entrance = 24;
             snd_free(global.currentsong[0]);
+            
+            if (scr_havechar(4))
+                scr_losechar();
+            
             room_goto(nextroom);
         }
     }
