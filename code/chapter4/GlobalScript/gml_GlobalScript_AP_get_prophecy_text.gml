@@ -10,6 +10,8 @@ function AP_get_prophecy_text()
 
   switch(game_name)
   {
+    case "A Hat in Time":
+      prophecies = ["THE GIRL WITH THE HAT SHALL SAY#\"PECK\""]
     case "DELTARUNE":
       prophecies = []
       break;
@@ -18,6 +20,12 @@ function AP_get_prophecy_text()
       break;
     case "Final Fantasy 6 Worlds Collide":
       prophecies = ["A WORLD RUINED BY THE JESTER"]
+      break;
+    case "Kingdom Hearts":
+      prophecies = ["THE BOY WITH THE KEY#SHALL FACE HIS DESTINY"]
+      break;
+    case "Kingdom Hearts 2":
+      prophecies = ["THE KEYBEARER, FROM TWO BECOME ONE#SHALL COMPLETE WHAT HAS BEGUN"]
       break;
     case "Mega Man 2":
       prophecies = ["THE METAL MAN'S BLADE#CANNOT BE STOPPED"]
@@ -46,8 +54,15 @@ function AP_get_prophecy_text()
     case "ULTRAKILL"
       prophecies = ["THE ANGEL, BANISHED,#WILL GET TILTED"]
       break;
+    case "Unfair Flips":
+      prophecies = ["A SINGLE HEAD FOR EVERY 20 TAILS#WITH ONLY TIME AND LUCK WILL YOU PREVAIL"]
+      break;
     default:
-      prophecies = ["IN ORDER TO SAVE THE WORLD, THERE IS ONE WAY#ONLY AFTER 7 HOURS OF BK, YOU WILL PLAY"]
+      prophecies = 
+      [
+        "IN ORDER TO SAVE THE WORLD, THERE IS ONE WAY#ONLY AFTER 7 HOURS OF BK, YOU WILL PLAY",
+        "TO EACH ISLAND THE ANGELS DESCEND#THEIR GOAL: TO SEE THE END"
+      ]
       break;
   }
 
