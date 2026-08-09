@@ -202,7 +202,7 @@ if (room == room_dw_castle_tv_zone_3 || room == room_dw_castle_tv_zone_minigame)
 {
     itemflag = 1703;
     itemtype = "check";
-    itemidchest = 352;
+    t_itemid = 352;
 }
 
 if (global.flag[itemflag] == 1)
