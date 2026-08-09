@@ -416,4 +416,19 @@ function scr_gamestart()
     global.cinstance[0] = 4854845464869464;
     global.cinstance[1] = 48548454648694644;
     global.cinstance[2] = 48548454648694649;
+
+    // Trash Machine
+    if (global.chapter == 2)
+    {
+        global.flag[220] = 2
+    }
+    else
+    {
+        global.flag[220] = 3
+    }
+    global.flag[221] = 3
+    global.flag[222] = 3
+    global.flag[223] = 19
+    global.flag[224] = 19
+    global.flag[225] = 19
 }
