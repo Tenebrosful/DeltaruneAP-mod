@@ -10,7 +10,10 @@ function AP_handle_receive_item(item_id)
 
   if (AP_is_trap_item(item_id))
   {
-    AP_receive_trap(item_id)
+    if (!global.AP_is_first_sync)
+    {
+      AP_receive_trap(item_id)
+    }
   }
   else if (item_id >= global.AP_item_offset.flowery_dollar)
   {
