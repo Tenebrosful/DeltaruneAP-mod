@@ -16,5 +16,7 @@ function AP_get_prophecy_text()
       break;
   }
 
-  return text;
+  var subroll = irandom(0, array_length(prophecies) - 1)
+
+  return prophecies[subroll];
 }
