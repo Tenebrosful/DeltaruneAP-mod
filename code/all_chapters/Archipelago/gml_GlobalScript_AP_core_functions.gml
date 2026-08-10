@@ -21,8 +21,7 @@ function AP_step()
 
 function AP_connection_checker()
 {
-    if (!AP_can_display_textbox()) return;
-    if (!obj_archipelago_client.AP_isAuthenticated())
+    if (!obj_archipelago_client.AP_isAuthenticated() && AP_can_display_textbox())
     {
         if (obj_archipelago_client.AP_isDisconnected())
         {
@@ -44,7 +43,7 @@ function AP_connection_checker()
         global.interact = 1;
         trying_to_reconnect = true;
     }
-    else if (trying_to_reconnect)
+    else if (trying_to_reconnect && obj_archipelago_client.AP_isAuthenticated() && !instance_exists(obj_dialoguer))
     {
         trying_to_reconnect = false;
         global.interact = 0;

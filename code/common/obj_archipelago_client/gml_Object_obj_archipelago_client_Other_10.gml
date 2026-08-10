@@ -359,6 +359,9 @@ function AP_sendDamagelink(amount)
     if (amount <= 0)
         exit;
 
+    if(global.chapter > 1 && instance_exists(obj_cutscene_master))
+        exit;
+
     var _contents = 
     {
         cmd: "Bounce",
