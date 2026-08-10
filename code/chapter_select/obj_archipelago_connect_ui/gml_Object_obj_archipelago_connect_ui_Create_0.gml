@@ -208,6 +208,8 @@ function load_dog_mode()
         image_speed: 0.25,
         extflag: "maracas_dog"
     });
+
+    credits[1] = "Annoying Dog (Dancing, Playing Maracas)";
 }
 
 function load_kris_mode()
