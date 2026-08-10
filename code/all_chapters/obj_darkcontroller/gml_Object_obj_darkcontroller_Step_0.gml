@@ -1435,8 +1435,15 @@
                     obj_archipelago_client.AP_updateTags();
                 }
 
-                // Item balancing
+                // Damagelink
                 if (global.submenucoord[30] == 11)
+                {
+                    global.AP_damagelink = !global.AP_damagelink;
+                    obj_archipelago_client.AP_updateTags();
+                }
+
+                // Item balancing
+                if (global.submenucoord[30] == 12)
                 {
                     global.AP_balancing = !global.AP_balancing;
                 }

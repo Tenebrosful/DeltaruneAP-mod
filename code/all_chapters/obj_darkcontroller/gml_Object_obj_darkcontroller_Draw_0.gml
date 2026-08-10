@@ -687,6 +687,9 @@ if (global.menuno == 5)
         draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Deathlink");
         draw_text((base_x + (current_col * (line_width + between_col_gap)) + line_width) - value_width, base_y + (current_line * (line_height + between_row_gap)), global.AP_deathlink ? "ON" : "OFF");
         current_line++;
+        draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Damagelink");
+        draw_text((base_x + (current_col * (line_width + between_col_gap)) + line_width) - value_width, base_y + (current_line * (line_height + between_row_gap)), global.AP_damagelink ? "ON" : "OFF");
+        current_line++;
         draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Item Balancing");
         draw_text((base_x + (current_col * (line_width + between_col_gap)) + line_width) - value_width, base_y + (current_line * (line_height + between_row_gap)), global.AP_balancing ? "ON" : "OFF");
         if (global.chapter == 5 && global.tempflag[52] == 1)
