@@ -1,6 +1,4 @@
 /// IMPORT
-draw_self();
-
 function draw_text_outline(arg0, arg1, arg2, arg3, arg4, arg5)
 {
     draw_set_font(arg4);
@@ -137,8 +135,6 @@ for (var ii = 0; ii < 7; ii++)
         if (edit)
             draw_set_color(c_yellow);
     }
-    
-    draw_text(x_align, y_align + (gap * i), text);
 }
 
 draw_set_color(c_white);

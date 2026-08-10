@@ -134,9 +134,14 @@ function init_visual()
 
 function load_normal_mode()
 {
-    image_index = 0;
-    image_xscale = 2;
-    image_yscale = 3;
+    background = instance_create_depth(0, 0, 1000, obj_archipelago_dummy,
+    {
+        sprite_index: bg_archipelago,
+        image_index: 0,
+        image_xscale: 2,
+        image_yscale: 3
+    });
+    
 
     dummy_kris = instance_create_depth(608, 144, -10, obj_archipelago_dummy, 
     {
@@ -156,9 +161,13 @@ function load_normal_mode()
 
 function load_kris_mode()
 {
-    image_index = 1;
-    image_xscale = 1;
-    image_yscale = 1;
+    background = instance_create_depth(0, 0, 1000, obj_archipelago_dummy,
+    {
+        sprite_index: bg_archipelago,
+        image_index: 1,
+        image_xscale: 1,
+        image_yscale: 1
+    });
 
     dummy_kris = instance_create_depth(400, 204, -10, obj_archipelago_dummy,
     {
@@ -175,11 +184,11 @@ function load_kris_mode()
         image_yscale: 2,
     });
 
-    dummy_heart = instance_create_depth(335, 410, -15, obj_archipelago_dummy,
+    dummy_heart = instance_create_depth(330, 410, -15, obj_archipelago_dummy,
     {
         sprite_index: spr_heart,
-        image_xscale: 2,
-        image_yscale: 2,
+        image_xscale: 1.5,
+        image_yscale: 1.5,
     });
 
     dummy_cage = instance_create_depth(320, 384, -20, obj_archipelago_dummy,
