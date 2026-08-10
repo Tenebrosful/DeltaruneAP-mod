@@ -17,7 +17,7 @@ class ArchipelagoLoader : UMPLoader
 
     public readonly string mod_version = "1";
 
-    public readonly string[] client_version = ["2", "1", "0"];
+    public readonly string[] client_version = ["0", "6", "7"];
 
     public readonly string max_armor = "100";
 
