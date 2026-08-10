@@ -56,7 +56,7 @@ for (var ii = 0; ii < 7; ii++)
                 break;
             
             case 3:
-                if (edit)
+                if (keyboard_check(vk_tab))
                     text = "Password: " + global.AP_password;
                 else
                     text = "Password: " + string_repeat("*", string_length(global.AP_password));
@@ -125,8 +125,11 @@ for (var ii = 0; ii < 7; ii++)
         }
     }
     
-    draw_text_outline(x_align, y_align + (gap * i), outline_offset, text, 4, 16777215);
+    draw_text_outline(x_align, y_align + (gap * i), outline_offset, text, fnt_mainbig, 16777215);
     
+    if (page == 0 && i == 3)
+        draw_text_outline(x_align, y_align + (gap * 4), outline_offset, "Hold TAB to show the password", fnt_main, 16777215);
+
     if (choice == ii)
     {
         draw_sprite_ext(spr_heart, 4, x_align / 1.5, y_align + (gap * i) + 8, 2, 2, 0, c_white, 1);
@@ -218,6 +221,6 @@ var bb = room_height - (array_length(credits) * 17);
 var gap_credits = 15;
 
 for (var i = 0; i < array_length(credits); i++)
-    draw_text_outline(aa, bb + (gap_credits * i), 1, credits[i], 2, 16777215);
+    draw_text_outline(aa, bb + (gap_credits * i), 1, credits[i], fnt_main, 16777215);
 
 draw_set_halign(fa_left);
