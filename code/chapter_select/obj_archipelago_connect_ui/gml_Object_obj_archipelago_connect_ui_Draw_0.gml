@@ -18,13 +18,38 @@ function draw_text_outline(arg0, arg1, arg2, arg3, arg4, arg5)
 draw_sprite_ext(spr_archipelago_logo, 0, x_align - 30, 25, 4, 4, 0, c_white, 1);
 draw_sprite_ext(spr_archipelago_logo_text, 0, 140, 0, 1, 1, 0, c_white, 1);
 
-if (mode != "normal" && mode != "kris")
+if (mode != "normal" && mode != "kris" && mode != "dog")
 {
     draw_text(10, 5, "This is " + mode + " mode. Visual change will come in future update")
     if (mode == "kris")
     {
         draw_text(10, 15, "Also it will stop looping the same kris piano track in future update too. Sorry")
     }
+}
+
+if (mode == "dog")
+{
+    scroll += 1;
+    
+    with (obj_archipelago_dummy)
+    {
+        x -= 1;
+        y -= 1;
+    }
+    
+    if (scroll == 360)
+    {
+        scroll = 0;
+        
+        with (obj_archipelago_dummy)
+        {
+            x += 360;
+            y += 360;
+        }
+    }
+    
+    with (obj_archipelago_dummy)
+        image_alpha = abs((x - 210) / 960) + abs((y - 210) / 720) + 0.5;
 }
 
 for (var ii = 0; ii < 7; ii++)
@@ -126,7 +151,7 @@ for (var ii = 0; ii < 7; ii++)
     draw_text_outline(x_align, y_align + (gap * i), outline_offset, text, fnt_mainbig, 16777215);
     
     if (page == 0 && i == 3)
-        draw_text_outline(x_align, y_align + (gap * 4), outline_offset, "Hold TAB to show the password", fnt_main, 16777215);
+        draw_text_outline(x_align, y_align + (gap * 4), outline_offset, "Hold TAB to show the password", fnt_mainbig, 16777215);
 
     if (choice == ii)
     {

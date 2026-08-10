@@ -125,6 +125,11 @@ function init_visual()
         case "kris":
             load_kris_mode();
             break;
+        
+        case "dog":
+            load_dog_mode();
+            break;
+        
         case "normal":
         default:
             load_normal_mode();
@@ -159,6 +164,41 @@ function load_normal_mode()
     });
 }
 
+function load_dog_mode()
+{
+    dognum = 0;
+    scroll = 0;
+    
+    for (var iy = 0; iy < 15; iy++)
+    {
+        for (var ix = 0; ix < 15; ix++)
+        {
+            if ((dognum % 2) == 0)
+            {
+                dummy_dog[dognum] = instance_create_depth(ix * 90, iy * 60, dognum, obj_archipelago_dummy, 
+                {
+                    sprite_index: spr_dog_walk,
+                    image_speed: 0.1,
+                    image_xscale: 3,
+                    image_yscale: 3
+                });
+            }
+            else
+            {
+                dummy_dog[dognum] = instance_create_depth((ix * 90) - 5, (iy * 60) + 7, dognum, obj_archipelago_dummy, 
+                {
+                    sprite_index: spr_dog_sleep,
+                    image_speed: 0.03,
+                    image_xscale: 3,
+                    image_yscale: 3
+                });
+            }
+            
+            dognum += 1;
+        }
+    }
+}
+
 function load_kris_mode()
 {
     background = instance_create_depth(0, 0, 1000, obj_archipelago_dummy,
@@ -175,7 +215,7 @@ function load_kris_mode()
         sprite_index: spr_kris_piano_full,
         image_xscale: 2,
         image_yscale: 2,
-        image_speed: 0.8
+        image_speed: 0.6
     });
 
     dummy_cage = instance_create_depth(320, 384, -10, obj_archipelago_dummy,
@@ -188,8 +228,8 @@ function load_kris_mode()
     dummy_heart = instance_create_depth(330, 410, -15, obj_archipelago_dummy,
     {
         sprite_index: spr_heart,
-        image_xscale: 1.5,
-        image_yscale: 1.5,
+        image_xscale: 2,
+        image_yscale: 2,
     });
 
     dummy_cage = instance_create_depth(320, 384, -20, obj_archipelago_dummy,
