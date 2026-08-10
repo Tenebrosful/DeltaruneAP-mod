@@ -210,7 +210,14 @@ function scr_recruit_info(arg0)
             break;
         
         case 32:
-            _sprite = spr_tasque_idle_cafe;
+            if (global.chapter >= 4)
+            {
+                _sprite = spr_tasque_idle_cafe;
+            }
+            else
+            {
+                _sprite = spr_tasque_idle;
+            }
             _name = stringsetloc("Tasque", "scr_recruit_info_slash_scr_recruit_info_gml_188_0");
             _desc = stringsetloc("This cat loves you!", "scr_recruit_info_slash_scr_recruit_info_gml_189_0");
             _like = stringsetloc("Cat Food", "scr_recruit_info_slash_scr_recruit_info_gml_190_0");
