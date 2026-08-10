@@ -99,9 +99,9 @@ function AP_load()
     var array_size = ossafe_file_text_read_real(myfileid);
     ossafe_file_text_readln(myfileid);
     
-    for (chapter = 1; chapter <= array_size; chapter++)
+    for (index = 0; index < array_size; index++)
     {
-        global.AP_item_got_in_current_chapter[chapter - 1] = ossafe_file_text_read_real(myfileid);
+        global.AP_item_got_in_current_chapter[index] = ossafe_file_text_read_real(myfileid);
         ossafe_file_text_readln(myfileid);
     }
 
