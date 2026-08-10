@@ -132,7 +132,7 @@ void BuildMod(int chapter)
 
     string scriptPath = Path.GetDirectoryName(ScriptPath);
 
-    RunUMTScript(Path.Combine(scriptPath, "sprites/ImportGraphics.csx"));
+    LoadSprites(scriptPath, chapter);
 
     if (chapter > 0)
     {
@@ -199,4 +199,20 @@ void ReplacePageItemTexture(string itemName, string textureName)
     (
         new MagickImage(Path.Combine(Path.GetDirectoryName(ScriptPath), textureName))
     );
+}
+
+void LoadSprites(string scriptPath, int chapter)
+{
+    RunUMTScript(Path.Combine(scriptPath, "sprites/common/ImportGraphics.csx"));
+
+    if (chapter == 0)
+    {
+        RunUMTScript(Path.Combine(scriptPath, "sprites/chapter_select/ImportGraphics.csx"));
+    }
+    else
+    {
+        RunUMTScript(Path.Combine(scriptPath, "sprites/all_chapters/ImportGraphics.csx"));
+
+        RunUMTScript(Path.Combine(scriptPath, $"sprites/chapter_{chapter}/ImportGraphics.csx"));
+    }
 }
