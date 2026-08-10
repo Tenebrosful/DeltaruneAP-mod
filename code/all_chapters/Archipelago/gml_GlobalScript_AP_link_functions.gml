@@ -57,6 +57,12 @@ function AP_handle_DeathLink()
             timer = 0;
         }
     }
+    else if (global.chapter == 3 && instance_exists(obj_knight_enemy))
+    {
+        global.hp[global.char[0]] = -180;
+        global.hp[global.char[1]] = -999;
+        global.hp[global.char[2]] = -999;
+    }
     else
     {
         scr_gameover();

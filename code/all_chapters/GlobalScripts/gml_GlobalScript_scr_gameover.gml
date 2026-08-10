@@ -77,7 +77,7 @@ function scr_gameover()
             
             break;
         
-        case 4:
+        case 5:
             global.flag[57] = 0;
             
             if (i_ex(obj_flowery_enemy) && global.flag[1865] == 1)
@@ -85,6 +85,8 @@ function scr_gameover()
             
             with (obj_orangeheart_floweryjarona)
                 stopthat = true;
+            
+            break;
     }
     
     if (global.AP_deathlink && !global.AP_deathlink_protected)
