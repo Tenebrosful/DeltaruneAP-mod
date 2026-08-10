@@ -78,6 +78,16 @@ function scr_gameover()
             break;
         
         case 5:
+            if (room == room_dw_garden_susiechase || room == room_dw_garden_hardpressureplates || room == room_dw_garden_aquatransition)
+            {
+                exit;
+            }
+
+            if (room == room_dw_garden_aquadash)
+            {
+                scr_tempsave();
+            }
+
             global.flag[57] = 0;
             
             if (i_ex(obj_flowery_enemy) && global.flag[1865] == 1)
@@ -85,6 +95,7 @@ function scr_gameover()
             
             with (obj_orangeheart_floweryjarona)
                 stopthat = true;
+
             
             break;
     }
