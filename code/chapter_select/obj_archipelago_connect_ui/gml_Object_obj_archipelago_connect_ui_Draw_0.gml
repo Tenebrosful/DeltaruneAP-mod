@@ -33,8 +33,11 @@ if (mode == "dog")
     
     with (obj_archipelago_dummy)
     {
-        x -= 1;
-        y -= 1;
+        if (extflag == "bg_dog")
+        {
+            x -= 1;
+            y -= 1;
+        }
     }
     
     if (scroll == 360)
@@ -43,13 +46,19 @@ if (mode == "dog")
         
         with (obj_archipelago_dummy)
         {
-            x += 360;
-            y += 360;
+            if (extflag == "bg_dog")
+            {
+                x += 360;
+                y += 360;
+            }
         }
     }
     
     with (obj_archipelago_dummy)
-        image_alpha = abs((x - 210) / 960) + abs((y - 210) / 720) + 0.5;
+    {
+        if (extflag == "bg_dog")
+            image_alpha = abs((x - 210) / 960) + abs((y - 210) / 720) + 0.5;
+    }
 }
 
 for (var ii = 0; ii < 7; ii++)

@@ -180,7 +180,8 @@ function load_dog_mode()
                     sprite_index: spr_dog_walk,
                     image_speed: 0.1,
                     image_xscale: 3,
-                    image_yscale: 3
+                    image_yscale: 3,
+                    extflag: "bg_dog"
                 });
             }
             else
@@ -190,13 +191,23 @@ function load_dog_mode()
                     sprite_index: spr_dog_sleep,
                     image_speed: 0.03,
                     image_xscale: 3,
-                    image_yscale: 3
+                    image_yscale: 3,
+                    extflag: "bg_dog"
                 });
             }
             
             dognum += 1;
         }
     }
+
+    dog_maracas = instance_create_depth(590, room_height - (array_length(credits) * 17) - (array_length(credits) * 15), -10, obj_archipelago_dummy, 
+    {
+        sprite_index: spr_dog_maracas,
+        image_xscale: -2,
+        image_yscale: 2,
+        image_speed: 0.25,
+        extflag: "maracas_dog"
+    });
 }
 
 function load_kris_mode()
