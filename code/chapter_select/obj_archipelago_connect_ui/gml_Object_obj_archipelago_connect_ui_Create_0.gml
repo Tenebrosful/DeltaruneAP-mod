@@ -139,9 +139,9 @@ function load_normal_mode()
         sprite_index: bg_archipelago,
         image_index: 0,
         image_xscale: 2,
-        image_yscale: 3
+        image_yscale: 3,
+        image_speed: 0
     });
-    
 
     dummy_kris = instance_create_depth(608, 144, -10, obj_archipelago_dummy, 
     {
@@ -166,7 +166,8 @@ function load_kris_mode()
         sprite_index: bg_archipelago,
         image_index: 1,
         image_xscale: 1,
-        image_yscale: 1
+        image_yscale: 1,
+        image_speed: 0
     });
 
     dummy_kris = instance_create_depth(400, 204, -10, obj_archipelago_dummy,
