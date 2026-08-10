@@ -348,6 +348,8 @@ function AP_proceed_in_battle_waiting_items()
     {
         scr_itemget(global.AP_item_in_battle_waiting[i]);
     }
+
+    global.AP_item_in_battle_waiting = [];
 }
 
 function AP_proceed_special_item_textbox()
