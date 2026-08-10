@@ -7,7 +7,7 @@ function scr_get_bromide_data(arg0) constructor
     
     if (key_item_id == 33)
     {
-        bromide_sprite = (global.flag[349] == 0) ? spr_bromide_f : spr_bromide_f_alt;
+        bromide_sprite = spr_bromide_f;
         bromide_audio = snd_flowery_bromide_f;
     }
 }
