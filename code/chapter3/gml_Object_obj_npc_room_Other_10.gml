@@ -46,7 +46,7 @@ if (room == room_dw_teevie_intro)
 /// CODE
     if (extflag == "zapper_board_2")
     {
-        if (global.maxhp[1] <= 0 || global.maxhp[2] <= 0 || global.maxhp[3] <= 0)
+        if (!global.AP_allow_doom_board_without_all_characters && (global.maxhp[1] <= 0 || global.maxhp[2] <= 0 || global.maxhp[3] <= 0))
         {
             scr_speaker("no_name");
             msgsetloc(0, "\\s0* (You feel like you shouldn't progress until \\cBKris\\cW, \\cPSusie\\cW and \\cGRalsei\\cW are all unlocked.)/%", "scr_text_slash_scr_text_gml_8915_0");

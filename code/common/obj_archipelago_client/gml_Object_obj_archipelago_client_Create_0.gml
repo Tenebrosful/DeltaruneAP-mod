@@ -74,6 +74,7 @@ global.AP_damagelink_group = ""
 global.AP_secret_bosses_mandatory = false;
 global.AP_unlock_fun_gang_actions = true;
 global.AP_remove_starting_equipment = true;
+global.AP_allow_doom_board_without_all_characters = false;
 global.AP_include_unused_items = 0;
 global.AP_unlock_characters = false;
 global.AP_unlock_kris = false;
