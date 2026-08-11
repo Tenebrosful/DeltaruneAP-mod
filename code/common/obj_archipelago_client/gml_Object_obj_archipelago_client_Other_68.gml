@@ -319,7 +319,7 @@ if (ds_map_exists(async_load, "buffer"))
                         }
 
                         var player_ids_unique = array_unique(player_ids);
-                        var games = [];
+                        var games = ["DELTARUNE"];
 
                         for (var ii = 0; ii < array_length(player_ids_unique); ii++)
                         {
