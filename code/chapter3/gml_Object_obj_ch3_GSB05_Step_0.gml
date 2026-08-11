@@ -28,5 +28,4 @@ if (con == 24 && !d_ex())
 {
     con = 20;
     global.interact = 0;
-}
 /// END
