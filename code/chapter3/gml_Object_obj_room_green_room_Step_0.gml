@@ -1,4 +1,85 @@
 /// IMPORT
+if (watercon == 0 && i_ex(obj_trigger_interact))
+{
+    var trig = 0;
+    
+    with (obj_trigger_interact)
+    {
+        if (extflag == "watercooler")
+        {
+            if (place_meeting(x, y, obj_mainchara) || myinteract == 3)
+            {
+                other.des = id;
+                trig = true;
+            }
+        }
+    }
+    
+    if (trig)
+    {
+        watercon = 1;
+        encounterflag = 592;
+    }
+}
+
+if (watercon == 1)
+{
+    watertimer++;
+    
+    if (watertimer == 1)
+    {
+        snd_play_x(snd_b, 1, 0.8);
+        
+        with (des)
+        {
+            excl = instance_create(x + (sprite_width / 2), y - 20, obj_excblcon);
+            scr_doom(excl, 20);
+        }
+        
+        global.interact = 1;
+    }
+    
+    if (watertimer == 35)
+    {
+        snd_play(snd_tensionhorn);
+        snd_play_delay(snd_tensionhorn, 8, 1, 1.1);
+    }
+    
+    if (watertimer == 65)
+    {
+        des.depth = -1;
+        global.flag[54] = encounterflag;
+        scr_battle(139, 0, des);
+        global.flag[1143] = 50;
+        watercon = 2;
+        watertimer = 0;
+        treasure2 = instance_create(treasure.x, treasure.y, obj_trigger_interact);
+        treasure2.sprite_index = spr_treasurebox;
+        treasure2.visible = true;
+        treasure2.issolid = true;
+        scr_darksize(treasure2);
+        scr_depth(treasure2);
+        trcon2 = 0;
+        trtimer2 = 0;
+        watermarker = 0;
+        treasure.x = -9999;
+        watercon = 999;
+        trcon = 3;
+        scr_delay_var("cleanup", 1, 120);
+    }
+}
+
+if (cleanup == 1)
+{
+    cleanup = 0;
+    
+    with (obj_trigger_interact)
+    {
+        if (extflag == "watercooler")
+            instance_destroy();
+    }
+}
+
 if (i_ex(cliptrig))
 {
     if (cliptrig.myinteract == 3)

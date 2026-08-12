@@ -3,6 +3,7 @@
 /// APPEND
 if (global.plot >= 160)
 {
+    dw_leave_thing = instance_create(1240, 800, obj_readable_room1);
     scr_setparty(1, 1);
     pillar = instance_create(1360, 840, obj_dw_leave_ch4);
     pillar_active = true;

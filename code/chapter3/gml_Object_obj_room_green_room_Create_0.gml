@@ -1,5 +1,26 @@
 /// PATCH
 
+/// PREPEND
+cleanup = 0;
+watercon = 0;
+watertimer = 0;
+des = 0;
+
+if (global.plot >= 250)
+{
+        watercooler = instance_create(840, 220, obj_trigger_interact);
+        watercooler.sprite_index = spr_watercooler;
+        watercooler.visible = true;
+        watercooler.extflag = "watercooler";
+        
+        with (watercooler)
+        {
+            scr_darksize();
+            scr_depth();
+        }
+}
+/// END
+
 /// REPLACE
     snow_vfx.bgdepth = 9999;
     

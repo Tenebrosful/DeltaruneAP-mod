@@ -4,7 +4,9 @@
 
 if (room == room_dw_church_darkmaze)
 {
-    if (global.customflags[37] == 1 || global.plot < 160)
+    image_xscale = 12;
+    image_yscale = 4;
+    if (global.customflags[global.custom_flags_indexes.discovered_ch4_leave_dw] == 1 || global.plot < 160)
     {
         instance_destroy();
     }

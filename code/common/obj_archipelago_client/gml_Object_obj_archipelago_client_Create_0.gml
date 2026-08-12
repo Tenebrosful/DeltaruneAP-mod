@@ -144,6 +144,7 @@ global.custom_flags_indexes = {
     remote_battery_used: 28,
     gerson_fought: 32,
     discovered_ch2_leave_dw: 36,
+    discovered_ch4_leave_dw: 37,
     got_jackenstein_gift: 38,
     accepted_dark_sanctuary_skip: 39,
     skipped_dark_sanctuary: 40,

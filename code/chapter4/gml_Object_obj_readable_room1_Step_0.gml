@@ -30,7 +30,7 @@ if (myinteract == 3)
 
 if (room == room_dw_church_darkmaze)
 {
-    if (global.customflags[37] == 1 && !d_ex())
+    if (global.customflags[global.custom_flags_indexes.discovered_ch4_leave_dw] == 1 && !d_ex())
     {
         with (mywall)
             instance_destroy();
