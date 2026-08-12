@@ -356,6 +356,9 @@ function AP_sendDamagelink(amount)
     if (!AP_isAuthenticated())
         exit;
 
+    if (!global.AP_damagelink)
+        exit;
+
     if (amount <= 0)
         exit;
 
