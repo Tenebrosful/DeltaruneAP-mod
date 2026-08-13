@@ -60,7 +60,7 @@ if (!global.AP_sync)
     }
 }
 
-if (global.interact != 0)
+if (global.interact != 0 && false)
 {
     ww = camera_get_view_width(view_camera[0]);
     
