@@ -19,7 +19,7 @@
                 }
             }
 /// CODE
-            if (recruitable == 1 && global.flag[61] == 0 && !global.skiplostrecruit)
+            if (recruitable == 1 && global.flag[61] == 0)
             {
                 global.flag[63] = 1;
                 _rtext = instance_create(global.monsterx[myself], global.monstery[myself] - 40, obj_recruitanim);
