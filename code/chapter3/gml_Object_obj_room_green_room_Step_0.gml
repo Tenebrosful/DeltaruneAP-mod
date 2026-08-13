@@ -50,21 +50,7 @@ if (watercon == 1)
         des.depth = -1;
         global.flag[54] = encounterflag;
         scr_battle(139, 0, des);
-        global.flag[1143] = 50;
-        watercon = 2;
-        watertimer = 0;
-        treasure2 = instance_create(treasure.x, treasure.y, obj_trigger_interact);
-        treasure2.sprite_index = spr_treasurebox;
-        treasure2.visible = true;
-        treasure2.issolid = true;
-        scr_darksize(treasure2);
-        scr_depth(treasure2);
-        trcon2 = 0;
-        trtimer2 = 0;
-        watermarker = 0;
-        treasure.x = -9999;
         watercon = 999;
-        trcon = 3;
         scr_delay_var("cleanup", 1, 120);
     }
 }
