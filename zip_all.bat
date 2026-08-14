@@ -22,7 +22,7 @@ copy "ump.csx" "exportmods\csx\ump.csx"
 
 cd /d "exportmods/csx/"
 
-tar.exe -a -c -f "../../exportmods_zip/archipelago-X_X_X-X.zip" "*"
+tar.exe -a -c -f "../../exportmods_zip/archipelago-X_X_X-X_csx.zip" "*"
 
 cd /d "../.."
 
