@@ -396,3 +396,14 @@
                     msgnextloc("\\EE* Always reliable^1, they will heal you in times of need!/%", "scr_text_slash_scr_text_gml_5183_0");
                 }
 /// END
+
+/// AFTER
+            msgnextloc("* Would you assist in organizing these paintings?/", "scr_text_slash_scr_text_gml_5803_0");
+/// CODE
+            
+            if (global.flag[371] != 0)
+            {
+                msgsetloc(0, "* Oh^1, you've returned!/", "scr_text_slash_scr_text_gml_5802_0");
+                msgnextloc("* Would you care to help organize these paintings again?/", "scr_text_slash_scr_text_gml_5803_0");
+            }
+/// END
