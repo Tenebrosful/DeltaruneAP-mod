@@ -70,7 +70,7 @@ if (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.BOTH_ROUTES && 
                 TEMPCOMMENT = stringsetloc("Start Chapter 2 from Chapter 1's FILE.", "DEVICE_MENU_slash_Draw_0_gml_291_0");
 /// CODE
             if (MENU_NO == 10)
-                TEMPCOMMENT = stringsetsubloc("USING COMPLETION DATA ISN'T RECOMMENDED", string(global.chapter), string(global.chapter - 1), "DEVICE_MENU_slash_Draw_0_gml_387_0");
+                TEMPCOMMENT = stringsetsubloc("USING COMPLETION DATA ISN'T SUPPORTED.", string(global.chapter), string(global.chapter - 1), "DEVICE_MENU_slash_Draw_0_gml_387_0");
 /// END
 #endif
 
@@ -80,6 +80,6 @@ if (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.BOTH_ROUTES && 
                 TEMPCOMMENT = stringsetsubloc("Start Chapter ~1 from Chapter ~2's FILE.", string(global.chapter), string(global.chapter - 1), "DEVICE_MENU_slash_Draw_0_gml_387_0");
 /// CODE
             if (MENU_NO == 10)
-                TEMPCOMMENT = stringsetsubloc("USING COMPLETION DATA ISN'T RECOMMENDED", string(global.chapter), string(global.chapter - 1), "DEVICE_MENU_slash_Draw_0_gml_387_0");
+                TEMPCOMMENT = stringsetsubloc("USING COMPLETION DATA ISN'T SUPPORTED.", string(global.chapter), string(global.chapter - 1), "DEVICE_MENU_slash_Draw_0_gml_387_0");
 /// END
 #endif
