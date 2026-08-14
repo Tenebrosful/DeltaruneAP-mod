@@ -2,7 +2,7 @@
 
 /// APPEND
 
-if (global.flag[362] != 0 && global.flag[915] < 7 && global.flag[382] == 1)
+if (global.flag[362] != 0 && global.flag[915] < 7)
 {
     instance_create(x, y, obj_chaseenemy);
     global.flag[395] = 1;
