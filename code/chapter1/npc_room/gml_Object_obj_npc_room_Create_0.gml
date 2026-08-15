@@ -18,8 +18,8 @@
 if (room == room_forest_savepoint3)
 {
     sprite_index = spr_daimond_knight_idle; // thank you toby for the incredible spelling
-    {
     if (global.customflags[global.custom_flags_indexes.castle_key_used])
+    {
         instance_destroy();
     }
     else
