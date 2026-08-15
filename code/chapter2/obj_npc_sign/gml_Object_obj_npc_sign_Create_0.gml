@@ -1,5 +1,9 @@
 /// PATCH
 
+/// PREPEND
+werewire_moved = 0;
+/// END
+
 /// REPLACE
     if (scr_armorcheck_inventory(16) == 1 || scr_armorcheck_equipped(1, 16) == 1)
 /// CODE
@@ -18,7 +22,10 @@
     depth = 880000;
     
     if (global.customflags[global.custom_flags_indexes.safety_vest_used] && global.plot < 64)
+    {
         y = 1615;
+        werewire_moved = 1
+    }
     
     depth = 880000;
 }

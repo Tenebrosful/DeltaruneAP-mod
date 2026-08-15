@@ -94,7 +94,7 @@ else
 }
 audio_play_sound(my_music, 2, loop);
 audio_sound_gain(my_music, 0.5, 0);
-credits = ["ARCHIPELAGO CREDITS:", " ", "Mewlif (Modding)", "theemeraldsword85 (Modding)", "Tenebrosful (Porting, Modding)", "Deadzi (Bug Fixing, Modding)", "Vintagix (In-Game AP Client, Modding)", "Charaster (Sprites)"];
+credits = ["ARCHIPELAGO CREDITS:", " ", "Mewlif (Modding)", "theemeraldsword85 (Modding)", "Tenebrosful (Porting, Modding)", "Deadzi (Bug Fixing, Modding)", "Vintagix (In-Game AP Client, Modding)", "Charaster (Sprites)", "Playtesters and more on GitHub!"];
 connected = "> Connecting...";
 fadein = instance_create_depth(0, 0, 1, obj_fadein);
 fadein.depth = 1;
