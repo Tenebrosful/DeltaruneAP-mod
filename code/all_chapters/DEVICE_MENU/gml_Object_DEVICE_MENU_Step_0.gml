@@ -34,3 +34,25 @@ if (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.BOTH_ROUTES && 
   }
 }
 /// END
+
+#if !CHAPTER_1
+/// REPLACE
+            var FILECHECK = 1;
+            
+            if (MENU_NO == 10)
+            {
+                if (INCOMPLETE_LOAD == 0 && COMPLETEFILE_PREV[MENUCOORD[M]] != 1)
+                    FILECHECK = 0;
+                
+                if (INCOMPLETE_LOAD == 1 && INCOMPLETEFILE_PREV[MENUCOORD[M]] != 1)
+                    FILECHECK = 0;
+            }
+/// CODE
+            var FILECHECK = 1;
+            
+            if (MENU_NO == 10)
+            {
+                FILECHECK = 0;
+            }
+/// END
+#endif
