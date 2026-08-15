@@ -8,7 +8,7 @@ des = 0;
 
 if (global.plot >= 250)
 {
-        watercooler = instance_create(840, 220, obj_trigger_interact);
+        watercooler = instance_create(900, 220, obj_trigger_interact);
         watercooler.sprite_index = spr_watercooler;
         watercooler.visible = true;
         watercooler.extflag = "watercooler";
