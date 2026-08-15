@@ -73,7 +73,7 @@ if (room == room_forest_savepoint2)
 if (room == room_forest_savepoint3)
 {
     global.msg[0] = "* Hey^1! You two^1! Didn't you get the memo?!/";
-    global.msg[1] = "* We're supposed to capture the lightners^1, but we're stuck outside the castle.../";
+    global.msg[1] = "* We're supposed to capture the Lightners^1, but we're stuck outside the castle.../";
     global.msg[2] = "* So go find the \\cYCastle Key\\cW before King notices we lost it^1, Soldiers!/";
     
     if (scr_keyitemcheck(1003))
@@ -82,11 +82,10 @@ if (room == room_forest_savepoint3)
         global.msg[4] = "* Here^1! We found it^1, don't worry!/";
         scr_noface(5);
         global.customflags[global.custom_flags_indexes.castle_key_used] = true;
-        global.msg[6] = "* Oh^1, perfect^1! Quick^1, let's go to the castle before lightners cross the forest./";
+        global.msg[6] = "* Oh^1, perfect^1! Quick^1, let's go to the castle before the Lightners cross the forest!/";
         scr_ralface(7, 4);
         global.msg[8] = "* But we're the lightners..^1. Well^1, I'm not^1, but... /";
-        scr_ralface(9, "A");
-        global.msg[10] = "* Anyways Kris^1, let's find Susie!/%";
+        global.msg[9] = "\\EA* Anyways Kris^1, let's find Susie!/%";
     }
     else
     {

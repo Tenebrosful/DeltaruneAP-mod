@@ -8,14 +8,18 @@ if (global.customflags[global.custom_flags_indexes.castle_key_used] && room == r
         image_xscale = -image_xscale
     }
 
-    x += 20;
+    x += 10;
     global.interact = 1;
 
     if (x >= 680)
     {
-        instance_destroy();
+        with (mywall)
+            instance_destroy();
+        
         if (instance_exists(obj_dialoguer) == false)
             global.interact = 0;
+        
+        instance_destroy();
     }
 }
 /// END

@@ -18,9 +18,16 @@
 if (room == room_forest_savepoint3)
 {
     sprite_index = spr_daimond_knight_idle; // thank you toby for the incredible spelling
-
+    {
     if (global.customflags[global.custom_flags_indexes.castle_key_used])
         instance_destroy();
+    }
+    else
+    {
+        mywall = instance_create(x, y, obj_soliddark);
+        mywall.image_xscale = 2;
+        mywall.image_yscale = 2;
+    }
 }
 /// END
 

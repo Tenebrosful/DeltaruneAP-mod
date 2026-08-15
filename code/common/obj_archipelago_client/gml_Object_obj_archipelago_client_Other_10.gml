@@ -332,6 +332,9 @@ function AP_sendHint(ids)
 
 function AP_sendDeathlink(text)
 {
+    if (!global.AP_deathlink)
+        exit;
+    
     if (!AP_isAuthenticated())
         exit;
 
