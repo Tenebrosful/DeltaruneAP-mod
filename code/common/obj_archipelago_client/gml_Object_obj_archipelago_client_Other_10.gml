@@ -519,6 +519,11 @@ function AP_internal_send_packet(content)
     var buffer = buffer_create(string_byte_length(data), buffer_fixed, 1);
     buffer_seek(buffer, buffer_seek_start, 0);
     buffer_write(buffer, buffer_text, data);
+
+    show_debug_message("Sending package to server")
+    show_debug_message(content)
+    show_debug_message(content.cmd)
+
     var size_send = network_send_raw(global.AP_socket, buffer, buffer_tell(buffer), 2);
 
     // var compressed_buffer = buffer_compress(buffer, 0, buffer_tell(buffer));

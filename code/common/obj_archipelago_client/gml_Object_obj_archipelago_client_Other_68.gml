@@ -8,8 +8,12 @@ if (ds_map_exists(async_load, "buffer"))
     
     for (var i = 0; i < array_length(data); i++)
     {
+        show_debug_message("Receiving package from server")
+        show_debug_message(data[i])
         if (variable_struct_exists(data[i], "cmd"))
         {
+            
+            show_debug_message(data[i].cmd)
             // get archipelago multiworld
             if(global.AP_multiworld == 0)
 			    global.AP_multiworld = data[0].seed_name;
@@ -422,6 +426,10 @@ if (ds_map_exists(async_load, "buffer"))
                 case "SetReply":
                     if (data[i].key == AP_getDatastoragePrefix() + "completed_chapters")
                         AP_handle_retreived_completed_chapters(data[i].value)
+                    break;
+
+                case "ProxyDisconnect":
+                    AP_disconnect();
                     break;
             }
         }
