@@ -9,6 +9,9 @@
 - Check [UMP documentation](https://github.com/nhaar/UMP/blob/main/guide/guide.md)
 
 ## Generate data.win
+
+**If you are a casual player, follow the [Setup Guide](https://github.com/theemeraldsword85/DELTARUNEAP/blob/main/worlds/deltarune/docs/setup_en.md) instead. This is instructions on how to build from source.**
+
 - Open the corresponding data.win to patch with UndertaleModTool
 - Select Build.cxs with Scripts > Run other scripts
 - Save the new data.win
