@@ -239,7 +239,7 @@ if (ds_map_exists(async_load, "buffer"))
                             }
 
                             // After updating server array, we ask for a sync with the save only if we are in game (eg. AP_item_got_in_current_chapter exists)
-                            if (variable_global_exists("AP_item_got_in_current_chapter"))
+                            if (variable_global_exists("AP_item_got_in_current_chapter") && global.AP_game_start_post_connexion_done)
                             {
                                 AP_sync_item_from_server();
                             }
