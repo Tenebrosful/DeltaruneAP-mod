@@ -9,11 +9,14 @@ if (ds_map_exists(async_load, "buffer"))
     for (var i = 0; i < array_length(data); i++)
     {
         show_debug_message("Receiving package from server")
-        show_debug_message(data[i])
         if (variable_struct_exists(data[i], "cmd"))
         {
             
             show_debug_message(data[i].cmd)
+            if(data[i].cmd != "DataPackage")
+            {
+                show_debug_message(data[i])
+            }
             // get archipelago multiworld
             if(global.AP_multiworld == 0)
 			    global.AP_multiworld = data[0].seed_name;
