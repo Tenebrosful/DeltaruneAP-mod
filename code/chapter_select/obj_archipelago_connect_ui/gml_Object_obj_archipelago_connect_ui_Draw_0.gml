@@ -154,6 +154,7 @@ for (var ii = 0; ii < 7; ii++)
             draw_rectangle(x_align + 300, y_align + (gap * i), x_align + 325, y_align + (gap * i) + 25, false);
             draw_set_color(c_black);
             draw_rectangle(x_align + 300, y_align + (gap * i), x_align + 325, y_align + (gap * i) + 25, true);
+            draw_set_color(c_white)
         }
     }
 
