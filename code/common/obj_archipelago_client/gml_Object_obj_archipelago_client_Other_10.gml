@@ -91,9 +91,9 @@ function AP_sendConnectionInfo()
         version: 
         {
             class: "Version",
-            major: global.AP_version[0],
-            minor: global.AP_version[1],
-            build: global.AP_version[2]
+            major: int64(global.AP_version[0]),
+            minor: int64(global.AP_version[1]),
+            build: int64(global.AP_version[2])
         }
     };
 
