@@ -143,32 +143,7 @@ if (ds_map_exists(async_load, "buffer"))
                     if (variable_struct_exists(data[i].slot_data.options, "include_unused_items"))
                         global.AP_include_unused_items = data[i].slot_data.options.include_unused_items;
 
-                    // Handle legacy folder name
-                    old_path = AP_get_save_folder_prefix(true)
-                    new_path = AP_get_save_folder_prefix()
-
-                    if (!file_exists(new_path) && file_exists(old_path))
-                    {
-                        // https://yal.cc/gamemaker-recursive-folder-copying/
-                        directory_create(new_path);
-
-                        files = []
-                        for (fname = file_find_first(old_path + "*"); fname != ""; fname = file_find_next()) {
-                            // don't include current/parent directory "matches":
-                            if (fname == ".") continue
-                            if (fname == "..") continue
-                            // push file into array
-                            array_push(files, fname)
-                        }
-                        file_find_close()
-
-                        for (var i = 0; i < array_length(files); i++)
-                        {
-                            from = old_path + files[i]
-                            to = new_path + files[i]
-                            file_copy(from, to)
-                        }
-                    }
+                    AP_handle_old_saves();
 
                     var path_settings = AP_get_save_folder_prefix()  + "settings.json"
 

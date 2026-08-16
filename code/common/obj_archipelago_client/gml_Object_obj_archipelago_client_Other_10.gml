@@ -30,6 +30,49 @@ function AP_write_settings_file()
     file_text_close(file);
 }
 
+function AP_handle_old_saves()
+{
+    for (var i = 2; i >= 1; i--)
+    {
+        if (AP_copy_saves_to_new_folder(AP_get_save_folder_prefix(i)))
+            break;
+    }
+}
+
+function AP_copy_saves_to_new_folder(old_path)
+{
+    new_path = AP_get_save_folder_prefix()
+
+    if (!directory_exists(new_path) && directory_exists(old_path))
+    {
+        // https://yal.cc/gamemaker-recursive-folder-copying/
+        directory_create(new_path);
+
+        files = []
+        for (fname = file_find_first(old_path + "*"); fname != ""; fname = file_find_next()) {
+            // don't include current/parent directory "matches":
+            if (fname == ".") continue
+            if (fname == "..") continue
+            // push file into array
+            array_push(files, fname)
+        }
+        file_find_close()
+
+        for (var i = 0; i < array_length(files); i++)
+        {
+            from = old_path + files[i]
+            to = new_path + files[i]
+            file_copy(from, to)
+        }
+
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 function AP_read_settings_file()
 {
     var file = file_text_open_read("ap_settings.json");
