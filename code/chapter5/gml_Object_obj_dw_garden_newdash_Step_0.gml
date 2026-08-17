@@ -8,9 +8,10 @@ if (con == 0)
 
 if (con == 6)
 {
-    if (scr_trigcheck("netskie") || scr_trigcheck_ext("netskied", 1662))
-        add_bottom_chest();
+    if (global.flag[netskie_encounterflag] < 1)
+        global.flag[netskie_encounterflag] = 1;
     
+    add_bottom_chest();
     con = 7;
 }
 

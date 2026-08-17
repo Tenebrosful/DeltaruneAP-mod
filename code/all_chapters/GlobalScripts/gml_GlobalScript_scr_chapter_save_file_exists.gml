@@ -1,4 +1,4 @@
-/// IMPORT
+/// IMPORT .ignore if !CHAPTER_1 && !CHAPTER_2
 function scr_chapter_save_file_exists(arg0)
 {
     var _exists = false;
