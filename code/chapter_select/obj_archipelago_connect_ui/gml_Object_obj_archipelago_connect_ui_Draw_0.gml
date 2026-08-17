@@ -154,10 +154,14 @@ for (var ii = 0; ii < 7; ii++)
             draw_rectangle(x_align + 300, y_align + (gap * i), x_align + 325, y_align + (gap * i) + 25, false);
             draw_set_color(c_black);
             draw_rectangle(x_align + 300, y_align + (gap * i), x_align + 325, y_align + (gap * i) + 25, true);
+            draw_set_color(c_white)
         }
     }
+
+    if (edit && choice == ii)
+        draw_set_color(c_yellow);
     
-    draw_text_outline(x_align, y_align + (gap * i), outline_offset, text, fnt_mainbig, 16777215);
+    draw_text_outline(x_align, y_align + (gap * i), outline_offset, text, fnt_mainbig, draw_get_color());
     
     if (page == 0 && i == 3)
         draw_text_outline(x_align, y_align + (gap * 4), outline_offset, "Hold TAB to show the password", fnt_mainbig, 16777215);
@@ -165,9 +169,6 @@ for (var ii = 0; ii < 7; ii++)
     if (choice == ii)
     {
         draw_sprite_ext(spr_heart, 4, x_align / 1.5, y_align + (gap * i) + 8, 2, 2, 0, c_white, 1);
-        
-        if (edit)
-            draw_set_color(c_yellow);
     }
 }
 
