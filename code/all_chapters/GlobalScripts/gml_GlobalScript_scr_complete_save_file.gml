@@ -73,35 +73,6 @@ function scr_defeated_secret_boss_any_slot(arg0)
     return _defeated;
 }
 
-function scr_get_secret_boss_result(arg0)
-{
-    var fought_flag = scr_get_secret_boss_flag(arg0);
-    return global.flag[fought_flag];
-}
-
-function scr_defeated_secret_boss_any_slot(arg0)
-{
-    var _fought_boss = scr_fought_secret_boss_any_slot(arg0);
-    var _defeated = false;
-    
-    if (_fought_boss)
-    {
-        for (var i = 0; i < 3; i++)
-        {
-            var _slot = i;
-            var _result = scr_get_ura_value(arg0, _slot);
-            
-            if (_result == 1 || _result == 3)
-            {
-                _defeated = true;
-                break;
-            }
-        }
-    }
-    
-    return _defeated;
-}
-
 function scr_spared_secret_boss_any_slot(arg0)
 {
     var _fought_boss = scr_fought_secret_boss_any_slot(arg0);
@@ -500,7 +471,7 @@ function scr_get_chapter_flag(arg0, arg1, arg2)
         }
         else
         {
-            for (var j = 0; j < 13; j += 1)
+            for (var j = 0; j < #GetMaxWeapon(); j += 1)
             {
                 file_text_read_real(myfileid);
                 file_text_readln(myfileid);
@@ -508,7 +479,7 @@ function scr_get_chapter_flag(arg0, arg1, arg2)
                 file_text_readln(myfileid);
             }
             
-            for (var j = 0; j < 48; j += 1)
+            for (var j = 0; j < #GetMaxArmor(); j += 1)
             {
                 file_text_read_real(myfileid);
                 file_text_readln(myfileid);
@@ -516,7 +487,7 @@ function scr_get_chapter_flag(arg0, arg1, arg2)
                 file_text_readln(myfileid);
             }
             
-            for (var j = 0; j < 72; j += 1)
+            for (var j = 0; j < #GetMaxStorage(); j += 1)
             {
                 file_text_read_real(myfileid);
                 file_text_readln(myfileid);
