@@ -12,6 +12,7 @@ function AP_get_prophecy_text()
   {
     case "A Hat in Time":
       prophecies = ["THE GIRL WITH THE HAT SHALL SAY#\"PECK\""]
+      break;
     case "DELTARUNE":
       prophecies = ["THE ANGEL,#FULFILLING THE PROPHECY OF DELTARUNE"]
       break;
