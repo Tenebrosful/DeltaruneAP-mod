@@ -344,7 +344,7 @@
         case 1201:
             global.msg[0] = stringsetloc("* (But nothing happened.)/%", "scr_text_slash_scr_text_gml_3104_0");
             
-            if (global.choice == 0 && global.plot >= 120)
+            if (global.choice == 0 && (global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE || global.plot >= 120))
             {
                 with (obj_shortcut_door)
                     door_destination = 157;
