@@ -23,44 +23,16 @@ function scr_chapter_save_file_exists_in_slot(arg0, arg1)
 function scr_completed_chapter_any_slot(arg0)
 {
     return true;
-    var _file_exists = false;
-    
-    for (var i = 0; i < 3; i++)
-    {
-        if (ossafe_file_exists(AP_get_save_folder_prefix() + "filech" + string(arg0) + "_" + string(i + 3)))
-        {
-            _file_exists = true;
-            break;
-        }
-    }
-    
-    return _file_exists;
 }
 
 function scr_completed_chapter_in_slot(arg0, arg1)
 {
     return true;
-    var _file_exists = ossafe_file_exists(AP_get_save_folder_prefix() + "filech" + string(arg0) + "_" + string(arg1 + 3));
-    return _file_exists;
 }
 
 function scr_fought_secret_boss_any_slot(arg0)
 {
-    var _fought = false;
-    
-    for (var i = 0; i < 3; i++)
-    {
-        var _slot = i;
-        var _result = scr_get_ura_value(arg0, _slot);
-        
-        if (_result > 0)
-        {
-            _fought = true;
-            break;
-        }
-    }
-    
-    return _fought;
+    return true;
 }
 
 function scr_get_ini_value(arg0, arg1, arg2)
