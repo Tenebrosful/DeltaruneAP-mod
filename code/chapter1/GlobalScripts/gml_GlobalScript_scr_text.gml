@@ -1814,9 +1814,45 @@ function scr_text(arg0)
             break;
         
         case 306:
-            global.msg[0] = stringsetloc("\\E6* Well, regardless of how you feel.../", "scr_text_slash_scr_text_gml_1763_0");
-            global.msg[1] = stringsetloc("\\E0* I don't think it would hurt to take a moment.../", "scr_text_slash_scr_text_gml_1764_0");
-            global.msg[2] = stringsetloc("\\E6* Close your eyes^1, and think about what she's doing now.../%", "scr_text_slash_scr_text_gml_1765_0");
+            if (global.choice == 0)
+            {
+                global.msg[0] = stringsetloc("\\E6* Well, regardless of how you feel.../", "scr_text_slash_scr_text_gml_1763_0");
+                global.msg[1] = stringsetloc("\\E0* I don't think it would hurt to take a moment.../", "scr_text_slash_scr_text_gml_1764_0");
+                global.msg[2] = stringsetloc("\\E6* Close your eyes^1, and think about what she's doing now.../%", "scr_text_slash_scr_text_gml_1765_0");
+            }
+            else
+            {
+                global.plot = 154;
+                global.msg[0] = "\\E6* Hummm^1... are you sure?^1/%";
+                
+                with (obj_prisonevent)
+                {
+                    con = 303;
+                    
+                    with (obj_mainchara)
+                    {
+                        cutscene = 1;
+                        visible = 0;
+                    }
+                    
+                    obj_mainchara.x = 680;
+                    obj_mainchara.y = 160;
+                    k = scr_dark_marker(obj_mainchara.x, obj_mainchara.y, spr_krisd_dark);
+                    s = scr_dark_marker(660, 500, spr_susieu_dark);
+                    r.x = 640;
+                    r.y = 150;
+                    
+                    with (r)
+                        image_index = 2;
+                    
+                    with (r)
+                        scr_depth();
+                    
+                    with (k)
+                        scr_depth();
+                }
+            }
+            
             break;
         
         case 310:
@@ -3366,6 +3402,36 @@ function scr_text(arg0)
                 global.msg[1] = "\\s0* (It seems you won't be able to get this check anymore... )/%";
             }
             
+            break;
+
+        case 602:
+            global.choicemsg[0] = " #Take me#to jail";
+            global.choicemsg[1] = " #No seen,#sorry";
+            global.choicemsg[2] = " ";
+            global.choicemsg[3] = " ";
+
+            global.msg[0] = "* Hey^1! You two^1... three^1... four^1... anyway./";
+            global.msg[1] = "* Have you seen the Lightners^1? We need to take them to jail./";
+            global.msg[2] = " \\C2"
+            break;
+        
+        case 603:
+            if (global.choice == 0)
+            {
+                global.msg[0] = "* Wait^1, for real?^1 Okkkkk.^1 Follow me please./%"
+
+                with (obj_npc_room)
+                {
+                    if (extflag == "gotoprisonskip")
+                    {
+                        skiptoprison = true;
+                    }
+                }
+            }
+            else
+            {
+                global.msg[0] = "* Where did they went.../%";
+            }
             break;
         
         default:

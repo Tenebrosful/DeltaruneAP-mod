@@ -5,6 +5,7 @@
 #load "room_forest_savepoint3.csx"
 #load "room_cc_6f.csx"
 #load "room_man.csx"
+#load "room_forest_afterthrash2.csx"
 
 void Load_chapter1_rooms()
 {
@@ -15,4 +16,5 @@ void Load_chapter1_rooms()
   Load_room_forest_savepoint3();
   Load_room_cc_6f();
   Load_room_man();
+  Load_room_forest_afterthrash2();
 }

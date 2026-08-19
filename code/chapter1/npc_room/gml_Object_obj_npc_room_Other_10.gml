@@ -97,6 +97,15 @@ if (room == room_forest_savepoint3)
         global.msg[8] = "* I don't think we have a choice^1, Kris.../%";
     }
 }
+
+if (room == room_forest_afterthrash2)
+{
+    if (extflag == "gotoprisonskip")
+    {
+        global.msc = 602;
+        scr_text(global.msc);
+    }
+}
 /// END
 
 /// AFTER

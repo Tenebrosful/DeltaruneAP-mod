@@ -22,4 +22,10 @@ if (room == room_forest_savepoint3 && global.customflags[global.custom_flags_ind
         instance_destroy();
     }
 }
+
+if (room == room_forest_afterthrash2 && extflag == "gotoprisonskip" && !instance_exists(obj_dialoguer) && skiptoprison)
+{
+    scr_losechar();
+    room_goto(room_cc_prison_cells);
+}
 /// END

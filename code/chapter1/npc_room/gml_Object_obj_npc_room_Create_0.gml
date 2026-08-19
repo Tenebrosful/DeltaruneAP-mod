@@ -29,7 +29,6 @@ if (room == room_forest_savepoint3)
         mywall.image_yscale = 2;
     }
 }
-/// END
 
 /// REPLACE
     if (room == room_forest_fightsusie)
@@ -47,4 +46,13 @@ if (room == room_forest_savepoint3)
         if (global.plot >= 152)
             instance_destroy();
     }
+/// ENDif (room == room_forest_afterthrash2)
+{
+    if (global.plot >= 152)
+        instance_destroy();
+
+    sprite_index = spr_daimond_knight_idle
+    extflag = "gotoprisonskip";
+    skiptoprison = false;
+}
 /// END
