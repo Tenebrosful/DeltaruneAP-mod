@@ -32,8 +32,16 @@ if (!global.AP_sync)
     draw_set_font(fnt_main);
     draw_set_color(c_red);
     draw_set_halign(fa_center);
-    draw_text(ww - 10, 0, "SYNCHRONIZATION ITEMS MISMATCH DETECTED! PLEASE REPORT THIS.");
-    draw_text(ww - 10, 10, "A FILE NAMED unsync.json HAS BEEN CREATED IN YOUR SAVEFILE FOLDER.");
+    if (obj_archipelago_client.AP_isAuthenticated())
+    {
+        draw_text(ww - 10, 0, "SYNCHRONIZATION ITEMS MISMATCH DETECTED! PLEASE REPORT THIS.");
+        draw_text(ww - 10, 10, "A FILE NAMED unsync.json HAS BEEN CREATED IN YOUR SAVEFILE FOLDER.");
+    }
+    else
+    {
+        draw_text(ww - 10, 0, "IT LOOKS LIKE YOU HAS BEEN DISCONNECTED.");
+        draw_text(ww - 10, 10, "WE WILL TRY TO RECONNECT YOU.");
+    }
     draw_set_halign(fa_left);
 
     if (!global.AP_sync_output_done)
