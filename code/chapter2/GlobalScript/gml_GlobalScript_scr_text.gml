@@ -266,17 +266,16 @@
                 global.flag[917] = 3;
                 global.flag[918] = 1;
                 scr_speaker("no_name");
-                msgsetloc(0, string("* He sent {0} to your multiworld./%", AP_get_location_reward_text(67)), "scr_text_slash_scr_text_gml_6548_0");
+                msgsetloc(0, string("* You got {0}./%", AP_get_location_reward_text(67)), "scr_text_slash_scr_text_gml_6548_0");
                 snd_play(snd_egg);
                 AP_sendLocation(67);
             }
             
             if (global.choice == 1)
             {
-                global.flag[917] = 3;
                 scr_speaker("no_name");
-                msgsetloc(0, "* Well^1, there was not a man here./", "scr_text_slash_scr_text_gml_6556_0");
-                msgnextloc("* (It seems you won't be able to get this check anymore... )/%");
+                msgsetloc(0, "* Well^1, there was not a man here./%", "scr_text_slash_scr_text_gml_6556_0");
+                global.flag[917] = 0;
 /// END
 
 /// BEFORE

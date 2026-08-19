@@ -1802,7 +1802,7 @@ function scr_text(arg0)
         
         case 305:
             global.choicemsg[0] = stringsetloc(" #Yes", "scr_text_slash_scr_text_gml_1750_0");
-            global.choicemsg[1] = stringsetloc(" #She'll be#fine", "scr_text_slash_scr_text_gml_1751_0");
+            global.choicemsg[1] = stringsetloc(" #No", "scr_text_slash_scr_text_gml_1751_0");
             global.choicemsg[2] = stringsetloc(" ", "scr_text_slash_scr_text_gml_1754_0_b");
             global.choicemsg[3] = stringsetloc(" ", "scr_text_slash_scr_text_gml_1755_0_b");
             global.msg[0] = stringsetloc("\\E6* ... thanks for helping her^1, Kris^1. She appreciates it./", "scr_text_slash_scr_text_gml_1754_0");
@@ -1816,15 +1816,38 @@ function scr_text(arg0)
         case 306:
             if (global.choice == 0)
             {
-                global.msg[0] = stringsetloc("\\E6* Well, regardless of how you feel.../", "scr_text_slash_scr_text_gml_1763_0");
+                global.msg[0] = stringsetloc("\\E6* Well^1, in that case.../", "scr_text_slash_scr_text_gml_1763_0");
                 global.msg[1] = stringsetloc("\\E0* I don't think it would hurt to take a moment.../", "scr_text_slash_scr_text_gml_1764_0");
                 global.msg[2] = stringsetloc("\\E6* Close your eyes^1, and think about what she's doing now.../%", "scr_text_slash_scr_text_gml_1765_0");
             }
             else
             {
+                global.choicemsg[0] = stringsetloc(" #Okay, I'm#worried", "scr_text_slash_scr_text_gml_1750_0");
+                global.choicemsg[1] = stringsetloc(" #She'll be#fine", "scr_text_slash_scr_text_gml_1751_0");
+                global.choicemsg[2] = stringsetloc(" ", "scr_text_slash_scr_text_gml_1754_0_b");
+                global.choicemsg[3] = stringsetloc(" ", "scr_text_slash_scr_text_gml_1755_0_b");
+                global.msg[0] = "\\EB* Oh^1, you aren't?";
+                global.msg[1] = "\\E6* Ummm..^1. Are you sure?/"
+                global.msg[2] = "\\E5* She is venturing further into this dungeon..^1. Alone.../";
+                global.msg[3] = stringsetloc("\\C2 ", "scr_text_slash_scr_text_gml_1758_0");
+                global.msg[4] = stringsetloc(" ", "scr_text_slash_scr_text_gml_1761_0");
+            }
+            
+            break;
+
+        case 307:
+            if (global.choice == 0)
+            {
+                global.msg[0] = stringsetloc("\\E6* Well^1, in that case.../", "scr_text_slash_scr_text_gml_1763_0");
+                global.msg[1] = stringsetloc("\\E0* I don't think it would hurt to take a moment.../", "scr_text_slash_scr_text_gml_1764_0");
+                global.msg[2] = stringsetloc("\\E6* Close your eyes^1, and think about what she's doing now.../%", "scr_text_slash_scr_text_gml_1765_0");
+            }
+            else
+            {
+                global.msg[0] = "\\E5* Umm^1, well^1, I guess if you're really sure,/";
+                global.msg[1] = "\\E6* I suppose we could just wait for her to-/%";
                 global.plot = 154;
-                global.msg[0] = "\\E6* Hummm^1... are you sure?^1/%";
-                
+
                 with (obj_prisonevent)
                 {
                     con = 303;
@@ -1852,7 +1875,7 @@ function scr_text(arg0)
                         scr_depth();
                 }
             }
-            
+
             break;
         
         case 310:
@@ -3392,25 +3415,25 @@ function scr_text(arg0)
             
             if (global.choice == 0)
             {
-                global.msg[0] = string("* (He sent {0} to your Multiworld.)/%", AP_get_location_reward_text(24));
+                global.msg[0] = string("* (You got {0}.)/%", AP_get_location_reward_text(24));
                 snd_play(snd_egg);
                 AP_sendLocation(24);
             }
             else
             {
-                global.msg[0] = "* (Then he needn't be here.)/";
-                global.msg[1] = "\\s0* (It seems you won't be able to get this check anymore... )/%";
+                global.msg[0] = "* (Then he needn't be here.)/%";
+                global.flag[910] = 0;
             }
             
             break;
 
         case 602:
-            global.choicemsg[0] = " #Take me#to jail";
-            global.choicemsg[1] = " #No seen,#sorry";
+            global.choicemsg[0] = " That's us.#Send us to#jail please.";
+            global.choicemsg[1] = " #Haven't seen#them";
             global.choicemsg[2] = " ";
             global.choicemsg[3] = " ";
 
-            global.msg[0] = "* Hey^1! You two^1... three^1... four^1... anyway./";
+            global.msg[0] = "* Hey^1! You two^1! Uh^1, three^1! Oh^1, and Prince Lancer!/";
             global.msg[1] = "* Have you seen the Lightners^1? We need to take them to jail./";
             global.msg[2] = " \\C2"
             break;
@@ -3418,7 +3441,23 @@ function scr_text(arg0)
         case 603:
             if (global.choice == 0)
             {
-                global.msg[0] = "* Wait^1, for real?^1 Okkkkk.^1 Follow me please./%"
+                global.msg[0] = "* Wait^1, for real^1? Well^1, that makes my job easier.../"
+                scr_susface(9, 1);
+                global.msg[2] = "* Wh^1- Kris^1, the hell you'd rat us out for?!/"
+                scr_noface(3);
+                global.msg[4] = "* No need to blame your accomplice^1. It is what King requested./"
+                global.msg[5] = "* As such^1, we'll have you three punished to King's jurisdiction.../"
+                scr_susface(2, 6);
+                global.msg[7] = "* Pshh^1, you think that scares us?/"
+                global.msg[8] = "\\E4* No one's gotten past us^1! The King's probably NOTHING./"
+                global.msg[9] = "\\E1* Tell 'em Lancer^1! We'll beat that guy to a PULP./"
+                scr_lanface(12, 10);
+                global.msg[11] = "* .../"
+                scr_noface(12);
+                global.msg[13] = "* A threat against King?^1! Why^1, we'll have you imprisoned posthaste!/"
+                scr_susface(2, 14);
+                global.msg[15] = "* Oh yeah^1? You think you can just toss US into jail?/"
+                global.msg[16] = "\\E3* I'd like to see you TRY^1. You'll NEVER %%"
 
                 with (obj_npc_room)
                 {
@@ -3430,7 +3469,7 @@ function scr_text(arg0)
             }
             else
             {
-                global.msg[0] = "* Where did they go...?/%";
+                global.msg[0] = "* I wonder where they went.../%";
             }
             break;
         
