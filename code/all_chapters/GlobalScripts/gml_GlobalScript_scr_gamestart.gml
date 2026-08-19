@@ -349,13 +349,6 @@ function scr_gamestart()
         global.input_released[i] = 0;
     }
     
-    global.flag[220] = choose(0, 1, 2, 3);
-    global.flag[221] = choose(0, 1, 2, 3);
-    global.flag[222] = choose(0, 1, 2, 3);
-    global.flag[223] = floor(random(31));
-    global.flag[224] = floor(random(31));
-    global.flag[225] = floor(random(31));
-    
     if (global.chapter >= 2)
     {
         global.flag[605] = 1;
@@ -428,7 +421,7 @@ function scr_gamestart()
     }
     global.flag[221] = 3
     global.flag[222] = 3
-    global.flag[223] = 19
-    global.flag[224] = 19
-    global.flag[225] = 19
+    global.flag[223] = 27
+    global.flag[224] = 27
+    global.flag[225] = 27
 }
