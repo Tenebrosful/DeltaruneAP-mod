@@ -3429,7 +3429,7 @@ function scr_text(arg0)
 
         case 602:
             global.choicemsg[0] = " That's us.#Send us to#jail please.";
-            global.choicemsg[1] = " #Haven't seen#them";
+            global.choicemsg[1] = " #No seen";
             global.choicemsg[2] = " ";
             global.choicemsg[3] = " ";
 
