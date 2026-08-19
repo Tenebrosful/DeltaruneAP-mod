@@ -219,7 +219,7 @@ if (connect && page == 0)
 
         case global.AP_ENUM_CONNECTION_STATE.GOT_SCOUTING:
             draw_set_color(c_yellow);
-            connected = "> Waiting for datapackage, it might take a while...";
+            connected = string("> Waiting for datapackage\n({0}/{1}) {2}", global.AP_received_datapackage, global.AP_requested_datapackage, global.AP_last_datapackage_requested);
             break;
 
         case global.AP_ENUM_CONNECTION_STATE.GOT_DATA_PACKAGE:
@@ -230,7 +230,7 @@ if (connect && page == 0)
         case global.AP_ENUM_CONNECTION_STATE.READY:
             if (!global.AP_loaded_unlocked_chapter)
             {
-                connected = "> Waiting to receive unlocked chapters...";
+                connected = "> Waiting to receive\nunlocked chapters...";
             }
             else
             {
