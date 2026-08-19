@@ -47,6 +47,7 @@ if (room == room_forest_savepoint3)
             instance_destroy();
     }
 /// ENDif (room == room_forest_afterthrash2)
+if (room == room_forest_afterthrash2)
 {
     if (global.plot >= 152)
         instance_destroy();
