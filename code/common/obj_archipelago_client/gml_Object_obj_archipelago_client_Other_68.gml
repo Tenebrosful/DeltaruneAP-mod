@@ -338,14 +338,27 @@ if (ds_map_exists(async_load, "buffer"))
                         }
 
                         var games_unique = array_unique(games);
-                        AP_getDataPackage(games_unique);
+
+                        global.AP_requested_datapackage = array_length(games_unique);
+                        global.AP_resquest_list = games_unique;
+                        global.AP_last_datapackage_requested = global.AP_resquest_list[0];
+                        AP_getDataPackage([global.AP_resquest_list[0]]);
                     }
                     break;
                 case "DataPackage":
                     if (variable_struct_exists(data[i], "data"))
                     {
+                        global.AP_received_datapackage++;
+                        AP_add_new_datapackage(data[i].data)
+
+                        if (global.AP_received_datapackage != global.AP_requested_datapackage)
+                        {
+                            global.AP_last_datapackage_requested = global.AP_resquest_list[global.AP_received_datapackage]
+                            AP_getDataPackage([global.AP_resquest_list[global.AP_received_datapackage]]);
+                            exit;
+                        }
+
                         global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.GOT_DATA_PACKAGE;
-                        global.AP_data_package_raw = data[i].data.games;
 
                         if (!file_exists(AP_get_save_folder_prefix() +  "datapackage.json"))
                         {

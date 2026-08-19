@@ -278,6 +278,7 @@ function AP_receive_keyitem(item_id)
             scr_keyitemget(4);
         break;
         case 31: if (global.chapter == 4) global.flag[23] = 1; break;
+        case 1005: case 1007: case 1017: case 1020: global.maxhp[1]++; global.hp[1] = global.maxhp[1]; break;
         case 1018: global.customflags[global.custom_flags_indexes.got_ICE_KEY] = true; break;
         case 1019: global.customflags[global.custom_flags_indexes.got_SHELTER_KEY] = true; break;   
         case 1021: global.flag[1312] += 1; break;
@@ -439,8 +440,6 @@ function AP_display_special_textbox(item_id)
     global.interact = 1;
     switch (item_id) {
         case 11005: // Moss Chapter 1
-            global.maxhp[1]++;
-            global.hp[1] = global.maxhp[1];
             snd_play(snd_swallow);
             script_execute(scr_writetext, 0, "* (You ate the moss.^1)&* (Tastes..^1. mossy.^1)&* (Your HP was mossed out.)/%", 0, 6);
             break;
@@ -452,8 +451,6 @@ function AP_display_special_textbox(item_id)
             break;
 
         case 11007: // Moss Chapter 2
-            global.maxhp[1]++;
-            global.hp[1] = global.maxhp[1];
             global.msc = 0;
             global.typer = 6;
             global.fc = 0;
@@ -471,15 +468,11 @@ function AP_display_special_textbox(item_id)
             break;
 
         case 11017: // Moss Chapter 3
-            global.maxhp[1]++;
-            global.hp[1] = global.maxhp[1];
             script_execute(scr_writetext, 0, "* (\\cGMoss\\cW sent to you.^1)&* (It was consumed.)/%", 0, 6);
             snd_play(snd_swallow);
             break;
 
-        case 11020:
-            global.maxhp[1]++;
-            global.hp[1] = global.maxhp[1];
+        case 11020: // Moss Chapter 4
             global.msc = 0;
             global.typer = 6;
             global.fc = 0;

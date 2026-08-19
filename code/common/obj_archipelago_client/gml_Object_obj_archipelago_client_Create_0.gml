@@ -89,6 +89,10 @@ global.AP_remaining_locations = [];
 global.AP_connection_errors = undefined;
 global.AP_sync = true;
 global.AP_sync_output_done = false;
+global.AP_received_datapackage = 0;
+global.AP_requested_datapackage = 0;
+global.AP_resquest_list = [];
+global.AP_last_datapackage_requested = "";
 global.AP_colors = 
 {
     filler: "00FFFF",

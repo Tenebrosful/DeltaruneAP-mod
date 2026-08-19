@@ -30,18 +30,7 @@ function scr_completed_chapter(arg0)
 
 function scr_completed_chapter_any_slot(arg0)
 {
-    var _file_exists = false;
-    
-    for (var i = 0; i < 3; i++)
-    {
-        if (ossafe_file_exists(AP_get_save_folder_prefix() + "filech" + string(arg0) + "_" + string(i + 3)))
-        {
-            _file_exists = true;
-            break;
-        }
-    }
-    
-    return _file_exists;
+    return true;
 }
 
 function scr_get_secret_boss_result(arg0)
@@ -52,48 +41,12 @@ function scr_get_secret_boss_result(arg0)
 
 function scr_defeated_secret_boss_any_slot(arg0)
 {
-    var _fought_boss = scr_fought_secret_boss_any_slot(arg0);
-    var _defeated = false;
-    
-    if (_fought_boss)
-    {
-        for (var i = 0; i < 3; i++)
-        {
-            var _slot = i;
-            var _result = scr_get_ura_value(arg0, _slot);
-            
-            if (_result == 1 || _result == 3)
-            {
-                _defeated = true;
-                break;
-            }
-        }
-    }
-    
-    return _defeated;
+    return true;
 }
 
 function scr_spared_secret_boss_any_slot(arg0)
 {
-    var _fought_boss = scr_fought_secret_boss_any_slot(arg0);
-    var _spared = false;
-    
-    if (_fought_boss)
-    {
-        for (var i = 0; i < 3; i++)
-        {
-            var _slot = i;
-            var _result = scr_get_ura_value(arg0, _slot);
-            
-            if (_result >= 2)
-            {
-                _spared = true;
-                break;
-            }
-        }
-    }
-    
-    return _spared;
+    return true;
 }
 
 function scr_fought_secret_boss(arg0)
@@ -103,21 +56,7 @@ function scr_fought_secret_boss(arg0)
 
 function scr_fought_secret_boss_any_slot(arg0)
 {
-    var _fought = false;
-    
-    for (var i = 0; i < 3; i++)
-    {
-        var _slot = i;
-        var _result = scr_get_ura_value(arg0, _slot);
-        
-        if (_result > 0)
-        {
-            _fought = true;
-            break;
-        }
-    }
-    
-    return _fought;
+    return true;
 }
 
 function scr_get_secret_boss_flag(arg0)

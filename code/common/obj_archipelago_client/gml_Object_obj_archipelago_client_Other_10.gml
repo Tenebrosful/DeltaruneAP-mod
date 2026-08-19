@@ -699,6 +699,19 @@ function AP_handle_retreived_completed_chapters(completed_chapters)
     }
 }
 
+function AP_add_new_datapackage(data)
+{
+    if (global.AP_data_package_raw == undefined)
+    {
+        global.AP_data_package_raw = {}
+    }
+
+    game_names = variable_struct_get_names(variable_struct_get(data, "games"))
+    game_name = game_names[0]
+
+    variable_struct_set(global.AP_data_package_raw, game_name, variable_struct_get(variable_struct_get(data, "games"), game_name))
+}
+
 enum UnknownEnum
 {
     Value_7 = 7,
