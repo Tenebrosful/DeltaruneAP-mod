@@ -1,10 +1,5 @@
 /// PATCH
 
-/// REPLACE
-    global.flag[23] = 1;
-/// CODE
-/// END
-
 /// BEFORE
     if (global.flag[891] == 1)
 /// CODE
