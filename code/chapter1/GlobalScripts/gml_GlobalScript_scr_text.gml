@@ -3430,7 +3430,7 @@ function scr_text(arg0)
             }
             else
             {
-                global.msg[0] = "* Where did they went.../%";
+                global.msg[0] = "* Where did they go...?/%";
             }
             break;
         
