@@ -6,7 +6,7 @@
             if (global.plot < 200)
                 scr_become_light();
             
-            if (global.plot >= 200 && global.plot < 295)
+            if (global.plot >= 200 && global.flag[24] != 1)
             {
                 if (nextroom == 53)
                     scr_flag_set(1311, 0);

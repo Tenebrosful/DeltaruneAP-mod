@@ -17,12 +17,15 @@ if (con == 0)
 if (con == 1)
 {
     con = 1.1;
+    scr_speaker("no_name")
     global.choice = -1;
-    global.choicemsg[0] = "#Skip";
-    global.choicemsg[1] = "#Watch";
+    global.choicemsg[0] = "#Sleep";
+    global.choicemsg[1] = "#Can't miss#this";
     global.choicemsg[2] = "";
     global.choicemsg[3] = "";
-    msgset(0, "\\C2 ");
+    msgset(0, "* (You suddenly realize how tired you truly are...)/");
+    msgnext("* (You could close your eyes and rest^1, though \\cYyou might miss an awesome fight\\cW...)/");
+    msgnext("\\C2 ");
     d_make();
 }
 
