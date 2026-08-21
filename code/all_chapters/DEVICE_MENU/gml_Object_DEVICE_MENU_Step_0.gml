@@ -37,22 +37,78 @@ if (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.BOTH_ROUTES && 
 
 #if !CHAPTER_1
 /// REPLACE
+if (MENU_NO == 10)
+{
+    var M = MENU_NO;
+    var MAXY = 3;
+    
+    if (down_p())
+    {
+        if (MENUCOORD[MENU_NO] < 3)
+        {
+            MENUCOORD[MENU_NO] += 1;
+            MOVENOISE = 1;
+        }
+    }
+    
+    if (up_p())
+    {
+        if (MENUCOORD[MENU_NO] > 0)
+        {
+            MENUCOORD[MENU_NO] -= 1;
+            MOVENOISE = 1;
+        }
+    }
+    
+    if (button1_p() && ONEBUFFER < 0)
+    {
+        MESSAGETIMER = -1;
+        
+        if (MENUCOORD[M] <= 2)
+        {
             var FILECHECK = 1;
             
-            if (MENU_NO == 10)
-            {
-                if (INCOMPLETE_LOAD == 0 && COMPLETEFILE_PREV[MENUCOORD[M]] != 1)
-                    FILECHECK = 0;
-                
-                if (INCOMPLETE_LOAD == 1 && INCOMPLETEFILE_PREV[MENUCOORD[M]] != 1)
-                    FILECHECK = 0;
-            }
-/// CODE
-            var FILECHECK = 1;
-            
-            if (MENU_NO == 10)
-            {
+            if (INCOMPLETE_LOAD == 0 && COMPLETEFILE_PREV[MENUCOORD[M]] != 1)
                 FILECHECK = 0;
-            }
+            
+            if (INCOMPLETE_LOAD == 1 && INCOMPLETEFILE_PREV[MENUCOORD[M]] != 1)
+                FILECHECK = 0;
+/// CODE
+if (MENU_NO == 10)
+{
+    var M = MENU_NO;
+    var MAXY = 3;
+    
+    if (down_p())
+    {
+        if (MENUCOORD[MENU_NO] < 3)
+        {
+            MENUCOORD[MENU_NO] += 1;
+            MOVENOISE = 1;
+        }
+    }
+    
+    if (up_p())
+    {
+        if (MENUCOORD[MENU_NO] > 0)
+        {
+            MENUCOORD[MENU_NO] -= 1;
+            MOVENOISE = 1;
+        }
+    }
+    
+    if (button1_p() && ONEBUFFER < 0)
+    {
+        MESSAGETIMER = -1;
+        
+        if (MENUCOORD[M] <= 2)
+        {
+            var FILECHECK = -1;
+            
+            if (INCOMPLETE_LOAD == 0 && COMPLETEFILE_PREV[MENUCOORD[M]] != 1)
+                FILECHECK = -1;
+            
+            if (INCOMPLETE_LOAD == 1 && INCOMPLETEFILE_PREV[MENUCOORD[M]] != 1)
+                FILECHECK = -1;
 /// END
 #endif
