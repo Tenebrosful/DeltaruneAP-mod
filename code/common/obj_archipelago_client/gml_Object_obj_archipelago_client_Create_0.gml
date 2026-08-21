@@ -175,6 +175,7 @@ global.AP_loaded_unlocked_chapter = false;
 
 step = 0;
 
+randomise();
 
 event_user(0);
 
@@ -205,7 +206,7 @@ global.AP_name = ap_settings.name;
 global.AP_password = ap_settings.password;
 global.AP_colors = ap_settings.settings.colors;
 
-if (variable_struct_exists(ap_settings, "uuid"))
+if (variable_struct_exists(ap_settings, "uuid") && ap_settings.uuid != "EC0EE80E-B5CB-4148-BA5F-0FB2177F0707")
 {
     global.AP_uuid = ap_settings.uuid;
 }
