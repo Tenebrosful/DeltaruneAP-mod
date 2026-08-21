@@ -277,7 +277,7 @@ if (ds_map_exists(async_load, "buffer"))
                                     else
                                         cause = undefined;
 
-                                    case uuid;
+                                    var uuid;
                                     if (variable_struct_exists(data[i].data, "uuid"))
                                         uuid = data[i].data.uuid;
                                     else
