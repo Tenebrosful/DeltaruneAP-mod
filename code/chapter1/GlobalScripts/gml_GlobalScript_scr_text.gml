@@ -3451,7 +3451,7 @@ function scr_text(arg0)
                 global.msg[7] = "* Pshh^1, you think that scares us?/";
                 global.msg[8] = "\\E4* No one's gotten past us^1! The King's probably NOTHING./";
                 global.msg[9] = "\\E1* Tell 'em Lancer^1! We'll beat that guy to a PULP./";
-                scr_lanface(10, 10);
+                scr_lanface(10, "C");
                 global.msg[11] = "* .../";
                 scr_noface(12);
                 global.msg[13] = "* A threat against King?^1! Why^1, we'll have you imprisoned posthaste!/";
