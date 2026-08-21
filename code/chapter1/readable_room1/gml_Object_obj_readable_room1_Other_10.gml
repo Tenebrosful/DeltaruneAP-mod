@@ -94,3 +94,50 @@ if (room == room_cc_6f && y < 170)
 }
 
 /// END
+
+/// REPLACE
+    if (x >= 720)
+    {
+        global.msc = 295;
+        scr_text(global.msc);
+        
+        if (scr_havechar(2))
+        {
+            global.typer = 30;
+            global.fc = 1;
+            global.fe = 6;
+            global.msg[0] = scr_84_get_lang_string("obj_readable_room1_slash_Other_10_gml_626_0");
+            global.msg[1] = scr_84_get_lang_string("obj_readable_room1_slash_Other_10_gml_627_0");
+            
+            if (global.flag[106] == 1)
+                global.msg[2] = scr_84_get_lang_string("obj_readable_room1_slash_Other_10_gml_628_0");
+        }
+    }
+/// CODE
+    
+    if (x >= 720)
+    {
+        global.msc = 295;
+        scr_text(global.msc);
+        
+        if (scr_havechar(2))
+        {
+            global.typer = 30;
+            global.fc = 1;
+            global.fe = 6;
+            global.msg[0] = scr_84_get_lang_string("obj_readable_room1_slash_Other_10_gml_626_0"); // * What the hell^1? Your prison cell gets MOSS!?/
+            global.msg[1] = "\\E0* (That's unfair...)/";
+            
+            if (global.flag[106] == 1)
+            {
+                global.msg[2] = scr_84_get_lang_string("obj_readable_room1_slash_Other_10_gml_628_0");
+            }
+            else
+            {
+                scr_noface(2);
+                global.msg[3] = "\\C2 ";
+                global.choicemsg[0] = stringsetloc(" #Eat it", "scr_text_slash_scr_text_gml_1684_0");
+            }
+        }
+    }
+/// END
