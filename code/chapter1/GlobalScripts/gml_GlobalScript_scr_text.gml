@@ -1826,7 +1826,7 @@ function scr_text(arg0)
                 global.choicemsg[1] = stringsetloc(" #She'll be#fine", "scr_text_slash_scr_text_gml_1751_0");
                 global.choicemsg[2] = stringsetloc(" ", "scr_text_slash_scr_text_gml_1754_0_b");
                 global.choicemsg[3] = stringsetloc(" ", "scr_text_slash_scr_text_gml_1755_0_b");
-                global.msg[0] = "\\EB* Oh^1, you aren't?";
+                global.msg[0] = "\\EB* Oh^1, you aren't?/";
                 global.msg[1] = "\\E6* Ummm..^1. Are you sure?/"
                 global.msg[2] = "\\E5* She is venturing further into this dungeon..^1. Alone.../";
                 global.msg[3] = stringsetloc("\\C2 ", "scr_text_slash_scr_text_gml_1758_0");
@@ -3428,7 +3428,7 @@ function scr_text(arg0)
             break;
 
         case 602:
-            global.choicemsg[0] = " That's us.#Send us to#jail please.";
+            global.choicemsg[0] = "That's us.#Send us to#jail please.";
             global.choicemsg[1] = " #No seen";
             global.choicemsg[2] = " ";
             global.choicemsg[3] = " ";
@@ -3441,36 +3441,35 @@ function scr_text(arg0)
         case 603:
             if (global.choice == 0)
             {
-                global.msg[0] = "* Wait^1, for real^1? Well^1, that makes my job easier.../"
-                scr_susface(9, 1);
-                global.msg[2] = "* Wh^1- Kris^1, the hell you'd rat us out for?!/"
+                global.msg[0] = "* Wait^1, for real^1? Well^1, that makes my job easier.../";
+                scr_susface(1, 9);
+                global.msg[2] = "* Wh^1- Kris^1, the hell you'd rat us out for?!/";
                 scr_noface(3);
-                global.msg[4] = "* No need to blame your accomplice^1. It is what King requested./"
-                global.msg[5] = "* As such^1, we'll have you three punished to King's jurisdiction.../"
-                scr_susface(2, 6);
-                global.msg[7] = "* Pshh^1, you think that scares us?/"
-                global.msg[8] = "\\E4* No one's gotten past us^1! The King's probably NOTHING./"
-                global.msg[9] = "\\E1* Tell 'em Lancer^1! We'll beat that guy to a PULP./"
-                scr_lanface(12, 10);
-                global.msg[11] = "* .../"
+                global.msg[4] = "* No need to blame your accomplice^1. It is what King requested./";
+                global.msg[5] = "* As such^1, we'll have you three punished to King's jurisdiction.../";
+                scr_susface(6, 2);
+                global.msg[7] = "* Pshh^1, you think that scares us?/";
+                global.msg[8] = "\\E4* No one's gotten past us^1! The King's probably NOTHING./";
+                global.msg[9] = "\\E1* Tell 'em Lancer^1! We'll beat that guy to a PULP./";
+                scr_lanface(10, 10);
+                global.msg[11] = "* .../";
                 scr_noface(12);
-                global.msg[13] = "* A threat against King?^1! Why^1, we'll have you imprisoned posthaste!/"
-                scr_susface(2, 14);
-                global.msg[15] = "* Oh yeah^1? You think you can just toss US into jail?/"
-                global.msg[16] = "\\E3* I'd like to see you TRY^1. You'll NEVER %%"
-
+                global.msg[13] = "* A threat against King?^1! Why^1, we'll have you imprisoned posthaste!/";
+                scr_susface(14, 2);
+                global.msg[15] = "* Oh yeah^1? You think you can just toss US into jail?/";
+                global.msg[16] = "\\E3* I'd like to see you TRY^1. You'll NEVER %%";
+                
                 with (obj_npc_room)
                 {
                     if (extflag == "gotoprisonskip")
-                    {
                         skiptoprison = true;
-                    }
                 }
             }
             else
             {
                 global.msg[0] = "* I wonder where they went.../%";
             }
+            
             break;
         
         default:

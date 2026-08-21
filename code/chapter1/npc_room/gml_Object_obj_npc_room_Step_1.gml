@@ -26,6 +26,7 @@ if (room == room_forest_savepoint3 && global.customflags[global.custom_flags_ind
 if (room == room_forest_afterthrash2 && extflag == "gotoprisonskip" && !instance_exists(obj_dialoguer) && skiptoprison)
 {
     scr_losechar();
+    snd_free_all();
     room_goto(room_cc_prison_cells);
 }
 /// END
