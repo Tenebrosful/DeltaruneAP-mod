@@ -1,12 +1,12 @@
 del /F /Q "./exportmods_zip"
 
 cd /d "exportmods/bsdiff/"
-tar.exe -a -c -f "../../exportmods_zip/archipelago-2_1_3-2_bsdiff.zip" "*.bsdiff"
+tar.exe -a -c -f "../../exportmods_zip/archipelago-2_1_3-3_bsdiff.zip" "*.bsdiff"
 
 cd /d "../.."
 
 cd /d "exportmods/xdelta/"
-tar.exe -a -c -f "../../exportmods_zip/archipelago-2_1_3-2_xdelta.zip" "*"
+tar.exe -a -c -f "../../exportmods_zip/archipelago-2_1_3-3_xdelta.zip" "*"
 
 cd /d "../.."
 
@@ -22,7 +22,7 @@ copy "ump.csx" "exportmods\csx\ump.csx"
 
 cd /d "exportmods/csx/"
 
-tar.exe -a -c -f "../../exportmods_zip/archipelago-2_1_3-2_csx.zip" "*"
+tar.exe -a -c -f "../../exportmods_zip/archipelago-2_1_3-3_csx.zip" "*"
 
 cd /d "../.."
 
