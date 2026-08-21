@@ -66,7 +66,7 @@ global.AP_better_odds = false;
 global.AP_have_starwalker = false;
 global.AP_deathlink = false;
 global.AP_deathlink_protected = false;
-global.AP_deathlink_infos = {source: undefined, cause: undefined, time: undefined};
+global.AP_deathlink_infos = {source: undefined, cause: undefined, time: undefined, uuid: undefined};
 global.AP_damagelink = false;
 global.AP_damagelink_protected = false;
 global.AP_damagelink_infos = {source: undefined, uuid: undefined, damage_points: undefined, time: undefined};
@@ -175,6 +175,7 @@ global.AP_loaded_unlocked_chapter = false;
 
 step = 0;
 
+randomise();
 
 event_user(0);
 
@@ -205,7 +206,7 @@ global.AP_name = ap_settings.name;
 global.AP_password = ap_settings.password;
 global.AP_colors = ap_settings.settings.colors;
 
-if (variable_struct_exists(ap_settings, "uuid"))
+if (variable_struct_exists(ap_settings, "uuid") && ap_settings.uuid != "EC0EE80E-B5CB-4148-BA5F-0FB2177F0707")
 {
     global.AP_uuid = ap_settings.uuid;
 }

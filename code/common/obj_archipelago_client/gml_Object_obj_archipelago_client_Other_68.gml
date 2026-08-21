@@ -255,7 +255,7 @@ if (ds_map_exists(async_load, "buffer"))
                     {
                         for (var ii = 0; ii < array_length(data[i].tags); ii++)
                         {
-                            if (data[i].tags[ii] == "DeathLink" && data[i].data.source != global.AP_name && !global.AP_deathlink_protected)
+                            if (data[i].tags[ii] == "DeathLink" && !global.AP_deathlink_protected)
                             {
                                 if (variable_global_exists("chapter"))
                                 {
@@ -277,8 +277,22 @@ if (ds_map_exists(async_load, "buffer"))
                                     else
                                         cause = undefined;
 
+                                    var uuid;
+                                    if (variable_struct_exists(data[i].data, "uuid"))
+                                        uuid = data[i].data.uuid;
+                                    else
+                                        uuid = undefined;
 
-                                    global.AP_deathlink_infos = {source: source, cause: cause, time: time};
+                                    if (uuid != undefined && uuid == global.AP_uuid)
+                                    {
+                                        exit;
+                                    }
+                                    else if (source != undefined && source == global.AP_name)
+                                    {
+                                        exit;
+                                    }
+
+                                    global.AP_deathlink_infos = {source: source, cause: cause, time: time, uuid: uuid};
                                     AP_handle_DeathLink();
                                 }
                             }
