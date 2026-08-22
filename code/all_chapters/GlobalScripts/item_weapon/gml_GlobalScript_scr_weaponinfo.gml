@@ -778,7 +778,7 @@ function scr_weaponinfo(arg0)
                 wmessage3temp = stringsetloc("... Okay.", "scr_weaponinfo_slash_scr_weaponinfo_gml_747_0");
                 wmessage4temp = stringsetloc("Who the heck is Flowery?", "scr_weaponinfo_slash_scr_weaponinfo_gml_748_0");
                 weaponabilityicontemp = 0;
-                weaponabilitytemp = "";
+                weaponabilitytemp = " ";
             }
             
             if (global.chapter > 5 || (global.chapter == 5 && global.plot >= 540))
@@ -789,7 +789,7 @@ function scr_weaponinfo(arg0)
                 wmessage3temp = stringsetloc("... I'll wear it.", "scr_weaponinfo_slash_scr_weaponinfo_gml_747_0");
                 wmessage4temp = stringsetloc("Who the HECK is Flowery?", "scr_weaponinfo_slash_scr_weaponinfo_gml_748_0");
                 weaponabilityicontemp = 0;
-                weaponabilitytemp = "";
+                weaponabilitytemp = " ";
             }
             
             weaponattemp = 12;
@@ -827,7 +827,7 @@ function scr_weaponinfo(arg0)
             weaponchar4temp = 1;
             weaponicontemp = 14;
             weaponabilityicontemp = 0;
-            weaponabilitytemp = "";
+            weaponabilitytemp = " ";
             value = 1111;
             chapter = 5;
             break;
@@ -851,7 +851,7 @@ function scr_weaponinfo(arg0)
             weaponchar4temp = 0;
             weaponicontemp = 3;
             weaponabilityicontemp = 7;
-            weaponabilitytemp = "";
+            weaponabilitytemp = " ";
             value = 1000;
             chapter = 5;
             break;

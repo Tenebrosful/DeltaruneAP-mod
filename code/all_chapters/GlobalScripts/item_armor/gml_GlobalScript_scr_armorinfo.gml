@@ -821,7 +821,7 @@ function scr_armorinfo(arg0)
             
             armorchar3temp = 1;
             armorchar4temp = 1;
-            armorabilitytemp = stringset("");
+            armorabilitytemp = stringset(" ");
             armorabilityicontemp = 0;
             armoricontemp = 4;
             value = 555;
@@ -844,7 +844,7 @@ function scr_armorinfo(arg0)
             armorchar2temp = 1;
             armorchar3temp = 1;
             armorchar4temp = 1;
-            armorabilitytemp = stringset("");
+            armorabilitytemp = stringset(" ");
             armorabilityicontemp = 0;
             armoricontemp = 4;
             value = 1500;
