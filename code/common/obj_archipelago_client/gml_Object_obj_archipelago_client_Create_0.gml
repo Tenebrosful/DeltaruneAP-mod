@@ -67,6 +67,7 @@ global.AP_have_starwalker = false;
 global.AP_deathlink = false;
 global.AP_deathlink_protected = false;
 global.AP_deathlink_infos = {source: undefined, cause: undefined, time: undefined, uuid: undefined};
+global.AP_deathlink_group = ""
 global.AP_damagelink = false;
 global.AP_damagelink_protected = false;
 global.AP_damagelink_infos = {source: undefined, uuid: undefined, damage_points: undefined, time: undefined};
