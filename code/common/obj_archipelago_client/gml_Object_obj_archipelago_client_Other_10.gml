@@ -384,7 +384,7 @@ function AP_sendDeathlink(text)
     var _contents =
     {
         cmd: "Bounce",
-        tags: ["DeathLink"],
+        tags: [("DeathLink" + global.AP_deathlink_group)],
         data:
         {
             time: int64(current_time),

@@ -128,6 +128,9 @@ if (ds_map_exists(async_load, "buffer"))
                     if (variable_struct_exists(data[i].slot_data.options, "death_link"))
                         global.AP_deathlink = data[i].slot_data.options.death_link;
 
+                    if (variable_struct_exists(data[i].slot_data.options, "death_link_group"))
+                        global.AP_deathlink_group = data[i].slot_data.options.death_link_group;
+
                     if (variable_struct_exists(data[i].slot_data.options, "damage_link"))
                         global.AP_damagelink = data[i].slot_data.options.damage_link;
 
@@ -255,7 +258,7 @@ if (ds_map_exists(async_load, "buffer"))
                     {
                         for (var ii = 0; ii < array_length(data[i].tags); ii++)
                         {
-                            if (data[i].tags[ii] == "DeathLink" && !global.AP_deathlink_protected)
+                            if (data[i].tags[ii] == ("DeathLink" + global.AP_deathlink_group) && !global.AP_deathlink_protected)
                             {
                                 if (variable_global_exists("chapter"))
                                 {
