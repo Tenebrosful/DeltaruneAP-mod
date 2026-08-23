@@ -63,6 +63,7 @@ global.AP_is_first_sync = true;
 global.AP_locations_during_disconnect = [];
 global.AP_no_mantle = false;
 global.AP_better_odds = false;
+global.AP_pink_twin_ribbon_unnerf = true;
 global.AP_have_starwalker = false;
 global.AP_deathlink = false;
 global.AP_deathlink_protected = false;

@@ -112,6 +112,8 @@ if (ds_map_exists(async_load, "buffer"))
                         global.AP_have_starwalker = data[i].slot_data.options.have_starwalker;
                     if (variable_struct_exists(data[i].slot_data.options, "better_odds"))
                         global.AP_better_odds = data[i].slot_data.options.better_odds;
+                    if (variable_struct_exists(data[i].slot_data.options, "pink_twin_ribbon_unnerf"))
+                        global.AP_pink_twin_ribbon_unnerf = data[i].slot_data.options.pink_twin_ribbon_unnerf;
                     if (variable_struct_exists(data[i].slot_data.options, "item_balancing"))
                         global.AP_balancing = data[i].slot_data.options.item_balancing;
                     if (variable_struct_exists(data[i].slot_data.options, "remove_starting_equipment"))
