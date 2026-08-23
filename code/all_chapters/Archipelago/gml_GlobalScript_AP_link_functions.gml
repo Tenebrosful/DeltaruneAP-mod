@@ -49,17 +49,7 @@ function AP_handle_Damagelink()
         if (gameover)
         {
             global.AP_damagelink_protected = false;
-            
-            if (global.chapter == 3 && instance_exists(obj_knight_enemy))
-            {
-                global.hp[global.char[0]] = -180;
-                global.hp[global.char[1]] = -999;
-                global.hp[global.char[2]] = -999;
-            }
-            else
-            {
-                scr_gameover();
-            }
+            AP_handle_gameover()
         }
     }
     
@@ -72,42 +62,54 @@ function AP_handle_DeathLink()
         exit;
 
     global.AP_deathlink_protected = true;
-    if (global.chapter == 3 && (room == room_board_1 || room == room_board_2 || room == room_board_3))
-    {
-        if (i_ex(obj_battlecontroller))
-        {
-            snd_play(snd_hurt1);
-            global.hp[1] = 0;
-            global.hp[2] = 0;
-            global.hp[3] = 0;
-            
-            with (obj_battlecontroller)
-            {
-                with (obj_heroparent)
-                    sprite_index = defeatsprite;
-                
-                global.specialbattle = 3;
-                boardend = 1;
-                alarm[11] = 1;
-                
-                with (obj_dmgwriter)
-                    instance_destroy();
-            }
-        }
-        else
-        {
-            timer = 0;
-        }
-    }
-    else if (global.chapter == 3 && instance_exists(obj_knight_enemy))
-    {
-        global.hp[global.char[0]] = -180;
-        global.hp[global.char[1]] = -999;
-        global.hp[global.char[2]] = -999;
-    }
-    else
-    {
-        scr_gameover();
-    }
+    AP_handle_gameover()
     global.AP_deathlink_protected = false;
+}
+
+function AP_handle_gameover()
+{
+    switch (global.chapter)
+    {
+        case 3:
+            if (room == room_board_1 || room == room_board_2 || room == room_board_3)
+            {
+                if (i_ex(obj_battlecontroller))
+                {
+                    snd_play(snd_hurt1);
+                    global.hp[1] = 0;
+                    global.hp[2] = 0;
+                    global.hp[3] = 0;
+                    
+                    with (obj_battlecontroller)
+                    {
+                        with (obj_heroparent)
+                            sprite_index = defeatsprite;
+                        
+                        global.specialbattle = 3;
+                        boardend = 1;
+                        alarm[11] = 1;
+                        
+                        with (obj_dmgwriter)
+                            instance_destroy();
+                    }
+                }
+                else
+                {
+                    timer = 0;
+                }
+                
+                break;
+            }
+            else if (instance_exists(obj_knight_enemy))
+            {
+                global.hp[global.char[0]] = -180;
+                global.hp[global.char[1]] = -999;
+                global.hp[global.char[2]] = -999;
+                break;
+            }
+        
+        default:
+            scr_gameover();
+            break;
+    }
 }

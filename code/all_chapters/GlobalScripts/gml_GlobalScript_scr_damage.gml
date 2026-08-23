@@ -115,7 +115,7 @@
         
         if (skip_to_gameover)
         {
-            scr_gameover();
+            AP_handle_gameover();
             exit;
         }
 /// END
