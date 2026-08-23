@@ -369,14 +369,33 @@ function scr_itemuse(arg0)
             usable = 1;
             _healamount = AP_handle_balancing(scr_teaamount(1, global.char[global.charselect]), 2);
             
+            if (global.char[global.charselect] == 1)
+            {
+                if (scr_havechar(2))
+                    scr_itemcomment(suspos, stringsetloc("(No reaction?)", "scr_itemuse_slash_scr_itemuse_gml_303_0"));
+                
+                if (scr_havechar(4))
+                    scr_itemcomment(noepos, stringsetloc("(... no reaction?)", "scr_itemuse_slash_scr_itemuse_gml_304_0"));
+            }
+            
             if (global.char[global.charselect] == 2)
-                scr_itemcomment(global.charselect, scr_text(1460));
+            {
+                scr_itemcomment(global.charselect, stringsetloc("Hell yeah, apple juice!!", "scr_itemuse_slash_scr_itemuse_gml_309_0"));
+                
+                if (scr_havechar(3))
+                    scr_itemcomment(ralpos, stringsetloc("Don't drink so fast!!", "scr_itemuse_slash_scr_itemuse_gml_310_0"));
+            }
             
             if (global.char[global.charselect] == 3)
-                scr_itemcomment(global.charselect, scr_text(1461));
+            {
+                scr_itemcomment(global.charselect, stringsetloc("Tastes like blueberries!", "scr_itemuse_slash_scr_itemuse_gml_315_0"));
+                
+                if (scr_havechar(2))
+                    scr_itemcomment(suspos, stringsetloc("Huh? Really?", "scr_itemuse_slash_scr_itemuse_gml_316_0"));
+            }
             
             if (global.char[global.charselect] == 4)
-                scr_itemcomment(global.charselect, scr_text(1462));
+                scr_itemcomment(global.charselect, stringsetloc("Tastes like cinnamon! (What is this aftertaste...?)", "scr_itemuse_slash_scr_itemuse_gml_320_0"));
             
             scr_healitem(global.charselect, _healamount);
             break;
@@ -385,14 +404,31 @@ function scr_itemuse(arg0)
             usable = 1;
             _healamount = AP_handle_balancing(scr_teaamount(4, global.char[global.charselect]), 2);
             
+            if (global.char[global.charselect] == 1)
+            {
+                if (scr_havechar(2))
+                    scr_itemcomment(suspos, stringsetloc("(... do they like it?)", "scr_itemuse_slash_scr_itemuse_gml_332_0"));
+                
+                if (scr_havechar(3))
+                    scr_itemcomment(ralpos, stringsetloc("(They're drinking it...)", "scr_itemuse_slash_scr_itemuse_gml_333_0"));
+                
+                if (scr_havechar(4))
+                    scr_itemcomment(noepos, stringsetloc("(Umm, do they like it or not...?)", "scr_itemuse_slash_scr_itemuse_gml_334_0"));
+            }
+            
             if (global.char[global.charselect] == 2)
-                scr_itemcomment(global.charselect, scr_text(1460));
+            {
+                scr_itemcomment(global.charselect, stringsetloc("Hell yeah, eggnog!!", "scr_itemuse_slash_scr_itemuse_gml_339_0"));
+                
+                if (scr_havechar(3))
+                    scr_itemcomment(ralpos, stringsetloc("D-don't drink so fast!", "scr_itemuse_slash_scr_itemuse_gml_340_0"));
+            }
             
             if (global.char[global.charselect] == 3)
-                scr_itemcomment(global.charselect, scr_text(1461));
+                scr_itemcomment(global.charselect, stringsetloc("It's soft and sweet.", "scr_itemuse_slash_scr_itemuse_gml_345_0"));
             
             if (global.char[global.charselect] == 4)
-                scr_itemcomment(global.charselect, scr_text(1462));
+                scr_itemcomment(global.charselect, stringsetloc("... this is just water! You're pranking me, right?!", "scr_itemuse_slash_scr_itemuse_gml_349_0"));
             
             scr_healitem(global.charselect, _healamount);
             break;
@@ -401,14 +437,28 @@ function scr_itemuse(arg0)
             usable = 1;
             _healamount = AP_handle_balancing(scr_teaamount(3, global.char[global.charselect]), 2);
             
+            if (global.char[global.charselect] == 1)
+            {
+                if (scr_havechar(2))
+                    scr_itemcomment(suspos, stringsetloc("(No reaction?)", "scr_itemuse_slash_scr_itemuse_gml_361_0"));
+                
+                if (scr_havechar(3))
+                    scr_itemcomment(ralpos, stringsetloc("(I'm happy!)", "scr_itemuse_slash_scr_itemuse_gml_362_0"));
+            }
+            
             if (global.char[global.charselect] == 2)
-                scr_itemcomment(global.charselect, scr_text(1460));
+            {
+                scr_itemcomment(global.charselect, stringsetloc("Hey, it's like marshmallows!!", "scr_itemuse_slash_scr_itemuse_gml_367_0"));
+                
+                if (scr_havechar(3))
+                    scr_itemcomment(ralpos, stringsetloc("D-don't drink so fast!", "scr_itemuse_slash_scr_itemuse_gml_368_0"));
+            }
             
             if (global.char[global.charselect] == 3)
-                scr_itemcomment(global.charselect, scr_text(1461));
+                scr_itemcomment(global.charselect, stringsetloc("Um... isn't this water?", "scr_itemuse_slash_scr_itemuse_gml_373_0"));
             
             if (global.char[global.charselect] == 4)
-                scr_itemcomment(global.charselect, scr_text(1462));
+                scr_itemcomment(global.charselect, stringsetloc("There's nothing in here!", "scr_itemuse_slash_scr_itemuse_gml_377_0"));
             
             scr_healitem(global.charselect, _healamount);
             break;
@@ -417,14 +467,28 @@ function scr_itemuse(arg0)
             usable = 1;
             _healamount = AP_handle_balancing(scr_teaamount(2, global.char[global.charselect]), 2);
             
+            if (global.char[global.charselect] == 1)
+            {
+                if (scr_havechar("susie"))
+                    scr_itemcomment(suspos, stringsetloc("STOP LOOKING AT ME!", "scr_itemuse_slash_scr_itemuse_gml_389_0"));
+                
+                if (scr_havechar("ralsei"))
+                    scr_itemcomment(ralpos, stringsetloc("(They seem into it)", "scr_itemuse_slash_scr_itemuse_gml_390_0"));
+            }
+            
             if (global.char[global.charselect] == 2)
-                scr_itemcomment(global.charselect, scr_text(1460));
+                scr_itemcomment(global.charselect, stringsetloc("... this is tea?", "scr_itemuse_slash_scr_itemuse_gml_395_0"));
             
             if (global.char[global.charselect] == 3)
-                scr_itemcomment(global.charselect, scr_text(1461));
+            {
+                scr_itemcomment(global.charselect, stringsetloc("It's grape juice!", "scr_itemuse_slash_scr_itemuse_gml_400_0"));
+                
+                if (scr_havechar("susie"))
+                    scr_itemcomment(suspos, stringsetloc("Huh, really?", "scr_itemuse_slash_scr_itemuse_gml_401_0"));
+            }
             
             if (global.char[global.charselect] == 4)
-                scr_itemcomment(global.charselect, scr_text(1462));
+                scr_itemcomment(global.charselect, stringsetloc("(Wonder if they sell this in gallons?)", "scr_itemuse_slash_scr_itemuse_gml_405_0"));
             
             scr_healitem(global.charselect, _healamount);
             break;
