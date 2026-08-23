@@ -375,7 +375,7 @@ function AP_sendHint(ids)
 
 function AP_sendDeathlink(text)
 {
-    if (!global.AP_deathlink)
+    if (!global.AP_deathlink || global.AP_deathlink_protected)
         exit;
     
     if (!AP_isAuthenticated())
@@ -402,7 +402,7 @@ function AP_sendDamagelink(amount)
     if (!AP_isAuthenticated())
         exit;
 
-    if (!global.AP_damagelink)
+    if (!global.AP_damagelink || global.AP_damagelink_protected)
         exit;
 
     if (amount <= 0)
