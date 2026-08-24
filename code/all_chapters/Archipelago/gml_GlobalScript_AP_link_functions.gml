@@ -27,6 +27,7 @@ function AP_handle_Damagelink()
 
     if (instance_exists(obj_battlecontroller))
     {
+        damage = ceil(damage * scr_element_damage_reduction(5, global.char[target])); // Dark / Star
         scr_damage();
         snd_play(snd_damage);
     }
@@ -50,16 +51,7 @@ function AP_handle_Damagelink()
         {
             global.AP_damagelink_protected = false;
             
-            if (global.chapter == 3 && instance_exists(obj_knight_enemy))
-            {
-                global.hp[global.char[0]] = -180;
-                global.hp[global.char[1]] = -999;
-                global.hp[global.char[2]] = -999;
-            }
-            else
-            {
-                scr_gameover();
-            }
+            AP_handle_gameover();
         }
     }
     
@@ -72,6 +64,14 @@ function AP_handle_DeathLink()
         exit;
 
     global.AP_deathlink_protected = true;
+
+    AP_handle_gameover();
+    
+    global.AP_deathlink_protected = false;
+}
+
+function AP_handle_gameover()
+{
     if (global.chapter == 3 && (room == room_board_1 || room == room_board_2 || room == room_board_3))
     {
         if (i_ex(obj_battlecontroller))
@@ -109,5 +109,4 @@ function AP_handle_DeathLink()
     {
         scr_gameover();
     }
-    global.AP_deathlink_protected = false;
 }
