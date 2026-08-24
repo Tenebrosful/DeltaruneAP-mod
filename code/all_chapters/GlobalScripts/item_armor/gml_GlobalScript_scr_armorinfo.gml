@@ -423,6 +423,10 @@ function scr_armorinfo(arg0)
             value = 300;
             armorelementtemp = 6;
             armorelementamounttemp = 0.35;
+
+            if (global.chapter == 5)
+                armorelementamounttemp = 0.20;
+
             chapter = 2;
             break;
         
@@ -542,6 +546,10 @@ function scr_armorinfo(arg0)
             value = 0;
             armorelementtemp = 6;
             armorelementamounttemp = 0.4;
+
+            if (global.chapter == 5)
+                armorelementamounttemp = 0.20;
+
             chapter = 2;
             break;
         
