@@ -19,5 +19,5 @@ global.flag[63] = 0;
 
 /// APPEND
 if (scr_should_entering_battle_gameover())
-        scr_gameover();
+        AP_handle_gameover();
 /// END
