@@ -23,11 +23,22 @@ function AP_handle_Damagelink()
     target = possible_targets[irandom(array_length(possible_targets) - 1)];
     damage = global.AP_damagelink_infos.damage_points;
 
+    var all_element_reduction = (
+        scr_element_damage_reduction(1, global.char[target]) *
+        scr_element_damage_reduction(5, global.char[target]) *
+        scr_element_damage_reduction(6, global.char[target]) *
+        scr_element_damage_reduction(7, global.char[target])
+    )
+
+    if (all_element_reduction < 0.25)
+        all_element_reduction = 0.25
+
+    damage = ceil(damage * all_element_reduction)
+
     global.inv = -1
 
     if (instance_exists(obj_battlecontroller))
     {
-        damage = ceil(damage * scr_element_damage_reduction(5, global.char[target])); // Dark / Star
         scr_damage();
         snd_play(snd_damage);
     }
