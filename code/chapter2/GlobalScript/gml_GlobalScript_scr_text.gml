@@ -11,6 +11,25 @@
             global.msg[2] = stringsetloc("* (Will you go to bed?)/", "scr_text_slash_scr_text_gml_2664_0");
             global.msg[3] = stringsetloc("\\C2 ", "scr_text_slash_scr_text_gml_2665_0");
             break;
+        
+        case 403:
+            if (global.choice == 0)
+            {
+                global.choicemsg[0] = stringsetloc(" #Sleep!!!", "scr_text_slash_scr_text_gml_2671_0");
+                global.choicemsg[1] = stringsetloc(" #Do not!!!", "scr_text_slash_scr_text_gml_2672_0");
+                global.choicemsg[2] = stringsetloc(" ", "scr_text_slash_scr_text_gml_2675_0");
+                global.choicemsg[3] = stringsetloc(" ", "scr_text_slash_scr_text_gml_2676_0");
+                
+                with (obj_krisroom)
+                    con = 100;
+                
+                global.msg[0] = stringsetloc("* (For some reason^1, you decided to go back to sleep...)/%", "scr_text_slash_scr_text_gml_2677_0");
+            }
+            
+            if (global.choice == 1)
+                global.msg[0] = stringsetloc("* (You can sleep in class.)/%", "scr_text_slash_scr_text_gml_2681_0");
+            
+            break;
 /// CODE
         case 402:
             // At least kris or susie is unlocked
@@ -26,8 +45,46 @@
             }
             else
             {
-                global.msg[0] = stringsetloc("*\\s0 (You feel like you shouldn't sleep until either \\cBKris\\cW or \\cPSusie\\cW are unlocked.)^3/%", "scr_text_slash_scr_text_gml_2665_0_b")
+                global.msg[0] = stringsetloc("*\\s0 (You feel like you shouldn't sleep until either \\cBKris\\cW or \\cPSusie\\cW are unlocked.)^3/%", "scr_text_slash_scr_text_gml_2665_0_b");
             }
+            
+            break;
+        
+        case 403:
+            if (global.choice == 0)
+            {
+                global.choicemsg[0] = stringsetloc(" #Sleep a#lot", "scr_text_slash_scr_text_gml_2671_0");
+                global.choicemsg[1] = stringsetloc(" #Sleep a#little less", "scr_text_slash_scr_text_gml_2672_0");
+                global.choicemsg[2] = stringsetloc(" ", "scr_text_slash_scr_text_gml_2675_0");
+                global.choicemsg[3] = stringsetloc(" ", "scr_text_slash_scr_text_gml_2676_0");
+                global.msg[0] = stringsetloc("* (You feel like you'll probably just sleep until you need to work on your group project.)/", "scr_text_slash_scr_text_gml_2664_0");
+                global.msg[1] = stringsetloc("* (However^1, if you tried^1, you might be able to wake up just a little earlier...)/", "scr_text_slash_scr_text_gml_2664_0");
+                global.msg[2] = stringsetloc("* (And see if there's anything interesting in the school closet.)/", "scr_text_slash_scr_text_gml_2664_0");
+                global.msg[3] = stringsetloc("\\C2 ", "scr_text_slash_scr_text_gml_2665_0");
+            }
+            
+            if (global.choice == 1)
+                global.msg[0] = stringsetloc("* (You can sleep in class.)/%", "scr_text_slash_scr_text_gml_2681_0");
+            
+            break;
+        
+        case 404:
+            if (global.choice == 0)
+            {
+                with (obj_krisroom)
+                    con = 100;
+                
+                global.msg[0] = stringsetloc("* (Your eyes shut tightly...)/%", "scr_text_slash_scr_text_gml_2677_0");
+            }
+            
+            if (global.choice == 1)
+            {
+                with (obj_krisroom)
+                    con = 106;
+                
+                global.msg[0] = stringsetloc("* (Your eyes shut^1, trying to keep in mind that you can't sleep forever...)/%", "scr_text_slash_scr_text_gml_2677_0");
+            }
+            
             break;
 /// END
 

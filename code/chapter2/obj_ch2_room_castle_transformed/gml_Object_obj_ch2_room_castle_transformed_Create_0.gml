@@ -4,6 +4,9 @@
 with (book_pillar)
 {
 /// CODE
+if (global.plot == 12)
+    scr_setparty(1, 1);
+
 if (global.plot >= 50 && global.plot < 70)
     scr_setparty(1, 1);
 

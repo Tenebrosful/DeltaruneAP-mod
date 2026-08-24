@@ -172,6 +172,8 @@
 #endif
 
 /// REPLACE
+        scr_itemremove_anytype(fusionIngredient1[menuCoord[0]], fusionIngredientType1[menuCoord[0]]);
+        scr_itemremove_anytype(fusionIngredient2[menuCoord[0]], fusionIngredientType2[menuCoord[0]]);
         scr_itemget_anytype(fusionResult[menuCoord[0]], fusionResultType[menuCoord[0]]);
 /// CODE
         if (fusionResult[menuCoord[0]] == 22)

@@ -11,34 +11,103 @@
             msgnextloc("* (However^1, if you did^1, you might end up \\cYmissing the entire day\\cW.)/", "scr_text_slash_scr_text_gml_11404_0");
             msgnext("\\C2");
             break;
-/// CODE
-        case 1455:
-            if ((global.maxhp[1] > 0 || global.maxhp[2] > 0 || global.maxhp[3] > 0) || scr_keyitemcheck(31))
+        
+        case 1456:
+            if (global.choice == 0)
             {
-              global.choicemsg[0] = stringsetloc("#Don't#sleep", "scr_text_slash_scr_text_gml_11397_0");
-              global.choicemsg[1] = stringsetloc("#Sleep an#incredibly#long time", "scr_text_slash_scr_text_gml_11398_0");
-              global.choicemsg[2] = stringset("");
-              global.choicemsg[3] = stringset("");
-              scr_speaker("no_name");
-
-              if (global.maxhp[1] > 0 || global.maxhp[2] > 0 || global.maxhp[3] > 0)
-              {
-                msgsetloc(0, "* (You could go back to sleep...)/", "scr_text_slash_scr_text_gml_11403_0");
-                msgnextloc("* (However^1, if you did^1, you might end up \\cYmissing the entire day\\cW.)/", "scr_text_slash_scr_text_gml_11404_0");
-              }
-              else
-              {
-                msgsetloc(0, "\\s0* (You could go back to sleep...)/", "scr_text_slash_scr_text_gml_11403_0");
-                msgnextloc("\\s0* (However^1, \\cYyou'd need to be able to wrong warp to progress\\cW^3.)/", "scr_text_slash_scr_text_gml_11404_0");
-              }
-              
-              msgnext("\\C2");
+                scr_speaker("no_name");
+                msgsetloc(0, "* (You forced your eyes open a little longer.)/%", "scr_text_slash_scr_text_gml_11413_0");
             }
             else
             {
-                msgsetloc(0, "*\\s0 (You feel like you shouldn't sleep without \\cBKris\\cW, \\cPSusie\\cW or \\cGRalsei\\cW unlocked.)/%", "scr_text_slash_scr_text_gml_8487_0");
+                with (obj_ch4_PDC01B)
+                    skip_intro = true;
+                
+                scr_speaker("no_name");
+                msgset(0, "%%");
             }
+            
             break;
+        
+        case 1457:
+            return stringsetloc("A tea that has deteriorated after a short while#due to its poor craftsmanship. +10HP", "scr_text_slash_scr_text_gml_11457_0");
+            break;
+/// CODE
+        case 1455:
+            global.choicemsg[0] = stringsetloc("#Don't#sleep", "scr_text_slash_scr_text_gml_11397_0");
+            global.choicemsg[1] = stringsetloc("#Sleep", "scr_text_slash_scr_text_gml_11398_0");
+            global.choicemsg[2] = stringset("");
+            global.choicemsg[3] = stringset("");
+            scr_speaker("no_name");
+            msgsetloc(0, "* (A very comfortable-looking chair.)/", "scr_text_slash_scr_text_gml_11403_0");
+            msgnextloc("* (You could go back to sleep if you wanted.)/", "scr_text_slash_scr_text_gml_11403_0");
+            
+            if (!((global.maxhp[1] > 0 || global.maxhp[2] > 0 || global.maxhp[3] > 0) || scr_keyitemcheck(31)))
+                msgnextloc("* (Though^1, \\cYyou will probably only sleep until church is over\\cW.)/", "scr_text_slash_scr_text_gml_11403_0");
+            
+            msgnext("\\C2");
+            break;
+        
+        case 1456:
+            if (global.choice == 0)
+            {
+                scr_speaker("no_name");
+                msgsetloc(0, "* (You forced your eyes open a little longer.)/%", "scr_text_slash_scr_text_gml_11413_0");
+            }
+            else if ((global.maxhp[1] > 0 || global.maxhp[2] > 0 || global.maxhp[3] > 0) || scr_keyitemcheck(31))
+            {
+                global.choicemsg[0] = stringsetloc("#Sleep an#incredibly#long time", "scr_text_slash_scr_text_gml_11397_0");
+                global.choicemsg[1] = stringsetloc("#Sleep#through#church", "scr_text_slash_scr_text_gml_11398_0");
+                global.choicemsg[2] = stringset("");
+                global.choicemsg[3] = stringset("");
+                scr_speaker("no_name");
+                
+                if (global.maxhp[1] > 0 || global.maxhp[2] > 0 || global.maxhp[3] > 0)
+                {
+                    msgsetloc(0, "* (You could sleep through the whole day...)/", "scr_text_slash_scr_text_gml_11403_0");
+                    msgnextloc("* (However^1, you might end up \\cYmissing a lot of important things\\cW.)/", "scr_text_slash_scr_text_gml_11404_0");
+                }
+                else
+                {
+                    msgsetloc(0, "\\s0* (You could sleep through the whole day...)/", "scr_text_slash_scr_text_gml_11403_0");
+                    msgnextloc("\\s0* (However^1, \\cYyou'd need to be able to wrong warp to progress\\cW^3.)/", "scr_text_slash_scr_text_gml_11404_0");
+                }
+                
+                msgnextloc("* (Or^1, you could sleep through church and go to Castle Town.)/", "scr_text_slash_scr_text_gml_11404_0");
+                msgnext("\\C2");
+            }
+            else
+            {
+                with (obj_ch4_PDC01B)
+                    skip_intro = 2;
+                
+                scr_speaker("no_name");
+                msgset(0, "%%");
+            }
+            
+            break;
+        
+        case 1457:
+            if (global.choice == 0)
+            {
+                if (!i_ex(obj_ch4_PDC01B))
+                    error = You_messed_up_the_tea;
+                
+                with (obj_ch4_PDC01B)
+                    skip_intro = 1;
+            }
+            else
+            {
+                if (!i_ex(obj_ch4_PDC01B))
+                    error = You_messed_up_the_tea;
+                
+                with (obj_ch4_PDC01B)
+                    skip_intro = 2;
+            }
+            
+            scr_speaker("no_name");
+            msgset(0, "%%");
+            break;       
 /// END
 
 /// BEFORE
