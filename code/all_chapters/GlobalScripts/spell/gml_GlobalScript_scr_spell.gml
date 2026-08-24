@@ -6,6 +6,8 @@ function scr_spell(arg0, arg1)
     star = global.chartarget[arg1];
     global.spelldelay = 10;
     var item_use = false;
+
+    yellow_hat_amplifier = AP_handle_balancing(1.2, 5, false);
     
     if (global.chapter == 4 && i_ex(obj_hammer_of_justice_enemy) && spell != 4 && spell != 5 && spell != 11 && spell != 100)
     {
@@ -47,7 +49,7 @@ function scr_spell(arg0, arg1)
             healnum = ceil(scr_heal_amount_modify_by_equipment(global.battlemag[arg1] * 5));
 
             if (scr_armorcheck_equipped(3, 36))
-                healnum = ceil(scr_heal_amount_modify_by_equipment(global.battlemag[arg1] * 5 * 1.2));
+                healnum = ceil(scr_heal_amount_modify_by_equipment(global.battlemag[arg1] * 5 * yellow_hat_amplifier));
             
             scr_heal(star, healnum);
             global.charinstance[star].healnum = healnum;
@@ -157,7 +159,7 @@ function scr_spell(arg0, arg1)
                 damage = ceil(((global.battlemag[arg1] * 5) + (global.battleat[arg1] * 11)) - (global.monsterdf[star] * 3));
                 
                 if (scr_armorcheck_equipped(2, 36))
-                    damage = ceil((((global.battlemag[arg1] * 5) + (global.battleat[arg1] * 11)) * 1.2) - (global.monsterdf[star] * 3));
+                    damage = ceil((((global.battlemag[arg1] * 5) + (global.battleat[arg1] * 11)) * yellow_hat_amplifier) - (global.monsterdf[star] * 3));
 
                 if (global.chapter == 3 && i_ex(obj_knight_enemy))
                     damage = ceil(damage * (obj_knight_enemy.damagereduction + 0.65));
@@ -206,7 +208,7 @@ function scr_spell(arg0, arg1)
                 damage = ceil(((global.battlemag[arg1] * 6) + (global.battleat[arg1] * 13)) - (global.monsterdf[star] * 6));
 
                 if (scr_armorcheck_equipped(2, 36))
-                    damage = ceil((((global.battlemag[arg1] * 6) + (global.battleat[arg1] * 13)) * 1.2) - (global.monsterdf[star] * 6));
+                    damage = ceil((((global.battlemag[arg1] * 6) + (global.battleat[arg1] * 13)) * yellow_hat_amplifier) - (global.monsterdf[star] * 6));
                 
                 if (global.automiss[star] == 1)
                     damage = 0;
@@ -227,14 +229,14 @@ function scr_spell(arg0, arg1)
                 healnum = round(scr_heal_amount_modify_by_equipment(global.battlemag[2] * 4))
 
                 if (scr_armorcheck_equipped(3, 36))
-                    healnum = round(scr_heal_amount_modify_by_equipment(global.battlemag[2] * 4 * 1.2))
+                    healnum = round(scr_heal_amount_modify_by_equipment(global.battlemag[2] * 4 * yellow_hat_amplifier))
             }
             else if (global.chapter == 2)
             {
                 healnum = round(scr_heal_amount_modify_by_equipment(global.battlemag[2] * 5.5))
 
                 if (scr_armorcheck_equipped(3, 36))
-                    healnum = round(scr_heal_amount_modify_by_equipment(global.battlemag[2] * 5.5 * 1.2))
+                    healnum = round(scr_heal_amount_modify_by_equipment(global.battlemag[2] * 5.5 * yellow_hat_amplifier))
             }
             else
             {
@@ -243,12 +245,12 @@ function scr_spell(arg0, arg1)
                 caster = 2;
 
                 if (scr_armorcheck_equipped(2, 36))
-                    susiepart = susiepart * 1.2;
+                    susiepart = susiepart * yellow_hat_amplifier;
 
                 ralseipart = scr_heal_amount_modify_by_equipment(global.battlemag[2]);
 
                 if (scr_armorcheck_equipped(3, 36))
-                    ralseipart = ralseipart * 1.2;
+                    ralseipart = ralseipart * yellow_hat_amplifier;
 
                 healnum = round((susiepart + ralseipart) * 3.5)
 
@@ -363,7 +365,7 @@ function scr_spell(arg0, arg1)
                 damage = (minbattlemag * 30) + 90 + random(10);
 
                 if (scr_armorcheck_equipped(4, 36))
-                    damage = damage * 1.2
+                    damage = damage * yellow_hat_amplifier
 
                 damage = ceil(damage)
 
@@ -389,7 +391,7 @@ function scr_spell(arg0, arg1)
                 damage = (global.battlemag[arg1] * 40) + 600;
 
                 if (scr_armorcheck_equipped(4, 36))
-                    damage = damage * 1.2
+                    damage = damage * yellow_hat_amplifier
 
                 damage = ceil(damage)
 
@@ -423,14 +425,14 @@ function scr_spell(arg0, arg1)
             healnum = ceil(scr_heal_amount_modify_by_equipment((global.battlemag[arg1] * 5) + 15 + (2 * global.flag[1045])));
             
             if (scr_armorcheck_equipped(2, 36))
-                healnum = ceil(scr_heal_amount_modify_by_equipment((((global.battlemag[1] * 5) + 15) * 1.2) + (2 * global.flag[1045])));
+                healnum = ceil(scr_heal_amount_modify_by_equipment((((global.battlemag[1] * 5) + 15) * yellow_hat_amplifier) + (2 * global.flag[1045])));
 
             if (global.flag[852] == 1)
             {
                 healnum = ceil(scr_heal_amount_modify_by_equipment((global.battlemag[arg1] * 7) + 15 + (2 * global.flag[1045])));
 
                 if (scr_armorcheck_equipped(2, 36))
-                    healnum = ceil(scr_heal_amount_modify_by_equipment((((global.battlemag[1] * 7) + 15) * 1.2) + (2 * global.flag[1045])));
+                    healnum = ceil(scr_heal_amount_modify_by_equipment((((global.battlemag[1] * 7) + 15) * yellow_hat_amplifier) + (2 * global.flag[1045])));
             }
             
             if (global.chapter == 4 && i_ex(obj_hammer_of_justice_enemy))
