@@ -33,17 +33,18 @@ function AP_handle_Damagelink()
     if (all_element_reduction < 0.25)
         all_element_reduction = 0.25
 
-    damage = ceil(damage * all_element_reduction)
-
     global.inv = -1
 
     if (instance_exists(obj_battlecontroller))
     {
+        // We reduce element now as we don't want to modify scr_damage more
+        damage = ceil(damage * all_element_reduction)
         scr_damage();
         snd_play(snd_damage);
     }
     else
     {
+        damage = ceil(scr_damage_calculation(damage, target) * all_element_reduction);
         global.hp[global.char[target]] -= damage;
         snd_play(snd_hurt1);
 
