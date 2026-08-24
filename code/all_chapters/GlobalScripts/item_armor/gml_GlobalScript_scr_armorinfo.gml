@@ -598,6 +598,7 @@ function scr_armorinfo(arg0)
             value = 0;
             armorelementtemp = 5;
             armorelementamounttemp = 0.66;
+            chapter = 3
             break;
         
         case 24:
@@ -1077,8 +1078,16 @@ function scr_armorinfo(arg0)
     if (global.AP_balancing && chapter > 1)
     {
         armorattemp = AP_handle_balancing(armorattemp, chapter);
-        armordftemp = AP_handle_balancing(armordftemp, chapter);
+
+        if (arg0 != 23)
+            armordftemp = AP_handle_balancing(armordftemp, chapter);
+
         armormagtemp = AP_handle_balancing(armormagtemp, chapter);
-        value = AP_handle_balancing(value, chapter);
+
+        if (arg0 != 17)
+            value = AP_handle_balancing(value, chapter);
+        
+        if (armorelementamounttemp != 0)
+            armorelementamounttemp = AP_handle_balancing(armorelementamounttemp, chapter, false);
     }
 }
