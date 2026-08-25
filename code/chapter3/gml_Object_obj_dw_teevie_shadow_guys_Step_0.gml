@@ -1,8 +1,20 @@
 /// PATCH
 
-/// AFTER
-        snd_play(snd_shineselect);
-        snd_play(snd_sparkle_glock);
+/// REPLACE
+    if (timer == 45)
+    {
+        global.flag[654] += 0.04;
+        
+        if (global.flag[654] > 1)
+            global.flag[654] = 1;
 /// CODE
-        AP_sendLocation(164);
+    if (timer == 45)
+    {
+        global.flag[654] += 0.04;
+        
+        if (global.flag[654] > 1)
+        {
+            global.flag[654] = 1;
+            AP_sendLocation(164);
+        }
 /// END
