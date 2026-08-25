@@ -63,9 +63,10 @@
     c_msgnextloc("* LOOK, Kid./", "obj_ch2_city05_slash_Step_0_gml_553_0");
     c_msgnextloc("* YOU'RE QUITE [Big N' Strong] YOURSELF./", "obj_ch2_city05_slash_Step_0_gml_553_0");
     c_msgnextloc("* IF YOU COULD DO ME JUST A [[Eensy Weensy Favor]].../", "obj_ch2_city05_slash_Step_0_gml_553_0");
-    c_msgnextloc("* YOU'LL GET MY [100`% Money Back Guarantee.]/", "obj_ch2_city05_slash_Step_0_gml_553_0");
-    c_msgnextloc("* I'LL BE WAITING AT MY [[Home-made Storefront Site]]/", "obj_ch2_city05_slash_Step_0_gml_553_0");
-    c_msgnextloc("* IN THE [[Trash Area Closed For Repairs.]]/%", "obj_ch2_city05_slash_Step_0_gml_554_0");
+    c_msgnextloc("* I'LL MAKE IT WORTH YOUR WHILE./", "obj_ch2_city05_slash_Step_0_gml_553_0");
+    c_msgnextloc("* MEET ME AT MY [[Home-made Storefront Site]]/", "obj_ch2_city05_slash_Step_0_gml_553_0");
+    c_msgnextloc("* IN THE [[Trash Area Closed For Repairs.]]/", "obj_ch2_city05_slash_Step_0_gml_554_0");
+    c_msgnextloc("* I'll TELL YOU [[The Terms and Conditions]] WHEN YOU GET THERE./%", "obj_ch2_city05_slash_Step_0_gml_554_0");
     c_talk_wait();
     c_sprite(spr_cutscene_14_spamton_dark);
     c_var("siner_add0", 0);
