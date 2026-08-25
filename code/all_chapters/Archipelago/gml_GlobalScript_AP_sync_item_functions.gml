@@ -9,7 +9,9 @@ function AP_sync_item_from_server()
     for (var i = save_size; i < server_size; i++)
     {
         global.AP_item_got_in_current_chapter[i] = global.AP_item_from_server[i];
-        AP_handle_receive_item(global.AP_item_from_server[i]);
+
+        if (global.AP_item_from_server[i] > 0)
+            AP_handle_receive_item(global.AP_item_from_server[i]);
     }
 
     if (global.AP_is_first_sync && server_size != 0)
