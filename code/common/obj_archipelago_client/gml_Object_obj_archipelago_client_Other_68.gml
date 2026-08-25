@@ -104,8 +104,8 @@ if (ds_map_exists(async_load, "buffer"))
                             global.AP_current_route = data[i].slot_data.options.chosen_route;
                         }
                     }
-                    if (variable_struct_exists(data[i].slot_data.options, "randomize_mantle"))
-                        global.AP_no_mantle = data[i].slot_data.options.randomize_mantle == 2;
+                    if (variable_struct_exists(data[i].slot_data.options, "shadow_mantle_holder_as_secret_boss"))
+                        global.AP_shadow_mantle_holder_as_secret_boss = data[i].slot_data.options.shadow_mantle_holder_as_secret_boss;
                     if (variable_struct_exists(data[i].slot_data.options, "allow_doom_board_without_all_characters"))
                         global.AP_allow_doom_board_without_all_characters = data[i].slot_data.options.allow_doom_board_without_all_characters;
                     if (variable_struct_exists(data[i].slot_data.options, "have_starwalker"))

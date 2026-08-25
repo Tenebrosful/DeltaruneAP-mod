@@ -86,7 +86,7 @@ if (room == room_dw_teevie_intro)
     
     if (extflag == "zapper_cold")
     {
-        if (global.flag[1055] < 6 && global.AP_secret_bosses_mandatory && !global.AP_no_mantle)
+        if (global.flag[1055] < 6 && global.AP_secret_bosses_mandatory && global.AP_shadow_mantle_holder_as_secret_boss)
         {
             scr_speaker("no_name");
             msgsetloc(0, "* Hey^1! Youse the lightners!/", "obj_npc_room_slash_Other_10_gml_1651_0");

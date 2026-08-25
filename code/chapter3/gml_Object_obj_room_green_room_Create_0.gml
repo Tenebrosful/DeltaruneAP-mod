@@ -31,7 +31,7 @@ if (global.plot >= 250)
     
     with (zapper_npc)
     {
-        if (global.customflags[global.custom_flags_indexes.remote_battery_used] && (global.flag[1055] >= 6 || global.AP_no_mantle || !global.AP_secret_bosses_mandatory))
+        if (global.customflags[global.custom_flags_indexes.remote_battery_used] && (global.flag[1055] >= 6 || !global.AP_shadow_mantle_holder_as_secret_boss || !global.AP_secret_bosses_mandatory))
             instance_destroy();
         else
             extflag = "zapper_cold";
