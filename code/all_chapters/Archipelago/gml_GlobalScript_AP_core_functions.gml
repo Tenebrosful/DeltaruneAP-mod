@@ -87,6 +87,9 @@ function AP_save()
 
   file_text_writeln(myfileid);
   file_text_write_real(myfileid, global.AP_progressive_current_index.noelle_weapon);
+
+  file_text_writeln(myfileid);
+  file_text_write_real(myfileid, global.AP_current_route);
 }
 
 function AP_load()
@@ -124,6 +127,9 @@ function AP_load()
     ossafe_file_text_readln(myfileid);
 
     global.AP_progressive_current_index.noelle_weapon = ossafe_file_text_read_real(myfileid);
+    ossafe_file_text_readln(myfileid);
+
+    global.AP_current_route = ossafe_file_text_read_real(myfileid);
     ossafe_file_text_readln(myfileid);
 
     AP_sync_item_from_server();
