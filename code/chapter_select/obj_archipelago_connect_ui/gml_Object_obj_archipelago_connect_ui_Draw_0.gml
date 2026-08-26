@@ -178,7 +178,10 @@ for (var ii = 0; ii < 7; ii++)
         draw_set_color(c_yellow);
     
     if (i == 6 && (obj_gamecontroller.gamepad_active == 1 && edit))
+    {
+        connect = 0;
         draw_set_color(c_yellow);
+    }
     
     draw_text_outline(x_align, y_align + (gap * i), outline_offset, text, fnt_mainbig, draw_get_color());
     
