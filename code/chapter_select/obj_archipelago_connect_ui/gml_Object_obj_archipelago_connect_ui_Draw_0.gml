@@ -99,6 +99,22 @@ for (var ii = 0; ii < 7; ii++)
                 text = "Connect to Multiworld";
                 i = 5;
                 break;
+            
+            case 5:
+                if (obj_gamecontroller.gamepad_active == 1 && edit)
+                    text = "Using a controller?\nYou still need a keyboard\nto type!";
+                
+                i = 6;
+                break;
+            
+            case 6:
+                if (obj_gamecontroller.gamepad_active == 1 && edit)
+                    text = "Using a controller?\nYou still need a keyboard\nto type!";
+                else
+                    text = "Reset Colors";
+                
+                i = 6;
+                break;
         }
     }
     else if (page == 1)
@@ -159,6 +175,9 @@ for (var ii = 0; ii < 7; ii++)
     }
 
     if (edit && choice == ii)
+        draw_set_color(c_yellow);
+    
+    if (i == 6 && (obj_gamecontroller.gamepad_active == 1 && edit))
         draw_set_color(c_yellow);
     
     draw_text_outline(x_align, y_align + (gap * i), outline_offset, text, fnt_mainbig, draw_get_color());

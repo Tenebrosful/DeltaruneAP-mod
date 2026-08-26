@@ -109,14 +109,12 @@ if (edit)
         edit = !edit;
         audio_play_sound(snd_swing, 1, false);
     }
-    
-    if (button2_p() && !keyboard_check_pressed(ord("X"))) // This may look weird at first, but it works with controller
+    else if (button2_p() && !keyboard_check_pressed(ord("X")))
     {
         edit = !edit;
         audio_play_sound(snd_swing, 1, false);
     }
-    
-    if (keyboard_check_pressed(vk_escape))
+    else if (keyboard_check_pressed(vk_escape))
     {
         edit = false;
         audio_play_sound(snd_swing, 1, false);
