@@ -39,8 +39,8 @@ if (!global.AP_sync)
     }
     else
     {
-        draw_text(ww - 10, 0, "IT LOOKS LIKE YOU HAS BEEN DISCONNECTED.");
-        draw_text(ww - 10, 10, "WE WILL TRY TO RECONNECT YOU.");
+        draw_text(ww - 10, 0, "IT LOOKS LIKE YOU HAVE BEEN DISCONNECTED.");
+        draw_text(ww - 10, 10, "ATTEMPTING TO RECONNECT, PLEASE BE PATIENT...");
     }
     draw_set_halign(fa_left);
 
@@ -78,7 +78,7 @@ if (global.interact != 0 && false)
     draw_set_font(fnt_tinynoelle);
     draw_set_color(c_white);
     draw_set_halign(fa_center);
-    draw_text(ww - 10, 0, "BETA VERSION ! Stuck ? Press U and report the bug");
+    draw_text(ww - 10, 0, "BETA VERSION ! Stuck ? Press U to unstuck and report the bug");
     draw_set_halign(fa_left);
 }
 /// END

@@ -1,4 +1,5 @@
 /// IMPORT
+beginningbuffer = 0;
 choice = 0;
 init = false;
 input_text = "";
@@ -19,6 +20,12 @@ x_align = 80;
 randomise();
 mode = "normal"
 mode_dice = irandom(99)
+
+if (!instance_exists(obj_input))
+{
+    var _input = instance_create(0, 0, obj_input);
+    _input.init();
+}
 
 if (mode_dice < 10)
     mode = "weird";

@@ -1,19 +1,16 @@
 /// IMPORT
 if (global.AP_connection_state > global.AP_ENUM_CONNECTION_STATE.DISCONNECTED)
-{
-  exit;
-}
+    exit;
 
 if (mode == "kris")
 {
-    if(!audio_is_playing(variable_struct_get(kris_musics_assets, music_name)))
+    if (!audio_is_playing(variable_struct_get(kris_musics_assets, music_name)))
     {
         old_music_name = music_name;
-        while(old_music_name == music_name)
-        {
+        
+        while (old_music_name == music_name)
             music_name = kris_musics[irandom(array_length(kris_musics) - 1)];
-        }
-
+        
         my_music = variable_struct_get(kris_musics_assets, music_name);
         audio_play_sound(my_music, 2, false);
     }
@@ -23,7 +20,7 @@ if (!edit)
 {
     keyboard_string = "";
     
-    if (keyboard_check_pressed(vk_down))
+    if (down_p())
     {
         audio_play_sound(snd_menumove, 1, false);
         
@@ -32,7 +29,7 @@ if (!edit)
         else
             choice++;
     }
-    else if (keyboard_check_pressed(vk_up))
+    else if (up_p())
     {
         audio_play_sound(snd_menumove, 1, false);
         
@@ -41,7 +38,7 @@ if (!edit)
         else
             choice--;
     }
-    else if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_left))
+    else if (right_p() || left_p())
     {
         page = (page == 0) ? 1 : 0;
         max_choice = (page == 0) ? 4 : 6;
@@ -49,21 +46,30 @@ if (!edit)
     }
 }
 
-if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")))
+if (beginningbuffer == 0) // fix rare softlock
+{
+    if (!button1_p())
+        beginningbuffer = 1;
+    
+    exit;
+}
+
+if (button1_p())
 {
     if (choice == max_choice)
     {
         if (page == 0)
         {
             connect = true;
+            
             if (global.AP_server != "" && global.AP_port != "" && global.AP_name != "")
             {
                 audio_play_sound(snd_select, 1, false);
                 alarm[0] = 1;
                 exit;
             }
-
-            audio_play_sound(ch2_select, 1, false)
+            
+            audio_play_sound(ch2_select, 1, false);
             exit;
         }
         else if (page == 1)
@@ -89,28 +95,45 @@ if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z")))
         edit = !edit;
         audio_play_sound(snd_select, 1, false);
     }
-}
-
-if (keyboard_check_pressed(vk_escape) && edit)
-{
-    edit = false;
-    audio_play_sound(snd_swing, 1, false);
+    else if (button1_p() && !keyboard_check_pressed(ord("Z"))) // This may look weird at first, but it works with controller
+    {
+        edit = !edit;
+        audio_play_sound(snd_select, 1, false);
+    }
 }
 
 if (edit)
 {
+    if (keyboard_check_pressed(vk_shift))
+    {
+        edit = !edit;
+        audio_play_sound(snd_swing, 1, false);
+    }
+    
+    if (button2_p() && !keyboard_check_pressed(ord("X"))) // This may look weird at first, but it works with controller
+    {
+        edit = !edit;
+        audio_play_sound(snd_swing, 1, false);
+    }
+    
+    if (keyboard_check_pressed(vk_escape))
+    {
+        edit = false;
+        audio_play_sound(snd_swing, 1, false);
+    }
+    
     if (page == 0)
     {
         switch (choice)
         {
             case 0:
                 current = string(global.AP_server);
-                host_or_port_changed = true
+                host_or_port_changed = true;
                 break;
             
             case 1:
                 current = string(global.AP_port);
-                host_or_port_changed = true
+                host_or_port_changed = true;
                 break;
             
             case 2:
@@ -125,12 +148,6 @@ if (edit)
     
     if (page == 1)
     {
-        // if (choice == 0)
-        // {
-        //     global.AP_deathlink = (global.AP_deathlink == 0) ? 1 : 0;
-        //     edit = 0;
-        // }
-        
         switch (choice)
         {
             case 1:
@@ -187,11 +204,9 @@ if (edit)
     {
         delete_timer = 0;
     }
-
-    if(keyboard_check(vk_control) && keyboard_check(ord("V")))
-    {
-        current = clipboard_get_text()
-    }
+    
+    if (keyboard_check(vk_control) && keyboard_check(ord("V")))
+        current = clipboard_get_text();
     
     if (page == 0)
     {
@@ -221,13 +236,15 @@ if (edit)
                     {
                         global.AP_port = real(current);
                     }
-                    catch(e)
+                    catch (e)
                     {
                         global.AP_port = "";
                     }
                 }
                 else
+                {
                     global.AP_port = "";
+                }
                 
                 break;
             
@@ -243,8 +260,8 @@ if (edit)
     
     if (page == 1)
     {
-        current = string_replace_all(current, "#", "")
-
+        current = string_replace_all(current, "#", "");
+        
         switch (choice)
         {
             case 1:
