@@ -61,6 +61,7 @@ if (button1_p())
         if (page == 0)
         {
             connect = true;
+            global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.DISCONNECTED;
             
             if (global.AP_server != "" && global.AP_port != "" && global.AP_name != "")
             {
