@@ -7,6 +7,10 @@ function AP_all_recruits_acquired()
     case 1:
       // rudinn, Hathy, Jigsawry, Ponman, Rabbick, Bloxer, Head Hathy, Rudinn Ranger
       recruits_ids = [605, 606, 615, 611, 613, 614, 623, 622] 
+      
+      if (global.AP_chapter_1_recruit == false)
+        return true
+
       break;
     case 2:
       // Werewire, Tasque, Virovirokun, Poppup, Ambyu-Lance, Maus, Swatchlings, Tasque Manager, Mauswheel, Werewerewire

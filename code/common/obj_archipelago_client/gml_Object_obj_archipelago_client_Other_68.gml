@@ -110,6 +110,8 @@ if (ds_map_exists(async_load, "buffer"))
                         global.AP_allow_doom_board_without_all_characters = data[i].slot_data.options.allow_doom_board_without_all_characters;
                     if (variable_struct_exists(data[i].slot_data.options, "have_starwalker"))
                         global.AP_have_starwalker = data[i].slot_data.options.have_starwalker;
+                    if (variable_struct_exists(data[i].slot_data.options, "chapter_1_recruit")) 
+                        global.AP_chapter_1_recruit = data[i].slot_data.options.chapter_1_recruit;
                     if (variable_struct_exists(data[i].slot_data.options, "better_odds"))
                         global.AP_better_odds = data[i].slot_data.options.better_odds;
                     if (variable_struct_exists(data[i].slot_data.options, "pink_twin_ribbon_unnerf"))

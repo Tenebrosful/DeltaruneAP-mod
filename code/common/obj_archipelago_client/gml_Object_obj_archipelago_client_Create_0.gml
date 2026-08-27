@@ -65,6 +65,7 @@ global.AP_shadow_mantle_holder_as_secret_boss = false;
 global.AP_better_odds = false;
 global.AP_pink_twin_ribbon_unnerf = true;
 global.AP_have_starwalker = false;
+global.AP_chapter_1_recruit = false;
 global.AP_deathlink = false;
 global.AP_deathlink_protected = false;
 global.AP_deathlink_infos = {source: undefined, cause: undefined, time: undefined, uuid: undefined};
