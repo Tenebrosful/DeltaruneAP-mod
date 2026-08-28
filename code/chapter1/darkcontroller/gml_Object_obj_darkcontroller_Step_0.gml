@@ -152,7 +152,8 @@ if (global.interact == 5)
                         global.msg[2] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_137_0");
                         global.msg[3] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_138_0");
                         global.msg[4] = "* I'll just make a better one next time!/";
-                        global.msg[5] = string("* Oh! It turned into {0}!/%", AP_get_location_reward_text(245));
+                        global.msg[5] = string("* Wait^1, look^1! It turned into {0}!/", AP_get_location_reward_text(245));
+                        global.msg[6] = string("* Good thinking^1, Kris!/", AP_get_location_reward_text(245));
                         AP_sendLocation(245);
                         global.flag[207] = 2;
                     }
@@ -179,8 +180,8 @@ if (global.interact == 5)
                     global.typer = 6;
                     global.msg[0] = "* (You tossed the Manual hard.^1)&* (Its pages scatter in the wind.)/";
                     global.msg[1] = "* (It's a good thing no one was paying attention while you did it.)/";
-                    global.msg[1] = "* (You might have been arrested for littering otherwise.)/";
-                    global.msg[2] = string("(* Looks like it turned into {0}!)/%", AP_get_location_reward_text(245));
+                    global.msg[2] = "* (You might have been arrested for littering otherwise.)/";
+                    global.msg[3] = string("* (In the pile on the ground, you saw {0}.)/%", AP_get_location_reward_text(245));
                     AP_sendLocation(245);
                     global.flag[207] = -1;
                 }
@@ -190,7 +191,7 @@ if (global.interact == 5)
                     global.typer = 6;
                     global.msg[0] = "* (You dropped the Manual on the floor.)/";
                     global.msg[1] = "* (... It just bounced back into your hands like a basketball.)/";
-                    global.msg[2] = string("* (But it also turned into {0}.)/%", AP_get_location_reward_text(22));
+                    global.msg[2] = string("* (It turned into {0} along the way^1, though.)/%", AP_get_location_reward_text(22));
                     AP_sendLocation(22);
                     global.flag[207] = 1;
                 }

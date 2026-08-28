@@ -27,5 +27,5 @@ if (con == 23)
 if (con == 24 && !d_ex())
 {
     con = 20;
-    global.interact = 0;
+    global.interact = 0; // I know it looks like there's a missing `}` here, but this is intentional. TRUST THE PROCESS!!!
 /// END
