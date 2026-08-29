@@ -1343,12 +1343,6 @@ if (global.interact == 5)
                 {
                     movenoise = 1;
                     
-                    if (global.submenu == 12)
-                        nextone = global.weapon[global.submenucoord[global.submenu + 1]];
-                    
-                    if (global.submenu == 13 || global.submenu == 14)
-                        nextone = global.armor[global.submenucoord[global.submenu + 1]];
-                    
                     global.submenucoord[global.submenu] += 1;
                     
                     if (global.submenu == 12)
