@@ -110,8 +110,6 @@ for (var ii = 0; ii < 7; ii++)
             case 6:
                 if (obj_gamecontroller.gamepad_active == 1 && edit)
                     text = "Using a controller?\nYou still need a keyboard\nto type!";
-                else
-                    text = "Reset Colors";
                 
                 i = 6;
                 break;
