@@ -104,6 +104,15 @@ if (ds_map_exists(async_load, "buffer"))
                             global.AP_current_route = data[i].slot_data.options.chosen_route;
                         }
                     }
+
+                    if (variable_struct_exists(data[i].slot_data, "randomized"))
+                    {
+                        if (variable_struct_exists(data[i].slot_data.randomized, "ost"))
+                            global.AP_ost_mapping = data[i].slot_data.randomized.ost
+                    }
+
+                    if (variable_struct_exists(data[i].slot_data.options, "shuffle_ost"))
+                        global.AP_ost_shuffle = data[i].slot_data.options.shuffle_ost;
                     if (variable_struct_exists(data[i].slot_data.options, "shadow_mantle_holder_as_secret_boss"))
                         global.AP_shadow_mantle_holder_as_secret_boss = data[i].slot_data.options.shadow_mantle_holder_as_secret_boss;
                     if (variable_struct_exists(data[i].slot_data.options, "allow_doom_board_without_all_characters"))

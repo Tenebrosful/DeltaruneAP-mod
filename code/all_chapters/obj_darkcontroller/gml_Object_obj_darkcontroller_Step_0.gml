@@ -1448,6 +1448,12 @@
                     global.AP_balancing = !global.AP_balancing;
                 }
 
+                // OST Shuffle
+                if (global.submenucoord[30] == 13)
+                {
+                    global.AP_ost_shuffle = !global.AP_ost_shuffle;
+                }
+
                 if (global.chapter == 5)
                 {
                     // Ralseis (Chapter 5)
