@@ -25,7 +25,8 @@ if (con == 150 && !d_ex())
 /// REPLACE
     c_msgsetloc(0, "* (You got the%%", "obj_dw_church_arena_slash_Step_0_gml_85_0");
 /// CODE
-    c_msgsetloc(0, string("* (You got {0}%%", AP_get_location_reward_text(206)), "obj_dw_church_arena_slash_Step_0_gml_85_0");
+    apdata = AP_get_location_reward_data(206)
+    c_msgsetloc(0, string("* (You got {0}%%", apdata.playerName), "obj_dw_church_arena_slash_Step_0_gml_85_0");
     c_customfunc(function()
     {
         AP_sendHint(206);
