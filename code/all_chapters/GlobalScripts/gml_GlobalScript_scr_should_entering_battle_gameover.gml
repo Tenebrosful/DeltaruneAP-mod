@@ -10,6 +10,7 @@ function scr_should_entering_battle_gameover()
     case 72: // Graze Challenge
     case 84: // Giga Queen
     case 102: // Pipis
+    case 160: // Hammer of Justice
       return false;
   }
 

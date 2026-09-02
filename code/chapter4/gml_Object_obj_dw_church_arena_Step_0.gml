@@ -10,34 +10,9 @@ if (con == 0 && obj_mainchara.x >= 410 && global.interact == 0 && !d_ex())
 /// CODE
 if (con == 0 && obj_mainchara.x >= 410 && global.interact == 0 && !d_ex())
 {
-    if (global.maxhp[2] > 0)
-    {
-        con = 1;
-        alarm[0] = 1;
-        global.interact = 1;
-    }
-    else
-    {
-        obj_mainchara.x = 409;
-        global.interact = 1;
-        scr_speaker("no_name");
-        msgsetloc(0, "* (You should probably unlock \\cPSusie\\cW before going here.)/%", "obj_readable_room1_slash_Other_10_gml_4077_0");
-        d_make();
-        con = 150;
-    }
-}
-
-if (con == -1 && obj_mainchara.x >= 410 && global.interact == 0 && !d_ex())
-{
-    if (global.maxhp[2] < 1)
-    {
-        obj_mainchara.x = 409;
-        global.interact = 1;
-        scr_speaker("no_name");
-        msgsetloc(0, "* (You should probably unlock \\cPSusie\\cW before going here.)/%", "obj_readable_room1_slash_Other_10_gml_4077_0");
-        d_make();
-        con = 150;
-    }
+    con = 1;
+    alarm[0] = 1;
+    global.interact = 1;
 }
 
 if (con == 150 && !d_ex())
