@@ -56,8 +56,8 @@
             }
             else if ((global.maxhp[1] > 0 || global.maxhp[2] > 0 || global.maxhp[3] > 0) || scr_keyitemcheck(31))
             {
-                global.choicemsg[0] = stringsetloc("#Sleep an#incredibly#long time", "scr_text_slash_scr_text_gml_11397_0");
-                global.choicemsg[1] = stringsetloc("#Sleep#through#church", "scr_text_slash_scr_text_gml_11398_0");
+                global.choicemsg[0] = stringsetloc("#Sleep#through#church", "scr_text_slash_scr_text_gml_11398_0");
+                global.choicemsg[1] = stringsetloc("#Sleep an#incredibly#long time", "scr_text_slash_scr_text_gml_11397_0");
                 global.choicemsg[2] = stringset("");
                 global.choicemsg[3] = stringset("");
                 scr_speaker("no_name");
@@ -94,7 +94,7 @@
                     error = You_messed_up_the_tea;
                 
                 with (obj_ch4_PDC01B)
-                    skip_intro = 1;
+                    skip_intro = 2;
             }
             else
             {
@@ -102,7 +102,7 @@
                     error = You_messed_up_the_tea;
                 
                 with (obj_ch4_PDC01B)
-                    skip_intro = 2;
+                    skip_intro = 1;
             }
             
             scr_speaker("no_name");
