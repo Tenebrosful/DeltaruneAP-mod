@@ -1491,7 +1491,7 @@ function scr_text(arg0)
             if (global.choice == 0)
             {
                 global.msg[0] = stringsetloc("* (You put a dollar in the \"Hole.\")/", "scr_text_slash_scr_text_gml_1434_0");
-                global.msg[1] = stringsetloc("* (The \"Hole\" became \"Full.\")/%", "scr_text_slash_scr_text_gml_1435_0");
+                global.msg[1] = stringsetloc("* (The \"Hole\" became \"Full.\")/", "scr_text_slash_scr_text_gml_1435_0");
                 afford = 1;
                 
                 if (global.gold >= 1)
@@ -1500,7 +1500,11 @@ function scr_text(arg0)
                     afford = 0;
                 
                 if (afford == 1)
+                {
                     global.flag[216] = 1;
+                    AP_sendLocation(353);
+                    global.msg[1] = string("You found {0}./%", AP_get_location_reward_text(353))
+                }
                 
                 if (afford == 0)
                 {
