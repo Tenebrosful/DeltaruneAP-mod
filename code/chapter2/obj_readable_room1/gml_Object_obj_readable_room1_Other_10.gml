@@ -66,3 +66,65 @@
 /// CODE
         if (global.customflags[global.custom_flags_indexes.took_emptydisk] && scr_keyitemcheck(11) == 0)
 /// END
+
+/// BEFORE
+if (room == room_dw_city_split)
+{
+/// CODE
+
+if (extflag == "decemberskip")
+{
+    scr_speaker("no_name");
+    
+    if (obj_ch2_city_noelle_monologue.decemberskipcon < 10 && obj_ch2_city_noelle_monologue.con == 0)
+    {
+        msgsetloc(0, "* (You flip the lever.)/%", "obj_readable_room1_slash_Other_10_gml_3015_0");
+        snd_play(snd_noise);
+        image_index += 1;
+        skipcon = 1;
+        
+        with (obj_ch2_city_noelle_monologue)
+            decemberskipcon = 10;
+    }
+    else if (obj_ch2_city_noelle_monologue.decemberskipcon < 10 && obj_ch2_city_noelle_monologue.con > 0)
+    {
+        msgsetloc(0, "* (The lever won't budge.)/", "obj_readable_room1_slash_Other_10_gml_3015_0");
+        msgnextloc("* (You missed your chance...)/%", "obj_readable_room1_slash_Other_10_gml_3015_0");
+    }
+    else if (skipcon == 1)
+    {
+        msgsetloc(0, "* Dude what else do you want I disabled the puzzle/%", "obj_readable_room1_slash_Other_10_gml_3015_0");
+        skipcon += 1;
+    }
+    else if (skipcon == 2)
+    {
+        msgsetloc(0, "* Yeah that's right I'm a talking lever/%", "obj_readable_room1_slash_Other_10_gml_3015_0");
+        skipcon += 1;
+    }
+    else if (skipcon == 3)
+    {
+        msgsetloc(0, "* Bro do you want me to teleport you to the end too^1? Gosh you're needy/%", "obj_readable_room1_slash_Other_10_gml_3015_0");
+        skipcon += 1;
+    }
+    else if (skipcon == 4)
+    {
+        msgsetloc(0, "* Fine^1. Enjoy yourself^1. Can't believe you're making me do this.../%", "obj_readable_room1_slash_Other_10_gml_3015_0");
+        skipcon += 1;
+        
+        with (obj_ch2_city_noelle_monologue)
+        {
+            decemberskipcon = 13;
+            timer = 0;
+        }
+    }
+    else if (skipcon == 5)
+    {
+        msgsetloc(0, "* Why did you walk all the way back here/%", "obj_readable_room1_slash_Other_10_gml_3015_0");
+        skipcon += 1;
+    }
+    else if (skipcon >= 6)
+    {
+        msgsetloc(0, "* No I'm not teleporting you back^1. You did this to yourself/%", "obj_readable_room1_slash_Other_10_gml_3015_0");
+    }
+}
+/// END
