@@ -282,7 +282,7 @@ function AP_setDataStorage(key, value, operation = "replace", want_reply = false
     {
         cmd: "Set",
         key: prefixed_key,
-        default: default_value,
+        "default": default_value,
         want_reply: want_reply,
         operations: [{operation: operation, value: value}]
     }
