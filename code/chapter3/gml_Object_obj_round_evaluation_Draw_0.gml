@@ -1591,27 +1591,85 @@ if (con >= 1)
                     snd_stop(snd_applause_single);
                     
                     if (currentphychallengerank == 0)
+                    {
                         snd_play(snd_splat);
-                    
+                        switch(boardnumber)
+                        {
+                            case 1:
+                                AP_sendLocation(354);
+                                break;
+                            case 2:
+                                AP_sendLocation(360);
+                                break;
+                        }
+                    }
                     if (currentphychallengerank == 1)
+                    {
                         snd_play(snd_splat);
-                    
+                        switch(boardnumber)
+                        {
+                            case 1:
+                                AP_sendLocation(355);
+                                break;
+                            case 2:
+                                AP_sendLocation(361);
+                                break;
+                        }
+                    }
                     if (currentphychallengerank == 2)
+                    {
                         snd_play(snd_coin);
-                    
+                        switch(boardnumber)
+                        {
+                            case 1:
+                                AP_sendLocation([355, 356]);
+                                break;
+                            case 2:
+                                AP_sendLocation([361, 362]);
+                                break;
+                        }
+                    }
                     if (currentphychallengerank == 3)
+                    {    
                         snd_play(snd_coin);
-                    
+                        switch(boardnumber)
+                        {
+                            case 1:
+                                AP_sendLocation([355, 356, 357]);
+                                break;
+                            case 2:
+                                AP_sendLocation([361, 362, 363]);
+                                break;
+                        }
+                    }
                     if (currentphychallengerank == 4)
                     {
                         snd_play(snd_punchmed);
                         snd_play(snd_applause_single);
+                        switch(boardnumber)
+                        {
+                            case 1:
+                                AP_sendLocation([355, 356, 357, 358]);
+                                break;
+                            case 2:
+                                AP_sendLocation([361, 362, 363, 364]);
+                                break;
+                        }
                     }
                     
                     if (currentphychallengerank == 5)
                     {
                         snd_play(snd_punchmed);
                         snd_play(snd_applause_single);
+                        switch(boardnumber)
+                        {
+                            case 1:
+                                AP_sendLocation([355, 356, 357, 358, 359]);
+                                break;
+                            case 2:
+                                AP_sendLocation([361, 362, 363, 364, 365]);
+                                break;
+                        }
                     }
                     
                     savephypoints = currentgradetotal - savetotalpoints - savebattlepoints;
@@ -1642,14 +1700,12 @@ if (con >= 1)
                         if (currentphyspoints <= 210)
                         {
                             currentphysgrade = _zrank;
-                            AP_sendLocation(354);
                             currentphychallengerank = 0;
                         }
                         
                         if (currentphyspoints > 210 && currentphysgrade == _zrank)
                         {
                             currentphysgrade = _crank;
-                            AP_sendLocation(355);
                             currentphychallengerank = 1;
                             currentgradetotal += 3;
                         }
@@ -1657,7 +1713,6 @@ if (con >= 1)
                         if (currentphyspoints > 300 && currentphysgrade == _crank)
                         {
                             currentphysgrade = _brank;
-                            AP_sendLocation(356);
                             currentphychallengerank = 2;
                             currentgradetotal += 3;
                         }
@@ -1665,7 +1720,6 @@ if (con >= 1)
                         if (currentphyspoints > 380 && currentphysgrade == _brank)
                         {
                             currentphysgrade = _arank;
-                            AP_sendLocation(357);
                             currentphychallengerank = 3;
                             currentgradetotal += 3;
                         }
@@ -1673,7 +1727,6 @@ if (con >= 1)
                         if (currentphyspoints > 450 && currentphysgrade == _arank)
                         {
                             currentphysgrade = _srank;
-                            AP_sendLocation(357);
                             currentphychallengerank = 4;
                             currentgradetotal += 3;
                         }
@@ -1681,7 +1734,6 @@ if (con >= 1)
                         if (currentphyspoints >= 640 && currentphysgrade == _srank)
                         {
                             currentphysgrade = _trank;
-                            AP_sendLocation(358);
                             currentphychallengerank = 5;
                             currentgradetotal += 3;
                             tchefvar = true;
@@ -1702,14 +1754,12 @@ if (con >= 1)
                     if (currentphyspoints < 14500)
                     {
                         currentphysgrade = _zrank;
-                        AP_sendLocation(360);
                         currentphychallengerank = 0;
                     }
                     
                     if (currentphyspoints >= 14500 && currentphysgrade == _zrank)
                     {
                         currentphysgrade = _crank;
-                        AP_sendLocation(361);
                         currentphychallengerank = 1;
                         currentgradetotal += 3;
                     }
@@ -1717,7 +1767,6 @@ if (con >= 1)
                     if (currentphyspoints >= 18000 && currentphysgrade == _crank)
                     {
                         currentphysgrade = _brank;
-                        AP_sendLocation(362);
                         currentphychallengerank = 2;
                         currentgradetotal += 3;
                     }
@@ -1725,7 +1774,6 @@ if (con >= 1)
                     if (currentphyspoints >= 22000 && currentphysgrade == _brank)
                     {
                         currentphysgrade = _arank;
-                        AP_sendLocation(363);
                         currentphychallengerank = 3;
                         currentgradetotal += 3;
                     }
@@ -1733,7 +1781,6 @@ if (con >= 1)
                     if (currentphyspoints >= 25000 && currentphysgrade == _arank)
                     {
                         currentphysgrade = _srank;
-                        AP_sendLocation(364);
                         currentphychallengerank = 4;
                         currentgradetotal += 3;
                     }
@@ -1741,7 +1788,6 @@ if (con >= 1)
                     if (currentphyspoints >= 28000 && currentphysgrade == _srank)
                     {
                         currentphysgrade = _trank;
-                        AP_sendLocation(365);
                         currentphychallengerank = 5;
                         currentgradetotal += 3;
                     }
