@@ -301,6 +301,7 @@ if (con >= 1)
             if (currentphyspoints < 350 && !madesound)
             {
                 currentphysgrade = _zrank;
+                AP_sendLocation([366]);
                 currentphychallengerank = 0;
                 madesound = true;
                 snd_play(snd_splat);
@@ -309,6 +310,7 @@ if (con >= 1)
             if (currentphyspoints >= 350 && currentphyspoints < 400 && !madesound)
             {
                 currentphysgrade = _crank;
+                AP_sendLocation([367]);
                 currentphychallengerank = 1;
                 madesound = true;
                 global.flag[1044] += 125;
@@ -318,6 +320,7 @@ if (con >= 1)
             if (currentphyspoints >= 400 && currentphyspoints < 450 && !madesound)
             {
                 currentphysgrade = _brank;
+                AP_sendLocation([367, 368]);
                 currentphychallengerank = 2;
                 madesound = true;
                 global.flag[1044] += 250;
@@ -327,6 +330,7 @@ if (con >= 1)
             if (currentphyspoints >= 450 && currentphyspoints < 600 && !madesound)
             {
                 currentphysgrade = _arank;
+                AP_sendLocation([367, 368, 369]);
                 currentphychallengerank = 3;
                 madesound = true;
                 global.flag[1044] += 500;
@@ -336,6 +340,7 @@ if (con >= 1)
             if (currentphyspoints >= 600 && currentphyspoints < 800 && !madesound)
             {
                 currentphysgrade = _srank;
+                AP_sendLocation([367, 368, 369, 370]);
                 currentphychallengerank = 4;
                 madesound = true;
                 global.flag[1044] += 1000;
@@ -346,6 +351,7 @@ if (con >= 1)
             if (currentphyspoints >= 800 && !madesound)
             {
                 currentphysgrade = _trank;
+                AP_sendLocation([367, 368, 369, 370, 371]);
                 currentphychallengerank = 5;
                 madesound = true;
                 global.flag[1044] += 2000;
@@ -592,6 +598,7 @@ if (con >= 1)
                 if (currentphyspoints >= 28000)
                 {
                     currentphysgrade = _trank;
+                    AP_sendLocation([361, 362, 363, 364, 365]);
                     currentphychallengerank = 5;
                     madesound = true;
                     global.flag[1044] += 2000;
@@ -601,6 +608,7 @@ if (con >= 1)
                 else if (currentphyspoints >= 25000)
                 {
                     currentphysgrade = _srank;
+                    AP_sendLocation([361, 362, 363, 364]);
                     currentphychallengerank = 4;
                     madesound = true;
                     global.flag[1044] += 1000;
@@ -610,6 +618,7 @@ if (con >= 1)
                 else if (currentphyspoints >= 22000)
                 {
                     currentphysgrade = _arank;
+                    AP_sendLocation([361, 362, 363]);
                     currentphychallengerank = 3;
                     madesound = true;
                     global.flag[1044] += 500;
@@ -618,6 +627,7 @@ if (con >= 1)
                 else if (currentphyspoints >= 18000)
                 {
                     currentphysgrade = _brank;
+                    AP_sendLocation([361, 362]);
                     currentphychallengerank = 2;
                     madesound = true;
                     global.flag[1044] += 250;
@@ -626,6 +636,7 @@ if (con >= 1)
                 else if (currentphyspoints >= 14500)
                 {
                     currentphysgrade = _crank;
+                    AP_sendLocation([361]);
                     currentphychallengerank = 1;
                     madesound = true;
                     global.flag[1044] += 125;
@@ -634,6 +645,7 @@ if (con >= 1)
                 else if (currentphyspoints >= 1)
                 {
                     currentphysgrade = _zrank;
+                    AP_sendLocation([360]);
                     currentphychallengerank = 0;
                     madesound = true;
                     snd_play(snd_splat);
@@ -641,6 +653,7 @@ if (con >= 1)
                 else
                 {
                     currentphysgrade = _norank;
+                    AP_sendLocation([360]);
                     currentphychallengerank = 0;
                     madesound = true;
                     snd_play(snd_splat);
@@ -888,6 +901,7 @@ if (con >= 1)
             if (currentphyspoints < 200 && !madesound)
             {
                 currentphysgrade = _zrank;
+                AP_sendLocation([354]);
                 currentphychallengerank = 0;
                 madesound = true;
                 snd_play(snd_splat);
@@ -896,6 +910,7 @@ if (con >= 1)
             if (currentphyspoints >= 200 && currentphyspoints < 300 && !madesound)
             {
                 currentphysgrade = _crank;
+                AP_sendLocation([355]);
                 currentphychallengerank = 1;
                 madesound = true;
                 global.flag[1044] += 125;
@@ -905,6 +920,7 @@ if (con >= 1)
             if (currentphyspoints >= 300 && currentphyspoints < 380 && !madesound)
             {
                 currentphysgrade = _brank;
+                AP_sendLocation([355, 356]);
                 currentphychallengerank = 2;
                 madesound = true;
                 global.flag[1044] += 250;
@@ -914,6 +930,7 @@ if (con >= 1)
             if (currentphyspoints >= 380 && currentphyspoints < 450 && !madesound)
             {
                 currentphysgrade = _arank;
+                AP_sendLocation([355, 356, 357]);
                 currentphychallengerank = 3;
                 madesound = true;
                 global.flag[1044] += 500;
@@ -923,6 +940,7 @@ if (con >= 1)
             if (currentphyspoints >= 450 && currentphyspoints < 640 && !madesound)
             {
                 currentphysgrade = _srank;
+                AP_sendLocation([355, 356, 357, 358]);
                 currentphychallengerank = 4;
                 madesound = true;
                 global.flag[1044] += 1000;
@@ -933,6 +951,7 @@ if (con >= 1)
             if ((currentphyspoints >= 640 || chef_rank_letter == "T") && !madesound)
             {
                 currentphysgrade = _trank;
+                AP_sendLocation([355, 356, 357, 358, 359]);
                 currentphychallengerank = 5;
                 madesound = true;
                 global.flag[1044] += 2000;
@@ -1613,6 +1632,7 @@ if (con >= 1)
                     if (chef_rank_letter == "T" && tchefvar == false)
                     {
                         currentphysgrade = _trank;
+                        AP_sendLocation([355, 356, 357, 358, 359]);
                         currentphychallengerank = 5;
                         currentgradetotal += 15;
                         tchefvar = true;
@@ -1622,12 +1642,14 @@ if (con >= 1)
                         if (currentphyspoints <= 210)
                         {
                             currentphysgrade = _zrank;
+                            AP_sendLocation(354);
                             currentphychallengerank = 0;
                         }
                         
                         if (currentphyspoints > 210 && currentphysgrade == _zrank)
                         {
                             currentphysgrade = _crank;
+                            AP_sendLocation(355);
                             currentphychallengerank = 1;
                             currentgradetotal += 3;
                         }
@@ -1635,6 +1657,7 @@ if (con >= 1)
                         if (currentphyspoints > 300 && currentphysgrade == _crank)
                         {
                             currentphysgrade = _brank;
+                            AP_sendLocation(356);
                             currentphychallengerank = 2;
                             currentgradetotal += 3;
                         }
@@ -1642,6 +1665,7 @@ if (con >= 1)
                         if (currentphyspoints > 380 && currentphysgrade == _brank)
                         {
                             currentphysgrade = _arank;
+                            AP_sendLocation(357);
                             currentphychallengerank = 3;
                             currentgradetotal += 3;
                         }
@@ -1649,6 +1673,7 @@ if (con >= 1)
                         if (currentphyspoints > 450 && currentphysgrade == _arank)
                         {
                             currentphysgrade = _srank;
+                            AP_sendLocation(357);
                             currentphychallengerank = 4;
                             currentgradetotal += 3;
                         }
@@ -1656,6 +1681,7 @@ if (con >= 1)
                         if (currentphyspoints >= 640 && currentphysgrade == _srank)
                         {
                             currentphysgrade = _trank;
+                            AP_sendLocation(358);
                             currentphychallengerank = 5;
                             currentgradetotal += 3;
                             tchefvar = true;
@@ -1676,12 +1702,14 @@ if (con >= 1)
                     if (currentphyspoints < 14500)
                     {
                         currentphysgrade = _zrank;
+                        AP_sendLocation(360);
                         currentphychallengerank = 0;
                     }
                     
                     if (currentphyspoints >= 14500 && currentphysgrade == _zrank)
                     {
                         currentphysgrade = _crank;
+                        AP_sendLocation(361);
                         currentphychallengerank = 1;
                         currentgradetotal += 3;
                     }
@@ -1689,6 +1717,7 @@ if (con >= 1)
                     if (currentphyspoints >= 18000 && currentphysgrade == _crank)
                     {
                         currentphysgrade = _brank;
+                        AP_sendLocation(362);
                         currentphychallengerank = 2;
                         currentgradetotal += 3;
                     }
@@ -1696,6 +1725,7 @@ if (con >= 1)
                     if (currentphyspoints >= 22000 && currentphysgrade == _brank)
                     {
                         currentphysgrade = _arank;
+                        AP_sendLocation(363);
                         currentphychallengerank = 3;
                         currentgradetotal += 3;
                     }
@@ -1703,6 +1733,7 @@ if (con >= 1)
                     if (currentphyspoints >= 25000 && currentphysgrade == _arank)
                     {
                         currentphysgrade = _srank;
+                        AP_sendLocation(364);
                         currentphychallengerank = 4;
                         currentgradetotal += 3;
                     }
@@ -1710,6 +1741,7 @@ if (con >= 1)
                     if (currentphyspoints >= 28000 && currentphysgrade == _srank)
                     {
                         currentphysgrade = _trank;
+                        AP_sendLocation(365);
                         currentphychallengerank = 5;
                         currentgradetotal += 3;
                     }
