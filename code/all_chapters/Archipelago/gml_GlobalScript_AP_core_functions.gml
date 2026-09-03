@@ -404,7 +404,7 @@ function AP_fill_progressive_weapon_struct()
         if (global.AP_include_chapters[1] && (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE || global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.BOTH_ROUTES))
             array_push(global.AP_progressive_weapons_ids.noelle, 22); // FreezeRing
 
-        if (global.AP_include_unused_items == 1 && global.AP_include_chapters[4])
+        if (global.AP_include_unused_items == 1 && global.AP_include_chapters[4] && global.AP_route_from_settings != global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE)
             array_push(global.AP_progressive_weapons_ids.noelle, 36); // GildedRose
 
         if (global.AP_include_chapters[1] && (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE || global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.BOTH_ROUTES))
