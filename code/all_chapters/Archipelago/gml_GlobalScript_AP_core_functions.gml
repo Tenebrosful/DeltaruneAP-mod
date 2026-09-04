@@ -26,25 +26,11 @@ function AP_connection_checker()
         if (obj_archipelago_client.AP_isDisconnected())
         {
             obj_archipelago_client.AP_connect();
-            
-            if (!instance_exists(obj_dialoguer) && AP_can_display_textbox())
-            {
-                showing_special_textbox = true;
-                script_execute(scr_writetext, 0, string("\\s0* (Connection failed ({0}). We are gonna try to reconnect after this textbox...)/%", global.AP_connection_errors == undefined ? "unknown" : string(global.AP_connection_errors)), 0, 6);
-            }
-        }
-        else
-        {
-            if (!instance_exists(obj_dialoguer) && AP_can_display_textbox())
-            {
-                script_execute(scr_writetext, 0, string("\\s0* (You are still connecting, please wait...)/%", 0, 6));
-            }
         }
 
-        global.interact = 1;
         trying_to_reconnect = true;
     }
-    else if (trying_to_reconnect && obj_archipelago_client.AP_isAuthenticated() && !instance_exists(obj_dialoguer))
+    else if (trying_to_reconnect)
     {
         trying_to_reconnect = false;
         AP_sendLocation(global.AP_locations_during_disconnect);
