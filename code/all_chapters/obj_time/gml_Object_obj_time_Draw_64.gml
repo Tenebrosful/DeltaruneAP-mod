@@ -23,6 +23,9 @@ if (scr_debug())
 
   if (variable_global_exists("AP_debug_last_shuffled_ost"))
     draw_text(5, 65, "OST Shuffle: " + global.AP_debug_last_shuffled_ost + " -> " + global.AP_debug_last_shuffled_ost_result)
+
+  if (snd_is_playing(global.currentsong[1]))
+    draw_text(5, 75, "Track Pos: " + string(audio_sound_get_track_position(global.currentsong[1])))
 }
 
 if (!global.AP_sync)
