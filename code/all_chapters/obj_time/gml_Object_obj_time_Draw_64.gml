@@ -47,6 +47,57 @@ if (!global.AP_sync)
     {
         draw_text(ww - 10, 0, "IT LOOKS LIKE YOU HAVE BEEN DISCONNECTED.");
         draw_text(ww - 10, 10, "ATTEMPTING TO RECONNECT, PLEASE BE PATIENT...");
+
+        text = ""
+        switch (global.AP_connection_state)
+        {
+            default:
+                text = "> Connecting...";
+                break;
+
+            case global.AP_ENUM_CONNECTION_STATE.ERROR_CREATING_SOCKET:
+                text = "> Connection failed.\nCheck host and port" ;
+                break;
+            case global.AP_ENUM_CONNECTION_STATE.ERROR_CONNECTION_REFUSED:
+                text = string("> Authentification failed.\n({0})", string(global.AP_connection_errors)) ;
+                break;
+            case global.AP_ENUM_CONNECTION_STATE.TRYING_TO_CONNECT:
+                text = "> Trying to connect...";
+                break;
+
+            case global.AP_ENUM_CONNECTION_STATE.AWAITING_ARCHIPELAGO_RESPONSE:
+                text = "> Awaiting Archipelago server response...";
+                break;
+
+            case global.AP_ENUM_CONNECTION_STATE.GOT_ROOMINFO:
+                text = "> Sending authentification data...";
+                break;
+
+            case global.AP_ENUM_CONNECTION_STATE.CONNECTED:
+                text = "> Connected to server!";
+                break;
+            
+            case global.AP_ENUM_CONNECTION_STATE.WAITING_FOR_SCOUTING:
+                text = "> Waiting for scouting data...";
+                break;
+
+            case global.AP_ENUM_CONNECTION_STATE.GOT_SCOUTING:
+                text = string("> Waiting for datapackage\n({0}/{1}) {2}", global.AP_received_datapackage, global.AP_requested_datapackage, global.AP_last_datapackage_requested);
+                break;
+
+            case global.AP_ENUM_CONNECTION_STATE.GOT_DATA_PACKAGE:
+                text = "> Parsing scouting data...";
+                break;
+
+            case global.AP_ENUM_CONNECTION_STATE.READY:
+                if (!global.AP_loaded_unlocked_chapter)
+                {
+                    text = "> Waiting to receive\nunlocked chapters...";
+                }
+                break;
+        }
+
+        draw_text(ww - 10, 20, text);
     }
     draw_set_halign(fa_left);
 

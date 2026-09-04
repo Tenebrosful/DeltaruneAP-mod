@@ -44,46 +44,67 @@ if (decemberskipcon == 11 && !d_ex())
     con = 35;
 }
 
-if (decemberskipcon == 13 && !d_ex())
+if (decemberskipcon == 13)
 {
-    timer++;
-    var fadetime = 24;
-    
-    if (timer == 1)
+    global.interact = 1
+
+    if (!d_ex())
     {
-        snd_play(snd_ghostappear);
-        fadeout = instance_create(camerax(), cameray(), obj_marker);
-        fadeout.depth = -99;
-        fadeout.sprite_index = spr_pxwhite;
-        fadeout.image_xscale = 640;
-        fadeout.image_yscale = 480;
-        fadeout.image_blend = c_white;
-        fadeout.image_alpha = 0;
-        
-        with (fadeout)
+        timer++;
+        var fadetime = 24;
+
+        if (timer == 1)
         {
-            image_alpha = 0;
-            scr_lerpvar("image_alpha", 0, 1, round(fadetime * 0.75), 2, "out");
+            snd_play(snd_ghostappear);
+            fadeout = instance_create(camerax(), cameray(), obj_marker);
+            fadeout.depth = -99;
+            fadeout.sprite_index = spr_pxwhite;
+            fadeout.image_xscale = 640;
+            fadeout.image_yscale = 480;
+            fadeout.image_blend = c_white;
+            fadeout.image_alpha = 0;
+
+            with (fadeout)
+            {
+                image_alpha = 0;
+                scr_lerpvar("image_alpha", 0, 1, round(fadetime * 0.75), 2, "out");
+            }
+        }
+
+        if (timer == (1 + fadetime))
+        {
+            with (instance_create(0, 0, obj_persistentfadein))
+                image_blend = c_white;
+
+            obj_mainchara.x = 6960;
+            obj_mainchara.y = 1560;
+            scr_setparty(0, 0, 1);
+            instance_destroy(fadeout);
+            decemberskipcon = 14;
+            timer = 0;
         }
     }
-    
-    if (timer == (1 + fadetime))
+}
+
+if (decemberskipcon == 14 && !instance_exists(obj_persistentfadein))
+{
+    if (timer >= 30)
     {
-        with (instance_create(0, 0, obj_persistentfadein))
-            image_blend = c_white;
-        
-        obj_mainchara.x = 6960;
-        obj_mainchara.y = 1560;
-        
-        with (obj_caterpillarchara)
-        {
-            x = 6920;
-            y = 1560;
-        }
-        
-        instance_destroy(fadeout);
-        decemberskipcon = 14;
+        scr_speaker("noelle");
+        msgset(0, "\\E8* ..^1.Okay????/%");
+        d_make();
+        decemberskipcon = 15;
     }
+    else
+    {
+        timer += 1;
+    }
+}
+
+if (decemberskipcon == 15 && !d_ex())
+{
+    global.interact = 0;
+    decemberskipcon = 16;
 }
 
 if (con == 0 && obj_mainchara.x > 250)

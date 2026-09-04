@@ -351,14 +351,6 @@ function scr_gamestart()
     
     if (global.chapter >= 2)
     {
-        global.flag[605] = 1;
-        global.flag[606] = 1;
-        global.flag[611] = 1;
-        global.flag[613] = 1;
-        global.flag[614] = 1;
-        global.flag[615] = 1;
-        global.flag[622] = 1;
-        global.flag[623] = 1;
         global.flag[800] = 15;
         global.flag[801] = 5;
         global.flag[802] = 6;
@@ -368,29 +360,10 @@ function scr_gamestart()
     if (global.chapter >= 3)
     {
         global.flag[457] = 1;
-        global.flag[632] = 1;
-        global.flag[633] = 1;
-        global.flag[636] = 1;
-        global.flag[642] = 1;
-    }
-    
-    if (global.chapter >= 4)
-    {
-        global.flag[654] = 1;
-        global.flag[656] = 1;
-        global.flag[657] = 1;
-        global.flag[659] = 1;
-        global.flag[660] = 1;
-        global.flag[661] = 1;
     }
     
     if (global.chapter >= 5)
-    {
-        global.flag[662] = 1;
-        global.flag[663] = 1;
-        global.flag[665] = 1;
-        global.flag[668] = 1;
-        
+    {        
         if (global.flag[1391] == 0)
             global.flag[1391] = 2;
         

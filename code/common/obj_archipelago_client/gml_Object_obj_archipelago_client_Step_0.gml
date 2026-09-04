@@ -1,5 +1,5 @@
 /// IMPORT
-if (global.AP_connection_state == global.AP_ENUM_CONNECTION_STATE.TRYING_TO_CONNECT)
+if (global.AP_connection_state == global.AP_ENUM_CONNECTION_STATE.TRYING_TO_CONNECT || global.AP_connection_state == global.AP_ENUM_CONNECTION_STATE.AWAITING_ARCHIPELAGO_RESPONSE)
 {
     step++;
     

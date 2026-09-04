@@ -68,10 +68,21 @@ function scr_spelltext(arg0, arg1)
             break;
         
         case 11:
-            global.msg[0] = stringsetsubloc("* ~1 cast OKHEAL!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_76_0");
-            
-            if (global.flag[852] == 1)
-                global.msg[0] = stringsetsubloc("* ~1 cast BetterHeal!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_77_0");
+            if (global.chapter == 2)
+            {
+                global.msg[0] = stringsetsubloc("* ~1 cast ULTIMATEHEAL!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_67_0");
+            }
+            else if (global.chapter == 3)
+            {
+                global.msg[0] = stringsetsubloc("* ~1 cast ULTRAHEAL!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_68_0");
+            }
+            else
+            {
+                global.msg[0] = stringsetsubloc("* ~1 cast OKHEAL!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_76_0");
+                
+                if (global.flag[852] == 1)
+                    global.msg[0] = stringsetsubloc("* ~1 cast BetterHeal!/%", global.charname[global.char[caster]], "scr_spelltext_slash_scr_spelltext_gml_77_0");
+            }
             
             break;
 

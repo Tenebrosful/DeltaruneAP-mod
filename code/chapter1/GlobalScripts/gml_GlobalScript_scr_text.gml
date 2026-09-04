@@ -1503,7 +1503,7 @@ function scr_text(arg0)
                 {
                     global.flag[216] = 1;
                     AP_sendLocation(353);
-                    global.msg[1] = string("You found {0}./%", AP_get_location_reward_text(353))
+                    global.msg[1] = string("* (For your donation^1, you recieved {0} for free.)/%", AP_get_location_reward_text(353))
                 }
                 
                 if (afford == 0)

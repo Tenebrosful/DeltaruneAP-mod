@@ -12,6 +12,12 @@ for (i = 0; i < array_length(current_notification) && i < 6; i++)
     toast = current_notification[i];
     top_gap = 5 + (30 * current_line) + (5 * current_line);
     text = toast.GetText();
+
+    if (!obj_archipelago_client.AP_isAuthenticated())
+    {
+        text = "(Disconnected) " + text
+    }
+
     txt_width = string_width(text);
     sprite_w = 25;
     right_gap = 10;
