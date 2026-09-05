@@ -25,4 +25,20 @@ else if (global.AP_connection_state == global.AP_ENUM_CONNECTION_STATE.READY)
         }
         step = 0;
     }
+#if !CHAPTER_SELECT
+
+    if (global.AP_ost_shuffle)
+    {
+        if (mus_get_name() == "rhythm_3rd_sanctuary_guit.ogg" || mus_get_name() == "rhythm_3rd_sanctuary_noguit.ogg")
+        {
+            if (snd_is_playing(global.currentsong[1]))
+            {
+                if (audio_sound_get_track_position(global.currentsong[1]) >= 131)
+                {
+                    audio_sound_set_track_position(global.currentsong[1], 0);
+                }
+            }
+        }
+    }
+#endif
 }

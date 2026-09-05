@@ -15,3 +15,11 @@ function snd_init(arg0)
     global.AP_debug_last_shuffled_ost_result = arg0
   }
 /// END
+
+#if CHAPTER_1
+/// AFTER
+    _astream.mystream = _mystream;
+/// CODE
+    _astream.songname = arg0;
+/// END
+#endif
