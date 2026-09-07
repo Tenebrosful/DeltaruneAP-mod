@@ -157,6 +157,27 @@ function AP_game_start_post_connexion()
     
     if (global.AP_have_starwalker)
         global.flag[254] = 1;
+
+    if (global.AP_simplify_vfx)
+        global.flag[8] = 1;
+    
+    if (global.AP_disable_shakes)
+        global.flag[12] = 1;
+    
+    if (global.AP_auto_run)
+        global.flag[11] = 1;
+    
+    if (global.AP_voice_clips)
+        global.flag[1391] = 1;
+    
+    if (global.AP_feather_controls)
+        global.flag[25] = 1;
+    
+    global.flag[17] = global.AP_master_volume;
+    global.flag[16] = global.AP_music_volume;
+    global.flag[15] = global.AP_sfx_volume;
+    audio_set_master_gain(0, global.flag[17]);
+    audio_group_set_gain(1, global.flag[15], 0);
     
     global.AP_game_start_post_connexion_done = true;
     if (global.AP_remove_starting_equipment)
