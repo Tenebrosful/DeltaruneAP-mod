@@ -1,4 +1,4 @@
-/// IMPORT .ignore if !CHAPTER_4 || !CHAPTER_5
+/// PATCH .ignore if !CHAPTER_4 && !CHAPTER_5
 
 /// AFTER
             if (currentphyspoints >= _rscore[4] && !madesound)

@@ -1,8 +1,13 @@
 /// FUNCTIONS
-
-AP_handle_lightner_live_rank(rank, hard_mode = global.band_difficulty)
+function AP_handle_lightner_live_rank(rank, no_hard_mode = false)
 {
   var base_index = AP_internal_lightner_live_get_base_index_track()
+  hard_mode = global.band_difficulty;
+
+  if (no_hard_mode)
+  {
+    hard_mode = false;
+  }
 
   if (hard_mode)
   {
@@ -15,14 +20,14 @@ AP_handle_lightner_live_rank(rank, hard_mode = global.band_difficulty)
   for (var i = 0; i <= rank; i++)
   {
     if (i == 0 && i != rank) continue;
-    
+
     array_push(locations, base_index + i)
   }
 
-  AP_sendLocations(locations)
+  AP_sendLocation(locations)
 }
 
-AP_internal_lightner_live_get_base_index_track()
+function AP_internal_lightner_live_get_base_index_track()
 {
   switch(global.band_song)
   {
