@@ -13,7 +13,7 @@ UndertaleModLib.Compiler.CodeImportGroup importGroup = new(Data);
 class ArchipelagoLoader : UMPLoader
 {
 
-    public readonly string minimal_apworld_version = "v2.2.0";
+    public readonly string minimal_apworld_version = "v2.2.1";
 
     public readonly string mod_version = "1";
 
