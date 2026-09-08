@@ -80,7 +80,7 @@ function AP_set_recruits_flags_all_recruits_route()
       global.flag[630] = 1;
       global.flag[631] = 1;
       global.flag[632] = 1;
-      global.flag[643] = 1;
+      global.flag[633] = 1;
       global.flag[634] = 1;
       global.flag[635] = 1;
       global.flag[636] = 1;
@@ -97,6 +97,8 @@ function AP_set_recruits_flags_all_recruits_route()
       global.flag[657] = 1;
       global.flag[658] = 1;
       global.flag[659] = 1;
+      global.flag[660] = 1;
+      global.flag[661] = 1;
   }
   
   if (global.chapter >= 5)
@@ -134,6 +136,8 @@ function AP_set_recruits_flags_normal_route()
       global.flag[657] = 1;
       global.flag[658] = 1;
       global.flag[659] = 1;
+      global.flag[660] = 1;
+      global.flag[661] = 1;
   }
 }
 

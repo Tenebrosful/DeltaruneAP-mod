@@ -101,7 +101,7 @@ function AP_connect(isSecure = true)
     else
         global.AP_socket = network_create_socket(ws);
 
-    isConnected = network_connect_raw(global.AP_socket, global.AP_server, global.AP_port);
+    isConnected = network_connect_raw_async(global.AP_socket, global.AP_server, global.AP_port);
 
     if (isConnected < 0)
     {
@@ -173,11 +173,15 @@ function AP_sendLocation(ids)
             for (var i = 0; i < array_length(ids); i++)
             {
                 array_push(global.AP_locations_during_disconnect, ids[i]);
+                location_data = AP_get_location_reward_data(ids[i]);
+                array_push(obj_archipelago_toast_notificator.current_notification, new AP_toast_notification(location_data.itemName, AP_item_flag_to_color(location_data.flags), location_data.playerName, true));
             }
         }
         else
         {
             array_push(global.AP_locations_during_disconnect, ids);
+            location_data = AP_get_location_reward_data(ids);
+            array_push(obj_archipelago_toast_notificator.current_notification, new AP_toast_notification(location_data.itemName, AP_item_flag_to_color(location_data.flags), location_data.playerName, true));
         }
     }
 

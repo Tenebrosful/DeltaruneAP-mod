@@ -26,25 +26,11 @@ function AP_connection_checker()
         if (obj_archipelago_client.AP_isDisconnected())
         {
             obj_archipelago_client.AP_connect();
-            
-            if (!instance_exists(obj_dialoguer) && AP_can_display_textbox())
-            {
-                showing_special_textbox = true;
-                script_execute(scr_writetext, 0, string("\\s0* (Connection failed ({0}). We are gonna try to reconnect after this textbox...)/%", global.AP_connection_errors == undefined ? "unknown" : string(global.AP_connection_errors)), 0, 6);
-            }
-        }
-        else
-        {
-            if (!instance_exists(obj_dialoguer) && AP_can_display_textbox())
-            {
-                script_execute(scr_writetext, 0, string("\\s0* (You are still connecting, please wait...)/%", 0, 6));
-            }
         }
 
-        global.interact = 1;
         trying_to_reconnect = true;
     }
-    else if (trying_to_reconnect && obj_archipelago_client.AP_isAuthenticated() && !instance_exists(obj_dialoguer))
+    else if (trying_to_reconnect)
     {
         trying_to_reconnect = false;
         AP_sendLocation(global.AP_locations_during_disconnect);
@@ -404,7 +390,7 @@ function AP_fill_progressive_weapon_struct()
         if (global.AP_include_chapters[1] && (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE || global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.BOTH_ROUTES))
             array_push(global.AP_progressive_weapons_ids.noelle, 22); // FreezeRing
 
-        if (global.AP_include_unused_items == 1 && global.AP_include_chapters[4])
+        if (global.AP_include_unused_items == 1 && global.AP_include_chapters[4] && global.AP_route_from_settings != global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE)
             array_push(global.AP_progressive_weapons_ids.noelle, 36); // GildedRose
 
         if (global.AP_include_chapters[1] && (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE || global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.BOTH_ROUTES))
