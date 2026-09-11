@@ -105,12 +105,7 @@ if (button1_p())
 
 if (edit)
 {
-    if (keyboard_check_pressed(vk_shift))
-    {
-        edit = !edit;
-        audio_play_sound(snd_swing, 1, false);
-    }
-    else if (button2_p() && !keyboard_check_pressed(ord("X")))
+    if (button2_p() && !keyboard_check_pressed(ord("X")) && !keyboard_check_pressed(vk_shift))
     {
         edit = !edit;
         audio_play_sound(snd_swing, 1, false);

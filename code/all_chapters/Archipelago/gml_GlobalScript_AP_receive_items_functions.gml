@@ -117,7 +117,7 @@ function AP_receive_trap(item_id)
   switch(item_id)
   {
     case 32: // S.POISON
-      if (global.interact == 2)
+      if (instance_exists(obj_battlecontroller))
       {
           scr_spell(232, 0)
       }
