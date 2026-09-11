@@ -162,27 +162,10 @@ if (ds_map_exists(async_load, "buffer"))
                     if (variable_struct_exists(data[i].slot_data.options, "include_unused_items"))
                         global.AP_include_unused_items = data[i].slot_data.options.include_unused_items;
                     
-                    if (variable_struct_exists(data[i].slot_data.options, "master_volume"))
-                        global.AP_master_volume = data[i].slot_data.options.master_volume / 100;
-                    if (variable_struct_exists(data[i].slot_data.options, "music_volume"))
-                        global.AP_music_volume = data[i].slot_data.options.music_volume / 100;
-                    if (variable_struct_exists(data[i].slot_data.options, "sfx_volume"))
-                        global.AP_sfx_volume = data[i].slot_data.options.sfx_volume / 100;
-                    if (variable_struct_exists(data[i].slot_data.options, "simplify_vfx"))
-                        global.AP_simplify_vfx = data[i].slot_data.options.simplify_vfx;
-                    if (variable_struct_exists(data[i].slot_data.options, "disable_shakes"))
-                        global.AP_disable_shakes = data[i].slot_data.options.disable_shakes;
-                    if (variable_struct_exists(data[i].slot_data.options, "auto_run"))
-                        global.AP_auto_run = data[i].slot_data.options.auto_run;
-                    if (variable_struct_exists(data[i].slot_data.options, "voice_clips"))
-                        global.AP_voice_clips = data[i].slot_data.options.voice_clips + 1;
-                    if (variable_struct_exists(data[i].slot_data.options, "feather_controls"))
-                        global.AP_feather_controls = data[i].slot_data.options.feather_controls;
-                    
                     AP_handle_old_saves();
-
+                    
                     var path_settings = AP_get_save_folder_prefix()  + "settings.json"
-
+                    
                     if (file_exists(path_settings))
                     {
                         var file = file_text_open_read(path_settings);
@@ -196,6 +179,7 @@ if (ds_map_exists(async_load, "buffer"))
                     }
 
                     AP_write_settings_file();
+                    AP_read_settings_override_file();
                     
                     var path_scouting = AP_get_save_folder_prefix() + "scouting.json"
 
