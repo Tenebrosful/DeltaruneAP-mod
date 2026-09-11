@@ -161,11 +161,11 @@ if (ds_map_exists(async_load, "buffer"))
 
                     if (variable_struct_exists(data[i].slot_data.options, "include_unused_items"))
                         global.AP_include_unused_items = data[i].slot_data.options.include_unused_items;
-
+                    
                     AP_handle_old_saves();
-
+                    
                     var path_settings = AP_get_save_folder_prefix()  + "settings.json"
-
+                    
                     if (file_exists(path_settings))
                     {
                         var file = file_text_open_read(path_settings);
@@ -179,6 +179,7 @@ if (ds_map_exists(async_load, "buffer"))
                     }
 
                     AP_write_settings_file();
+                    AP_read_settings_override_file();
                     
                     var path_scouting = AP_get_save_folder_prefix() + "scouting.json"
 

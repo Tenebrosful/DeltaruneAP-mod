@@ -331,8 +331,7 @@ function scr_load()
     ossafe_file_text_close(myfileid);
     global.lastsavedtime = global.time;
     global.lastsavedlv = global.lv;
-    audio_group_set_gain(1, global.flag[15], 0);
-    audio_set_master_gain(0, global.flag[17]);
+    AP_load_config();
     
     if (global.plot >= 156)
     {
