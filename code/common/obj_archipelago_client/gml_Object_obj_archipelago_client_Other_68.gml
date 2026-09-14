@@ -385,7 +385,7 @@ if (ds_map_exists(async_load, "buffer"))
                         {
                             global.AP_last_datapackage_requested = global.AP_resquest_list[global.AP_received_datapackage]
                             AP_getDataPackage([global.AP_resquest_list[global.AP_received_datapackage]]);
-                            exit;
+                            continue;
                         }
 
                         global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.GOT_DATA_PACKAGE;
