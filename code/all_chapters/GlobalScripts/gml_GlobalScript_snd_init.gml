@@ -1,11 +1,12 @@
 /// PATCH
 
-/// AFTER
+/// REPLACE
 function snd_init(arg0)
 {
 /// CODE
-
-  if (global.AP_ost_shuffle)
+function snd_init(arg0, arg1 = true)
+{
+  if (global.AP_ost_shuffle && arg1)
   {
     global.AP_debug_last_shuffled_ost = arg0
     if (variable_struct_exists(global.AP_ost_mapping, arg0))
