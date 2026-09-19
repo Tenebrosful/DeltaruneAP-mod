@@ -884,8 +884,9 @@ function scr_armorinfo(arg0)
             break;
         
         case 36:
+            yellowfactor = round(AP_handle_balancing(0.2, 5, false) * 100)
             armornametemp = stringsetloc("YellowHat", "scr_armorinfo_slash_scr_armorinfo_gml_855_0");
-            armordesctemp = stringsetloc("The hat of a just cowboy. Makes spells#20% more effective.", "scr_armorinfo_slash_scr_armorinfo_gml_856_0");
+            armordesctemp = stringsetloc(string("The hat of a just cowboy. Makes spells#{0}% more effective.", yellowfactor), "scr_armorinfo_slash_scr_armorinfo_gml_856_0");
             amessage2temp = stringsetloc("Get in Horse Mode, Ralsei.", "scr_armorinfo_slash_scr_armorinfo_gml_857_0");
             amessage3temp = stringsetloc("Can Susie be the horse?", "scr_armorinfo_slash_scr_armorinfo_gml_858_0");
             amessage4temp = stringsetloc("(At least I'm not the horse)", "scr_armorinfo_slash_scr_armorinfo_gml_859_0");
@@ -899,7 +900,7 @@ function scr_armorinfo(arg0)
             armorchar2temp = 1;
             armorchar3temp = 1;
             armorchar4temp = 1;
-            armorabilitytemp = stringsetloc("Skill20%", "scr_armorinfo_slash_scr_armorinfo_gml_871_0");
+            armorabilitytemp = stringsetloc(string("Skill{0}%", yellowfactor), "scr_armorinfo_slash_scr_armorinfo_gml_871_0");
             armorabilityicontemp = 7;
             armoricontemp = 25;
             value = 2;
