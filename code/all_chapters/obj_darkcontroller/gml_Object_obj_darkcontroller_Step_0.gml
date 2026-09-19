@@ -1388,12 +1388,18 @@
                 if (global.submenucoord[30] == 4)
                 {
                     global.flag[8] = !global.flag[8]
+                    ini_open("true_config.ini");
+                    ini_write_real("VISUAL", "SIMPLIFY_VFX", global.flag[8]);
+                    ini_close();
                 }
 
                 // Disable Shakes
                 if (global.submenucoord[30] == 5)
                 {
                     global.flag[12] = !global.flag[12]
+                    ini_open("true_config.ini");
+                    ini_write_real("VISUAL", "DISABLE_SHAKES", global.flag[12]);
+                    ini_close();
                 }
 
                 // Fullscreen
@@ -1407,6 +1413,9 @@
                 if (global.submenucoord[30] == 7)
                 {
                     global.flag[11] = !global.flag[11]
+                    ini_open("true_config.ini");
+                    ini_write_real("CONTROL", "AUTO_RUN", global.flag[11]);
+                    ini_close();
                 }
 
                 if (global.chapter == 5)
@@ -1418,12 +1427,19 @@
                             global.flag[1391] = 2;
                         else
                             global.flag[1391] = 1;
+                        
+                        ini_open("true_config.ini");
+                        ini_write_real("AUDIO", "VOICE_CLIPS", global.flag[1391]);
+                        ini_close();
                     }
 
                     // Feather
                     if (global.submenucoord[30] == 9)
                     {
                         global.flag[25] = !global.flag[25]
+                        ini_open("true_config.ini");
+                        ini_write_real("CONTROL", "FEATHER", global.flag[25]);
+                        ini_close();
                     }
 
                 }
@@ -1432,6 +1448,9 @@
                 if (global.submenucoord[30] == 10)
                 {
                     global.AP_deathlink = !global.AP_deathlink;
+                    ini_open(AP_get_save_folder_prefix() + "settings_override.ini");
+                    ini_write_real("ARCHIPELAGO", "DEATH_LINK", global.AP_deathlink);
+                    ini_close();
                     obj_archipelago_client.AP_updateTags();
                 }
 
@@ -1439,6 +1458,9 @@
                 if (global.submenucoord[30] == 11)
                 {
                     global.AP_damagelink = !global.AP_damagelink;
+                    ini_open(AP_get_save_folder_prefix() + "settings_override.ini");
+                    ini_write_real("ARCHIPELAGO", "DAMAGE_LINK", global.AP_damagelink);
+                    ini_close();
                     obj_archipelago_client.AP_updateTags();
                 }
 
@@ -1446,12 +1468,18 @@
                 if (global.submenucoord[30] == 12)
                 {
                     global.AP_balancing = !global.AP_balancing;
+                    ini_open(AP_get_save_folder_prefix() + "settings_override.ini");
+                    ini_write_real("ARCHIPELAGO", "ITEM_BALANCING", global.AP_balancing);
+                    ini_close();
                 }
 
                 // OST Shuffle
                 if (global.submenucoord[30] == 13)
                 {
                     global.AP_ost_shuffle = !global.AP_ost_shuffle;
+                    ini_open(AP_get_save_folder_prefix() + "settings_override.ini");
+                    ini_write_real("ARCHIPELAGO", "OST_SHUFFLE", global.AP_ost_shuffle);
+                    ini_close();
                 }
 
                 if (global.chapter == 5)
@@ -1558,12 +1586,19 @@
                 audio_group_set_gain(1, global.flag[15], 0);
                 snd_play(snd_noise);
                 sndbuffer = 2;
+                ini_open("true_config.ini");
+                ini_write_real("AUDIO", "SOUND_VOLUME", global.flag[15]);
+                ini_close();
             }
             
             if (muschange == 1)
             {
                 if (snd_is_playing(global.currentsong[1]))
                     mus_volume(global.currentsong[1], getmusvol * global.flag[16], 0);
+                
+                ini_open("true_config.ini");
+                ini_write_real("AUDIO", "MUSIC_VOLUME", global.flag[16]);
+                ini_close();
             }
             
             if (audchange == 1 && sndbuffer < 0)
@@ -1571,6 +1606,9 @@
                 snd_play(snd_noise);
                 sndbuffer = 2;
                 audio_set_master_gain(0, global.flag[17]);
+                ini_open("true_config.ini");
+                ini_write_real("AUDIO", "MASTER_VOLUME", global.flag[17]);
+                ini_close();
             }
             
             if (button1_p() && onebuffer < 0)
