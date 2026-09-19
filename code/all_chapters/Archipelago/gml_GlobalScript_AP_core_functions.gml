@@ -121,6 +121,25 @@ function AP_load()
     AP_sync_item_from_server();
 }
 
+function AP_load_config();
+{
+    ini_open("true_config.ini");
+    global.flag[17] = ini_read_real("AUDIO", "MASTER_VOLUME", 0.6);
+    global.flag[16] = ini_read_real("AUDIO", "MUSIC_VOLUME", 0.85);
+    global.flag[15] = ini_read_real("AUDIO", "SOUND_VOLUME", 1);
+    if (global.chapter == 5)
+    {
+        global.flag[1391] = ini_read_real("AUDIO", "VOICE_CLIPS", 2);
+        global.flag[25] = ini_read_real("CONTROL", "FEATHER", 0);
+    }
+    global.flag[11] = ini_read_real("CONTROL", "AUTO_RUN", 0);
+    global.flag[8] = ini_read_real("VISUAL", "SIMPLIFY_VFX", 0);
+    global.flag[12] = ini_read_real("VISUAL", "DISABLE_SHAKES", 0);
+    ini_close();
+    audio_group_set_gain(1, global.flag[15], 0);
+    audio_set_master_gain(0, global.flag[17]);
+}
+
 function AP_game_start()
 {
   if (!instance_exists(obj_archipelago_client))
@@ -149,9 +168,9 @@ function AP_game_start_post_connexion()
 {
     // Prevent to execute if reconnected during the game
     if (global.AP_game_start_post_connexion_done) return;
-
+    
     AP_fill_progressive_weapon_struct();
-
+    
     if (global.AP_unlock_fun_gang_actions)
         global.flag[34] = true;
     

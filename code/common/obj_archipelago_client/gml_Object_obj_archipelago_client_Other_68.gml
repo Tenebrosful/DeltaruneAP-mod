@@ -51,6 +51,13 @@ if (ds_map_exists(async_load, "buffer"))
                     AP_sendConnectionInfo();
                     break;
                 case "Connected":
+                    for (var ii = 0; ii < array_length(data[i].players); ii++)
+                    {
+                        var slot_info = variable_struct_get(data[i].slot_info, ii + 1);
+                        var player = data[i].players[ii];
+                        global.AP_player_names[ii + 1] = player.name;
+                        global.AP_slotinfo[ii + 1] = slot_info.game;
+                    }
 
                     global.AP_slot = data[i].slot;
                     global.AP_team = data[i].team;
@@ -81,13 +88,6 @@ if (ds_map_exists(async_load, "buffer"))
                         global.AP_loaded_unlocked_chapter = true;
                     }
 
-                    for (var ii = 0; ii < array_length(data[i].players); ii++)
-                    {
-                        var slot_info = variable_struct_get(data[i].slot_info, ii + 1);
-                        var player = data[i].players[ii];
-                        global.AP_player_names[ii + 1] = player.name;
-                        global.AP_slotinfo[ii + 1] = slot_info.game;
-                    }
 
 
                     global.AP_slot = data[i].slot;
@@ -161,11 +161,11 @@ if (ds_map_exists(async_load, "buffer"))
 
                     if (variable_struct_exists(data[i].slot_data.options, "include_unused_items"))
                         global.AP_include_unused_items = data[i].slot_data.options.include_unused_items;
-
+                    
                     AP_handle_old_saves();
-
+                    
                     var path_settings = AP_get_save_folder_prefix()  + "settings.json"
-
+                    
                     if (file_exists(path_settings))
                     {
                         var file = file_text_open_read(path_settings);
@@ -179,6 +179,7 @@ if (ds_map_exists(async_load, "buffer"))
                     }
 
                     AP_write_settings_file();
+                    AP_read_settings_override_file();
                     
                     var path_scouting = AP_get_save_folder_prefix() + "scouting.json"
 
@@ -385,7 +386,7 @@ if (ds_map_exists(async_load, "buffer"))
                         {
                             global.AP_last_datapackage_requested = global.AP_resquest_list[global.AP_received_datapackage]
                             AP_getDataPackage([global.AP_resquest_list[global.AP_received_datapackage]]);
-                            exit;
+                            continue;
                         }
 
                         global.AP_connection_state = global.AP_ENUM_CONNECTION_STATE.GOT_DATA_PACKAGE;

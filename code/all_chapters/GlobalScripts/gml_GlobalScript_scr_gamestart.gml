@@ -378,7 +378,7 @@ function scr_gamestart()
     scr_spellinfo_all();
     scr_weaponinfo_mine();
     scr_armorinfo_mine();
-    audio_set_master_gain(0, global.flag[17]);
+    AP_load_config();
     global.cinstance[0] = 4854845464869464;
     global.cinstance[1] = 48548454648694644;
     global.cinstance[2] = 48548454648694649;
