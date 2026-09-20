@@ -103,7 +103,7 @@ function scr_fusion_queue(arg0)
         scr_iteminfo(fusionIngredient1[fusioncount]);
         fusionIngredientName1[fusioncount] = itemnameb;
         
-        if (scr_itemcheck(fusionIngredient1[fusioncount]))
+        if (scr_itemcheck_inventory_and_pocket(fusionIngredient1[fusioncount]))
             fusionHaveIngredient1[fusioncount] = 1;
     }
     
@@ -112,7 +112,7 @@ function scr_fusion_queue(arg0)
         scr_weaponinfo(fusionIngredient1[fusioncount]);
         fusionIngredientName1[fusioncount] = weaponnametemp;
         
-        if (scr_weaponcheck_inventory(fusionIngredient1[fusioncount]))
+        if (scr_weaponcheck_inventory_and_equiped_party(fusionIngredient1[fusioncount]))
             fusionHaveIngredient1[fusioncount] = 1;
     }
     
@@ -121,7 +121,7 @@ function scr_fusion_queue(arg0)
         scr_armorinfo(fusionIngredient1[fusioncount]);
         fusionIngredientName1[fusioncount] = armornametemp;
         
-        if (scr_armorcheck_inventory(fusionIngredient1[fusioncount]))
+        if (scr_armorcheck_inventory_and_equiped_party(fusionIngredient1[fusioncount]))
             fusionHaveIngredient1[fusioncount] = 1;
     }
     
@@ -147,7 +147,7 @@ function scr_fusion_queue(arg0)
         scr_iteminfo(fusionIngredient2[fusioncount]);
         fusionIngredientName2[fusioncount] = itemnameb;
         
-        if (scr_itemcheck(fusionIngredient2[fusioncount]))
+        if (scr_itemcheck_inventory_and_pocket(fusionIngredient2[fusioncount]))
         {
             if (identicalcheck == 0 || (identicalcheck == 1 && itemcount >= 2))
                 fusionHaveIngredient2[fusioncount] = 1;
@@ -159,7 +159,7 @@ function scr_fusion_queue(arg0)
         scr_weaponinfo(fusionIngredient2[fusioncount]);
         fusionIngredientName2[fusioncount] = weaponnametemp;
         
-        if (scr_weaponcheck_inventory(fusionIngredient2[fusioncount]))
+        if (scr_weaponcheck_inventory_and_equiped_party(fusionIngredient2[fusioncount]))
         {
             if (identicalcheck == 0 || (identicalcheck == 1 && itemcount >= 2))
                 fusionHaveIngredient2[fusioncount] = 1;
@@ -171,7 +171,7 @@ function scr_fusion_queue(arg0)
         scr_armorinfo(fusionIngredient2[fusioncount]);
         fusionIngredientName2[fusioncount] = armornametemp;
         
-        if (scr_armorcheck_inventory(fusionIngredient2[fusioncount]))
+        if (scr_armorcheck_inventory_and_equiped_party(fusionIngredient2[fusioncount]))
         {
             if (identicalcheck == 0 || (identicalcheck == 1 && itemcount >= 2))
                 fusionHaveIngredient2[fusioncount] = 1;
