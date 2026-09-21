@@ -15,6 +15,8 @@
         if (global.flag[654] > 1)
         {
             global.flag[654] = 1;
-            AP_sendLocation(164);
         }
+
+        if (global.flag[654] == 1)
+            AP_sendLocation(164);
 /// END

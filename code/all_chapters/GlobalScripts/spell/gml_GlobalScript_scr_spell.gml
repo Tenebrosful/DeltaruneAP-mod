@@ -7,7 +7,7 @@ function scr_spell(arg0, arg1)
     global.spelldelay = 10;
     var item_use = false;
 
-    yellow_hat_amplifier = AP_handle_balancing(1.2, 5, false);
+    yellow_hat_amplifier = AP_handle_balancing(0.2, 5, false) + 1;
     
     if (global.chapter == 4 && i_ex(obj_hammer_of_justice_enemy) && spell != 4 && spell != 5 && spell != 11 && spell != 100)
     {

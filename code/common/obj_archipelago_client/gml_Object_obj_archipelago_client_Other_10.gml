@@ -86,6 +86,16 @@ function AP_read_settings_file()
     return ap_settings_struct;
 }
 
+function AP_read_settings_override_file()
+{
+    ini_open(AP_get_save_folder_prefix() + "settings_override.ini");
+    global.AP_deathlink = ini_read_real("ARCHIPELAGO", "DEATH_LINK", global.AP_deathlink);
+    global.AP_damagelink = ini_read_real("ARCHIPELAGO", "DAMAGE_LINK", global.AP_damagelink);
+    global.AP_balancing = ini_read_real("ARCHIPELAGO", "ITEM_BALANCING", global.AP_balancing);
+    global.AP_ost_shuffle = ini_read_real("ARCHIPELAGO", "OST_SHUFFLE", global.AP_ost_shuffle);
+    ini_close();
+}
+
 function AP_connect(isSecure = true)
 {
     AP_disconnect();
