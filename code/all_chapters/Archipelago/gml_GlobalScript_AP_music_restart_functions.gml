@@ -1,128 +1,83 @@
 /// FUNCTIONS
 
-function AP_restart_music(song)
+function AP_ost_shuffle_toggle()
 {
+    var currentsong = mus_get_name(global.currentsong[0]);
+    var vol = audio_sound_get_gain(global.currentsong[1]) * global.flag[16];
+    var pitch = audio_sound_get_pitch(global.currentsong[1]);
+    
+    if (global.AP_ost_shuffle)
+    {
+        var names = variable_struct_get_names(global.AP_ost_mapping);
+        
+        for (i = 0; i < array_length(names); i++)
+        {
+            if (names[i] == currentsong)
+            {
+                currentsong == names[i];
+                break;
+            }
+        }
+    }
+    
+    global.AP_ost_shuffle = !global.AP_ost_shuffle;
+    ini_open(AP_get_save_folder_prefix() + "settings_override.ini");
+    ini_write_real("ARCHIPELAGO", "OST_SHUFFLE", global.AP_ost_shuffle);
+    ini_close();
     snd_free_all();
 
     if (i_ex(obj_musicer_town))
-        AP_restart_musicer(obj_musicer_town);
+    {
+        instance_destroy(obj_musicer_town);
+        instance_create(0, 0, obj_musicer_town);
+        exit;
+    }
     
     if (i_ex(obj_musicer_field))
-        AP_restart_musicer(obj_musicer_field);
+    {
+        instance_destroy(obj_musicer_field);
+        instance_create(0, 0, obj_musicer_field);
+        exit;
+    }
     
     if (i_ex(obj_musicer_bird))
-        AP_restart_musicer(obj_musicer_bird);
+    {
+        instance_destroy(obj_musicer_bird);
+        instance_create(0, 0, obj_musicer_bird);
+        exit;
+    }
     
     if (i_ex(obj_musicer_darkcastle))
-        AP_restart_musicer(obj_musicer_darkcastle);
+    {
+        instance_destroy(obj_musicer_darkcastle);
+        instance_create(0, 0, obj_musicer_darkcastle);
+        exit;
+    }
     
 #if !CHAPTER_1
     if (i_ex(obj_musicer_conbini))
-        AP_restart_musicer(obj_musicer_conbini);
+    {
+        instance_destroy(obj_musicer_conbini);
+        instance_create(0, 0, obj_musicer_conbini);
+        exit;
+    }
     
     if (i_ex(obj_musicer_room))
-        AP_restart_musicer(obj_musicer_room);
+    {
+        instance_destroy(obj_musicer_room);
+        instance_create(0, 0, obj_musicer_room);
+        exit;
+    }
     
 #endif
 #if !CHAPTER_1 && !CHAPTER_2
     if (i_ex(obj_musicer_gen))
-        AP_restart_musicer(obj_musicer_gen);
-    
-#endif
-#if CHAPTER_1
-    if (i_ex(obj_musicer_darkcliff))
-        AP_restart_musicer(obj_musicer_darkcliff);
-    
-    if (i_ex(obj_musicer_forest))
-        AP_restart_musicer(obj_musicer_forest);
-    
-    if (i_ex(obj_musicer_quietforest))
-        AP_restart_musicer(obj_musicer_quietforest);
-    
-    if (room == room_man)
     {
-        global.currentsong[0] = snd_init("man.ogg");
-        global.currentsong[1] = mus_loop_ext(global.currentsong[0], 1, 1);
-    }
-#elsif CHAPTER_2
-    if (i_ex(obj_musicer_cyber))
-        AP_restart_musicer(obj_musicer_cyber);
-    
-    if (i_ex(obj_musicer_mansion))
-        AP_restart_musicer(obj_musicer_mansion);
-    
-    if (i_ex(obj_musicer_mansion_entrance))
-        AP_restart_musicer(obj_musicer_mansion_entrance);
-    
-    if (i_ex(obj_musicer_mansion_basement))
-        AP_restart_musicer(obj_musicer_mansion_basement);
-    
-    if (i_ex(obj_musicer_mansion_top))
-        AP_restart_musicer(obj_musicer_mansion_top);
-    
-    if (i_ex(obj_musicer_city))
-        AP_restart_musicer(obj_musicer_city);
-#elsif CHAPTER_3
-    if (i_ex(obj_musicer_changing_room))
-        AP_restart_musicer(obj_musicer_changing_room);
-    
-    if (i_ex(obj_musicer_green_room))
-        AP_restart_musicer(obj_musicer_green_room);
-    
-    if (i_ex(obj_musicer_teevie))
-        AP_restart_musicer(obj_musicer_teevie);
-    
-    if (i_ex(obj_musicer_b3bs))
-        AP_restart_musicer(obj_musicer_b3bs);
-#elsif CHAPTER_4
-    if (i_ex(obj_musicer_dw_titan_climb))
-        AP_restart_musicer(obj_musicer_dw_titan_climb);
-    
-    if (i_ex(obj_musicer_noellehouse))
-        AP_restart_musicer(obj_musicer_noellehouse);
-    
-    if (i_ex(obj_musicer_dw_church3))
-        AP_restart_musicer(obj_musicer_dw_church3);
-    
-    if (i_ex(obj_musicer_dw_church2))
-        AP_restart_musicer(obj_musicer_dw_church2);
-    
-    if (i_ex(obj_musicer_torhouse))
-        AP_restart_musicer(obj_musicer_torhouse);
-    
-    if (i_ex(obj_musicer_dw_church))
-        AP_restart_musicer(obj_musicer_dw_church);
-    
-    if (i_ex(obj_musicer_dw_gerson_study))
-        AP_restart_musicer(obj_musicer_dw_gerson_study);
-    
-    if (i_ex(obj_musicer_castletown_queen))
-        AP_restart_musicer(obj_musicer_castletown_queen);
-    
-    if (i_ex(obj_musicer_castletown_cafe))
-        AP_restart_musicer(obj_musicer_castletown_cafe);
-#elsif CHAPTER_5
-    if (i_ex(obj_musicer_garden))
-        AP_restart_musicer(obj_musicer_garden);
-    
-    if (i_ex(obj_musicer_bird_new))
-        AP_restart_musicer(obj_musicer_bird_new);
-#endif
-}
-
-function AP_restart_musicer(musicer)
-{
-#if CHAPTER_1 || CHAPTER_2
-    instance_destroy(musicer);
-    instance_create(0, 0, musicer);
-#else
-    if (musicer == obj_musicer_gen)
-    {
-        var song = 0;
-        var plot = 0;
-        var highplot = 0;
-        var volume = 0;
-        var pitch = 0;
+        var song = [];
+        var plot = [];
+        var highplot = [];
+        var volume = [];
+        var pitch = [];
         
         var id_list = [];
         
@@ -137,31 +92,200 @@ function AP_restart_musicer(musicer)
             {
                 if (id == other.id_list[i])
                 {
-                    other.song = song;
-                    other.plot = plot;
-                    other.highplot = highplot;
-                    other.volume = volume;
-                    other.pitch = pitch;
+                    other.song[i] = song;
+                    other.plot[i] = plot;
+                    other.highplot[i] = highplot;
+                    other.volume[i] = volume;
+                    other.pitch[i] = pitch;
                     instance_destroy();
+
+                    var gen = instance_create(0, 0, obj_musicer_gen);
+            
+                    with (gen)
+                    {
+                        song = other.song[i];
+                        plot = other.plot[i];
+                        highplot = other.highplot[i];
+                        volume = other.volume[i];
+                        pitch = other.pitch[i];
+                    }
                 }
             }
-            
-            var gen = instance_create(0, 0, obj_musicer_gen);
-            
-            with (gen)
-            {
-                song = other.song;
-                plot = other.plot;
-                highplot = other.highplot;
-                volume = other.volume;
-                pitch = other.pitch;
-            }
         }
+        exit;
     }
-    else
+    
+#endif
+#if CHAPTER_1
+    if (i_ex(obj_musicer_darkcliff))
     {
-        instance_destroy(musicer);
-        instance_create(0, 0, musicer);
+        instance_destroy(obj_musicer_darkcliff);
+        instance_create(0, 0, obj_musicer_darkcliff);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_forest))
+    {
+        instance_destroy(obj_musicer_forest);
+        instance_create(0, 0, obj_musicer_forest);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_quietforest))
+    {
+        instance_destroy(obj_musicer_quietforest);
+        instance_create(0, 0, obj_musicer_quietforest);
+        exit;
+    }
+#elsif CHAPTER_2
+    if (i_ex(obj_musicer_cyber))
+    {
+        instance_destroy(obj_musicer_cyber);
+        instance_create(0, 0, obj_musicer_cyber);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_mansion))
+    {
+        instance_destroy(obj_musicer_mansion);
+        instance_create(0, 0, obj_musicer_mansion);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_mansion_entrance))
+    {
+        instance_destroy(obj_musicer_mansion_entrance);
+        instance_create(0, 0, obj_musicer_mansion_entrance);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_mansion_basement))
+    {
+        instance_destroy(obj_musicer_mansion_basement);
+        instance_create(0, 0, obj_musicer_mansion_basement);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_mansion_top))
+    {
+        instance_destroy(obj_musicer_mansion_top);
+        instance_create(0, 0, obj_musicer_mansion_top);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_city))
+    {
+        instance_destroy(obj_musicer_city);
+        instance_create(0, 0, obj_musicer_city);
+        exit;
+    }
+#elsif CHAPTER_3
+    if (i_ex(obj_musicer_changing_room))
+    {
+        instance_destroy(obj_musicer_changing_room);
+        instance_create(0, 0, obj_musicer_changing_room);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_green_room))
+    {
+        instance_destroy(obj_musicer_green_room);
+        instance_create(0, 0, obj_musicer_green_room);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_teevie))
+    {
+        instance_destroy(obj_musicer_teevie);
+        instance_create(0, 0, obj_musicer_teevie);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_b3bs))
+    {
+        instance_destroy(obj_musicer_b3bs);
+        instance_create(0, 0, obj_musicer_b3bs);
+        exit;
+    }
+#elsif CHAPTER_4
+    if (i_ex(obj_musicer_dw_titan_climb))
+    {
+        instance_destroy(obj_musicer_dw_titan_climb);
+        instance_create(0, 0, obj_musicer_dw_titan_climb);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_noellehouse))
+    {
+        instance_destroy(obj_musicer_noellehouse);
+        instance_create(0, 0, obj_musicer_noellehouse);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_dw_church3))
+    {
+        instance_destroy(obj_musicer_dw_church3);
+        instance_create(0, 0, obj_musicer_dw_church3);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_dw_church2))
+    {
+        instance_destroy(obj_musicer_dw_church2);
+        instance_create(0, 0, obj_musicer_dw_church2);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_torhouse))
+    {
+        instance_destroy(obj_musicer_torhouse);
+        instance_create(0, 0, obj_musicer_torhouse);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_dw_church))
+    {
+        instance_destroy(obj_musicer_dw_church);
+        instance_create(0, 0, obj_musicer_dw_church);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_dw_gerson_study))
+    {
+        instance_destroy(obj_musicer_dw_gerson_study);
+        instance_create(0, 0, obj_musicer_dw_gerson_study);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_castletown_queen))
+    {
+        instance_destroy(obj_musicer_castletown_queen);
+        instance_create(0, 0, obj_musicer_castletown_queen);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_castletown_cafe))
+    {
+        instance_destroy(obj_musicer_castletown_cafe);
+        instance_create(0, 0, obj_musicer_castletown_cafe);
+        exit;
+    }
+#elsif CHAPTER_5
+    if (i_ex(obj_musicer_garden))
+    {
+        instance_destroy(obj_musicer_garden);
+        instance_create(0, 0, obj_musicer_garden);
+        exit;
+    }
+    
+    if (i_ex(obj_musicer_bird_new))
+    {
+        instance_destroy(obj_musicer_bird_new);
+        instance_create(0, 0, obj_musicer_bird_new);
+        exit;
     }
 #endif
+    
+    global.currentsong[0] = snd_init(currentsong);
+    global.currentsong[1] = mus_loop_ext(global.currentsong[0], vol, pitch);
 }
