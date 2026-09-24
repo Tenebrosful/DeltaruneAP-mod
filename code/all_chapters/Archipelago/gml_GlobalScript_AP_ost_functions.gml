@@ -118,3 +118,135 @@ function AP_get_looptime(songname)
             break;
     }
 }
+
+function AP_ost_shuffle_toggle()
+{
+    var currentsong = mus_get_name(global.currentsong[0]);
+    
+    if (currentsong == undefined)
+    {
+        global.AP_ost_shuffle = !global.AP_ost_shuffle;
+        exit;
+    }
+    
+    var _vol = audio_sound_get_gain(global.currentsong[1]) / global.flag[16];
+    var _pitch = audio_sound_get_pitch(global.currentsong[1]);
+    var stop = false;
+
+#if CHAPTER_5
+    if (i_ex(obj_setup_music_loop_track))
+    {
+        var introname = obj_setup_music_loop_track.introname;
+        var loopname = obj_setup_music_loop_track.loopname;
+    }
+    
+#endif
+    
+    if (global.AP_ost_shuffle)
+    {
+        var names = variable_struct_get_names(global.AP_ost_mapping);
+        
+        for (i = 0; i < array_length(names); i++)
+        {
+            if (names[i] == currentsong)
+            {
+                currentsong == names[i];
+                break;
+            }
+        }
+#if CHAPTER_5
+        
+        if (i_ex(obj_setup_music_loop_track))
+        {
+            for (i = 0; i < array_length(names); i++)
+            {
+                if (names[i] == introname)
+                {
+                    introname == names[i];
+                    break;
+                }
+            }
+            
+            for (i = 0; i < array_length(names); i++)
+            {
+                if (names[i] == loopname)
+                {
+                    loopname == names[i];
+                    break;
+                }
+            }
+        }
+#endif
+    }
+    
+    global.AP_ost_shuffle = !global.AP_ost_shuffle;
+    snd_free_all();
+    
+#if !(CHAPTER_1 || CHAPTER_2)
+    if (i_ex(obj_musicer_gen))
+    {
+        var song = [];
+        var plot = [];
+        var highplot = [];
+        var volume = [];
+        var pitch = [];
+        
+        var id_list = [];
+        
+        for (var i = 0; i < instance_number(obj_musicer_gen); i++)
+            id_list[i] = instance_find(obj_musicer_gen, i);
+        
+        for (var i = 0; i < array_length(id_list); i++)
+        {
+            with (id_list[i])
+            {
+                other.song[i] = song;
+                other.plot[i] = plot;
+                other.highplot[i] = highplot;
+                other.volume[i] = volume;
+                other.pitch[i] = pitch;
+                instance_destroy();
+            }
+            
+            var gen = instance_create(0, 0, obj_musicer_gen);
+            
+            with (gen)
+            {
+                song = other.song[i];
+                plot = other.plot[i];
+                highplot = other.highplot[i];
+                volume = other.volume[i];
+                pitch = other.pitch[i];
+            }
+        }
+        
+        stop = true;
+    }
+    
+#endif
+#if CHAPTER_2
+    if (i_ex(obj_musicer_cyber))
+    {
+        instance_destroy(obj_musicer_cyber);
+        instance_create(0, 0, obj_musicer_cyber);
+        stop = true;
+    }
+    
+#elsif CHAPTER_5
+    if (i_ex(obj_setup_music_loop_track))
+    {
+        var volume = obj_setup_music_loop_track.volume;
+        var pitch = obj_setup_music_loop_track.pitch;
+        
+        instance_destroy(obj_setup_music_loop_track);
+        mus_2_file_loop(introname, loopname, volume, pitch);
+        stop = true;
+    }
+    
+#endif
+    if (!stop)
+    {
+        global.currentsong[0] = snd_init(currentsong);
+        global.currentsong[1] = mus_loop_ext(global.currentsong[0], _vol, _pitch);
+    }
+}
