@@ -129,10 +129,10 @@ function AP_ost_shuffle_toggle()
         exit;
     }
     
-    var _vol = audio_sound_get_gain(global.currentsong[1]) / global.flag[16];
-    var _pitch = audio_sound_get_pitch(global.currentsong[1]);
+    var vol = audio_sound_get_gain(global.currentsong[1]) / global.flag[16];
+    var pit = audio_sound_get_pitch(global.currentsong[1]);
     var stop = false;
-
+    
 #if CHAPTER_5
     if (i_ex(obj_setup_music_loop_track))
     {
@@ -227,6 +227,20 @@ function AP_ost_shuffle_toggle()
 #if CHAPTER_2
     if (i_ex(obj_musicer_cyber))
     {
+        if (room == room_dw_cyber_savepoint)
+        {
+            if (i_ex(obj_doorA_musfade))
+            {
+                with (obj_doorA_musfade)
+                {
+                    door = instance_create(x, y, obj_doorA);
+                    door.image_yscale = image_xscale;
+                    door.image_yscale = image_yscale;
+                    instance_destroy();
+                }
+            }
+        }
+        
         instance_destroy(obj_musicer_cyber);
         instance_create(0, 0, obj_musicer_cyber);
         stop = true;
@@ -247,6 +261,6 @@ function AP_ost_shuffle_toggle()
     if (!stop)
     {
         global.currentsong[0] = snd_init(currentsong);
-        global.currentsong[1] = mus_loop_ext(global.currentsong[0], _vol, _pitch);
+        global.currentsong[1] = mus_loop_ext(global.currentsong[0], vol, pit);
     }
 }
