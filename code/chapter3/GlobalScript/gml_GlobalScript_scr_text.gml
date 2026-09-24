@@ -311,7 +311,7 @@
             {
                 if (global.plot < 140)
                 {
-                    if (global.flag[1173] == 0)
+                    if (global.flag[1173] == 0 && global.flag[1028] == 2)
                     {
                         msgsetloc(0, "* Go ask him then^1! I'm not just gonna steal it!/", "obj_npc_room_slash_Other_10_gml_1651_0");
                         msgnextloc("* Ah^1, he won't give you it cause you got Z-Rank^1, huh?/", "obj_npc_room_slash_Other_10_gml_1651_0");
@@ -328,7 +328,7 @@
                 {
                     if (global.plot < 280) // Before mike leaving
                     {
-                        if (global.flag[1174] == 0 && global.flag[1030] == 0)
+                        if (global.flag[1174] == 0 && global.flag[1030] == 2)
                         {
                             msgsetloc(0, "* Go ask him then^1! I'm not just gonna steal it!/", "obj_npc_room_slash_Other_10_gml_1651_0");
                             msgnextloc("* Ah^1, he won't give you it cause you got Z-Rank^1, huh?/", "obj_npc_room_slash_Other_10_gml_1651_0");
@@ -336,26 +336,26 @@
                             AP_sendLocation(147);
                             global.flag[1030] = 1;
                         }
-                        else if (global.flag[1028] > 0) // 1028 board 1 reward claimed
+                        else if (!(global.flag[1028] == 1)) // 1028 board 1 reward claimed
                         {
                             msgsetloc(0, "* What do you mean?^1!&* You already claimed it!/%", "obj_npc_room_slash_Other_10_gml_1651_0");
                         }
                         else
                         {
                             msgsetloc(0, "* Forgot to get it earlier^1?&* No prob^1, found it backstage just for you./%", "obj_npc_room_slash_Other_10_gml_1651_0");
-                            AP_sendLocation(128)
+                            AP_sendLocation(128);
                             global.flag[1028] = 1;
                         }
                     }
                     else
                     {
-                        if (global.flag[1028] == 0 || global.flag[1030] == 0)
+                        if (!(global.flag[1028] == 1 && global.flag[1030] == 1))
                         {
                             msgsetloc(0, "* Wh-^1- How'd ya know?^1!&* My stealth moves were on point!/", "obj_npc_room_slash_Other_10_gml_1651_0");
                             msgnextloc("* Ugh..^1. You better not tell anyone about this..^1./%", "obj_npc_room_slash_Other_10_gml_1651_0")
                             global.flag[1028] = 1;
                             global.flag[1030] = 1;
-                            AP_sendLocation([128, 147])
+                            AP_sendLocation([128, 147]);
                         }
                         else
                         {
