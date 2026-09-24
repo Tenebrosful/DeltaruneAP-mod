@@ -122,25 +122,14 @@ function AP_get_looptime(songname)
 function AP_ost_shuffle_toggle()
 {
     var currentsong = mus_get_name(global.currentsong[0]);
-    
-    if (currentsong == undefined)
-    {
-        global.AP_ost_shuffle = !global.AP_ost_shuffle;
-        exit;
-    }
-    
     var vol = audio_sound_get_gain(global.currentsong[1]) / global.flag[16];
     var pit = audio_sound_get_pitch(global.currentsong[1]);
     var stop = false;
     
-#if CHAPTER_5
-    if (i_ex(obj_setup_music_loop_track))
+    if (currentsong == "")
     {
-        var introname = obj_setup_music_loop_track.introname;
-        var loopname = obj_setup_music_loop_track.loopname;
+        stop = true;
     }
-    
-#endif
     
     if (global.AP_ost_shuffle)
     {
@@ -154,29 +143,6 @@ function AP_ost_shuffle_toggle()
                 break;
             }
         }
-#if CHAPTER_5
-        
-        if (i_ex(obj_setup_music_loop_track))
-        {
-            for (i = 0; i < array_length(names); i++)
-            {
-                if (names[i] == introname)
-                {
-                    introname == names[i];
-                    break;
-                }
-            }
-            
-            for (i = 0; i < array_length(names); i++)
-            {
-                if (names[i] == loopname)
-                {
-                    loopname == names[i];
-                    break;
-                }
-            }
-        }
-#endif
     }
     
     global.AP_ost_shuffle = !global.AP_ost_shuffle;
@@ -249,9 +215,10 @@ function AP_ost_shuffle_toggle()
 #elsif CHAPTER_5
     if (i_ex(obj_setup_music_loop_track))
     {
+        var introname = obj_setup_music_loop_track.introname;
+        var loopname = obj_setup_music_loop_track.loopname;
         var volume = obj_setup_music_loop_track.volume;
         var pitch = obj_setup_music_loop_track.pitch;
-        
         instance_destroy(obj_setup_music_loop_track);
         mus_2_file_loop(introname, loopname, volume, pitch);
         stop = true;
