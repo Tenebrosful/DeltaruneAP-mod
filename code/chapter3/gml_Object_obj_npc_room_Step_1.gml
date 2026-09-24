@@ -5,6 +5,8 @@ if (room == room_dw_snow_zone && extflag == "skip_pippins")
 {
     if (global.choice == 0 && !d_ex() && talked > 0)
     {
+        global.interact = 1;
+
         if (!i_ex(obj_fadeout))
         {
             timer = 0;

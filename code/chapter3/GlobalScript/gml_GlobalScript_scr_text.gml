@@ -232,9 +232,20 @@
             if (global.choice == 0)
             {
                 msgsetloc(0, "* Heh^1, thanks.../", "scr_text_slash_scr_text_gml_7048_0");
-                msgnextloc("* (You lost 1 POINT.)/", "obj_npc_room_animated_slash_Other_10_gml_315_0");
-                msgnextloc("* Now let's get outta here!/%", "obj_npc_room_animated_slash_Other_10_gml_315_0");
-                global.flag[1044] -= 1;
+                
+                if (global.flag[1044] < 1)
+                {
+                    msgnextloc("* ..^1.Uh^1, you don't even have a single point?/", "obj_npc_room_animated_slash_Other_10_gml_315_0");
+                    msgnextloc("* Man^1, I was only gonna take one^1, y'know^1, cause it's funny./", "obj_npc_room_animated_slash_Other_10_gml_315_0");
+                    msgnextloc("* But now it's just kinda awkward.../", "obj_npc_room_animated_slash_Other_10_gml_315_0");
+                    msgnextloc("* Eh^1, whatever^1.&* Let's get outta here!/%", "obj_npc_room_animated_slash_Other_10_gml_315_0");
+                }
+                else
+                {
+                    msgnextloc("* (You lost 1 POINT.)/", "obj_npc_room_animated_slash_Other_10_gml_315_0");
+                    msgnextloc("* Now let's get outta here!/%", "obj_npc_room_animated_slash_Other_10_gml_315_0");
+                    global.flag[1044] -= 1;
+                }
             }
             else
             {
