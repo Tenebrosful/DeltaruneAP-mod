@@ -126,9 +126,10 @@ function AP_ost_shuffle_toggle()
     var pit = audio_sound_get_pitch(global.currentsong[1]);
     var stop = false;
     
-    if (currentsong == "")
+    if (currentsong == "" || if !(variable_struct_exists(global.AP_ost_mapping, currentsong)))
     {
-        stop = true;
+        global.AP_ost_shuffle = !global.AP_ost_shuffle;
+        exit;
     }
     
     if (global.AP_ost_shuffle)
@@ -151,11 +152,11 @@ function AP_ost_shuffle_toggle()
 #if !(CHAPTER_1 || CHAPTER_2)
     if (i_ex(obj_musicer_gen))
     {
-        var song = [];
-        var plot = [];
-        var highplot = [];
-        var volume = [];
-        var pitch = [];
+        var song = "";
+        var plot = 0;
+        var highplot = 0;
+        var volume = 0;
+        var pitch = 0;
         
         var id_list = [];
         
@@ -166,11 +167,11 @@ function AP_ost_shuffle_toggle()
         {
             with (id_list[i])
             {
-                other.song[i] = song;
-                other.plot[i] = plot;
-                other.highplot[i] = highplot;
-                other.volume[i] = volume;
-                other.pitch[i] = pitch;
+                other.song = song;
+                other.plot = plot;
+                other.highplot = highplot;
+                other.volume = volume;
+                other.pitch = pitch;
                 instance_destroy();
             }
             
@@ -178,11 +179,11 @@ function AP_ost_shuffle_toggle()
             
             with (gen)
             {
-                song = other.song[i];
-                plot = other.plot[i];
-                highplot = other.highplot[i];
-                volume = other.volume[i];
-                pitch = other.pitch[i];
+                song = other.song;
+                plot = other.plot;
+                highplot = other.highplot;
+                volume = other.volume;
+                pitch = other.pitch;
             }
         }
         
