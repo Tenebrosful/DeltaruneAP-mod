@@ -126,7 +126,7 @@ function AP_ost_shuffle_toggle()
     var pit = audio_sound_get_pitch(global.currentsong[1]);
     var stop = false;
     
-    if (currentsong == "" || if !(variable_struct_exists(global.AP_ost_mapping, currentsong)))
+    if (currentsong == "" || !(variable_struct_exists(global.AP_ost_mapping, currentsong)))
     {
         global.AP_ost_shuffle = !global.AP_ost_shuffle;
         exit;
@@ -140,7 +140,7 @@ function AP_ost_shuffle_toggle()
         {
             if (names[i] == currentsong)
             {
-                currentsong == names[i];
+                currentsong = names[i];
                 break;
             }
         }
