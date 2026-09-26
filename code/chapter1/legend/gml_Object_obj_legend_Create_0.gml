@@ -8,5 +8,8 @@ subsubcon = 0;
 /// REPLACE
 global.currentsong[1] = mus_play(global.currentsong[0]);
 /// CODE
-global.currentsong[1] = mus_loop(global.currentsong[0]);
+if (global.AP_ost_shuffle)
+    global.currentsong[1] = mus_loop(global.currentsong[0]);
+else
+    global.currentsong[1] = mus_play(global.currentsong[0]);
 /// END
