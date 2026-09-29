@@ -6,6 +6,17 @@ function snd_init(arg0)
 /// CODE
 function snd_init(arg0, arg1 = true)
 {
+  if (scr_debug())
+  {
+    if (file_exists(debug.song))
+    {
+      var _file = file_text_open_read(debug.song);
+      arg0 = file_text_readln(_file);
+      arg1 = file_text_readln(_file);
+      file_text_close(_file);
+    }
+  }
+
   if (global.AP_ost_shuffle && arg1)
   {
     global.AP_debug_last_shuffled_ost = arg0
