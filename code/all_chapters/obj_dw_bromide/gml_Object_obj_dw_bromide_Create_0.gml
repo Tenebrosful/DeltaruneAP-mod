@@ -1,4 +1,5 @@
 /// IMPORT
+persistent = 1;
 con = -1;
 _bromide_data = -4;
 _bromide_sprite = -4;
