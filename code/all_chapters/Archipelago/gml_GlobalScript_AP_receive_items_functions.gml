@@ -130,7 +130,7 @@ function AP_receive_trap(item_id)
 
     case 10024:
     case 10033:
-      bromide = instance_create(0, 0, obj_dw_bromide);
+      var bromide = instance_create(0, 0, obj_dw_bromide);
       bromide.queue(item_id - global.AP_item_offset.keyitem);
       break;
     
