@@ -234,7 +234,7 @@ function AP_receive_flowery_dollar(item_id)
 
 function AP_receive_macguffin(item_id)
 {
-    keyitem_id = item_id - global.AP_item_offset.macguffin + 700;
+    var keyitem_id = item_id - global.AP_item_offset.macguffin + 700;
     scr_keyiteminfo(keyitem_id)
 
     if (global.chapter == tempkeyitemchapter)
@@ -249,7 +249,7 @@ function AP_receive_macguffin(item_id)
 
 function AP_receive_keyitem(item_id)
 {
-    keyitem_id = item_id - global.AP_item_offset.keyitem
+    var keyitem_id = item_id - global.AP_item_offset.keyitem
     scr_keyiteminfo(keyitem_id)
 
     var item_chapter = tempkeyitemchapter;
