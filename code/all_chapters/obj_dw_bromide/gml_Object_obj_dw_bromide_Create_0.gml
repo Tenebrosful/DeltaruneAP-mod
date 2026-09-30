@@ -26,7 +26,7 @@ resume_music = function()
 queue = function(arg0)
 {
     con = -2;
-    queue_id = instance_count;
+    queue_id = instance_number(obj_dw_bromide);
     item_id = arg0;
 };
 
