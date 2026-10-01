@@ -11,8 +11,16 @@ function snd_init(arg0, arg1 = true)
     if (file_exists(debug.song))
     {
       var _file = file_text_open_read(debug.song);
-      arg0 = file_text_readln(_file);
-      arg1 = file_text_readln(_file);
+      var _line = file_text_readln(_file);
+
+      if (_line != "arg0")
+        arg0 = _line;
+      
+      _line = file_text_readln(_file);
+      
+      if (_line != "arg1")
+        arg1 = real(_line);
+      
       file_text_close(_file);
     }
   }
