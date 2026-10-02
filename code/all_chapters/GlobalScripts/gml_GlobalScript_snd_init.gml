@@ -8,17 +8,17 @@ function snd_init(arg0, arg1 = true)
 {
   if (scr_debug())
   {
-    if (file_exists(debug.song))
+    if (file_exists(debug.snd_init))
     {
       var _file = file_text_open_read(debug.song);
       var _line = file_text_readln(_file);
 
-      if (_line != "arg0")
+      if (_line != "")
         arg0 = _line;
       
       _line = file_text_readln(_file);
       
-      if (_line != "arg1")
+      if (_line != "")
         arg1 = real(_line);
       
       file_text_close(_file);
