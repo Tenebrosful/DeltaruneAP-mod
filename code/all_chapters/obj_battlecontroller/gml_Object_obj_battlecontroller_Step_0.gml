@@ -122,3 +122,116 @@ if (global.myfight == 0)
                     scr_itemconsumeb();
 /// END
 #endif
+
+#if CHAPTER_4
+/// REPLACE
+                if (global.bmenuno == 7)
+                {
+                    var balthizardskip = false;
+                    
+                    for (var i = 0; i < instance_number(obj_balthizard_enemy); i++)
+                    {
+                        turtle[i] = instance_find(obj_balthizard_enemy, i);
+                        
+                        if (turtle[i].acting == 5 && global.charturn == 1)
+                            balthizardskip = true;
+                    }
+                    
+                    var gueiskip = false;
+                    
+                    for (var i = 0; i < instance_number(obj_guei_enemy); i++)
+                    {
+                        guei[i] = instance_find(obj_guei_enemy, i);
+                        
+                        if (guei[i].acting == 4 && obj_guei_enemy.gersonactcount == 1)
+                            gueiskip = true;
+                    }
+                    
+                    global.chartarget[global.charturn] = global.bmenucoord[global.bmenuno][global.charturn];
+                    
+                    if (i_ex(obj_titan_enemy) && obj_titan_enemy.acting == 1)
+                        scr_nexthero();
+                    else if (balthizardskip && global.plot == 141)
+                        scr_nexthero();
+                    else if (gueiskip)
+                        scr_nexthero();
+                    else
+                        scr_itemconsumeb();
+                }
+/// CODE
+                if (global.bmenuno == 7)
+                {
+                    var balthizardskip = false;
+                    
+                    for (var i = 0; i < instance_number(obj_balthizard_enemy); i++)
+                    {
+                        turtle[i] = instance_find(obj_balthizard_enemy, i);
+                        
+                        if (turtle[i].acting == 5 && global.charturn == 1)
+                            balthizardskip = true;
+                    }
+                    
+                    var gueiskip = false;
+                    
+                    for (var i = 0; i < instance_number(obj_guei_enemy); i++)
+                    {
+                        guei[i] = instance_find(obj_guei_enemy, i);
+                        
+                        if (guei[i].acting == 4 && obj_guei_enemy.gersonactcount == 1)
+                            gueiskip = true;
+                    }
+                    
+                    global.chartarget[global.charturn] = global.bmenucoord[global.bmenuno][global.charturn];
+                    
+                    if (i_ex(obj_titan_enemy) && obj_titan_enemy.acting == 1)
+                    {
+                        scr_nexthero();
+                    }
+                    else if (balthizardskip && global.plot == 141)
+                    {
+                        scr_nexthero();
+                    }
+                    else if (gueiskip)
+                    {
+                        scr_nexthero();
+                    }
+                    else
+                    {
+                    var _tensionhealed = 0;
+                    
+                    if (tempitem[global.bmenucoord[4][global.charturn]][global.charturn] == 67)
+                    {
+                        scr_tensionheal(ceil(global.maxtension * 0.16));
+                        _tensionhealed = 1;
+                    }
+                    
+                    if (tempitem[global.bmenucoord[4][global.charturn]][global.charturn] == 68)
+                    {
+                        scr_tensionheal(ceil(global.maxtension * 0.16));
+                        _tensionhealed = 1;
+                    }
+                    
+                    if (tempitem[global.bmenucoord[4][global.charturn]][global.charturn] == 69)
+                    {
+                        scr_tensionheal(ceil(global.maxtension * 0.16));
+                        _tensionhealed = 1;
+                    }
+                    
+                    if (_tensionhealed)
+                    {
+                        var _drivenoise = snd_play(snd_cardrive);
+                        snd_pitch(_drivenoise, 1.4);
+                        snd_volume(_drivenoise, 0.8, 0);
+                        
+                        with (global.charinstance[global.charturn])
+                        {
+                            ha = instance_create(x, y, obj_healanim);
+                            ha.target = id;
+                            ha.particlecolor = c_orange;
+                        }
+                    }
+                        scr_itemconsumeb();
+                    }
+                }
+/// END
+#endif

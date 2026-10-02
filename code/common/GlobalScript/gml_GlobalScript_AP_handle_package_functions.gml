@@ -87,9 +87,10 @@ function AP_async_read_option_unlocked_chapters(data)
 
 function AP_async_read_options(data)
 {
-  if (variable_struct_exists(data.slot_data.options, "chosen_route"))
+  if (variable_struct_exists(data.slot_data.options, "chosen_route") && global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.UNKNOWN)
   {
       global.AP_route_from_settings = data.slot_data.options.chosen_route;
+
       if (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.BOTH_ROUTES)
       {
           global.AP_current_route = global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS;

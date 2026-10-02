@@ -232,9 +232,20 @@
             if (global.choice == 0)
             {
                 msgsetloc(0, "* Heh^1, thanks.../", "scr_text_slash_scr_text_gml_7048_0");
-                msgnextloc("* (You lost 1 POINT.)/", "obj_npc_room_animated_slash_Other_10_gml_315_0");
-                msgnextloc("* Now let's get outta here!/%", "obj_npc_room_animated_slash_Other_10_gml_315_0");
-                global.flag[1044] -= 1;
+                
+                if (global.flag[1044] < 1)
+                {
+                    msgnextloc("* ..^1.Uh^1, you don't even have a single point?/", "obj_npc_room_animated_slash_Other_10_gml_315_0");
+                    msgnextloc("* Man^1, I was only gonna take one^1, y'know^1, cause it's funny./", "obj_npc_room_animated_slash_Other_10_gml_315_0");
+                    msgnextloc("* But now it's just kinda awkward.../", "obj_npc_room_animated_slash_Other_10_gml_315_0");
+                    msgnextloc("* Eh^1, whatever^1.&* Let's get outta here!/%", "obj_npc_room_animated_slash_Other_10_gml_315_0");
+                }
+                else
+                {
+                    msgnextloc("* (You lost 1 POINT.)/", "obj_npc_room_animated_slash_Other_10_gml_315_0");
+                    msgnextloc("* Now let's get outta here!/%", "obj_npc_room_animated_slash_Other_10_gml_315_0");
+                    global.flag[1044] -= 1;
+                }
             }
             else
             {
@@ -300,7 +311,7 @@
             {
                 if (global.plot < 140)
                 {
-                    if (global.flag[1173] == 0)
+                    if (global.flag[1173] == 0 && global.flag[1028] == 2)
                     {
                         msgsetloc(0, "* Go ask him then^1! I'm not just gonna steal it!/", "obj_npc_room_slash_Other_10_gml_1651_0");
                         msgnextloc("* Ah^1, he won't give you it cause you got Z-Rank^1, huh?/", "obj_npc_room_slash_Other_10_gml_1651_0");
@@ -317,7 +328,7 @@
                 {
                     if (global.plot < 280) // Before mike leaving
                     {
-                        if (global.flag[1174] == 0 && global.flag[1030] == 0)
+                        if (global.flag[1174] == 0 && global.flag[1030] == 2)
                         {
                             msgsetloc(0, "* Go ask him then^1! I'm not just gonna steal it!/", "obj_npc_room_slash_Other_10_gml_1651_0");
                             msgnextloc("* Ah^1, he won't give you it cause you got Z-Rank^1, huh?/", "obj_npc_room_slash_Other_10_gml_1651_0");
@@ -325,26 +336,26 @@
                             AP_sendLocation(147);
                             global.flag[1030] = 1;
                         }
-                        else if (global.flag[1028] > 0) // 1028 board 1 reward claimed
+                        else if (!(global.flag[1028] == 1)) // 1028 board 1 reward claimed
                         {
                             msgsetloc(0, "* What do you mean?^1!&* You already claimed it!/%", "obj_npc_room_slash_Other_10_gml_1651_0");
                         }
                         else
                         {
                             msgsetloc(0, "* Forgot to get it earlier^1?&* No prob^1, found it backstage just for you./%", "obj_npc_room_slash_Other_10_gml_1651_0");
-                            AP_sendLocation(128)
+                            AP_sendLocation(128);
                             global.flag[1028] = 1;
                         }
                     }
                     else
                     {
-                        if (global.flag[1028] == 0 || global.flag[1030] == 0)
+                        if (!(global.flag[1028] == 1 && global.flag[1030] == 1))
                         {
                             msgsetloc(0, "* Wh-^1- How'd ya know?^1!&* My stealth moves were on point!/", "obj_npc_room_slash_Other_10_gml_1651_0");
                             msgnextloc("* Ugh..^1. You better not tell anyone about this..^1./%", "obj_npc_room_slash_Other_10_gml_1651_0")
                             global.flag[1028] = 1;
                             global.flag[1030] = 1;
-                            AP_sendLocation([128, 147])
+                            AP_sendLocation([128, 147]);
                         }
                         else
                         {

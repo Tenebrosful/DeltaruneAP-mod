@@ -130,16 +130,8 @@ function AP_receive_trap(item_id)
 
     case 10024:
     case 10033:
-      if (instance_exists(obj_dw_bromide))
-      {
-          bromide = instance_create(0, 0, obj_dw_bromide);
-          bromide.queue(item_id - global.AP_item_offset.keyitem);
-      }
-      else
-      {
-          bromide = instance_create(0, 0, obj_dw_bromide);
-          bromide.use_item(item_id - global.AP_item_offset.keyitem);
-      }
+      var bromide = instance_create(0, 0, obj_dw_bromide);
+      bromide.queue(item_id - global.AP_item_offset.keyitem);
       break;
     
     default:
@@ -242,7 +234,7 @@ function AP_receive_flowery_dollar(item_id)
 
 function AP_receive_macguffin(item_id)
 {
-    keyitem_id = item_id - global.AP_item_offset.macguffin + 700;
+    var keyitem_id = item_id - global.AP_item_offset.macguffin + 700;
     scr_keyiteminfo(keyitem_id)
 
     if (global.chapter == tempkeyitemchapter)
@@ -257,7 +249,7 @@ function AP_receive_macguffin(item_id)
 
 function AP_receive_keyitem(item_id)
 {
-    keyitem_id = item_id - global.AP_item_offset.keyitem
+    var keyitem_id = item_id - global.AP_item_offset.keyitem
     scr_keyiteminfo(keyitem_id)
 
     var item_chapter = tempkeyitemchapter;
