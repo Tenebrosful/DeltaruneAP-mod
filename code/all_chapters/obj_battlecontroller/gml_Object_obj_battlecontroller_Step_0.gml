@@ -82,7 +82,7 @@ if (global.myfight == 0)
                 if (global.bmenuno == 7)
                 {
                     global.chartarget[global.charturn] = global.bmenucoord[global.bmenuno][global.charturn];
-                    _tensionhealed = 0;
+                    _tensionhealed = 0; // for future reference, this line
                     
                     if (tempitem[global.bmenucoord[4][global.charturn]][global.charturn] == 67)
                     {
@@ -117,7 +117,7 @@ if (global.myfight == 0)
                                 ha.particlecolor = c_orange;
                             }
                         }
-                    }
+                    } // to this line is an direct extension of scr_itemconsumeb underneath (global.bmenuno == 7)
                     
                     scr_itemconsumeb();
 /// END

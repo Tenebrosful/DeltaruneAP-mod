@@ -101,6 +101,14 @@ if (skip_intro > 0)
         else if (skip_intro == 2)
         {
             global.plot = 40;
+            if (!scr_tenna_alt_plot())
+            {
+                if (scr_flag_get(779) < 2 && scr_flag_get(780) == 0)
+                {
+                    scr_flag_set(780, 1);
+                }
+            }
+
             room_goto(room_dw_castle_area_1);
         }
     }
