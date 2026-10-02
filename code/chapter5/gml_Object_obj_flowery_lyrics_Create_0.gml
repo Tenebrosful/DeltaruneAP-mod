@@ -38,13 +38,6 @@ load_song_data = function()
     song_length = audio_sound_length(global.batmusic[0]);
     AP_load_song(songname);
 
-    if (songname != "Flowerman_Arrangement.ogg" && songname != "ch3_karaoke_full.ogg" && songname != "ch3_karaoke_no_guitar.ogg" && songname != "dontforget.ogg")
-    {
-        notetime = [];
-        noteend = [];
-        maxnote = array_length(notetime);
-    }
-    
     switch (songname)
     {
         case "Flowerman_Arrangement.ogg":
@@ -58,6 +51,12 @@ load_song_data = function()
         
         case "dontforget.ogg":
             beattime = [];
+            break;
+
+        default:
+            notetime = [];
+            noteend = [];
+            maxnote = array_length(notetime);
             break;
     }
     
