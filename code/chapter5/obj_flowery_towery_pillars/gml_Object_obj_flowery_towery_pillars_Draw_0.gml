@@ -1,25 +1,9 @@
 /// PATCH
 
 /// REPLACE
-if (global.fighting)
-{
-    var _truetrackpos = audio_sound_get_track_position(global.batmusic[1]);
-    
-    if (_truetrackpos != 0)
-        trackpos = _truetrackpos;
-    else
         trackpos = scr_loop(trackpos + (delta_time / 1000000), 192.024);
-}
 /// CODE
-if (global.fighting)
-{
-    var _truetrackpos = audio_sound_get_track_position(global.batmusic[1]);
-    
-    if (_truetrackpos != 0)
-        trackpos = _truetrackpos;
-    else
         trackpos = scr_loop(trackpos + (delta_time / 1000000), song_length);
-}
 /// END
 
 /// REPLACE
