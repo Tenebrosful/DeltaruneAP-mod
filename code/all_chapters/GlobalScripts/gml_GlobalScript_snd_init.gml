@@ -1,11 +1,31 @@
 /// PATCH
 
-/// AFTER
+/// REPLACE
 function snd_init(arg0)
 {
 /// CODE
+function snd_init(arg0, arg1 = true)
+{
+  if (scr_debug())
+  {
+    if (file_exists(debug.snd_init))
+    {
+      var _file = file_text_open_read(debug.song);
+      var _line = file_text_readln(_file);
 
-  if (global.AP_ost_shuffle)
+      if (_line != "")
+        arg0 = _line;
+      
+      _line = file_text_readln(_file);
+      
+      if (_line != "")
+        arg1 = real(_line);
+      
+      file_text_close(_file);
+    }
+  }
+
+  if (global.AP_ost_shuffle && arg1)
   {
     global.AP_debug_last_shuffled_ost = arg0
     if (variable_struct_exists(global.AP_ost_mapping, arg0))

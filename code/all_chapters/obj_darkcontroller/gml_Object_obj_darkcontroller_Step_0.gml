@@ -1476,7 +1476,7 @@
                 // OST Shuffle
                 if (global.submenucoord[30] == 13)
                 {
-                    global.AP_ost_shuffle = !global.AP_ost_shuffle;
+                    AP_ost_shuffle_toggle();
                     ini_open(AP_get_save_folder_prefix() + "settings_override.ini");
                     ini_write_real("ARCHIPELAGO", "OST_SHUFFLE", global.AP_ost_shuffle);
                     ini_close();

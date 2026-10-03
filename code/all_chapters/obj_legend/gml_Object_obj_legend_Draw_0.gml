@@ -1,5 +1,6 @@
 /// PATCH
 
+#if CHAPTER_1 || CHAPTER_2 || CHAPTER_3
 /// REPLACE
             if (subsubcon == 0)
             {
@@ -10,12 +11,16 @@
                     var trackpos = audio_sound_get_track_position(global.currentsong[1]);
                     var beginSil = 17.934;
                     var endSil = 19.612;
-                    
+    #if CHAPTER_3
+                    if (trackpos >= beginSil && trackpos <= endSil)
+                        dopause = true;
+    #else
                     if (trackpos >= beginSil && trackpos <= endSil)
                     {
                         scr_debug_print(string("trackpos=" + string(trackpos)));
                         dopause = true;
                     }
+    #endif
                 }
                 else if (contimer >= 40)
                 {
@@ -33,7 +38,11 @@
                 }
             }
             
+    #if CHAPTER_2
+            if (contimer == 100)
+    #else
             if (contimer >= 100)
+    #endif
 /// CODE
             if (contimer >= 40)
             {
@@ -45,6 +54,7 @@
             
             if (contimer == 100)
 /// END
+#endif
 
 /// REPLACE
     if (!variable_instance_exists(id, "presscount"))
