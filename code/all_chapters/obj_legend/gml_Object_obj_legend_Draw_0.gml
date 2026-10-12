@@ -50,10 +50,22 @@
                 with (obj_switchAsyncHelper)
                     docheck = false;
                 
-                audio_pause_sound(global.currentsong[1]);
+                if (mus_get_name() == "legend.ogg")
+                    audio_pause_sound(global.currentsong[1]);
             }
             
             if (contimer == 100)
+/// END
+
+/// REPLACE
+        audio_sound_set_track_position(global.currentsong[1], 19.656);
+        audio_resume_sound(global.currentsong[1]);
+/// CODE
+        if (mus_get_name() == "legend.ogg")
+        {
+            audio_sound_set_track_position(global.currentsong[1], 19.656);
+            audio_resume_sound(global.currentsong[1]);
+        }
 /// END
 #endif
 
@@ -85,3 +97,15 @@
         mus_volume(global.currentsong[1], 0, 15);
     }
 /// END
+
+#if CHAPTER_2
+/// REPLACE
+    if (con == 2)
+    {
+        audio_pause_sound(global.currentsong[1]);
+/// CODE
+    if (con == 2)
+    {
+        audio_pause_sound(global.currentsong[1]);
+/// END
+#endif
