@@ -26,9 +26,6 @@ if (_video_status == 0)
     texture_set_interpolation(false);
 }
 
-if (!_paused)
-    exit;
-
 draw_set_color(c_black);
 draw_set_alpha(_overlay_alpha);
 ossafe_fill_rectangle(0, 0, ww - 1, wh - 1);
