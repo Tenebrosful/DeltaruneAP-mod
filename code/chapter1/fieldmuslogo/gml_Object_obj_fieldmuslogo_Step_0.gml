@@ -22,16 +22,16 @@ if (mus_get_name() == "field_of_hopes.ogg")
 }
 else
 {
-    if (siner >= 90)
+    if (siner >= 40)
     {
         snd_play(snd_badexplosion);
-        ex = instance_create(r.x + 30, r.y + 30, obj_animation);
+        ex = instance_create(x + (sprite_width / 2), y, obj_animation);
         
         with (ex)
         {
             sprite_index = spr_realisticexplosion;
-            image_xscale = 2;
-            image_yscale = 2;
+            image_xscale = 4;
+            image_yscale = 4;
             image_speed = 0.5;
         }
         
