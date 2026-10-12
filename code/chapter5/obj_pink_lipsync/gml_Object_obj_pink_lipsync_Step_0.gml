@@ -18,129 +18,63 @@ else if (!lipsync)
     singing = false;
 }
 /// CODE
-if (songname == "pink.ogg" || songname == "Flowerman_Arrangement.ogg")
+switch (array_length(ftime))
 {
-    if (trackpos < ftime[0] || (trackpos > ftime[1] && trackpos < ftime[2]) || trackpos > ftime[3])
-    {
-        in_ftime = false;
-    }
-    else if (!lipsync)
-    {
-        in_ftime = true;
-    }
-}
-else if (songname == "" || songname == "")
-{
-    if (trackpos < ftime[0] || (trackpos > ftime[1] && trackpos < ftime[2]) || trackpos > ftime[3])
-    {
-        in_ftime = false;
-    }
-    else if (!lipsync)
-    {
-        in_ftime = true;
-    }
-}
-else if (songname == "" || songname == "")
-{
-    if (trackpos < ftime[0] || (trackpos > ftime[1] && trackpos < ftime[2]) || trackpos > ftime[3])
-    {
-        in_ftime = false;
-    }
-    else if (!lipsync)
-    {
-        in_ftime = true;
-    }
-}
-else if (songname == "" || songname == "")
-{
-    if (trackpos < ftime[0] || (trackpos > ftime[1] && trackpos < ftime[2]) || trackpos > ftime[3])
-    {
-        in_ftime = false;
-    }
-    else if (!lipsync)
-    {
-        in_ftime = true;
-    }
-}
-else if (songname == "" || songname == "")
-{
-    if (trackpos < ftime[0] || (trackpos > ftime[1] && trackpos < ftime[2]) || trackpos > ftime[3])
-    {
-        in_ftime = false;
-    }
-    else if (!lipsync)
-    {
-        in_ftime = true;
-    }
-}
-else if (songname == "" || songname == "")
-{
-    if (trackpos < ftime[0] || (trackpos > ftime[1] && trackpos < ftime[2]) || trackpos > ftime[3])
-    {
-        in_ftime = false;
-    }
-    else if (!lipsync)
-    {
-        in_ftime = true;
-    }
-}
-else if (songname == "" || songname == "")
-{
-    if (trackpos < ftime[0] || (trackpos > ftime[1] && trackpos < ftime[2]) || trackpos > ftime[3])
-    {
-        in_ftime = false;
-    }
-    else if (!lipsync)
-    {
-        in_ftime = true;
-    }
-}
-else if (songname == "" || songname == "")
-{
-    if (trackpos < ftime[0] || (trackpos > ftime[1] && trackpos < ftime[2]) || trackpos > ftime[3])
-    {
-        in_ftime = false;
-    }
-    else if (!lipsync)
-    {
-        in_ftime = true;
-    }
-}
-else if (songname == "" || songname == "")
-{
-    if (trackpos < ftime[0] || (trackpos > ftime[1] && trackpos < ftime[2]) || trackpos > ftime[3])
-    {
-        in_ftime = false;
-    }
-    else if (!lipsync)
-    {
-        in_ftime = true;
-    }
-}
-else if (songname == "" || songname == "")
-{
-    if (trackpos < ftime[0] || (trackpos > ftime[1] && trackpos < ftime[2]) || trackpos > ftime[3])
-    {
-        in_ftime = false;
-    }
-    else if (!lipsync)
-    {
-        in_ftime = true;
-    }
-}
-else
-{
-    in_ftime = false;
-}
+    case 0:
+        lipsync = false;
+        singing = true;
+        break;
+    
+    case 2:
+        if (trackpos < ftime[0] || trackpos > ftime[1])
+        {
+            lipsync = false;
+            singing = true;
+        }
+        else if (!lipsync)
+        {
+            lipsync = true;
+            singing = false;
+        }
+        break;
 
-if (in_ftime == false)
-{
-    lipsync = false;
-    singing = true;
-}
-else if (in_ftime == true)
-{
-    lipsync = true;
-    singing = false;
+    case 4:
+        if (trackpos < ftime[0] || (trackpos > ftime[1] && trackpos < ftime[2]) || trackpos > ftime[3])
+        {
+            lipsync = false;
+            singing = true;
+        }
+        else if (!lipsync)
+        {
+            lipsync = true;
+            singing = false;
+        }
+        break;
+
+    case 6:
+        if (trackpos < ftime[0] || (trackpos > ftime[1] && trackpos < ftime[2]) || (trackpos > ftime[3] && trackpos < ftime[4]) || trackpos > ftime[5])
+        {
+            lipsync = false;
+            singing = true;
+        }
+        else if (!lipsync)
+        {
+            lipsync = true;
+            singing = false;
+        }
+        break;
+
+    case 8:
+        if (trackpos < ftime[0] || (trackpos > ftime[1] && trackpos < ftime[2]) || (trackpos > ftime[3] && trackpos < ftime[4]) || (trackpos > ftime[5] && trackpos < ftime[6]) || trackpos > ftime[7])
+        {
+            lipsync = false;
+            singing = true;
+        }
+        else if (!lipsync)
+        {
+            lipsync = true;
+            singing = false;
+        }
+        break;
 }
 /// END
