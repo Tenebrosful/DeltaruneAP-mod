@@ -1369,7 +1369,10 @@
 
                 // Music Volume
                 if (global.submenucoord[30] == 1)
+                {
+                    getmusvol = audio_sound_get_gain(global.currentsong[1]) / global.flag[16];
                     global.submenu = 32;
+                }
 
                 // SFX Volume
                 if (global.submenucoord[30] == 2)
@@ -1845,6 +1848,9 @@
                 border_select = 1;
             
             if (button2_p() && twobuffer < 0)
+                border_select = 1;
+
+            if (!window_get_fullscreen())
                 border_select = 1;
             
             if (border_select == 1)
