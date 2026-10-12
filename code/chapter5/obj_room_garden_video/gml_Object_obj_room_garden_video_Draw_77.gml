@@ -9,6 +9,7 @@ var _video_data = video_draw();
 var _video_status = _video_data[0];
 var ww = window_get_width();
 var wh = window_get_height();
+var scale = min((ww / 1280), (wh / 720));
 
 if (_video_status == 0)
 {
@@ -18,7 +19,7 @@ if (_video_status == 0)
     {
         case 0:
             _vid_surface = _video_data[1];
-            draw_surface_ext(_vid_surface, 0, 0, 1, 1, 0, c_white, 1);
+            draw_surface_ext(_vid_surface, 0, 0, scale, scale, 0, c_white, 1);
             break;
     }
     
