@@ -16,15 +16,25 @@
 
 #if CHAPTER_2
 /// REPLACE
+    if (ossafe_file_exists("filech" + CH + "_3"))
+        menu_go = 2;
+    
+    if (ossafe_file_exists("filech" + CH + "_4"))
+        menu_go = 2;
+    
+    if (ossafe_file_exists("filech" + CH + "_5"))
+        menu_go = 2;
+    
     if (global.is_console)
     {
         if (global.game_won == 1)
             menu_go = 2;
     }
 /// CODE
-    if (global.game_won == 1)
+    if (scr_completed_chapter_any_slot(global.chapter))
         menu_go = 2;
 /// END
+#endif
 
 #if !CHAPTER_1
 /// REPLACE
@@ -35,12 +45,14 @@
         
 #if CHAPTER_2
         roomchoice = room_intro_ch2;
-#if CHAPTER_3
+#elsif CHAPTER_3
         roomchoice = room_intro;
-#if CHAPTER_4
+#elsif CHAPTER_4
         roomchoice = room_intro_ch4;
-#if CHAPTER_5
+#elsif CHAPTER_5
         roomchoice = room_intro_ch5;
+#else
+        roomchoice = room_intro;
 #endif
     }
     
@@ -70,15 +82,29 @@
     if (menu_go == 0 || menu_go == 1)
     {
         global.screen_border_alpha = 0;
-#if CHAPTER_2
-        roomchoice = room_intro_ch2;
-#if CHAPTER_3
-        roomchoice = room_intro;
-#if CHAPTER_4
-        roomchoice = room_intro_ch4;
-#if CHAPTER_5
-        roomchoice = room_intro_ch5;
-#endif
+        
+        switch (global.chapter)
+        {
+            case 2:
+                roomchoice = room_intro_ch2;
+                break;
+            
+            case 3:
+                roomchoice = room_intro;
+                break;
+            
+            case 4:
+                roomchoice = room_intro_ch4;
+                break;
+            
+            case 5:
+                roomchoice = room_intro_ch5;
+                break;
+            
+            default:
+                roomchoice = room_intro;
+                break;
+        }
     }
     
     if (menu_go == 2)
@@ -93,11 +119,11 @@
     if (menu_go == 3)
     {
         global.screen_border_alpha = 0;
-#if CHAPTER_2 || CHAPTER_3
-        roomchoice = room_next(room);
-#else
-        roomchoice = room_title_placeholder;
-#endif
+        
+        if (global.chapter == 2 || global.chapter == 3)
+            roomchoice = room_next(room);
+        else
+            roomchoice = room_title_placeholder;
     }
 /// END
 #endif
