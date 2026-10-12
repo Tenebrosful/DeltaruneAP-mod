@@ -122,12 +122,14 @@ function AP_ost_shuffle_toggle()
     var vol = audio_sound_get_gain(global.currentsong[1]) / global.flag[16];
     var pit = audio_sound_get_pitch(global.currentsong[1]);
     var stop = false;
-    var earlyexit = false;
     
-    if (!variable_struct_exists(global.AP_ost_mapping, currentsong) || currentsong == "" || (!global.AP_ost_shuffle && currentsong == variable_struct_get(global.AP_ost_mapping, currentsong)))
-        earlyexit = true;
+    if (!variable_struct_exists(global.AP_ost_mapping, currentsong) || currentsong == "")
+    {
+        global.AP_ost_shuffle = !global.AP_ost_shuffle;
+        exit;
+    }
     
-    if (global.AP_ost_shuffle && !earlyexit)
+    if (global.AP_ost_shuffle)
     {
         var names = variable_struct_get_names(global.AP_ost_mapping);
         
@@ -135,22 +137,13 @@ function AP_ost_shuffle_toggle()
         {
             if (names[i] == currentsong)
             {
-                var origsong = names[i];
+                currentsong = names[i];
                 break;
             }
         }
-        
-        if (currentsong == origsong)
-            earlyexit = true;
-        else
-            currentsong = origsong;
     }
     
     global.AP_ost_shuffle = !global.AP_ost_shuffle;
-    
-    if (earlyexit)
-        exit;
-    
     snd_free_all();
     
 #if !(CHAPTER_1 || CHAPTER_2)
