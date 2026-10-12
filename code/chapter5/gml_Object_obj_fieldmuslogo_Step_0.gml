@@ -38,3 +38,36 @@ else
         instance_destroy();
     }
 }
+
+
+if (global.AP_ost_shuffle == false || variable_struct_get(global.AP_ost_mapping, "field_of_hopes_insaneintherain_intro.ogg") == "field_of_hopes_insaneintherain_intro.ogg" || variable_struct_get(global.AP_ost_mapping, "field_of_hopes_insaneintherain_intro.ogg") == "field_of_hopes_insaneintherain_loop.ogg")
+{
+    if (siner >= 120)
+    {
+        offx += (-8 + (siner / 15));
+        image_alpha -= (1/30);
+        
+        if (image_alpha <= 0)
+            instance_destroy();
+    }
+}
+else
+{
+    if (siner >= 60)
+    {
+        snd_play(snd_badexplosion);
+        ex = instance_create(x + (sprite_width / 2), y, obj_animation);
+        
+        with (ex)
+        {
+            sprite_index = spr_realisticexplosion;
+            image_xscale = 4;
+            image_yscale = 4;
+            image_speed = 0.5;
+        }
+
+        snd_free(global.currentsong[0]);
+        mus_2_file_loop("field_of_hopes_insaneintherain_intro.ogg", "field_of_hopes_insaneintherain_loop.ogg", 0.7, 1);
+        instance_destroy();
+    }
+}
