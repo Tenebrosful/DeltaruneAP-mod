@@ -25,8 +25,7 @@ if (!instance_exists(obj_gamecontroller))
 var border_controller = instance_create(0, 0, obj_border_controller);
 border_controller.init_border();
 #else
-if (!i_ex(obj_border_controller))
-    instance_create(0, 0, obj_border_controller);
+instance_create(0, 0, obj_border_controller);
 #endif
 /// END
 #endif
