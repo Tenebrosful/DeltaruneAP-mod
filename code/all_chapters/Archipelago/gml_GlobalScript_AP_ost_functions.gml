@@ -122,14 +122,12 @@ function AP_ost_shuffle_toggle()
     var vol = audio_sound_get_gain(global.currentsong[1]) / global.flag[16];
     var pit = audio_sound_get_pitch(global.currentsong[1]);
     var stop = false;
+    var earlyexit = false;
     
-    if (currentsong == "" || !(variable_struct_exists(global.AP_ost_mapping, currentsong)))
-    {
-        global.AP_ost_shuffle = !global.AP_ost_shuffle;
-        exit;
-    }
+    if (!variable_struct_exists(global.AP_ost_mapping, currentsong) || currentsong == "" || (!global.AP_ost_shuffle && currentsong == variable_struct_get(global.AP_ost_mapping, currentsong)))
+        earlyexit = true;
     
-    if (global.AP_ost_shuffle)
+    if (global.AP_ost_shuffle && !earlyexit)
     {
         var names = variable_struct_get_names(global.AP_ost_mapping);
         
@@ -137,13 +135,22 @@ function AP_ost_shuffle_toggle()
         {
             if (names[i] == currentsong)
             {
-                currentsong = names[i];
+                var origsong = names[i];
                 break;
             }
         }
+        
+        if (currentsong == origsong)
+            earlyexit = true;
+        else
+            currentsong = origsong;
     }
     
     global.AP_ost_shuffle = !global.AP_ost_shuffle;
+    
+    if (earlyexit)
+        exit;
+    
     snd_free_all();
     
 #if !(CHAPTER_1 || CHAPTER_2)
@@ -188,7 +195,15 @@ function AP_ost_shuffle_toggle()
     }
     
 #endif
-#if CHAPTER_2
+#if CHAPTER_1
+    if (i_ex(obj_fieldmuslogo))
+    {
+        global.currentsong[0] = snd_init("field_of_hopes.ogg", false);
+        global.currentsong[1] = mus_loop_ext(global.currentsong[0], 0.7, 1);
+        stop = true;
+    }
+    
+#elsif CHAPTER_2
     if (i_ex(obj_musicer_cyber))
     {
         if (room == room_dw_cyber_savepoint)
@@ -219,6 +234,13 @@ function AP_ost_shuffle_toggle()
         var pitch = obj_setup_music_loop_track.pitch;
         instance_destroy(obj_setup_music_loop_track);
         mus_2_file_loop(introname, loopname, volume, pitch);
+        stop = true;
+    }
+    
+    if (i_ex(obj_fieldmuslogo))
+    {
+        global.currentsong[0] = snd_init("field_of_hopes_insaneintherain_intro.ogg", false);
+        global.currentsong[1] = mus_loop_ext(global.currentsong[0], 0.7, 1);
         stop = true;
     }
     
