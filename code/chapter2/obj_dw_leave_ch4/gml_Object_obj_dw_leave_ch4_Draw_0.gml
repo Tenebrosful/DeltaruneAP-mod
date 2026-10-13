@@ -74,7 +74,9 @@ if (top == 1)
             global.interact = 3;
             global.entrance = 24;
             snd_free(global.currentsong[0]);
-            snd_free(global.cyber_shuffled_music[0]);
+
+            if (global.AP_ost_shuffle)
+                snd_free(global.cyber_shuffled_music[0]);
             
             if (scr_havechar(4))
                 scr_losechar();
