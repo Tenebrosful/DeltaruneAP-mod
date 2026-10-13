@@ -30,12 +30,12 @@ else
     if (bg_change_lockout == 0 && !bg_changing)
         can_change = 1;
     
-    if (trackpos >= 95 && trackpos < 143 && bg_change < 90 && can_change == 1 && bg_con == 0)
+    if (trackpos >= bg_time[0] && trackpos < bg_time[1] && bg_change < 90 && can_change == 1 && bg_con == 0)
     {
         bg_change++;
         bg_changing = 1;
     }
-    else if (bg_change > 0 && bg_change < 150 && trackpos > 143 && can_change == 1 && bg_con == 1)
+    else if (bg_change > 0 && bg_change < 150 && trackpos > bg_time[1] && can_change == 1 && bg_con == 1)
     {
         bg_change++;
         bg_changing = 1;
