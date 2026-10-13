@@ -1,7 +1,7 @@
 /// PATCH
 
 /// APPEND
-if (scr_debug())
+if (scr_debug() && room != room_rhythmgame_editor)
 {
   draw_set_halign(fa_left)
   draw_set_font(fnt_tinynoelle)

@@ -43,4 +43,5 @@
         _trackname[47] = stringset("inukuma_wip");
         _trackname[48] = stringset("jitterbug");
         _trackname[49] = stringset("jitterbug_muffled");
+        _trackname[50] = stringset("carol_appeared");
 /// END

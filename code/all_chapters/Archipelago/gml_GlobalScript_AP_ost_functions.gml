@@ -551,6 +551,13 @@ function AP_load_song(songname)
             bpm = 86;
             break;
 
+        case "carol_appeared.ogg":
+            song_length = 41.6;
+            notetime = [];
+            noteend = [];
+            bpm = 100;
+            break;
+
         case "rhythm_3rd_sanctuary_guit.ogg":
         case "rhythm_3rd_sanctuary_noguit.ogg":
             song_length = 131;

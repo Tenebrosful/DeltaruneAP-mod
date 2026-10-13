@@ -524,14 +524,22 @@
         signature = 4;
         trackstart = scr_round_to_beat(-(405 / bpm), bpm);
     }
+    else if (arg0 == 56)
+    {
+        track1_id = "carol_appeared.ogg";
+        track2_id = "carol_appeared.ogg";
+        scr_debug_print("Loading carol_appeared.ogg");
+        bpm = 100;
+        notespeed = 120;
+        oneAtATime = true;
+        track_length = 41.6;
+        notespeed = 180;
+        signature = 4;
+        trackstart = scr_round_to_beat(-(405 / bpm), bpm);
+    }
 /// END
 
 /// AFTER
-    if (arg0 == 9)
-    {
-        song_id = 15;
-        chapter = 4;
-        bpm = 200;
         local_preview = snd_songpreview_4rd;
     }
 /// CODE
@@ -539,63 +547,63 @@
     {
         song_id = 16;
         chapter = 4;
-        bpm = 200;
+        bpm = 180;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 11)
     {
         song_id = 17;
         chapter = 4;
-        bpm = 200;
+        bpm = 120;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 12)
     {
         song_id = 18;
         chapter = 4;
-        bpm = 200;
+        bpm = 78;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 13)
     {
         song_id = 19;
         chapter = 4;
-        bpm = 200;
+        bpm = 65;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 14)
     {
         song_id = 20;
         chapter = 4;
-        bpm = 200;
+        bpm = 70;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 15)
     {
         song_id = 21;
         chapter = 4;
-        bpm = 200;
+        bpm = 152;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 16)
     {
         song_id = 22;
         chapter = 4;
-        bpm = 200;
+        bpm = 160;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 17)
     {
         song_id = 23;
         chapter = 4;
-        bpm = 200;
+        bpm = 95;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 18)
     {
         song_id = 24;
         chapter = 4;
-        bpm = 200;
+        bpm = 132;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 19)
@@ -609,210 +617,217 @@
     {
         song_id = 26;
         chapter = 4;
-        bpm = 200;
+        bpm = 144.5;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 21)
     {
         song_id = 27;
         chapter = 4;
-        bpm = 200;
+        bpm = 145;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 22)
     {
         song_id = 28;
         chapter = 4;
-        bpm = 200;
+        bpm = 140;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 23)
     {
         song_id = 29;
         chapter = 4;
-        bpm = 200;
+        bpm = 71.5;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 24)
     {
         song_id = 30;
         chapter = 4;
-        bpm = 200;
+        bpm = 147.5;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 25)
     {
         song_id = 31;
         chapter = 4;
-        bpm = 200;
+        bpm = 67.5;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 26)
     {
         song_id = 32;
         chapter = 4;
-        bpm = 200;
+        bpm = 190;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 27)
     {
         song_id = 33;
         chapter = 4;
-        bpm = 200;
+        bpm = 170;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 28)
     {
         song_id = 34;
         chapter = 4;
-        bpm = 200;
+        bpm = 170;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 29)
     {
         song_id = 35;
         chapter = 4;
-        bpm = 200;
+        bpm = 170;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 30)
     {
         song_id = 36;
         chapter = 4;
-        bpm = 200;
+        bpm = 100;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 31)
     {
         song_id = 37;
         chapter = 4;
-        bpm = 200;
+        bpm = 115;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 32)
     {
         song_id = 38;
         chapter = 4;
-        bpm = 200;
+        bpm = 114;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 33)
     {
         song_id = 39;
         chapter = 4;
-        bpm = 200;
+        bpm = 50;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 34)
     {
         song_id = 40;
         chapter = 4;
-        bpm = 200;
+        bpm = 71.111;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 35)
     {
         song_id = 41;
         chapter = 4;
-        bpm = 200;
+        bpm = 140;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 36)
     {
         song_id = 42;
         chapter = 4;
-        bpm = 200;
+        bpm = 190;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 37)
     {
         song_id = 43;
         chapter = 4;
-        bpm = 200;
+        bpm = 97;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 38)
     {
         song_id = 44;
         chapter = 4;
-        bpm = 200;
+        bpm = 97;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 39)
     {
         song_id = 45;
         chapter = 4;
-        bpm = 200;
+        bpm = 57;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 40)
     {
         song_id = 46;
         chapter = 4;
-        bpm = 200;
+        bpm = 102;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 41)
     {
         song_id = 47;
         chapter = 4;
-        bpm = 200;
+        bpm = 102;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 42)
     {
         song_id = 48;
         chapter = 4;
-        bpm = 200;
+        bpm = 130;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 43)
     {
         song_id = 49;
         chapter = 4;
-        bpm = 200;
+        bpm = 100;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 44)
     {
         song_id = 50;
         chapter = 4;
-        bpm = 200;
+        bpm = 130;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 45)
     {
         song_id = 51;
         chapter = 4;
-        bpm = 200;
+        bpm = 180;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 46)
     {
         song_id = 52;
         chapter = 4;
-        bpm = 200;
+        bpm = 120;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 47)
     {
         song_id = 53;
         chapter = 4;
-        bpm = 200;
+        bpm = 145;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 48)
     {
         song_id = 54;
         chapter = 4;
-        bpm = 200;
+        bpm = 130;
         local_preview = snd_songpreview_4rd;
     }
     if (arg0 == 49)
     {
         song_id = 55;
         chapter = 4;
-        bpm = 200;
+        bpm = 86;
+        local_preview = snd_songpreview_4rd;
+    }
+    if (arg0 == 50)
+    {
+        song_id = 56;
+        chapter = 4;
+        bpm = 100;
         local_preview = snd_songpreview_4rd;
     }
 /// END
@@ -901,4 +916,6 @@
         return 54;
     else if (arg0 == 49)
         return 55;
+    else if (arg0 == 50)
+        return 56;
 /// END
