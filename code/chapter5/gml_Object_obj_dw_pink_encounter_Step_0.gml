@@ -21,3 +21,14 @@
         if (mus_get_name() == "pink_theme.ogg")
             audio_sound_set_track_position(global.currentsong[1], 14.3);
 /// END
+
+/// REPLACE
+        if (global.console)
+        {
+            with (obj_border_controller)
+                show_border();
+        }
+/// CODE
+        with (obj_border_controller)
+            show_border();
+/// END
