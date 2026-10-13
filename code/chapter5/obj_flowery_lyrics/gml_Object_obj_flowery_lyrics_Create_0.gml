@@ -50,7 +50,6 @@ load_song_data = function()
             break;
         
         case "dontforget.ogg":
-            beattime = [];
             break;
 
         default:
@@ -61,7 +60,11 @@ load_song_data = function()
     }
     
     if (obj_flowery_towery_pillars)
+    {
+        obj_flowery_towery_pillars.songname = songname;
         obj_flowery_towery_pillars.song_length = song_length;
+        obj_flowery_towery_pillars.bg_time = [song_length * (95 / 192.024), song_length * (143 / 192.024)];
+    }
 }
 /// END
 
