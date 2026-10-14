@@ -1,8 +1,59 @@
 /// PATCH
 
+/// REPLACE
+            if (room_id == room_dw_castle_area_1)
+            {
+                if (i_ex(obj_dw_leave))
+                {
+                    if (obj_dw_leave.con >= 10)
+                    {
+                        border_fade_in = false;
+                        border_fade_out = border_alpha > 0;
+                    }
+                }
+                
+                if (i_ex(obj_dw_transition))
+                {
+                    if (obj_dw_transition.timer >= 30)
+                    {
+                        border_fade_out = false;
+                        border_fade_in = border_alpha < 1;
+                    }
+                }
+            }
+/// CODE
+            if (room_id == room_dw_castle_area_1)
+            {
+                if (global.plot >= 50 && global.plot < 200)
+                {
+                    border_fade_out = false;
+                    border_fade_in = border_alpha < 1;
+                }
+                else
+                {
+                    if (i_ex(obj_dw_transition))
+                    {
+                        if (obj_dw_transition.timer >= 30)
+                        {
+                            border_fade_out = false;
+                            border_fade_in = border_alpha < 1;
+                        }
+                    }
+                }
+                
+                if (i_ex(obj_dw_leave))
+                {
+                    if (obj_dw_leave.con >= 10)
+                    {
+                        border_fade_in = false;
+                        border_fade_out = border_alpha > 0;
+                    }
+                }
+            }
+/// END
+
 /// BEFORE
-            if (room_id >= room_dw_cyber_intro_1 && room_id <= room_dw_cyber_keyboard_puzzle_3 && room_id != room_dw_cyber_rollercoaster)
-                border_fade_in = border_alpha < 1;
+            if (room_id == room_dw_city_entrance)
 /// CODE
             if (room_id == room_dw_cyber_post_music_boss_slide)
             {
@@ -19,16 +70,4 @@
                     }
                 }
             }
-/// END
-
-/// REPLACE
-    if (global.chapter_return > 0 && !global.game_won)
-/// CODE
-    if (global.chapter_return > 0)
-/// END
-
-/// REPLACE
-        if ((room_id == room_legend || room_id == 891 || room_id == PLACE_MENU) && global.game_won == 1)
-/// CODE
-        if ((room_id == room_legend || room_id == 891 || room_id == PLACE_MENU) && false)
 /// END

@@ -19,3 +19,33 @@ global.damagefontgold = font_add_sprite_ext(spr_numbersfontbig_gold, "0123456789
     scr_84_load_ini();
 /// END
 #endif
+
+#if CHAPTER_2
+/// REPLACE
+    scr_prefetch_textures();
+    scr_load_audio();
+/// CODE
+    scr_load_audio();
+/// END
+
+/// REPLACE
+global.screen_border_id = "";
+/// CODE
+global.screen_border_id = stringsetloc("Dynamic", "obj_initializer2_slash_Create_0_gml_22_0");
+/// END
+#endif
+
+#if !CHAPTER_1
+/// APPEND
+    global.game_won = scr_completed_chapter_any_slot(global.chapter);
+/// END
+
+/// REPLACE
+if (global.is_console)
+    loadtex = instance_create(0, 0, obj_prefetchtex);
+else
+    scr_prefetch_textures();
+/// CODE
+loadtex = instance_create(0, 0, obj_prefetchtex);
+/// END
+#endif

@@ -127,3 +127,45 @@
     }
 /// END
 #endif
+
+#if !CHAPTER_1
+/// REPLACE
+if (global.is_console)
+{
+    if (global.savedata_async_id >= 0)
+        exit;
+    
+    if (!variable_global_exists("chapter"))
+        exit;
+    
+    if (!textures_loaded)
+        textures_loaded = loadtex.loaded;
+    
+#if CHAPTER_2
+    if (textures_loaded)
+    {
+    }
+    else
+    {
+        exit;
+    }
+#else
+    if (textures_loaded)
+        show_debug_message_concat("TEXTURES LOADED");
+    else
+        exit;
+#endif
+}
+/// CODE
+if (!variable_global_exists("chapter"))
+    exit;
+
+if (!textures_loaded)
+    textures_loaded = loadtex.loaded;
+
+if (textures_loaded)
+    show_debug_message_concat("TEXTURES LOADED");
+else
+    exit;
+/// END
+#endif
