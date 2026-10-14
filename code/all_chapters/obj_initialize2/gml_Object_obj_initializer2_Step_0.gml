@@ -120,7 +120,7 @@
     {
         global.screen_border_alpha = 0;
         
-        if (global.chapter == 2 || global.chapter == 3)
+        if (global.chapter < 4)
             roomchoice = room_next(room);
         else
             roomchoice = room_title_placeholder;
