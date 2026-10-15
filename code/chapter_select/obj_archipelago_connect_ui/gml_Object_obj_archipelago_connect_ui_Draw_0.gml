@@ -199,34 +199,39 @@ if (connect && page == 0)
     switch (global.AP_connection_state)
     {
         default:
-            connected = "> Connecting...";
+            connected = string(global.AP_connection_state);
             break;
-
+        
+        case global.AP_ENUM_CONNECTION_STATE.ERROR_TIMEOUT:
+            draw_set_color(c_red);
+            connected = "> Connection timed out.\nCheck host and port";
+            break;
+        
         case global.AP_ENUM_CONNECTION_STATE.ERROR_CREATING_SOCKET:
             draw_set_color(c_red);
-            connected = "> Connection failed.\nCheck host and port" ;
+            connected = "> Connection failed.\nCheck host and port";
             break;
         
         case global.AP_ENUM_CONNECTION_STATE.ERROR_CONNECTION_REFUSED:
             draw_set_color(c_red);
-            connected = string("> Authentification failed.\n({0})", string(global.AP_connection_errors)) ;
+            connected = string("> Authentification failed.\n({0})", string(global.AP_connection_errors));
             break;
-
+        
         case global.AP_ENUM_CONNECTION_STATE.TRYING_TO_CONNECT:
             draw_set_color(c_yellow);
             connected = "> Trying to connect...";
             break;
-
+        
         case global.AP_ENUM_CONNECTION_STATE.AWAITING_ARCHIPELAGO_RESPONSE:
             draw_set_color(c_yellow);
-            connected = "> Awaiting Archipelago server response...";
+            connected = "> Awaiting Archipelago\nserver response...";
             break;
-
+        
         case global.AP_ENUM_CONNECTION_STATE.GOT_ROOMINFO:
             draw_set_color(c_yellow);
-            connected = "> Sending authentification data...";
+            connected = "> Sending\nauthentification\ndata...";
             break;
-
+        
         case global.AP_ENUM_CONNECTION_STATE.CONNECTED:
             draw_set_color(c_green);
             connected = "> Connected to server!";
@@ -234,14 +239,14 @@ if (connect && page == 0)
         
         case global.AP_ENUM_CONNECTION_STATE.WAITING_FOR_SCOUTING:
             draw_set_color(c_yellow);
-            connected = "> Waiting for scouting data...";
+            connected = "> Waiting for scouting\ndata...";
             break;
-
+        
         case global.AP_ENUM_CONNECTION_STATE.GOT_SCOUTING:
             draw_set_color(c_yellow);
             connected = string("> Waiting for datapackage\n({0}/{1}) {2}", global.AP_received_datapackage, global.AP_requested_datapackage, global.AP_last_datapackage_requested);
             break;
-
+        
         case global.AP_ENUM_CONNECTION_STATE.GOT_DATA_PACKAGE:
             draw_set_color(c_yellow);
             connected = "> Parsing scouting data...";
