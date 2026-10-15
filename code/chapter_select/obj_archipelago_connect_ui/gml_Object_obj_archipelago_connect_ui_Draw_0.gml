@@ -260,6 +260,10 @@ if (connect && page == 0)
             else
             {
                 audio_destroy_stream(my_music);
+                
+                with (obj_archipelago_client)
+                    AP_write_settings_file();
+                    
                 room_goto(PLACE_CHAPTER_SELECT_2x);
             }
             break;
