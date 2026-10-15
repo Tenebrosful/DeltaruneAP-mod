@@ -218,6 +218,23 @@ function AP_ost_shuffle_toggle()
         stop = true;
     }
     
+#elsif CHAPTER_4
+    if (i_ex(obj_dw_church_worshiproom))
+    {
+        with (obj_dw_church_worshiproom)
+        {
+            instance_destroy(music);
+            music = instance_create(x, y, obj_music_worship);
+        }
+    }
+    
+    if (i_ex(obj_musicer_dw_church))
+    {
+        instance_destroy(obj_musicer_dw_church);
+        instance_create(0, 0, obj_musicer_dw_church);
+        stop = true;
+    }
+    
 #elsif CHAPTER_5
     if (i_ex(obj_setup_music_loop_track))
     {

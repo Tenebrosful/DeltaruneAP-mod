@@ -1370,7 +1370,13 @@
                 // Music Volume
                 if (global.submenucoord[30] == 1)
                 {
-                    getmusvol = audio_sound_get_gain(global.currentsong[1]) / global.flag[16];
+                    getmusvol = 1;
+                    
+                    if (snd_is_playing(global.cyber_shuffled_music[1]))
+                        getmusvol = audio_sound_get_gain(global.cyber_shuffled_music[1]) / global.flag[16];
+                    else if (snd_is_playing(global.currentsong[1]))
+                        getmusvol = audio_sound_get_gain(global.currentsong[1]) / global.flag[16];
+                    
                     global.submenu = 32;
                 }
 
@@ -1618,7 +1624,9 @@
             
             if (muschange == 1)
             {
-                if (snd_is_playing(global.currentsong[1]))
+                if (snd_is_playing(global.cyber_shuffled_music[1]))
+                    mus_volume(global.cyber_shuffled_music[1], getmusvol * global.flag[16], 0);
+                else if (snd_is_playing(global.currentsong[1]))
                     mus_volume(global.currentsong[1], getmusvol * global.flag[16], 0);
                 
                 ini_open("true_config.ini");

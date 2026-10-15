@@ -1,8 +1,10 @@
 /// PATCH
 
-/// BEFORE
-var MOMENT = 0;
+/// REPLACE
+trackpos = audio_sound_get_track_position(global.currentsong[1]);
 /// CODE
-if (mus_get_name() != "church_wip.ogg")
-    exit;
+if (global.AP_ost_shuffle)
+    trackpos = audio_sound_get_track_position(global.dark_sanctuary_unshuffled_music[1]);
+else
+    trackpos = audio_sound_get_track_position(global.currentsong[1]);
 /// END
