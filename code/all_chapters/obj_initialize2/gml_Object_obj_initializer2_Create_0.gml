@@ -35,7 +35,7 @@ global.screen_border_id = stringsetloc("Dynamic", "obj_initializer2_slash_Create
 /// END
 #endif
 
-#if !CHAPTER_1
+#if CHAPTER_2
 /// APPEND
     global.game_won = scr_completed_chapter_any_slot(global.chapter);
 /// END
