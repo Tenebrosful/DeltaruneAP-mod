@@ -135,7 +135,7 @@ function AP_ost_shuffle_toggle()
         
         for (i = 0; i < array_length(names); i++)
         {
-            if (names[i] == currentsong)
+            if (variable_struct_get(global.AP_ost_mapping, names[i]) == currentsong)
             {
                 currentsong = names[i];
                 break;
