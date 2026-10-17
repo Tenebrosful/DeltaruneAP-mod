@@ -275,3 +275,13 @@ for (var i = 0; i < array_length(credits); i++)
     draw_text_outline(aa, bb + (gap_credits * i), 1, credits[i], fnt_main, 16777215);
 
 draw_set_halign(fa_left);
+
+if (fade_alpha < 1)
+{
+    draw_set_alpha(1 - fade_alpha);
+    draw_set_color(c_black);
+    ossafe_fill_rectangle(0, 0, room_width, room_height);
+    draw_set_alpha(1);
+    draw_set_color(c_white);
+    fade_alpha += 0.08;
+}

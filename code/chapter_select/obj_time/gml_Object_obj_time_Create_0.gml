@@ -10,7 +10,8 @@ screenshot_number = 0;
 border_fade_out = false;
 border_fade_in = false;
 border_alpha = 1;
-border_fade_value = 0.025;
+border_fade_value = 0.08;
+_border_image = border_lw_town;
 loaded = false;
 paused = false;
 paused = false;
@@ -67,9 +68,11 @@ else
         global.input_released[i] = 0;
     }
     
-    if (global.is_console)
-    {
-        application_surface_enable(true);
-        application_surface_draw_enable(false);
-    }
+    application_surface_enable(true);
+    application_surface_draw_enable(false);
+
+    if (global.screen_border_id == "None" || global.screen_border_id == "なし")
+        scr_enable_screen_border(false);
+    else
+        scr_enable_screen_border(true);
 }
