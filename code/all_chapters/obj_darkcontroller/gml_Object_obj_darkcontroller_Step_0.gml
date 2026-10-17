@@ -1625,9 +1625,9 @@
             if (muschange == 1)
             {
                 if (snd_is_playing(global.cyber_shuffled_music[1]))
-                    mus_volume(global.cyber_shuffled_music[1], getmusvol * global.flag[16], 0);
+                    mus_volume(global.cyber_shuffled_music[1], getmusvol, 0);
                 else if (snd_is_playing(global.currentsong[1]))
-                    mus_volume(global.currentsong[1], getmusvol * global.flag[16], 0);
+                    mus_volume(global.currentsong[1], getmusvol, 0);
                 
                 ini_open("true_config.ini");
                 ini_write_real("AUDIO", "MUSIC_VOLUME", global.flag[16]);
