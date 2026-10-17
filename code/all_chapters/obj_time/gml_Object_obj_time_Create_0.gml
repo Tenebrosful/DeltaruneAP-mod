@@ -41,5 +41,9 @@ instance_create(0, 0, obj_border_controller);
 /// CODE
     application_surface_enable(true);
     application_surface_draw_enable(false);
-    scr_enable_screen_border(true);
+    
+    if (global.screen_border_id == "None" || global.screen_border_id == "なし")
+        scr_enable_screen_border(false);
+    else
+        scr_enable_screen_border(true);
 /// END
