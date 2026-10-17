@@ -67,17 +67,6 @@ if (top == 1)
         draw_sprite_ext(sprite_index, 1, x, y, 99, 99, 0, c_white, fake_v / 80);
         draw_set_blend_mode(bm_normal);
         
-        if ((fake_v / 80) > 0)
-        {
-            if (!border_fade)
-            {
-                border_fade = true;
-                
-                with (obj_border_controller)
-                    hide_border(0.025, 16777215);
-            }
-        }
-        
         if ((fake_v / 80) >= 1.2)
         {
             pers = instance_create(0, 0, obj_persistentfadein);
@@ -85,6 +74,9 @@ if (top == 1)
             global.interact = 3;
             global.entrance = 24;
             snd_free(global.currentsong[0]);
+
+            if (global.AP_ost_shuffle)
+                snd_free(global.cyber_shuffled_music[0]);
             
             if (scr_havechar(4))
                 scr_losechar();

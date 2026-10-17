@@ -34,3 +34,9 @@
                 AP_sendLocation([130, 131, 132, 133, 134]);
             }
 /// END
+
+/// REPLACE
+if (gacha_con == 121 && global.is_console)
+/// CODE
+if (gacha_con == 121)
+/// END

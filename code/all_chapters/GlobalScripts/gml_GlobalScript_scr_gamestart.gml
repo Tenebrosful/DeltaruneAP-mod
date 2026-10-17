@@ -293,6 +293,12 @@ function scr_gamestart()
     global.currentsong[1] = snd_nosound;
     global.batmusic[0] = snd_nosound;
     global.batmusic[1] = snd_nosound;
+    global.cyber_shuffled_music[0] = snd_nosound;
+    global.cyber_shuffled_music[1] = snd_nosound;
+    global.tenna_shuffled_music[0] = snd_nosound;
+    global.tenna_shuffled_music[1] = snd_nosound;
+    global.dark_sanctuary_unshuffled_music[0] = snd_nosound;
+    global.dark_sanctuary_unshuffled_music[1] = snd_nosound;
     global.fc = 0;
     global.fe = 0;
     global.choice = -1;
