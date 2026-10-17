@@ -199,20 +199,6 @@ function AP_ost_shuffle_toggle()
 #elsif CHAPTER_2
     if (i_ex(obj_musicer_cyber))
     {
-        if (room == room_dw_cyber_savepoint)
-        {
-            if (i_ex(obj_doorA_musfade))
-            {
-                with (obj_doorA_musfade)
-                {
-                    door = instance_create(x, y, obj_doorA);
-                    door.image_yscale = image_xscale;
-                    door.image_yscale = image_yscale;
-                    instance_destroy();
-                }
-            }
-        }
-        
         instance_destroy(obj_musicer_cyber);
         instance_create(0, 0, obj_musicer_cyber);
         stop = true;

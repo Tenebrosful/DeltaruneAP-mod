@@ -9,18 +9,6 @@ if (!snd_is_playing(global.currentsong[1]))
 /// CODE
 if (global.AP_ost_shuffle)
 {
-    if (room == room_dw_cyber_savepoint && snd_is_playing(global.currentsong[1]) && !snd_is_playing(global.cyber_shuffled_music[1]))
-    {
-        with (obj_doorA)
-        {
-            door = instance_create(x, y, obj_doorA_musfade);
-            door.image_yscale = image_xscale;
-            door.image_yscale = image_yscale;
-            instance_destroy();
-        }
-        exit;
-    }
-
     if (!snd_is_playing(global.currentsong[1]))
     {
         global.currentsong[0] = snd_init("cyber.ogg", false);
