@@ -53,6 +53,11 @@ if (EVENT == 28)
 }
 /// CODE
     EVENT = 28;
+#if CHAPTER_3
+    
+    with (obj_border_controller)
+        hide_border();
+#endif
 }
 
 if (EVENT == 28)
