@@ -91,12 +91,12 @@ if (button1_p())
         edit = !edit;
         audio_play_sound(snd_select, 1, false);
     }
-    else if (keyboard_check_pressed(ord("Z")) && !edit)
+    else if (keyboard_check_pressed(global.input_k[4]) && !edit)
     {
         edit = !edit;
         audio_play_sound(snd_select, 1, false);
     }
-    else if (button1_p() && !keyboard_check_pressed(ord("Z"))) // This may look weird at first, but it works with controller
+    else if (button1_p() && !keyboard_check_pressed(global.input_k[4])) // This may look weird at first, but it works with controller
     {
         edit = !edit;
         audio_play_sound(snd_select, 1, false);
@@ -105,7 +105,7 @@ if (button1_p())
 
 if (edit)
 {
-    if (button2_p() && !keyboard_check_pressed(ord("X")) && !keyboard_check_pressed(vk_shift))
+    if (button2_p() && !keyboard_check_pressed(global.input_k[5]) && !keyboard_check_pressed(vk_shift))
     {
         edit = !edit;
         audio_play_sound(snd_swing, 1, false);
