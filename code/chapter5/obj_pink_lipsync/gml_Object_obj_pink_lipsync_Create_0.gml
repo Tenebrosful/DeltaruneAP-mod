@@ -207,5 +207,4 @@ length_string = scr_string_format_time(song_length, 2);
 maxnote = array_length(notetime);
 noteindex = 0;
 lipsync = false;
-in_ftime = false;
 /// END
