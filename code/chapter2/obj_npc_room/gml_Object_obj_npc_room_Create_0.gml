@@ -22,6 +22,12 @@
 /// APPEND
 if (room == room_dw_mansion_entrance)
 {
+    with (obj_forcefield)
+    {
+        if (x >= 800)
+            instance_destroy();
+    }
+
     sprite_index = spr_butler;
     image_speed = 0;
     
