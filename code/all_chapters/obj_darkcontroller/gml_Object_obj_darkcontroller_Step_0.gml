@@ -1372,8 +1372,13 @@
                 {
                     getmusvol = 1;
                     
-                    if (snd_is_playing(global.cyber_shuffled_music[1]))
-                        getmusvol = audio_sound_get_gain(global.cyber_shuffled_music[1]) / global.flag[16];
+                    if (global.chapter == 2)
+                    {
+                        if (snd_is_playing(global.AP_music[1]))
+                            getmusvol = audio_sound_get_gain(global.AP_music[1]) / global.flag[16];
+                        else if (snd_is_playing(global.currentsong[1]))
+                            getmusvol = audio_sound_get_gain(global.currentsong[1]) / global.flag[16];
+                    }
                     else if (snd_is_playing(global.currentsong[1]))
                         getmusvol = audio_sound_get_gain(global.currentsong[1]) / global.flag[16];
                     
@@ -1624,8 +1629,13 @@
             
             if (muschange == 1)
             {
-                if (snd_is_playing(global.cyber_shuffled_music[1]))
-                    mus_volume(global.cyber_shuffled_music[1], getmusvol, 0);
+                if (global.chapter == 2)
+                {
+                    if (snd_is_playing(global.AP_music[1]))
+                        mus_volume(global.AP_music[1], getmusvol, 0);
+                    else if (snd_is_playing(global.currentsong[1]))
+                        mus_volume(global.currentsong[1], getmusvol, 0);
+                }
                 else if (snd_is_playing(global.currentsong[1]))
                     mus_volume(global.currentsong[1], getmusvol, 0);
                 

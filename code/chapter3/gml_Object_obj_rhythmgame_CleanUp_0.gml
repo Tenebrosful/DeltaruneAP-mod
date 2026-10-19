@@ -8,7 +8,7 @@
     {
         mus_volume(track1_instance, 0, 0);
         mus_volume(track2_instance, 0, 0);
-        mus_volume(global.tenna_shuffled_music[1], 1, 0);
+        mus_volume(global.AP_music[1], 1, 0);
     }
     else
     {

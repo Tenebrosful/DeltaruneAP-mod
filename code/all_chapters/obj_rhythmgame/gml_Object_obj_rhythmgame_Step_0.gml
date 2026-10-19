@@ -18,7 +18,7 @@
         mus_volume(track2_instance, 0, 0);
 /// CODE
         if (global.AP_ost_shuffle && !obj_tenna_zoom.minigameinsanity)
-            mus_volume(global.tenna_shuffled_music[1], 0, 60);
+            mus_volume(global.AP_music[1], 0, 60);
 /// END
 
 /// REPLACE
@@ -30,7 +30,7 @@
         {
             mus_volume(track1_instance, 0, 30);
             mus_volume(track2_instance, 0, 30);
-            mus_volume(global.tenna_shuffled_music[1], 1, 30);
+            mus_volume(global.AP_music[1], 1, 30);
         }
         else
         {

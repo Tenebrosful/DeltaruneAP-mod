@@ -15,10 +15,10 @@ if (global.AP_ost_shuffle)
         global.currentsong[1] = mus_loop_ext(global.currentsong[0], 0, 1);
     }
 
-    if (!snd_is_playing(global.cyber_shuffled_music[1]))
+    if (!snd_is_playing(global.AP_music[1]))
     {
-        global.cyber_shuffled_music[0] = snd_init("cyber.ogg");
-        global.cyber_shuffled_music[1] = mus_loop_ext(global.cyber_shuffled_music[0], 1, 1);
+        global.AP_music[0] = snd_init("cyber.ogg");
+        global.AP_music[1] = mus_loop_ext(global.AP_music[0], 1, 1);
     }
 }
 else

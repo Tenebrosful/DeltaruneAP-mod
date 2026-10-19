@@ -123,7 +123,11 @@ function AP_ost_shuffle_toggle()
     var pit = audio_sound_get_pitch(global.currentsong[1]);
     var stop = false;
     
+#if CHAPTER_4
+    if (!variable_struct_exists(global.AP_ost_mapping, currentsong) || currentsong == "" && !i_ex(obj_dw_church_worshiproom))
+#else
     if (!variable_struct_exists(global.AP_ost_mapping, currentsong) || currentsong == "")
+#endif
     {
         global.AP_ost_shuffle = !global.AP_ost_shuffle;
         exit;
@@ -146,48 +150,6 @@ function AP_ost_shuffle_toggle()
     global.AP_ost_shuffle = !global.AP_ost_shuffle;
     snd_free_all();
     
-#if !(CHAPTER_1 || CHAPTER_2)
-    if (i_ex(obj_musicer_gen))
-    {
-        var song = "";
-        var plot = 0;
-        var highplot = 0;
-        var volume = 0;
-        var pitch = 0;
-        
-        var id_list = [];
-        
-        for (var i = 0; i < instance_number(obj_musicer_gen); i++)
-            id_list[i] = instance_find(obj_musicer_gen, i);
-        
-        for (var i = 0; i < array_length(id_list); i++)
-        {
-            with (id_list[i])
-            {
-                other.song = song;
-                other.plot = plot;
-                other.highplot = highplot;
-                other.volume = volume;
-                other.pitch = pitch;
-                instance_destroy();
-            }
-            
-            var gen = instance_create(0, 0, obj_musicer_gen);
-            
-            with (gen)
-            {
-                song = other.song;
-                plot = other.plot;
-                highplot = other.highplot;
-                volume = other.volume;
-                pitch = other.pitch;
-            }
-        }
-        
-        stop = true;
-    }
-    
-#endif
 #if CHAPTER_1
     if (i_ex(obj_fieldmuslogo))
     {

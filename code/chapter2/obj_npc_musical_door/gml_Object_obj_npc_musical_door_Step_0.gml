@@ -20,7 +20,7 @@
     if (global.AP_ost_shuffle)
     {
         audio_sound_gain(global.currentsong[1], 0, 500);
-        audio_sound_gain(global.cyber_shuffled_music[1], 0, 500);
+        audio_sound_gain(global.AP_music[1], 0, 500);
     }
     else
         audio_sound_gain(global.currentsong[1], 0, 500);
@@ -32,7 +32,7 @@
     if (global.AP_ost_shuffle)
     {
         audio_sound_gain(global.currentsong[1], 0, 500);
-        audio_sound_gain(global.cyber_shuffled_music[1], 1, 500);
+        audio_sound_gain(global.AP_music[1], 1, 500);
     }
     else
         audio_sound_gain(global.currentsong[1], 1, 500);

@@ -76,7 +76,7 @@ if (top == 1)
             snd_free(global.currentsong[0]);
 
             if (global.AP_ost_shuffle)
-                snd_free(global.cyber_shuffled_music[0]);
+                snd_free(global.AP_music[0]);
             
             if (scr_havechar(4))
                 scr_losechar();

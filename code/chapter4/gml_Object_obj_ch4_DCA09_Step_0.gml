@@ -16,8 +16,8 @@ if (con == 40 && customcon == 1 && !d_ex())
     {
         if (global.AP_ost_shuffle)
         {
-            global.dark_sanctuary_unshuffled_music[0] = snd_init("church_wip.ogg", false);
-            global.dark_sanctuary_unshuffled_music[1] = mus_loop_ext(global.dark_sanctuary_unshuffled_music[0], 0, 1);
+            global.AP_music[0] = snd_init("church_wip.ogg", false);
+            global.AP_music[1] = mus_loop_ext(global.AP_music[0], 0, 1);
         }
     });
 /// END
@@ -38,8 +38,8 @@ if (con == 60 && customcon == 1 && !d_ex())
     {
         if (global.AP_ost_shuffle)
         {
-            global.dark_sanctuary_unshuffled_music[0] = snd_init("church_wip.ogg", false);
-            global.dark_sanctuary_unshuffled_music[1] = mus_loop_ext(global.dark_sanctuary_unshuffled_music[0], 0, 1);
+            global.AP_music[0] = snd_init("church_wip.ogg", false);
+            global.AP_music[1] = mus_loop_ext(global.AP_music[0], 0, 1);
         }
     });
 /// END
@@ -60,8 +60,8 @@ if (con == 70 && !i_ex(obj_cutscene_master))
     {
         if (global.AP_ost_shuffle)
         {
-            global.dark_sanctuary_unshuffled_music[0] = snd_init("church_wip.ogg", false);
-            global.dark_sanctuary_unshuffled_music[1] = mus_loop_ext(global.dark_sanctuary_unshuffled_music[0], 0, 1);
+            global.AP_music[0] = snd_init("church_wip.ogg", false);
+            global.AP_music[1] = mus_loop_ext(global.AP_music[0], 0, 1);
         }
     });
 /// END
