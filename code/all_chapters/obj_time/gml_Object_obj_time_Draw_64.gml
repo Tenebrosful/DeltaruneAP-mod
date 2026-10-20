@@ -38,15 +38,23 @@ if (!global.AP_sync)
     draw_set_font(fnt_main);
     draw_set_color(c_red);
     draw_set_halign(fa_center);
-    if (obj_archipelago_client.AP_isAuthenticated())
+    if (obj_archipelago_client.AP_isAuthenticated() && showreconnectmsg == 1)
+    {
+        draw_set_color(c_lime);
+        draw_text(ww - 10, 0, "RECONNECT SUCCESSFUL.");
+        draw_text(ww - 10, 10, "WAITING ON ITEM SYNCHRONIZATION...");
+    }
+    else if (obj_archipelago_client.AP_isAuthenticated())
     {
         draw_text(ww - 10, 0, "SYNCHRONIZATION ITEMS MISMATCH DETECTED! PLEASE REPORT THIS.");
         draw_text(ww - 10, 10, "A FILE NAMED unsync.json HAS BEEN CREATED IN YOUR SAVEFILE FOLDER.");
+        showreconnectmsg = 0;
     }
     else
     {
         draw_text(ww - 10, 0, "IT LOOKS LIKE YOU HAVE BEEN DISCONNECTED.");
         draw_text(ww - 10, 10, "ATTEMPTING TO RECONNECT, PLEASE BE PATIENT...");
+        showreconnectmsg = 1; /// Prevent showing the synchronization items mismatch message if you're just reconnecting
 
         text = ""
         switch (global.AP_connection_state)
