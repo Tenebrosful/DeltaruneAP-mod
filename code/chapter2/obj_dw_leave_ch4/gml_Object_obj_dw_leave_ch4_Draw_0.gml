@@ -75,7 +75,7 @@ if (top == 1)
             global.entrance = 24;
             snd_free(global.currentsong[0]);
 
-            if (global.AP_ost_shuffle)
+            if (global.AP_ost_shuffle && i_ex(obj_musicer_cyber))
                 snd_free(global.AP_music[0]);
             
             if (scr_havechar(4))
