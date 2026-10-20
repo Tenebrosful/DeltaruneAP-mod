@@ -1,5 +1,9 @@
 /// PATCH
 
+/// PREPEND
+showreconnectmsg = 0;
+/// END
+
 #if !CHAPTER_1
 /// REPLACE
 if (global.is_console)

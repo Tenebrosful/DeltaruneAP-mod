@@ -16,3 +16,28 @@
             }
             
 /// END
+
+/// REPLACE
+                if (object_index == obj_herokris)
+                {
+                    if (global.hp[2] < 0 && global.hp[3] < 0)
+                        damage *= 2;
+                    else if (global.hp[2] < 0 || global.hp[3] < 0)
+                        damage *= 1;
+                    else
+                        damage = round(damage * 0.5);
+                }
+/// CODE
+                if (object_index == obj_herokris)
+                {
+                    if (scr_weaponcheck_equipped(1, 26) || scr_weaponcheck_equipped(1, 11)) /// BlackShard, TwistedSwd
+                        damage += 20;
+
+                    if (global.hp[2] < 0 && global.hp[3] < 0)
+                        damage *= 2;
+                    else if (global.hp[2] < 0 || global.hp[3] < 0)
+                        damage *= 1;
+                    else
+                        damage = round(damage * 0.5);
+                }
+/// END

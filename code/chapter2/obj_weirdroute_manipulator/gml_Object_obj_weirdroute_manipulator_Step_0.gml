@@ -14,6 +14,12 @@ else if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE && g
 /// END
 
 /// REPLACE
+if (phase == 2)
+/// CODE
+if (phase >= 2)
+/// END
+
+/// REPLACE
     snd_play(snd_ominous_cancel);
 /// CODE
 {

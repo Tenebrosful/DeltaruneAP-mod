@@ -53,7 +53,7 @@
 /// END
 
 /// APPEND
-if (room == room_dw_mansion_entrance)
+if (room == room_dw_mansion_entrance && y == 160 && x >= 800)
 {
     if (scr_sideb_get_phase() > 2)
     {

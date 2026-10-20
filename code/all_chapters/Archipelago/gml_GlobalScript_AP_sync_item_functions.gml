@@ -47,7 +47,12 @@ function AP_verify_sync()
     for (i = 0; i < server_size; i++)
     {
         if (AP_item_from_server_copy[i] != AP_item_got_in_current_chapter_copy[i])
+        {
             return false;
+            
+            with (obj_time)
+                showreconnectmsg = 0; /// Okay yeah we reconnected but it's still cooked, show the error message
+        }
     }
 
     return true;

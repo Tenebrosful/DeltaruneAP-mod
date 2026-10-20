@@ -386,7 +386,7 @@
         case 1200:
             global.choicemsg[0] = stringsetloc("      ", "scr_text_slash_scr_text_gml_6993_0");
             
-            if (global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE || global.plot >= 120)
+            if (global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE || scr_sideb_get_phase() >= 3)
                 global.choicemsg[0] = stringsetloc("#Mansion", "scr_text_slash_scr_text_gml_6993_0");
             
             global.choicemsg[1] = stringsetloc("#Cyber Field", "scr_text_slash_scr_text_gml_6994_0");
@@ -400,7 +400,7 @@
         case 1201:
             global.msg[0] = stringsetloc("* (But nothing happened.)/%", "scr_text_slash_scr_text_gml_3104_0");
             
-            if (global.choice == 0 && (global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE || global.plot >= 120))
+            if (global.choice == 0 && (global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE || scr_sideb_get_phase() >= 3))
             {
                 with (obj_shortcut_door)
                     door_destination = 157;

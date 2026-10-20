@@ -7,12 +7,9 @@ if (scr_havechar(2))
 {
     scr_speaker("susie");
     msgsetloc(0, "\\EC* Everything's frozen.../");
-    msgnextloc("\\E1* Wonder what happened around here./%");
-}
-if (scr_havechar(3))
-{
-    scr_speaker("ralsei");
-    msgsetloc(0, "\\EC* .../%");
+    msgnextloc("* What happened around here?/");
+    scr_anyface_next("ralsei", "4");
+    msgnextloc("\\E4* .../%");
 }
 
 onebuffer = 5;

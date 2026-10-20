@@ -67,9 +67,6 @@ if (delaytimer >= delay)
         message = 1;
     }
     
-    if (damage == 0)
-        message = 1;
-    
     if (type == 4)
         message = 2;
     
