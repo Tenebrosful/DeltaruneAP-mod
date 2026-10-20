@@ -7,8 +7,13 @@
     _input.init();
 /// CODE
     isfullscreen = window_get_fullscreen();
-    var _input = instance_create(0, 0, obj_input);
-    _input.init();
+    
+    if (!instance_exists(obj_input))
+    {
+        var _input = instance_create(0, 0, obj_input);
+        _input.init();
+    }
+    
     global.screen_border_id = "Dynamic";
     global.screen_border_active = true;
     global.screen_border_alpha = 1;
