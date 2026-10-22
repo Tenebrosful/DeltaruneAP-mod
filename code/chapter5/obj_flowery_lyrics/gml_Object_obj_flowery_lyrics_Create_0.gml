@@ -155,10 +155,10 @@ load_song_data = function()
         default:
             notetime = [];
             noteend = [];
+            maxnote = [];
             break;
     }
 
-    maxnote = array_length(notetime);
     beat_count = array_length(beattime);
     
     if (i_ex(obj_flowery_towery_pillars))
