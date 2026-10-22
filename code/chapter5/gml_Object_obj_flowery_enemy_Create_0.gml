@@ -6,9 +6,6 @@
 if (i_ex(obj_flowery_lyrics))
 {
     with (obj_flowery_lyrics)
-    {
         load_song_data();
-        load_lyrics();
-    }
 }
 /// END
