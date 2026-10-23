@@ -1,4 +1,4 @@
-/// PATCH
+/// PATCH .ignore if !CHAPTER_3
 
 /// REPLACE
     mus_volume(track1_instance, 1, 0);

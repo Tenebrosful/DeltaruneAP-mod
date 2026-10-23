@@ -42,6 +42,15 @@
 #endif
 
 /// REPLACE
+    if (tutorial >= 1 && audio_is_playing(global.currentsong[1]))
+    {
+        track1 = global.currentsong[0];
+        track2 = snd_init(track2_id);
+        trackstart = audio_sound_get_track_position(global.currentsong[1]);
+        trackpos = trackstart;
+    }
+    else
+    {
         track1 = snd_init(track1_id);
         track2 = snd_init(track2_id);
     }
@@ -50,7 +59,17 @@
     {
         track1_solo = snd_init(track1_id);
         track2_solo = snd_init(track2_id);
+    }
 /// CODE
+    if (tutorial >= 1 && audio_is_playing(global.currentsong[1]))
+    {
+        track1 = global.currentsong[0];
+        track2 = snd_init(track2_id, false);
+        trackstart = audio_sound_get_track_position(global.currentsong[1]);
+        trackpos = trackstart;
+    }
+    else
+    {
         track1 = snd_init(track1_id, false);
         track2 = snd_init(track2_id, false);
     }
@@ -59,4 +78,37 @@
     {
         track1_solo = snd_init(track1_id, false);
         track2_solo = snd_init(track2_id, false);
+    }
+/// END
+
+/// REPLACE
+        if (tutorial == 1)
+        {
+            mus_volume(track1_instance, main_vol, 0);
+            mus_volume(track2_instance, 0, 0);
+        }
+/// CODE
+        if (tutorial == 1)
+        {
+            if (!global.AP_ost_shuffle)
+                mus_volume(track1_instance, main_vol, 0);
+            
+            mus_volume(track2_instance, 0, 0);
+        }
+/// END
+
+/// REPLACE
+        if (tutorial > 0)
+        {
+            mus_volume(track1_instance, main_vol, 0);
+            mus_volume(track2_instance, 0, 0);
+        }
+/// CODE
+        if (tutorial > 0)
+        {
+            if (!global.AP_ost_shuffle)
+                mus_volume(track1_instance, main_vol, 0);
+            
+            mus_volume(track2_instance, 0, 0);
+        }
 /// END
