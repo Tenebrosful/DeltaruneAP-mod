@@ -531,40 +531,75 @@ function AP_load_song(songname)
             bpm = 170;
             break;
 
+        case "ch3_tvtime.ogg":
+        case "ch3_tvtime_guitar.ogg":
+            song_length = 32.842;
+            notetime = [0.32, 0.63, 1.11, 1.26, 1.42, 1.58, 1.89, 2.21, 2.37, 5.37, 5.68, 6.16, 6.32, 6.47, 6.63, 6.95, 7.26, 7.42, 10.42, 10.74, 11.21, 11.37, 11.53, 11.68, 12, 12.32, 12.47, 15.47, 15.79, 16.26, 16.42, 16.58, 16.74, 17.05, 17.37, 17.53, 20.21, 21, 21.16, 21.32, 22.26, 22.42, 22.58, 22.74, 23.37, 24, 24.79, 24.95, 25.11, 25.26, 26.05, 26.21, 26.37, 27.32, 27.47, 27.63, 27.79, 28.42, 29.05, 29.84, 30, 30.16];
+            noteend = [0.47, 0.79, 1.26, 1.34, 1.5, 1.74, 2.05, 2.37, 2.53, 5.53, 5.84, 6.24, 6.39, 6.55, 6.71, 7.11, 7.34, 7.5, 10.58, 10.89, 11.29, 11.45, 11.61, 11.84, 12.16, 12.39, 12.55, 15.63, 15.95, 16.34, 16.5, 16.66, 16.89, 17.21, 17.45, 17.61, 20.84, 21.08, 21.24, 22.11, 22.34, 22.5, 22.66, 23.37, 24, 24.63, 24.87, 25.03, 25.18, 25.89, 26.13, 26.29, 27.16, 27.39, 27.55, 27.71, 28.42, 29.05, 29.68, 29.92, 30.08, 31.58];
+            bpm = 190;
+            break;
+
         case "kris_piano_lancer_waltz.ogg":
             song_length = 75.5;
+            notetime = [];
+            noteend = [];
+            bpm = 100;
             break;
 
         case "kris_piano_last_prophecy.ogg":
             song_length = 54;
+            notetime = [];
+            noteend = [];
+            bpm = 100;
             break;
 
         case "kris_piano_lower.ogg":
             song_length = 41;
+            notetime = [];
+            noteend = [];
+            bpm = 100;
             break;
 
         case "kris_piano_prophecy.ogg":
             song_length = 32.5;
+            notetime = [];
+            noteend = [];
+            bpm = 100;
             break;
 
         case "kris_piano_quiz.ogg":
             song_length = 13;
+            notetime = [];
+            noteend = [];
+            bpm = 100;
             break;
 
         case "kris_piano_rouxls.ogg":
             song_length = 47;
+            notetime = [];
+            noteend = [];
+            bpm = 100;
             break;
 
         case "kris_piano_sevenfour.ogg":
             song_length = 66;
+            notetime = [];
+            noteend = [];
+            bpm = 100;
             break;
         
         case "kris_piano_shop.ogg":
             song_length = 49;
+            notetime = [];
+            noteend = [];
+            bpm = 100;
             break;
 
         case "kris_piano_waitingroom.ogg":
             song_length = 89;
+            notetime = [];
+            noteend = [];
+            bpm = 100;
             break;
     }
     
