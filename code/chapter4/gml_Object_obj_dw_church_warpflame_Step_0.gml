@@ -37,10 +37,11 @@
         msgsetloc(0, "* (A pink flame..^1. it glows hesitatingly.)/", "obj_dw_church_warpflame_slash_Step_0_gml_32_0");
         global.choicemsg[0] = stringsetloc("#Return to#beginning", "obj_dw_church_warpflame_slash_Step_0_gml_33_0");
     }
+/// CODE
     
     if (roomtarg == 218)
     {
         msgsetloc(0, "* (A red flame..^1. it glows hesitatingly.)/", "obj_dw_church_warpflame_slash_Step_0_gml_41_0");
         global.choicemsg[0] = stringsetloc("#Return to#save point", "obj_dw_church_warpflame_slash_Step_0_gml_42_0");
     }
-/// CODE
+/// END

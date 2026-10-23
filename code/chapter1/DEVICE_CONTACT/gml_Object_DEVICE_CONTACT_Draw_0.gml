@@ -9,7 +9,8 @@ draw_set_alpha(1);
 draw_set_color(c_white);
 draw_set_font(fnt_dotumche);
 draw_set_halign(fa_center);
-draw_text_transformed(cameraw / 2, 10, "Press BACKSPACE to skip", 0.5, 0.5);
+if (SKIPPED == 0)
+    draw_text_transformed(cameraw / 2, 10, "Press BACKSPACE to skip", 0.5, 0.5);
 draw_set_font(fnt_main);
 draw_set_halign(fa_left);
 
