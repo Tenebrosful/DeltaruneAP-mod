@@ -1530,6 +1530,15 @@
                 // Load the last save
                 if (global.submenucoord[30] == 17)
                 {
+                    if (global.chapter > 2)
+                    {
+                        with (obj_border_controller)
+                        {
+                            if (custom_effect > -1)
+                                global.load_stop_effect = 1;
+                        }
+                    }
+
                     scr_load();
                 }
 

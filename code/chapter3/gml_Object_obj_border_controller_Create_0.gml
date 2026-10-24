@@ -47,6 +47,17 @@ init_border = function()
         if (global.tempflag[95] == 1)
         {
             global.tempflag[95] = 0;
+            
+            if (variable_global_exists("load_stop_effect"))
+            {
+                if (global.load_stop_effect == 1)
+                {
+                    custom_effect = -1;
+                    custom_effect_alpha = 0;
+                    global.load_stop_effect = 0;
+                }
+            }
+            
             set_border(room_border, 1);
             show_border(0.05);
         }
