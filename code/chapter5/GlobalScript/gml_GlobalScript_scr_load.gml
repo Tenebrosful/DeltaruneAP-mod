@@ -354,9 +354,7 @@ function scr_load()
         __loadedroom = 98;
     
     scr_tempsave();
-    
-    if (global.is_console)
-        global.tempflag[95] = 1;
+    global.tempflag[95] = 1;
     
     if (scr_debug())
     {

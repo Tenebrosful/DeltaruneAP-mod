@@ -1,7 +1,11 @@
 /// PATCH
 
 /// APPEND
+#if CHAPTER_1 || CHAPTER_2
 if (scr_debug())
+#else
+if (scr_debug() && room != room_rhythmgame_editor)
+#endif
 {
   draw_set_halign(fa_left)
   draw_set_font(fnt_tinynoelle)

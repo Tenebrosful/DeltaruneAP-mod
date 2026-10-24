@@ -14,3 +14,14 @@
         scr_keyitemget(13);
 /// CODE
 /// END
+
+/// REPLACE
+        if (global.console)
+        {
+            with (obj_border_controller)
+                show_border();
+        }
+/// CODE
+        with (obj_border_controller)
+            show_border();
+/// END

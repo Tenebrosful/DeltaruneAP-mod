@@ -1,18 +1,56 @@
 /// PATCH
 
-/// AFTER
+/// REPLACE
 function snd_init(arg0)
 {
 /// CODE
-
-  if (global.AP_ost_shuffle)
+function snd_init(arg0, arg1 = true)
+{
+  if (scr_debug())
   {
-    global.AP_debug_last_shuffled_ost = arg0
+    if (file_exists("debug.snd_init"))
+    {
+      var _file = file_text_open_read("debug.snd_init");
+      var _read1 = file_text_read_string(_file);
+      file_text_readln(_file);
+      var _read2 = file_text_read_string(_file);
+      var _read2f = arg1;
+      
+      if (_read2 == "0" || _read2 == "1" || _read2 == "false" || _read2 == "true") 
+        _read2f = bool(_read2);
+
+      if (_read1 != "")
+      {
+        global.AP_debug_last_shuffled_ost = arg0;
+        arg0 = _read1;
+        if (_read2f == true)
+        {
+          if (variable_struct_exists(global.AP_ost_mapping, arg0))
+          {
+            arg0 = variable_struct_get(global.AP_ost_mapping, arg0);
+          }
+        }
+        global.AP_debug_last_shuffled_ost_result = arg0;
+        arg1 = false;
+      }
+      else if (_read1 == "")
+      {
+        if (_read2 != "")
+          arg1 = _read2f;
+      }
+
+      file_text_close(_file);
+    }
+  }
+
+  if (global.AP_ost_shuffle && arg1)
+  {
+    global.AP_debug_last_shuffled_ost = arg0;
     if (variable_struct_exists(global.AP_ost_mapping, arg0))
     {
-      arg0 = variable_struct_get(global.AP_ost_mapping, arg0)
+      arg0 = variable_struct_get(global.AP_ost_mapping, arg0);
     }
-    global.AP_debug_last_shuffled_ost_result = arg0
+    global.AP_debug_last_shuffled_ost_result = arg0;
   }
 /// END
 
