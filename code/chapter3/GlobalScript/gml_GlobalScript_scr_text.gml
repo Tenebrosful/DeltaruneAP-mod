@@ -279,7 +279,17 @@
                 // Battles
                 global.flag[1049] = 0;
                 snd_free(global.currentsong[0]);
-                room_goto(room_board_1);
+                
+                if (i_ex(obj_ch3_screen_wipe))
+                {
+                    with (obj_ch3_screen_wipe)
+                        instance_destroy();
+                }
+
+                var screen_wipe = instance_create(0, 0, obj_ch3_screen_wipe);
+                screen_wipe.target_room = room_board_1;
+                screen_wipe.start = true;
+                msgset(0, "%%");
             }
             else if (global.choice == 1)
             {
@@ -306,7 +316,17 @@
                     // Challenge
                     global.flag[1118] = 0;
                     snd_free(global.currentsong[0]);
-                    room_goto(room_board_2);
+
+                    if (i_ex(obj_ch3_screen_wipe))
+                    {
+                        with (obj_ch3_screen_wipe)
+                            instance_destroy();
+                    }
+
+                    var screen_wipe = instance_create(0, 0, obj_ch3_screen_wipe);
+                    screen_wipe.target_room = room_board_2;
+                    screen_wipe.start = true;
+                    msgset(0, "%%");
                 }
             }
             else if (global.choice == 2)
