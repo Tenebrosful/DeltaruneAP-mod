@@ -58,6 +58,7 @@ function scr_gameover()
                 case room_dw_rhythm:
                 case room_dw_rhythm_empty:
                 case room_ch3_gameshowroom:
+                case room_dw_couch_overworld_intro:
                     exit;
                 
                 case room_dw_green_room:
