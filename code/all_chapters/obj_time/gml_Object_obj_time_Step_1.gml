@@ -11,7 +11,7 @@ global.AP_current_room = room_get_name(room);
 if (global.AP_old_room != global.AP_current_room)
     AP_update_current_room(global.AP_current_room)
 
-if (keyboard_check_pressed(ord("U")) && false)
+if (keyboard_check_pressed(ord("U")) && (false || scr_debug())) // i like my unstuck! its useful
         global.interact = 0
 /// END
 
