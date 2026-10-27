@@ -10,11 +10,13 @@
     }
 }
 /// CODE
-else if (obj_mainchara.x > 400 && obj_mainchara.x < 560 && obj_mainchara.y < 620 && doorcon == 0 && scr_flag_get(1547) == 1)
+else if (obj_mainchara.x > 400 && obj_mainchara.x < 560 && obj_mainchara.y < 620 && doorcon == 0)
 {
-    if (scr_flag_get(850) < 3)
+    if (scr_flag_get(850) < 3 && scr_flag_get(1547) == 1)
+    {
         obj_mainchara.y = 620;
         doorcon = 1;
+    }
 }
 
 if (doorcon == 1)
@@ -31,9 +33,13 @@ if (doorcon == 1)
     d_make();
 }
 
+if (doorcon == 2 && obj_mainchara.x > 400 && obj_mainchara.x < 560 && obj_mainchara.y < 620)
+    obj_mainchara.y = 620;
+
 if (doorcon == 2 && !d_ex())
 {
     global.interact = 0;
+    obj_mainchara.y = 620;
     doorcon = 0;
 }
 /// END
