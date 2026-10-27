@@ -10,7 +10,7 @@
     }
 }
 /// CODE
-else if (obj_mainchara.x > 400 && obj_mainchara.x < 560 && obj_mainchara.y < 620 && doorcon == 0)
+else if (obj_mainchara.x > 400 && obj_mainchara.x < 560 && obj_mainchara.y < 620 && doorcon == 0 && scr_flag_get(1547) == 1)
 {
     if (scr_flag_get(850) < 3)
         obj_mainchara.y = 620;
