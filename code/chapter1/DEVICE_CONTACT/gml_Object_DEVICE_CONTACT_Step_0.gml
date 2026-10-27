@@ -93,7 +93,7 @@ if (EVENT == 8)
     {
         PITCH += 0.02;
     }
-    else if (SKIPPED == 1)
+    else if (SKIPPED > 0)
     {
         EVENT = 200;
     }
@@ -825,7 +825,11 @@ if (EVENT == 73)
     }
     
     W = instance_create(80, 50, obj_writer);
-    EVENT = 74;
+    
+    if (SKIPPED > 0)
+        EVENT = 75;
+    else
+        EVENT = 74;
 }
 
 if (EVENT == 74 && !instance_exists(obj_writer))
@@ -833,19 +837,9 @@ if (EVENT == 74 && !instance_exists(obj_writer))
     global.othername[0] = global.name;
     global.typer = 667;
     global.msg[0] = scr_84_get_subst_string(scr_84_get_lang_string("DEVICE_CONTACT_slash_Step_0_gml_816_0"), global.truename); // \M0"~1."^5 \M1 ^5 %
-    
-    if (SKIPPED == 1)
-    {
-        global.msg[1] = "\\M0THANK YOU^5&FOR YOUR TIME^3,&DESPITE ITS&BREVITY. \\M1 ^5 %";
-        global.msg[2] = "\\M0YOUR ANSWERS^3 \\M1 ^5 %%";
-    }
-    else
-    {
-        global.msg[1] = scr_84_get_lang_string("DEVICE_CONTACT_slash_Step_0_gml_817_0"); // \M0THANK YOU^5&FOR YOUR TIME^4. \M1 ^5 %
-        global.msg[2] = scr_84_get_lang_string("DEVICE_CONTACT_slash_Step_0_gml_818_0"); // \M0YOUR ANSWERS^3 \M1 ^5 %
-        global.msg[3] = scr_84_get_lang_string("DEVICE_CONTACT_slash_Step_0_gml_819_0"); // \M0YOUR WONDERFUL^5&CREATION^6 %%
-    }
-    
+    global.msg[1] = scr_84_get_lang_string("DEVICE_CONTACT_slash_Step_0_gml_817_0"); // \M0THANK YOU^5&FOR YOUR TIME^4. \M1 ^5 %
+    global.msg[2] = scr_84_get_lang_string("DEVICE_CONTACT_slash_Step_0_gml_818_0"); // \M0YOUR ANSWERS^3 \M1 ^5 %
+    global.msg[3] = scr_84_get_lang_string("DEVICE_CONTACT_slash_Step_0_gml_819_0"); // \M0YOUR WONDERFUL^5&CREATION^6 %%
     W = instance_create(80, 50, obj_writer);
     EVENT = 75;
 }
@@ -870,8 +864,17 @@ if (EVENT == 75 && !instance_exists(obj_writer))
 if (EVENT == 77)
 {
     global.typer = 2;
-    global.msg[0] = scr_84_get_lang_string("DEVICE_CONTACT_slash_Step_0_gml_839_0"); //   Will now b^3e&  discarded^6.%
-    global.msg[1] = scr_84_get_lang_string("DEVICE_CONTACT_slash_Step_0_gml_840_0"); // No one can choose&who they are&in this world^5.%%
+    
+    if (SKIPPED > 0)
+    {
+        global.msg[0] = "   But^1, as&&   we both&&    kno^3w%%";
+    }
+    else
+    {
+        global.msg[0] = scr_84_get_lang_string("DEVICE_CONTACT_slash_Step_0_gml_839_0"); //   Will now b^3e&  discarded^6.%
+        global.msg[1] = scr_84_get_lang_string("DEVICE_CONTACT_slash_Step_0_gml_840_0"); // No one can choose&who they are&in this world^5.%%
+    }
+    
     JA_XOFF = 0;
     
     if (global.lang == "ja")
@@ -894,7 +897,12 @@ if (EVENT == 78 && !instance_exists(obj_writer))
     snd_pitch(loop1, 0);
     snd_pitch(loop2, 0);
     p = 0;
-    global.msg[0] = scr_84_get_lang_string("DEVICE_CONTACT_slash_Step_0_gml_854_0"); // You^5r& &nam^5e& & is 
+    
+    if (SKIPPED > 0)
+        global.msg[0] = "You^1r& &nam^1e& & is ";
+    else
+        global.msg[0] = scr_84_get_lang_string("DEVICE_CONTACT_slash_Step_0_gml_854_0"); // You^5r& &nam^5e& & is 
+    
     JA_XOFF = 0;
     
     if (global.lang == "ja")
@@ -903,7 +911,12 @@ if (EVENT == 78 && !instance_exists(obj_writer))
     W = instance_create(145 + JA_XOFF, 50, obj_writer);
     EVENT = 98;
     WHITEFADE = 1;
-    FADEUP = 0.008;
+    
+    if (SKIPPED > 0)
+        FADEUP = 0.02;
+    else
+        FADEUP = 0.008;
+    
     FADEFACTOR = -0.1;
     depth = -20;
 }
@@ -916,7 +929,11 @@ if (EVENT == 99)
 
 if (EVENT == 98)
 {
-    p += 0.008;
+    if (SKIPPED > 0)
+        p += 0.02;
+    else
+        p += 0.008;
+    
     snd_pitch(loop1, p);
     snd_pitch(loop2, p * 1.2);
     
@@ -1058,14 +1075,89 @@ if (keyboard_check_pressed(vk_backspace) && SKIPPED == 0)
     SKIPPED = 1;
 }
 
+if (keyboard_check_pressed(vk_backspace) && (SKIPPED % 2) == 1 && SKIPPED > 0)
+    SKIPPED += 1;
+
+if (!keyboard_check_pressed(vk_backspace) && (SKIPPED % 2) == 0 && SKIPPED > 0)
+    SKIPPED += 1;
+
+if (SKIPPED > 19 && (EVENT < 299 || EVENT > 305))
+{
+    snd_free_all();
+    snd_play(snd_text);
+    
+    with (DEVICE_GONERMAKER)
+        instance_destroy();
+    
+    with (DEVICE_OBACK_4)
+        instance_destroy();
+    
+    OBMADE = 0;
+    instance_destroy(obj_writer);
+    instance_destroy(DEVICE_APPEARANCE);
+    instance_destroy(DEVICE_GONERMAKER);
+    instance_destroy(DEVICE_CHOICE);
+    instance_destroy(DEVICE_OBACK_4);
+    HEARTMADE = 0;
+    alarm[4] = 0;
+    EVENT = 300;
+}
+
 if (EVENT == 200 && instance_exists(obj_writer) == false)
 {
     with (obj_writer)
         instance_destroy();
     
-    global.name = "";
+    global.name = "VESSEL";
     global.msg[0] = "\\M0UNDERSTOOD^3.\\M1 ^5 %";
     global.msg[1] = "\\M0THEN^3, AT LEAST&PROVIDE YOUR&NAME.\\M1 ^5 %%";
     W = instance_create(90, 90, obj_writer);
     EVENT = 70;
 }
+
+if (EVENT == 300 && instance_exists(obj_writer) == false)
+{
+    with (obj_writer)
+        instance_destroy();
+    
+    global.typer = 2;
+    global.msg[0] = "^3 Alright^1, I get it^5. %";
+    global.msg[1] = " Jus^1t go^5. %%";
+    global.msg[2] = " Can you believe these people? %";
+    global.msg[3] = " There's this excellent cutscene, but oh, it wastes SO much time..^1. %";
+    global.msg[4] = " What do you think of this^1, Knight? %";
+    global.msg[5] = " WELL^1, AS THE GREAT PAPYRUS^1, I STATE THAT THIS BEHAVIOR... %";
+    global.msg[6] = " IS UNACCEPTABLE!!! %";
+    global.msg[7] = " PEOPLE SHOULD BE GRATEFUL OF WHAT THEY'VE BEEN GIVEN! %";
+    global.msg[8] = " WE ALREADY GAVE THEM A SKIP^1, WHY SHOULD THEY WANT ANOTHER?! %";
+    global.msg[9] = " I'm going to give their would-be vessel a stupid name. %";
+    global.name = "Ohhh look at me I'm a speedrunner! I haven't touched grass in 3 weeks! only 3 more showers until 2040 hehe!!!";
+    global.msg[10] = " OH HO!!^1! THAT IS TRULY INSULTING! %";
+    global.msg[11] = " THOUGH^1, ONE-HUNDRED PERCENT TRUE! %";
+    global.msg[12] = " I WILL GIVE THEM A FITTING NAME AS WELL. %";
+    global.msg[13] = " SO THEY CAN BE REMINDED OF THEIR TRUE SELF AT ALL TIMES! %";
+    global.msg[14] = " (IF^1, BY ALL TIMES^1, YOU MEAN WHILE VIEWING THEIR SAVE.) %";
+    global.truename = "STINKY";
+    global.msg[15] = " Wait^1, are they eavesdropping on our conversation? %";
+    global.msg[16] = " WOULD YOU LOOK AT THAT^1, THEY CERTAINLY ARE! %";
+    global.msg[17] = " WELL^1, HELLO YOU^1! I WOULD CALL YOU BY YOUR NAME BUT UNFORTUNATELY IT WAS NEVER GIVEN. %";
+    global.msg[18] = " WHAT IS IT THAT YOU WANT FROM US? %";
+    global.msg[19] = " They can't reply^1. They're viewing our conversation as lines of code. %";
+    global.msg[20] = " I SEE..^1. %";
+    global.msg[21] = " YOU'RE TELLING ME THEY SPEND SO MUCH TIME BEHIND A SCREEN THAT THEY WERE ABLE TO FIND OUR CONVERSATION, %";
+    global.msg[22] = " WHICH IS BURIED IN THE CODE^1, AND^1, INSTEAD OF DOING SOMETHING PRODUCTIVE^1, %";
+    global.msg[23] = " (LIKE GOING OUTSIDE AND FEELING THE BEAUTIFUL GREEN GRASS,^1) %";
+    global.msg[24] = " THEY ARE READING OUR CONVERSATION FOR THEIR OWN AMUSEMENT? %";
+    global.msg[25] = " IT CERTAINLY SEEMS LIKE YOU ARE AMUSED BY THIS CONVERSATION! %";
+    global.msg[26] = " It depends on if it's their first time seeing this. %";
+    global.msg[27] = " Maybe this is their hundredth time reading it^1, and the humorous effect on them has worn off. %";
+    global.msg[28] = " In which case... %";
+    global.msg[30] = " Don't you have anything better to do? %";
+    global.msg[31] = " SUCH AS^1, TAKING A CLEANSING SHOWER^1, AND FEELING THE SUNLIGHT ON YOUR SKIN. %";
+    global.msg[32] = " THAT'S WHAT I LIKE TO DO WHEN I'M NOT MAKING DARK FOUNTAINS. NYEH HEH HEH!!! %%";
+    W = instance_create(90, 90, obj_writer); // Yeah papyrus knight confirmed btw
+    EVENT = 301;
+}
+
+if (EVENT == 301 && instance_exists(obj_writer) == false)
+    room_goto(room_krisroom);
