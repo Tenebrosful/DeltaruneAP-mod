@@ -1,5 +1,6 @@
 /// IMPORT
-if (global.plot >= 70 && global.plot < 120)
+con = 0
+if (global.plot >= 70 && (global.plot < 120 || global.flag[915] < 7))
 {
     scr_losechar();
     scr_setparty(0, 0, 1);

@@ -4,6 +4,7 @@
 scr_init();
 
 /// CODE
+waitforconnection = 0;
 if (!instance_exists(obj_archipelago_client))
     instance_create_layer(0, 0, 0, obj_archipelago_client);
 /// END

@@ -21,6 +21,9 @@ randomise();
 mode = "normal"
 mode_dice = irandom(99)
 
+if (global.AP_connection_state < global.AP_ENUM_CONNECTION_STATE.DISCONNECTED)
+    connect = 1;
+
 if (!instance_exists(obj_input))
 {
     var _input = instance_create(0, 0, obj_input);
