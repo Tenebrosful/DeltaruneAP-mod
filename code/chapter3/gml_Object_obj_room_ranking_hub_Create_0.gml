@@ -8,7 +8,7 @@
 /// CODE
     if (global.plot >= 250)
     {
-        if (i != 1)
+        if (i == 2)
             _is_unlocked = false;
 /// END
 

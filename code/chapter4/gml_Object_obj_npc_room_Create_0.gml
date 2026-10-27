@@ -6,7 +6,9 @@ if (room == room_dw_church_jackenstein && x == 320)
     sprite_index = spr_bibliox_talk;
     depthcancel = 1;
     depth = 900000;
-    instance_destroy();
+
+    if (global.maxhp[1] > 0)
+        instance_destroy();
 }
 
 if ((room == room_dw_church_gersonstudy && x == 600) || (room == room_dw_church_knightclimb_post && x == 160))
