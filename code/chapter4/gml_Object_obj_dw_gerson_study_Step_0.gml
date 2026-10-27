@@ -12,7 +12,7 @@
 /// CODE
 else if (obj_mainchara.x > 400 && obj_mainchara.x < 560 && obj_mainchara.y < 620 && doorcon == 0)
 {
-    if (scr_flag_get(850) < 3 && scr_flag_get(1547) == 1)
+    if (scr_flag_get(850) < 3 && scr_flag_get(1547) == 1 && global.plot < 230)
     {
         obj_mainchara.y = 620;
         doorcon = 1;
