@@ -93,10 +93,10 @@ detect_no_chapters = function()
 /// CODE
             else if (event_value == UnknownEnum.Value_5)
             {
-                obj_archipelago_client.AP_disconnect()
+                obj_archipelago_client.AP_disconnect();
                 audio_stop_all();
-                audio_play_sound(snd_select, 1, false)
-                room_goto(PLACE_ARCHIPELAGO_CONNECT)
+                audio_play_sound(snd_select, 1, false);
+                game_restart();
             }
             
             break;
