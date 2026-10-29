@@ -52,28 +52,28 @@ for /L %%I in (1,1,%ARG_COUNT%) do (
         SET CHAPTER_6=1
         SET CHAPTER_7=1
     )
-    IF /I !ARG_VALUES[%%I]!==0 (
+    IF !ARG_VALUES[%%I]!==0 (
         SET CHAPTER_0=1
     )
-    IF /I !ARG_VALUES[%%I]!==1 (
+    IF !ARG_VALUES[%%I]!==1 (
         SET CHAPTER_1=1
     )
-    IF /I !ARG_VALUES[%%I]!==2 (
+    IF !ARG_VALUES[%%I]!==2 (
         SET CHAPTER_2=1
     )
-    IF /I !ARG_VALUES[%%I]!==3 (
+    IF !ARG_VALUES[%%I]!==3 (
         SET CHAPTER_3=1
     )
-    IF /I !ARG_VALUES[%%I]!==4 (
+    IF !ARG_VALUES[%%I]!==4 (
         SET CHAPTER_4=1
     )
-    IF /I !ARG_VALUES[%%I]!==5 (
+    IF !ARG_VALUES[%%I]!==5 (
         SET CHAPTER_5=1
     )
-    IF /I !ARG_VALUES[%%I]!==6 (
+    IF !ARG_VALUES[%%I]!==6 (
         SET CHAPTER_6=1
     )
-    IF /I !ARG_VALUES[%%I]!==7 (
+    IF !ARG_VALUES[%%I]!==7 (
         SET CHAPTER_7=1
     )
 )
