@@ -1,6 +1,139 @@
-UTMT_CLI\UndertaleModCli.exe load DELTARUNE\data_vanilla.win -s build.csx -o DELTARUNE\data.win
-UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter1_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter1_windows\data.win
-UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter2_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter2_windows\data.win
-UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter3_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter3_windows\data.win
-UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter4_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter4_windows\data.win
-UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter5_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter5_windows\data.win
+@ECHO OFF
+SETLOCAL ENABLEDELAYEDEXPANSION
+
+:: VALID PARAMETERS:
+::
+:: NO VALID PARAMETERS PROVIDED = ALL CHAPTERS + CHAPTER SELECT
+:: ALL = ALL CHAPTERS
+:: 0 = CHAPTER SELECT
+:: 1 = CHAPTER 1
+:: 2 = CHAPTER 2
+:: 3 = CHAPTER 3
+:: 4 = CHAPTER 4
+:: 5 = CHAPTER 5
+:: 6 = CHAPTER 6 (CURRENTLY DISABLED)
+:: 7 = CHAPTER 7 (CURRENTLY DISABLED)
+:: 
+:: THEY ARE NOT
+:: CASE SENSITIVE,
+:: AND YOU MAY PROVIDE
+:: MULTIPLE PARAMETERS
+:: IF YOU SO WISH.
+:: 
+:: I SPENT TOO LONG ON THIS
+
+:INITIALIZE_VARIABLES
+SET CHAPTER_0=0
+SET CHAPTER_1=0
+SET CHAPTER_2=0
+SET CHAPTER_3=0
+SET CHAPTER_4=0
+SET CHAPTER_5=0
+SET CHAPTER_6=0
+SET CHAPTER_7=0
+SET ARG_COUNT=0
+SET COUNTER=1
+
+:COUNT_ARGUMENTS
+:: argument counting code from this StackOverflow answer by Aacini: https://stackoverflow.com/a/19837690
+FOR %%X IN (%*) DO (
+   SET /A ARG_COUNT+=1
+   SET "ARG_VALUES[!ARG_COUNT!]=%%~X"
+)
+
+:ENABLE_CHAPTERS
+for /L %%I in (1,1,%ARG_COUNT%) do (
+    IF /I !ARG_VALUES[%%I]!==ALL (
+        SET CHAPTER_1=1
+        SET CHAPTER_2=1
+        SET CHAPTER_3=1
+        SET CHAPTER_4=1
+        SET CHAPTER_5=1
+        SET CHAPTER_6=1
+        SET CHAPTER_7=1
+    )
+    IF !ARG_VALUES[%%I]!==0 (
+        SET CHAPTER_0=1
+    )
+    IF !ARG_VALUES[%%I]!==1 (
+        SET CHAPTER_1=1
+    )
+    IF !ARG_VALUES[%%I]!==2 (
+        SET CHAPTER_2=1
+    )
+    IF !ARG_VALUES[%%I]!==3 (
+        SET CHAPTER_3=1
+    )
+    IF !ARG_VALUES[%%I]!==4 (
+        SET CHAPTER_4=1
+    )
+    IF !ARG_VALUES[%%I]!==5 (
+        SET CHAPTER_5=1
+    )
+    IF !ARG_VALUES[%%I]!==6 (
+        SET CHAPTER_6=1
+    )
+    IF !ARG_VALUES[%%I]!==7 (
+        SET CHAPTER_7=1
+    )
+)
+
+:CONFIRMATION
+:: DISBLE UNRELEASED CHAPTERS
+SET CHAPTER_6=0
+SET CHAPTER_7=0
+
+SET CHAPTER_COUNT=0
+IF %CHAPTER_0%==1 SET /A CHAPTER_COUNT+=1
+IF %CHAPTER_1%==1 SET /A CHAPTER_COUNT+=1
+IF %CHAPTER_2%==1 SET /A CHAPTER_COUNT+=1
+IF %CHAPTER_3%==1 SET /A CHAPTER_COUNT+=1
+IF %CHAPTER_4%==1 SET /A CHAPTER_COUNT+=1
+IF %CHAPTER_5%==1 SET /A CHAPTER_COUNT+=1
+IF %CHAPTER_6%==1 SET /A CHAPTER_COUNT+=1
+IF %CHAPTER_7%==1 SET /A CHAPTER_COUNT+=1
+
+IF %CHAPTER_COUNT%==0 (
+    SET CHAPTER_0=1
+    SET CHAPTER_1=1
+    SET CHAPTER_2=1
+    SET CHAPTER_3=1
+    SET CHAPTER_4=1
+    SET CHAPTER_5=1
+    SET CHAPTER_6=1
+    SET CHAPTER_7=1
+    GOTO CONFIRMATION
+) ELSE IF %CHAPTER_COUNT%==1 (
+    ECHO GENERATE_DATA OPERATION WILL BE PERFORMED ON THE FOLLOWING PROGRAM:
+) ELSE (
+    ECHO GENERATE_DATA OPERATION WILL BE PERFORMED ON THE FOLLOWING PROGRAMS:
+)
+
+IF %CHAPTER_0%==1 ECHO CHAPTER_SELECT
+IF %CHAPTER_1%==1 ECHO CHAPTER_1
+IF %CHAPTER_2%==1 ECHO CHAPTER_2
+IF %CHAPTER_3%==1 ECHO CHAPTER_3
+IF %CHAPTER_4%==1 ECHO CHAPTER_4
+IF %CHAPTER_5%==1 ECHO CHAPTER_5
+IF %CHAPTER_6%==1 ECHO CHAPTER_6
+IF %CHAPTER_7%==1 ECHO CHAPTER_7
+
+CHOICE /M "ARE THESE CHOICES CORRECT?"
+IF ERRORLEVEL 2 GOTO CANCEL
+IF ERRORLEVEL 1 GOTO PATCH
+
+:CANCEL
+ECHO UNDERSTOOD.
+EXIT /B
+
+:PATCH
+ECHO NOW PERFORMING GENERATE_DATA OPERATION
+IF %CHAPTER_0%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\data_vanilla.win -s build.csx -o DELTARUNE\data.win -f
+IF %CHAPTER_1%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter1_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter1_windows\data.win -f
+IF %CHAPTER_2%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter2_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter2_windows\data.win -f
+IF %CHAPTER_3%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter3_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter3_windows\data.win -f
+IF %CHAPTER_4%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter4_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter4_windows\data.win -f
+IF %CHAPTER_5%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter5_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter5_windows\data.win -f
+IF %CHAPTER_6%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter6_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter6_windows\data.win -f
+IF %CHAPTER_7%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter7_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter7_windows\data.win -f
+ECHO GENERATE_DATA OPERATION COMPLETE.
