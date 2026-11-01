@@ -640,7 +640,11 @@ function scr_weaponinfo(arg0)
         
         case 30:
             weaponnametemp = stringsetloc("WoodBlade2", "scr_weaponinfo_slash_scr_weaponinfo_gml_629_0_b");
-            weapondesctemp = stringsetloc("A sword that is arbitrarily stronger#because it fits the setting of Chapter 5.", "scr_weaponinfo_slash_scr_weaponinfo_gml_630_0_b");
+            if global.chapter == 5
+                weapondesctemp = stringsetloc("A sword that is arbitrarily stronger#because it fits the setting of Chapter 5.", "scr_weaponinfo_slash_scr_weaponinfo_gml_630_0_b");
+            else
+                weapondesctemp = stringsetloc("A sword that is arbitrarily stronger#because it'd fit the setting of Chapter 5.", "scr_weaponinfo_slash_scr_weaponinfo_gml_630_0_b");
+
             wmessage2temp = stringsetloc("No, you geek.", "scr_weaponinfo_slash_scr_weaponinfo_gml_631_0_b");
             wmessage3temp = stringsetloc("Cool poses, Kris!", "scr_weaponinfo_slash_scr_weaponinfo_gml_632_0_b");
             wmessage4temp = stringsetloc("Go, Kris! \"1000 Moon Crescent Slash!\" Faha!", "scr_weaponinfo_slash_scr_weaponinfo_gml_633_0_b");
