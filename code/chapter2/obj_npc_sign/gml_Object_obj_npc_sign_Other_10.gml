@@ -127,3 +127,45 @@
             global.msc = 1244;
         else if (global.flag[463] == 0)
 /// END
+
+/// REPLACE
+    if (sprite_index == spr_queen_walk_down)
+    {
+        scr_speaker("queen");
+        msgsetloc(0, "\\E1* Amazing So I Can Turn Your Castle Into My Mansion?/", "obj_npc_sign_slash_Other_10_gml_1330_0");
+        scr_anyface_next("ralsei", 21);
+        msgnextloc("\\EL* (W-Wait^1, that's not what I'm saying...)/%", "obj_npc_sign_slash_Other_10_gml_1332_0");
+    }
+    
+    if (sprite_index == spr_ralsei_walk_up)
+    {
+        scr_speaker("ralsei");
+        msgsetloc(0, "\\E2* Kris^1, the Fountain is waiting for you!/%", "obj_npc_sign_slash_Other_10_gml_1338_0");
+    }
+}
+/// CODE
+    if (sprite_index == spr_queen_walk_down || sprite_index == spr_queen_walk_left)
+    {
+        scr_speaker("queen");
+        msgsetloc(0, "\\E1* Amazing So I Can Turn Your Castle Into My Mansion?/", "obj_npc_sign_slash_Other_10_gml_1330_0");
+        scr_anyface_next("ralsei", 21);
+        msgnextloc("\\EL* (W-Wait^1, that's not what I'm saying...)/%", "obj_npc_sign_slash_Other_10_gml_1332_0");
+    }
+    
+    if (sprite_index == spr_ralsei_walk_up)
+    {
+        global.choice = -1;
+        scr_speaker("ralsei");
+        msgsetloc(0, "\\E2* Kris^1, the Fountain is waiting for you!/", "obj_npc_sign_slash_Other_10_gml_1338_0");
+        global.msc = 2002;
+        scr_text(global.msc);
+    }
+    
+    if (sprite_index == spr_ralsei_walk_right)
+    {
+        global.choice = -1;
+        scr_speaker("ralsei");
+        msgsetloc(0, "\\E2* Kris^1, the Fountain is waiting for you!/%", "obj_npc_sign_slash_Other_10_gml_1338_0");
+    }
+}
+/// END

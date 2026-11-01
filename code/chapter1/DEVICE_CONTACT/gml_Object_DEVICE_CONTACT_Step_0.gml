@@ -1160,4 +1160,7 @@ if (EVENT == 300 && instance_exists(obj_writer) == false)
 }
 
 if (EVENT == 301 && instance_exists(obj_writer) == false)
+{
+    global.flag[6] = 0;
     room_goto(room_krisroom);
+}

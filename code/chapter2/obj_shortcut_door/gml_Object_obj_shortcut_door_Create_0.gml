@@ -12,7 +12,6 @@ if (global.chapter == 2 && room == room_dw_mansion_entrance && scr_sideb_get_pha
 /// CODE
 if (global.chapter == 2 && global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE && scr_sideb_get_phase() >= 1)
 {
-    global.plot = 70;
     on = 1;
 }
 /// END
