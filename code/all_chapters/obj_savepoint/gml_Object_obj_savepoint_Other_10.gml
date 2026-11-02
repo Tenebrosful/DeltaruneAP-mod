@@ -21,7 +21,7 @@ if (!obj_archipelago_client.AP_isAuthenticated())
             global.flag[469] = 1;
             scr_speaker("no_name");
             msgsetloc(0, "* (You touched the light...)/", "obj_savepoint_slash_Other_10_gml_59_0");
-            msgnextloc("\\s0* (You thought about how you \\cRcan't go back to the Cyber World\\cW anymore.^3)/", "obj_savepoint_slash_Other_10_gml_60_0_b");
+            msgnextloc("* (You thought about how you \\cRcan't go back to the Cyber World\\cW anymore.)/", "obj_savepoint_slash_Other_10_gml_60_0_b");
             msgnextloc("* (You considered this carefully!)/%", "obj_savepoint_slash_Other_10_gml_61_0_b");
         }
         else

@@ -1,7 +1,7 @@
 /// PATCH
 
 /// REPLACE
-        instance_destroy();
+    instance_destroy();
 /// CODE
         instance_destroy(obj_ch2_scene26_gigaqueen);
         rudebuster = false;
