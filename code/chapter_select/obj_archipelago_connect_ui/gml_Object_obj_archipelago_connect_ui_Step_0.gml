@@ -13,6 +13,7 @@ if (mode == "kris")
         
         my_music = variable_struct_get(kris_musics_assets, music_name);
         audio_play_sound(my_music, 2, false);
+        audio_sound_gain(my_music, 0.5 * global.mus_vol, 0);
     }
 }
 
