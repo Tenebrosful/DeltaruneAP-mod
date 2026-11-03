@@ -1,139 +1,110 @@
-@ECHO OFF
-SETLOCAL ENABLEDELAYEDEXPANSION
+@echo off
+setlocal enabledelayedexpansion
 
-:: VALID PARAMETERS:
+:: valid parameters:
 ::
-:: NO VALID PARAMETERS PROVIDED = ALL CHAPTERS + CHAPTER SELECT
-:: ALL = ALL CHAPTERS
-:: 0 = CHAPTER SELECT
-:: 1 = CHAPTER 1
-:: 2 = CHAPTER 2
-:: 3 = CHAPTER 3
-:: 4 = CHAPTER 4
-:: 5 = CHAPTER 5
-:: 6 = CHAPTER 6 (CURRENTLY DISABLED)
-:: 7 = CHAPTER 7 (CURRENTLY DISABLED)
+:: no valid parameters provided = all chapters + chapter select
+:: 0 = chapter select
+:: 1 = chapter 1
+:: 2 = chapter 2
+:: 3 = chapter 3
+:: 4 = chapter 4
+:: 5 = chapter 5
+:: 6 = chapter 6 (currently disabled)
+:: 7 = chapter 7 (currently disabled)
+:: 8 = all chapters
+:: 9 = all chapters + chapter select
 :: 
-:: THEY ARE NOT
-:: CASE SENSITIVE,
-:: AND YOU MAY PROVIDE
-:: MULTIPLE PARAMETERS
-:: IF YOU SO WISH.
-:: 
-:: I SPENT TOO LONG ON THIS
+:: they are not case sensitive, and
+:: you may provide multiple parameters.
 
-:INITIALIZE_VARIABLES
-SET CHAPTER_0=0
-SET CHAPTER_1=0
-SET CHAPTER_2=0
-SET CHAPTER_3=0
-SET CHAPTER_4=0
-SET CHAPTER_5=0
-SET CHAPTER_6=0
-SET CHAPTER_7=0
-SET ARG_COUNT=0
-SET COUNTER=1
+set chapter_0=0
+set chapter_1=0
+set chapter_2=0
+set chapter_3=0
+set chapter_4=0
+set chapter_5=0
+set chapter_6=0
+set chapter_7=0
+set arg_count=0
 
-:COUNT_ARGUMENTS
-:: argument counting code from this StackOverflow answer by Aacini: https://stackoverflow.com/a/19837690
-FOR %%X IN (%*) DO (
-   SET /A ARG_COUNT+=1
-   SET "ARG_VALUES[!ARG_COUNT!]=%%~X"
+:: argument counting code from this stackoverflow answer by aacini: https://stackoverflow.com/a/19837690
+for %%x in (%*) do (
+   set /a arg_count+=1
+   set "arg_values[!arg_count!]=%%~x"
 )
 
-:ENABLE_CHAPTERS
-for /L %%I in (1,1,%ARG_COUNT%) do (
-    IF /I !ARG_VALUES[%%I]!==ALL (
-        SET CHAPTER_1=1
-        SET CHAPTER_2=1
-        SET CHAPTER_3=1
-        SET CHAPTER_4=1
-        SET CHAPTER_5=1
-        SET CHAPTER_6=1
-        SET CHAPTER_7=1
+for /l %%i in (1,1,%arg_count%) do (
+    if !arg_values[%%i]!==0 (
+        set chapter_0=1
     )
-    IF !ARG_VALUES[%%I]!==0 (
-        SET CHAPTER_0=1
+    if !arg_values[%%i]!==1 (
+        set chapter_1=1
     )
-    IF !ARG_VALUES[%%I]!==1 (
-        SET CHAPTER_1=1
+    if !arg_values[%%i]!==2 (
+        set chapter_2=1
     )
-    IF !ARG_VALUES[%%I]!==2 (
-        SET CHAPTER_2=1
+    if !arg_values[%%i]!==3 (
+        set chapter_3=1
     )
-    IF !ARG_VALUES[%%I]!==3 (
-        SET CHAPTER_3=1
+    if !arg_values[%%i]!==4 (
+        set chapter_4=1
     )
-    IF !ARG_VALUES[%%I]!==4 (
-        SET CHAPTER_4=1
+    if !arg_values[%%i]!==5 (
+        set chapter_5=1
     )
-    IF !ARG_VALUES[%%I]!==5 (
-        SET CHAPTER_5=1
+    if !arg_values[%%i]!==6 (
+        set chapter_6=1
     )
-    IF !ARG_VALUES[%%I]!==6 (
-        SET CHAPTER_6=1
+    if !arg_values[%%i]!==7 (
+        set chapter_7=1
     )
-    IF !ARG_VALUES[%%I]!==7 (
-        SET CHAPTER_7=1
+    if !arg_values[%%i]!==8 (
+        set chapter_1=1
+        set chapter_2=1
+        set chapter_3=1
+        set chapter_4=1
+        set chapter_5=1
+        set chapter_6=1
+        set chapter_7=1
+    )
+    if !arg_values[%%i]!==9 (
+        set chapter_0=1
+        set chapter_1=1
+        set chapter_2=1
+        set chapter_3=1
+        set chapter_4=1
+        set chapter_5=1
+        set chapter_6=1
+        set chapter_7=1
     )
 )
 
-:CONFIRMATION
-:: DISBLE UNRELEASED CHAPTERS
-SET CHAPTER_6=0
-SET CHAPTER_7=0
+:: disable unreleased chapters
+set chapter_6=0
+set chapter_7=0
 
-SET CHAPTER_COUNT=0
-IF %CHAPTER_0%==1 SET /A CHAPTER_COUNT+=1
-IF %CHAPTER_1%==1 SET /A CHAPTER_COUNT+=1
-IF %CHAPTER_2%==1 SET /A CHAPTER_COUNT+=1
-IF %CHAPTER_3%==1 SET /A CHAPTER_COUNT+=1
-IF %CHAPTER_4%==1 SET /A CHAPTER_COUNT+=1
-IF %CHAPTER_5%==1 SET /A CHAPTER_COUNT+=1
-IF %CHAPTER_6%==1 SET /A CHAPTER_COUNT+=1
-IF %CHAPTER_7%==1 SET /A CHAPTER_COUNT+=1
-
-IF %CHAPTER_COUNT%==0 (
-    SET CHAPTER_0=1
-    SET CHAPTER_1=1
-    SET CHAPTER_2=1
-    SET CHAPTER_3=1
-    SET CHAPTER_4=1
-    SET CHAPTER_5=1
-    SET CHAPTER_6=1
-    SET CHAPTER_7=1
-    GOTO CONFIRMATION
-) ELSE IF %CHAPTER_COUNT%==1 (
-    ECHO GENERATE_DATA OPERATION WILL BE PERFORMED ON THE FOLLOWING PROGRAM:
-) ELSE (
-    ECHO GENERATE_DATA OPERATION WILL BE PERFORMED ON THE FOLLOWING PROGRAMS:
+:: enable all chapters if no chapters are enabled
+if %chapter_0%==0 if %chapter_1%==0 if %chapter_2%==0 if %chapter_3%==0 if %chapter_4%==0 if %chapter_5%==0 if %chapter_6%==0 if %chapter_7%==0 (
+    set chapter_0=1
+    set chapter_1=1
+    set chapter_2=1
+    set chapter_3=1
+    set chapter_4=1
+    set chapter_5=1
+    set chapter_6=1
+    set chapter_7=1
 )
 
-IF %CHAPTER_0%==1 ECHO CHAPTER_SELECT
-IF %CHAPTER_1%==1 ECHO CHAPTER_1
-IF %CHAPTER_2%==1 ECHO CHAPTER_2
-IF %CHAPTER_3%==1 ECHO CHAPTER_3
-IF %CHAPTER_4%==1 ECHO CHAPTER_4
-IF %CHAPTER_5%==1 ECHO CHAPTER_5
-IF %CHAPTER_6%==1 ECHO CHAPTER_6
-IF %CHAPTER_7%==1 ECHO CHAPTER_7
+:: disable unreleased chapters again lol
+set chapter_6=0
+set chapter_7=0
 
-CHOICE /M "ARE THESE CHOICES CORRECT?"
-IF ERRORLEVEL 2 GOTO CANCEL
-IF ERRORLEVEL 1 GOTO PATCH
-
-:CANCEL
-ECHO UNDERSTOOD.
-EXIT /B
-
-:PATCH
-ECHO NOW PERFORMING GENERATE_DATA OPERATION
-IF %CHAPTER_0%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\data_vanilla.win -s build.csx -o DELTARUNE\data.win -f
-IF %CHAPTER_1%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter1_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter1_windows\data.win -f
-IF %CHAPTER_2%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter2_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter2_windows\data.win -f
-IF %CHAPTER_3%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter3_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter3_windows\data.win -f
-IF %CHAPTER_4%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter4_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter4_windows\data.win -f
-IF %CHAPTER_5%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter5_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter5_windows\data.win -f
-IF %CHAPTER_6%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter6_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter6_windows\data.win -f
-IF %CHAPTER_7%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter7_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter7_windows\data.win -f
-ECHO GENERATE_DATA OPERATION COMPLETE.
+if %chapter_0%==1 UTMT_CLI\UndertaleModCli.exe load deltarune\data_vanilla.win -s build.csx -o deltarune\data.win -f
+if %chapter_1%==1 UTMT_CLI\UndertaleModCli.exe load deltarune\chapter1_windows\data_vanilla.win -s build.csx -o deltarune\chapter1_windows\data.win -f
+if %chapter_2%==1 UTMT_CLI\UndertaleModCli.exe load deltarune\chapter2_windows\data_vanilla.win -s build.csx -o deltarune\chapter2_windows\data.win -f
+if %chapter_3%==1 UTMT_CLI\UndertaleModCli.exe load deltarune\chapter3_windows\data_vanilla.win -s build.csx -o deltarune\chapter3_windows\data.win -f
+if %chapter_4%==1 UTMT_CLI\UndertaleModCli.exe load deltarune\chapter4_windows\data_vanilla.win -s build.csx -o deltarune\chapter4_windows\data.win -f
+if %chapter_5%==1 UTMT_CLI\UndertaleModCli.exe load deltarune\chapter5_windows\data_vanilla.win -s build.csx -o deltarune\chapter5_windows\data.win -f
+if %chapter_6%==1 UTMT_CLI\UndertaleModCli.exe load deltarune\chapter6_windows\data_vanilla.win -s build.csx -o deltarune\chapter6_windows\data.win -f
+if %chapter_7%==1 UTMT_CLI\UndertaleModCli.exe load deltarune\chapter7_windows\data_vanilla.win -s build.csx -o deltarune\chapter7_windows\data.win -f
