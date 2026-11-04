@@ -1,7 +1,7 @@
 del /F /Q "./exportmods_zip"
 
 cd /d "exportmods/bsdiff/"
-tar.exe -a -c -f "../../exportmods_zip/archipelago-2_3_0-3_bsdiff.zip" "*.bsdiff"
+tar.exe -a -c -f "../../exportmods_zip/archipelago-2_3_0-4_bsdiff.zip" "*.bsdiff"
 
 cd /d "../.."
 

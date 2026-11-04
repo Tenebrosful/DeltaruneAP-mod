@@ -867,7 +867,7 @@ if (EVENT == 77)
     
     if (SKIPPED > 0)
     {
-        global.msg[0] = "   But^1, as&&   we both&&    kno^3w%%";
+        global.msg[0] = "    But^1, as&    we both&     kno^3w%%";
     }
     else
     {

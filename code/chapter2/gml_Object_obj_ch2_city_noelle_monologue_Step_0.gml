@@ -36,6 +36,15 @@ if (decemberskipcon == 10)
     
     with (obj_ch2_noellepuzzle_key_kris)
         pressed = 1;
+        
+    var exit_forcefield = instance_create(20, 240, obj_forcefield);
+    
+    with (exit_forcefield)
+    {
+        image_xscale = 2;
+        image_yscale = 4;
+        scr_depth();
+    }
 }
 
 if (decemberskipcon == 11 && !d_ex())

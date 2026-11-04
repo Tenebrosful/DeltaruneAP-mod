@@ -418,6 +418,9 @@ function AP_sendDamagelink(amount)
 
     if (!global.AP_damagelink || global.AP_damagelink_protected)
         exit;
+        
+    if (global.darkzone == 0)
+        exit;
 
     if (amount <= 0)
         exit;
