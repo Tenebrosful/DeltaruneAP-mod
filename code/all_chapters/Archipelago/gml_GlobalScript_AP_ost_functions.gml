@@ -1,5 +1,20 @@
 /// FUNCTIONS
 
+function AP_mus_get_orig_name(arg0 = undefined)
+{
+    if (arg0 == undefined)
+        arg0 = global.currentsong[0];
+    
+    with (obj_astream)
+    {
+        if (mystream == arg0)
+            return origsongname;
+    }
+    
+    return "";
+}
+
+
 function AP_set_looptarget(songname, instance_song_id)
 {
     switch (songname)
@@ -118,36 +133,18 @@ function AP_get_looptime(songname)
 
 function AP_ost_shuffle_toggle()
 {
-    var currentsong = mus_get_name(global.currentsong[0]);
+    var song = AP_mus_get_orig_name();
     var vol = audio_sound_get_gain(global.currentsong[1]) / global.flag[16];
     var pit = audio_sound_get_pitch(global.currentsong[1]);
     var stop = false;
+    global.AP_ost_shuffle = !global.AP_ost_shuffle;
     
 #if CHAPTER_4
-    if (!variable_struct_exists(global.AP_ost_mapping, currentsong) || currentsong == "" && !i_ex(obj_dw_church_worshiproom))
+    if (!variable_struct_exists(global.AP_ost_mapping, song) || song == "" && !i_ex(obj_dw_church_worshiproom))
 #else
-    if (!variable_struct_exists(global.AP_ost_mapping, currentsong) || currentsong == "")
+    if (!variable_struct_exists(global.AP_ost_mapping, song) || song == "")
 #endif
-    {
-        global.AP_ost_shuffle = !global.AP_ost_shuffle;
         exit;
-    }
-    
-    if (global.AP_ost_shuffle)
-    {
-        var names = variable_struct_get_names(global.AP_ost_mapping);
-        
-        for (i = 0; i < array_length(names); i++)
-        {
-            if (variable_struct_get(global.AP_ost_mapping, names[i]) == currentsong)
-            {
-                currentsong = names[i];
-                break;
-            }
-        }
-    }
-    
-    global.AP_ost_shuffle = !global.AP_ost_shuffle;
     snd_free_all();
     
 #if CHAPTER_1
@@ -205,7 +202,7 @@ function AP_ost_shuffle_toggle()
 #endif
     if (!stop)
     {
-        global.currentsong[0] = snd_init(currentsong);
+        global.currentsong[0] = snd_init(song);
         global.currentsong[1] = mus_loop_ext(global.currentsong[0], vol, pit);
     }
 }
