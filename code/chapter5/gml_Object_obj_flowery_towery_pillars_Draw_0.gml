@@ -1,66 +1,6 @@
 /// PATCH
 
 /// REPLACE
-        trackpos = scr_loop(trackpos + (delta_time / 1000000), 192.024);
-/// CODE
-        trackpos = scr_loop(trackpos + (delta_time / 1000000), song_length);
-/// END
-
-/// REPLACE
-if (trackpos >= 95 && trackpos < 143 && bg_change < 90)
-    bg_change++;
-else if (bg_change > 0 && bg_change < 150 && trackpos > 143)
-    bg_change++;
-
-if (bg_change == 150 || trackpos < 95)
-    bg_change = 0;
-/// CODE
-if (songname == "Flowerman_Arrangement.ogg")
-{
-    if (trackpos >= 95 && trackpos < 143 && bg_change < 90)
-        bg_change++;
-    else if (bg_change > 0 && bg_change < 150 && trackpos > 143)
-        bg_change++;
-    
-    if (bg_change == 150 || trackpos < 95)
-        bg_change = 0;
-}
-else
-{
-    if (bg_change_lockout == 0 && !bg_changing)
-        can_change = 1;
-    
-    if (trackpos >= bg_time[0] && trackpos < bg_time[1] && bg_change < 90 && can_change == 1 && bg_con == 0)
-    {
-        bg_change++;
-        bg_changing = 1;
-    }
-    else if (bg_change > 0 && bg_change < 150 && trackpos > bg_time[1] && can_change == 1 && bg_con == 1)
-    {
-        bg_change++;
-        bg_changing = 1;
-    }
-    
-    if (bg_change == 90)
-    {
-        can_change = 0;
-        bg_changing = 0;
-        bg_con = 1;
-        bg_change_lockout = 900;
-    }
-    
-    if (bg_change == 150)
-    {
-        can_change = 0;
-        bg_changing = 0;
-        bg_change = 0;
-        bg_con = 0;
-        bg_change_lockout = 900;
-    }
-}
-/// END
-
-/// REPLACE
     d_rectangle(cam.x, cam.y, cam.x + 640, cam.y + 480, false);
     
     if (global.console)

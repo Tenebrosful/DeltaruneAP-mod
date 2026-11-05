@@ -19,9 +19,9 @@ target_alpha = 1;
 trackpos = 0;
 last_trackpos = 0;
 safety_timer = 0;
-songname = mus_get_name(global.batmusic[0]);
-bpm = 0;
-song_length = audio_sound_length(global.batmusic[0]);;
+songname = "Flowerman_Arrangement.ogg";
+bpm = 160;
+song_length = 192.024;
 lyric_start[0] = 0;
 lyric_end[0] = 0;
 notetime = [];
@@ -48,8 +48,16 @@ lyric_add = function(arg0, arg1)
 
 load_song_data = function()
 {
-    songname = mus_get_name(global.batmusic[0]);
-    song_length = audio_sound_length(global.batmusic[0]);
+    lyric_time = [];
+    lyrics = [];
+    lyric_count = 0;
+
+    if (global.AP_ost_shuffle)
+    {
+        songname = mus_get_name(global.AP_music[0]);
+        song_length = audio_sound_length(global.AP_music[0]);
+    }
+
     AP_load_song(songname);
     lyric_add(0, "");
 
@@ -160,11 +168,4 @@ load_song_data = function()
     }
 
     beat_count = array_length(beattime);
-    
-    if (i_ex(obj_flowery_towery_pillars))
-    {
-        obj_flowery_towery_pillars.songname = songname;
-        obj_flowery_towery_pillars.song_length = song_length;
-        obj_flowery_towery_pillars.bg_time = [song_length * (95 / 192.024), song_length * (143 / 192.024)];
-    }
 };
