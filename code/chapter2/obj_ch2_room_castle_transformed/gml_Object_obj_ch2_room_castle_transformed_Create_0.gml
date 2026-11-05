@@ -10,7 +10,7 @@ if (global.plot == 12)
 if (global.plot >= 50 && global.plot < 70)
     scr_setparty(1, 1);
 
-if (global.plot >= 120 && global.plot < 200)
+if (global.plot > 80 && global.plot < 200 && scr_sideb_get_phase() < 3)
     scr_setparty(1, 1);
 
 /// END

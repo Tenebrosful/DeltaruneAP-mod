@@ -87,7 +87,7 @@ if (room == room_dw_cyber_battle_maze_2 && extflag == "actionblocker")
 {
     scr_speaker("no_name")
     msgsetloc(0, "* Heh^1, where do you think you're going?/")
-    msgnextloc("* I'm sure your partners can't even dance by themself./")
+    msgnextloc("* Your friends can't even dance by themselves^1. They ain't gonna survive here./")
     msgnextloc("* Come back when they know how to ACT./%")
 }
 

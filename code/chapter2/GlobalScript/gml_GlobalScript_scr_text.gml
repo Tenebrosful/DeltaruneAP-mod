@@ -343,7 +343,12 @@
             global.choicemsg[1] = "#I prefer going slow";
             scr_speaker("no_name");
             msgsetloc(0, "* (It looks like a really detailed and well made Swan Engine 2000.)/");
-            msgnext("\\C2 ");
+            
+            if (scr_sideb_get_phase >= 2)
+                msgnext("* (If only you had a swan boat to install it to...)/%");
+            else
+                msgnext("\\C2 ");
+
             break;
         
         case 2001:
@@ -358,6 +363,33 @@
                 scr_speaker("no_name");
                 msgsetloc(0, "* (It's okay to take your time.)/%");
                 global.fastswan = false;
+            }
+            
+            break;
+        
+        case 2002:
+            global.choicemsg[0] = "#Move it#bruh";
+            global.choicemsg[1] = "#. . .";
+            scr_anyface_next("no_name", 0);
+            msgnext("\\C2 ");
+            break;
+        
+        case 2003:
+            if (global.choice == 0)
+            {
+                scr_speaker("ralsei");
+                msgsetloc(0, "\\ED* Oh^1, sorry Kris!^1! Here^1, let me get out of the way.../%");
+                
+                if (!instance_exists(obj_ch2_scene26))
+                    instance_create(0, 0, obj_ch2_scene26);
+                
+                with (obj_ch2_scene26)
+                    con = 33;
+            }
+            else
+            {
+                scr_speaker("no_name");
+                msgsetloc(0, "%%");
             }
             
             break;

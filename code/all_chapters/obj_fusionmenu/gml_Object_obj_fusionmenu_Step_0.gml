@@ -244,7 +244,7 @@
         
         instance_destroy();
 /// CODE
-        if ((global.maxhp[1] > 0 || global.maxhp[2] > 0 || global.maxhp[3] > 0) || !(dojoEncounter[menuCoord[0]] == 100 || dojoEncounter[menuCoord[0]] == 71))
+        if ((global.maxhp[1] > 0 || global.maxhp[2] > 0 || global.maxhp[3] > 0) || (dojoEncounter[menuCoord[0]] == 72 || dojoEncounter[menuCoord[0]] == 89))
         {
             global.ambush = dojoEncounterAmbush[menuCoord[0]];
             global.encounterno = dojoEncounter[menuCoord[0]];
