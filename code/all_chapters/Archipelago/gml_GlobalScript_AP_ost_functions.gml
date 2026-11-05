@@ -170,6 +170,7 @@ function AP_ost_shuffle_toggle()
         {
             instance_destroy(music);
             music = instance_create(x, y, obj_music_worship);
+            stop = true;
         }
     }
     
@@ -190,6 +191,16 @@ function AP_ost_shuffle_toggle()
         instance_destroy(obj_setup_music_loop_track);
         mus_2_file_loop(introname, loopname, volume, pitch);
         stop = true;
+    }
+    
+    if (i_ex(obj_musicer_room))
+    {
+        if (obj_musicer_room.mysong == "cliff.ogg")
+        {
+            instance_destroy(obj_musicer_dw_church);
+            instance_create(0, 0, obj_musicer_dw_church);
+            stop = true;
+        }
     }
     
     if (i_ex(obj_fieldmuslogo))
