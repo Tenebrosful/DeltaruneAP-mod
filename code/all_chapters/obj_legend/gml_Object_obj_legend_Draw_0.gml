@@ -109,3 +109,11 @@
         audio_pause_sound(global.currentsong[1]);
 /// END
 #endif
+
+/// REPLACE
+if (ingame == 0)
+{
+/// CODE
+if (ingame == 0 && obj_archipelago_client.AP_isAuthenticated())
+{
+/// END
