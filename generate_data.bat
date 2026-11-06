@@ -28,7 +28,7 @@ set chapter_6=0
 set chapter_7=0
 set arg_count=0
 
-:: argument counting code from this stackoverflow answer by aacini: https://stackoverflow.com/a/19837690
+:: argument counting code from this StackOverflow answer by Aacini: https://stackoverflow.com/a/19837690
 for %%x in (%*) do (
    set /a arg_count+=1
    set "arg_values[!arg_count!]=%%~x"
