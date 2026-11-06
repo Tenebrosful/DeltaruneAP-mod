@@ -163,7 +163,7 @@ load_song_data = function()
         default:
             notetime = [];
             noteend = [];
-            maxnote = [];
+            maxnote = 0;
             break;
     }
 

@@ -16,7 +16,8 @@ songname = mus_get_name(global.batmusic[0]);
 song_length = audio_sound_length(global.batmusic[0]);
 notetime = [];
 noteend = [];
-bpm = 0;
+maxnote = 0;
+bpm = 180;
 ftime = [];
 AP_load_song(songname);
 
@@ -204,7 +205,6 @@ switch (songname)
 }
 
 length_string = scr_string_format_time(song_length, 2);
-maxnote = array_length(notetime);
 noteindex = 0;
 lipsync = false;
 /// END
