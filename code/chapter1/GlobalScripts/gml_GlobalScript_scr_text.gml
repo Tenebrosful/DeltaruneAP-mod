@@ -317,10 +317,33 @@ function scr_text(arg0)
             global.choicemsg[2] = stringsetloc(" ", "scr_text_slash_scr_text_gml_293_0_b");
             global.choicemsg[3] = stringsetloc(" ", "scr_text_slash_scr_text_gml_294_0_b");
             global.msg[0] = stringsetloc("\\E3* Oh^1, Kris^1!&* It's the training dummy I made!/", "scr_text_slash_scr_text_gml_293_0");
-            global.msg[1] = stringsetloc("\\E8* Now seems like a great chance to prepare for the enemy./", "scr_text_slash_scr_text_gml_294_0");
-            global.msg[2] = stringsetloc("\\E0* Would you like me to teach you how to fight?/", "scr_text_slash_scr_text_gml_295_0");
-            global.msg[3] = stringsetloc(" \\C2", "scr_text_slash_scr_text_gml_296_0");
-            global.msg[4] = stringsetloc(" ", "scr_text_slash_scr_text_gml_299_0");
+            
+            if (global.maxhp[1] < 0 || global.maxhp[2] < 0)
+            {
+                if (global.maxhp[1] < 0 && global.maxhp[2] < 0)
+                    global.msg[2] = stringsetloc("\\E4* Unfortunately^1, both of us are locked^1, so.../", "scr_text_slash_scr_text_gml_295_0");
+                else if (global.maxhp[1] < 0)
+                    global.msg[2] = stringsetloc("\\E4* Unfortunately^1, you are not unlocked^1, so.../", "scr_text_slash_scr_text_gml_295_0");
+                else if (global.maxhp[2] < 0)
+                    global.msg[2] = stringsetloc("\\E4* Unfortunately^1, I'm not unlocked^1, so.../", "scr_text_slash_scr_text_gml_295_0");
+                else
+                    global.msg[2] = stringsetloc("\\E4* Man this mod dev sucks^1.&* Report this NOW!!!/", "scr_text_slash_scr_text_gml_295_0");
+
+                global.msg[3] = stringsetloc("\\E6* I'm afraid we'll have to do it some other time./", "scr_text_slash_scr_text_gml_294_0");
+                global.msg[4] = stringsetloc("\\E2* ... B-but^1, um..^1.&* Just in case we aren't able to get around to it.../", "scr_text_slash_scr_text_gml_310_0");
+                global.msg[5] = stringsetloc("\\E6* Here^1!&* I made a Manual for you and Susie!/", "scr_text_slash_scr_text_gml_311_0");
+                global.msg[6] = stringsetsubloc("\\E0* Press [~1] to open the menu and use it in your ITEMS./", scr_get_input_name(6), "scr_text_slash_scr_text_gml_314_0_b");
+                scr_noface(7);
+                global.msg[8] = string("* (The Manual turned into {0}.)/%", AP_get_location_reward_text(12));
+            }
+            else
+            {
+                global.msg[1] = stringsetloc("\\E8* Now seems like a great chance to prepare for the enemy./", "scr_text_slash_scr_text_gml_294_0");
+                global.msg[2] = stringsetloc("\\E0* Would you like me to teach you how to fight?/", "scr_text_slash_scr_text_gml_295_0");
+                global.msg[3] = stringsetloc(" \\C2", "scr_text_slash_scr_text_gml_296_0");
+                global.msg[4] = stringsetloc(" ", "scr_text_slash_scr_text_gml_299_0");
+            }
+
             break;
         
         case 136:

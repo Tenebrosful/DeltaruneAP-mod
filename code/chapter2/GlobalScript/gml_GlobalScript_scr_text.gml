@@ -344,7 +344,7 @@
             scr_speaker("no_name");
             msgsetloc(0, "* (It looks like a really detailed and well made Swan Engine 2000.)/");
             
-            if (scr_sideb_get_phase >= 2)
+            if (scr_sideb_get_phase() >= 2)
                 msgnext("* (If only you had a swan boat to install it to...)/%");
             else
                 msgnext("\\C2 ");
