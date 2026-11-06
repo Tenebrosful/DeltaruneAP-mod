@@ -25,6 +25,6 @@ if (global.AP_ost_shuffle)
         global.AP_music[1] = mus_loop_ext(global.AP_music[0], 1, 1);
     }
 
-    global.customflags[global.custom_flags_indexes.battle_AP_music_playing] = 1;
+    global.customflags[global.custom_flags_indexes.AP_music_playing] = 1;
 }
 /// END

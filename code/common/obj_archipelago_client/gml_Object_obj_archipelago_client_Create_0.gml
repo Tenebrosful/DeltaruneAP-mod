@@ -166,7 +166,7 @@ global.custom_flags_indexes = {
     ch5_unnecessary_evidence_gathered: 47,
     ch5_helped_final_orange: 48,
     ch5_opened_first_chest: 49, // Yeah i don't like this one either
-    battle_AP_music_playing: 50 // tells obj_endbattle that global.AP_music is in use so that it knows to unmute that instead of global.currentsong after the battle
+    AP_music_playing: 50 // tells obj_endbattle and obj_plat_combatstarter to unmute global.AP_music instead of global.currentsong (this solution ensures that that code doesnt have to check for objects specific to each chapter that uses it)
 }
 
 for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)
