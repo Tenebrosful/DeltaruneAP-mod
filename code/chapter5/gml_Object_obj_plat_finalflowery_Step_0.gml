@@ -13,7 +13,6 @@
             snd_free(global.batmusic[0]);
             mus_volume(global.AP_music[1], 0, 1);
             snd_free(global.AP_music[0]);
-            global.customflags[global.custom_flags_indexes.battle_AP_music_playing] = 0;
             overlay = instance_create(0, 0, obj_marker);
 /// END
 
@@ -24,6 +23,5 @@
             snd_free(global.batmusic[0]);
             mus_volume(global.AP_music[1], 0, 1);
             snd_free(global.AP_music[0]);
-            global.customflags[global.custom_flags_indexes.battle_AP_music_playing] = 0;
             scr_lerpvar("hspeed", 8, 0, 40, 3, "out");
 /// END

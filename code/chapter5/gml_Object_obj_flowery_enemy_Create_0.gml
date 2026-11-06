@@ -14,7 +14,6 @@ if (global.AP_ost_shuffle)
     global.batmusic[1] = mus_loop_ext(global.batmusic[0], 0, 1);
     global.AP_music[0] = snd_init("Flowerman_Arrangement.ogg");
     global.AP_music[1] = mus_loop_ext(global.AP_music[0], 1, 1);
-    global.customflags[global.custom_flags_indexes.battle_AP_music_playing] = 1;
 }
 else
     global.batmusic[1] = mus_loop_ext(global.batmusic[0], 1, 1);
