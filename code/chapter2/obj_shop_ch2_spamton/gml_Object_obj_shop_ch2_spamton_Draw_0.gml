@@ -236,3 +236,9 @@ AP_sendLocation([90, 91, 92, 93]);
         draw_text(300, 260 + (i * 40), string_hash_to_newline("$" + string(buyvalue[i])));
     }
 /// END
+
+/// REPLACE
+if (phoneringing == 0)
+/// CODE
+if (phoneringing == 0 && mus_get_name() == "spamton_neo_after.ogg")
+/// END

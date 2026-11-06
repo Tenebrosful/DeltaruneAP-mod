@@ -175,7 +175,7 @@ function scr_load_chapter1()
     global.darkzone = 0;
     
     scr_tempsave();
-    audio_group_set_gain(1, global.flag[15], 0);
+    audio_group_set_gain(audio_sfx, global.flag[15], 0);
     audio_set_master_gain(0, global.flag[17]);
     global.invc = 1;
 }

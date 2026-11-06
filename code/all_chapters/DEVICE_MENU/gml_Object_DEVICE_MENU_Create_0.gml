@@ -101,3 +101,12 @@ for (i = 0; i < 3; i++)
 }
 /// END
 #endif
+
+#if CHAPTER_2
+/// REPLACE
+if (global.is_console)
+    global.chapter_return = -1;
+/// CODE
+global.chapter_return = -1;
+/// END
+#endif

@@ -97,8 +97,8 @@
             global.choicemsg[2] = stringsetloc("Green Room", "scr_text_slash_scr_text_gml_10433_0");
             global.choicemsg[3] = stringsetloc("Cancel", "scr_text_slash_scr_text_gml_10434_0");
 /// CODE
-            global.choicemsg[0] = stringsetloc("", "scr_text_slash_scr_text_gml_10408_0");
-            global.choicemsg[1] = stringsetloc("", "scr_text_slash_scr_text_gml_10409_0");
+            global.choicemsg[0] = stringset("#[Not Found]");
+            global.choicemsg[1] = stringset("#[Not found]");
             global.choicemsg[2] = stringsetloc("Green Room", "scr_text_slash_scr_text_gml_10433_0");
             global.choicemsg[3] = stringsetloc("Couch Cliffs", "scr_text_slash_scr_text_gml_10434_0");
             
@@ -155,7 +155,7 @@
             break;
 /// CODE
         case 1410:
-            global.msg[0] = "* (The door refused.^1)&* (You haven't unlocked this area!)/%";
+            global.msg[0] = stringset("* (The door refused.^1)&* (You haven't unlocked this area!)/%");
             
             with (obj_shortcut_door)
                 door_destination = -1;
@@ -278,7 +278,18 @@
                 global.flag[1122] = 0;
                 // Battles
                 global.flag[1049] = 0;
-                room_goto(room_board_1);
+                snd_free(global.currentsong[0]);
+                
+                if (i_ex(obj_ch3_screen_wipe))
+                {
+                    with (obj_ch3_screen_wipe)
+                        instance_destroy();
+                }
+
+                var screen_wipe = instance_create(0, 0, obj_ch3_screen_wipe);
+                screen_wipe.target_room = room_board_1;
+                screen_wipe.start = true;
+                msgset(0, "%%");
             }
             else if (global.choice == 1)
             {
@@ -304,7 +315,18 @@
                     global.flag[1117] = 0;
                     // Challenge
                     global.flag[1118] = 0;
-                    room_goto(room_board_2);
+                    snd_free(global.currentsong[0]);
+
+                    if (i_ex(obj_ch3_screen_wipe))
+                    {
+                        with (obj_ch3_screen_wipe)
+                            instance_destroy();
+                    }
+
+                    var screen_wipe = instance_create(0, 0, obj_ch3_screen_wipe);
+                    screen_wipe.target_room = room_board_2;
+                    screen_wipe.start = true;
+                    msgset(0, "%%");
                 }
             }
             else if (global.choice == 2)

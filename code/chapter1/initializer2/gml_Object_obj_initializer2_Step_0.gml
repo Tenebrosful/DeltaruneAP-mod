@@ -12,7 +12,7 @@ if (global.is_console)
     }
 }
 
-if (audio_group_is_loaded(1))
+if (audio_group_is_loaded(audio_sfx))
 {
     scr_windowcaption(scr_84_get_lang_string("obj_initializer2_slash_Step_0_gml_22_0"));
     global.tempflag[10] = 1;

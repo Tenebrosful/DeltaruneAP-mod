@@ -3288,27 +3288,24 @@ function scr_text(arg0)
         case 460:
             global.choicemsg[0] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3083_0");
             global.choicemsg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3084_0");
-            global.choicemsg[2] = "";
-            global.choicemsg[3] = "";
+            global.choicemsg[2] = stringset("[Not found]");
+            global.choicemsg[3] = stringset("[Not found]");
             global.msg[0] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3087_0");
-            global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3088_0");
+            global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3098_0");
             
             if (global.customflags[global.custom_flags_indexes.use_bake_sale_ticket] == 1)
-            {
                 global.choicemsg[2] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3092_0");
-                global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3093_0");
-            }
             
             if (global.plot >= 154)
-            {
                 global.choicemsg[3] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3097_0");
-                global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3098_0");
-            }
             
             break;
         
         case 461:
-            global.msg[0] = stringsetloc("* (But nothing happened.)/%", "scr_text_slash_scr_text_gml_3104_0");
+            global.msg[0] = stringset("* (The door refused.^1)&* (You haven't unlocked this area!)/%");
+
+            with (obj_shortcut_door)
+                door_destination = -1;
             
             if (global.choice == 0)
             {
@@ -3324,19 +3321,30 @@ function scr_text(arg0)
             
             if (global.choice == 2)
             {
-                with (obj_shortcut_door)
-                    door_destination = room_forest_savepoint2;
+                if (global.customflags[global.custom_flags_indexes.use_bake_sale_ticket] == 1)
+                {
+                    with (obj_shortcut_door)
+                        door_destination = room_forest_savepoint2;
+                }
             }
             
             if (global.choice == 3)
             {
-                with (obj_shortcut_door)
-                    door_destination = room_forest_fightsusie;
+                if (global.plot >= 154)
+                {
+                    with (obj_shortcut_door)
+                        door_destination = room_forest_fightsusie;
+                }
             }
             
             with (obj_shortcut_door)
             {
-                if (door_destination == door_location)
+                if (door_destination == -1)
+                {
+                    with (obj_shortcut_door)
+                        door_destination = door_location;
+                }
+                else if (door_destination == door_location)
                 {
                     global.msg[0] = stringsetloc("* (Amazingly^1, you are already there.)/%", "scr_text_slash_scr_text_gml_3125_0");
                 }

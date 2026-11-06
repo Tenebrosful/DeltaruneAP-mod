@@ -136,7 +136,7 @@ function AP_load_config();
     global.flag[8] = ini_read_real("VISUAL", "SIMPLIFY_VFX", 0);
     global.flag[12] = ini_read_real("VISUAL", "DISABLE_SHAKES", 0);
     ini_close();
-    audio_group_set_gain(1, global.flag[15], 0);
+    audio_group_set_gain(audio_sfx, global.flag[15], 0);
     audio_set_master_gain(0, global.flag[17]);
 }
 

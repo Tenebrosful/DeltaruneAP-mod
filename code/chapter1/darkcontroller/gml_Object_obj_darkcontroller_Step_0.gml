@@ -421,7 +421,7 @@ if (global.interact == 5)
             
             if (sndchange == 1 && sndbuffer < 0)
             {
-                audio_group_set_gain(1, global.flag[15], 0);
+                audio_group_set_gain(audio_sfx, global.flag[15], 0);
                 snd_play(snd_noise);
                 sndbuffer = 2;
             }

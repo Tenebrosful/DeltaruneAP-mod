@@ -18,6 +18,9 @@ if (con == 10)
 {
     mus_volume(global.currentsong[1], 0, 30);
     
+    if (global.AP_ost_shuffle && i_ex(obj_musicer_cyber))
+        mus_volume(global.AP_music[1], 0, 30);
+    
     if (instance_exists(obj_mainchara))
     {
         obj_mainchara.visible = 0;

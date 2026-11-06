@@ -103,13 +103,12 @@ else
     my_music = audio_create_stream("mus/" + music_name);
 }
 audio_play_sound(my_music, 2, loop);
-audio_sound_gain(my_music, 0.5, 0);
+audio_sound_gain(my_music, 0.5 * global.mus_vol, 0);
+audio_sound_gain(snd_menumove, global.sfx_vol, 0);
+audio_sound_gain(snd_swing, global.sfx_vol, 0);
 credits = ["ARCHIPELAGO CREDITS:", " ", "Mewlif (Modding)", "theemeraldsword85 (Modding)", "Tenebrosful (Porting, Modding)", "Deadzi (Bug Fixing, Modding)", "Vintagix (In-Game AP Client, Modding)", "Charaster (Sprites)", "TerraFrost (OST Shuffler, Global Options)", "Playtesters and more on GitHub!"];
 connected = "> Connecting...";
-fadein = instance_create_depth(0, 0, 1, obj_fadein);
-fadein.depth = 1;
-fadein.x = -100;
-fadein.y = -100;
+fade_alpha = 0;
 page = 0;
 current = "";
 host_or_port_changed = false
