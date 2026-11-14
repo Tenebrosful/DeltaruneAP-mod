@@ -57,8 +57,10 @@ if (global.interact == 5)
         draw_text(42 + xx, 84 + yy, string_hash_to_newline(stringsetloc("ITEM", "obj_overworldc_slash_Draw_0_gml_42_0")));
         draw_set_color(c_white);
         draw_text(42 + xx, 102 + yy, string_hash_to_newline(stringsetloc("STAT", "obj_overworldc_slash_Draw_0_gml_43_0")));
+#if CHAPTER_5
         var _cellTextColor = _weird_mode ? 8421504 : 16777215;
         draw_set_color(_cellTextColor);
+#endif
         draw_text(42 + xx, 120 + yy, string_hash_to_newline(stringsetloc("CELL", "obj_overworldc_slash_Draw_0_gml_44_0")));
         draw_set_color(c_white);
         

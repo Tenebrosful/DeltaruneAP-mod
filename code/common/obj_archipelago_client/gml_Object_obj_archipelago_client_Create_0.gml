@@ -122,6 +122,7 @@ global.AP_item_offset =
     flowery_dollar: 110000,
 };
 global.AP_other_games = []
+global.AP_progressive_area_unlocks = 0
 global.AP_progressive_weapons = {
     kris: true,
     susie: true,

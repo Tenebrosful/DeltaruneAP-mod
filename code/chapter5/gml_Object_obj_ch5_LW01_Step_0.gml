@@ -14,7 +14,7 @@ if (con == -1)
         global.interact = 1;
         scr_speaker("no_name");
         msgset(0, "\\s0* (You realize that while there \\cYmay be important story details ahead\\cW...)/");
-        msgnext("* (There \\cYwon't be any check locations in the Light World\\cW.)/");
+        msgnext("\\s1* (There \\cYwon't be any check locations in the Light World\\cW.)/");
         msgnext("* (You considered this carefully before leaving the temptation of your bed!)/%");
         d_make();
     }

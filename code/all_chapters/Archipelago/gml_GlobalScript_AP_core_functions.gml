@@ -75,6 +75,9 @@ function AP_save()
   file_text_write_real(myfileid, global.AP_progressive_current_index.noelle_weapon);
 
   file_text_writeln(myfileid);
+  file_text_write_real(myfileid, global.AP_progressive_current_index.area_unlocks);
+
+  file_text_writeln(myfileid);
   file_text_write_real(myfileid, global.AP_current_route);
 }
 
@@ -113,6 +116,9 @@ function AP_load()
     ossafe_file_text_readln(myfileid);
 
     global.AP_progressive_current_index.noelle_weapon = ossafe_file_text_read_real(myfileid);
+    ossafe_file_text_readln(myfileid);
+
+    global.AP_progressive_current_index.area_unlocks = ossafe_file_text_read_real(myfileid);
     ossafe_file_text_readln(myfileid);
 
     global.AP_current_route = ossafe_file_text_read_real(myfileid);
@@ -158,6 +164,7 @@ function AP_game_start()
       susie_weapon: 0,
       ralsei_weapon: 0,
       noelle_weapon: 0,
+      area_unlocks: 0,
   }
 
   for (var i = 0; i < #GetMaxCustomFlag(); i++)
@@ -169,6 +176,7 @@ function AP_game_start_post_connexion()
     // Prevent to execute if reconnected during the game
     if (global.AP_game_start_post_connexion_done) return;
     
+    AP_fill_progressive_area_unlocks_struct();
     AP_fill_progressive_weapon_struct();
     
     if (global.AP_unlock_fun_gang_actions)
@@ -296,6 +304,62 @@ function AP_game_start_post_connexion()
 
     AP_sync_item_from_server();
 }
+
+function AP_fill_progressive_area_unlocks_struct()
+{
+    global.AP_progressive_area_unlocks_ids = {}
+    
+    if (global.AP_progressive_area_unlocks)
+    {
+        if (global.AP_include_chapters[0])
+        {
+            global.AP_progressive_area_unlocks_ids.ch1 = [];
+
+            array_push(global.AP_progressive_area_unlocks_ids.ch1, 1001); // Bake Sale Ticket
+
+            array_push(global.AP_progressive_area_unlocks_ids.ch1, 1003); // Castle Key
+        }
+
+        if (global.AP_include_chapters[1])
+        {
+            global.AP_progressive_area_unlocks_ids.ch2 = [];
+
+            array_push(global.AP_progressive_area_unlocks_ids.ch2, 1009); // Safety Vest
+
+            array_push(global.AP_progressive_area_unlocks_ids.ch2, 1010); // Mansion Reservation
+        }
+
+        if (global.AP_include_chapters[2])
+        {
+            global.AP_progressive_area_unlocks_ids.ch3 = [];
+
+            array_push(global.AP_progressive_area_unlocks_ids.ch3, 1013); // Board 2 Cartridge
+
+            array_push(global.AP_progressive_area_unlocks_ids.ch3, 1014); // VIP Pass
+        }
+
+        if (global.AP_include_chapters[3])
+        {
+            global.AP_progressive_area_unlocks_ids.ch4 = [];
+
+            array_push(global.AP_progressive_area_unlocks_ids.ch4, 31); // ClaimbClaws
+
+            array_push(global.AP_progressive_area_unlocks_ids.ch4, 30); // SheetMusic
+        }
+
+        if (global.AP_include_chapters[4])
+        {
+            global.AP_progressive_area_unlocks_ids.ch5 = [];
+
+            array_push(global.AP_progressive_area_unlocks_ids.ch5, 25); // PetalFeather
+
+            array_push(global.AP_progressive_area_unlocks_ids.ch5, 1022); // Yellow Compliment List
+
+            array_push(global.AP_progressive_area_unlocks_ids.ch5, 1023); // Green Compliment List
+        }
+    }
+}
+
 
 function AP_fill_progressive_weapon_struct()
 {

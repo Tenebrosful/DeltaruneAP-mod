@@ -128,8 +128,8 @@ if (con == -1)
         global.interact = 1;
         scr_speaker("no_name");
         msgset(0, "\\s0* (You realize that while there \\cYmay be important story details ahead\\cW...)/");
-        msgnext("\\s0* (There \\cYwon't be any check locations in the Light World\\cW.)/");
-        msgnext("\\s0* (Also, you are able to \\cYsleep until Castle Town\\cW.)/");
+        msgnext("\\s1* (There \\cYwon't be any check locations in the Light World\\cW.)/");
+        msgnext("* (Also, you are able to \\cYsleep until Castle Town\\cW.)/");
         msgnext("* (You considered this carefully before leaving the temptation of the chair!)/%");
         d_make();
     }
