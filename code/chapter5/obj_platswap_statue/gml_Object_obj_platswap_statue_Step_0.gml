@@ -1298,6 +1298,7 @@ if (con == 10 && !instance_exists(obj_cutscene_master))
     scr_caterpillar_interpolate("all");
     con = 11;
     global.interact = 0;
+    global.facing = 0
     global.plot = 292;
 }
 
