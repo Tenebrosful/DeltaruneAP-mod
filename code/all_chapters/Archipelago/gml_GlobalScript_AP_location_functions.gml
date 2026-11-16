@@ -17,7 +17,7 @@ function AP_complete_chapter(chapter_number)
             AP_sendLocation(185);
             break;
         case 2:
-            if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE)
+            if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.SIDE_B)
                 AP_sendLocation(351);
             else
                 AP_sendLocation(186);
@@ -29,7 +29,7 @@ function AP_complete_chapter(chapter_number)
             AP_sendLocation(225);
             break;
         case 5:
-            if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE)
+            if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.SIDE_B)
                 AP_sendLocation(350);
             else
                 AP_sendLocation(345);

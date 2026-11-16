@@ -7,7 +7,7 @@ if (global.flag[915] == 0 && global.flag[531] == 6)
     global.flag[915] = 1;
 }
 /// CODE
-else if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE && global.flag[915] == 0 && global.flag[531] != 0)
+else if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.SIDE_B && global.flag[915] == 0 && global.flag[531] != 0)
 {
     scr_sideb_fail();
 }
@@ -19,7 +19,7 @@ else if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE && g
 {
     snd_play(snd_ominous_cancel);
 
-    if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE)
+    if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.SIDE_B)
     {
         snd_free_all();
         fadeout = instance_create(0, 0, obj_fadeout);

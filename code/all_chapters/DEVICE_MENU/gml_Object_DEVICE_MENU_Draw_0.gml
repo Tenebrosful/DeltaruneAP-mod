@@ -38,7 +38,7 @@ if (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.BOTH_ROUTES && 
 
     if (global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.ALL_RECRUITS)
     {
-            change_route = AP_resolve_route_name(global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE)
+            change_route = AP_resolve_route_name(global.AP_ENUM_CHOSEN_ROUTE.SIDE_B)
     }
     else
     {

@@ -8,7 +8,7 @@ instance_create_depth(0, 0, -15000, obj_archipelago_toast_notificator);
 global.AP_ENUM_CHOSEN_ROUTE = {
     UNKNOWN: -1,
     ALL_RECRUITS: 0,
-    WEIRD_ROUTE: 1,
+    SIDE_B: 1,
     BOTH_ROUTES: 2,
     NEUTRAL_ROUTE: 3
 }
