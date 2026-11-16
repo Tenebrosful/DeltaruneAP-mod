@@ -238,7 +238,7 @@ function AP_completeChapter(chapter_number)
 
     if ((chapter_number == 2 || chapter_number == 5) && global.AP_current_route == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE)
     {
-        chapter_number = string(chapter_number) + "-wr"
+        chapter_number = string(chapter_number) + "b"
     }
 
     variable_struct_set(chapter, chapter_number, true)
@@ -319,12 +319,12 @@ function AP_initializeChapterCompletion()
             {
                 if (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE)
                 {
-                    variable_struct_set(completed_chapters, string(chapter) + "-wr", false);
+                    variable_struct_set(completed_chapters, string(chapter) + "b", false);
                 }
                 else if (global.AP_route_from_settings == global.AP_ENUM_CHOSEN_ROUTE.BOTH_ROUTES)
                 {
                     variable_struct_set(completed_chapters, chapter, false);
-                    variable_struct_set(completed_chapters, string(chapter) + "-wr", false);
+                    variable_struct_set(completed_chapters, string(chapter) + "b", false);
                 }
                 else
                 {
