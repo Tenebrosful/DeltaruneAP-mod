@@ -264,7 +264,7 @@ if (con == 1)
     cutscene_master = scr_cutscene_make();
     scr_maincharacters_actors();
     seth = scr_marker(-80, 3770, spr_seth_walk_right);
-    aqua = scr_marker(-80, 3780, spr_aqua_walk_right);
+    aqua = scr_marker(-80, 3640, spr_aqua_walk_right);
     aqua_autodepth = 1;
     aquamarker_left = scr_marker(250, 3640, spr_aqua_walk_down);
     aquamarker_middle = scr_marker(300, 3640, spr_aqua_walk_down);
@@ -372,6 +372,9 @@ if (con == 1.1)
         c_wait(49);
         c_customfunc(function()
         {
+            snd_free_all();
+            scr_musicer("meeting_flower.ogg");
+            
             with (seth)
             {
                 sprite_index = spr_seth_walk_up;
@@ -393,14 +396,63 @@ if (con == 1.1)
                 sprite_index = spr_seth_walk_up;
         });
         c_wait_box(3);
-        c_markerwalkdirect(aqua, 230, 3780, 48, spr_aqua_walk_right, 0.25);
-        c_wait(49);
+        c_delay_customfunc(12, function()
+        {
+            with (aqua)
+            {
+                sprite_index = spr_enemy_aqua_spin;
+                image_speed = 1/3;
+                scr_lerpvar("x", -80, 230, 40, 2, "out");
+                scr_lerpvar("y", 3640, 3780, 40);
+                
+                funct = function()
+                {
+                    repeat (3 + irandom(1))
+                    {
+                        var _dir = irandom_range(-15, 15);
+                        var _len = irandom(50);
+                        
+                        with (instance_create(x - 18 + lengthdir_x(_len, _dir), y + 70 + lengthdir_y(_len * 0.5, _dir), obj_bulletparent))
+                        {
+                            sprite_index = spr_falling_petal;
+                            image_index = irandom(4);
+                            image_speed = 0.125 * choose(1, 0.5, 0.75);
+                            image_blend = c_gray;
+                            scr_darksize();
+                            depth = other.depth + 1;
+                            speed = 8 + random(4);
+                            direction = _dir;
+                            vspeed *= 0.5;
+                            scr_lerpvar("hspeed", hspeed, 0, 48);
+                            gravity_direction = 270;
+                            gravity = 0.05 + random(0.05);
+                            image_xscale *= choose(1, -1);
+                            scr_lerpvar("image_alpha", 1, 0, 60);
+                            
+                            funct = function()
+                            {
+                                if (image_index > 0 && image_index < 4)
+                                    x += 0.5;
+                                else
+                                    x -= 0.5;
+                            };
+                            
+                            scr_script_repeat(scr_use_funct, 64, 1);
+                        }
+                    }
+                };
+                
+                scr_script_repeat(scr_use_funct, 5, 4);
+            }
+        });
+        c_wait(52);
         c_customfunc(function()
         {
             with (aqua)
             {
                 sprite_index = spr_aqua_walk_right;
                 image_index = 0;
+                image_speed = 0;
             }
         });
         c_wait_box(5);
@@ -623,11 +675,6 @@ if (con == 1.1)
             }
         });
         c_wait(30);
-        c_customfunc(function()
-        {
-            snd_free_all();
-            scr_musicer("meeting_flower.ogg");
-        });
         c_speaker("no_name");
         c_msgsetloc(0, "* I see you have naturally blue skin just like me./%", "obj_dw_garden_aqua_slash_Step_0_gml_351_0");
         c_talk_wait();
@@ -776,21 +823,16 @@ if (con == 1.1)
     }
     else
     {
-        c_var_instance(id, "aqua_autodepth", 1);
+        c_var_instance(id, "aqua_autodepth", 0);
         c_customfunc(function()
         {
             aqua.x = aquamarker_middle.x;
             aqua.y = aquamarker_middle.y - 300;
+            aqua.depth = obj_platswap_statue.depth - 2;
             var target = aquamarker_middle;
             aquajumptoplace(target, 0, 12, 2);
         });
-        c_var_instance(id, "aqua_autodepth", 0);
-        c_customfunc(function()
-        {
-            aqua.depth = obj_platswap_statue.depth - 2;
-        });
-        c_wait_if(id, "landed", "=", true);
-        c_wait(15);
+        c_waitcustom();
     }
     
     c_customfunc(function()
@@ -825,35 +867,48 @@ if (con == 1.1)
     }
     else
     {
-        c_pan(0, cameray() + 35, 20);
-        c_sel(kr);
-        c_sprite(spr_krisu_kneel_b);
-        c_sel(su);
-        c_sprite(spr_susie_shocked_behind);
-        c_sel(ra);
-        c_sprite(spr_ralsei_shocked_behind_hat);
-        c_flip("x");
         c_customfunc(function()
         {
             with (kr_actor)
             {
-                scr_lerpvar("x", x, 300, 12, 1, "out");
+                sprite_index = spr_krisu_kneel_b;
                 scr_lerpvar("y", y, 3770, 12, 1, "out");
             }
 
             with (su_actor)
             {
-                scr_lerpvar("x", x, 245, 12, 1, "out");
+                sprite_index = spr_susie_shocked_behind;
                 scr_lerpvar("y", y, 3755, 12, 1, "out");
             }
 
             with (ra_actor)
             {
-                scr_lerpvar("x", x, 390, 12, 1, "out");
+                sprite_index = spr_ralsei_shocked_behind_hat;
+                scr_flip("x");
+                setxy(390, 3640);
                 scr_lerpvar("y", y, 3760, 12, 1, "out");
             }
         });
+        c_pan_fancy(0, cameray() + 35, 25, 
+        {
+            doround: true,
+            easetype: "easeoutcubic"
+        });
         c_wait(30);
+    }
+    
+    c_customfunc(function()
+    {
+        floradinambush();
+    });
+    
+    if (global.tempflag[51] == 0)
+    {
+        c_wait(12);
+    }
+    else
+    {
+        c_wait(6);
         c_sel(kr);
         c_delayfacing(25, "u");
         c_customfunc(function()
@@ -864,16 +919,7 @@ if (con == 1.1)
                 scr_lerpvar("image_index", 0, 4, 25);
             }
         });
-    }
-    
-    c_customfunc(function()
-    {
-        floradinambush();
-    });
-    c_wait(12);
-
-    if (global.tempflag[51] > 0)
-    {
+        c_wait(6);
         c_sel(ra);
         c_flip("x");
         c_setxy(345, 3760);
@@ -919,6 +965,9 @@ if (aqua_autodepth == 1)
 
 if (con == 5)
 {
+    if (i_ex(obj_bulletparent))
+        instance_destroy(obj_bulletparent);
+    
     var aquacopy = scr_marker_frominstance(aqua);
     aquacopy.depth = 0;
     aqua.visible = false;
