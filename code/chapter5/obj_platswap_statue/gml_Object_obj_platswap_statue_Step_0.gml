@@ -782,7 +782,7 @@ if (con == 1.1)
             aqua.x = aquamarker_middle.x;
             aqua.y = aquamarker_middle.y - 300;
             var target = aquamarker_middle;
-            aquajumptoplace(target, 0, 12);
+            aquajumptoplace(target, 0, 12, 2);
         });
         c_var_instance(id, "aqua_autodepth", 0);
         c_customfunc(function()
@@ -1321,12 +1321,14 @@ if (con == 22)
     con = 23;
     cutscene_master = scr_cutscene_make();
     scr_maincharacters_actors();
+    c_pannable(1);
+    c_pan(0, 3328, 30);
     c_sel(kr);
-    c_walkdirect(300, 3640, 16);
+    c_walkdirect(300, 3640, 30);
     c_sel(su);
-    c_walkdirect(245, 3635, 16);
+    c_walkdirect(245, 3635, 30);
     c_sel(ra);
-    c_walkdirect_wait(345, 3640, 16);
+    c_walkdirect_wait(345, 3640, 30);
     c_sel(kr);
     c_facing("u");
     c_sel(su);
@@ -1341,7 +1343,6 @@ if (con == 22)
     c_sel(kr);
     c_walkdirect(300, 3610, 15);
     c_wait(35);
-    c_facing("d");
     c_customfunc(function()
     {
         scr_flag_set(24, 1);
