@@ -40,7 +40,7 @@ if (!obj_archipelago_client.AP_isAuthenticated())
             msgsetloc(0, "* After a long day^1, the town has grown once again./", "obj_savepoint_slash_Other_10_gml_50_0"); 
             msgnextloc("\\s0* However^1, the light dims as your arm gets near./", "obj_savepoint_slash_Other_10_gml_177_0");
             msgnextloc("\\s0* You thought about how you \\cRcan't go back to the Cyber World\\cW anymore./", "obj_savepoint_slash_Other_10_gml_60_0_b");
-            msgnextloc("\\s0* Maybe the light is trying to protect you.../", "obj_savepoint_slash_Other_10_gml_177_0");
+            msgnextloc("\\s0* Maybe the light is trying to protect you.../%", "obj_savepoint_slash_Other_10_gml_177_0");
         }
         else
         {
