@@ -8,7 +8,7 @@ instance_create_depth(0, 0, -15000, obj_archipelago_toast_notificator);
 global.AP_ENUM_CHOSEN_ROUTE = {
     UNKNOWN: -1,
     ALL_RECRUITS: 0,
-    WEIRD_ROUTE: 1,
+    SIDE_B: 1,
     BOTH_ROUTES: 2,
     NEUTRAL_ROUTE: 3
 }
@@ -122,6 +122,7 @@ global.AP_item_offset =
     flowery_dollar: 110000,
 };
 global.AP_other_games = []
+global.AP_progressive_area_unlocks = 0
 global.AP_progressive_weapons = {
     kris: true,
     susie: true,
@@ -167,7 +168,8 @@ global.custom_flags_indexes = {
     ch5_unnecessary_evidence_gathered: 47,
     ch5_helped_final_orange: 48,
     ch5_opened_first_chest: 49, // Yeah i don't like this one either
-    AP_music_playing: 50 // tells obj_endbattle and obj_plat_combatstarter to unmute global.AP_music instead of global.currentsong (this solution ensures that that code doesnt have to check for objects specific to each chapter that uses it)
+    light_world_reminder: 50,
+    AP_music_playing: 51,
 }
 
 for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)

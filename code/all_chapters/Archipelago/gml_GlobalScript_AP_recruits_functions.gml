@@ -54,7 +54,7 @@ function AP_set_recruits_flags()
   {
     AP_set_recruits_flags_normal_route();
 
-    if (global.AP_current_route  == global.AP_ENUM_CHOSEN_ROUTE.WEIRD_ROUTE)
+    if (global.AP_current_route  == global.AP_ENUM_CHOSEN_ROUTE.SIDE_B)
     {
       AP_set_recruits_flags_weird_route();
     }

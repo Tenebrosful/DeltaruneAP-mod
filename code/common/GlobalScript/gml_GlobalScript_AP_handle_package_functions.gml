@@ -146,6 +146,8 @@ function AP_async_read_options(data)
   if (variable_struct_exists(data.slot_data.options, "damage_link_group"))
       global.AP_damagelink_group = data.slot_data.options.damage_link_group;
 
+  if (variable_struct_exists(data.slot_data.options, "progressive_area_unlocks"))
+      global.AP_progressive_area_unlocks = data.slot_data.options.progressive_area_unlocks;
   if (variable_struct_exists(data.slot_data.options, "progressive_kris_weapons"))
       global.AP_progressive_weapons.kris = data.slot_data.options.progressive_kris_weapons;
   if (variable_struct_exists(data.slot_data.options, "progressive_susie_weapons"))

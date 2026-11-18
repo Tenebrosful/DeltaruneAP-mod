@@ -198,6 +198,78 @@ function AP_receive_progressive(item_id)
       global.AP_progressive_current_index.noelle_weapon++;
       AP_receive_weapon(weapon_id + global.AP_item_offset.weapon);
       break;
+      
+    case 50011: // Chapter 1 area unlock
+      if (global.chapter != 1)
+        exit;
+
+      if (array_length(global.AP_progressive_area_unlocks_ids.ch1) < global.AP_progressive_current_index.area_unlocks + 1)
+        exit;
+
+      var unlock_id = global.AP_progressive_area_unlocks_ids.ch1[global.AP_progressive_current_index.area_unlocks]
+      global.AP_progressive_current_index.area_unlocks++;
+      AP_receive_keyitem(unlock_id + global.AP_item_offset.keyitem);
+      break;
+      
+    case 50011: // Chapter 1 area unlock
+      if (global.chapter != 1)
+        exit;
+
+      if (array_length(global.AP_progressive_area_unlocks_ids.ch1) < global.AP_progressive_current_index.area_unlocks + 1)
+        exit;
+
+      var unlock_id = global.AP_progressive_area_unlocks_ids.ch1[global.AP_progressive_current_index.area_unlocks]
+      global.AP_progressive_current_index.area_unlocks++;
+      AP_receive_keyitem(unlock_id + global.AP_item_offset.keyitem);
+      break;
+      
+    case 50012: // Chapter 2 area unlock
+      if (global.chapter != 2)
+        exit;
+
+      if (array_length(global.AP_progressive_area_unlocks_ids.ch2) < global.AP_progressive_current_index.area_unlocks + 1)
+        exit;
+
+      var unlock_id = global.AP_progressive_area_unlocks_ids.ch2[global.AP_progressive_current_index.area_unlocks]
+      global.AP_progressive_current_index.area_unlocks++;
+      AP_receive_keyitem(unlock_id + global.AP_item_offset.keyitem);
+      break;
+      
+    case 50013: // Chapter 3 area unlock
+      if (global.chapter != 3)
+        exit;
+
+      if (array_length(global.AP_progressive_area_unlocks_ids.ch3) < global.AP_progressive_current_index.area_unlocks + 1)
+        exit;
+
+      var unlock_id = global.AP_progressive_area_unlocks_ids.ch3[global.AP_progressive_current_index.area_unlocks]
+      global.AP_progressive_current_index.area_unlocks++;
+      AP_receive_keyitem(unlock_id + global.AP_item_offset.keyitem);
+      break;
+      
+    case 50014: // Chapter 4 area unlock
+      if (global.chapter != 4)
+        exit;
+
+      if (array_length(global.AP_progressive_area_unlocks_ids.ch4) < global.AP_progressive_current_index.area_unlocks + 1)
+        exit;
+
+      var unlock_id = global.AP_progressive_area_unlocks_ids.ch4[global.AP_progressive_current_index.area_unlocks]
+      global.AP_progressive_current_index.area_unlocks++;
+      AP_receive_keyitem(unlock_id + global.AP_item_offset.keyitem);
+      break;
+      
+    case 50015: // Chapter 5 area unlock
+      if (global.chapter != 5)
+        exit;
+
+      if (array_length(global.AP_progressive_area_unlocks_ids.ch5) < global.AP_progressive_current_index.area_unlocks + 1)
+        exit;
+
+      var unlock_id = global.AP_progressive_area_unlocks_ids.ch5[global.AP_progressive_current_index.area_unlocks]
+      global.AP_progressive_current_index.area_unlocks++;
+      AP_receive_keyitem(unlock_id + global.AP_item_offset.keyitem);
+      break;
   }
 }
 

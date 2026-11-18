@@ -62,3 +62,32 @@
     }
 }
 /// END
+
+/// BEFORE
+    if (con >= 100 && con < 150)
+    {
+        global.tempflag[38] = 1;
+/// CODE
+    
+    if (con >= 30 && con < 100)
+    {
+        if (global.customflags[global.custom_flags_indexes.light_world_reminder] == 0 && obj_mainchara.y > 180)
+        {
+            global.customflags[global.custom_flags_indexes.light_world_reminder] = 1;
+            con = 31;
+            global.interact = 1;
+            scr_speaker("no_name");
+            msgset(0, "\\s0* (You realize that while there \\cYmay be important story details ahead\\cW...)/");
+            msgnext("\\s1* (There \\cYwon't be any check locations in the Light World\\cW.)/");
+            msgnext("* (Also, you are able to \\cYsleep until Castle Town\\cW.)/");
+            msgnext("* (You considered this carefully before leaving the temptation of your bed!)/%");
+            d_make();
+        }
+    }
+    
+    if (con == 31 && !instance_exists(obj_dialoguer))
+    {
+        global.interact = 0;
+        con = 30;
+    }
+/// END
