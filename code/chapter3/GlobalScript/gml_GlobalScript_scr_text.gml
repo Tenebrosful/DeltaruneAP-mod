@@ -155,7 +155,7 @@
             break;
 /// CODE
         case 1410:
-            global.msg[0] = stringset("* (The door refused.^1)&* (You haven't unlocked this area!)/%");
+            global.msg[0] = stringset("* (..^1. but^1, the door was not open there.)/%");
             
             with (obj_shortcut_door)
                 door_destination = -1;
@@ -194,8 +194,7 @@
             {
                 if (door_destination == -1)
                 {
-                    with (obj_shortcut_door)
-                        door_destination = door_location;
+                    door_destination = door_location;
                 }
                 else if (door_destination == door_location)
                 {

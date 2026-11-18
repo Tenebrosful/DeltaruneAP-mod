@@ -3325,7 +3325,7 @@ function scr_text(arg0)
             break;
         
         case 461:
-            global.msg[0] = stringset("* (The door refused.^1)&* (You haven't unlocked this area!)/%");
+            global.msg[0] = stringset("* (..^1. but^1, the door was not open there.)/%");
 
             with (obj_shortcut_door)
                 door_destination = -1;
@@ -3364,8 +3364,7 @@ function scr_text(arg0)
             {
                 if (door_destination == -1)
                 {
-                    with (obj_shortcut_door)
-                        door_destination = door_location;
+                    door_destination = door_location;
                 }
                 else if (door_destination == door_location)
                 {

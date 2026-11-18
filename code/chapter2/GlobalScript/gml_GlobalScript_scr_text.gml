@@ -413,18 +413,11 @@
             global.choicemsg[1] = stringsetloc("#Cyber Field", "scr_text_slash_scr_text_gml_6994_0");
             global.choicemsg[2] = stringsetloc("Trash Zone", "scr_text_slash_scr_text_gml_6995_0");
             global.choicemsg[3] = stringsetloc("Cancel", "scr_text_slash_scr_text_gml_6996_0");
-/// CODE
-        case 1200:
-            global.choicemsg[0] = stringset("#[Locked]");
-            global.choicemsg[1] = stringsetloc("#Cyber Field", "scr_text_slash_scr_text_gml_6994_0");
-            global.choicemsg[2] = stringsetloc("Trash Zone", "scr_text_slash_scr_text_gml_6995_0");
-            global.choicemsg[3] = stringsetloc("Cancel", "scr_text_slash_scr_text_gml_6996_0");
-            
-            if (global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.SIDE_B || scr_sideb_get_phase() >= 3)
-                global.choicemsg[0] = stringsetloc("#Mansion", "scr_text_slash_scr_text_gml_6993_0");
-/// END
-
-/// REPLACE
+            scr_speaker("no_name");
+            msgsetloc(0, "* (It's a door.^1)&* (Where will you go?)//", "scr_text_slash_scr_text_gml_6999_0");
+            msgnext("\\C4 ");
+            break;
+        
         case 1201:
             global.msg[0] = stringsetloc("* (But nothing happened.)/%", "scr_text_slash_scr_text_gml_3104_0");
             
@@ -468,8 +461,22 @@
             
             break;
 /// CODE
+        case 1200:
+            global.choicemsg[0] = stringset("#[Locked]");
+            global.choicemsg[1] = stringsetloc("#Cyber Field", "scr_text_slash_scr_text_gml_6994_0");
+            global.choicemsg[2] = stringsetloc("Trash Zone", "scr_text_slash_scr_text_gml_6995_0");
+            global.choicemsg[3] = stringsetloc("Cancel", "scr_text_slash_scr_text_gml_6996_0");
+            
+            if (global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.SIDE_B || scr_sideb_get_phase() >= 3)
+                global.choicemsg[0] = stringsetloc("#Mansion", "scr_text_slash_scr_text_gml_6993_0");
+            
+            scr_speaker("no_name");
+            msgsetloc(0, "* (It's a door.^1)&* (Where will you go?)//", "scr_text_slash_scr_text_gml_6999_0");
+            msgnext("\\C4 ");
+            break;
+        
         case 1201:
-            global.msg[0] = stringset("* (The door refused.^1)&* (You haven't unlocked this area!)/%");
+            global.msg[0] = stringset("* (..^1. but^1, the door was not open there.)/%");
             
             with (obj_shortcut_door)
                 door_destination = -1;
@@ -505,8 +512,7 @@
                 {
                     if (door_destination == -1)
                     {
-                        with (obj_shortcut_door)
-                            door_destination = door_location;
+                        door_destination = door_location;
                     }
                     else if (door_destination == door_location)
                     {
