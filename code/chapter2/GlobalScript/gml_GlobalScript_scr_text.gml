@@ -413,11 +413,18 @@
             global.choicemsg[1] = stringsetloc("#Cyber Field", "scr_text_slash_scr_text_gml_6994_0");
             global.choicemsg[2] = stringsetloc("Trash Zone", "scr_text_slash_scr_text_gml_6995_0");
             global.choicemsg[3] = stringsetloc("Cancel", "scr_text_slash_scr_text_gml_6996_0");
-            scr_speaker("no_name");
-            msgsetloc(0, "* (It's a door.^1)&* (Where will you go?)//", "scr_text_slash_scr_text_gml_6999_0");
-            msgnext("\\C4 ");
-            break;
-        
+/// CODE
+        case 1200:
+            global.choicemsg[0] = stringset("#[Locked]");
+            global.choicemsg[1] = stringsetloc("#Cyber Field", "scr_text_slash_scr_text_gml_6994_0");
+            global.choicemsg[2] = stringsetloc("Trash Zone", "scr_text_slash_scr_text_gml_6995_0");
+            global.choicemsg[3] = stringsetloc("Cancel", "scr_text_slash_scr_text_gml_6996_0");
+            
+            if (global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.SIDE_B || scr_sideb_get_phase() >= 3)
+                global.choicemsg[0] = stringsetloc("#Mansion", "scr_text_slash_scr_text_gml_6993_0");
+/// END
+
+/// REPLACE
         case 1201:
             global.msg[0] = stringsetloc("* (But nothing happened.)/%", "scr_text_slash_scr_text_gml_3104_0");
             
@@ -426,29 +433,94 @@
                 with (obj_shortcut_door)
                     door_destination = 157;
             }
-/// CODE
-        case 1200:
-            global.choicemsg[0] = stringsetloc("      ", "scr_text_slash_scr_text_gml_6993_0");
             
-            if (global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.SIDE_B || scr_sideb_get_phase() >= 3)
-                global.choicemsg[0] = stringsetloc("#Mansion", "scr_text_slash_scr_text_gml_6993_0");
+            if (global.choice == 1)
+            {
+                with (obj_shortcut_door)
+                    door_destination = 84;
+            }
             
-            global.choicemsg[1] = stringsetloc("#Cyber Field", "scr_text_slash_scr_text_gml_6994_0");
-            global.choicemsg[2] = stringsetloc("Trash Zone", "scr_text_slash_scr_text_gml_6995_0");
-            global.choicemsg[3] = stringsetloc("Cancel", "scr_text_slash_scr_text_gml_6996_0");
-            scr_speaker("no_name");
-            msgsetloc(0, "* (It's a door.^1)&* (Where will you go?)//", "scr_text_slash_scr_text_gml_6999_0");
-            msgnext("\\C4 ");
+            if (global.choice == 2)
+            {
+                with (obj_shortcut_door)
+                    door_destination = 110;
+            }
+            
+            if (global.choice == 3)
+            {
+                global.msg[0] = stringsetloc("* (You doorn't.)/%", "scr_text_slash_scr_text_gml_6918_0_b");
+            }
+            else
+            {
+                with (obj_shortcut_door)
+                {
+                    if (door_destination == door_location)
+                    {
+                        global.msg[0] = stringsetloc("* (Amazingly^1, you are already there.)/%", "scr_text_slash_scr_text_gml_7026_0");
+                    }
+                    else
+                    {
+                        global.msg[0] = stringsetloc("* (The door opened...)/%", "scr_text_slash_scr_text_gml_7030_0");
+                        con = 50;
+                    }
+                }
+            }
+            
             break;
-        
+/// CODE
         case 1201:
-            global.msg[0] = stringsetloc("* (But nothing happened.)/%", "scr_text_slash_scr_text_gml_3104_0");
+            global.msg[0] = stringset("* (The door refused.^1)&* (You haven't unlocked this area!)/%");
+            
+            with (obj_shortcut_door)
+                door_destination = -1;
             
             if (global.choice == 0 && (global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.SIDE_B || scr_sideb_get_phase() >= 3))
             {
-                with (obj_shortcut_door)
-                    door_destination = 157;
+                if (global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.SIDE_B || scr_sideb_get_phase() >= 3)
+                {
+                    with (obj_shortcut_door)
+                        door_destination = 157;
+                }
             }
+            
+            if (global.choice == 1)
+            {
+                with (obj_shortcut_door)
+                    door_destination = 84;
+            }
+            
+            if (global.choice == 2)
+            {
+                with (obj_shortcut_door)
+                    door_destination = 110;
+            }
+            
+            if (global.choice == 3)
+            {
+                global.msg[0] = stringsetloc("* (You doorn't.)/%", "scr_text_slash_scr_text_gml_6918_0_b");
+            }
+            else
+            {
+                with (obj_shortcut_door)
+                {
+                    if (door_destination == -1)
+                    {
+                        with (obj_shortcut_door)
+                            door_destination = door_location;
+                    }
+                    else if (door_destination == door_location)
+                    {
+                        global.msg[0] = stringsetloc("* (Amazingly^1, you are already there.)/%", "scr_text_slash_scr_text_gml_7026_0");
+                    }
+                    else
+                    {
+                        global.msg[0] = stringsetloc("* (The door opened...)/%", "scr_text_slash_scr_text_gml_7030_0");
+                        con = 50;
+                    }
+                }
+            }
+            
+            break;
 /// END
 
 /// REPLACE
