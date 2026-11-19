@@ -21,7 +21,7 @@ function scr_defeatrun()
             global.flag[63] = 1;
         }
         
-        if (recruitable == 1 && global.flag[61] == 0 && __frozen == 0 && (global.chapter != 1 || !global.skiplostrecruit))
+        if (recruitable == 1 && global.flag[61] == 0 && __frozen == 0)
         {
             AP_sendLocation(_checkid + 1000);
             global.flag[63] = 1;
