@@ -13,6 +13,14 @@ if (global.AP_old_room != global.AP_current_room)
 
 if (keyboard_check_pressed(ord("U")) && (false || scr_debug())) // i like my unstuck! its useful
         global.interact = 0
+
+if (keyboard_check_pressed(ord("Q")) &&
+    keyboard_check_pressed(ord("P")) &&
+    scr_debug()
+    ) // This doesn't stand for anything, just assurance this won't be done on accident
+    {
+        AP_complete_chapter(global.chapter)
+    }
 /// END
 
 #if CHAPTER_2

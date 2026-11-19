@@ -1,7 +1,7 @@
 /// IMPORT
 function scr_litemdesc(arg0)
 {
-    if (scr_sideb_active() && arg0 != 20)
+    if (global.chapter = 5 && scr_sideb_active() && arg0 != 20)
     {
         scr_speaker("no_name");
         scr_text(1455);

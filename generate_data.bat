@@ -100,11 +100,11 @@ if %chapter_0%==0 if %chapter_1%==0 if %chapter_2%==0 if %chapter_3%==0 if %chap
 set chapter_6=0
 set chapter_7=0
 
-if %chapter_0%==1 UTMT_CLI\UndertaleModCli.exe load deltarune\data_vanilla.win -s build.csx -o deltarune\data.win -f
-if %chapter_1%==1 UTMT_CLI\UndertaleModCli.exe load deltarune\chapter1_windows\data_vanilla.win -s build.csx -o deltarune\chapter1_windows\data.win -f
-if %chapter_2%==1 UTMT_CLI\UndertaleModCli.exe load deltarune\chapter2_windows\data_vanilla.win -s build.csx -o deltarune\chapter2_windows\data.win -f
-if %chapter_3%==1 UTMT_CLI\UndertaleModCli.exe load deltarune\chapter3_windows\data_vanilla.win -s build.csx -o deltarune\chapter3_windows\data.win -f
-if %chapter_4%==1 UTMT_CLI\UndertaleModCli.exe load deltarune\chapter4_windows\data_vanilla.win -s build.csx -o deltarune\chapter4_windows\data.win -f
-if %chapter_5%==1 UTMT_CLI\UndertaleModCli.exe load deltarune\chapter5_windows\data_vanilla.win -s build.csx -o deltarune\chapter5_windows\data.win -f
-if %chapter_6%==1 UTMT_CLI\UndertaleModCli.exe load deltarune\chapter6_windows\data_vanilla.win -s build.csx -o deltarune\chapter6_windows\data.win -f
-if %chapter_7%==1 UTMT_CLI\UndertaleModCli.exe load deltarune\chapter7_windows\data_vanilla.win -s build.csx -o deltarune\chapter7_windows\data.win -f
+if %chapter_0%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\data_vanilla.win -s build.csx -o DELTARUNE\data.win -f
+if %chapter_1%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter1_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter1_windows\data.win -f
+if %chapter_2%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter2_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter2_windows\data.win -f
+if %chapter_3%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter3_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter3_windows\data.win -f
+if %chapter_4%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter4_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter4_windows\data.win -f
+if %chapter_5%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter5_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter5_windows\data.win -f
+if %chapter_6%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter6_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter6_windows\data.win -f
+if %chapter_7%==1 UTMT_CLI\UndertaleModCli.exe load DELTARUNE\chapter7_windows\data_vanilla.win -s build.csx -o DELTARUNE\chapter7_windows\data.win -f

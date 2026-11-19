@@ -22,7 +22,6 @@ if (con == 33 && scr_sideb_get_phase() >= 2 && !d_ex())
     qu_actor = instance_create(queen_npc.x, queen_npc.y, obj_actor);
     qu_actor.sprite_index = queen_npc.sprite_index;
     scr_actor_setup(qu, qu_actor, "queen");
-    scr_getchar(3);
     instance_destroy(queen_npc);
     c_sel(ra);
     c_facing("l");
