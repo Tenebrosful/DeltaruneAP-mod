@@ -4,6 +4,9 @@ function scr_gameover()
     if (room == ROOM_INITIALIZE || string_pos("PLACE", room_get_name(room)) != 0 || room == room_gameover)
         exit;
     
+    with (obj_dw_bromide)
+        instance_destroy()
+
     room_to_goto = 71;
     
     switch (global.chapter)
