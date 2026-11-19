@@ -17,7 +17,7 @@ if (con == 0)
         if (abs(_bromide_y - _bromide_y_target) <= 1)
         {
             _bromide_y = _bromide_y_target;
-            _bromide_y_target = cameray();
+            _bromide_y_target = 0;
             con = 5;
         }
     }

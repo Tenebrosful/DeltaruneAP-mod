@@ -36,12 +36,12 @@ use_item = function(arg0)
     var bromide_data = new scr_get_bromide_data(arg0);
     _bromide_sprite = bromide_data.bromide_sprite;
     _bromide_audio = snd_play(bromide_data.bromide_audio, 1, 1);
-    _bromide_y = cameray();
+    _bromide_y = 0;
     
     if (global.darkzone == 0)
-        _bromide_y_target = cameray() - ((sprite_get_height(_bromide_sprite) - 480) / 2);
+        _bromide_y_target = 0 - ((sprite_get_height(_bromide_sprite) - 480) / 2);
     else
-        _bromide_y_target = cameray() - (sprite_get_height(_bromide_sprite) - 480);
+        _bromide_y_target = 0 - (sprite_get_height(_bromide_sprite) - 480);
     
     if (arg0 == 33)
         _scroll_speed = 4;
