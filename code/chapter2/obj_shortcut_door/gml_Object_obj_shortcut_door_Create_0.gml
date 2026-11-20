@@ -25,5 +25,10 @@ if (room == room_dw_city_intro)
     AP_sendLocation(105);
 
 if (room == room_dw_mansion_entrance)
+{
+    if (global.flag[309] < 1 && global.plot >= 120)
+        global.flag[309] = 1;
+    
     AP_sendLocation(106);
+}
 /// END
