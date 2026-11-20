@@ -353,9 +353,9 @@ function AP_fill_progressive_area_unlocks_struct()
 
             array_push(global.AP_progressive_area_unlocks_ids.ch5, 25); // PetalFeather
 
-            array_push(global.AP_progressive_area_unlocks_ids.ch5, 1022); // Yellow Compliment List
-
             array_push(global.AP_progressive_area_unlocks_ids.ch5, 1023); // Green Compliment List
+
+            array_push(global.AP_progressive_area_unlocks_ids.ch5, 1022); // Yellow Compliment List
         }
     }
 }
