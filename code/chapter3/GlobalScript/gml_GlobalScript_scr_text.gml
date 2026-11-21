@@ -68,23 +68,6 @@
             break;
 /// END
 
-
-/// AFTER
-                    with (obj_room_tvland_preview)
-                        con = 10;
-
-/// CODE
-                    if (global.plot < 160)
-                    {
-                        AP_sendLocation([115, 116, 117, 118, 179, 247]);
-                    }
-                    else
-                    {
-                        AP_sendLocation([142, 143, 144, 145, 180, 181]);
-                    }
-                    
-/// END
-
 /// REPLACE
                     msgnextloc("* If you don't have enough now^1, it's too late^1! Try harder next time!/%", "scr_text_slash_scr_text_gml_8573_0");
 /// CODE
@@ -97,8 +80,8 @@
             global.choicemsg[2] = stringsetloc("Green Room", "scr_text_slash_scr_text_gml_10433_0");
             global.choicemsg[3] = stringsetloc("Cancel", "scr_text_slash_scr_text_gml_10434_0");
 /// CODE
-            global.choicemsg[0] = stringsetloc("", "scr_text_slash_scr_text_gml_10408_0");
-            global.choicemsg[1] = stringsetloc("", "scr_text_slash_scr_text_gml_10409_0");
+            global.choicemsg[0] = stringset("#[Not Found]");
+            global.choicemsg[1] = stringset("#[Not found]");
             global.choicemsg[2] = stringsetloc("Green Room", "scr_text_slash_scr_text_gml_10433_0");
             global.choicemsg[3] = stringsetloc("Couch Cliffs", "scr_text_slash_scr_text_gml_10434_0");
             
@@ -155,7 +138,7 @@
             break;
 /// CODE
         case 1410:
-            global.msg[0] = "* (The door refused.^1)&* (You haven't unlocked this area!)/%";
+            global.msg[0] = stringset("* (..^1. but^1, the door was not open there.)/%");
             
             with (obj_shortcut_door)
                 door_destination = -1;
@@ -194,8 +177,7 @@
             {
                 if (door_destination == -1)
                 {
-                    with (obj_shortcut_door)
-                        door_destination = door_location;
+                    door_destination = door_location;
                 }
                 else if (door_destination == door_location)
                 {
@@ -278,7 +260,18 @@
                 global.flag[1122] = 0;
                 // Battles
                 global.flag[1049] = 0;
-                room_goto(room_board_1);
+                snd_free(global.currentsong[0]);
+                
+                if (i_ex(obj_ch3_screen_wipe))
+                {
+                    with (obj_ch3_screen_wipe)
+                        instance_destroy();
+                }
+
+                var screen_wipe = instance_create(0, 0, obj_ch3_screen_wipe);
+                screen_wipe.target_room = room_board_1;
+                screen_wipe.start = true;
+                msgset(0, "%%");
             }
             else if (global.choice == 1)
             {
@@ -304,7 +297,18 @@
                     global.flag[1117] = 0;
                     // Challenge
                     global.flag[1118] = 0;
-                    room_goto(room_board_2);
+                    snd_free(global.currentsong[0]);
+
+                    if (i_ex(obj_ch3_screen_wipe))
+                    {
+                        with (obj_ch3_screen_wipe)
+                            instance_destroy();
+                    }
+
+                    var screen_wipe = instance_create(0, 0, obj_ch3_screen_wipe);
+                    screen_wipe.target_room = room_board_2;
+                    screen_wipe.start = true;
+                    msgset(0, "%%");
                 }
             }
             else if (global.choice == 2)
@@ -316,7 +320,11 @@
                         msgsetloc(0, "* Go ask him then^1! I'm not just gonna steal it!/", "obj_npc_room_slash_Other_10_gml_1651_0");
                         msgnextloc("* Ah^1, he won't give you it cause you got Z-Rank^1, huh?/", "obj_npc_room_slash_Other_10_gml_1651_0");
                         msgnextloc("* Don't worry, I sto^1- I mean FOUND it backstage just for you./%", "obj_npc_room_slash_Other_10_gml_1651_0");
-                        AP_sendLocation(128);
+                        msgnext(string("* (You got {0}.)/%", AP_get_location_reward_text(128)));
+                        scr_msgfunc(function()
+                        {
+                            AP_sendLocation(128);
+                        });
                         global.flag[1028] = 1;
                     }
                     else
@@ -333,7 +341,11 @@
                             msgsetloc(0, "* Go ask him then^1! I'm not just gonna steal it!/", "obj_npc_room_slash_Other_10_gml_1651_0");
                             msgnextloc("* Ah^1, he won't give you it cause you got Z-Rank^1, huh?/", "obj_npc_room_slash_Other_10_gml_1651_0");
                             msgnextloc("* Don't worry, I sto^1- I mean FOUND it backstage just for you./%", "obj_npc_room_slash_Other_10_gml_1651_0");
-                            AP_sendLocation(147);
+                            msgnext(string("* (You got {0}.)/%", AP_get_location_reward_text(147)));
+                            scr_msgfunc(function()
+                            {
+                                AP_sendLocation(147);
+                            });
                             global.flag[1030] = 1;
                         }
                         else if (!(global.flag[1028] == 1)) // 1028 board 1 reward claimed
@@ -343,7 +355,11 @@
                         else
                         {
                             msgsetloc(0, "* Forgot to get it earlier^1?&* No prob^1, found it backstage just for you./%", "obj_npc_room_slash_Other_10_gml_1651_0");
-                            AP_sendLocation(128);
+                            msgnext(string("* (You got {0}.)/%", AP_get_location_reward_text(128)));
+                            scr_msgfunc(function()
+                            {
+                                AP_sendLocation(128);
+                            });
                             global.flag[1028] = 1;
                         }
                     }
@@ -353,9 +369,18 @@
                         {
                             msgsetloc(0, "* Wh-^1- How'd ya know?^1!&* My stealth moves were on point!/", "obj_npc_room_slash_Other_10_gml_1651_0");
                             msgnextloc("* Ugh..^1. You better not tell anyone about this..^1./%", "obj_npc_room_slash_Other_10_gml_1651_0")
+                            msgnext(string("* (You got {0}.)/%", AP_get_location_reward_text(128)));
+                            scr_msgfunc(function()
+                            {
+                                AP_sendLocation(128);
+                            });
+                            msgnext(string("* (You got {0}.)/%", AP_get_location_reward_text(147)));
+                            scr_msgfunc(function()
+                            {
+                                AP_sendLocation(147);
+                            });
                             global.flag[1028] = 1;
                             global.flag[1030] = 1;
-                            AP_sendLocation([128, 147]);
                         }
                         else
                         {

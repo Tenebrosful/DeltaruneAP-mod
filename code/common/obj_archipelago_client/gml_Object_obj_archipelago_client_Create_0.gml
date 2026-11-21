@@ -169,6 +169,7 @@ global.custom_flags_indexes = {
     ch5_helped_final_orange: 48,
     ch5_opened_first_chest: 49, // Yeah i don't like this one either
     light_world_reminder: 50,
+    AP_music_playing: 51,
 }
 
 for (var chapter = 1; chapter <= global.AP_max_chapter; chapter++)

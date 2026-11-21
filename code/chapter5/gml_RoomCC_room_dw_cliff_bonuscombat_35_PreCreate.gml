@@ -1,0 +1,2 @@
+/// IMPORT
+mysong = "cliff.ogg";

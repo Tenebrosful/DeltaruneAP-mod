@@ -3,12 +3,13 @@
 #load "chapter2/chapter2_rooms.csx"
 #load "chapter3/chapter3_rooms.csx"
 #load "chapter4/chapter4_rooms.csx"
+#load "chapter5/chapter5_rooms.csx"
 #load "chapter_select/chapter_select_rooms.csx"
 
 void Build_rooms(int chapter)
 {
   if (chapter > 0) Load_all_chapters_rooms();
-   
+
   switch (chapter)
   {
     case 0: Load_chapter_select_rooms(); break;
@@ -16,15 +17,17 @@ void Build_rooms(int chapter)
     case 2: Load_chapter2_rooms(); break;
     case 3: Load_chapter3_rooms(); break;
     case 4: Load_chapter4_rooms(); break;
+    case 5: Load_chapter5_rooms(); break;
     default: return;
   }
 }
 
-void Build_Early_Rooms(int chapter){
+void Build_Early_Rooms(int chapter)
+{
   switch (chapter)
   {
     case 0: Load_Early_Chapter_Select_Rooms(); break;
-    
+
     default: return;
   }
 }

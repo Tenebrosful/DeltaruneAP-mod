@@ -138,3 +138,46 @@ detect_no_chapters = function()
                     obj_archipelago_client.AP_disconnect();
                 }
 /// END
+
+/// AFTER
+global.is_console = scr_is_switch_os() || os_type == os_ps4 || os_type == os_ps5;
+/// CODE
+global.tru_vol = 0.6;
+global.mus_vol = 0.85;
+global.sfx_vol = 1;
+
+if (ossafe_file_exists("true_config.ini"))
+{
+    ossafe_ini_open("true_config.ini");
+    global.tru_vol = ini_read_real("AUDIO", "MASTER_VOLUME", 0.6);
+    global.mus_vol = ini_read_real("AUDIO", "MUSIC_VOLUME", 0.85);
+    global.sfx_vol = ini_read_real("AUDIO", "SOUND_VOLUME", 1);
+    ossafe_ini_close();
+}
+
+global.tru_vol *= (1 / 0.6);
+global.mus_vol *= (1 / 0.85);
+audio_sound_gain(snd_menumove, global.sfx_vol, 0);
+audio_sound_gain(snd_swing, global.sfx_vol, 0);
+audio_set_master_gain(0, global.tru_vol);
+/// END
+
+/// REPLACE
+    if (global.bgm == -4 || !audio_is_playing(global.bgm))
+        global.bgm = audio_play_sound(AUDIO_DRONE, 15, 1);
+/// CODE
+    if (global.bgm == -4 || !audio_is_playing(global.bgm))
+    {
+        global.bgm = audio_play_sound(AUDIO_DRONE, 15, 1);
+        audio_sound_gain(global.bgm, global.mus_vol, 0);
+    }
+/// END
+
+/// AFTER
+    var volume = 1;
+    
+    if (_target_chapter == 3)
+        volume = 0.7;
+/// CODE
+    volume *= global.sfx_vol;
+/// END

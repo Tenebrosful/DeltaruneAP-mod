@@ -1,5 +1,11 @@
 /// PATCH
 
+/// AFTER
+    mus_volume(global.currentsong[1], 0, 30);
+/// CODE
+    mus_volume(global.AP_music[1], 0, 30);
+/// END
+
 /// BEFORE
     contimer = 0;
     con = 11;

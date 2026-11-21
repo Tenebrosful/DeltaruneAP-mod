@@ -3,7 +3,12 @@
 /// APPEND
 
 if (global.plot >= 200)
-    nextroom = 122;
+{
+    if (variable_global_exists("pre_hospital_room"))
+        nextroom = global.pre_hospital_room;
+    else
+        nextroom = 122;
+}
 
 if (global.plot >= 280)
     nextroom = 150;

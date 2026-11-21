@@ -17,6 +17,7 @@ if (con == 9 && !d_ex())
 if (con == 10)
 {
     mus_volume(global.currentsong[1], 0, 30);
+    mus_volume(global.AP_music[1], 0, 30);
     
     if (instance_exists(obj_mainchara))
     {

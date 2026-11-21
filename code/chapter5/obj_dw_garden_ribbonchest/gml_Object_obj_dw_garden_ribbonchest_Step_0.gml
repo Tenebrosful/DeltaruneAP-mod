@@ -37,22 +37,51 @@ if (myinteract == 6 && !d_ex())
 /// END
 
 /// REPLACE
+    msgnextloc("* (Susie can now equip RIBBONS.)\\f0/%", "obj_dw_garden_ribbonchest_slash_Step_0_gml_109_0");
+/// CODE
+    msgnextloc("* (Susie can now equip RIBBONS.)\\f0/", "obj_dw_garden_ribbonchest_slash_Step_0_gml_109_0");
+/// END
+
+/// REPLACE
     var smallfacetext = stringsetloc("Don't look so smug about it, dumbass!", "obj_dw_garden_ribbonchest_slash_Step_0_gml_113_0");
     scr_smallface(0, "susie", 17, sf.x, sf.y, smallfacetext);
     global.flag[1404] = 1;
 /// CODE
-    var smallfacetext = stringsetloc("Don't look so smug about it, dumbass!", "obj_dw_garden_ribbonchest_slash_Step_0_gml_113_0");
-    scr_smallface(0, "susie", 17, sf.x, sf.y, smallfacetext);
-/// END
-
-/// REPLACE
-    msgnextsubloc("\\E~1* Aww^1, Susie!/", face[hatState], "obj_dw_garden_ribbonchest_slash_Step_0_gml_106_0");
-    scr_anyface_next("no_name", 0);
-    msgnextloc("* (Susie can now equip RIBBONS.)\\f0/%", "obj_dw_garden_ribbonchest_slash_Step_0_gml_109_0");
-/// CODE
-    msgnextsubloc("\\E~1* Aww^1, Susie!/%", face[hatState], "obj_dw_garden_ribbonchest_slash_Step_0_gml_106_0");
-    scr_anyface_next("no_name", 0);
-    AP_sendLocation(349)
+    var smallfacetext0 = stringsetloc("Don't look so smug about it, dumbass!", "obj_dw_garden_ribbonchest_slash_Step_0_gml_113_0");
+    var smallfacetext1 = stringset("Huh?");
+    var smallfacetext2 = stringset("Hey, what the hell!");
+    var smallfacetext2_face = 17;
+    
+    if (global.flag[1404] == 1)
+    {
+        smallfacetext0 = stringset("I could already do that, dumbass!");
+        smallfacetext2 = stringset("???");
+        smallfacetext2_face = 20;
+    }
+    
+    scr_smallface(0, "susie", 17, sf.x, sf.y, smallfacetext0);
+    scr_smallface(1, "susie", 43, "right", "bottom", smallfacetext1);
+    scr_smallface(2, "susie", smallfacetext2_face, "right", "bottom", smallfacetext2);
+    
+    if (global.flag[1404] == 1)
+    {
+        msgnext("* (Susie's ability to equip RIBBONS is going even further beyond.)/");
+        msgnext("* (Somehow^1, something begins to take shape.)\\f1/");
+        msgnext(string("* (You got {0}.^1)\\f2/%", AP_get_location_reward_text(349)));
+        scr_msgfunc(function()
+        {
+            AP_sendLocation(349);
+        });
+    }
+    else
+    {
+        msgnext(string("* (Susie's ability to equip RIBBONS turned into {0}!^1)\\f1/", AP_get_location_reward_text(349)));
+        scr_msgfunc(function()
+        {
+            AP_sendLocation(349);
+        });
+        msgnext("* (As a result^1, Susie can no longer equip RIBBONS.)\\f2/%");
+    }
 /// END
 
 /// REPLACE

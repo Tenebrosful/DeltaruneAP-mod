@@ -177,6 +177,6 @@ function scr_load_chapter2()
     scr_gamestart_chapter_override();
     global.darkzone = 1;
     scr_tempsave();
-    audio_group_set_gain(1, global.flag[15], 0);
+    audio_group_set_gain(audio_sfx, global.flag[15], 0);
     audio_set_master_gain(0, global.flag[17]);
 }

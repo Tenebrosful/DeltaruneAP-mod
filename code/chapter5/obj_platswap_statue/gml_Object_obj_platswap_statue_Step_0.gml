@@ -264,7 +264,7 @@ if (con == 1)
     cutscene_master = scr_cutscene_make();
     scr_maincharacters_actors();
     seth = scr_marker(-80, 3770, spr_seth_walk_right);
-    aqua = scr_marker(-80, 3780, spr_aqua_walk_right);
+    aqua = scr_marker(-80, 3640, spr_aqua_walk_right);
     aqua_autodepth = 1;
     aquamarker_left = scr_marker(250, 3640, spr_aqua_walk_down);
     aquamarker_middle = scr_marker(300, 3640, spr_aqua_walk_down);
@@ -323,13 +323,16 @@ if (con == 1.1)
     with (obj_caterpillarchara)
         visible = 0;
     
-    if (global.tempflag[51] == 0)
-    {
+    c_pannable(1);
+    c_panobj_fancy(aquamarker_middle, 20);
     c_sel(kr);
+    c_autodepth(1);
     c_walkdirect(300, 3640, 16);
     c_sel(su);
+    c_autodepth(1);
     c_walkdirect(245, 3635, 16);
     c_sel(ra);
+    c_autodepth(1);
     c_walkdirect_wait(345, 3640, 16);
     c_sel(kr);
     c_facing("u");
@@ -338,445 +341,498 @@ if (con == 1.1)
     c_sel(ra);
     c_facing("u");
     c_wait(10);
-    c_msgside("top");
-    c_speaker("susie");
-    c_sel(su);
-    c_sprite(spr_susie_head_scratch_dw);
-    c_msgsetloc(0, "\\E0* Alright^1, now how does this statue work?/%", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_talk();
-    c_wait_talk();
-    c_sel(su);
-    c_sprite(spr_susie_walk_up_dw);
-    c_emote("!", 30);
-    c_sel(ra);
-    c_emote("!", 30);
-    c_speaker("seth");
-    c_customfunc(function()
-    {
-        snd_free_all();
-    });
-    c_msgsetloc(0, "* There you are!/%", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_talk();
-    c_wait_talk();
-    c_customfunc(function()
-    {
-        snd_free_all();
-        scr_musicer("meeting_flower.ogg");
-    });
-    c_sel(kr);
-    c_facing("d");
-    c_sel(su);
-    c_facing("d");
-    c_sel(ra);
-    c_facing("d");
-    c_markerwalkdirect(seth, 285, 3770, 48, spr_seth_walk_right, 0.25);
-    c_wait(49);
-    c_customfunc(function()
-    {
-        with (seth)
-        {
-            sprite_index = spr_seth_walk_up;
-            image_index = 0;
-        }
-    });
-    c_speaker("seth");
-    c_msgsetloc(0, "* You three are not allowed to use this statue!/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_facenext("ralsei", "0");
-    c_msgnextloc("\\E0* Oh^1, is it dangerous?/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_facenext("seth", "0");
-    c_msgnextloc("* What^1? No^1, if you use it you'll--/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_msgnextloc("* Uh^1, I mean yes^1! It's very dangerous^1!/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_msgnextloc("* You should stay back here^1, where it's safe^1! Yep^1, that's right!/%", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_talk();
-    c_customfunc(function()
-    {
-        with (seth)
-            sprite_index = spr_seth_walk_up;
-    });
-    c_wait_box(3);
-    c_markerwalkdirect(aqua, 230, 3780, 48, spr_aqua_walk_right, 0.25);
-    c_wait(49);
-    c_customfunc(function()
-    {
-        with (aqua)
-        {
-            sprite_index = spr_aqua_walk_right;
-            image_index = 0;
-        }
-    });
-    c_wait_box(5);
-    c_customfunc(function()
-    {
-        with (seth)
-            sprite_index = spr_seth_glasses_shiny;
-    });
-    c_wait_talk();
-    c_speaker("aqua");
-    c_msgsetloc(0, "* Uuu^1, I thought that was the statue that made us jump./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_facenext("seth", "0");
-    c_msgnextloc("* What are you doing here?!/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_msgnextloc(string("* I told you to protect the {0}!/", string(apdata.itemName)));
-    c_facenext("aqua", "0");
-    c_msgnextloc("* Yeah^1, I got bored./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_facenext("seth", "0");
-    c_msgnextloc("* Oh^1, forget it./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_msgnextloc("* Look^1, they are trying to get past us!/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_msgnextloc("* We need to teach them a lesson!/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_facenext("aqua", "0");
-    c_msgnextloc("* Uuu^1, but I hate lessons..^1.&* School is so boring.../", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_facenext("seth", "0");
-    c_msgnextloc("* ..^1.Have you even BEEN to school?/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_facenext("aqua", "0");
-    c_msgnextloc("* Nope./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_facenext("seth", "0");
-    c_msgnextloc("* .../", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_msgnextloc(string("* Well^1, I need to leave to protect the {0}./", string(apdata.itemName)));
-    c_msgnextloc("* You stay here^1, okay?/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_facenext("aqua", "0");
-    c_msgnextloc("* Okay^1! Bye bye!/%", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
-    c_talk();
-    c_customfunc(function()
-    {
-        with (aqua)
-        {
-            sprite_index = spr_aqua_walk_right;
-            image_index = 0;
-        }
-    });
-    c_wait_box(0);
-    c_customfunc(function()
-    {
-        with (aqua)
-        {
-            sprite_index = spr_aqua_confused;
-            image_index = 1;
-        }
-    });
-    c_customfunc(function()
-    {
-        with (seth)
-            sprite_index = spr_seth_panic;
-    });
-    c_wait_box(2);
-    c_customfunc(function()
-    {
-        with (seth)
-            sprite_index = spr_seth_upset;
-    });
-    c_wait_box(5);
-    c_customfunc(function()
-    {
-        with (aqua)
-        {
-            sprite_index = spr_aqua_walk_right;
-            image_index = 0;
-        }
-    });
-    c_wait_box(6);
-    c_customfunc(function()
-    {
-        with (seth)
-            sprite_index = spr_seth_shakehead;
-    });
-    c_wait_box(9);
-    c_customfunc(function()
-    {
-        with (seth)
-            sprite_index = spr_seth_walk_left;
-    });
-    c_wait_box(10);
-    c_sel(su);
-    c_facing("r");
-    c_emote("...", 30);
-    c_sel(ra);
-    c_facing("l");
-    c_emote("...", 30);
-    c_wait_box(11);
-    c_customfunc(function()
-    {
-        with (aqua)
-            sprite_index = spr_enemy_aqua_unamused_r;
-    });
-    c_wait_box(15);
-    c_customfunc(function()
-    {
-        with (aqua)
-            sprite_index = spr_aqua_walk_right;
-    });
-    c_customfunc(function()
-    {
-        with (seth)
-            sprite_index = spr_seth_shakehead;
-    });
-    c_wait_box(17);
-    c_sel(su);
-    c_facing("d");
-    c_sel(ra);
-    c_facing("d");
-    c_customfunc(function()
-    {
-        with (seth)
-            sprite_index = spr_seth_walk_left;
-    });
-    c_wait_box(22);
-    c_customfunc(function()
-    {
-        with (aqua)
-        {
-            sprite_index = spr_aqua_wave;
-            image_index = 0;
-            image_speed = 0.4;
-        }
-    });
-    c_wait_talk();
-    c_customfunc(function()
-    {
-        with (seth)
-        {
-            sprite_index = spr_seth_walk_left;
-            image_speed = 0.25;
-            hspeed = -8;
-            scr_doom(id, 180);
-        }
-    });
-    c_wait(48);
-    c_customfunc(function()
-    {
-        with (aqua)
-        {
-            sprite_index = spr_aqua_walk_left;
-            image_index = 0;
-            image_speed = 0;
-        }
-    });
-    c_markerwalkdirect(aqua, 150, 3780, 16, spr_aqua_walk_left, 0.25);
-    c_wait(17);
-    c_customfunc(function()
-    {
-        with (aqua)
-        {
-            sprite_index = spr_aqua_walk_left;
-            image_index = 0;
-        }
-    });
-    }
-
-    c_sel(kr);
-    c_walkdirect(300, 3770, 32);
-    c_sel(su);
-    c_walkdirect(245, 3755, 32);
-    c_sel(ra);
-    c_walkdirect_wait(345, 3760, 32);
     
     if (global.tempflag[51] == 0)
     {
-    c_sel(kr);
-    c_facing("l");
-    c_sel(su);
-    c_facing("l");
-    c_sel(ra);
-    c_facing("l");
-    c_msgside("top");
-    c_speaker("ralsei");
-    c_msgsetloc(0, "\\E8* ..^1. hello there./%", "obj_dw_garden_aqua_slash_Step_0_gml_309_0");
-    c_talk_wait();
-    c_customfunc(function()
-    {
-        aqua.sprite_index = spr_aqua_walk_right;
-    });
-    c_wait(15);
-    c_speaker("no_name");
-    c_msgsetloc(0, "* Oh^1, some fellow humans!/%", "obj_dw_garden_aqua_slash_Step_0_gml_321_0");
-    c_talk_wait();
-    c_customfunc(function()
-    {
-        var target = kr_actor;
-        aquajumptoplace(target, 8, 0);
-    });
-    c_waitcustom();
-    c_markerwalkdirect(aqua, 300, 3640, 16, spr_aqua_walk_up, 0.25);
-    c_wait(16);
-    c_var_instance(id, "aqua_autodepth", 0);
-    }
-
-    c_sel(kr);
-    c_facing("u");
-    c_sel(su);
-    c_facing("u");
-    c_sel(ra);
-    c_facing("u");
-
-    if (global.tempflag[51] == 0)
-    {
-    c_customfunc(function()
-    {
-        with (aqua)
+        c_msgside("top");
+        c_speaker("susie");
+        c_sel(su);
+        c_sprite(spr_susie_head_scratch_dw);
+        c_msgsetloc(0, "\\E0* Alright^1, now how does this statue work?/%", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_talk();
+        c_wait_talk();
+        c_sel(su);
+        c_facing("u");
+        c_speaker("seth");
+        c_mus("free_all");
+        c_msgsetloc(0, "* There you are!/%", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_talk();
+        c_wait_talk();
+        c_sel(su);
+        c_emote("!", 30);
+        c_sel(ra);
+        c_emote("!", 30);
+        c_sel(kr);
+        c_facing("d");
+        c_sel(su);
+        c_facing("d");
+        c_sel(ra);
+        c_facing("d");
+        c_markerwalkdirect(seth, 285, 3770, 48, spr_seth_walk_right, 0.25);
+        c_wait(49);
+        c_customfunc(function()
         {
-            sprite_index = spr_aqua_sleevewave;
-            image_index = 0;
-            image_speed = 0.25;
-        }
-    });
-    c_wait(30);
-    c_speaker("no_name");
-    c_msgsetloc(0, "* I see you have naturally blue skin just like me./%", "obj_dw_garden_aqua_slash_Step_0_gml_351_0");
-    c_talk_wait();
-    c_customfunc(function()
-    {
-        var target = aquamarker_left;
-        aquajumptoplace(target, 8, 0);
-    });
-    c_waitcustom();
-    c_speaker("no_name");
-    c_msgsetloc(0, "* Purple skin and teeth^1, just like my friend./%", "obj_dw_garden_aqua_slash_Step_0_gml_362_0");
-    c_talk_wait();
-    c_customfunc(function()
-    {
-        var target = aquamarker_right;
-        aquajumptoplace(target, 0, 12);
-    });
-    c_waitcustom();
-    c_speaker("no_name");
-    c_msgsetloc(0, "* Glasses^1, that's what humans wear./%", "obj_dw_garden_aqua_slash_Step_0_gml_373_0");
-    c_talk_wait();
-    c_customfunc(function()
-    {
-        var target = aquamarker_middle;
-        aquajumptoplace(target, 0, 12);
-    });
-    c_waitcustom();
-    c_speaker("no_name");
-    c_msgsetloc(0, "* So glad to meet some more people like me./", "obj_dw_garden_aqua_slash_Step_0_gml_384_0");
-    c_facenext("susie", "K");
-    c_msgnextloc("\\EK* ..^1. hey... uh.../", "obj_dw_garden_aqua_slash_Step_0_gml_386_0");
-    c_facenext("no_name", 0);
-    c_msgnextloc("* What^1? Are you going to ask if you can get the thing?/", "obj_dw_garden_aqua_slash_Step_0_gml_388_0");
-    c_msgnextloc("* Uuu..^1. I can't let you do that./", "obj_dw_garden_aqua_slash_Step_0_gml_389_0");
-    c_facenext("ralsei", "6");
-    c_msgnextloc("\\E6* We haven't asked about that yet./", "obj_dw_garden_aqua_slash_Step_0_gml_391_0");
-    c_facenext("no_name", 0);
-    c_msgnextloc("* You three seem like great humans^1. I'd love to give it to you./", "obj_dw_garden_aqua_slash_Step_0_gml_393_0");
-    c_msgnextloc("* But I can't./", "obj_dw_garden_aqua_slash_Step_0_gml_394_0");
-    c_facenext("susie", "2");
-    c_msgnextloc("\\E2* Why not?/", "obj_dw_garden_aqua_slash_Step_0_gml_396_0");
-    c_facenext("no_name", 0);
-    c_msgnextloc("* Because..^1. I'm not supposed to^1, hee hee hee./", "obj_dw_garden_aqua_slash_Step_0_gml_398_0");
-    c_msgnextloc("* And being human is about not doing things you're not supposed to./", "obj_dw_garden_aqua_slash_Step_0_gml_399_0");
-    c_facenext("susie", "A");
-    c_msgnextloc("\\EA* Nah^1, that's not true./", "obj_dw_garden_aqua_slash_Step_0_gml_401_0");
-    c_facenext("no_name", 0);
-    c_msgnextloc("* Really?/%", "obj_dw_garden_aqua_slash_Step_0_gml_403_0");
-    c_talk();
-    c_wait_box(4);
-    c_customfunc(function()
-    {
-        with (aqua)
+            snd_free_all();
+            scr_musicer("meeting_flower.ogg");
+            
+            with (seth)
+            {
+                sprite_index = spr_seth_walk_up;
+                image_index = 0;
+            }
+        });
+        c_speaker("seth");
+        c_msgsetloc(0, "* You three are not allowed to use this statue!/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_facenext("ralsei", "0");
+        c_msgnextloc("\\E0* Oh^1, is it dangerous?/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_facenext("seth", "0");
+        c_msgnextloc("* What^1? No^1, if you use it you'll--/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_msgnextloc("* Uh^1, I mean yes^1! It's very dangerous^1!/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_msgnextloc("* You should stay back here^1, where it's safe^1! Yep^1, that's right!/%", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_talk();
+        c_customfunc(function()
         {
-            sprite_index = spr_aqua_walk_up;
-            image_speed = 0;
-            image_index = 0;
-        }
-    });
-    c_wait_box(5);
-    c_customfunc(function()
-    {
-        with (aqua)
+            with (seth)
+                sprite_index = spr_seth_walk_up;
+        });
+        c_wait_box(3);
+        c_delay_customfunc(12, function()
         {
-            sprite_index = spr_aqua_shakehead;
-            image_index = 0;
-            image_speed = 0.25;
-        }
-    });
-    c_wait_box(6);
-    c_customfunc(function()
-    {
-        with (aqua)
+            with (aqua)
+            {
+                sprite_index = spr_enemy_aqua_spin;
+                image_speed = 1/3;
+                scr_lerpvar("x", -80, 230, 40, 2, "out");
+                scr_lerpvar("y", 3640, 3780, 40);
+                
+                funct = function()
+                {
+                    repeat (3 + irandom(1))
+                    {
+                        var _dir = irandom_range(-15, 15);
+                        var _len = irandom(50);
+                        
+                        with (instance_create(x - 18 + lengthdir_x(_len, _dir), y + 70 + lengthdir_y(_len * 0.5, _dir), obj_bulletparent))
+                        {
+                            sprite_index = spr_falling_petal;
+                            image_index = irandom(4);
+                            image_speed = 0.125 * choose(1, 0.5, 0.75);
+                            image_blend = c_gray;
+                            scr_darksize();
+                            depth = other.depth + 1;
+                            speed = 8 + random(4);
+                            direction = _dir;
+                            vspeed *= 0.5;
+                            scr_lerpvar("hspeed", hspeed, 0, 48);
+                            gravity_direction = 270;
+                            gravity = 0.05 + random(0.05);
+                            image_xscale *= choose(1, -1);
+                            scr_lerpvar("image_alpha", 1, 0, 60);
+                            
+                            funct = function()
+                            {
+                                if (image_index > 0 && image_index < 4)
+                                    x += 0.5;
+                                else
+                                    x -= 0.5;
+                            };
+                            
+                            scr_script_repeat(scr_use_funct, 64, 1);
+                        }
+                    }
+                };
+                
+                scr_script_repeat(scr_use_funct, 5, 4);
+            }
+        });
+        c_wait(52);
+        c_customfunc(function()
         {
-            sprite_index = spr_aqua_shakehead;
-            image_index = 0;
-            image_speed = 0;
-        }
-    });
-    c_wait_box(14);
-    c_customfunc(function()
-    {
-        with (aqua)
+            with (aqua)
+            {
+                sprite_index = spr_aqua_walk_right;
+                image_index = 0;
+                image_speed = 0;
+            }
+        });
+        c_wait_box(5);
+        c_flipinstance(seth, "x");
+        c_customfunc(function()
         {
-            sprite_index = spr_aqua_laugh;
-            image_index = 0;
-            image_speed = 0.16666666666666666;
-        }
-    });
-    c_wait_box(15);
-    c_customfunc(function()
-    {
-        with (aqua)
+            with (seth)
+                sprite_index = spr_seth_glasses_shiny;
+        });
+        c_wait_talk();
+        c_speaker("no_name");
+        c_msgsetloc(0, "* Uuu^1, I thought that was the statue that made us jump./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_facenext("seth", "0");
+        c_msgnextloc("* What are you doing here?!/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_msgnextloc(string("* I told you to protect the {0}!/", string(apdata.itemName)));
+        c_customfunc(function()
         {
-            sprite_index = spr_aqua_shakehead;
-            image_index = 0;
-            image_speed = 0;
-        }
-    });
-    c_wait_box(19);
-    c_customfunc(function()
-    {
-        with (aqua)
+            AP_sendHint(284);
+        });
+        c_facenext("no_name", "0");
+        c_msgnextloc("* Yeah^1, I got bored./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_facenext("seth", "0");
+        c_msgnextloc("* Oh^1, forget it./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_msgnextloc("* Look^1, they are trying to get past us!/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_msgnextloc("* We need to teach them a lesson!/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_facenext("no_name", "0");
+        c_msgnextloc("* Uuu^1, but I hate lessons..^1.&* School is so boring.../", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_facenext("seth", "0");
+        c_msgnextloc("* ..^1.Have you even BEEN to school?/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_facenext("no_name", "0");
+        c_msgnextloc("* Nope./", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_facenext("seth", "0");
+        c_msgnextloc("* .../", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_msgnextloc(string("* Well^1, I need to leave to protect the {0}./", string(apdata.itemName)));
+        c_msgnextloc("* You stay here^1, okay?/", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_facenext("no_name", "0");
+        c_msgnextloc("* Okay^1! Bye bye!/%", "obj_ch4_DCA08A_slash_Step_0_gml_70_0");
+        c_talk();
+        c_customfunc(function()
         {
-            sprite_index = spr_aqua_surprise;
-            image_index = 0;
-            image_speed = 0;
-        }
-    });
-    c_wait_talk();
-    c_customfunc(function()
-    {
-        var target = aquamarker_middle;
-        aquajumptoplace(target, 0, 12);
-    });
-    c_waitcustom();
-    c_speaker("no_name");
-    c_msgsetloc(0, "* Hee hee hee^1, that's good^1, that's good!!/", "obj_dw_garden_aqua_slash_Step_0_gml_480_0");
-    c_msgnextloc("* I was hoping being human was about playing since I always wanted to play a game./", "obj_dw_garden_aqua_slash_Step_0_gml_481_0");
-    c_facenext("ralsei", "1");
-    c_msgnextloc("\\E1* How about if we play with you.../", "obj_dw_garden_aqua_slash_Step_0_gml_483_0");
-    c_facenext("susie", "2");
-    c_msgnextloc("\\E2* You give us that cool..^1. uh^1, thing?/%", "obj_dw_garden_aqua_slash_Step_0_gml_485_0");
-    c_talk();
-    c_customfunc(function()
-    {
-        with (aqua)
+            with (aqua)
+            {
+                sprite_index = spr_aqua_walk_right;
+                image_index = 0;
+            }
+        });
+        c_wait_box(0);
+        c_customfunc(function()
         {
-            sprite_index = spr_aqua_sleevewave;
-            image_index = 0;
-            image_speed = 0.25;
-        }
-    });
-    c_wait_talk();
-    c_var_instance(id, "dojumping", true);
-    c_speaker("no_name");
-    c_msgsetloc(0, "* Play play play play./", "obj_dw_garden_aqua_slash_Step_0_gml_503_0");
-    c_msgnextloc("* Play play play play./%", "obj_dw_garden_aqua_slash_Step_0_gml_504_0");
-    c_talk();
-    c_wait_box_end(1);
-    c_var_instance(id, "endjumping", true);
-    c_wait(1);
-    c_wait_if(id, "landed", "=", true);
-    c_wait_if(id, "dojumping", "=", false);
-    c_wait_talk();
+            with (aqua)
+            {
+                sprite_index = spr_aqua_confused;
+                image_index = 1;
+            }
+        });
+        c_flipinstance(seth, "x");
+        c_customfunc(function()
+        {
+            with (seth)
+                sprite_index = spr_seth_panic;
+        });
+        c_wait_box(2);
+        c_customfunc(function()
+        {
+            with (seth)
+                sprite_index = spr_seth_upset;
+        });
+        c_wait_box(5);
+        c_customfunc(function()
+        {
+            with (aqua)
+            {
+                sprite_index = spr_aqua_walk_right;
+                image_index = 0;
+            }
+        });
+        c_wait_box(6);
+        c_customfunc(function()
+        {
+            with (seth)
+                sprite_index = spr_seth_shakehead;
+        });
+        c_wait_box(9);
+        c_customfunc(function()
+        {
+            with (seth)
+                sprite_index = spr_seth_walk_left;
+        });
+        c_wait_box(10);
+        c_sel(su);
+        c_facing("r");
+        c_emote("...", 30);
+        c_sel(ra);
+        c_facing("l");
+        c_emote("...", 30);
+        c_wait_box(11);
+        c_customfunc(function()
+        {
+            with (aqua)
+                sprite_index = spr_enemy_aqua_unamused_r;
+        });
+        c_wait_box(15);
+        c_customfunc(function()
+        {
+            with (aqua)
+                sprite_index = spr_aqua_walk_right;
+        });
+        c_customfunc(function()
+        {
+            with (seth)
+                sprite_index = spr_seth_shakehead;
+        });
+        c_wait_box(17);
+        c_sel(su);
+        c_facing("d");
+        c_sel(ra);
+        c_facing("d");
+        c_customfunc(function()
+        {
+            with (seth)
+                sprite_index = spr_seth_walk_left;
+        });
+        c_wait_box(22);
+        c_customfunc(function()
+        {
+            with (aqua)
+            {
+                sprite_index = spr_aqua_wave;
+                image_index = 0;
+                image_speed = 0.4;
+            }
+        });
+        c_wait_talk();
+        c_customfunc(function()
+        {
+            with (seth)
+            {
+                sprite_index = spr_seth_walk_left;
+                image_speed = 0.25;
+                hspeed = -8;
+                scr_doom(id, 180);
+            }
+        });
+        c_wait(48);
+        c_customfunc(function()
+        {
+            with (aqua)
+            {
+                sprite_index = spr_aqua_walk_left;
+                image_index = 0;
+                image_speed = 0;
+            }
+        });
+        c_markerwalkdirect(aqua, 150, 3780, 16, spr_aqua_walk_left, 0.25);
+        c_wait(17);
+        c_customfunc(function()
+        {
+            with (aqua)
+            {
+                sprite_index = spr_aqua_walk_left;
+                image_index = 0;
+            }
+        });
+        c_pan(0, cameray() + 35, 32);
+        c_sel(kr);
+        c_walkdirect(300, 3770, 32);
+        c_sel(su);
+        c_walkdirect(245, 3755, 32);
+        c_sel(ra);
+        c_walkdirect_wait(345, 3760, 32);
+        c_sel(kr);
+        c_facing("l");
+        c_sel(su);
+        c_facing("l");
+        c_sel(ra);
+        c_facing("l");
+        c_msgside("top");
+        c_speaker("ralsei");
+        c_msgsetloc(0, "\\E8* ..^1. hello there./%", "obj_dw_garden_aqua_slash_Step_0_gml_309_0");
+        c_talk_wait();
+        c_customfunc(function()
+        {
+            aqua.sprite_index = spr_aqua_walk_right;
+        });
+        c_wait(15);
+        c_speaker("no_name");
+        c_msgsetloc(0, "* Oh^1, some fellow humans!/%", "obj_dw_garden_aqua_slash_Step_0_gml_321_0");
+        c_talk_wait();
+        c_customfunc(function()
+        {
+            var target = kr_actor;
+            aquajumptoplace(target, 8, 0);
+        });
+        c_delaycmd(10, "var", id, "aqua_autodepth", 0);
+        c_waitcustom();
+        c_sel(kr);
+        c_facing("u");
+        c_sel(su);
+        c_facing("u");
+        c_sel(ra);
+        c_facing("u");
+        c_customfunc(function()
+        {
+            with (aqua)
+            {
+                sprite_index = spr_aqua_walk_up;
+                image_index = 0;
+                image_speed = 0;
+            }
+        });
+        c_markerwalkdirect(aqua, 300, 3640, 16, spr_aqua_walk_up, 0.25);
+        c_wait(17);
+        c_customfunc(function()
+        {
+            with (aqua)
+            {
+                sprite_index = spr_aqua_sleevewave;
+                image_index = 0;
+                image_speed = 0.25;
+            }
+        });
+        c_wait(30);
+        c_speaker("no_name");
+        c_msgsetloc(0, "* I see you have naturally blue skin just like me./%", "obj_dw_garden_aqua_slash_Step_0_gml_351_0");
+        c_talk_wait();
+        c_customfunc(function()
+        {
+            var target = aquamarker_left;
+            aquajumptoplace(target, 8, 0);
+        });
+        c_waitcustom();
+        c_speaker("no_name");
+        c_msgsetloc(0, "* Purple skin and teeth^1, just like my friend./%", "obj_dw_garden_aqua_slash_Step_0_gml_362_0");
+        c_talk_wait();
+        c_customfunc(function()
+        {
+            var target = aquamarker_right;
+            aquajumptoplace(target, 0, 12);
+        });
+        c_waitcustom();
+        c_speaker("no_name");
+        c_msgsetloc(0, "* Glasses^1, that's what humans wear./%", "obj_dw_garden_aqua_slash_Step_0_gml_373_0");
+        c_talk_wait();
+        c_customfunc(function()
+        {
+            var target = aquamarker_middle;
+            aquajumptoplace(target, 0, 12);
+        });
+        c_waitcustom();
+        c_speaker("no_name");
+        c_msgsetloc(0, "* So glad to meet some more people like me./", "obj_dw_garden_aqua_slash_Step_0_gml_384_0");
+        c_facenext("susie", "K");
+        c_msgnextloc("\\EK* ..^1. hey... uh.../", "obj_dw_garden_aqua_slash_Step_0_gml_386_0");
+        c_facenext("no_name", 0);
+        c_msgnextloc("* What^1? Are you going to ask if you can get the thing?/", "obj_dw_garden_aqua_slash_Step_0_gml_388_0");
+        c_msgnextloc("* Uuu..^1. I can't let you do that./", "obj_dw_garden_aqua_slash_Step_0_gml_389_0");
+        c_facenext("ralsei", "6");
+        c_msgnextloc("\\E6* We haven't asked about that yet./", "obj_dw_garden_aqua_slash_Step_0_gml_391_0");
+        c_facenext("no_name", 0);
+        c_msgnextloc("* You three seem like great humans^1. I'd love to give it to you./", "obj_dw_garden_aqua_slash_Step_0_gml_393_0");
+        c_msgnextloc("* But I can't./", "obj_dw_garden_aqua_slash_Step_0_gml_394_0");
+        c_facenext("susie", "2");
+        c_msgnextloc("\\E2* Why not?/", "obj_dw_garden_aqua_slash_Step_0_gml_396_0");
+        c_facenext("no_name", 0);
+        c_msgnextloc("* Because..^1. I'm not supposed to^1, hee hee hee./", "obj_dw_garden_aqua_slash_Step_0_gml_398_0");
+        c_msgnextloc("* And being human is about not doing things you're not supposed to./", "obj_dw_garden_aqua_slash_Step_0_gml_399_0");
+        c_facenext("susie", "A");
+        c_msgnextloc("\\EA* Nah^1, that's not true./", "obj_dw_garden_aqua_slash_Step_0_gml_401_0");
+        c_facenext("no_name", 0);
+        c_msgnextloc("* Really?/%", "obj_dw_garden_aqua_slash_Step_0_gml_403_0");
+        c_talk();
+        c_wait_box(4);
+        c_customfunc(function()
+        {
+            with (aqua)
+            {
+                sprite_index = spr_aqua_walk_up;
+                image_speed = 0;
+                image_index = 0;
+            }
+        });
+        c_wait_box(5);
+        c_customfunc(function()
+        {
+            with (aqua)
+            {
+                sprite_index = spr_aqua_shakehead;
+                image_index = 0;
+                image_speed = 0.25;
+            }
+        });
+        c_wait_box(6);
+        c_customfunc(function()
+        {
+            with (aqua)
+            {
+                sprite_index = spr_aqua_shakehead;
+                image_index = 0;
+                image_speed = 0;
+            }
+        });
+        c_wait_box(14);
+        c_customfunc(function()
+        {
+            with (aqua)
+            {
+                sprite_index = spr_aqua_laugh;
+                image_index = 0;
+                image_speed = 0.16666666666666666;
+            }
+        });
+        c_wait_box(15);
+        c_customfunc(function()
+        {
+            with (aqua)
+            {
+                sprite_index = spr_aqua_shakehead;
+                image_index = 0;
+                image_speed = 0;
+            }
+        });
+        c_wait_box(19);
+        c_customfunc(function()
+        {
+            with (aqua)
+            {
+                sprite_index = spr_aqua_surprise;
+                image_index = 0;
+                image_speed = 0;
+            }
+        });
+        c_wait_talk();
+        c_customfunc(function()
+        {
+            var target = aquamarker_middle;
+            aquajumptoplace(target, 0, 12);
+        });
+        c_waitcustom();
+        c_speaker("no_name");
+        c_msgsetloc(0, "* Hee hee hee^1, that's good^1, that's good!!/", "obj_dw_garden_aqua_slash_Step_0_gml_480_0");
+        c_msgnextloc("* I was hoping being human was about playing since I always wanted to play a game./", "obj_dw_garden_aqua_slash_Step_0_gml_481_0");
+        c_facenext("ralsei", "1");
+        c_msgnextloc("\\E1* How about if we play with you.../", "obj_dw_garden_aqua_slash_Step_0_gml_483_0");
+        c_facenext("susie", "2");
+        c_msgnextloc("\\E2* You give us that cool..^1. uh^1, thing?/%", "obj_dw_garden_aqua_slash_Step_0_gml_485_0");
+        c_talk();
+        c_customfunc(function()
+        {
+            with (aqua)
+            {
+                sprite_index = spr_aqua_sleevewave;
+                image_index = 0;
+                image_speed = 0.25;
+            }
+        });
+        c_wait_talk();
+        c_var_instance(id, "dojumping", true);
+        c_speaker("no_name");
+        c_msgsetloc(0, "* Play play play play./", "obj_dw_garden_aqua_slash_Step_0_gml_503_0");
+        c_msgnextloc("* Play play play play./%", "obj_dw_garden_aqua_slash_Step_0_gml_504_0");
+        c_talk();
+        c_wait_box_end(1);
+        c_var_instance(id, "endjumping", true);
+        c_wait(1);
+        c_wait_if(id, "landed", "=", true);
+        c_wait_if(id, "dojumping", "=", false);
+        c_wait_talk();
     }
     else
     {
-        c_var_instance(id, "aqua_autodepth", 1);
+        c_var_instance(id, "aqua_autodepth", 0);
         c_customfunc(function()
         {
             aqua.x = aquamarker_middle.x;
             aqua.y = aquamarker_middle.y - 300;
+            aqua.depth = obj_platswap_statue.depth - 2;
             var target = aquamarker_middle;
-            aquajumptoplace(target, 0, 12);
+            aquajumptoplace(target, 0, 12, 2);
         });
-        c_var_instance(id, "aqua_autodepth", 0);
-        c_wait_if(id, "landed", "=", true);
-        c_wait(15);
+        c_waitcustom();
     }
     
     c_customfunc(function()
@@ -786,39 +842,89 @@ if (con == 1.1)
     
     if (global.tempflag[51] == 0)
     {
-    scr_miniface_init_flowers();
-    c_wait(5);
-    c_sel(ra);
-    c_flip("x");
-    c_sprite(spr_ralsei_shocked_behind_hat);
-    c_shakeobj();
-    c_wait(10);
-    c_speaker("aqua");
-    global.writerimg[1] = spr_miniface_aqua;
-    c_msgsetsubloc(0, "~1* Let's play./", (global.lang == "ja") ? "\\m0\t\t\t" : "\\m0\t\t", (global.lang == "ja") ? "&\t\t\t\t" : "&\t\t", "obj_dw_garden_aqua_slash_Step_0_gml_532_0");
-    c_facenext("ralsei", "3");
-    c_msgnextloc("\\E3* Wait^1, do you even know what a game is?/", "obj_dw_garden_aqua_slash_Step_0_gml_534_0");
-    c_facenext("susie", "2");
-    c_msgnextloc("\\E2* Seems like she does to me./%", "obj_dw_garden_aqua_slash_Step_0_gml_536_0");
-    c_talk();
-    c_wait_box(2);
-    c_sel(ra);
-    c_flip("x");
-    c_setxy(345, 3760);
-    c_facing("u");
-    c_wait_talk();
-    c_wait(15);
+        scr_miniface_init_flowers();
+        c_wait(5);
+        c_sel(ra);
+        c_flip("x");
+        c_sprite(spr_ralsei_shocked_behind_hat);
+        c_shakeobj();
+        c_wait(10);
+        c_speaker("aqua");
+        global.writerimg[1] = spr_miniface_aqua;
+        c_msgsetsubloc(0, "~1* Let's play./", (global.lang == "ja") ? "\\m0\t\t\t" : "\\m0\t\t", (global.lang == "ja") ? "&\t\t\t\t" : "&\t\t", "obj_dw_garden_aqua_slash_Step_0_gml_532_0");
+        c_facenext("ralsei", "3");
+        c_msgnextloc("\\E3* Wait^1, do you even know what a game is?/", "obj_dw_garden_aqua_slash_Step_0_gml_534_0");
+        c_facenext("susie", "2");
+        c_msgnextloc("\\E2* Seems like she does to me./%", "obj_dw_garden_aqua_slash_Step_0_gml_536_0");
+        c_talk();
+        c_wait_box(2);
+        c_sel(ra);
+        c_flip("x");
+        c_setxy(345, 3760);
+        c_facing("u");
+        c_wait_talk();
+        c_wait(15);
     }
     else
     {
+        c_customfunc(function()
+        {
+            with (kr_actor)
+            {
+                sprite_index = spr_krisu_kneel_b;
+                scr_lerpvar("y", y, 3770, 12, 1, "out");
+            }
+
+            with (su_actor)
+            {
+                sprite_index = spr_susie_shocked_behind;
+                scr_lerpvar("y", y, 3755, 12, 1, "out");
+            }
+
+            with (ra_actor)
+            {
+                sprite_index = spr_ralsei_shocked_behind_hat;
+                scr_flip("x");
+                setxy(390, 3640);
+                scr_lerpvar("y", y, 3760, 12, 1, "out");
+            }
+        });
+        c_pan_fancy(0, cameray() + 35, 25, 
+        {
+            doround: true,
+            easetype: "easeoutcubic"
+        });
         c_wait(30);
     }
-
+    
     c_customfunc(function()
     {
         floradinambush();
     });
-    c_wait(12);
+    
+    if (global.tempflag[51] == 0)
+    {
+        c_wait(12);
+    }
+    else
+    {
+        c_wait(6);
+        c_sel(kr);
+        c_delayfacing(25, "u");
+        c_customfunc(function()
+        {
+            with (kr_actor)
+            {
+                sprite_index = spr_kris_stand_from_kneel_up;
+                scr_lerpvar("image_index", 0, 4, 25);
+            }
+        });
+        c_wait(6);
+        c_sel(ra);
+        c_flip("x");
+        c_setxy(345, 3760);
+    }
+    
     c_customfunc(function()
     {
         with (su_actor)
@@ -859,6 +965,9 @@ if (aqua_autodepth == 1)
 
 if (con == 5)
 {
+    if (i_ex(obj_bulletparent))
+        instance_destroy(obj_bulletparent);
+    
     var aquacopy = scr_marker_frominstance(aqua);
     aquacopy.depth = 0;
     aqua.visible = false;
@@ -1128,19 +1237,15 @@ if (con == 9 && !instance_exists(obj_battleback))
     c_sel(ra);
     c_delayfacing(delaytime, "l");
     c_sel(kr);
-    c_delayfacing(delaytime, "r");
+    c_delayfacing(delaytime, "l");
     c_customfunc(function()
     {
         var target = aqpos[2];
         aquajumptoplace(target, 0, 4, 1.6, -12);
     });
     delaytime = 30;
-    c_sel(ra);
-    c_delayfacing(delaytime, "d");
-    c_sel(kr);
-    c_delayfacing(delaytime, "d");
     c_sel(su);
-    c_delayfacing(delaytime, "d");
+    c_delayfacing(delaytime, "l");
     c_waitcustom();
     c_customfunc(function()
     {
@@ -1152,7 +1257,7 @@ if (con == 9 && !instance_exists(obj_battleback))
     c_wait(15);
     c_customfunc(function()
     {
-        aqua.sprite_index = spr_aqua_walk_up;
+        aqua.sprite_index = spr_aqua_walk_right;
     });
     c_msgside("top");
     c_speaker("aqua");
@@ -1163,6 +1268,7 @@ if (con == 9 && !instance_exists(obj_battleback))
     c_sprite(spr_susie_pose);
     c_sel(ra);
     c_sprite(spr_ralsei_dark_pose);
+    c_addxy(16, 0);
     c_sound_play_x(snd_shineselect, 0.7, 1.4);
     c_wait(15);
     c_speaker("susie");
@@ -1182,10 +1288,10 @@ if (con == 9 && !instance_exists(obj_battleback))
     });
     c_wait_talk();
     c_sel(su);
-    c_facing("d");
+    c_facing("l");
     c_sel(ra);
-    c_facing("d");
-    c_addxy(16, 0);
+    c_facing("l");
+    c_addxy(-16, 0);
     c_customfunc(function()
     {
         var target = aqpos[4];
@@ -1214,9 +1320,12 @@ if (con == 9 && !instance_exists(obj_battleback))
     c_msgsetloc(0, "\\E8* She seemed like a nice girl after all./", "obj_dw_garden_aqua_slash_Step_0_gml_907_0");
     c_facenext("susie", "0");
     c_msgnextloc("\\E0* ..^1. wonder what the deal with that weird thing is?/", "obj_dw_garden_aqua_slash_Step_0_gml_915_0");
+    c_customfunc(function()
+    {
+        AP_sendLocation(284);
+    });
     c_facenext("no_name", "0");
     c_msgnextloc(string("* (You got {0}.)/%", AP_get_location_reward_text(284)));
-    AP_sendLocation(284);
     c_talk();
     c_wait_talk();
     c_pannable(1);
@@ -1241,6 +1350,7 @@ if (con == 10 && !instance_exists(obj_cutscene_master))
     scr_caterpillar_interpolate("all");
     con = 11;
     global.interact = 0;
+    global.facing = 0
     global.plot = 292;
 }
 
@@ -1263,12 +1373,14 @@ if (con == 22)
     con = 23;
     cutscene_master = scr_cutscene_make();
     scr_maincharacters_actors();
+    c_pannable(1);
+    c_pan(0, 3328, 30);
     c_sel(kr);
-    c_walkdirect(300, 3640, 16);
+    c_walkdirect(300, 3640, 30);
     c_sel(su);
-    c_walkdirect(245, 3635, 16);
+    c_walkdirect(245, 3635, 30);
     c_sel(ra);
-    c_walkdirect_wait(345, 3640, 16);
+    c_walkdirect_wait(345, 3640, 30);
     c_sel(kr);
     c_facing("u");
     c_sel(su);
@@ -1283,7 +1395,6 @@ if (con == 22)
     c_sel(kr);
     c_walkdirect(300, 3610, 15);
     c_wait(35);
-    c_facing("d");
     c_customfunc(function()
     {
         scr_flag_set(24, 1);

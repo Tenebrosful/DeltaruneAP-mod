@@ -651,14 +651,23 @@ if (global.menuno == 5)
         
         var current_line = 0;
         var current_col = 0;
+        if (global.submenu == 33)
+            draw_set_color(c_yellow);
         draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Master Volume");
         draw_text((base_x + (current_col * (line_width + between_col_gap)) + line_width) - value_width, base_y + (current_line * (line_height + between_row_gap)), string(round(global.flag[17] * 100)) + "%");
+        draw_set_color(c_white);
         current_line++;
+        if (global.submenu == 32)
+            draw_set_color(c_yellow);
         draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Music Volume");
         draw_text((base_x + (current_col * (line_width + between_col_gap)) + line_width) - value_width, base_y + (current_line * (line_height + between_row_gap)), string(round(global.flag[16] * 100)) + "%");
+        draw_set_color(c_white);
         current_line++;
+        if (global.submenu == 31)
+            draw_set_color(c_yellow);
         draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "SFX Volume");
         draw_text((base_x + (current_col * (line_width + between_col_gap)) + line_width) - value_width, base_y + (current_line * (line_height + between_row_gap)), string(round(global.flag[15] * 100)) + "%");
+        draw_set_color(c_white);
         current_line++;
         draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Controls");
         current_line++;
@@ -684,6 +693,14 @@ if (global.menuno == 5)
         }
         current_line = 0;
         current_col = 1;
+        if (global.submenu == 36)
+            draw_set_color(c_yellow);
+        else if (global.disable_border || !window_get_fullscreen())
+            draw_set_color(c_gray);
+        draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Border");
+        draw_text((base_x + (current_col * (line_width + between_col_gap)) + line_width) - value_width, base_y + (current_line * (line_height + between_row_gap)), window_get_fullscreen() ? global.screen_border_id : "Windowed");
+        draw_set_color(c_white);
+        current_line++;
         draw_text(base_x + (current_col * (line_width + between_col_gap)), base_y + (current_line * (line_height + between_row_gap)), "Deathlink");
         draw_text((base_x + (current_col * (line_width + between_col_gap)) + line_width) - value_width, base_y + (current_line * (line_height + between_row_gap)), global.AP_deathlink ? "ON" : "OFF");
         current_line++;

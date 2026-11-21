@@ -8,7 +8,10 @@ songname = "nosong.ogg";
 /// END
 #endif
 
-/// APPEND
+/// AFTER
+songname = "nosong.ogg";
+/// CODE
+origsongname = "nosong.ogg";
 looptarget = -1;
 looptime = -1;
 /// END

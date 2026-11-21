@@ -1,31 +1,42 @@
 /// PATCH
 
 /// APPEND
+#if CHAPTER_1 || CHAPTER_2
 if (scr_debug())
+#else
+if (scr_debug() && room != room_rhythmgame_editor)
+#endif
 {
-  draw_set_halign(fa_left)
-  draw_set_font(fnt_tinynoelle)
-  draw_set_color(c_white)
-  draw_text(5, 0, "Plot: " + string(global.plot))
-  draw_text(5, 8, "Room: " + room_get_name(room) + " " + string(room) + " (" + string(scr_get_id_by_room_index(room)) + ")")
-  draw_text(5, 16, "Interact: " + string(global.interact))
+    draw_set_halign(fa_left);
+    draw_set_font(fnt_tinynoelle);
+    draw_set_color(c_white);
+    draw_text(5, 0, "Plot: " + string(global.plot));
+    draw_text(5, 8, "Room: " + room_get_name(room) + " " + string(room) + " (" + string(scr_get_id_by_room_index(room)) + ")");
+    draw_text(5, 16, "Interact: " + string(global.interact));
 
-  if (variable_global_exists("AP_items_waiting_to_receive"))
-    draw_text(5, 25, "Waiting items: " + string(global.AP_items_waiting_to_receive));
+    if (variable_global_exists("AP_items_waiting_to_receive"))
+        draw_text(5, 25, "Waiting items: " + string(global.AP_items_waiting_to_receive));
     
-  if (variable_global_exists("AP_item_from_server"))
-      draw_text(5, 35, "Server items: " + string(global.AP_item_from_server));
+    if (variable_global_exists("AP_item_from_server"))
+        draw_text(5, 35, "Server items: " + string(global.AP_item_from_server));
     
-  if (variable_global_exists("AP_item_got_in_current_chapter"))
-      draw_text(5, 45, "Received items: " + string(global.AP_item_got_in_current_chapter));
+    if (variable_global_exists("AP_item_got_in_current_chapter"))
+        draw_text(5, 45, "Received items: " + string(global.AP_item_got_in_current_chapter));
 
-  draw_text(5, 55, "Current Route: " + AP_resolve_route_name(global.AP_current_route))
+    draw_text(5, 55, "Current Route: " + AP_resolve_route_name(global.AP_current_route));
 
-  if (variable_global_exists("AP_debug_last_shuffled_ost"))
-    draw_text(5, 65, "OST Shuffle: " + global.AP_debug_last_shuffled_ost + " -> " + global.AP_debug_last_shuffled_ost_result)
+    var song = global.currentsong[1];
 
-  if (snd_is_playing(global.currentsong[1]))
-    draw_text(5, 75, "Track Pos: " + string(audio_sound_get_track_position(global.currentsong[1])))
+    if (global.customflags[global.custom_flags_indexes.AP_music_playing])
+        song = global.AP_music[1];
+
+    if (snd_is_playing(global.batmusic[1]))
+        song = global.batmusic[1];
+
+    draw_text(5, 65, "Track Pos: " + (snd_is_playing(song) ? string(audio_sound_get_track_position(song)) : "None Playing"));
+
+    if (variable_global_exists("AP_debug_last_shuffled_ost"))
+        draw_text(5, 75, "OST Shuffle: " + global.AP_debug_last_shuffled_ost + " -> " + global.AP_debug_last_shuffled_ost_result);
 }
 
 if (!global.AP_sync)

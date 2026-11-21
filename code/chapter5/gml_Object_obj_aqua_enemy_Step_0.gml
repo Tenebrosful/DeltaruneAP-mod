@@ -54,7 +54,6 @@
                             msgset_add(omega2, x - 20, y + 25, 10);
                             msgset_add(omega3, x - 20, y + 25, 10);
                             break;
-                    }
 /// CODE
                     if (global.maxhp[1] < 0)
                     {
@@ -96,5 +95,4 @@
                                 msgset_add(omega3, x - 20, y + 25, 10);
                                 break;
                         }
-                    }
 /// END

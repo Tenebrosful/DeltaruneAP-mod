@@ -1,5 +1,21 @@
 /// PATCH
 
+/// PREPEND
+border_val = 0;
+border_change = false;
+
+if (global.entrance == 24)
+{
+    border_change = true;
+
+    with (obj_border_controller)
+    {
+        set_border(border_dw_church_a, 1)
+        show_border(0.04);
+    }
+}
+/// END
+
 /// APPEND
 if (global.plot >= 160)
 {
@@ -26,4 +42,14 @@ if (global.plot >= 160)
     }
 }
 
+/// END
+
+/// REPLACE
+    if (!snd_is_playing(global.currentsong[1]))
+    {
+        global.currentsong[0] = snd_init("church_wip.ogg");
+        global.currentsong[1] = mus_loop_ext(global.currentsong[0], 0.7, 1);
+    }
+/// CODE
+    instance_create(0, 0, obj_musicer_dw_church);
 /// END

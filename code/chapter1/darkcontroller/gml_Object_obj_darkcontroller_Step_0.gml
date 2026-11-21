@@ -153,8 +153,11 @@ if (global.interact == 5)
                         global.msg[3] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_138_0");
                         global.msg[4] = "* I'll just make a better one next time!/";
                         global.msg[5] = string("* Wait^1, look^1! It turned into {0}!/", AP_get_location_reward_text(245));
+                        scr_msgno_func(5, function()
+                        {
+                            AP_sendLocation(245);
+                        });
                         global.msg[6] = "* Good thinking^1, Kris!/%";
-                        AP_sendLocation(245);
                         global.flag[207] = 2;
                     }
                     
@@ -170,7 +173,10 @@ if (global.interact == 5)
                         global.msg[5] = scr_84_get_lang_string("obj_darkcontroller_slash_Step_0_gml_152_0");
                         scr_noface(6);
                         global.msg[7] = string("* (The Manual turned into {0}.)/%", AP_get_location_reward_text(22));
-                        AP_sendLocation(22);
+                        scr_msgno_func(7, function()
+                        {
+                            AP_sendLocation(22);
+                        });
                         global.flag[207] = 1;
                     }
                 }
@@ -182,7 +188,10 @@ if (global.interact == 5)
                     global.msg[1] = "* (It's a good thing no one was paying attention while you did it.)/";
                     global.msg[2] = "* (You might have been arrested for littering otherwise.)/";
                     global.msg[3] = string("* (In the pile on the ground, you saw {0}.)/%", AP_get_location_reward_text(245));
-                    AP_sendLocation(245);
+                    scr_msgno_func(3, function()
+                    {
+                        AP_sendLocation(245);
+                    });
                     global.flag[207] = -1;
                 }
                 else if (global.flag[207] == 0)
@@ -192,7 +201,10 @@ if (global.interact == 5)
                     global.msg[0] = "* (You dropped the Manual on the floor.)/";
                     global.msg[1] = "* (... It just bounced back into your hands like a basketball.)/";
                     global.msg[2] = string("* (It turned into {0} along the way^1, though.)/%", AP_get_location_reward_text(22));
-                    AP_sendLocation(22);
+                    scr_msgno_func(5, function()
+                    {
+                        AP_sendLocation(22);
+                    });
                     global.flag[207] = 1;
                 }
                 
@@ -421,7 +433,7 @@ if (global.interact == 5)
             
             if (sndchange == 1 && sndbuffer < 0)
             {
-                audio_group_set_gain(1, global.flag[15], 0);
+                audio_group_set_gain(audio_sfx, global.flag[15], 0);
                 snd_play(snd_noise);
                 sndbuffer = 2;
             }

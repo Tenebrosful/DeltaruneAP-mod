@@ -207,9 +207,9 @@
 /// END
 
 /// AFTER
-global.flag[309] = 7;
+        greybgtimer = 121;
 /// CODE
-AP_sendLocation([90, 91, 92, 93]);
+        AP_sendLocation([90, 91, 92, 93]);
 /// END
 
 /// REPLACE
@@ -235,4 +235,10 @@ AP_sendLocation([90, 91, 92, 93]);
         draw_set_font(fnt_mainbig);
         draw_text(300, 260 + (i * 40), string_hash_to_newline("$" + string(buyvalue[i])));
     }
+/// END
+
+/// REPLACE
+if (phoneringing == 0)
+/// CODE
+if (phoneringing == 0 && mus_get_name() == "spamton_neo_after.ogg")
 /// END

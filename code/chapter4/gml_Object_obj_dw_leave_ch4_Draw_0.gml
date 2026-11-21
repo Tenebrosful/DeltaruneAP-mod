@@ -13,3 +13,9 @@
             }
             
 /// END
+
+/// AFTER
+            snd_free(global.currentsong[0]);
+/// CODE
+            snd_free(global.AP_music[0]);
+/// END

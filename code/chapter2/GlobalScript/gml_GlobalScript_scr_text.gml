@@ -149,7 +149,6 @@
                         msgnextloc("* (It was added to your ARMORS.)/%", "scr_text_slash_scr_text_gml_4534_0_b");
                     }
 /// CODE
-                    AP_sendLocation(65);
                     global.customflags[global.custom_flags_indexes.mannequin_bought] = true;
                     
                     if (noroom == 0)
@@ -163,6 +162,10 @@
                         scr_speaker("no_name");
                         msgsetloc(0, "* Great doing business with you!!/", "scr_text_slash_scr_text_gml_4517_0");
                         msgnextloc(string("* (It turned into {0}.)/%", AP_get_location_reward_text(65)), "scr_text_slash_scr_text_gml_4534_0_b");
+                        scr_msgfunc(function()
+                        {
+                            AP_sendLocation(65);
+                        });
                     }
 /// END
 
@@ -248,9 +251,12 @@
                                 msgnextloc("* (You got Spincake.)/%", "scr_text_slash_scr_text_gml_4999_0");
 /// CODE
                                 msgnextloc(string("* (You got {0}.)/%", AP_get_location_reward_text(39)), "scr_text_slash_scr_text_gml_4999_0");
+                                scr_msgfunc(function()
+                                {
+                                    AP_sendLocation(39);
+                                });
                                 global.flag[313] = 1;
                                 global.customflags[global.custom_flags_indexes.got_spincake_ch2] = 1;
-                                AP_sendLocation(39);
 /// END
 
 /// REPLACE
@@ -258,8 +264,11 @@
                                 msgnextloc("* (You got Spincake.)/", "scr_text_slash_scr_text_gml_5009_0");
 /// CODE
                                 msgnextloc(string("* (You got {0}.)/%", AP_get_location_reward_text(39)), "scr_text_slash_scr_text_gml_5009_0");
+                                scr_msgfunc(function()
+                                {
+                                    AP_sendLocation(39);
+                                });
                                 global.customflags[global.custom_flags_indexes.got_spincake_ch2] = 1;
-                                AP_sendLocation(39);
 /// END
 
 /// REPLACE
@@ -281,7 +290,10 @@
                 msgsetloc(0, "* (You put the disk into the broken down mechanism.)/", "scr_text_slash_scr_text_gml_5662_0");
                 msgnextloc("* (...)/", "scr_text_slash_scr_text_gml_5663_0");
                 msgnextloc("* (Nothing happened.)/%", "scr_text_slash_scr_text_gml_5664_0");
-                AP_sendLocation(96); // Failsafe if inserting Load Disk before taking empty disk
+                scr_msgfunc(function()
+                {
+                    AP_sendLocation(96); // Failsafe if inserting LoadedDisk before taking empty disk
+                });
                 scr_keyitemremove(11);
 /// END
 
@@ -301,14 +313,17 @@
 /// REPLACE
                     scr_weaponget(13);
 /// CODE
-                    AP_sendLocation(113);
-                    global.customflags[global.custom_flags_indexes.bought_thornring] = 1;
 /// END
 
 /// REPLACE
                         msgnextloc("\\S1* (You got the ThornRing.)/%", "scr_text_slash_scr_text_gml_6504_0");
 /// CODE
                         msgnextloc(string("\\S1* (You got {0}.)/%", AP_get_location_reward_text(113)), "scr_text_slash_scr_text_gml_6504_0");
+                        scr_msgfunc(function()
+                        {
+                            AP_sendLocation(113);
+                        });
+                        global.customflags[global.custom_flags_indexes.bought_thornring] = 1;
 /// END
 
 /// REPLACE
@@ -426,29 +441,107 @@
                 with (obj_shortcut_door)
                     door_destination = 157;
             }
+            
+            if (global.choice == 1)
+            {
+                with (obj_shortcut_door)
+                    door_destination = 84;
+            }
+            
+            if (global.choice == 2)
+            {
+                with (obj_shortcut_door)
+                    door_destination = 110;
+            }
+            
+            if (global.choice == 3)
+            {
+                global.msg[0] = stringsetloc("* (You doorn't.)/%", "scr_text_slash_scr_text_gml_6918_0_b");
+            }
+            else
+            {
+                with (obj_shortcut_door)
+                {
+                    if (door_destination == door_location)
+                    {
+                        global.msg[0] = stringsetloc("* (Amazingly^1, you are already there.)/%", "scr_text_slash_scr_text_gml_7026_0");
+                    }
+                    else
+                    {
+                        global.msg[0] = stringsetloc("* (The door opened...)/%", "scr_text_slash_scr_text_gml_7030_0");
+                        con = 50;
+                    }
+                }
+            }
+            
+            break;
 /// CODE
         case 1200:
-            global.choicemsg[0] = stringsetloc("      ", "scr_text_slash_scr_text_gml_6993_0");
+            global.choicemsg[0] = stringset("#[Locked]");
+            global.choicemsg[1] = stringsetloc("#Cyber Field", "scr_text_slash_scr_text_gml_6994_0");
+            global.choicemsg[2] = stringsetloc("Trash Zone", "scr_text_slash_scr_text_gml_6995_0");
+            global.choicemsg[3] = stringsetloc("Cancel", "scr_text_slash_scr_text_gml_6996_0");
             
             if (global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.SIDE_B || scr_sideb_get_phase() >= 3)
                 global.choicemsg[0] = stringsetloc("#Mansion", "scr_text_slash_scr_text_gml_6993_0");
             
-            global.choicemsg[1] = stringsetloc("#Cyber Field", "scr_text_slash_scr_text_gml_6994_0");
-            global.choicemsg[2] = stringsetloc("Trash Zone", "scr_text_slash_scr_text_gml_6995_0");
-            global.choicemsg[3] = stringsetloc("Cancel", "scr_text_slash_scr_text_gml_6996_0");
             scr_speaker("no_name");
             msgsetloc(0, "* (It's a door.^1)&* (Where will you go?)//", "scr_text_slash_scr_text_gml_6999_0");
             msgnext("\\C4 ");
             break;
         
         case 1201:
-            global.msg[0] = stringsetloc("* (But nothing happened.)/%", "scr_text_slash_scr_text_gml_3104_0");
+            global.msg[0] = stringset("* (..^1. but^1, the door was not open there.)/%");
+            
+            with (obj_shortcut_door)
+                door_destination = -1;
             
             if (global.choice == 0 && (global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.SIDE_B || scr_sideb_get_phase() >= 3))
             {
-                with (obj_shortcut_door)
-                    door_destination = 157;
+                if (global.AP_current_route != global.AP_ENUM_CHOSEN_ROUTE.SIDE_B || scr_sideb_get_phase() >= 3)
+                {
+                    with (obj_shortcut_door)
+                        door_destination = 157;
+                }
             }
+            
+            if (global.choice == 1)
+            {
+                with (obj_shortcut_door)
+                    door_destination = 84;
+            }
+            
+            if (global.choice == 2)
+            {
+                with (obj_shortcut_door)
+                    door_destination = 110;
+            }
+            
+            if (global.choice == 3)
+            {
+                global.msg[0] = stringsetloc("* (You doorn't.)/%", "scr_text_slash_scr_text_gml_6918_0_b");
+            }
+            else
+            {
+                with (obj_shortcut_door)
+                {
+                    if (door_destination == -1)
+                    {
+                        door_destination = door_location;
+                    }
+                    else if (door_destination == door_location)
+                    {
+                        global.msg[0] = stringsetloc("* (Amazingly^1, you are already there.)/%", "scr_text_slash_scr_text_gml_7026_0");
+                    }
+                    else
+                    {
+                        global.msg[0] = stringsetloc("* (The door opened...)/%", "scr_text_slash_scr_text_gml_7030_0");
+                        con = 50;
+                    }
+                }
+            }
+            
+            break;
 /// END
 
 /// REPLACE

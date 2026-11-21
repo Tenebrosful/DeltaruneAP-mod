@@ -20,8 +20,8 @@ if (room == room_dw_snow_zone && extflag == "skip_pippins")
             {
                 instance_destroy(obj_fadeout);
                 instance_create(0, 0, obj_persistentfadein);
-                room_goto(room_dw_backstage);
                 snd_free(global.currentsong[0]);
+                room_goto(room_dw_backstage);
             }
         }
     }

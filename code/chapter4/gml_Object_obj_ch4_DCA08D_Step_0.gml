@@ -17,8 +17,11 @@
 /// CODE
     c_msgnextloc(string("* YOU DOAN'T HAVE {0}./", string_upper(AP_get_location_reward_text(200))), "obj_ch4_DCA08D_slash_Step_0_gml_1570_0");
     c_msgnextloc("* TAKE THIS..^1. MY FRAINDS... MY GIFT./", "obj_ch4_DCA08D_slash_Step_0_gml_1571_0");
+    c_customfunc(function()
+    {
+        AP_sendLocation(200);
+    });
     c_facenext("no_name", 0);
-    AP_sendLocation(200);
     c_msgnextloc(string("* (You got {0}.)/%", AP_get_location_reward_text(200)), "obj_ch4_DCA08D_slash_Step_0_gml_1573_0");
     global.customflags[global.custom_flags_indexes.got_jackenstein_gift] = true;
 /// END

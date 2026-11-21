@@ -9,11 +9,21 @@
 if (con == 34 && !d_ex())
 {
 /// CODE
-    AP_sendLocation([25, 26, 27]);
-
     global.msg[0] = string("* (You got {0}.)/", AP_get_location_reward_text(25));
     global.msg[1] = string("* (You got {0}.)/", AP_get_location_reward_text(26));
     global.msg[2] = string("* (You got {0}.)/%", AP_get_location_reward_text(27));
+    scr_msgno_func(0, function()
+    {
+        AP_sendLocation(25);
+    });
+    scr_msgno_func(1, function()
+    {
+        AP_sendLocation(26);
+    });
+    scr_msgno_func(2, function()
+    {
+        AP_sendLocation(27);
+    });
     instance_create(0, 0, obj_dialoguer);
 }
 

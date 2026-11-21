@@ -176,34 +176,42 @@
         scr_itemremove_anytype(fusionIngredient2[menuCoord[0]], fusionIngredientType2[menuCoord[0]]);
         scr_itemget_anytype(fusionResult[menuCoord[0]], fusionResultType[menuCoord[0]]);
 /// CODE
+        var locationcheck = 40; // idk if the game crashes if it tries to send an invalid location ID so i'll just make the default set to the DD Burger just in case lol
+        
         if (fusionResult[menuCoord[0]] == 22)
-            AP_sendLocation(40);
+            locationcheck = 40;
         else if (fusionResult[menuCoord[0]] == 8)
-            AP_sendLocation(41);
+            locationcheck = 41;
         else if (fusionResult[menuCoord[0]] == 9)
-            AP_sendLocation(102);
+            locationcheck = 102;
         else if (fusionResult[menuCoord[0]] == 13)
-            AP_sendLocation(42);
+            locationcheck = 42;
         else if (fusionResult[menuCoord[0]] == 15)
-            AP_sendLocation(103);
+            locationcheck = 103;
         else if (fusionResult[menuCoord[0]] == 11)
-            AP_sendLocation(244);
+            locationcheck = 244;
 #if !CHAPTER_2 && !CHAPTER_4
         else if (fusionResult[menuCoord[0]] == 30)
-            AP_sendLocation(259);
+            locationcheck = 259;
         else if (fusionResult[menuCoord[0]] == 31)
-            AP_sendLocation(260);
+            locationcheck = 260;
         else if (fusionResult[menuCoord[0]] == 34)
-            AP_sendLocation(261);
+            locationcheck = 261;
         else if (fusionResult[menuCoord[0]] == 39)
-            AP_sendLocation(262);
+            locationcheck = 262;
         else if (fusionResult[menuCoord[0]] == 40)
-            AP_sendLocation(263);
+            locationcheck = 263;
         else if (fusionResult[menuCoord[0]] == 29)
-            AP_sendLocation(264);
+            locationcheck = 264;
         else if (fusionResult[menuCoord[0]] == 32)
-            AP_sendLocation(265);
+            locationcheck = 265;
 #endif
+/// END
+
+/// REPLACE
+            obj_npc_hammerguy.fusionResultName = fusionResultName[menuCoord[0]];
+/// CODE
+            obj_npc_hammerguy.fusionResultName = locationcheck;
 /// END
 
 /// REPLACE
