@@ -9,3 +9,11 @@
                         obj_archipelago_client.AP_sendDeathlink();
                     }
 /// END
+
+/// BEFORE
+                if ((myhealth - hazard.damage) <= 0)
+                    _fatal = 1;
+/// CODE
+                if (global.maxhp[1] < 1)
+                    myhealth = 0;
+/// END
