@@ -4,8 +4,10 @@
         global.msg[5] = scr_84_get_lang_string("obj_tutorialbattleevent_slash_Step_0_gml_92_0");
 /// CODE
         global.msg[5] = string("* The Manual turned into {0}./", AP_get_location_reward_text(12));
-        
-        AP_sendLocation(12);
+        scr_msgno_func(5, function()
+        {
+            AP_sendLocation(12);
+        });
         global.msg[5] += "%";
 /// END
 
@@ -23,5 +25,4 @@
 /// CODE
     if (con == 40 && d_ex() == 0)
     {
-        AP_sendLocation(12);
 /// END

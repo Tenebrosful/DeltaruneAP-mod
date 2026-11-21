@@ -18,8 +18,11 @@
         c_snd_play(snd_swallow);
         c_snd_play(snd_power);
         c_speaker("no_name");
+        c_customfunc(function()
+        {
+            AP_sendLocation(331);
+        });
         c_msgsetloc(0, string("* (The moss turned into {0}.)/%", AP_get_location_reward_text(331)), "obj_ch5_DW19B_slash_Step_0_gml_317_0");
-        AP_sendLocation(331);
         c_talk_wait();
     }
     
@@ -43,9 +46,12 @@
 /// CODE
         c_snd_play(snd_swallow);
         c_snd_play(snd_power);
+        c_customfunc(function()
+        {
+            AP_sendLocation(331);
+        });
         c_speaker("no_name");
         c_msgsetloc(0, string("* (The moss turned into {0}.)/%", AP_get_location_reward_text(331)), "obj_ch5_DW19B_slash_Step_0_gml_317_0");
-        AP_sendLocation(331);
         c_talk_wait();
     }
     

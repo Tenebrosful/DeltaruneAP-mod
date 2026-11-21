@@ -335,6 +335,10 @@ function scr_text(arg0)
                 global.msg[5] = stringsetsubloc("\\E0* Press [~1] to open the menu and use it in your ITEMS./", scr_get_input_name(6), "scr_text_slash_scr_text_gml_314_0_b");
                 scr_noface(6);
                 global.msg[7] = string("* (The Manual turned into {0}.)/%", AP_get_location_reward_text(12));
+                scr_msgno_func(7, function()
+                {
+                    AP_sendLocation(12);
+                });
             }
             else
             {
@@ -3021,6 +3025,11 @@ function scr_text(arg0)
                 scr_noface(3);
                 global.msg[4] = stringsetloc("* Huh...^1? You're apologizing^1? I guess I'll forgive you then.../", "scr_text_slash_scr_text_gml_2810_0");
                 global.msg[5] = stringsetloc("* (Your violence against a single Rudinn was forgiven!)/%", "scr_text_slash_scr_text_gml_2811_0");
+                global.msg[6] = string("* Oh^1, also^1, have {0}./%", AP_get_location_reward_text(10));
+                scr_msgno_func(6, function()
+                {
+                    AP_sendLocation(10);
+                });
                 global.flag[43] = global.flag[43] - global.flag[523];
                 
                 if (global.flag[43] < 0)
@@ -3041,7 +3050,10 @@ function scr_text(arg0)
                 global.msg[2] = stringsetloc("\\E3* Forgive me or I'll crush you^1, dweeb!!/", "scr_text_slash_scr_text_gml_2824_0");
                 scr_noface(3);
                 global.msg[4] = string("* I..^1. I'm sorry!!^1! I forgive you!!^1! Here^1, take {0}!/%", AP_get_location_reward_text(10))
-                AP_sendLocation(10);
+                scr_msgno_func(4, function()
+                {
+                    AP_sendLocation(10);
+                });
                 
                 if (noroom == 1)
                 {
@@ -3393,12 +3405,15 @@ function scr_text(arg0)
             if (global.choice == 0)
             {
                 scr_keyitemremove(1004);
-                AP_sendLocation(11);
                 global.msg[0] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3151_0");
                 global.msg[1] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3152_0");
                 global.msg[2] = scr_84_get_lang_string("scr_text_slash_scr_text_gml_3153_0");
                 global.writersnd[0] = snd_item;
                 global.msg[3] = string("* (You traded the TopCake for {0}.)/", AP_get_location_reward_text(11));
+                scr_msgno_func(3, function()
+                {
+                    AP_sendLocation(11);
+                });
                 global.msg[4] = stringsetloc("* Now^1, I'm going to continue to spin and cry^1! Spin and cry!/%", "scr_text_slash_scr_text_gml_3157_0");
                 global.flag[253] = 1;
             }

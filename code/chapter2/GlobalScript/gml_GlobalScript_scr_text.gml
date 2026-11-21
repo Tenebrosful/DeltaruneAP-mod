@@ -149,7 +149,6 @@
                         msgnextloc("* (It was added to your ARMORS.)/%", "scr_text_slash_scr_text_gml_4534_0_b");
                     }
 /// CODE
-                    AP_sendLocation(65);
                     global.customflags[global.custom_flags_indexes.mannequin_bought] = true;
                     
                     if (noroom == 0)
@@ -163,6 +162,10 @@
                         scr_speaker("no_name");
                         msgsetloc(0, "* Great doing business with you!!/", "scr_text_slash_scr_text_gml_4517_0");
                         msgnextloc(string("* (It turned into {0}.)/%", AP_get_location_reward_text(65)), "scr_text_slash_scr_text_gml_4534_0_b");
+                        scr_msgfunc(function()
+                        {
+                            AP_sendLocation(65);
+                        });
                     }
 /// END
 
@@ -248,9 +251,12 @@
                                 msgnextloc("* (You got Spincake.)/%", "scr_text_slash_scr_text_gml_4999_0");
 /// CODE
                                 msgnextloc(string("* (You got {0}.)/%", AP_get_location_reward_text(39)), "scr_text_slash_scr_text_gml_4999_0");
+                                scr_msgfunc(function()
+                                {
+                                    AP_sendLocation(39);
+                                });
                                 global.flag[313] = 1;
                                 global.customflags[global.custom_flags_indexes.got_spincake_ch2] = 1;
-                                AP_sendLocation(39);
 /// END
 
 /// REPLACE
@@ -258,8 +264,11 @@
                                 msgnextloc("* (You got Spincake.)/", "scr_text_slash_scr_text_gml_5009_0");
 /// CODE
                                 msgnextloc(string("* (You got {0}.)/%", AP_get_location_reward_text(39)), "scr_text_slash_scr_text_gml_5009_0");
+                                scr_msgfunc(function()
+                                {
+                                    AP_sendLocation(39);
+                                });
                                 global.customflags[global.custom_flags_indexes.got_spincake_ch2] = 1;
-                                AP_sendLocation(39);
 /// END
 
 /// REPLACE
@@ -281,7 +290,10 @@
                 msgsetloc(0, "* (You put the disk into the broken down mechanism.)/", "scr_text_slash_scr_text_gml_5662_0");
                 msgnextloc("* (...)/", "scr_text_slash_scr_text_gml_5663_0");
                 msgnextloc("* (Nothing happened.)/%", "scr_text_slash_scr_text_gml_5664_0");
-                AP_sendLocation(96); // Failsafe if inserting Load Disk before taking empty disk
+                scr_msgfunc(function()
+                {
+                    AP_sendLocation(96); // Failsafe if inserting LoadedDisk before taking empty disk
+                });
                 scr_keyitemremove(11);
 /// END
 
@@ -301,14 +313,17 @@
 /// REPLACE
                     scr_weaponget(13);
 /// CODE
-                    AP_sendLocation(113);
-                    global.customflags[global.custom_flags_indexes.bought_thornring] = 1;
 /// END
 
 /// REPLACE
                         msgnextloc("\\S1* (You got the ThornRing.)/%", "scr_text_slash_scr_text_gml_6504_0");
 /// CODE
                         msgnextloc(string("\\S1* (You got {0}.)/%", AP_get_location_reward_text(113)), "scr_text_slash_scr_text_gml_6504_0");
+                        scr_msgfunc(function()
+                        {
+                            AP_sendLocation(113);
+                        });
+                        global.customflags[global.custom_flags_indexes.bought_thornring] = 1;
 /// END
 
 /// REPLACE

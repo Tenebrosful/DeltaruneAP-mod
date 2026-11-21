@@ -30,9 +30,13 @@
                 
                 if (global.flag[1044] < 1)
                     global.flag[1044] = 0;
-                
-                AP_sendLocation([130, 131, 132, 133, 134]);
             }
+/// END
+
+/// AFTER
+        drawblue = false;
+/// CODE
+        AP_sendLocation([130, 131, 132, 133, 134]);
 /// END
 
 /// REPLACE

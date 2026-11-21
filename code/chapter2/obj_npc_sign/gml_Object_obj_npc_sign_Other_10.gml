@@ -1,18 +1,38 @@
 /// PATCH
 
 /// REPLACE
+        if (scr_sideb_get_phase() == 0 || !scr_havechar(4))
+        {
+            scr_speaker("no_name");
+            msgsetloc(0, "* (It's a dumpster..^1. seems like there's a pillow inside.)/%", "obj_npc_sign_slash_Other_10_gml_573_0");
         }
         else
         {
             var haveRing = scr_weaponcheck_inventory(13) || global.charweapon[4] == 13;
 /// CODE
-            
-            if (scr_sideb_get_phase() > 2)
-                AP_sendLocation(113);
+        var haveRing = global.customflags[global.custom_flags_indexes.bought_thornring];
+        
+        if (scr_sideb_get_phase() == 0 || !scr_havechar(4))
+        {
+            if (scr_sideb_get_phase() > 2 && !haveRing)
+            {
+                scr_speaker("no_name");
+                msgset(0, "* (It's a dumpster..^1. seems like there's a pillow inside.)/");
+                msgnext("* (..^1. You spot something else inside.)/");
+                msgnext(string("* (You got {0}.)/%", AP_get_location_reward_text(113)));
+                scr_msgfunc(function()
+                {
+                    AP_sendLocation(113);
+                });
+            }
+            else
+            {
+                scr_speaker("no_name");
+                msgsetloc(0, "* (It's a dumpster..^1. seems like there's a pillow inside.)/%", "obj_npc_sign_slash_Other_10_gml_573_0");
+            }
         }
         else
         {
-            var haveRing = global.customflags[global.custom_flags_indexes.bought_thornring];
 /// END
 
 /// REPLACE

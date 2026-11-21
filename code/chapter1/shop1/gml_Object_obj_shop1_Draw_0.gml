@@ -736,11 +736,14 @@ if (menu == 4)
                 global.msg[8] = scr_84_get_lang_string("obj_shop1_slash_Draw_0_gml_480_0");
                 global.writersnd[0] = snd_item;
                 global.msg[9] = string("* ({0} was sent to your Multiworld.)/", AP_get_location_reward_text(29));
+                scr_msgno_func(9, function()
+                {
+                    AP_sendLocation(29);
+                });
                 global.msg[10] = scr_84_get_lang_string("obj_shop1_slash_Draw_0_gml_483_0");
                 global.msg[11] = scr_84_get_lang_string("obj_shop1_slash_Draw_0_gml_484_0");
                 global.msg[12] = scr_84_get_lang_string("obj_shop1_slash_Draw_0_gml_485_0");
                 global.msg[13] = scr_84_get_lang_string("obj_shop1_slash_Draw_0_gml_486_0");
-                AP_sendLocation(29);
                 global.flag[115] = 1;
             }
             

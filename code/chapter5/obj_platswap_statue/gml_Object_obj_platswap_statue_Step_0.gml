@@ -1320,9 +1320,12 @@ if (con == 9 && !instance_exists(obj_battleback))
     c_msgsetloc(0, "\\E8* She seemed like a nice girl after all./", "obj_dw_garden_aqua_slash_Step_0_gml_907_0");
     c_facenext("susie", "0");
     c_msgnextloc("\\E0* ..^1. wonder what the deal with that weird thing is?/", "obj_dw_garden_aqua_slash_Step_0_gml_915_0");
+    c_customfunc(function()
+    {
+        AP_sendLocation(284);
+    });
     c_facenext("no_name", "0");
     c_msgnextloc(string("* (You got {0}.)/%", AP_get_location_reward_text(284)));
-    AP_sendLocation(284);
     c_talk();
     c_wait_talk();
     c_pannable(1);

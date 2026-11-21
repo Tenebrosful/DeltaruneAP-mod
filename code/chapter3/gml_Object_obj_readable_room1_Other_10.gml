@@ -23,8 +23,6 @@
         noroom = 0;
         scr_weaponget(26);
 /// CODE
-        AP_sendLocation(172);
-        AP_sendLocation(173);
         noroom = 0;
 /// END
 
@@ -33,14 +31,15 @@
         msgnextloc("\\S0* (BLACK SHARD was added to your Weapons.)/%", "obj_readable_room1_slash_Other_10_gml_2191_0_b");
 /// CODE
         msgsetsubloc(0, string("\\S0* (You found {0}.)/", AP_get_location_reward_text(172)), sentence_end, "obj_readable_room1_slash_Other_10_gml_2190_0_b");
+        scr_msgfunc(function()
+        {
+            AP_sendLocation(172);
+        });
         msgnextloc(string("\\S0* (You found {0}.)/%", AP_get_location_reward_text(173)), "obj_readable_room1_slash_Other_10_gml_2191_0_b");
-/// END
-
-/// AFTER
-    if (extflag == "curtain_right")
-    {
-/// CODE
-        AP_sendLocation(136);
+        scr_msgfunc(function()
+        {
+            AP_sendLocation(173);
+        });
 /// END
 
 /// REPLACE
@@ -58,7 +57,6 @@
                     msgnextloc("\\S0* (You got the Saber10.)/%", "obj_readable_room1_slash_Other_10_gml_2238_0");
                 }
 /// CODE
-                AP_sendLocation(136);
                 var can_get_item = noroom == 0;
                 var sentence_end = can_get_item ? "/" : "/%";
                 scr_speaker("no_name");
@@ -66,5 +64,9 @@
                 msgnextloc("* (Someone from behind the curtain pushed you away...)/", "obj_readable_room1_slash_Other_10_gml_2230_0_b");
                 msgnextsubloc("* (...? You felt something stuck in your hand.)/", "obj_readable_room1_slash_Other_10_gml_2231_0_b");
                 msgnextloc(string("\\S0* (You found {0}.)/%", AP_get_location_reward_text(136)), "obj_readable_room1_slash_Other_10_gml_2238_0");
+                scr_msgfunc(function()
+                {
+                    AP_sendLocation(136);
+                });
                 scr_flag_set(1062, 1);
 /// END

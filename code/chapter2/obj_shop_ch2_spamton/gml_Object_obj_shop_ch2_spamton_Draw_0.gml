@@ -207,9 +207,9 @@
 /// END
 
 /// AFTER
-global.flag[309] = 7;
+        greybgtimer = 121;
 /// CODE
-AP_sendLocation([90, 91, 92, 93]);
+        AP_sendLocation([90, 91, 92, 93]);
 /// END
 
 /// REPLACE
